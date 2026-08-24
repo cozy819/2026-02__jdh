@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600">
+  <rect width="1600" height="1600" fill="#fff"/><style>text{font-family:Arial,'Apple SD Gothic Neo',sans-serif;fill:#1B1D21;font-weight:700}.h{font-size:58px}.l{font-size:46px}.w{fill:#fff}</style>
+  <text x="800" y="105" text-anchor="middle" class="h">세 낱말이 가리키는 범위</text>
+  <circle cx="800" cy="840" r="610" fill="#fff" stroke="#6C7078" stroke-width="10"/><text x="800" y="315" text-anchor="middle" class="l">소프트웨어 개발</text>
+  <circle cx="800" cy="890" r="410" fill="#F1F2F4" stroke="#C7C9CE" stroke-width="9"/><text x="800" y="555" text-anchor="middle" class="l">프로그래밍</text>
+  <circle cx="800" cy="950" r="210" fill="#FF5C00"/><text x="800" y="968" text-anchor="middle" class="l w">코딩</text>
+</svg>

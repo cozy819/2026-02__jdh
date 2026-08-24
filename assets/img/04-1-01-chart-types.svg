@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500" role="img" aria-labelledby="title desc">
+  <title id="title">네 가지 그래프 모양</title>
+  <desc id="desc">막대그래프, 선그래프, 산점도, 비율 그래프의 모양을 나란히 비교한다.</desc>
+  <rect width="1600" height="500" fill="#fff"/>
+  <style>.p{fill:#F1F2F4;stroke:#1B1D21;stroke-width:3}.axis{stroke:#1B1D21;stroke-width:4;fill:none}.bar{fill:#6C7078}.accent{fill:#FF5C00}.line{fill:none;stroke:#0E7C86;stroke-width:8;stroke-linejoin:miter}.dot{fill:#1B1D21}.sep{stroke:#fff;stroke-width:8}</style>
+  <rect class="p" x="40" y="50" width="350" height="400"/><rect class="p" x="430" y="50" width="350" height="400"/><rect class="p" x="820" y="50" width="350" height="400"/><rect class="p" x="1210" y="50" width="350" height="400"/>
+  <path class="axis" d="M95 385V110M95 385H340"/>
+  <rect class="bar" x="120" y="285" width="34" height="100"/><rect class="accent" x="164" y="215" width="34" height="170"/><rect class="bar" x="208" y="250" width="34" height="135"/><rect class="bar" x="252" y="145" width="34" height="240"/><rect class="bar" x="296" y="190" width="34" height="195"/>
+  <path class="axis" d="M485 385V110M485 385H730"/><polyline class="line" points="510,310 555,230 600,270 645,150 700,200"/><circle class="dot" cx="510" cy="310" r="8"/><circle class="dot" cx="555" cy="230" r="8"/><circle class="dot" cx="600" cy="270" r="8"/><circle class="dot" cx="645" cy="150" r="8"/><circle class="dot" cx="700" cy="200" r="8"/>
+  <path class="axis" d="M875 385V110M875 385H1120"/><g class="dot"><circle cx="915" cy="330" r="10"/><circle cx="950" cy="300" r="10"/><circle cx="965" cy="245" r="10"/><circle cx="1005" cy="275" r="10"/><circle cx="1030" cy="205" r="10"/><circle cx="1080" cy="160" r="10"/><circle cx="1100" cy="220" r="10"/></g><circle class="accent" cx="1048" cy="180" r="12"/>
+  <circle cx="1385" cy="250" r="126" fill="#6C7078"/><path d="M1385 250L1385 124A126 126 0 0 1 1504 291Z" fill="#FF5C00"/><path d="M1385 250L1504 291A126 126 0 0 1 1308 350Z" fill="#0E7C86"/><path class="sep" d="M1385 250V124M1385 250L1504 291M1385 250L1308 350"/>
+</svg>

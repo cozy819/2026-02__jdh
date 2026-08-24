@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>8-2. 수행평가 2 · PRD 완성·제출 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 8-2 — 수행평가 2. 서비스 제작 계획서(PRD)를 점검해 다듬고 플랫폼에 제출한다" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>8-2</em> <span class="lesson">수행평가 2 · PRD 완성·제출</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 8-2</span><span class="zh">本课时 — 8-2</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 오늘의 원칙</a>
+  <a href="#s1"><span class="n">1</span> 파일부터 확인한다</a>
+  <a href="#s2"><span class="n">2</span> 양식 점검 ① 1~3항</a>
+  <a href="#s3"><span class="n">·</span> 양식 점검 ② 4~5항</a>
+  <a href="#s4"><span class="n">·</span> 양식 점검 ③ 6~7항</a>
+  <a href="#s5"><span class="n">3</span> 한 흐름으로 이어지는가</a>
+  <a href="#s6"><span class="n">4</span> AI에게 모순만 찾게 한다</a>
+  <a href="#s7"><span class="n">5</span> 자기 말로 설명해 본다</a>
+  <a href="#s8"><span class="n">6</span> 플랫폼에 업로드한다</a>
+  <a href="#s9"><span class="n">7</span> 막힐 때</a>
+  <a href="#s10"><span class="n">8</span> 제출 전 확인</a>
+  <a href="#s11"><span class="n">9</span> 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html" class="here"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">8회 · 둘째 차시</span><span class="zh">第 8 次课 · 第 2 课时</span> <span class="badge lab"><span class="ko">수행평가 2</span><span class="zh">实作评价 2</span></span></div>
+    <h1><span class="ko">수행평가 2<br/>PRD 완성·제출</span><span class="zh">实作评价 2<br/>完成并提交 PRD</span></h1>
+    <div class="osub"><span class="ko">새 기능도 새 문서도 만들지 않습니다.<br/>써 온 PRD 한 편을 <b>읽고, 맞추고, 제출</b>합니다.</span><span class="zh">不做新功能，也不建新文档。<br/>把写下来的那一份 PRD <b>读一遍、对齐、提交</b>。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 8-1. 수행평가 2 안내<br/>
+      <b>다음 차시</b> · 9-1. 서비스 사용자 흐름(Flow) 설계<br/>
+      <b>제출물</b> · <code>08_assessment2_학생ID_이름.md</code> 한 개</span><span class="zh"><b>上一课时</b> · 8-1. 实作评价 2 说明<br/> <b>下一课时</b> · 9-1. 服务用户流程（Flow）设计<br/> <b>提交物</b> · <code>08_assessment2_학생ID_이름.md</code> 一个</span></div>
+  </section>
+
+  <!-- ══════════ 오늘의 원칙 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">시작하기 전에</span><span class="zh">开始之前</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">오늘의 원칙</span><span class="zh">今天的原则</span></h2>
+
+    <p class="lead"><span class="ko"><b>새로운 기능과 문서를 추가하지 않습니다.</b> 6~7회에 제공된 PRD 양식으로 작성한 <code>08_assessment2_학생ID_이름.md</code> <b>한 파일</b>을 처음부터 끝까지 읽고, 서로 맞지 않는 부분을 고친 뒤 제출합니다.</span><span class="zh"><b>不添加新功能，也不添加新文档。</b>把第 6~7 次课用所给 PRD 样式写成的 <code>08_assessment2_학생ID_이름.md</code> <b>这一个文件</b>从头读到尾，改掉彼此对不上的地方，然后提交。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>① 양식 확인</b><span>파일명 · 항목 순서 · 빈칸</span></span><span class="zh"><b>① 检查样式</b><span>文件名 · 项目顺序 · 空白处</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>② 내용 연결</b><span>일곱 항목이 서로 맞는가</span></span><span class="zh"><b>② 打通内容</b><span>七个项目是否彼此吻合</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>③ 범위 줄이기</b><span>수업 범위를 벗어난 것 지우기</span></span><span class="zh"><b>③ 收窄范围</b><span>删掉超出课程范围的东西</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>④ AI 점검</b><span>모순만 질문하게 한다</span></span><span class="zh"><b>④ AI 检查</b><span>只让它就矛盾提问</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>⑤ 학생 판단</b><span>반영·미반영과 이유 기록</span></span><span class="zh"><b>⑤ 学生判断</b><span>记录采纳与不采纳及理由</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>⑥ 미리보기 → 제출</b></span><span class="zh"><b>⑥ 预览 → 提交</b></span></div>
+    </div>
+  </section>
+
+  <section class="page" id="s0_2">
+    <div class="kick"><span class="ko">시작하기 전에</span><span class="zh">开始之前</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">오늘의 원칙</span><span class="zh">今天的原则</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">오늘 새로 쓰고 싶어질 때</span><span class="zh">今天忽然想重写时</span></div>
+      <p><span class="ko">읽다 보면 “더 좋은 아이디어”가 떠오를 수 있습니다. 그래도 <b>서비스를 바꾸지 마세요.</b> 남은 시간에 새로 쓰면 앞뒤가 더 어긋납니다.</span><span class="zh">读着读着，可能会冒出“更好的点子”。即便如此，<b>也不要换服务</b>。用剩下的时间重写，前后只会更错位。</span></p>
+      <p><span class="ko">오늘 할 일은 <b>이미 쓴 것을 서로 맞추는 일</b>입니다.</span><span class="zh">今天要做的是<b>把已经写下的东西对齐</b>。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">막히면 도움을 요청하세요</span><span class="zh">卡住了就求助</span></div>
+      <p><span class="ko">어려운 부분은 <b>AI나 교사의 도움을 받을 수 있습니다.</b> 도움을 받았다고 이수가 안 되는 것이 아닙니다. 다만 최종 내용은 학생이 읽고 설명할 수 있어야 합니다.</span><span class="zh">吃力的部分<b>可以借助 AI 或老师的帮助</b>。得到帮助并不会导致不通过。不过最终内容学生要能读懂并讲清楚。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 파일</span><span class="zh">1. 文件</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">파일부터 확인한다</span><span class="zh">先检查文件</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:36%"><span class="ko">항목</span><span class="zh">项目</span></th><th><span class="ko">기준</span><span class="zh">标准</span></th></tr>
+      <tr><td><span class="ko">파일 형식</span><span class="zh">文件格式</span></td><td><code>.md</code></td></tr>
+      <tr><td><span class="ko">파일명</span><span class="zh">文件名</span></td><td><span class="ko"><code>08_assessment2_학생ID_이름.md</code></span><span class="zh"><code>08_assessment2_학생ID_이름.md</code></span></td></tr>
+      <tr><td><span class="ko">예</span><span class="zh">例</span></td><td><span class="ko"><code>08_assessment2_260701_홍길동.md</code></span><span class="zh"><code>08_assessment2_260701_홍길동.md</code></span></td></tr>
+      <tr><td><span class="ko">제출 파일 수</span><span class="zh">提交文件数</span></td><td><span class="ko"><b>1개</b></span><span class="zh"><b>1 个</b></span></td></tr>
+      <tr><td><span class="ko">이미지·PDF·ZIP·별도 첨부파일</span><span class="zh">图片 · PDF · ZIP · 另外的附件</span></td><td><span class="ko"><b>사용하지 않음</b></span><span class="zh"><b>不使用</b></span></td></tr>
+    </table>
+    </div>
+
+    <ul class="blist checks">
+      <li><span class="ko">파일 안의 <b>학생 ID와 이름</b>이 파일명과 같은지 확인했다.</span><span class="zh">确认了文件里的<b>学生 ID 与姓名</b>与文件名一致。</span></li>
+      <li><span class="ko">제공된 양식의 <b>제목과 항목 순서</b>를 삭제하거나 바꾸지 않았다.</span><span class="zh">没有删除或改动所给样式的<b>标题与项目顺序</b>。</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">항목을 지우지 않습니다</span><span class="zh">不要删掉项目</span></div>
+      <p><span class="ko">내용이 없는 항목이라도 <b>제목은 남겨 두고</b> <code>없음</code>이라고 적습니다. 지우면 교사가 읽을 때 <b>작성하지 않은 것</b>과 <b>해당 없음</b>을 구분할 수 없습니다.</span><span class="zh">即使某项没有内容，也要<b>保留标题</b>并写上 <code>없음</code>（无）。删掉的话，老师读时就分不清是<b>没写</b>还是<b>不适用</b>。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">파일명이 왜 이렇게 정해져 있는가</span><span class="zh">文件名为什么这样规定</span></div>
+      <p><span class="ko">플랫폼과 교사가 <b>여러 학생의 파일을 한 폴더에서</b> 다룹니다. 이름 규칙이 같아야 정렬되고 찾을 수 있습니다. 5회 수행평가의 <code>05_assessment1_...</code>과 같은 규칙입니다.</span><span class="zh">平台和老师要<b>在同一个文件夹里处理许多同学的文件</b>。命名规则一致，才排得了序、找得到。这和第 5 次课实作评价的 <code>05_assessment1_...</code> 是同一条规则。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 양식 점검 ①</span><span class="zh">2. 样式检查 ①</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">1~3항을 확인한다</span><span class="zh">确认第 1~3 项</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <h3 class="sub"><span class="ko">1. 서비스 기본 정보</span><span class="zh">1. 服务基本信息</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">예상 사용자와 사용하는 상황이 <b>구체적인가</b>?</span><span class="zh">预期用户与使用情境是否<b>具体</b>？</span></li>
+      <li><span class="ko">해결하려는 필요와 <b>한 문장 소개가 서로 맞는가</b>?</span><span class="zh">想解决的需求与<b>一句话简介是否吻合</b>？</span></li>
+    </ul>
+
+    <h3 class="sub"><span class="ko">2. 기능 범위</span><span class="zh">2. 功能范围</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">핵심 기능이 <b>1개</b>인가?</span><span class="zh">核心功能是 <b>1 个</b>吗？</span></li>
+      <li><span class="ko">보조 기능이 <b>2개 이하</b>인가?</span><span class="zh">辅助功能是 <b>2 个以内</b>吗？</span></li>
+      <li><span class="ko">이번 수업에서 <b>만들지 않을 기능과 이유</b>를 적었는가?</span><span class="zh">写了这门课<b>不做的功能与理由</b>吗？</span></li>
+    </ul>
+
+    <h3 class="sub"><span class="ko">3. 대표 사용 흐름</span><span class="zh">3. 代表性使用流程</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">사용자가 서비스를 열고 결과를 확인하기까지 <b>3~4단계</b>로 이어지는가?</span><span class="zh">从用户打开服务到确认结果，是否连成 <b>3~4 步</b>？</span></li>
+      <li><span class="ko"><b>기능에 없는 행동</b>이 갑자기 등장하지 않는가?</span><span class="zh">有没有<b>功能里没有的行为</b>突然冒出来？</span></li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">세 번째 줄이 오늘의 핵심 작업입니다</span><span class="zh">第三行是今天的核心工作</span></div>
+      <p><span class="ko">흐름에 “저장 버튼을 누른다”가 있는데 기능 목록에 저장이 없다면 <b>둘 중 하나를 고칩니다.</b> 기능을 추가하기보다 <b>흐름에서 그 단계를 빼는 편</b>이 대체로 낫습니다. 범위가 늘지 않기 때문입니다.</span><span class="zh">流程里有“按下保存按钮”，功能清单里却没有保存，就<b>改掉两者之一</b>。比起添加功能，<b>把那一步从流程里去掉</b>通常更好，因为范围不会变大。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2b ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">2. 양식 점검 ②</span><span class="zh">2. 样式检查 ②</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">4~5항을 확인한다</span><span class="zh">确认第 4~5 项</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <h3 class="sub"><span class="ko">4. 화면 구성 설명</span><span class="zh">4. 画面构成说明</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">화면을 <b>처음 열었을 때 보이는 내용</b>을 글로 설명했는가?</span><span class="zh">是否用文字说明了画面<b>第一次打开时看到的内容</b>？</span></li>
+      <li><span class="ko"><b>입력 또는 선택, 실행 동작과 결과</b>가 모두 있는가?</span><span class="zh"><b>输入或选择、执行动作与结果</b>是否都有？</span></li>
+      <li><span class="ko">입력이 없거나 잘못되었을 때의 <b>안내</b>가 있는가?</span><span class="zh">有没有输入为空或有误时的<b>提示</b>？</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">이미지를 만들거나 화면을 그리지 않습니다</span><span class="zh">不做图片，也不画画面</span></div>
+      <p><span class="ko">색상·글꼴·정확한 위치도 정하지 않습니다. 적혀 있다면 <b>지우는 편이 낫습니다.</b> 개발 단계에서 대부분 바뀝니다.</span><span class="zh">颜色、字体、确切位置也不定。如果写了，<b>删掉更好</b>，开发阶段大半都会变。</span></p>
+    </div>
+
+    <h3 class="sub"><span class="ko">5. 데이터</span><span class="zh">5. 数据</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">서비스가 기억할 <b>의미 있는 기록</b>을 적었는가?</span><span class="zh">写下了服务要记住的<b>有意义的记录</b>吗？</span></li>
+      <li><span class="ko">그 기록이 <b>생기는 사용자 행동</b>과 <b>다시 확인하는 순간</b>을 적었는가?</span><span class="zh">写下了记录<b>产生时的用户行为</b>与<b>再次查看的时刻</b>吗？</span></li>
+      <li><span class="ko">저장할 정보와 <b>저장하지 않을 정보</b>를 구분했는가?</span><span class="zh">区分了要保存的信息与<b>不保存的信息</b>吗？</span></li>
+      <li><span class="ko">후보 테이블이 <b>1~3개</b>인가?</span><span class="zh">候选数据表是 <b>1~3 张</b>吗？</span></li>
+      <li><span class="ko">후보 테이블이 있다면 <b>이름·기억하는 내용·연결되는 기능</b>을 설명했는가?</span><span class="zh">若有候选数据表，说明了<b>名称、记住的内容、关联的功能</b>吗？</span></li>
+    </ul>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">열·자료형·PK·FK·ERD와 SQL은 작성하지 않습니다</span><span class="zh">列、数据类型、主键外键、ERD 与 SQL 都不写</span></div>
+      <p><span class="ko">7-2에서 AI가 붙여 준 표에 이런 것이 섞여 들어갔다면 <b>지우세요.</b> 있다고 좋은 것이 아니라 수업 범위를 벗어난 것입니다.</span><span class="zh">如果 7-2 里 AI 贴给你的表混进了这些，<b>请删掉</b>。有它不是好事，而是超出了课程范围。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2c ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">2. 양식 점검 ③</span><span class="zh">2. 样式检查 ③</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">6~7항을 확인한다</span><span class="zh">确认第 6~7 项</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <h3 class="sub"><span class="ko">6. 완성 기준</span><span class="zh">6. 完成标准</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">실제 서비스에서 <b>눈으로 확인할 수 있는 문장 2~3개</b>인가?</span><span class="zh">是不是在真实服务里<b>用眼睛能确认的句子 2~3 条</b>？</span></li>
+      <li><span class="ko"><b>핵심 기능의 결과</b>와 <b>잘못된 입력에 대한 안내</b>를 확인할 수 있는가?</span><span class="zh">能否确认<b>核心功能的结果</b>与<b>对错误输入的提示</b>？</span></li>
+      <li><span class="ko"><b>페이지를 다시 열어도 저장된 기록을 확인</b>하는 기준이 있는가?</span><span class="zh">有没有<b>重新打开页面后仍能查看已保存记录</b>的标准？</span></li>
+    </ul>
+
+    <div class="note">
+      <div class="nt"><span class="ko">판정 방법</span><span class="zh">判定方法</span></div>
+      <p><span class="ko">각 문장을 읽고 스스로 물어보세요. <b>“다 만든 뒤에 이 문장을 손으로 해 볼 수 있는가?”</b> 해 볼 수 없다면 눈에 보이는 화면의 변화로 바꿔 적습니다.</span><span class="zh">读每一句，问问自己：<b>“做完之后，这句话能不能亲手试一遍？”</b>试不了，就改写成画面上看得见的变化。</span></p>
+    </div>
+
+    <h3 class="sub"><span class="ko">7. AI 사용과 학생의 판단</span><span class="zh">7. AI 的使用与学生的判断</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">AI에게 <b>무엇을 확인해 달라고 했는가</b>?</span><span class="zh">你请 AI <b>确认了什么</b>？</span></li>
+      <li><span class="ko"><b>반영한 내용과 반영하지 않은 내용</b>을 이유와 함께 적었는가?</span><span class="zh">把<b>采纳的内容与没采纳的内容</b>连同理由写下来了吗？</span></li>
+      <li><span class="ko">학생이 <b>직접 결정한 부분</b>을 설명했는가?</span><span class="zh">说明了学生<b>自己决定的部分</b>吗？</span></li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">이 항목은 오늘 한 번 더 채워집니다</span><span class="zh">这一项今天还会再填一次</span></div>
+      <p><span class="ko">4절에서 AI에게 모순을 찾아 달라고 요청한 뒤, 그 결과를 이 항목에 <b>이어서</b> 적습니다. 지금은 6-2·7-2에서 적은 내용이 남아 있는지만 확인하세요.</span><span class="zh">在第 4 节请 AI 找出矛盾之后，把结果<b>接着</b>写进这一项。现在只需确认 6-2、7-2 写的内容还在。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">3. 연결</span><span class="zh">3. 连贯</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">내용이 한 흐름으로 이어지는지 확인한다</span><span class="zh">确认内容是否连成一条线</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">다음 일곱 항목을 <b>차례대로 읽었을 때</b> 하나의 서비스로 이어져야 합니다.</span><span class="zh">下面七项<b>按顺序读下来</b>，应当连成同一个服务。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>사용자와 필요</b></span><span class="zh"><b>用户与需求</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>핵심 기능</b></span><span class="zh"><b>核心功能</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>대표 사용 흐름</b></span><span class="zh"><b>代表性使用流程</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>화면에서 입력하고 확인하는 결과</b></span><span class="zh"><b>在画面上输入并确认到的结果</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>기록이 저장되는 순간</b></span><span class="zh"><b>记录被保存的时刻</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>사용자가 저장된 기록을 다시 확인하는 순간</b></span><span class="zh"><b>用户再次查看已保存记录的时刻</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>완성 여부를 확인할 기준</b></span><span class="zh"><b>确认是否完成的标准</b></span></div>
+    </div>
+  </section>
+
+  <section class="page" id="s5_2">
+    <div class="kick"><span class="ko">3. 연결</span><span class="zh">3. 连贯</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">내용이 한 흐름으로 이어지는지 확인한다</span><span class="zh">确认内容是否连成一条线</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">자주 나오는 어긋남</span><span class="zh">常见的错位</span></h3>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:50%"><span class="ko">이런 상태라면</span><span class="zh">如果是这种状态</span></th><th><span class="ko">이렇게 고친다</span><span class="zh">就这样改</span></th></tr>
+      <tr><td><span class="ko">기록은 정했는데 사용 흐름에 <b>다시 확인하는 순간</b>이 없다</span><span class="zh">定了记录，使用流程里却没有<b>再次查看的时刻</b></span></td><td><span class="ko">사용 흐름에 그 단계를 넣는다</span><span class="zh">把那一步加进使用流程</span></td></tr>
+      <tr><td><span class="ko">화면 설명에는 <b>결과가 나타난다</b>고 되어 있는데 대표 사용 흐름에 <b>결과 확인</b>이 없다</span><span class="zh">画面说明里写着<b>会出现结果</b>，代表性使用流程里却没有<b>确认结果</b></span></td><td><span class="ko">사용 흐름을 수정한다</span><span class="zh">修改使用流程</span></td></tr>
+      <tr><td><span class="ko">사용자는 “외울 것을 고르기 어려운 학생”인데 핵심 기능은 <b>사진 공유</b>다</span><span class="zh">用户是“难以决定先背什么的学生”，核心功能却是<b>分享照片</b></span></td><td><span class="ko">사용자 또는 기능을 맞춘다</span><span class="zh">把用户或功能对齐</span></td></tr>
+      <tr><td><span class="ko">완성 기준에 <b>보조 기능</b> 이야기만 있고 핵심 기능의 결과가 없다</span><span class="zh">完成标准里只讲<b>辅助功能</b>，没有核心功能的结果</span></td><td><span class="ko">핵심 기능의 결과를 기준에 넣는다</span><span class="zh">把核心功能的结果写进标准</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">읽는 방법</span><span class="zh">读的方法</span></div>
+      <p><span class="ko">항목을 <b>따로따로</b> 읽으면 어긋남이 보이지 않습니다. 위 순서대로 <b>소리 내어 이어 읽어 보세요.</b> 말이 걸리는 곳이 고칠 곳입니다.</span><span class="zh">把各项<b>拆开单看</b>，是看不出错位的。请按上面的顺序<b>出声连着读一遍</b>。念着别扭的地方就是要改的地方。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">4. AI 점검</span><span class="zh">4. AI 检查</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 모순만 찾아 달라고 요청한다</span><span class="zh">请 AI 只找矛盾</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI 요청문 — PRD 전문을 붙여 함께 보냅니다</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文 — 把 PRD 全文粘上去一并发送</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>아래는 처음 웹서비스를 만드는 고등학생의 서비스 제작 계획서(PRD)야.
+새 기능, 코드, 디자인, 프레임워크와 세부 데이터베이스 구조를 제안하지 마.
+
+다음 내용이 서로 맞지 않는 부분만 쉬운 질문으로 알려 줘.
+1. 사용자와 서비스 목적
+2. 핵심 기능과 대표 사용 흐름
+3. 입력·동작·결과를 설명한 화면 구성
+4. 저장할 정보와 후보 테이블의 역할
+5. 완성 기준
+6. 개인정보와 위험한 기능</code></pre>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">AI가 지적한 내용을 모두 반영하지 않습니다</span><span class="zh">不要把 AI 指出的都照单全收</span></div>
+      <p><span class="ko">AI는 대개 <b>더 추가하는 방향</b>으로 답합니다. 그것이 더 그럴듯해 보이기 때문입니다. 그러나 이 수업의 기준은 <b>핵심 기능 1개, 보조 기능 2개 이하</b>입니다.</span><span class="zh">AI 大多往<b>再多加一些</b>的方向答，因为那看起来更像样。可这门课的标准是<b>核心功能 1 个、辅助功能 2 个以内</b>。</span></p>
+      <p><span class="ko">학생이 판단한 결과를 양식의 <b>7. AI 사용과 학생의 판단</b>에 기록합니다.</span><span class="zh">把学生判断的结果记进样式的 <b>7. AI 的使用与学生的判断</b>。</span></p>
+    </div>
+
+    <ul class="blist">
+      <li><span class="ko">AI에게 확인을 요청한 내용</span><span class="zh">请 AI 确认的内容</span></li>
+      <li><span class="ko">AI가 지적하거나 질문한 내용</span><span class="zh">AI 指出或提问的内容</span></li>
+      <li><span class="ko">반영한 내용과 이유</span><span class="zh">采纳的内容与理由</span></li>
+      <li><span class="ko">반영하지 않은 내용과 이유</span><span class="zh">未采纳的内容与理由</span></li>
+      <li><span class="ko">학생이 직접 결정한 부분</span><span class="zh">学生自己决定的部分</span></li>
+    </ul>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick"><span class="ko">4. AI 점검</span><span class="zh">4. AI 检查</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 모순만 찾아 달라고 요청한다</span><span class="zh">请 AI 只找矛盾</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">“반영하지 않았다”도 좋은 답입니다</span><span class="zh">“没有采纳”也是好答案</span></div>
+      <p><span class="ko">이유가 적혀 있으면 됩니다. “테이블을 세 개로 나누라고 했지만, 저장 대상이 한 종류뿐이라 하나로 두었다”처럼 적으면 <b>7-1에서 배운 것을 적용했다는 증거</b>가 됩니다.</span><span class="zh">只要写了理由就行。写成“它让我把表拆成三张，但保存对象只有一种，所以留成一张”，就成了<b>把 7-1 学的东西用上了的证据</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">5. 자기 설명</span><span class="zh">5. 自述</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">제출 전에 자기 말로 설명한다</span><span class="zh">提交前用自己的话说一遍</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">문서의 문장을 <b>그대로 읽지 않고</b> 답할 수 있는지 확인하세요. 짝과 서로 물어봐도 좋습니다.</span><span class="zh">确认自己能<b>不照读文档原句</b>地回答。和同桌互相提问也很好。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">다섯 가지 질문</span><span class="zh">五个问题</span></div>
+      <ol>
+        <li><span class="ko">이 서비스에서 <b>가장 중요한 기능</b>은 무엇인가?</span><span class="zh">这个服务里<b>最重要的功能</b>是什么？</span></li>
+        <li><span class="ko">사용자는 <b>어떤 순서로</b> 그 기능을 사용하는가?</span><span class="zh">用户<b>按什么顺序</b>使用那个功能？</span></li>
+        <li><span class="ko">화면에 무엇이 보이고, 사용자의 행동 뒤 <b>어떤 결과</b>가 나타나는가?</span><span class="zh">画面上看得到什么，用户动作之后会出现<b>什么结果</b>？</span></li>
+        <li><span class="ko">서비스가 <b>어떤 기록을 기억</b>하며, 사용자는 <b>언제 그 기록을 다시 확인</b>하는가?</span><span class="zh">服务<b>记住哪份记录</b>？用户<b>何时再次查看</b>它？</span></li>
+        <li><span class="ko">AI의 의견 가운데 학생이 <b>직접 선택하거나 거절한 것</b>은 무엇인가?</span><span class="zh">AI 的意见里，学生<b>自己选用或拒绝</b>的是什么？</span></li>
+      </ol>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">말이 막히는 곳이 있다면</span><span class="zh">如果有说不下去的地方</span></div>
+      <p><span class="ko">그 항목은 <b>내가 쓴 문장이 아닐 가능성</b>이 큽니다. AI가 준 문장을 그대로 옮겼거나, 뜻을 정하지 않고 적었을 수 있습니다.</span><span class="zh">那一项<b>很可能不是你自己写的句子</b>。也许是把 AI 给的句子原样搬了过来，或者没想清意思就写下了。</span></p>
+      <p><span class="ko">지금 <b>자기 말로 다시 적으세요.</b> 이수 기준의 마지막 항목이 “학생이 읽고 설명할 수 있다”입니다.</span><span class="zh">现在就<b>用自己的话重写</b>。通过标准的最后一项，就是“学生能读懂并讲清楚”。</span></p>
+    </div>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">1번 질문의 답을 한 문장으로 적어 보세요. 문서를 보지 않고 씁니다.</span><span class="zh">把第 1 个问题的答案写成一句话。不看文档来写。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">6. 업로드</span><span class="zh">6. 上传</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">플랫폼에 업로드한다</span><span class="zh">上传到平台</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">제출 순서</span><span class="zh">提交顺序</span></div>
+      <ol>
+        <li><span class="ko">플랫폼에서 <b>수행평가 2: 서비스 제작 계획서(PRD)</b>를 연다.</span><span class="zh">在平台上打开<b>实作评价 2：服务制作计划书（PRD）</b>。</span></li>
+        <li><span class="ko"><code>08_assessment2_학생ID_이름.md</code> <b>한 파일</b>을 선택한다.</span><span class="zh">选择 <code>08_assessment2_학생ID_이름.md</code> <b>这一个文件</b>。</span></li>
+        <li><span class="ko">업로드 뒤 나타나는 <b>Markdown 미리보기</b>에서 제목·목록·한글이 정상적으로 보이는지 확인한다.</span><span class="zh">在上传后出现的 <b>Markdown 预览</b>里，确认标题、列表与韩文显示是否正常。</span></li>
+        <li><span class="ko">잘못된 파일이면 <b>교체</b>하고, 내용이 맞으면 <b>최종 제출</b>한다.</span><span class="zh">文件不对就<b>替换</b>，内容无误就<b>最终提交</b>。</span></li>
+      </ol>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">파일 한 개만 받습니다</span><span class="zh">只接收一个文件</span></div>
+      <p><span class="ko">플랫폼은 <code>.md</code> 파일 <b>한 개만</b> 받으며, 이미지 링크와 별도 첨부파일을 제출물로 인정하지 않습니다.</span><span class="zh">平台<b>只收一个</b> <code>.md</code> 文件，图片链接与另外的附件不被认作提交物。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">다시 올릴 수 있습니다</span><span class="zh">可以重新上传</span></div>
+      <p><span class="ko">재제출할 수 있는 기간에는 <b>새 버전을 올릴 수 있고</b>, 플랫폼은 <b>이전 제출 기록을 보관</b>합니다. 그러니 시간이 남았다고 붙들고 있지 말고, 일단 한 번 올려 두세요.</span><span class="zh">在可重新提交的期间内<b>可以上传新版本</b>，平台会<b>保留以往的提交记录</b>。所以别因为还有时间就攥着不放，先交一次再说。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">3번을 건너뛰지 마세요</span><span class="zh">不要跳过第 3 步</span></div>
+      <p><span class="ko">미리보기에서 <b>제목이 굵게 나오는지</b>, <b>목록이 점으로 나오는지</b>, <b>한글이 깨지지 않는지</b>를 봅니다. 글자가 깨져 보이면 UTF-8로 저장되지 않은 것이므로 교사에게 알리세요.</span><span class="zh">在预览里看<b>标题是否加粗</b>、<b>列表是否显示为圆点</b>、<b>韩文有没有乱码</b>。若看到乱码，说明没有以 UTF-8 保存，请告诉老师。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">7. 막힐 때</span><span class="zh">7. 卡住时</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">이럴 때는 이렇게</span><span class="zh">遇到这些情况就这样做</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="trouble">
+      <div class="th"><span class="ko">이런 상황이라면</span><span class="zh">如果是这些情况</span></div>
+      <table>
+        <tr><td><span class="ko">파일을 못 찾겠다 / 만들지 못했다</span><span class="zh">找不到文件 / 没能做出来</span></td><td><span class="ko">교사에게 즉시 알리고 양식을 다시 받으세요. 6-2 부록에 <b>양식 전문</b>이 있습니다. 오늘 안에 채워 제출할 수 있습니다.</span><span class="zh">立刻告诉老师并重新领取样式。6-2 的附录里有<b>样式全文</b>，今天之内就能填完提交。</span></td></tr>
+        <tr><td><span class="ko">항목이 여러 개 비어 있다</span><span class="zh">有好几个项目是空的</span></td><td><span class="ko">지금 채웁니다. 내용이 정말 없는 항목만 <code>없음</code>이라고 적습니다. 비운 채로 내지 않습니다.</span><span class="zh">现在就填。只有确实没有内容的项目才写 <code>없음</code>（无）。不要空着就交。</span></td></tr>
+        <tr><td><span class="ko">기록은 정했는데 다시 보는 순간이 없다</span><span class="zh">定了记录，却没有再看的时刻</span></td><td><span class="ko">대표 사용 흐름 마지막에 <b>“지난 기록을 확인한다”</b> 한 단계를 넣으세요. 기능을 늘리지 않고도 흐름이 이어집니다.</span><span class="zh">在代表性使用流程的最后加一步<b>“查看以往的记录”</b>。不增加功能也能把流程接上。</span></td></tr>
+        <tr><td><span class="ko">AI가 기능을 잔뜩 추가하라고 한다</span><span class="zh">AI 让我加一大堆功能</span></td><td><span class="ko">반영하지 않고, <b>반영하지 않은 이유</b>를 7항에 적으세요. 그것도 평가 항목입니다.</span><span class="zh">不要采纳，并把<b>未采纳的理由</b>写进第 7 项。那也是评价项目。</span></td></tr>
+        <tr><td><span class="ko">완성 기준이 “잘 작동한다”뿐이다</span><span class="zh">完成标准只有“运行良好”</span></td><td><span class="ko">대표 사용 흐름의 마지막 단계를 문장으로 옮기세요. “버튼을 누르면 ___이 나타난다”가 됩니다.</span><span class="zh">把代表性使用流程的最后一步改写成句子，就成了“按下按钮后 ___ 就出现”。</span></td></tr>
+        <tr><td><span class="ko">PRD에 열 이름과 SQL이 들어가 있다</span><span class="zh">PRD 里混进了列名和 SQL</span></td><td><span class="ko">지우세요. 수업 범위 밖이며 채점 대상이 아닙니다. 테이블 <b>이름·역할·연결 기능</b>만 남깁니다.</span><span class="zh">删掉。那在课程范围之外，也不是评分对象。只留下数据表的<b>名称、作用、关联功能</b>。</span></td></tr>
+        <tr><td><span class="ko">미리보기에서 한글이 깨진다</span><span class="zh">预览里韩文乱码</span></td><td><span class="ko">UTF-8로 저장되지 않은 것입니다. 파일을 고치려 하지 말고 교사에게 알리세요.</span><span class="zh">说明没有以 UTF-8 保存。不要试图自己修文件，请告诉老师。</span></td></tr>
+        <tr><td><span class="ko">시간이 부족하다</span><span class="zh">时间不够</span></td><td><span class="ko">1절(파일 확인)과 3절(한 흐름 확인)을 먼저 끝내고 제출하세요. 재제출 기간에 보완할 수 있습니다.</span><span class="zh">先完成第 1 节（检查文件）和第 3 节（确认连贯）再提交。可以在重新提交期间补充。</span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">8. 제출 전 확인</span><span class="zh">8. 提交前确认</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">개인 이수 확인</span><span class="zh">个人通过确认</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">제출 버튼을 누르기 전에 스스로 확인하세요. 8-1에서 안내한 기준과 같습니다.</span><span class="zh">按下提交按钮之前自己核对一遍。标准与 8-1 说明的一样。</span></p>
+
+    <ul class="blist checks">
+      <li><span class="ko">파일명이 <code>08_assessment2_학생ID_이름.md</code> 형식이다.</span><span class="zh">文件名是 <code>08_assessment2_학생ID_이름.md</code> 格式。</span></li>
+      <li><span class="ko">학생 ID와 이름이 <b>파일 내용과 파일명에서 일치</b>한다.</span><span class="zh">学生 ID 与姓名<b>在文件内容与文件名中一致</b>。</span></li>
+      <li><span class="ko">제공된 양식의 <b>모든 항목</b>을 작성했다.</span><span class="zh">写了所给样式的<b>全部项目</b>。</span></li>
+      <li><span class="ko">이미지와 별도 첨부파일이 <b>없다.</b></span><span class="zh"><b>没有</b>图片与另外的附件。</span></li>
+      <li><span class="ko">핵심 기능이 <b>1개</b>이고 보조 기능이 <b>2개 이하</b>다.</span><span class="zh">核心功能是 <b>1 个</b>，辅助功能 <b>2 个以内</b>。</span></li>
+      <li><span class="ko">대표 사용 흐름과 화면 구성 설명이 <b>서로 맞는다.</b></span><span class="zh">代表性使用流程与画面构成说明<b>彼此吻合</b>。</span></li>
+      <li><span class="ko">의미 있는 기록이 <b>생기는 행동</b>과 <b>다시 확인하는 순간</b>을 적었다.</span><span class="zh">写下了有意义的记录<b>产生的行为</b>与<b>再次查看的时刻</b>。</span></li>
+      <li><span class="ko">후보 테이블이 <b>1~3개</b>이며 세부 DB 구조를 설계하지 않았다.</span><span class="zh">候选数据表是 <b>1~3 张</b>，且没有设计数据库细节结构。</span></li>
+      <li><span class="ko">완성 기준이 <b>2~3개</b>다.</span><span class="zh">完成标准有 <b>2~3 条</b>。</span></li>
+      <li><span class="ko">완성 기준에 <b>저장된 기록을 다시 확인하는 내용</b>이 있다.</span><span class="zh">完成标准里有<b>再次查看已保存记录</b>的内容。</span></li>
+      <li><span class="ko">실제 개인정보와 수업 범위를 벗어난 기능을 제외했다.</span><span class="zh">排除了真实个人信息与超出课程范围的功能。</span></li>
+      <li><span class="ko">AI의 의견과 학생의 판단을 <b>구분해 기록</b>했다.</span><span class="zh">把 AI 的意见与学生的判断<b>分开记录</b>了。</span></li>
+      <li><span class="ko">플랫폼의 <b>Markdown 미리보기</b>를 확인했다.</span><span class="zh">确认了平台的 <b>Markdown 预览</b>。</span></li>
+      <li><span class="ko">문서의 모든 내용을 <b>학생이 읽고 설명</b>할 수 있다.</span><span class="zh">文档的全部内容<b>学生都能读懂并讲清楚</b>。</span></li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">제출물은 파일 한 개입니다</span><span class="zh">提交物是一个文件</span></div>
+      <p><span class="ko"><code>08_assessment2_학생ID_이름.md</code> <b>한 파일만</b> 제출합니다. 여기까지가 수행평가 2의 완료 지점입니다.</span><span class="zh">只提交 <code>08_assessment2_학생ID_이름.md</code> <b>这一个文件</b>。到这里，实作评价 2 就完成了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s11">
+    <div class="kick"><span class="ko">9. 정리</span><span class="zh">9. 小结</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko">오늘은 <b>새 기능도 새 문서도 만들지 않는다.</b> 써 온 PRD 한 편을 읽고 맞춘다.</span><span class="zh">今天<b>不做新功能，也不建新文档</b>。把写下来的那一份 PRD 读一遍并对齐。</span></li>
+        <li><span class="ko">순서는 <b>양식 확인 → 내용 연결 → 범위 줄이기 → AI 점검 → 학생 판단 → 미리보기 → 제출</b>이다.</span><span class="zh">顺序是<b>检查样式 → 打通内容 → 收窄范围 → AI 检查 → 学生判断 → 预览 → 提交</b>。</span></li>
+        <li><span class="ko">파일명은 <code>08_assessment2_학생ID_이름.md</code>, 제출은 <b><code>.md</code> 한 개</b>다.</span><span class="zh">文件名为 <code>08_assessment2_학생ID_이름.md</code>，提交<b>一个 <code>.md</code></b>。</span></li>
+        <li><span class="ko">내용이 없는 항목은 지우지 말고 <code>없음</code>이라고 적는다.</span><span class="zh">没有内容的项目不要删，写上 <code>없음</code>（无）。</span></li>
+        <li><span class="ko">사용자 → 핵심 기능 → 흐름 → 화면 → <b>기록이 저장되는 순간</b> → <b>다시 확인하는 순간</b> → 완성 기준이 <b>한 흐름</b>으로 이어져야 한다.</span><span class="zh">用户 → 核心功能 → 流程 → 画面 → <b>记录被保存的时刻</b> → <b>再次查看的时刻</b> → 完成标准，要连成<b>一条线</b>。</span></li>
+        <li><span class="ko">어긋나면 <b>기능을 늘리기보다 범위를 줄이는 방향</b>으로 고친다.</span><span class="zh">错位时，<b>往收窄范围的方向改，而不是增加功能</b>。</span></li>
+        <li><span class="ko">AI에게는 <b>모순만 질문</b>하게 하고, 지적을 모두 반영하지 않는다.</span><span class="zh">只让 AI <b>就矛盾提问</b>，不把它指出的都照单全收。</span></li>
+        <li><span class="ko">반영·미반영과 <b>그 이유</b>를 7항에 기록한다. 거절한 것도 판단이다.</span><span class="zh">把采纳与不采纳<b>及其理由</b>记进第 7 项。拒绝也是一种判断。</span></li>
+        <li><span class="ko">열·자료형·PK·FK·ERD·SQL이 섞여 있으면 <b>지운다.</b></span><span class="zh">若混进了列、数据类型、主键外键、ERD、SQL，就<b>删掉</b>。</span></li>
+        <li><span class="ko">완성 기준 가운데 하나는 <b>다시 열어도 기록이 남아 있는지</b> 보는 것이다.</span><span class="zh">完成标准里要有一条是看<b>重新打开后记录是否还在</b>。</span></li>
+        <li><span class="ko">제출 전에 <b>자기 말로</b> 다섯 질문에 답해 본다.</span><span class="zh">提交前<b>用自己的话</b>回答那五个问题。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s11_3">
+    <div class="kick"><span class="ko">9. 정리</span><span class="zh">9. 小结</span><b>8-2</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">9회부터는 <b>만드는 힘</b>을 기릅니다. 먼저 오늘 제출한 PRD를 AI에게 전달해 <b>사용자 흐름</b>을 설계하고 구현 가능성을 확인합니다. 실제 개발은 10회부터입니다.</span><span class="zh">从第 9 次课起要培养<b>做出来的能力</b>。先把今天提交的 PRD 交给 AI，设计<b>用户流程</b>并确认可实现性。真正的开发从第 10 次课开始。</span></p>
+      <p><span class="ko">그때 PRD는 두 가지 일을 합니다. AI에게 <b>무엇을 만들지 설명하는 문서</b>이자, 만들어진 결과가 계획과 맞는지 <b>학생이 직접 확인하는 기준</b>입니다. 그래서 오늘 서로 맞추는 일이 중요했습니다.</span><span class="zh">那时 PRD 做两件事：既是向 AI <b>说明要做什么的文档</b>，也是<b>学生亲自核对成果是否与计划相符的标准</b>。所以今天把它对齐，才这么重要。</span></p>
+      <a class="next" href="09-1.html">9-1. 서비스 사용자 흐름(Flow) 설계 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="08-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">8-1. 수행평가 2 안내</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="09-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">9-1. 서비스 사용자 흐름(Flow) 설계</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

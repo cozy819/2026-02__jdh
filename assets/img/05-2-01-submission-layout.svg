@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">제출용 Notebook의 다섯 구역</title>
+  <desc id="desc">다섯 구역이 위에서 아래로 이어지고 네 번째 구역 안에는 원본 표, 코드, 그래프가 들어 있다.</desc>
+  <rect width="1200" height="1600" fill="#fff"/>
+  <style>.frame{fill:#fff;stroke:#1B1D21;stroke-width:6}.section{fill:#F1F2F4;stroke:#1B1D21;stroke-width:4}.special{fill:#fff;stroke:#FF5C00;stroke-width:7}.band{fill:#1B1D21}.n{font:700 38px Archivo,Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}.line{stroke:#6C7078;stroke-width:11}.table{fill:#fff;stroke:#1B1D21;stroke-width:3}.bar{fill:#6C7078}.accent{fill:#FF5C00}.arrow{stroke:#0E7C86;stroke-width:9;fill:none}</style>
+  <defs><marker viewBox="0 0 12 12" markerUnits="userSpaceOnUse" id="a" markerWidth="24" markerHeight="24" refX="11" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#0E7C86"/></marker></defs>
+  <rect class="frame" x="120" y="55" width="960" height="1490"/>
+  <rect class="section" x="190" y="110" width="820" height="180"/><rect class="band" x="190" y="110" width="80" height="180"/><text class="n" x="230" y="200">1</text><path class="line" d="M325 165H920M325 215H830"/>
+  <path class="arrow" marker-end="url(#a)" d="M600 300V345"/>
+  <rect class="section" x="190" y="370" width="820" height="180"/><rect class="band" x="190" y="370" width="80" height="180"/><text class="n" x="230" y="460">2</text><path class="line" d="M325 425H900M325 475H780"/>
+  <path class="arrow" marker-end="url(#a)" d="M600 560V605"/>
+  <rect class="section" x="190" y="630" width="820" height="180"/><rect class="band" x="190" y="630" width="80" height="180"/><text class="n" x="230" y="720">3</text><path d="M350 685L310 720L350 755M430 685L470 720L430 755" stroke="#1B1D21" stroke-width="10" fill="none"/><path class="line" d="M530 690H910M530 745H830"/>
+  <path class="arrow" marker-end="url(#a)" d="M600 820V865"/>
+  <rect class="special" x="190" y="890" width="820" height="370"/><rect class="band" x="190" y="890" width="80" height="370"/><text class="n" x="230" y="1075">4</text>
+  <rect class="table" x="315" y="945" width="245" height="120"/><path d="M315 985H560M315 1025H560M390 945V1065M475 945V1065" stroke="#1B1D21" stroke-width="3"/>
+  <path d="M620 1065V945M620 1065H930" stroke="#1B1D21" stroke-width="4" fill="none"/><rect class="bar" x="655" y="1010" width="42" height="55"/><rect class="bar" x="720" y="980" width="42" height="85"/><rect class="accent" x="785" y="945" width="42" height="120"/><rect class="bar" x="850" y="990" width="42" height="75"/>
+  <path class="line" d="M315 1120H910M315 1175H820"/>
+  <path class="arrow" marker-end="url(#a)" d="M600 1270V1315"/>
+  <rect class="section" x="190" y="1340" width="820" height="150"/><rect class="band" x="190" y="1340" width="80" height="150"/><text class="n" x="230" y="1415">5</text><path class="line" d="M325 1390H920M325 1440H825"/>
+</svg>

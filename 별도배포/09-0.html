@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>9-0. AI 개발 조건 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 별도 자료 9-0 — AI 개발 조건. 수업에서 가능한 기능과 어려운 기능, 대안과 판정 방식" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>9-0</em> <span class="lesson">AI 개발 조건</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h">이 자료 — 9-0</div>
+  <a href="#opener"><span class="n">·</span> 표지</a>
+  <a href="#s0"><span class="n">·</span> 이 자료의 쓰임</a>
+  <a href="#s1"><span class="n">1</span> 수업 프로젝트의 기본 조건</a>
+  <a href="#s2"><span class="n">2</span> 사용할 수 있는 기능</a>
+  <a href="#s3"><span class="n">3</span> 기본 범위에서 제외하는 기능</a>
+  <a href="#s4"><span class="n">4</span> 교사 확인 후에만 가능한 기능</a>
+  <a href="#s5"><span class="n">5</span> 어려운 기능을 발견했을 때</a>
+  <a href="#s6"><span class="n">6</span> AI의 판정 방식</a>
+  <a href="#s7"><span class="n">·</span> AI가 반드시 지킬 응답 원칙</a>
+
+  <div class="h">별도 배포 자료</div>
+  <a href="09-0.html" class="here"><span class="n">9-0</span> AI 개발 조건</a>
+  <a href="09-13.html"><span class="n">교사용</span> 9~13회 준비자료</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">별도 자료 · 9회에 사용</span><span class="zh">单独资料 · 第 9 次课使用</span></div>
+    <h1><span class="ko">AI 개발 조건<br/><span style="font-size:.6em; color:var(--muted); font-weight:700">수업에서 가능한 것과 어려운 것</span></span><span class="zh">AI 开发条件<br/><span style="font-size:.6em; color:var(--muted); font-weight:700">课堂上做得到的与做不到的</span></span></h1>
+    <div class="abar"></div>
+    <div class="osub"><span class="ko">9회에 사용자 흐름과 개발 계획을 만들 때<br/><b>AI가 먼저 읽어야 하는 수업 조건</b>입니다.</span><span class="zh">这是第 9 次课设计用户流程与开发计划时，<br/><b>AI 必须先读的课堂条件</b>。</span></div>
+    <div class="ometa"><span class="ko"><b>쓰는 때</b> · 9-2에서 AI에게 자료를 전달할 때 맨 앞에 붙입니다<br/>
+      <b>함께 붙일 것</b> · 수행평가 2 PRD(<code>08_assessment2_학생ID_이름.md</code>)</span><span class="zh"><b>使用时机</b> · 在 9-2 把资料交给 AI 时，放在最前面<br/> <b>一并附上</b> · 实作评价 2 的 PRD（<code>08_assessment2_학생ID_이름.md</code>）</span></div>
+  </section>
+
+  <!-- ══════════ 들어가며 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">이 자료의 쓰임</span><span class="zh">这份资料的用途</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">AI에게 먼저 읽히는 조건표</span><span class="zh">先给 AI 读的条件表</span></h2>
+
+    <p class="lead"><span class="ko">이 자료는 교과서 본문이 아니라 <b>AI에게 건네는 조건표</b>입니다. 학생의 아이디어를 바로 코드로 만들지 말고, <b>이 조건 안에서 가능한지 먼저 판단하게</b> 하는 것이 목적입니다.</span><span class="zh">这份资料不是教科书正文，而是<b>递给 AI 的条件表</b>。目的是不让它把学生的点子直接变成代码，而是<b>先在这些条件里判断能不能做</b>。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>① 이 조건표를 붙인다</b><span>대화 맨 앞</span></span><span class="zh"><b>① 附上这份条件表</b><span>放在对话最前面</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>② 내 PRD를 붙인다</b><span>수행평가 2 결과물</span></span><span class="zh"><b>② 附上我的 PRD</b><span>实作评价 2 的成果</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>③ 사용자 흐름을 함께 정리한다</b><span>코드는 아직 만들지 않는다</span></span><span class="zh"><b>③ 一起整理用户流程</b><span>还不写代码</span></span></div>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">9회에는 코드를 만들지 않습니다</span><span class="zh">第 9 次课不写代码</span></div>
+      <p><span class="ko">실제 서비스 개발은 <b>10회부터</b> 시작합니다. 9회에는 <b>사용자 흐름과 개발 계획</b>만 확정합니다. AI가 코드를 먼저 내놓으려 하면 이 조건표를 다시 읽게 하세요.</span><span class="zh">真正的服务开发从<b>第 10 次课</b>开始。第 9 次课只确定<b>用户流程与开发计划</b>。AI 若想先给代码，就让它重读这份条件表。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">왜 조건을 먼저 주는가</span><span class="zh">为什么先给条件</span></div>
+      <p><span class="ko">조건 없이 물으면 AI는 <b>일반적인 웹서비스</b>를 가정합니다. 로그인, 외부 API, 클라우드 데이터베이스가 당연히 있다고 보고 계획을 세웁니다. 그 계획은 이 수업에서 만들 수 없습니다.</span><span class="zh">不给条件就问，AI 会按<b>一般的网络服务</b>来设想，默认有登录、外部 API、云数据库，并据此做计划。那样的计划在这门课里做不出来。</span></p>
+      <p><span class="ko">조건을 먼저 주면 AI는 <b>가능한 범위 안에서</b> 대안을 제안합니다. 그것이 이 자료의 목적입니다.</span><span class="zh">先给条件，AI 就会<b>在可行范围内</b>提出替代方案。这正是这份资料的目的。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 기본 조건</span><span class="zh">1. 基本条件</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">수업 프로젝트의 기본 조건</span><span class="zh">课堂项目的基本条件</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist">
+      <li><span class="ko">대상은 웹서비스를 <b>처음 만드는 중·고등학생</b>이다.</span><span class="zh">对象是<b>第一次做网络服务的中学生</b>。</span></li>
+      <li><span class="ko">학생은 코드를 처음부터 직접 작성하지 않고 <b>AI가 만든 결과를 확인·판단·수정 요청</b>한다.</span><span class="zh">学生不从零写代码，而是<b>确认、判断 AI 做出的结果并提出修改要求</b>。</span></li>
+      <li><span class="ko">실제 서비스 개발은 <b>10회부터</b> 시작한다. 9회에는 코드를 작성하거나 수정하지 않는다.</span><span class="zh">真正的服务开发从<b>第 10 次课</b>开始。第 9 次课不写也不改代码。</span></li>
+      <li><span class="ko">개발할 때는 교사가 제공한 <b>표준 Next.js 프로젝트 하나</b>를 사용한다.</span><span class="zh">开发时使用老师提供的<b>同一个标准 Next.js 项目</b>。</span></li>
+      <li><span class="ko">화면과 서버를 <b>별도 프로젝트로 나누지 않는다.</b></span><span class="zh"><b>不把画面和服务器拆成两个项目。</b></span></li>
+      <li><span class="ko">학생이 <b>패키지·프레임워크·포트·DB 경로와 배포 방식을 선택하지 않는다.</b></span><span class="zh">学生<b>不选择包、框架、端口、数据库路径与发布方式</b>。</span></li>
+      <li><span class="ko"><b>핵심 기능은 한 가지</b>로 제한한다.</span><span class="zh"><b>核心功能限定为一个</b>。</span></li>
+      <li><span class="ko">모든 프로젝트는 핵심 기능과 관련된 <b>의미 있는 기록을 하나 이상 SQLite에 저장</b>하고 다시 보여 준다.</span><span class="zh">每个项目都要把与核心功能相关的<b>至少一种有意义的记录存进 SQLite</b>，并能再次展示。</span></li>
+      <li><span class="ko">테이블은 <b>한 개로 시작</b>할 수 있으며, 테이블 수를 늘리기 위한 <b>가짜 기록을 만들지 않는다.</b></span><span class="zh">数据表可以<b>从一张开始</b>；<b>不为了增加表数而造假记录</b>。</span></li>
+      <li><span class="ko">실제 <b>개인정보와 민감정보를 사용하지 않는다.</b></span><span class="zh"><b>不使用真实的个人信息与敏感信息。</b></span></li>
+      <li><span class="ko">외부 공개 배포는 학생 활동이 아니라 <b>교사가 준비한 플랫폼의 선택 기능</b>이다.</span><span class="zh">对外公开发布不是学生的活动，而是<b>老师准备的平台上的可选功能</b>。</span></li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 가능</span><span class="zh">2. 可以</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">수업에서 사용할 수 있는 기능</span><span class="zh">课堂上可以使用的功能</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">아래 범위 안에서 만들면 <b>표준 프로젝트에서 바로 작동</b>합니다.</span><span class="zh">在下面这个范围内做，<b>在标准项目里就能直接跑起来</b>。</span></p>
+
+    <ul class="blist">
+      <li><span class="ko">글자 · 숫자 · 날짜 <b>입력</b></span><span class="zh">文字 · 数字 · 日期<b>输入</b></span></li>
+      <li><span class="ko">항목 <b>선택</b>과 버튼 <b>실행</b></span><span class="zh">项目<b>选择</b>与按钮<b>执行</b></span></li>
+      <li><span class="ko">입력 확인과 간단한 <b>계산 · 분류 · 정렬 · 검색</b></span><span class="zh">输入校验与简单的<b>计算 · 分类 · 排序 · 检索</b></span></li>
+      <li><span class="ko"><b>결과 · 안내 · 목록</b> 표시</span><span class="zh"><b>结果 · 提示 · 列表</b>的显示</span></li>
+      <li><span class="ko">표준 <b>SQLite에 핵심 기능의 기록 저장 · 조회</b></span><span class="zh">在标准 <b>SQLite 中保存与查询核心功能的记录</b></span></li>
+      <li><span class="ko">교사가 제공한 <b>이미지와 CSV · JSON 등의 예시 자료</b></span><span class="zh">老师提供的<b>图片与 CSV、JSON 等示例资料</b></span></li>
+      <li><span class="ko"><b>새로고침과 재실행 후</b> 결과 확인</span><span class="zh"><b>刷新与重新运行后</b>确认结果</span></li>
+      <li><span class="ko">교사가 승인한 프로젝트의 <b>제한적인 파일 업로드</b></span><span class="zh">老师批准的项目可做<b>受限的文件上传</b></span></li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">생각보다 넓습니다</span><span class="zh">比想象的宽</span></div>
+      <p><span class="ko">입력 → 처리 → 결과 → 저장 → 다시 보기까지 모두 들어 있습니다. <b>계산기, 추천 도구, 퀴즈, 기록 도구, 목록 관리</b>는 이 범위 안에서 충분히 만들 수 있습니다.</span><span class="zh">输入 → 处理 → 结果 → 保存 → 再查看，全都在里面。<b>计算器、推荐工具、测验、记录工具、清单管理</b>在这个范围内完全做得出来。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 제외</span><span class="zh">3. 排除</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">기본 범위에서 제외하는 기능</span><span class="zh">基本范围内排除的功能</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="row">
+      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
+        <div class="pt" style="color:var(--danger)"><span class="ko">외부 연결 · 계정</span><span class="zh">外部连接 · 账号</span></div>
+        <ul class="blist">
+          <li><span class="ko">ChatGPT · Gemini 등 <b>외부 AI 서비스 API</b></span><span class="zh">ChatGPT、Gemini 等<b>外部 AI 服务 API</b></span></li>
+          <li><span class="ko">유료 서비스와 <b>학생 개인 API 키</b></span><span class="zh">付费服务与<b>学生个人 API 密钥</b></span></li>
+          <li><span class="ko">Firebase · Supabase 등 <b>외부 DB와 클라우드 저장소</b></span><span class="zh">Firebase、Supabase 等<b>外部数据库与云存储</b></span></li>
+          <li><span class="ko">Google · Kakao 등의 <b>소셜 로그인</b></span><span class="zh">Google、Kakao 等<b>社交登录</b></span></li>
+          <li><span class="ko">외부 웹사이트 <b>크롤링</b></span><span class="zh">对外部网站的<b>爬取</b></span></li>
+          <li><span class="ko">학생 개인 계정을 이용한 <b>외부 배포</b></span><span class="zh">用学生个人账号<b>对外发布</b></span></li>
+        </ul>
+      </div>
+      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
+        <div class="pt" style="color:var(--danger)"><span class="ko">운영 · 책임</span><span class="zh">运营 · 责任</span></div>
+        <ul class="blist">
+          <li><span class="ko">복잡한 <b>회원가입 · 권한 · 관리자</b> 기능</span><span class="zh">复杂的<b>注册、权限、管理员</b>功能</span></li>
+          <li><span class="ko">이메일 · SMS · <b>푸시 알림</b></span><span class="zh">邮件、短信、<b>推送通知</b></span></li>
+          <li><span class="ko"><b>결제 · 광고</b>와 상업적 기능</span><span class="zh"><b>支付、广告</b>与商业功能</span></li>
+          <li><span class="ko">실제 <b>개인정보와 민감정보</b> 수집</span><span class="zh">收集真实的<b>个人信息与敏感信息</b></span></li>
+          <li><span class="ko"><b>실시간 채팅</b>과 많은 사용자의 동시 참여</span><span class="zh"><b>实时聊天</b>与大量用户同时参与</span></li>
+          <li><span class="ko">장시간 실행되는 작업과 <b>예약 작업</b></span><span class="zh">长时间运行的任务与<b>定时任务</b></span></li>
+          <li><span class="ko">교사가 승인하지 않은 <b>새 패키지</b></span><span class="zh">老师未批准的<b>新的包</b></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">못 배워서가 아닙니다</span><span class="zh">不是因为学不会</span></div>
+      <p><span class="ko">대부분은 <b>돈, 개인 계정, 또는 남의 정보에 대한 책임</b>이 따르는 기능입니다. 한 학기 수업에서 책임질 수 있는 범위를 넘어서기 때문에 제외합니다.</span><span class="zh">这些大多是牵涉<b>钱、个人账号，或对他人信息负责</b>的功能。它们超出一个学期的课能承担的范围，所以排除。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 교사 확인</span><span class="zh">4. 需老师确认</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">교사 확인 후에만 가능한 기능</span><span class="zh">经老师确认才可以的功能</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist">
+      <li><span class="ko"><b>파일 업로드</b>와 파일 저장</span><span class="zh"><b>文件上传</b>与文件保存</span></li>
+      <li><span class="ko"><b>외부 공개 데이터</b> 연결</span><span class="zh">连接<b>外部公开数据</b></span></li>
+      <li><span class="ko">수업 목적에 꼭 필요한 <b>추가 패키지</b></span><span class="zh">课程目的上确有必要的<b>额外的包</b></span></li>
+      <li><span class="ko">외부 사이트의 <b>자료 · 지도 · 영상</b> 연결</span><span class="zh">连接外部网站的<b>资料、地图、视频</b></span></li>
+      <li><span class="ko">기본 범위에 없지만 <b>핵심 기능에 반드시 필요한</b> 기능</span><span class="zh">不在基本范围内，但<b>对核心功能确实必需</b>的功能</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">AI에게 지시할 것</span><span class="zh">要对 AI 说的</span></div>
+      <p><span class="ko">AI는 위 기능을 <b>임의로 개발 계획에 넣지 않고</b> <code>교사 확인 필요</code>로 표시합니다. 표시만 하고 넘어가며, 학생과 교사가 확인하기 전에는 그 기능을 전제로 계획을 세우지 않습니다.</span><span class="zh">AI <b>不得擅自把上述功能写进开发计划</b>，而要标记为 <code>교사 확인 필요</code>（需老师确认）。只标记、不展开；在学生与老师确认之前，不以该功能为前提制定计划。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">확인을 받으러 갈 때</span><span class="zh">去请老师确认时</span></div>
+      <p><span class="ko">“이 기능을 넣고 싶다”가 아니라 <b>“핵심 기능이 이것인데, 그러려면 이 기능이 필요하다”</b>로 설명하세요. 대체로 <b>더 작은 대안</b>이 함께 나옵니다.</span><span class="zh">不要说“我想加这个功能”，而要说<b>“我的核心功能是这个，为此需要这个功能”</b>。这样多半会一并得到<b>更小的替代方案</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. 대안</span><span class="zh">5. 替代</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">어려운 기능을 발견했을 때</span><span class="zh">发现难以实现的功能时</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">AI가 하면 안 되는 것</span><span class="zh">AI 不可以做的</span></div>
+      <p><span class="ko">어렵거나 사용할 수 없는 기능을 <b>몰래 다른 기능으로 바꾸거나</b>, 실제로 작동하지 않는 기능을 <b>완성된 것처럼 표현하지 않습니다.</b> 먼저 원래 목적을 설명하고, 수업에서 가능한 <b>작은 대안</b>을 제안합니다.</span><span class="zh">不得<b>把难以实现或不能用的功能偷偷换成别的</b>，也不得<b>把实际跑不起来的功能说成已经做好</b>。要先说明原本的目的，再提出课堂上可行的<b>更小的替代方案</b>。</span></p>
+    </div>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:40%"><span class="ko">원래 아이디어</span><span class="zh">原本的点子</span></th><th><span class="ko">수업에서 가능한 대안</span><span class="zh">课堂上可行的替代</span></th></tr>
+      <tr><td><span class="ko">AI가 글을 분석하고 조언</span><span class="zh">由 AI 分析文章并给建议</span></td><td><span class="ko">학생이 정한 조건·키워드에 따른 결과, 또는 준비된 예시 결과</span><span class="zh">按学生定的条件、关键词给出结果，或用事先准备的示例结果</span></td></tr>
+      <tr><td><span class="ko">AI가 콘텐츠를 생성</span><span class="zh">由 AI 生成内容</span></td><td><span class="ko">교사가 제공한 예시 자료에서 조건에 맞는 항목 제시</span><span class="zh">从老师提供的示例资料中挑出符合条件的项目</span></td></tr>
+      <tr><td><span class="ko">실제 로그인</span><span class="zh">真实的登录</span></td><td><span class="ko">로그인 없이 한 명이 사용하는 형태, 또는 임시 이름 입력</span><span class="zh">不登录、按一人使用的形态，或输入临时名字</span></td></tr>
+      <tr><td><span class="ko">이메일 · 푸시 알림</span><span class="zh">邮件、推送通知</span></td><td><span class="ko">서비스 화면 안에 알림과 상태 표시</span><span class="zh">在服务画面内显示提示与状态</span></td></tr>
+      <tr><td><span class="ko">외부 클라우드 저장</span><span class="zh">外部云存储</span></td><td><span class="ko">작품별 SQLite에 필요한 최소 기록 저장</span><span class="zh">在各作品的 SQLite 里保存必要的最小记录</span></td></tr>
+      <tr><td><span class="ko">실시간 채팅</span><span class="zh">实时聊天</span></td><td><span class="ko">메시지를 작성하고 저장된 목록을 확인하는 형태</span><span class="zh">写下消息，再查看已保存列表的形态</span></td></tr>
+      <tr><td><span class="ko">외부 지도 API</span><span class="zh">外部地图 API</span></td><td><span class="ko">장소 목록, 주소 링크 또는 교사가 제공한 정적 자료</span><span class="zh">地点列表、地址链接，或老师提供的静态资料</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">바꾸었다면 그렇게 적습니다</span><span class="zh">换过就要如实写</span></div>
+      <p><span class="ko">AI 기능을 규칙이나 예시 자료로 바꾸었다면 <b>실제 AI 기능이라고 설명하지 않고</b> <code>수업용 프로토타입</code>이라고 표시합니다. 1-1에서 약속한 <b>정직하게 밝히기</b>가 여기에도 적용됩니다.</span><span class="zh">若把 AI 功能换成了规则或示例资料，<b>不得说成是真的 AI 功能</b>，要标记为 <code>수업용 프로토타입</code>（课堂用原型）。1-1 约定的<b>如实说明</b>在这里同样适用。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. 판정</span><span class="zh">6. 判定</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">AI의 판정 방식</span><span class="zh">AI 的判定方式</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">AI는 PRD의 <b>각 기능과 사용자 흐름</b>을 다음 네 가지로 나눕니다.</span><span class="zh">AI 把 PRD 里的<b>每个功能与用户流程</b>分成下面四类。</span></p>
+
+    <div class="vflow">
+      <div class="vf"><span class="ko"><b>① 수업에서 구현 가능</b><span>표준 프로젝트 안에서 바로 만들 수 있다</span></span><span class="zh"><b>① 课堂上可实现</b><span>在标准项目里就能直接做</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>② 단순화하면 구현 가능</b><span>목적을 유지하면서 범위를 줄여야 한다</span></span><span class="zh"><b>② 简化后可实现</b><span>保住目的，但要缩小范围</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>③ 교사 확인 필요</b><span>파일 업로드 · 외부 자료 · 추가 패키지</span></span><span class="zh"><b>③ 需老师确认</b><span>文件上传 · 外部资料 · 额外的包</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>④ 수업 범위에서 구현 어려움</b><span>외부 계정 · 유료 키 · 복잡한 운영 환경</span></span><span class="zh"><b>④ 课堂范围内难以实现</b><span>外部账号 · 付费密钥 · 复杂的运维环境</span></span></div>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">판정 뒤에도 코드는 아직입니다</span><span class="zh">判定之后也还不写代码</span></div>
+      <p><span class="ko">판정한 뒤에도 <b>학생과 교사가 범위를 확인하기 전에는 코드를 작성하지 않습니다.</b> 판정은 “무엇을 만들지 정하는” 단계이지 “만드는” 단계가 아닙니다.</span><span class="zh">即使判定完成，<b>在学生与老师确认范围之前也不写代码</b>。判定属于“定下要做什么”的阶段，不是“动手做”的阶段。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">②가 나왔다고 실패가 아닙니다</span><span class="zh">被判成②不等于失败</span></div>
+      <p><span class="ko">대부분의 아이디어는 <b>②번</b>으로 판정됩니다. 목적은 그대로 두고 범위만 줄이면 되므로, <b>가장 흔하고 정상적인 결과</b>입니다.</span><span class="zh">多数点子会被判成<b>②</b>。目的照旧、只缩小范围即可，这是<b>最常见也最正常的结果</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">응답 원칙</span><span class="zh">回应原则</span><b>9-0</b></div>
+    <h2 class="title"><span class="ko">AI가 반드시 지킬 응답 원칙</span><span class="zh">AI 必须遵守的回应原则</span></h2>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">원칙</span><span class="zh">原则</span></div>
+      <p><span class="ko">먼저 사용자가 서비스를 이용하는 <b>흐름을 이해</b>하고,<br/>각 단계가 <b>수업 조건 안에서 가능한지</b> 확인한다.<br/>그다음 필요한 <b>범위 조정</b>을 제안한다.<br/>사용자 흐름과 범위가 확정된 뒤에만 <b>개발 순서</b>를 작성하며,<br/>9회에는 <b>코드를 만들거나 수정하지 않는다.</b></span><span class="zh">先<b>理解用户使用服务的流程</b>，<br/>确认每一步<b>在课堂条件内是否可行</b>。<br/>然后提出必要的<b>范围调整</b>。<br/>只有在用户流程与范围确定之后，才写<b>开发顺序</b>；<br/>第 9 次课<b>不写也不改代码</b>。</span></p>
+    </div>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이 자료를 쓸 때 기억할 것</span><span class="zh">用这份资料时要记住的</span></div>
+      <ul>
+        <li><span class="ko">이 조건표를 <b>대화 맨 앞</b>에 붙이고, 그다음에 내 PRD를 붙인다.</span><span class="zh">把这份条件表放在<b>对话最前面</b>，随后附上我的 PRD。</span></li>
+        <li><span class="ko">AI가 <b>코드부터 내놓으면</b> 이 자료를 다시 읽게 한다.</span><span class="zh">AI 若<b>上来就给代码</b>，就让它重读这份资料。</span></li>
+        <li><span class="ko">제외 기능은 대부분 <b>돈·개인 계정·남의 정보에 대한 책임</b>이 따르는 것들이다.</span><span class="zh">被排除的功能，大多牵涉<b>钱、个人账号、对他人信息的责任</b>。</span></li>
+        <li><span class="ko">어려운 기능은 <b>몰래 바꾸지 말고</b> 대안을 제안하게 한다.</span><span class="zh">难以实现的功能，<b>不许偷偷替换</b>，要让它提出替代方案。</span></li>
+        <li><span class="ko">AI 기능을 규칙으로 바꿨다면 <b><code>수업용 프로토타입</code></b>이라고 표시한다.</span><span class="zh">把 AI 功能换成规则时，要标记为 <b><code>수업용 프로토타입</code></b>。</span></li>
+        <li><span class="ko">판정이 끝나도 <b>9회에는 코드를 만들지 않는다.</b></span><span class="zh">判定完成后，<b>第 9 次课也不写代码</b>。</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

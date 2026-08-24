@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">설명, 코드, 그래프, 해석으로 이어지는 Notebook</title>
+  <desc id="desc">한 Notebook 안에서 설명 셀, 코드 셀, 실행 결과 그래프, 해석 셀이 위에서 아래로 이어진다.</desc>
+  <rect width="1200" height="1600" fill="#fff"/>
+  <style>.frame{fill:#fff;stroke:#1B1D21;stroke-width:6}.cell{fill:#F1F2F4;stroke:#1B1D21;stroke-width:4}.head{fill:#1B1D21}.line{stroke:#6C7078;stroke-width:12}.code{stroke:#1B1D21;stroke-width:12}.accent{fill:#FF5C00}.bar{fill:#6C7078}.arrow{fill:none;stroke:#0E7C86;stroke-width:10}.num{font:700 34px Archivo,Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}</style>
+  <defs><marker viewBox="0 0 12 12" markerUnits="userSpaceOnUse" id="a" markerWidth="24" markerHeight="24" refX="11" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#0E7C86"/></marker></defs>
+  <rect class="frame" x="150" y="70" width="900" height="1460"/><rect class="head" x="150" y="70" width="900" height="70"/><circle cx="200" cy="105" r="12" fill="#FF5C00"/><circle cx="238" cy="105" r="12" fill="#6C7078"/><circle cx="276" cy="105" r="12" fill="#0E7C86"/>
+  <rect class="cell" x="230" y="190" width="740" height="230"/><circle class="accent" cx="285" cy="245" r="28"/><text class="num" x="285" y="246">1</text><path class="line" d="M350 245H880M350 295H800M350 345H850"/>
+  <path class="arrow" marker-end="url(#a)" d="M600 430V475"/>
+  <rect class="cell" x="230" y="500" width="740" height="250"/><circle class="accent" cx="285" cy="555" r="28"/><text class="num" x="285" y="556">2</text><path class="code" d="M355 560L315 600L355 640M455 560L495 600L455 640M390 665L430 535"/><path class="line" d="M560 555H880M560 605H820M560 655H865"/>
+  <path class="arrow" marker-end="url(#a)" d="M600 760V805"/>
+  <rect class="cell" x="230" y="830" width="740" height="300"/><circle class="accent" cx="285" cy="885" r="28"/><text class="num" x="285" y="886">3</text><path d="M360 1065V905M360 1065H880" stroke="#1B1D21" stroke-width="6" fill="none"/><rect class="bar" x="405" y="995" width="70" height="70"/><rect class="bar" x="510" y="945" width="70" height="120"/><rect class="bar" x="615" y="970" width="70" height="95"/><rect class="accent" x="720" y="900" width="70" height="165"/><rect class="bar" x="825" y="925" width="40" height="140"/>
+  <path class="arrow" marker-end="url(#a)" d="M600 1140V1185"/>
+  <rect class="cell" x="230" y="1210" width="740" height="240"/><circle class="accent" cx="285" cy="1265" r="28"/><text class="num" x="285" y="1266">4</text><path class="line" d="M350 1265H880M350 1315H790M350 1365H840"/>
+</svg>

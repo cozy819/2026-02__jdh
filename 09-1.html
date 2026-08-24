@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>9-1. 서비스 사용자 흐름(Flow) 설계 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 9-1 — 서비스 사용자 흐름(Flow) 설계. 흐름의 시작과 완료, 다섯 항목, 정상·예외 흐름과 구현 가능성 판정" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>9-1</em> <span class="lesson">서비스 사용자 흐름(Flow) 설계</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 9-1</span><span class="zh">本课时 — 9-1</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 문을 열었는데 아무 말이 없다</a>
+  <a href="#s1"><span class="n">1</span> 사용자 흐름이 먼저인 이유</a>
+  <a href="#s2"><span class="n">2</span> 흐름과 개발 순서는 다르다</a>
+  <a href="#s3"><span class="n">3</span> 흐름의 시작과 끝을 정한다</a>
+  <a href="#s4"><span class="n">4</span> 한 단계에 적을 다섯 가지</a>
+  <a href="#s5"><span class="n">5</span> 대표 흐름을 표로</a>
+  <a href="#s6"><span class="n">6</span> 정상 흐름과 예외 흐름</a>
+  <a href="#s7"><span class="n">7</span> 화면 목록은 흐름이 아니다</a>
+  <a href="#s8"><span class="n">8</span> 만들 수 있는 흐름인가</a>
+  <a href="#s9"><span class="n">9</span> 내 PRD에서 흐름 꺼내기</a>
+  <a href="#s10"><span class="n">10</span> 흔한 오해</a>
+  <a href="#s11"><span class="n">11</span> 확인 문제</a>
+  <a href="#s12"><span class="n">12</span> 완료 확인</a>
+  <a href="#s13"><span class="n">13</span> 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html" class="here"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">9회 · 첫째 차시</span><span class="zh">第 9 次课 · 第 1 课时</span></div>
+    <h1><span class="ko">서비스 사용자 흐름<br/>(Flow) 설계</span><span class="zh">服务用户流程<br/>（Flow）设计</span></h1>
+    <div class="abar"></div>
+    <div class="osub"><span class="ko">사용자가 서비스를 처음 열어 결과를 얻고<br/>저장된 기록을 다시 보기까지를 <b>차례대로</b> 그립니다.</span><span class="zh">把用户从第一次打开服务、拿到结果，<br/>到再次查看已保存记录的过程<b>按顺序</b>画出来。</span></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 8-2. 수행평가 2 · PRD 완성·제출<br/>
+      <b>다음 차시</b> · 9-2. AI와 사용자 흐름·개발 계획 확정하기<br/>
+      <b>오늘 쓰지 않는 것</b> · 코드와 프로젝트 파일</span><span class="zh"><b>上一课时</b> · 8-2. 实作评价 2 · 完成并提交 PRD<br/> <b>下一课时</b> · 9-2. 与 AI 一起确定用户流程与开发计划<br/> <b>今天不动的</b> · 代码与项目文件</span></div>
+  </section>
+
+  <!-- ══════════ 들어가며 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">문을 열었는데 아무 말이 없다</span><span class="zh">推开门，却没人说话</span></h2>
+
+    <div class="scene">
+      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
+      <p><span class="ko">처음 가 보는 관공서에 들어갔습니다. 안내 데스크도, 번호표 기계도, 안내문도 보이지 않습니다. 창구가 다섯 개 있는데 어디로 가야 하는지 알 수 없습니다.</span><span class="zh">你走进一个第一次去的办事大厅。既没有咨询台，没有取号机，也没有指示牌。窗口有五个，可你不知道该去哪一个。</span></p>
+      <p><span class="ko">직원에게 물으니 “저기 서류 쓰고 오세요”라고 합니다. 어떤 서류인지, 다 쓰면 어디로 가는지는 말해 주지 않습니다.</span><span class="zh">问工作人员，回答是“去那边填张表”。至于填哪张表、填完去哪里，没说。</span></p>
+      <p><span class="ko">이 건물에 <b>기능이 없는 것이 아닙니다.</b> 창구도 있고 서류도 있고 직원도 있습니다. 없는 것은 <b>사용자가 처음부터 끝까지 지나갈 길</b>입니다.</span><span class="zh">这栋楼<b>不是没有功能</b>。窗口有、表格有、工作人员也有。缺的是<b>让人从头走到尾的那条路</b>。</span></p>
+    </div>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
+      <p><span class="ko">사용자가 이 서비스를 처음 열었을 때부터 원하는 결과를 얻을 때까지<br/>어떤 일을 <b>차례대로</b> 겪게 될까?</span><span class="zh">用户从第一次打开这个服务，到拿到想要的结果，<br/>会<b>依次</b>经历些什么？</span></p>
+    </div>
+
+    <div class="recall">
+      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
+      <ul class="blist">
+        <li><span class="ko">8-2에서 제출한 <b>PRD</b>에 대표 사용 흐름이 <b>3~4단계</b>로 적혀 있습니다. 오늘은 그것을 더 자세히 펼칩니다.</span><span class="zh">8-2 提交的 <b>PRD</b> 里，代表性使用流程写成了 <b>3~4 步</b>。今天把它展开得更细。</span></li>
+        <li><span class="ko">7-2에서 정한 <b>기억할 기록</b>과 <b>다시 확인하는 순간</b>이 흐름 안에 자리를 잡습니다.</span><span class="zh">7-2 定下的<b>要记住的记录</b>与<b>再次查看的时刻</b>，会在流程里各就各位。</span></li>
+        <li><span class="ko">6-1에서 <b>화면은 그림 대신 글로</b> 설명했습니다. 흐름도 마찬가지입니다.</span><span class="zh">6-1 里<b>画面用文字而不用图</b>来说明。流程也一样。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s0_2">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">문을 열었는데 아무 말이 없다</span><span class="zh">推开门，却没人说话</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">9회부터 10회까지의 순서</span></span><span class="zh"><span class="fn">从第 9 次课到第 10 次课的顺序</span></span></div>
+      <pre><code>PRD
+→ 사용자 흐름 설계
+→ 수업에서 구현 가능한지 확인
+→ 기능과 범위 조정
+→ 개발 순서 확정
+→ 10회부터 개발</code></pre>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">9회에는 코드를 만들지 않습니다</span><span class="zh">第 9 次课不写代码</span></div>
+      <p><span class="ko">오늘과 다음 차시에는 <b>코드를 작성하거나 프로젝트 파일을 수정하지 않습니다.</b> 무엇을 만들지 정하는 시간입니다. 실제 개발은 10회부터입니다.</span><span class="zh">今天和下一课时<b>不写代码，也不改项目文件</b>。这是定下要做什么的时间。真正的开发从第 10 次课开始。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 순서</span><span class="zh">1. 顺序</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">사용자 흐름이 먼저인 이유</span><span class="zh">为什么先做用户流程</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">사용자 흐름</span><span class="en">user flow</span></span><span class="zh"><span class="w">用户流程</span><span class="en">user flow</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">지하철역에는 개찰구, 계단, 승강장이 다 있습니다. 그런데 처음 온 사람이 헤매지 않는 역과 헤매는 역이 있습니다. 시설의 개수가 아니라 <b>지나가는 순서가 안내되어 있는가</b>의 차이입니다.</span><span class="zh">地铁站里检票口、楼梯、站台都有。可有的站第一次来的人不会迷路，有的站会。差别不在设施数量，而在<b>有没有把要走的顺序指出来</b>。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">사용자가 서비스를 <b>처음 열어 목적을 이룰 때까지 지나가는 길</b>입니다.</span><span class="zh">它是用户<b>从打开服务到达成目的所走的那条路</b>。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">사용자가 목적을 이루기까지 거치는 단계를, 각 단계에서 <b>보는 것 · 하는 행동 · 서비스의 반응</b>으로 이어 붙인 것.</span><span class="zh">把用户达成目的所经过的各个步骤，按每一步的<b>看到什么 · 做什么 · 服务如何回应</b>串接起来。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko"><b>기능 목록</b>은 서비스가 할 수 있는 일을 모아 놓은 것이고, <b>화면 목록</b>은 화면의 이름을 모아 놓은 것입니다. 둘 다 <b>순서가 없습니다.</b> 흐름에는 순서가 있습니다.</span><span class="zh"><b>功能清单</b>是把服务能做的事列在一起，<b>画面清单</b>是把画面的名字列在一起。两者都<b>没有顺序</b>。流程是有顺序的。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“이 사용자 흐름은 입력에서 시작해 저장된 기록을 다시 보는 데서 끝난다.”</span><span class="zh">“这条用户流程从输入开始，到再次查看已保存的记录结束。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">개발 계획을 바로 세우면 <b>파일 · 화면 · DB와 무엇부터 만들지</b>에 관심이 쏠리기 쉽습니다. 그러나 서비스에서 먼저 정해야 하는 것은 <b>개발자의 작업 순서</b>가 아니라 <b>사용자가 서비스를 사용하는 순서</b>입니다.</span><span class="zh">一上来就做开发计划，注意力容易全跑到<b>文件、画面、数据库、先做哪个</b>上。可服务里要先定的，不是<b>开发者的工作顺序</b>，而是<b>用户使用服务的顺序</b>。</span></p>
+  </section>
+
+  <section class="page" id="s1_2">
+    <div class="kick"><span class="ko">1. 순서</span><span class="zh">1. 顺序</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">사용자 흐름이 먼저인 이유</span><span class="zh">为什么先做用户流程</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">흐름을 먼저 정하면 확인되는 것</span><span class="zh">先定流程能确认的事</span></div>
+      <ul class="blist">
+        <li><span class="ko">사용자가 <b>어디에서 시작</b>하고 어디에서 목적을 달성하는가?</span><span class="zh">用户<b>从哪里开始</b>，在哪里达成目的？</span></li>
+        <li><span class="ko">각 단계에서 <b>무엇을 보고 무엇을 하는가</b>?</span><span class="zh">每一步<b>看到什么、做什么</b>？</span></li>
+        <li><span class="ko">행동 뒤에 서비스는 <b>어떤 반응</b>을 보여 주는가?</span><span class="zh">行动之后服务给出<b>什么反应</b>？</span></li>
+        <li><span class="ko">어떤 정보가 <b>다음 단계로 이어지거나 저장</b>되어야 하는가?</span><span class="zh">哪些信息要<b>传到下一步或被保存</b>？</span></li>
+        <li><span class="ko">잘못된 입력이나 결과가 없을 때는 <b>어떻게 안내</b>하는가?</span><span class="zh">输入有误或没有结果时，<b>怎样提示</b>？</span></li>
+        <li><span class="ko">계획한 기능이 <b>실제 수업에서 만들 수 있는 범위</b>인가?</span><span class="zh">计划的功能<b>是不是课堂上做得出来的范围</b>？</span></li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">개발에만 쓰는 방법이 아닙니다</span><span class="zh">这不是只用在开发上的方法</span></div>
+      <p><span class="ko">행사, 발표, 신청, 제작처럼 <b>여러 단계가 필요한 일</b>을 계획할 때도 같은 방식을 씁니다. 참가자가 무엇을 보고 무엇을 하고 무엇을 돌려받는지 적어 보면 빠진 곳이 드러납니다.</span><span class="zh">活动、发表、报名、制作这类<b>需要多个步骤的事</b>，也用同样的方法来计划。写下参与者看到什么、做什么、得到什么，缺口就露出来了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 두 순서</span><span class="zh">2. 两种顺序</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">사용자 흐름과 개발 순서는 다르다</span><span class="zh">用户流程与开发顺序不是一回事</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="row">
+      <div class="pane accent">
+        <div class="pt"><span class="ko">사용자 흐름</span><span class="zh">用户流程</span></div>
+        <ul class="blist">
+          <li><span class="ko">서비스를 연다</span><span class="zh">打开服务</span></li>
+          <li><span class="ko">필요한 내용을 확인한다</span><span class="zh">确认需要的信息</span></li>
+          <li><span class="ko">입력하거나 선택한다</span><span class="zh">输入或选择</span></li>
+          <li><span class="ko">실행한다</span><span class="zh">执行</span></li>
+          <li><span class="ko">결과를 확인한다</span><span class="zh">确认结果</span></li>
+          <li><span class="ko">결과가 기록된다</span><span class="zh">结果被记录下来</span></li>
+          <li><span class="ko">저장된 기록을 다시 본다</span><span class="zh">再次查看已保存的记录</span></li>
+        </ul>
+      </div>
+      <div class="pane">
+        <div class="pt"><span class="ko">개발 순서</span><span class="zh">开发顺序</span></div>
+        <ul class="blist">
+          <li><span class="ko">첫 화면을 만든다</span><span class="zh">做出第一个画面</span></li>
+          <li><span class="ko">핵심 기능을 작동시킨다</span><span class="zh">让核心功能跑起来</span></li>
+          <li><span class="ko">핵심 기록의 저장과 조회를 연결한다</span><span class="zh">接上核心记录的保存与查询</span></li>
+          <li><span class="ko">테스트하고 수정한다</span><span class="zh">测试并修改</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p><span class="ko">왼쪽은 <b>사용자가 겪는 순서</b>이고 오른쪽은 <b>만드는 사람이 일하는 순서</b>입니다. 둘은 길이도 다르고 항목도 다릅니다.</span><span class="zh">左边是<b>用户经历的顺序</b>，右边是<b>做的人干活的顺序</b>。两者长度不同，项目也不同。</span></p>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">순서를 지킵니다</span><span class="zh">顺序不能颠倒</span></div>
+      <p><span class="ko">개발 순서는 <b>사용자 흐름과 구현 가능 범위가 확정된 뒤에</b> 만듭니다. 반대로 하면 “만들기 쉬운 것부터” 만들게 되고, 정작 사용자가 목적을 이루는 길은 마지막까지 비어 있게 됩니다.</span><span class="zh">开发顺序要在<b>用户流程与可实现范围确定之后</b>才做。反过来的话，就会“从好做的开始做”，而用户达成目的的那条路，到最后还是空的。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">3-2에서 코드를 읽던 방식과 같습니다</span><span class="zh">和 3-2 读代码的方式一样</span></div>
+      <p><span class="ko">3-2에서 코드를 <b>입력 · 처리 · 출력</b>으로 나눠 읽었습니다. 사용자 흐름도 <b>보는 것 · 행동 · 반응</b>으로 나눕니다. 대상이 코드에서 사람으로 바뀌었을 뿐입니다.</span><span class="zh">3-2 把代码分成<b>输入 · 处理 · 输出</b>来读。用户流程也分成<b>看到 · 行动 · 回应</b>。只是对象从代码换成了人。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 시작과 끝</span><span class="zh">3. 起点与终点</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">흐름의 시작과 끝을 정한다</span><span class="zh">先定下流程的起点与终点</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">흐름을 설계할 때는 <b>먼저 시작과 완료 지점</b>을 한 문장씩 적습니다. 가운데 단계는 그 뒤에 채웁니다.</span><span class="zh">设计流程时，<b>先把起点与完成点</b>各写成一句话。中间的步骤随后再填。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">틀</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">模板</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>- 시작: 사용자가 서비스를 처음 열고 ___을 본다.
+- 완료: 사용자가 ___을 하고 ___ 결과와 저장된 기록을 확인한다.</code></pre>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">채워 넣은 예 — 할 일 정리 서비스</span></span><span class="zh"><span class="fn">填好的例子 — 待办整理服务</span></span></div>
+      <pre><code>- 시작: 사용자가 할 일 정리 서비스를 열고 입력 안내를 본다.
+- 완료: 사용자가 할 일을 추가하고, 다시 열어도 목록에 남은 기록을 확인한다.</code></pre>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">완료 지점에 기록이 들어갑니다</span><span class="zh">完成点里要有记录</span></div>
+      <p><span class="ko">위 예의 완료 문장에는 <b>“다시 열어도 목록에 남은”</b>이 들어 있습니다. 7-2에서 정한 <b>다시 확인하는 순간</b>이 여기에 자리를 잡습니다. 결과를 한 번 보여 주는 데서 끝나면 완료가 아닙니다.</span><span class="zh">上面例子的完成句里有<b>“再打开也还留在列表里”</b>。7-2 定下的<b>再次查看的时刻</b>就落在这里。只把结果展示一次就结束，不算完成。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">완료에 필요 없는 기능은 뺍니다</span><span class="zh">与完成无关的功能要拿掉</span></div>
+      <p><span class="ko">완료 지점에 도달하기 위해 <b>꼭 필요하지 않은 기능</b>은 핵심 흐름에서 뺍니다. 정렬, 검색, 색 바꾸기 같은 것은 흐름이 완성된 뒤에 생각합니다.</span><span class="zh">为到达完成点<b>并非必需的功能</b>，要从核心流程里拿掉。排序、检索、换颜色之类，等流程完成之后再想。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 한 단계</span><span class="zh">4. 每一步</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">한 단계에는 다섯 가지를 적는다</span><span class="zh">每一步要写五件事</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:34%"><span class="ko">항목</span><span class="zh">项目</span></th><th><span class="ko">확인할 질문</span><span class="zh">要确认的问题</span></th></tr>
+      <tr><td><span class="ko"><b>사용자가 보는 것</b></span><span class="zh"><b>用户看到的</b></span></td><td><span class="ko">이 단계에서 화면에 무엇이 보이는가?</span><span class="zh">这一步画面上看得到什么？</span></td></tr>
+      <tr><td><span class="ko"><b>사용자의 행동</b></span><span class="zh"><b>用户的行动</b></span></td><td><span class="ko">무엇을 입력·선택·실행하는가?</span><span class="zh">输入、选择、执行什么？</span></td></tr>
+      <tr><td><span class="ko"><b>서비스의 반응</b></span><span class="zh"><b>服务的反应</b></span></td><td><span class="ko">행동 뒤 무엇이 바뀌거나 나타나는가?</span><span class="zh">行动之后什么发生变化或出现？</span></td></tr>
+      <tr><td><span class="ko"><b>이어지는 정보</b></span><span class="zh"><b>接续的信息</b></span></td><td><span class="ko">다음 단계에서 사용하거나 저장할 정보가 있는가?</span><span class="zh">有没有下一步要用或要保存的信息？</span></td></tr>
+      <tr><td><span class="ko"><b>예외 상황</b></span><span class="zh"><b>例外情况</b></span></td><td><span class="ko">값이 없거나 잘못되면 무엇을 안내하는가?</span><span class="zh">值缺失或有误时，提示什么？</span></td></tr>
+    </table>
+    </div>
+
+    <div class="iot">
+      <div class="b"><div class="h"><span class="ko">보는 것</span><span class="zh">看到</span></div><p><span class="ko">화면에 있는 것</span><span class="zh">画面上有的</span></p></div>
+      <div class="b"><div class="h"><span class="ko">행동</span><span class="zh">行动</span></div><p><span class="ko">사용자가 하는 것</span><span class="zh">用户做的</span></p></div>
+      <div class="b"><div class="h"><span class="ko">반응</span><span class="zh">反应</span></div><p><span class="ko">서비스가 돌려주는 것</span><span class="zh">服务给回的</span></p></div>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">아직 정하지 않는 것</span><span class="zh">还不定的东西</span></div>
+      <p><span class="ko">화면의 <b>색상과 정확한 배치</b>, <b>파일 이름과 코드</b>는 아직 정하지 않습니다. 6-1에서 화면을 글로 설명했던 것과 같은 이유입니다.</span><span class="zh">画面的<b>颜色与确切排布</b>、<b>文件名与代码</b>都还不定。原因和 6-1 用文字说明画面时一样。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. 표로 쓰기</span><span class="zh">5. 写成表</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">대표 흐름을 표로 표현한다</span><span class="zh">把代表流程写成表</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <h3 class="sub"><span class="ko">예 — 할 일 정리 서비스</span><span class="zh">例 — 待办整理服务</span></h3>
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th class="c" style="width:48px"><span class="ko">단계</span><span class="zh">步</span></th><th style="width:24%"><span class="ko">보는 것</span><span class="zh">看到的</span></th><th style="width:22%"><span class="ko">행동</span><span class="zh">行动</span></th><th style="width:24%"><span class="ko">서비스의 반응</span><span class="zh">服务的反应</span></th><th><span class="ko">이어지거나 저장되는 정보</span><span class="zh">接续或保存的信息</span></th></tr>
+      <tr><td class="c">1</td><td><span class="ko">서비스 설명과 할 일 입력란</span><span class="zh">服务说明与待办输入框</span></td><td><span class="ko">입력란을 확인한다</span><span class="zh">确认输入框</span></td><td><span class="ko">무엇을 입력할지 안내한다</span><span class="zh">提示该输入什么</span></td><td><span class="ko">없음</span><span class="zh">无</span></td></tr>
+      <tr><td class="c">2</td><td><span class="ko">입력란과 추가 버튼</span><span class="zh">输入框与添加按钮</span></td><td><span class="ko">할 일을 입력하고 추가한다</span><span class="zh">输入待办并添加</span></td><td><span class="ko">입력값을 확인한다</span><span class="zh">校验输入的值</span></td><td><span class="ko">입력한 할 일</span><span class="zh">输入的待办</span></td></tr>
+      <tr><td class="c">3</td><td><span class="ko">할 일 목록</span><span class="zh">待办列表</span></td><td><span class="ko">추가된 항목을 확인한다</span><span class="zh">确认新增的项目</span></td><td><span class="ko">새 항목을 목록에 보여 준다</span><span class="zh">把新项目显示在列表里</span></td><td><span class="ko"><b>할 일 기록</b></span><span class="zh"><b>待办记录</b></span></td></tr>
+      <tr><td class="c">4</td><td><span class="ko">목록의 완료 동작</span><span class="zh">列表上的完成操作</span></td><td><span class="ko">완료한 항목을 선택한다</span><span class="zh">选中已完成的项目</span></td><td><span class="ko">완료 상태를 구분해 보여 준다</span><span class="zh">把完成状态区分显示</span></td><td><span class="ko"><b>변경된 완료 상태</b></span><span class="zh"><b>变更后的完成状态</b></span></td></tr>
+    </table>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">단계마다 화면이 새로 생기지 않습니다</span><span class="zh">每一步不必都换新画面</span></div>
+      <p><span class="ko">위 네 단계는 <b>모두 같은 화면</b>에서 일어납니다. 같은 화면 안에서도 <b>사용자의 행동과 서비스 반응이 달라지면</b> 흐름의 다음 단계가 됩니다.</span><span class="zh">上面四步<b>都发生在同一个画面里</b>。即使在同一画面，只要<b>用户的行动与服务的反应变了</b>，就是流程的下一步。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">마지막 열이 11회로 이어집니다</span><span class="zh">最后一栏通向第 11 次课</span></div>
+      <p><span class="ko"><b>이어지거나 저장되는 정보</b> 열에 적힌 것이 11회에 <b>SQLite에 저장할 기록</b>이 됩니다. 3단계의 “할 일 기록”이 그 자리입니다.</span><span class="zh"><b>接续或保存的信息</b>这一栏里写的，就是第 11 次课要<b>存进 SQLite 的记录</b>。第 3 步的“待办记录”正是那一项。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. 예외</span><span class="zh">6. 例外</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">정상 흐름과 예외 흐름을 구분한다</span><span class="zh">区分正常流程与例外流程</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">먼저 가장 자주 일어날 <b>정상 흐름 한 개</b>를 완성합니다. 그다음 핵심 행동을 막을 수 있는 <b>예외 흐름 한 개</b>를 정합니다.</span><span class="zh">先完成最常发生的<b>正常流程一条</b>。然后定下可能挡住核心行动的<b>例外流程一条</b>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">정상 흐름</span></span><span class="zh"><span class="fn">正常流程</span></span></div>
+      <pre><code>할 일을 입력한다
+→ 추가한다
+→ 목록에서 확인한다
+→ 다시 열어 남은 기록을 확인한다</code></pre>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">예외 흐름</span></span><span class="zh"><span class="fn">例外流程</span></span></div>
+      <pre><code>입력하지 않고 추가한다
+→ 저장하지 않는다
+→ 입력이 필요하다고 안내한다</code></pre>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">모든 오류를 적지 않습니다</span><span class="zh">不要把所有错误都写上</span></div>
+      <p><span class="ko">처음부터 가능한 <b>모든 오류와 상황</b>을 적지 않습니다. <b>핵심 흐름과 직접 관계있는 예외</b>만 다룹니다. 네트워크 끊김, 브라우저 종료 같은 것은 지금 다루지 않습니다.</span><span class="zh">一开始不要把<b>所有可能的错误与情况</b>都写上。只处理<b>与核心流程直接相关的例外</b>。断网、关掉浏览器之类，现在不管。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">이미 PRD에 적어 두었습니다</span><span class="zh">PRD 里已经写过了</span></div>
+      <p><span class="ko">6-2 화면 구성 설명의 마지막 줄, <b>“입력이 없거나 잘못되었을 때 나타나는 안내”</b>가 바로 예외 흐름의 재료입니다. 그 한 줄을 흐름으로 펼치면 됩니다.</span><span class="zh">6-2 画面构成说明的最后一行——<b>“输入为空或有误时出现的提示”</b>——正是例外流程的材料。把那一行展开成流程即可。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. 구분</span><span class="zh">7. 辨别</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">화면 목록만 적는 것은 흐름이 아니다</span><span class="zh">只列画面名不是流程</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="row">
+      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
+        <div class="pt" style="color:var(--danger)"><span class="ko">이것은 화면 목록</span><span class="zh">这是画面清单</span></div>
+        <div class="code" style="margin-top:10px"><pre><code>메인 화면
+→ 입력 화면
+→ 결과 화면</code></pre></div>
+        <p><span class="ko">사용자가 <b>무엇을 하고</b> 서비스가 <b>어떻게 반응하는지</b> 알 수 없습니다.</span><span class="zh">看不出用户<b>做了什么</b>、服务<b>如何回应</b>。</span></p>
+      </div>
+      <div class="pane okp">
+        <div class="pt"><span class="ko">이것이 흐름</span><span class="zh">这才是流程</span></div>
+        <div class="code" style="margin-top:10px"><pre><code>메인 화면에서 설명을 확인한다
+→ 값을 입력하고 실행한다
+→ 서비스가 입력을 확인한다
+→ 결과 또는 수정 안내를 보여 준다</code></pre></div>
+        <p><span class="ko"><b>행동과 반응</b>까지 이어져 있습니다.</span><span class="zh">一直串到了<b>行动与反应</b>。</span></p>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">구분하는 방법</span><span class="zh">分辨的办法</span></div>
+      <p><span class="ko">각 단계를 읽고 <b>“누가 무엇을 했는가?”</b>를 물어보세요. 답이 나오지 않으면 흐름이 아니라 목록입니다. “메인 화면”은 답할 수 없고, “설명을 확인한다”는 답할 수 있습니다.</span><span class="zh">读每一步，问一句<b>“谁做了什么？”</b>。答不上来，那就是清单不是流程。“主画面”答不上来，“确认说明”答得上来。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. 판정</span><span class="zh">8. 判定</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">만들 수 있는 흐름인지 확인한다</span><span class="zh">确认这条流程做不做得出来</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">좋은 아이디어라도 수업 환경에서는 <b>그대로 만들기 어려울 수 있습니다.</b> 각 흐름의 기능을 <b>9-0 수업 개발 조건</b>과 비교해 네 가지로 나눕니다.</span><span class="zh">再好的点子，在课堂环境里也可能<b>原样做不出来</b>。把流程里的每个功能与 <b>9-0 课堂开发条件</b>比对，分成四类。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:34%"><span class="ko">판정</span><span class="zh">判定</span></th><th><span class="ko">뜻</span><span class="zh">含义</span></th></tr>
+      <tr><td><span class="ko"><b>수업에서 구현 가능</b></span><span class="zh"><b>课堂上可实现</b></span></td><td><span class="ko">표준 프로젝트 안에서 만들 수 있다.</span><span class="zh">在标准项目里就能做出来。</span></td></tr>
+      <tr><td><span class="ko"><b>단순화하면 구현 가능</b></span><span class="zh"><b>简化后可实现</b></span></td><td><span class="ko">목적은 유지하되 기능을 줄이거나 바꿔야 한다.</span><span class="zh">目的照旧，但要减少或替换功能。</span></td></tr>
+      <tr><td><span class="ko"><b>교사 확인 필요</b></span><span class="zh"><b>需老师确认</b></span></td><td><span class="ko">파일 업로드·외부 자료·추가 패키지 등의 확인이 필요하다.</span><span class="zh">需要确认文件上传、外部资料、额外的包等。</span></td></tr>
+      <tr><td><span class="ko"><b>수업 범위에서 구현 어려움</b></span><span class="zh"><b>课堂范围内难以实现</b></span></td><td><span class="ko">외부 계정·유료 키·복잡한 운영 환경 등이 필요하다.</span><span class="zh">需要外部账号、付费密钥、复杂的运维环境等。</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">숨기고 시작하지 않습니다</span><span class="zh">不要瞒着就开工</span></div>
+      <p><span class="ko">예를 들어 사용자가 입력한 글을 <b>외부 AI가 분석</b>하는 기능은 서비스 키와 비용이 필요할 수 있습니다. AI가 필요하다는 사실을 <b>숨기고 개발을 시작하지 않습니다.</b></span><span class="zh">比如让<b>外部 AI 分析</b>用户输入的文字，可能需要服务密钥和费用。<b>不要瞒着“需要 AI”这件事就开始开发。</b></span></p>
+      <p><span class="ko"><b>규칙 기반 결과</b>나 <b>교사가 제공한 예시 자료</b>로 목적을 유지할 수 있는지 먼저 검토합니다.</span><span class="zh">先看看能不能用<b>基于规则的结果</b>或<b>老师提供的示例资料</b>把目的保住。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">9-0을 옆에 두고 하세요</span><span class="zh">把 9-0 放在手边</span></div>
+      <p><span class="ko">별도 자료 <b>9-0. AI 개발 조건</b>에 가능한 기능, 제외 기능, 교사 확인 항목과 <b>대안 표</b>가 정리되어 있습니다. 다음 차시에 AI에게 전달할 자료이기도 합니다.</span><span class="zh">单独资料 <b>9-0. AI 开发条件</b>里整理了可用功能、排除功能、需老师确认的项目与<b>替代方案表</b>。它也是下一课时要交给 AI 的资料。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">9. 작성</span><span class="zh">9. 动笔</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">내 PRD에서 흐름을 꺼내 본다</span><span class="zh">从自己的 PRD 里把流程拉出来</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <h3 class="sub"><span class="ko">시작과 완료</span><span class="zh">起点与完成</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">시작</span><span class="zh">起点</span></li>
+      <li><span class="ko">완료</span><span class="zh">完成</span></li>
+    </ul>
+
+    <h3 class="sub"><span class="ko">정상 흐름 초안</span><span class="zh">正常流程草稿</span></h3>
+
+    <p><span class="ko">정상 흐름을 3~5단계로 나누고, <b>각 단계마다</b> 다음 네 가지를 적습니다.</span><span class="zh">把正常流程分成 3~5 步，<b>每一步</b>都写下面四项。</span></p>
+
+    <ul class="blist">
+      <li><span class="ko"><b>보는 것</b> — 화면에 무엇이 보이는가</span><span class="zh"><b>看到的</b> —— 画面上看得到什么</span></li>
+      <li><span class="ko"><b>행동</b> — 사용자가 무엇을 하는가</span><span class="zh"><b>行动</b> —— 用户做什么</span></li>
+      <li><span class="ko"><b>서비스의 반응</b> — 행동 뒤 무엇이 바뀌거나 나타나는가</span><span class="zh"><b>服务的反应</b> —— 行动之后什么发生变化或出现</span></li>
+      <li><span class="ko"><b>이어지거나 저장되는 정보</b></span><span class="zh"><b>接续或保存的信息</b></span></li>
+    </ul>
+  </section>
+
+  <section class="page" id="s9_2">
+    <div class="kick"><span class="ko">9. 작성</span><span class="zh">9. 动笔</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">내 PRD에서 흐름을 꺼내 본다</span><span class="zh">从自己的 PRD 里把流程拉出来</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">예외 흐름 초안</span><span class="zh">例外流程草稿</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">문제가 생기는 단계</span><span class="zh">出问题的步骤</span></li>
+      <li><span class="ko">사용자의 행동 또는 입력</span><span class="zh">用户的行动或输入</span></li>
+      <li><span class="ko">서비스가 보여 줄 안내</span><span class="zh">服务要给出的提示</span></li>
+      <li><span class="ko">정상 흐름으로 돌아가는 방법</span><span class="zh">回到正常流程的方法</span></li>
+    </ul>
+
+    <h3 class="sub"><span class="ko">구현 가능성 확인이 필요한 기능</span><span class="zh">需要确认可实现性的功能</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">기능</span><span class="zh">功能</span></li>
+      <li><span class="ko">확인이 필요한 이유</span><span class="zh">需要确认的理由</span></li>
+      <li><span class="ko">가능한 작은 대안</span><span class="zh">可行的更小替代</span></li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">10. 오해</span><span class="zh">10. 误解</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">흔한 오해와 사실</span><span class="zh">常见的误解与事实</span></h2>
+
+    <div class="myth">
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“흐름은 화면이 여러 개일 때만 필요하다.”</span><span class="zh">“只有画面有好几个时才需要流程。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">화면이 <b>하나여도</b> 흐름은 있습니다. 5절의 예는 네 단계가 모두 같은 화면에서 일어납니다. 흐름을 만드는 것은 화면의 개수가 아니라 <b>행동과 반응의 변화</b>입니다.</span><span class="zh">哪怕<b>只有一个画面</b>，流程也存在。第 5 节的例子里四步都在同一画面。构成流程的不是画面数量，而是<b>行动与反应的变化</b>。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“예외 상황을 많이 적을수록 꼼꼼한 설계다.”</span><span class="zh">“例外情况写得越多，设计越细致。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">지금은 <b>핵심 행동을 막는 예외 하나</b>면 충분합니다. 예외를 늘리면 정상 흐름을 만들 시간이 줄어듭니다. 나머지는 12회 테스트에서 발견해 고칩니다.</span><span class="zh">现在<b>一条挡住核心行动的例外</b>就够。例外一多，做正常流程的时间就少了。其余的到第 12 次课测试时再发现、再改。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“어차피 AI가 만들 테니 흐름은 대충 적어도 된다.”</span><span class="zh">“反正 AI 会做，流程随便写写就行。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">AI는 <b>흐름이 비어 있으면 스스로 채웁니다.</b> 그렇게 채워진 흐름은 내 서비스의 목적과 다를 수 있고, 다르다는 것을 알아차릴 기준도 없어집니다. 8-2에서 PRD를 맞춘 이유와 같습니다.</span><span class="zh">AI 会<b>把流程的空处自己填上</b>。那样填出来的流程，可能与我服务的目的不同，而且也失去了察觉“不同”的标准。这和 8-2 要对齐 PRD 是同一个道理。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“구현이 어렵다는 판정이 나오면 아이디어를 버려야 한다.”</span><span class="zh">“被判定难以实现，就得放弃点子。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">대부분은 <b>단순화하면 구현 가능</b>으로 판정됩니다. <b>목적은 그대로 두고 방법만 바꾸는</b> 것이 정상적인 결과입니다. 9-0의 대안 표가 그 예입니다.</span><span class="zh">多数会被判成<b>简化后可实现</b>。<b>目的照旧，只换方法</b>，这是正常结果。9-0 的替代方案表就是例子。</span></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 11 ══════════ -->
+  <section class="page" id="s11">
+    <div class="kick"><span class="ko">11. 확인</span><span class="zh">11. 确认</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">사용자 흐름과 개발 순서의 차이는 무엇인가?</span><span class="zh">用户流程与开发顺序有什么不同？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><b>주인공이 다릅니다.</b> 사용자 흐름의 주인공은 <b>사용자</b>이고, 개발 순서의 주인공은 <b>만드는 사람</b>입니다.</span><span class="zh"><b>主角不同。</b>用户流程的主角是<b>用户</b>，开发顺序的主角是<b>做的人</b>。</span></p>
+          <p><span class="ko">그래서 순서도 다릅니다. 사용자는 “연다 → 입력한다 → 결과를 본다 → 다시 본다”로 가지만, 만드는 사람은 “첫 화면 → 핵심 기능 → 저장 연결 → 테스트”로 갑니다.</span><span class="zh">所以顺序也不同。用户走的是“打开 → 输入 → 看结果 → 再看”，做的人走的是“第一个画面 → 核心功能 → 接上保存 → 测试”。</span></p>
+          <p><span class="ko">그리고 <b>사용자 흐름이 먼저입니다.</b> 개발 순서는 흐름과 구현 범위가 정해진 뒤에 만듭니다.</span><span class="zh">而且<b>用户流程在先</b>。开发顺序要在流程与可实现范围定下之后才做。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">화면 이름만 나열한 것이 사용자 흐름이 아닌 이유는 무엇인가?</span><span class="zh">为什么只罗列画面名不算用户流程？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><b>행동과 반응이 빠져 있기 때문</b>입니다. “메인 화면 → 입력 화면 → 결과 화면”을 읽어도 사용자가 무엇을 입력하는지, 서비스가 무엇을 확인하고 무엇을 돌려주는지 알 수 없습니다.</span><span class="zh">因为<b>缺了行动与反应</b>。读“主画面 → 输入画面 → 结果画面”，也不知道用户输入什么、服务校验什么、又给回什么。</span></p>
+          <p><span class="ko">각 단계에 <b>“누가 무엇을 했는가?”</b>를 물어 답이 나오면 흐름이고, 답이 안 나오면 목록입니다.</span><span class="zh">对每一步问<b>“谁做了什么？”</b>，答得上来是流程，答不上来是清单。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s11_i2">
+    <div class="kick"><span class="ko">11. 확인</span><span class="zh">11. 确认</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">정상 흐름을 먼저 정한 뒤 예외 흐름을 정하는 이유는 무엇인가?</span><span class="zh">为什么先定正常流程，再定例外流程？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><b>예외는 정상 흐름의 어딘가에서 생기기 때문</b>입니다. 정상 흐름이 없으면 예외가 어느 단계에서 벌어지는 일인지 말할 수 없습니다.</span><span class="zh">因为<b>例外总是发生在正常流程的某一步上</b>。没有正常流程，就说不清例外发生在哪一步。</span></p>
+          <p><span class="ko">또 정상 흐름이 서비스의 <b>목적</b>이고 예외는 그 목적으로 <b>돌아가는 길</b>입니다. 목적을 정하지 않고 돌아가는 길부터 만들 수는 없습니다.</span><span class="zh">再说，正常流程是服务的<b>目的</b>，例外是<b>回到那个目的的路</b>。目的都没定，就没法先修回去的路。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">외부 AI 기능을 원하는 경우 개발 전에 무엇을 확인해야 하는가?</span><span class="zh">想要外部 AI 功能时，开发前该确认什么？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">먼저 그것이 <b>수업 범위 안인지</b> 확인합니다. 외부 AI 서비스 API는 <b>서비스 키와 비용</b>이 필요해 9-0의 제외 목록에 있습니다.</span><span class="zh">先确认它<b>在不在课程范围内</b>。外部 AI 服务 API 需要<b>服务密钥与费用</b>，在 9-0 的排除清单里。</span></p>
+          <p><span class="ko">그다음 <b>목적을 유지하는 작은 대안</b>을 찾습니다. 규칙 기반 결과나 교사가 제공한 예시 자료로 바꿀 수 있는지 봅니다.</span><span class="zh">然后找<b>能保住目的的更小替代</b>。看能不能换成基于规则的结果，或老师提供的示例资料。</span></p>
+          <p><span class="ko">바꾸었다면 <b>실제 AI 기능이라고 설명하지 않고</b> <code>수업용 프로토타입</code>이라고 표시합니다. 감추고 시작하는 것이 가장 나쁩니다.</span><span class="zh">换过之后，<b>不得说成是真的 AI 功能</b>，要标记为 <code>수업용 프로토타입</code>（课堂用原型）。瞒着开工是最糟的。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s11_2">
+    <div class="kick"><span class="ko">11. 확인</span><span class="zh">11. 确认</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">“내 서비스의 사용자는 ______에서 시작해 ______에서 끝난다.” 두 빈칸을 채워 보세요.</span><span class="zh">“我服务的用户从 ______ 开始，到 ______ 结束。”请填这两个空。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 12 ══════════ -->
+  <section class="page" id="s12">
+    <div class="kick"><span class="ko">12. 완료 확인</span><span class="zh">12. 完成确认</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">오늘 분량을 확인한다</span><span class="zh">确认今天的进度</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist checks">
+      <li><span class="ko">사용 흐름의 <b>시작과 완료 지점</b>을 정했다.</span><span class="zh">定下了使用流程的<b>起点与完成点</b>。</span></li>
+      <li><span class="ko">정상 흐름을 <b>사용자의 행동과 서비스 반응</b>으로 표현했다.</span><span class="zh">把正常流程写成了<b>用户的行动与服务的反应</b>。</span></li>
+      <li><span class="ko">핵심 행동과 관련된 <b>예외 흐름을 하나</b> 정했다.</span><span class="zh">定下了与核心行动相关的<b>一条例外流程</b>。</span></li>
+      <li><span class="ko">각 단계에서 <b>이어지거나 저장될 정보</b>를 확인했다.</span><span class="zh">确认了每一步<b>接续或将被保存的信息</b>。</span></li>
+      <li><span class="ko"><b>기록이 생기는 행동</b>과 <b>다시 확인하는 순간</b>을 흐름에 넣었다.</span><span class="zh">把<b>产生记录的行为</b>与<b>再次查看的时刻</b>放进了流程。</span></li>
+      <li><span class="ko"><b>구현 가능성을 확인해야 할 기능</b>을 표시했다.</span><span class="zh">标出了<b>需要确认可实现性的功能</b>。</span></li>
+      <li><span class="ko">아직 <b>코드와 프로젝트 파일을 수정하지 않았다.</b></span><span class="zh">还<b>没有改动代码与项目文件</b>。</span></li>
+    </ul>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">마지막 항목을 다시 보세요</span><span class="zh">再看一遍最后一项</span></div>
+      <p><span class="ko">앞서가서 AI에게 코드를 만들게 했다면, 그 결과는 <b>흐름이 확정되기 전에 나온 것</b>입니다. 다음 차시에 흐름과 범위를 확정한 뒤 10회에 다시 시작합니다.</span><span class="zh">如果抢先让 AI 写了代码，那结果是<b>在流程确定之前出来的</b>。下一课时确定流程与范围，到第 10 次课再重新开始。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 13 ══════════ -->
+  <section class="page" id="s13">
+    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>9-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko">서비스 개발보다 <b>사용자가 서비스를 이용하는 흐름</b>을 먼저 설계한다.</span><span class="zh">比起做开发，先设计<b>用户使用服务的流程</b>。</span></li>
+        <li><span class="ko">흐름은 <b>보는 것 · 행동 · 서비스 반응 · 이어지는 정보 · 예외 상황</b>으로 표현한다.</span><span class="zh">流程用<b>看到的 · 行动 · 服务反应 · 接续的信息 · 例外情况</b>来表达。</span></li>
+        <li><span class="ko"><b>대표 정상 흐름 한 개</b>와 <b>핵심 예외 흐름 한 개</b>부터 정한다.</span><span class="zh">先定<b>一条代表性正常流程</b>与<b>一条核心例外流程</b>。</span></li>
+        <li><span class="ko">화면 이름만 나열한 것은 흐름이 아니다. <b>행동과 반응</b>이 있어야 한다.</span><span class="zh">只罗列画面名不是流程。要有<b>行动与反应</b>。</span></li>
+        <li><span class="ko">화면이 하나여도 흐름은 있다. <b>행동과 반응이 바뀌면</b> 다음 단계다.</span><span class="zh">只有一个画面也有流程。<b>行动与反应变了</b>，就是下一步。</span></li>
+        <li><span class="ko">모든 서비스의 흐름에는 <b>의미 있는 기록이 저장되고 다시 보이는 과정</b>이 포함된다.</span><span class="zh">每个服务的流程里都包含<b>有意义的记录被保存并再次出现</b>的过程。</span></li>
+        <li><span class="ko">수업에서 만들기 어려운 기능은 <b>개발 전에 발견</b>하고 목적을 유지하는 작은 대안을 찾는다.</span><span class="zh">课堂上难做的功能要<b>在开发前发现</b>，并找到能保住目的的更小替代。</span></li>
+        <li><span class="ko">사용자 흐름과 범위가 확정된 뒤에 <b>개발 순서</b>를 만든다.</span><span class="zh">用户流程与范围确定之后，才做<b>开发顺序</b>。</span></li>
+      </ul>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">다음 차시에는 오늘 그린 흐름을 <b>AI와 함께 다듬습니다.</b> <b>9-0 개발 조건</b>과 <b>내 PRD</b>를 AI에게 전달하고, 각 단계가 수업에서 만들 수 있는지 판정받은 뒤 <b>개발 순서</b>를 확정합니다.</span><span class="zh">下一课时和 <b>AI 一起打磨</b>今天画的流程。把 <b>9-0 开发条件</b>与<b>我的 PRD</b> 交给 AI，让它判定每一步在课堂上做不做得出来，然后确定<b>开发顺序</b>。</span></p>
+      <p><span class="ko">그 결과를 <code>09_development_plan_학생ID_이름.md</code>로 저장합니다. 다음 차시에도 <b>코드는 만들지 않습니다.</b></span><span class="zh">结果保存为 <code>09_development_plan_학생ID_이름.md</code>。下一课时<b>同样不写代码</b>。</span></p>
+      <a class="next" href="09-2.html">9-2. AI와 사용자 흐름·개발 계획 확정하기 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="08-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">8-2. 수행평가 2 · PRD 완성·제출</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="09-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">9-2. AI와 사용자 흐름·개발 계획 확정하기</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

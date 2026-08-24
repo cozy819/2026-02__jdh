@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>3-1. 값과 변수로 정보 표현하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 3-1 — 값, 자료형, 변수, 연산자와 입력·처리·출력" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>3-1</em> <span class="lesson">값과 변수로 정보 표현하기</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 3-1</span><span class="zh">本课时 — 3-1</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 들어가며</a>
+  <a href="#s1"><span class="n">1</span> 프로그램은 값을 다룬다</a>
+  <a href="#s2"><span class="n">2</span> 자료형은 값의 종류다</a>
+  <a href="#s2b"><span class="n">·</span> 자료형은 값이 정한다</a>
+  <a href="#s2c"><span class="n">·</span> 타입 힌트와 TypeScript</a>
+  <a href="#s3"><span class="n">3</span> 변수는 값에 붙인 이름</a>
+  <a href="#s3b"><span class="n">·</span> 이름을 잘 짓는다는 것</a>
+  <a href="#s4"><span class="n">4</span> 연산자 — 산술</a>
+  <a href="#s4b"><span class="n">·</span> 소수점이 어긋나는 이유</a>
+  <a href="#s4c"><span class="n">·</span> 비교 연산과 = ==</a>
+  <a href="#s5"><span class="n">5</span> 입력·처리·출력으로 읽기</a>
+  <a href="#s5b"><span class="n">·</span> input()은 문자열을 준다</a>
+  <a href="#s6"><span class="n">6</span> 읽는 사람을 위한 출력</a>
+  <a href="#s7"><span class="n">7</span> AI 코드를 읽는 네 질문</a>
+  <a href="#s8"><span class="n">8</span> 흔한 오해</a>
+  <a href="#s9"><span class="n">9</span> 확인하기</a>
+  <a href="#s10"><span class="n">10</span> 핵심 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html" class="here"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">3회 · 첫째 차시</span><span class="zh">第 3 次课 · 第 1 课时</span></div>
+    <h1><span class="ko">값과 변수로<br/>정보 표현하기</span><span class="zh">用值和变量<br/>表示信息</span></h1>
+    <div class="osub"><span class="ko">프로그램이 이름·수량·참거짓처럼 성격이 다른 정보를<br/>어떻게 기억하고 계산하는지 살펴봅니다.</span><span class="zh">看看程序是怎样记住并计算<br/>名称、数量、真假这些性质不同的信息的。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 2-2. Python 실습 환경 준비하기<br/>
+      <b>다음 차시</b> · 3-2. 코드의 흐름과 오류 읽기</span><span class="zh"><b>上一课时</b> · 2-2. 准备 Python 实践环境<br/> <b>下一课时</b> · 3-2. 读懂代码的流程与报错</span></div>
+  </section>
+
+  <!-- ══════════ 들어가며 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">장바구니 화면 하나에 들어 있는 것들</span><span class="zh">一个购物车页面里装着什么</span></h2>
+
+    <div class="scene">
+      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
+      <p><span class="ko">온라인 상점에서 생수 3병을 장바구니에 담았습니다. 화면에는 이런 것들이 보입니다. <b>생수</b>라는 이름, <b>1200</b>이라는 가격, <b>3</b>이라는 수량, 그리고 <b>결제 완료</b>인지 아닌지를 나타내는 표시.</span><span class="zh">你在网店把 3 瓶矿泉水放进购物车。页面上能看到这些东西：<b>矿泉水</b>这个名称、<b>1200</b> 这个价格、<b>3</b> 这个数量，还有表示<b>是否已付款</b>的标记。</span></p>
+      <p><span class="ko">수량을 4로 바꾸니 총액이 바로 4800원으로 바뀝니다. 쿠폰을 적용하니 또 달라집니다. 화면은 하나인데 그 안의 값들은 계속 움직입니다.</span><span class="zh">把数量改成 4，总额立刻变成 4800 元。用了优惠券又变了。页面只有一个，里面的值却一直在动。</span></p>
+      <p><span class="ko">여기서 질문 하나. 이 화면을 만든 프로그램은 <b>‘생수’라는 글자</b>와 <b>1200이라는 수</b>를 같은 방식으로 다룰까요? 만약 같은 방식이라면 왜 글자끼리는 곱할 수 없을까요?</span><span class="zh">这里问一个问题：做出这个页面的程序，会用同样的方式处理<b>“矿泉水”这几个字</b>和 <b>1200 这个数</b>吗？如果方式相同，那为什么文字之间不能相乘呢？</span></p>
+    </div>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
+      <p><span class="ko">프로그램은 이름, 수량과 참·거짓처럼 성격이 다른 정보를<br/>어떻게 기억하고 계산할까?</span><span class="zh">程序是怎样记住并计算<br/>名称、数量、真假这些性质不同的信息的？</span></p>
+    </div>
+
+    <div class="recall">
+      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
+      <ul class="blist">
+        <li><span class="ko">2-2에서 <code>name = "다현"</code>이라고 쓰고 <code>print(name + "님, ...")</code>을 실행해 봤다.</span><span class="zh">2-2 里写过 <code>name = "다현"</code>，并运行了 <code>print(name + "님, ...")</code>。</span></li>
+        <li><span class="ko">그때 <b><code>=</code>는 ‘같다’가 아니라 ‘넣어라’</b>라는 뜻이라고 지나가듯 말했다.</span><span class="zh">当时顺口说过：<b><code>=</code> 不是“相等”，而是“放进去”</b>。</span></li>
+        <li><span class="ko"><b><code>+</code>가 숫자에서는 더하기, 글자에서는 이어 붙이기</b>로 다르게 동작한다고도 했다.</span><span class="zh">也说过 <b><code>+</code> 在数字上是相加，在文字上是拼接</b>，行为不同。</span></li>
+        <li><span class="ko">코드는 <b>읽기 → 예상 → 실행 → 비교 → 수정</b> 순서로 다룬다.</span><span class="zh">处理代码的顺序是 <b>读 → 预测 → 运行 → 对照 → 修改</b>。</span></li>
+      </ul>
+    </div>
+
+    <p><span class="ko">미뤄 두었던 두 이야기를 이번 차시에서 제대로 다룹니다. 왜 같은 <code>+</code>가 상황에 따라 다르게 동작하는지, 그리고 <code>=</code>가 정확히 무슨 일을 하는지 알고 나면, 앞으로 만날 대부분의 코드에서 <b>지금 무슨 일이 일어나는지</b>를 스스로 설명할 수 있게 됩니다.</span><span class="zh">这两件当时押后的事，这一课时讲清楚。搞明白同一个 <code>+</code> 为什么会因情况而异，以及 <code>=</code> 到底做了什么，你就能在今后遇到的大多数代码里，自己说清<b>此刻发生了什么</b>。</span></p>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 값</span><span class="zh">1. 值</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">프로그램은 값을 다룬다</span><span class="zh">程序处理的是值</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">앞의 장바구니를 코드로 옮겨 보겠습니다. 상품 이름은 글자이고, 가격과 수량은 숫자이며, 결제 완료 여부는 ‘참’ 또는 ‘거짓’입니다. 프로그램은 이렇게 서로 다른 정보를 <span class="tt">값</span>으로 표현합니다.</span><span class="zh">我们把刚才的购物车搬进代码。商品名称是文字，价格和数量是数字，是否付款则是“真”或“假”。程序就是这样把不同的信息表示成<span class="tt">值</span>的。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">네 개의 값</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">四个值</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>"생수"
+1200
+3
+True</code></pre>
+    </div>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">값</span><span class="en">value</span></span><span class="zh"><span class="w">值</span><span class="en">value</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">영수증에 적힌 <b>1200</b>, 이름표에 적힌 <b>생수</b>, 체크박스의 <b></b>. 종이 위에서는 다 그냥 잉크 자국이지만, 우리는 이것들을 서로 다른 성격의 정보로 읽습니다.</span><span class="zh">收据上的 <b>1200</b>、标签上的<b>矿泉水</b>、复选框里的 <b></b>。在纸上它们都只是墨迹，但我们把它们读成性质不同的信息。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">코드에 적힌 <b>데이터 하나</b>입니다. 더 쪼갤 필요 없이 그 자체로 뜻을 가지는 조각입니다.</span><span class="zh">它是写在代码里的<b>一条数据</b>。不必再拆分，本身就有含义的一小块。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">프로그램이 저장하고 계산할 수 있는 하나의 데이터. 자료형에 따라 적용할 수 있는 연산이 정해진다.</span><span class="zh">程序可以存储与计算的一条数据。可施加的运算由其数据类型决定。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko"><b>값</b>은 데이터 그 자체이고, 곧 배울 <b>변수</b>는 그 값을 가리키는 이름입니다. <code>1200</code>은 값이고 <code>price</code>는 변수입니다.</span><span class="zh"><b>值</b>是数据本身，而马上要学的<b>变量</b>是指向这个值的名字。<code>1200</code> 是值，<code>price</code> 是变量。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“이 줄에서 <code>count</code>가 가리키는 값은 3이다.”</span><span class="zh">“这一行里 <code>count</code> 指向的值是 3。”</span></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="page" id="s1_2">
+    <div class="kick"><span class="ko">1. 값</span><span class="zh">1. 值</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">프로그램은 값을 다룬다</span><span class="zh">程序处理的是值</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">여기서 중요한 성질이 하나 나옵니다. Python은 <b>값의 성격에 따라 할 수 있는 일을 구분합니다.</b> 숫자는 더하거나 곱할 수 있고, 문자열은 이어 붙일 수 있습니다. 그래서 <code>"생수" * "물"</code> 같은 코드는 뜻을 만들 수 없어 오류가 됩니다.</span><span class="zh">这里带出一条重要性质：Python <b>按值的性质来区分能做什么</b>。数字能相加相乘，字符串能拼接。所以像 <code>"생수" * "물"</code> 这样的代码构不成意义，会报错。</span></p>
+
+    <div class="note">
+      <div class="nt"><span class="ko">도입의 질문에 대한 답</span><span class="zh">开头那个问题的答案</span></div>
+      <p><span class="ko">프로그램은 ‘생수’와 1200을 <b>같은 방식으로 다루지 않습니다.</b> 값마다 종류가 있고, 종류에 따라 허용되는 계산이 다릅니다. 그 ‘종류’를 부르는 이름이 다음 쪽의 <b>자료형</b>입니다.</span><span class="zh">程序<b>不会用同样的方式</b>处理“矿泉水”和 1200。每个值都有种类，种类不同，允许的计算也不同。这个“种类”的名字，就是下一页的<b>数据类型</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 자료형</span><span class="zh">2. 数据类型</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">자료형은 값의 종류다</span><span class="zh">数据类型就是值的种类</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">자료형</span><span class="en">data type</span></span><span class="zh"><span class="w">数据类型</span><span class="en">data type</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">학교에서 나눠 준 서류에 “학년: 2”와 “이름: 김다현”이 있습니다. 둘 다 글자로 적혀 있지만 학년끼리는 더할 수 있어도(2학년 + 1 = 3학년) 이름끼리 더하는 것은 뜻이 없습니다.</span><span class="zh">学校发的表格上有“年级：2”和“姓名：金多贤”。两个都是用字写的，但年级之间可以相加（2 年级 + 1 = 3 年级），姓名之间相加却没有意义。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">이 값이 <b>어떤 종류인지</b> 나타내는 분류입니다. 종류가 정해지면 그 값으로 할 수 있는 일도 함께 정해집니다.</span><span class="zh">它是表示这个值<b>属于哪一类</b>的分类。类别一定，能拿这个值做什么也就跟着定了。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">값의 종류와 그 값에 적용할 수 있는 연산의 집합을 규정하는 분류.</span><span class="zh">规定值的种类，以及可施加于该值的运算集合的分类。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">자료형은 <b>값</b>에 붙는 성질이지 변수 이름에 영원히 새겨지는 것이 아닙니다. Python에서는 같은 이름이 나중에 다른 종류의 값을 가리킬 수도 있습니다.</span><span class="zh">数据类型是附着在<b>值</b>上的性质，并不会永久刻在变量名上。在 Python 里，同一个名字之后也可以指向别的种类的值。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“이 값의 자료형이 <code>str</code>이라서 곱셈이 안 됐다.”</span><span class="zh">“这个值的类型是 <code>str</code>，所以乘不了。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">먼저 다음 네 가지를 씁니다. 이 네 개만 알아도 이번 학기 대부분의 코드를 읽을 수 있습니다.</span><span class="zh">先用下面四种。光会这四种，本学期大部分代码就读得懂了。</span></p>
+  </section>
+
+  <section class="page" id="s2_2">
+    <div class="kick"><span class="ko">2. 자료형</span><span class="zh">2. 数据类型</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">자료형은 값의 종류다</span><span class="zh">数据类型就是值的种类</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <table class="kv">
+      <tr><th style="width:90px"><span class="ko">자료형</span><span class="zh">数据类型</span></th><th style="width:36%"><span class="ko">뜻</span><span class="zh">含义</span></th><th><span class="ko">예</span><span class="zh">例</span></th></tr>
+      <tr><td><code>int</code></td><td><span class="ko">정수</span><span class="zh">整数</span></td><td><code>3</code>, <code>1200</code>, <code>-5</code></td></tr>
+      <tr><td><code>float</code></td><td><span class="ko">소수점이 있는 수</span><span class="zh">带小数点的数</span></td><td><code>3.5</code>, <code>0.25</code></td></tr>
+      <tr><td><code>str</code></td><td><span class="ko">문자열, 즉 글자의 나열</span><span class="zh">字符串，也就是文字的排列</span></td><td><span class="ko"><code>"생수"</code>, <code>"1200"</code></span><span class="zh"><code>"생수"</code>、<code>"1200"</code></span></td></tr>
+      <tr><td><code>bool</code></td><td><span class="ko">참 또는 거짓</span><span class="zh">真或假</span></td><td><code>True</code>, <code>False</code></td></tr>
+    </table>
+
+    <h3 class="sub"><span class="ko">눈에는 같아 보여도 다른 값</span><span class="zh">看着一样，其实不同的值</span></h3>
+
+    <p><span class="ko"><code>1200</code>과 <code>"1200"</code>은 화면에서 거의 같아 보입니다. 따옴표 두 개 차이뿐입니다. 그러나 자료형이 다르므로 <b>완전히 다른 값</b>입니다. 앞의 것은 계산할 수 있는 정수이고, 뒤의 것은 글자로 이루어진 문자열입니다.</span><span class="zh"><code>1200</code> 和 <code>"1200"</code> 在屏幕上几乎一模一样，只差两个引号。可它们类型不同，所以是<b>完全不同的值</b>。前者是能计算的整数，后者是由文字组成的字符串。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">같은 + 기호, 다른 결과</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">同一个 + 号，不同的结果</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>print(1200 + 300)      # 1500
+print("1200" + "300")  # 1200300</code></pre>
+    </div>
+
+    <p><span class="ko">드디어 2-2에서 미뤄 둔 이야기의 답입니다. <code>+</code>는 하나의 기호지만 <b>양쪽 값의 자료형을 보고 무엇을 할지 정합니다.</b> 숫자끼리면 더하고, 문자열끼리면 이어 붙입니다. 아래 결과 <code>1200300</code>은 계산 결과가 아니라 글자 <code>1200</code> 뒤에 글자 <code>300</code>을 붙여 놓은 것입니다.</span><span class="zh">这就是 2-2 押后那件事的答案。<code>+</code> 虽然只是一个符号，却<b>要看两边值的类型才决定做什么</b>。数字之间就相加，字符串之间就拼接。下面那个结果 <code>1200300</code> 不是算出来的，而是把文字 <code>1200</code> 后面接上了文字 <code>300</code>。</span></p>
+  </section>
+
+  <section class="page" id="s2_3">
+    <div class="kick"><span class="ko">2. 자료형</span><span class="zh">2. 数据类型</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">자료형은 값의 종류다</span><span class="zh">数据类型就是值的种类</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">프로그램이 이상하면 자료형부터 본다</span><span class="zh">程序不对劲，先看数据类型</span></div>
+      <p><span class="ko">“분명히 숫자를 넣었는데 계산이 안 돼요”라는 상황의 대부분이 이것입니다. 값이 숫자처럼 <b>보일</b> 뿐 실제로는 문자열인 경우입니다. 뒤에서 배울 <code>input()</code>이 바로 그런 값을 만들어 냅니다.</span><span class="zh">“我明明填的是数字，怎么算不了”——这类情况大多就是它。值只是<b>看起来</b>像数字，实际上是字符串。后面要学的 <code>input()</code> 造出的正是这种值。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2b ══════════ -->
+  <section class="page" id="s2b">
+    <div class="kick"><span class="ko">2. 자료형 (이어서)</span><span class="zh">2. 数据类型（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">Python은 대입한 값을 보고 자료형을 정한다</span><span class="zh">Python 看你赋了什么值来定类型</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">Python에서는 변수를 만들 때 자료형을 따로 적지 않아도 됩니다. <b>오른쪽에 넣은 값</b>을 보고 Python이 현재 자료형을 판단합니다.</span><span class="zh">在 Python 里创建变量时不必另外写类型。Python 会看<b>你放到右边的值</b>来判断当前的类型。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">같은 이름, 달라지는 자료형</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">同一个名字，变化的类型</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>price = 1200       # 지금 값은 int
+price = "무료"      # 이제 값은 str</code></pre>
+    </div>
+
+    <p><span class="ko">이것이 뜻하는 바를 정확히 새겨 두어야 합니다. Python에서 자료형은 <b>변수 이름에 영원히 고정되는 것이 아닙니다.</b> 같은 이름이 나중에 다른 자료형의 값을 가리킬 수 있습니다.</span><span class="zh">这句话的含义要记准：在 Python 里，类型<b>并不会永久固定在变量名上</b>。同一个名字之后可以指向别的类型的值。</span></p>
+
+    <p><span class="ko">다만 <b>할 수 있다는 것과 그렇게 해도 좋다는 것은 다릅니다.</b> 한 변수에 성격이 전혀 다른 값을 번갈아 넣으면 코드를 읽는 사람이 “지금 이 이름은 숫자인가 글자인가”를 계속 추적해야 합니다. 그래서 보통은 <b>같은 의미의 값</b>을 유지합니다.</span><span class="zh">不过<b>“能这么做”和“该这么做”是两回事</b>。同一个变量里轮流放性质完全不同的值，读代码的人就得一直追踪“这个名字现在是数字还是文字”。所以通常保持<b>含义相同的值</b>。</span></p>
+
+    <h3 class="sub"><span class="ko">지금 자료형을 확인하는 방법</span><span class="zh">查看此刻的类型</span></h3>
+
+    <p><span class="ko">실행 중인 값의 자료형은 <code>type()</code>으로 확인할 수 있습니다. 앞으로 “이게 왜 안 되지?” 싶을 때 가장 먼저 써 볼 도구입니다.</span><span class="zh">运行中的值的类型可以用 <code>type()</code> 查看。以后遇到“这怎么不行呢？”，它是最先该拿出来的工具。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">type() 으로 확인하기</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">用 type() 查看</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>price = 1200
+print(type(price))   # &lt;class 'int'&gt;</code></pre>
+    </div>
+
+    <div class="code out">
+      <div class="chd"><span class="ko"><span class="fn">출력</span></span><span class="zh"><span class="fn">输出</span></span></div>
+      <pre><code>&lt;class 'int'&gt;</code></pre>
+    </div>
+
+    <p><span class="ko"><code>&lt;class 'int'&gt;</code>라는 표시가 낯설 수 있습니다. 지금은 <b>“이 값은 int 종류다”</b>라고만 읽으면 충분합니다. <code>class</code>라는 낱말의 뜻은 나중에 필요할 때 다룹니다.</span><span class="zh"><code>&lt;class 'int'&gt;</code> 这个写法可能有点陌生。现在只要读成<b>“这个值是 int 这一类”</b>就够了。<code>class</code> 这个词的含义，以后需要时再讲。</span></p>
+  </section>
+
+  <section class="page" id="s2b_2">
+    <div class="kick"><span class="ko">2. 자료형 (이어서)</span><span class="zh">2. 数据类型（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">Python은 대입한 값을 보고 자료형을 정한다</span><span class="zh">Python 看你赋了什么值来定类型</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">다음 시간에 바로 씁니다</span><span class="zh">下次课马上就用</span></div>
+      <p><span class="ko">3-2에서는 짧은 코드 하나를 <b>실행 전에 읽고 결과를 예상</b>합니다. 그때 가장 먼저 하는 일이 “지금 이 값은 어떤 종류인가”를 판단하는 것입니다. 예상이 빗나가는 곳이 바로 배울 곳입니다.</span><span class="zh">3-2 里我们要<b>在运行前先读一段短代码并预测结果</b>。那时最先要做的，就是判断“此刻这个值是什么种类”。预测落空的地方，正是该学的地方。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2c ══════════ -->
+  <section class="page" id="s2c">
+    <div class="kick"><span class="ko">2. 자료형 (이어서)</span><span class="zh">2. 数据类型（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">자료형을 직접 적어 두는 방법</span><span class="zh">把类型直接写出来的方法</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
+
+    <p class="lead"><span class="ko">Python에서도 변수 이름 뒤에 자료형을 표시할 수 있습니다. 이를 <span class="tt">타입 힌트(type hint)</span>라고 합니다.</span><span class="zh">Python 里也可以在变量名后面标出类型。这叫<span class="tt">类型提示（type hint）</span>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">타입 힌트</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">类型提示</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>price: int = 1200
+product: str = "생수"</code></pre>
+    </div>
+
+    <p><span class="ko">타입 힌트는 <b>이 변수에 어떤 값이 들어오기를 기대하는지</b>를 사람과 개발 도구에 알려 줍니다. 그런데 이름이 ‘힌트’인 데는 이유가 있습니다. Python 자체는 힌트와 다른 자료형이 들어와도 <b>실행을 막지 않습니다.</b></span><span class="zh">类型提示告诉人和开发工具<b>这个变量期望装什么样的值</b>。可它叫“提示”是有原因的：Python 本身即使进来的类型和提示不符，<b>也不会阻止运行</b>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">힌트를 어겨도 실행된다</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">违背提示照样运行</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>price: int = 1200
+price = "무료"   # 편집기는 경고하지만 Python은 이 대입을 실행한다
+print(price)     # 무료</code></pre>
+    </div>
+
+    <p><span class="ko">따라서 Python의 타입 힌트는 주로 <b>읽는 사람에게 의도를 알리고</b>, 편집기나 별도의 검사 도구가 잘못된 대입을 미리 발견하도록 돕는 역할을 합니다.</span><span class="zh">所以 Python 的类型提示主要起两个作用：<b>向读代码的人表明意图</b>，以及帮助编辑器或专门的检查工具提前发现错误的赋值。</span></p>
+  </section>
+
+  <section class="page" id="s2c_2">
+    <div class="kick"><span class="ko">2. 자료형 (이어서)</span><span class="zh">2. 数据类型（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">자료형을 직접 적어 두는 방법</span><span class="zh">把类型直接写出来的方法</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이 — 언어마다 다르다: TypeScript의 경우</span><span class="zh">更深一层 — 语言各不相同：TypeScript 的情况</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+      <div class="body">
+        <p><span class="ko">언어에 따라 자료형을 적는 것이 필수이기도 하고, 적지 않아도 값에서 알아내기도 합니다. 10회 이후 웹 개발에서 만날 수 있는 <b>TypeScript</b>는 두 방식이 모두 가능합니다.</span><span class="zh">依语言不同，写类型有时是必需的，有时不写也能从值推断出来。第 10 次课以后在 Web 开发中可能遇到的 <b>TypeScript</b>，两种方式都支持。</span></p>
+        <div class="code">
+          <div class="chd"><span class="ko"><span class="fn">TypeScript</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">TypeScript</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+          <pre><code>let price: number = 1200;  // 자료형을 직접 표시
+let count = 3;             // 값으로부터 number라고 추론</code></pre>
+        </div>
+        <p><span class="ko">TypeScript에서는 자료형을 명시하면 그 변수에 다른 자료형의 값을 대입하지 못하도록 <b>검사 단계에서 막습니다.</b> 자료형을 생략하더라도 처음 대입한 값을 보고 추론하므로, 이후 문자열을 넣으면 실행 전에 오류로 알려 줍니다.</span><span class="zh">在 TypeScript 里，一旦写明类型，就会<b>在检查阶段阻止</b>你把别的类型的值赋给该变量。即使省略类型，它也会依据首次赋的值来推断，之后再放字符串，运行前就会报错提醒。</span></p>
+        <div class="code">
+          <div class="chd"><span class="ko"><span class="fn">TypeScript — 둘 다 오류</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">TypeScript — 两个都报错</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+          <pre><code>let price: number = 1200;
+price = "무료";   // 오류: number 변수에 string을 대입할 수 없음
+
+let count = 3;    // number라고 추론
+count = "세 개";  // 오류: number 변수에 string을 대입할 수 없음</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s2c_3">
+    <div class="kick"><span class="ko">2. 자료형 (이어서)</span><span class="zh">2. 数据类型（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">자료형을 직접 적어 두는 방법</span><span class="zh">把类型直接写出来的方法</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:150px"><span class="ko">구분</span><span class="zh">项目</span></th><th><span class="ko">Python의 타입 힌트</span><span class="zh">Python 的类型提示</span></th><th><span class="ko">TypeScript의 자료형</span><span class="zh">TypeScript 的类型</span></th></tr>
+      <tr><td><span class="ko">적는 방법</span><span class="zh">写法</span></td><td><code>price: int = 1200</code></td><td><code>let price: number = 1200</code></td></tr>
+      <tr><td><span class="ko">다른 자료형을 대입하면</span><span class="zh">赋上别的类型时</span></td><td><span class="ko">편집기가 경고할 수 있지만 <b>실행 자체는 허용</b>한다.</span><span class="zh">编辑器可能警告，但<b>运行本身是允许的</b>。</span></td><td><span class="ko">자료형 검사 오류가 발생해 <b>올바른 코드로 인정하지 않는다.</b></span><span class="zh">会产生类型检查错误，<b>不承认它是合法代码</b>。</span></td></tr>
+      <tr><td><span class="ko">생략하면</span><span class="zh">省略时</span></td><td><span class="ko">실행 중 대입된 값에 따라 자료형이 달라질 수 있다.</span><span class="zh">运行中类型会随所赋的值而改变。</span></td><td><span class="ko">처음 대입한 값을 보고 추론하여 이후에도 검사한다.</span><span class="zh">依据首次所赋的值推断，此后也照此检查。</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">이번 수업에서 중요한 것</span><span class="zh">这门课里更重要的是</span></div>
+      <p><span class="ko">Python 자료형 표기를 외우는 것보다 <b>지금 이 값이 어떤 종류이며 그 값으로 어떤 작업을 할 수 있는지 판단하는 것</b>이 훨씬 중요합니다. 표기법은 필요할 때 찾아보면 됩니다.</span><span class="zh">比起背 Python 的类型写法，<b>判断此刻这个值是什么种类、拿它能做什么</b>要重要得多。写法需要时查一下就行。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 변수</span><span class="zh">3. 变量</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">변수는 값에 붙인 이름이다</span><span class="zh">变量是给值起的名字</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">값을 한 번 쓰고 버릴 것이 아니라면, 그 값을 <b>다시 부를 이름</b>이 필요합니다.</span><span class="zh">如果一个值不是用完就丢，就需要一个<b>能再次叫出它的名字</b>。</span></p>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">변수</span><span class="en">variable</span></span><span class="zh"><span class="w">变量</span><span class="en">variable</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">사물함에 이름표를 붙여 둡니다. 다음에 올 때 “내 사물함”이라고 부르면 됩니다. 안에 든 물건이 바뀌어도 이름표는 그대로입니다.</span><span class="zh">在储物柜上贴个名牌。下次来只要说“我的柜子”就行。里面的东西换了，名牌还在。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">값을 기억해 두고 다시 쓰기 위해 붙인 <b>이름</b>입니다.</span><span class="zh">为了记住一个值、以便再次使用而给它起的<b>名字</b>。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">값을 가리키는 이름. 대입을 통해 어떤 값을 가리킬지 정해지며, 다시 대입하면 가리키는 값이 바뀐다.</span><span class="zh">指向值的名字。通过赋值确定它指向哪个值，再次赋值则改变所指的值。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">흔히 ‘값을 담는 상자’라고 하지만, Python에서 변수는 상자보다 <b>이름표</b>에 가깝습니다. 값을 안에 넣어 두는 것이 아니라 값을 가리킵니다.</span><span class="zh">人们常说“装值的盒子”，但在 Python 里，变量更像<b>名牌</b>而不是盒子。它不是把值装在里面，而是指向那个值。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“<code>total</code>이라는 변수에 계산 결과를 넣었다.”</span><span class="zh">“我把计算结果放进了名为 <code>total</code> 的变量。”</span></dd>
+      </dl>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">장바구니를 변수로</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">把购物车写成变量</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>product = "생수"
+price = 1200
+count = 3
+paid = False</code></pre>
+    </div>
+  </section>
+
+  <section class="page" id="s3_2">
+    <div class="kick"><span class="ko">3. 변수</span><span class="zh">3. 变量</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">변수는 값에 붙인 이름이다</span><span class="zh">变量是给值起的名字</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko"><code>=</code>는 ‘같다’가 아니다</span><span class="zh"><code>=</code> 不是“相等”</span></h3>
+
+    <p><span class="ko">수학에서 <code>=</code>는 양쪽이 같다는 뜻입니다. <b>Python에서는 다릅니다.</b> 오른쪽 값을 왼쪽 이름에 <span class="tt">대입한다</span>는 뜻, 즉 <b>“오른쪽 값을 왼쪽 이름으로 기억해라”</b>라는 명령입니다.</span><span class="zh">在数学里 <code>=</code> 表示两边相等。<b>在 Python 里不是</b>。它表示把右边的值<span class="tt">赋给</span>左边的名字，也就是<b>“把右边的值用左边这个名字记下来”</b>这条命令。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><b>price = 1200</b></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>1200이라는 값을 price라는 이름으로 기억한다</b><span>방향이 있다 — 오른쪽에서 왼쪽으로</span></span><span class="zh"><b>把 1200 这个值用 price 这个名字记住</b><span>它是有方向的 — 从右到左</span></span></div>
+    </div>
+
+    <p><span class="ko">방향이 있다는 점이 핵심입니다. 그래서 <code>1200 = price</code>라고는 쓸 수 없습니다. 왼쪽에는 <b>이름</b>이 와야 하기 때문입니다.</span><span class="zh">有方向这一点是关键。所以不能写 <code>1200 = price</code>，因为左边必须是<b>名字</b>。</span></p>
+  </section>
+
+  <section class="page" id="s3_3">
+    <div class="kick"><span class="ko">3. 변수</span><span class="zh">3. 变量</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">변수는 값에 붙인 이름이다</span><span class="zh">变量是给值起的名字</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <figure class="fig">
+      <img class="figimg" src="assets/img/03-1-01-variable-label.png" alt="price라는 이름표가 화살표로 1200이라는 값을 가리키고 있고, 다시 대입하면 같은 이름표가 다른 값을 가리키도록 화살표만 옮겨 가는 모습을 나타낸 그림" data-id="03-1-01-variable-label" data-spec="가로 16:9 · 이름표와 화살표 개념도" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-1. 변수는 상자가 아니라 값을 가리키는 이름표에 가깝다</span><span class="zh">图 3-1-1. 变量不是盒子，更像指向值的名牌</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- ══════════ 3b ══════════ -->
+  <section class="page" id="s3b">
+    <div class="kick"><span class="ko">3. 변수 (이어서)</span><span class="zh">3. 变量（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">값은 바뀌고, 이름은 남는다</span><span class="zh">值会变，名字留下</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">‘변수’라는 이름 자체가 <b>변할 수 있는 수</b>라는 뜻입니다. 같은 이름에 다시 대입하면 가리키는 값이 바뀝니다.</span><span class="zh">“变量”这个词本身就是<b>可变的量</b>的意思。给同一个名字再次赋值，它指向的值就变了。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">실행 전에 결과를 예상해 보세요</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">运行前先预测结果</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>count = 3
+count = 4
+print(count)</code></pre>
+    </div>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">무엇이 출력될까? 그리고 왜 그런가?</span><span class="zh">会输出什么？为什么？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><code>4</code>가 출력됩니다. 코드는 <b>위에서 아래로</b> 실행되므로 먼저 <code>3</code>을 기억했다가 다음 줄에서 <code>4</code>를 다시 대입합니다. <code>print</code>가 실행되는 시점에 <code>count</code>가 가리키는 값은 <code>4</code>입니다.</span><span class="zh">输出 <code>4</code>。代码是<b>从上往下</b>执行的，先记住 <code>3</code>，下一行又赋了 <code>4</code>。执行 <code>print</code> 的那一刻，<code>count</code> 指向的值是 <code>4</code>。</span></p>
+          <p><span class="ko">여기서 <code>count = 3</code>과 <code>count = 4</code>가 모순이 아니라는 점이 중요합니다. 수학이라면 모순이지만, 이것은 <b>순서대로 실행되는 명령</b>이기 때문입니다.</span><span class="zh">这里要紧的是：<code>count = 3</code> 和 <code>count = 4</code> 并不矛盾。若在数学里是矛盾的，但这是<b>按顺序执行的命令</b>。</span></p>
+        </div></details>
+      </div>
+    </div>
+
+    <h3 class="sub"><span class="ko">이름을 잘 짓는 것도 실력이다</span><span class="zh">起好名字也是本事</span></h3>
+
+    <p><span class="ko">변수 이름은 <b>값의 의미가 드러나게</b> 짓습니다. <code>x</code>보다 <code>price</code>가, <code>n</code>보다 <code>student_count</code>가 코드를 읽는 사람에게 훨씬 많은 정보를 줍니다.</span><span class="zh">变量名要起得<b>让值的含义显露出来</b>。比起 <code>x</code>，<code>price</code> 更好；比起 <code>n</code>，<code>student_count</code> 给读代码的人的信息多得多。</span></p>
+  </section>
+
+  <section class="page" id="s3b_2">
+    <div class="kick"><span class="ko">3. 변수 (이어서)</span><span class="zh">3. 变量（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">값은 바뀌고, 이름은 남는다</span><span class="zh">值会变，名字留下</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="row">
+      <div class="pane" style="border-color:var(--danger-line); background:#fffafa">
+        <div class="pt" style="color:var(--danger)"><span class="ko">읽기 어려운 이름</span><span class="zh">难读的名字</span></div>
+        <div class="code" style="margin-top:10px">
+          <div class="chd"><span class="ko"><span class="fn">무엇을 계산하는 코드일까?</span></span><span class="zh"><span class="fn">这是在算什么的代码？</span></span></div>
+          <pre><code>a = 35
+b = 5
+c = a * b
+d = c / 60
+print(d)</code></pre>
+        </div>
+      </div>
+      <div class="pane okp">
+        <div class="pt"><span class="ko">읽히는 이름</span><span class="zh">读得懂的名字</span></div>
+        <div class="code" style="margin-top:10px">
+          <div class="chd"><span class="ko"><span class="fn">주석이 없어도 읽힌다</span></span><span class="zh"><span class="fn">没有注释也读得懂</span></span></div>
+          <pre><code>minutes_per_day = 35
+days = 5
+total_minutes = minutes_per_day * days
+hours = total_minutes / 60
+print(hours)</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <p><span class="ko">두 코드는 <b>완전히 똑같이 동작합니다.</b> 컴퓨터에게는 차이가 없습니다. 차이는 오직 <b>사람이 읽을 때</b> 생깁니다. 그리고 이 수업의 목표가 ‘코드를 읽는 힘’이라는 점을 떠올리면, 이름 짓기는 사소한 취향 문제가 아닙니다.</span><span class="zh">两段代码<b>运行起来完全一样</b>。对计算机来说没有差别。差别只在<b>人读的时候</b>产生。而想到这门课的目标是“读代码的能力”，起名字就不是无关紧要的个人口味问题。</span></p>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">AI에게 요청할 때도 씁니다</span><span class="zh">向 AI 提要求时也用得上</span></div>
+      <p><span class="ko">3-2에서는 AI 또는 교사가 준 코드를 <b>읽고 검증</b>합니다. 그때 가장 먼저 하는 일이 <code>daily_minutes</code>, <code>goal_days</code> 같은 변수 이름에서 <b>무엇을 담은 값인지 알아내는 것</b>입니다. 내가 읽을 수 없는 코드는 검증할 수도 없습니다.</span><span class="zh">3-2 里要<b>读并验证</b> AI 或老师给的代码。那时最先要做的，就是从 <code>daily_minutes</code>、<code>goal_days</code> 这些变量名里<b>看出它装的是什么</b>。我读不懂的代码，也就验证不了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 연산자</span><span class="zh">4. 运算符</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">연산자는 값에 규칙을 적용한다</span><span class="zh">运算符把规则施加到值上</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">연산자</span><span class="en">operator</span></span><span class="zh"><span class="w">运算符</span><span class="en">operator</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">계산기의 <code>+</code>, <code>−</code>, <code>×</code> 버튼. 버튼 자체는 값이 아니라 <b>값을 가지고 무엇을 할지</b> 정하는 기호입니다.</span><span class="zh">计算器上的 <code>+</code>、<code>−</code>、<code>×</code> 键。键本身不是值，而是决定<b>拿值来做什么</b>的符号。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">값을 계산하거나 비교할 때 쓰는 기호입니다.</span><span class="zh">计算或比较值时使用的符号。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">하나 이상의 값에 정해진 규칙을 적용해 새로운 값을 만들어 내는 기호.</span><span class="zh">对一个或多个值施加既定规则，从而产生新值的符号。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">연산자는 <b>새 값을 만들어 낼 뿐</b> 원래 값을 바꾸지 않습니다. <code>5 + 2</code>를 계산해도 <code>5</code>는 그대로 <code>5</code>입니다.</span><span class="zh">运算符<b>只是产生新值</b>，并不改变原来的值。算了 <code>5 + 2</code>，<code>5</code> 还是 <code>5</code>。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“나머지를 구해야 하니 <code>%</code> 연산자를 썼다.”</span><span class="zh">“要求余数，所以用了 <code>%</code> 运算符。”</span></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="page" id="s4_2">
+    <div class="kick"><span class="ko">4. 연산자</span><span class="zh">4. 运算符</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">연산자는 값에 규칙을 적용한다</span><span class="zh">运算符把规则施加到值上</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">산술 연산</span><span class="zh">算术运算</span></h3>
+
+    <table class="kv">
+      <tr><th style="width:80px" class="c"><span class="ko">연산자</span><span class="zh">运算符</span></th><th style="width:130px"><span class="ko">뜻</span><span class="zh">含义</span></th><th style="width:120px"><span class="ko">예</span><span class="zh">例</span></th><th><span class="ko">결과</span><span class="zh">结果</span></th></tr>
+      <tr><td class="c"><code>+</code></td><td><span class="ko">더하기</span><span class="zh">加</span></td><td><code>5 + 2</code></td><td><code>7</code></td></tr>
+      <tr><td class="c"><code>-</code></td><td><span class="ko">빼기</span><span class="zh">减</span></td><td><code>5 - 2</code></td><td><code>3</code></td></tr>
+      <tr><td class="c"><code>*</code></td><td><span class="ko">곱하기</span><span class="zh">乘</span></td><td><code>5 * 2</code></td><td><code>10</code></td></tr>
+      <tr><td class="c"><code>/</code></td><td><span class="ko">나누기</span><span class="zh">除</span></td><td><code>5 / 2</code></td><td><code>2.5</code></td></tr>
+      <tr><td class="c"><code>//</code></td><td><span class="ko">몫</span><span class="zh">商</span></td><td><code>5 // 2</code></td><td><code>2</code></td></tr>
+      <tr><td class="c"><code>%</code></td><td><span class="ko">나머지</span><span class="zh">余数</span></td><td><code>5 % 2</code></td><td><code>1</code></td></tr>
+    </table>
+
+    <p><span class="ko">아래 세 줄을 눈여겨보세요. <code>/</code>는 나눈 결과를 <b>소수까지</b> 주고, <code>//</code>는 <b>몫만</b>, <code>%</code>는 <b>나머지만</b> 줍니다. 이 셋을 헷갈리지 않는 것이 이번 차시의 실용적인 목표 하나입니다.</span><span class="zh">请留意下面三行。<code>/</code> 给出<b>带小数</b>的结果，<code>//</code> 只给<b>商</b>，<code>%</code> 只给<b>余数</b>。不把这三个搞混，是这一课时一个很实用的目标。</span></p>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko"><code>//</code>와 <code>%</code>는 언제 쓰나</span><span class="zh"><code>//</code> 和 <code>%</code> 什么时候用</span></div>
+      <p><span class="ko">“135분은 몇 시간 몇 분인가?”를 구할 때 씁니다. <code>135 // 60</code>은 <b>2</b>(시간), <code>135 % 60</code>은 <b>15</b>(분)입니다. 3-2에서 읽을 코드도 <code>minutes / 60</code>으로 시간을 구하는데, 이때 <code>/</code>와 <code>//</code>의 차이가 결과의 모양을 바꿉니다.</span><span class="zh">求“135 分钟是几小时几分钟”时用。<code>135 // 60</code> 是 <b>2</b>（小时），<code>135 % 60</code> 是 <b>15</b>（分钟）。3-2 里要读的代码也用 <code>minutes / 60</code> 求小时，这时 <code>/</code> 和 <code>//</code> 的差别会改变结果的样子。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko"><code>/</code>의 결과는 항상 소수다</span><span class="zh"><code>/</code> 的结果永远是小数</span></div>
+      <p><span class="ko"><code>4 / 2</code>는 <code>2</code>가 아니라 <code>2.0</code>입니다. 나누어떨어져도 자료형이 <code>float</code>이 됩니다. 결과에 <code>.0</code>이 붙어 있으면 나누기를 거쳤다는 뜻으로 읽으면 됩니다.</span><span class="zh"><code>4 / 2</code> 不是 <code>2</code>，而是 <code>2.0</code>。即使除得尽，类型也会变成 <code>float</code>。看到结果带着 <code>.0</code>，就可以读作“这里经过了除法”。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4b ══════════ -->
+  <section class="page" id="s4b">
+    <div class="kick"><span class="ko">4. 연산자 (이어서)</span><span class="zh">4. 运算符（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">소수점 계산이 어긋나는 이유</span><span class="zh">小数计算为什么会有偏差</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
+
+    <p class="lead"><span class="ko">Python에서 소수를 계산하면 예상과 다른 결과가 나올 때가 있습니다. 처음 보면 “컴퓨터가 틀렸다”고 생각하기 쉽지만, 그렇지 않습니다.</span><span class="zh">在 Python 里做小数计算，有时结果和预期不同。第一次见容易以为“计算机算错了”，其实不是。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">직접 실행해 보세요</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">自己运行看看</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>result = 0.1 + 0.2
+print(result)</code></pre>
+    </div>
+
+    <div class="code out">
+      <div class="chd"><span class="ko"><span class="fn">출력</span></span><span class="zh"><span class="fn">输出</span></span></div>
+      <pre><code>0.30000000000000004</code></pre>
+    </div>
+  </section>
+
+  <section class="page" id="s4b_2">
+    <div class="kick"><span class="ko">4. 연산자 (이어서)</span><span class="zh">4. 运算符（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">소수점 계산이 어긋나는 이유</span><span class="zh">小数计算为什么会有偏差</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이 — 왜 이런 일이 생기는가</span><span class="zh">更深一层 — 为什么会这样</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+      <div class="body">
+        <p><span class="ko">컴퓨터가 직접 실행하는 기계어는 0과 1로 표현되므로 컴퓨터는 <b>2진법</b>을 씁니다. 0 또는 1 한 자리를 <b>비트(bit)</b>라고 하고, 8비트를 묶은 단위를 <b>바이트(byte)</b>라고 합니다.</span><span class="zh">计算机直接执行的机器语言由 0 和 1 表示，所以计算机使用<b>二进制</b>。0 或 1 的一位叫<b>比特（bit）</b>，8 个比特合起来的单位叫<b>字节（byte）</b>。</span></p>
+        <div class="code">
+          <div class="chd"><span class="ko"><span class="fn">단위</span></span><span class="zh"><span class="fn">单位</span></span></div>
+          <pre><code>1 byte = 8 bits</code></pre>
+        </div>
+        <p><span class="ko">8개의 비트로는 서로 다른 <b>256개</b>의 배열을 만들 수 있습니다. 이 배열을 음수가 없는 정수로 읽으면 0부터 255까지 나타낼 수 있습니다. 음수도 필요하다면 같은 256개 배열 가운데 일부를 음수로 해석하도록 약속합니다. 그러면 8비트로 −128부터 127까지 나타냅니다. 지금은 <b>음수 기호를 글자처럼 따로 저장하는 것이 아니라, 정해진 비트 배열을 규칙에 따라 음수로 해석한다</b>는 점만 이해하면 됩니다.</span><span class="zh">8 个比特能组成 <b>256</b> 种不同的排列。把这些排列读成非负整数，可以表示 0 到 255。若也需要负数，就约定把这 256 种排列中的一部分解释为负数，于是 8 比特可表示 −128 到 127。现在只要理解一点：<b>负号并不是像文字那样另外存起来的，而是把既定的比特排列按规则解释成负数</b>。</span></p>
+        <p><span class="ko">소수는 비트를 <b>부호</b>, <b>소수점의 위치를 나타내는 지수</b>, <b>유효숫자</b>로 나누어 저장합니다. 소수점의 위치를 움직여 수를 표현하기 때문에 이를 <b>부동소수점(floating point)</b> 방식이라고 합니다.</span><span class="zh">小数则把比特分成<b>符号</b>、<b>表示小数点位置的指数</b>和<b>有效数字</b>来存储。因为是移动小数点的位置来表示数，所以叫<b>浮点（floating point）</b>方式。</span></p>
+        <div class="stack">
+          <div class="lyr"><span class="ko"><b>부호</b><span>양수인가 음수인가</span></span><span class="zh"><b>符号</b><span>是正还是负</span></span></div>
+          <div class="lyr"><span class="ko"><b>지수</b><span>소수점을 어디에 둘 것인가</span></span><span class="zh"><b>指数</b><span>小数点放在哪里</span></span></div>
+          <div class="lyr hi"><span class="ko"><b>유효숫자</b><span>실제 숫자의 값</span></span><span class="zh"><b>有效数字</b><span>实际数字的值</span></span></div>
+        </div>
+        <p><span class="ko">쓸 수 있는 비트 수는 한정되어 있습니다. 십진수 <code>0.1</code>처럼 2진법으로 <b>정확히 끝나지 않는 소수</b>는 가장 가까운 값으로 저장해야 하므로 아주 작은 오차가 생깁니다. 십진법으로 1/3을 쓰면 <code>0.3333…</code>이 끝없이 이어지는 것과 같은 사정입니다.</span><span class="zh">可用的比特数是有限的。像十进制的 <code>0.1</code> 这种<b>在二进制里除不尽的小数</b>，只能存成最接近的值，于是产生极小的误差。就像十进制写 1/3 会得到 <code>0.3333…</code> 一直延续下去一样。</span></p>
+        <p><span class="ko">즉 이 현상은 <b>Python만의 결함이 아니라 컴퓨터가 소수를 표현하는 방식의 한계</b>입니다. 대부분의 프로그래밍 언어에서 똑같이 나타납니다.</span><span class="zh">也就是说，这个现象<b>不是 Python 的缺陷，而是计算机表示小数这一方式的极限</b>。在大多数编程语言里都一样。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s4b_3">
+    <div class="kick"><span class="ko">4. 연산자 (이어서)</span><span class="zh">4. 运算符（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">소수점 계산이 어긋나는 이유</span><span class="zh">小数计算为什么会有偏差</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">화면에 보여 줄 자릿수를 정할 때는 <code>round()</code>로 반올림할 수 있습니다.</span><span class="zh">要决定在屏幕上显示几位小数时，可以用 <code>round()</code> 四舍五入。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">round( 값, 소수점 자릿수 )</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">round( 值, 小数位数 )</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>result = 0.1 + 0.2
+print(round(result, 2))   # 0.3</code></pre>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">반올림은 해결책이 아니라 표시 방법이다</span><span class="zh">四舍五入是显示手段，不是解决办法</span></div>
+      <p><span class="ko"><code>round()</code>는 <b>화면에 적절한 값을 보여 주는 방법</b>이지 모든 계산을 정확하게 만들어 주지 않습니다. 정확한 금액 계산이 중요하다면 원 단위처럼 <b>정수로 저장</b>하거나 목적에 맞는 별도의 계산 방법을 씁니다.</span><span class="zh"><code>round()</code> 是<b>把合适的值显示出来的方法</b>，并不能让所有计算都变得精确。若精确的金额计算很重要，就像以元为单位那样<b>存成整数</b>，或采用与目的相符的另一套计算方法。</span></p>
+      <p><span class="ko">그러니 AI가 만든 코드가 <b>금액·평균·비율</b>을 계산한다면, 예상값과 실제 출력값을 반드시 함께 확인하세요.</span><span class="zh">所以只要 AI 写的代码涉及<b>金额、平均、比例</b>，就一定要把预期值和实际输出放在一起核对。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4c ══════════ -->
+  <section class="page" id="s4c">
+    <div class="kick"><span class="ko">4. 연산자 (이어서)</span><span class="zh">4. 运算符（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">비교 연산과 <code>=</code> / <code>==</code>의 구분</span><span class="zh">比较运算与 <code>=</code> / <code>==</code> 的区分</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">비교의 결과는 숫자가 아니라 <code>True</code> 또는 <code>False</code>입니다. 앞에서 본 네 자료형 가운데 <code>bool</code>이 여기서 등장합니다.</span><span class="zh">比较的结果不是数字，而是 <code>True</code> 或 <code>False</code>。前面看到的四种类型里，<code>bool</code> 在这里登场。</span></p>
+
+    <table class="kv">
+      <tr><th style="width:90px" class="c"><span class="ko">연산자</span><span class="zh">运算符</span></th><th style="width:150px"><span class="ko">뜻</span><span class="zh">含义</span></th><th style="width:130px"><span class="ko">예</span><span class="zh">例</span></th><th><span class="ko">결과</span><span class="zh">结果</span></th></tr>
+      <tr><td class="c"><code>==</code></td><td><span class="ko">두 값이 같다</span><span class="zh">两个值相等</span></td><td><code>3 == 3</code></td><td><code>True</code></td></tr>
+      <tr><td class="c"><code>!=</code></td><td><span class="ko">두 값이 다르다</span><span class="zh">两个值不等</span></td><td><code>3 != 2</code></td><td><code>True</code></td></tr>
+      <tr><td class="c"><code>&gt;</code></td><td><span class="ko">왼쪽이 더 크다</span><span class="zh">左边更大</span></td><td><code>3 &gt; 2</code></td><td><code>True</code></td></tr>
+      <tr><td class="c"><code>&lt;</code></td><td><span class="ko">왼쪽이 더 작다</span><span class="zh">左边更小</span></td><td><code>3 &lt; 2</code></td><td><code>False</code></td></tr>
+      <tr><td class="c"><code>&gt;=</code></td><td><span class="ko">왼쪽이 크거나 같다</span><span class="zh">左边大于或等于</span></td><td><code>3 &gt;= 3</code></td><td><code>True</code></td></tr>
+      <tr><td class="c"><code>&lt;=</code></td><td><span class="ko">왼쪽이 작거나 같다</span><span class="zh">左边小于或等于</span></td><td><code>3 &lt;= 2</code></td><td><code>False</code></td></tr>
+    </table>
+
+    <h3 class="sub"><span class="ko">이 한 글자 차이가 가장 흔한 실수다</span><span class="zh">这一个字符之差，是最常见的错误</span></h3>
+
+    <div class="row">
+      <div class="pane accent">
+        <div class="pt"><span class="ko"><code>=</code> 대입</span><span class="zh"><code>=</code> 赋值</span></div>
+        <p><span class="ko"><b>넣어라.</b> 오른쪽 값을 왼쪽 이름으로 기억한다.</span><span class="zh"><b>放进去。</b>把右边的值用左边的名字记住。</span></p>
+        <div class="code" style="margin-top:10px"><div class="chd"><span class="ko"><span class="fn">대입</span></span><span class="zh"><span class="fn">赋值</span></span></div><pre><code>count = 3</code></pre></div>
+        <p><span class="ko">결과값이 없다. <b>명령</b>이다.</span><span class="zh">没有结果值。它是一条<b>命令</b>。</span></p>
+      </div>
+      <div class="pane">
+        <div class="pt"><span class="ko"><code>==</code> 비교</span><span class="zh"><code>==</code> 比较</span></div>
+        <p><span class="ko"><b>같은가?</b> 두 값이 같은지 확인한다.</span><span class="zh"><b>相等吗？</b>确认两个值是否相同。</span></p>
+        <div class="code" style="margin-top:10px"><div class="chd"><span class="ko"><span class="fn">비교</span></span><span class="zh"><span class="fn">比较</span></span></div><pre><code>count == 3</code></pre></div>
+        <p><span class="ko"><code>True</code> 또는 <code>False</code>가 <b>결과값</b>으로 나온다.</span><span class="zh">会得到 <code>True</code> 或 <code>False</code> 作为<b>结果值</b>。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s4c_2">
+    <div class="kick"><span class="ko">4. 연산자 (이어서)</span><span class="zh">4. 运算符（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">비교 연산과 <code>=</code> / <code>==</code>의 구분</span><span class="zh">比较运算与 <code>=</code> / <code>==</code> 的区分</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">3-2에서 조건문을 배우면 <code>if count == 3:</code> 같은 코드를 만나게 됩니다. 그때 <code>=</code>를 하나만 쓰면 “비교하려던 자리에서 값을 바꿔 버리는” 일이 생깁니다. 지금 확실히 갈라 두면 그때 고생하지 않습니다.</span><span class="zh">3-2 学到条件语句时，你会遇到 <code>if count == 3:</code> 这样的代码。那时若只写一个 <code>=</code>，就会出现“本想比较，却把值改掉了”的事。现在把它分清楚，到时候就不用受苦。</span></p>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko"><code>=</code>와 <code>==</code>의 차이를 짝에게 한 문장씩으로 설명해 보세요. 각각 “무엇을 하는가”와 “결과가 있는가”를 넣어서 말해 보면 좋습니다.</span><span class="zh">请各用一句话，向同桌说明 <code>=</code> 和 <code>==</code> 的区别。分别把“它做什么”和“有没有结果”说进去会更好。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. 코드 읽기</span><span class="zh">5. 读代码</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">입력 · 처리 · 출력으로 코드 읽기</span><span class="zh">按输入 · 处理 · 输出来读代码</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">2-2에서 <code>print(name + "님, ...")</code>을 세 칸으로 나눠 읽었습니다. 그 방법을 이제 정식으로 씁니다. 아무리 짧은 프로그램도 <b>입력(input) → 처리(process) → 출력(output)</b>의 흐름으로 읽을 수 있습니다.</span><span class="zh">2-2 里我们把 <code>print(name + "님, ...")</code> 分成三格来读。现在正式用这个方法。再短的程序也能按<b>输入（input）→ 处理（process）→ 输出（output）</b>的流程来读。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">총액 계산</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">总额计算</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>price = 1200
+count = 3
+total = price * count
+print(total)</code></pre>
+    </div>
+
+    <div class="iot">
+      <div class="b"><div class="h"><span class="ko">입력</span><span class="zh">输入</span></div><p><span class="ko">코드에 적힌 가격 <code>1200</code>과 수량 <code>3</code></span><span class="zh">写在代码里的价格 <code>1200</code> 和数量 <code>3</code></span></p></div>
+      <div class="b"><div class="h"><span class="ko">처리</span><span class="zh">处理</span></div><p><span class="ko">둘을 곱해서 <code>total</code>에 저장</span><span class="zh">两者相乘并存入 <code>total</code></span></p></div>
+      <div class="b"><div class="h"><span class="ko">출력</span><span class="zh">输出</span></div><p><span class="ko"><code>print</code>가 합계를 화면에 표시</span><span class="zh"><code>print</code> 把合计显示到屏幕上</span></p></div>
+    </div>
+
+    <p><span class="ko">지금은 입력이 <b>코드에 직접 적혀</b> 있습니다. 그러나 실제 프로그램에서 입력은 키보드, 파일, 센서나 웹 요청에서 들어옵니다. 10회 이후 웹서비스를 만들 때는 브라우저가 보낸 요청이 입력이 됩니다.</span><span class="zh">现在输入是<b>直接写在代码里</b>的。但在真实程序里，输入来自键盘、文件、传感器或网络请求。第 10 次课以后做网络服务时，浏览器发来的请求就是输入。</span></p>
+
+    <h3 class="sub"><span class="ko">키보드에서 값을 받기</span><span class="zh">从键盘接收值</span></h3>
+
+    <p><span class="ko">사용자가 직접 값을 넣게 하려면 <code>input()</code>을 씁니다.</span><span class="zh">想让用户自己填值，就用 <code>input()</code>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">input() 으로 받기</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">用 input() 接收</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>name = input("이름을 입력하세요: ")
+print(name + "님, 반갑습니다.")</code></pre>
+    </div>
+
+    <p><span class="ko">괄호 안의 글자는 사용자에게 보여 줄 <b>안내 문구</b>입니다. 실행하면 프로그램이 멈추고 사용자가 입력할 때까지 기다립니다. 그리고 사용자가 입력한 값이 <code>name</code>에 대입됩니다.</span><span class="zh">括号里的文字是给用户看的<b>提示语</b>。运行后程序会停下来，等用户输入。用户输入的值随后被赋给 <code>name</code>。</span></p>
+  </section>
+
+  <section class="page" id="s5_2">
+    <div class="kick"><span class="ko">5. 코드 읽기</span><span class="zh">5. 读代码</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">입력 · 처리 · 출력으로 코드 읽기</span><span class="zh">按输入 · 处理 · 输出来读代码</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note">
+      <div class="nt"><span class="ko">Notebook에서 <code>input()</code>을 실행하면</span><span class="zh">在 Notebook 里运行 <code>input()</code> 时</span></div>
+      <p><span class="ko">셀 위쪽에 입력 칸이 나타나고 셀은 <b>실행 중</b> 상태로 멈춰 있습니다. 값을 입력하고 <code>Enter</code>를 눌러야 다음으로 넘어갑니다. 입력 칸을 못 보고 “멈췄다”고 오해하기 쉬우니 기억해 두세요.</span><span class="zh">单元格上方会出现输入框，而单元格停在<b>运行中</b>状态。必须输入值并按 <code>Enter</code> 才会往下走。很容易没看见输入框就误以为“卡住了”，请记住这一点。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5b ══════════ -->
+  <section class="page" id="s5b">
+    <div class="kick"><span class="ko">5. 코드 읽기 (이어서)</span><span class="zh">5. 读代码（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko"><code>input()</code>은 언제나 문자열을 준다</span><span class="zh"><code>input()</code> 给的永远是字符串</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">여기가 이번 차시에서 <b>가장 자주 사고가 나는 지점</b>입니다. 앞에서 “숫자처럼 보이지만 문자열인 값”을 경고했는데, 그 값을 만들어 내는 주범이 바로 <code>input()</code>입니다.</span><span class="zh">这里是这一课时<b>最常出事的地方</b>。前面提醒过“看着像数字其实是字符串的值”，而造出这种值的罪魁祸首正是 <code>input()</code>。</span></p>
+
+    <p><span class="ko"><code>input()</code>으로 받은 값은 <b>기본적으로 문자열</b>입니다. 사용자가 <code>3</code>을 입력해도 Python은 우선 <code>"3"</code>이라는 <b>글자</b>로 받습니다. 화면에는 똑같이 3으로 보이지만 계산은 되지 않습니다.</span><span class="zh">用 <code>input()</code> 接到的值<b>默认是字符串</b>。用户就算输入 <code>3</code>，Python 先收到的也是 <code>"3"</code> 这个<b>文字</b>。屏幕上一样显示 3，却算不了。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">자료형을 바꿔야 계산할 수 있다</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">换了类型才能计算</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>count_text = input("수량을 입력하세요: ")
+count = int(count_text)
+print(count * 2)</code></pre>
+    </div>
+
+    <p><span class="ko"><code>int()</code>는 <b>정수로 바꿀 수 있는 문자열</b>을 정수로 변환합니다. 변수 이름을 <code>count_text</code>와 <code>count</code>로 나눠 둔 것도 의도적입니다. 이름만 봐도 <b>어느 쪽이 글자이고 어느 쪽이 숫자인지</b> 드러납니다.</span><span class="zh"><code>int()</code> 把<b>能转成整数的字符串</b>转成整数。把变量名分成 <code>count_text</code> 和 <code>count</code> 也是有意为之：光看名字就知道<b>哪个是文字、哪个是数字</b>。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>사용자가 키보드로 3을 입력</b></span><span class="zh"><b>用户用键盘输入 3</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>input() 이 "3" 을 준다</b><span>자료형: str — 아직 계산 불가</span></span><span class="zh"><b>input() 给出 "3"</b><span>类型：str — 还不能计算</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>int() 가 3 으로 바꾼다</b><span>자료형: int — 이제 계산 가능</span></span><span class="zh"><b>int() 把它变成 3</b><span>类型：int — 现在可以计算了</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><b>count * 2 → 6</b></div>
+    </div>
+  </section>
+
+  <section class="page" id="s5b_2">
+    <div class="kick"><span class="ko">5. 코드 읽기 (이어서)</span><span class="zh">5. 读代码（续）</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko"><code>input()</code>은 언제나 문자열을 준다</span><span class="zh"><code>input()</code> 给的永远是字符串</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">바꿀 수 없는 입력이 들어오면</span><span class="zh">万一进来的是转不了的输入</span></div>
+      <p><span class="ko">사용자가 <code>세 개</code>처럼 숫자가 아닌 글자를 입력하면 <code>int()</code>가 변환할 수 없어 오류가 납니다. 이런 입력을 안전하게 다루는 방법은 <b>3-2에서 조건문을 배운 뒤</b>에 나옵니다.</span><span class="zh">用户若输入<code>三个</code>这样的非数字文字，<code>int()</code> 转不了就会报错。安全处理这类输入的方法，要等 <b>3-2 学过条件语句之后</b>才出现。</span></p>
+      <p><span class="ko">지금 기억할 것은 하나입니다. <b>사용자의 입력은 언제나 예상과 다를 수 있다.</b> 이 관점은 뒤에서 <b>직접 만든 서비스를 시험할 때</b>까지 그대로 이어집니다.</span><span class="zh">现在只要记住一句：<b>用户的输入随时可能出乎预料</b>。这个视角会一直延伸到后面<b>测试自己做的服务</b>的时候。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. 출력</span><span class="zh">6. 输出</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">출력은 읽는 사람을 고려해야 한다</span><span class="zh">输出要替读的人着想</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">값 하나만 출력하면 그 프로그램을 만든 사람 외에는 뜻을 알 수 없습니다.</span><span class="zh">只输出一个值，除了写这个程序的人以外，别人看不懂它是什么意思。</span></p>
+
+    <div class="row">
+      <div class="pane">
+        <div class="pt"><span class="ko">이것만 보면</span><span class="zh">只看这个的话</span></div>
+        <div class="code" style="margin-top:10px"><div class="chd"><span class="ko"><span class="fn">코드</span></span><span class="zh"><span class="fn">代码</span></span></div><pre><code>total = 3600
+print(total)</code></pre></div>
+        <div class="code out" style="margin-top:8px"><div class="chd"><span class="ko"><span class="fn">출력</span></span><span class="zh"><span class="fn">输出</span></span></div><pre><code>3600</code></pre></div>
+        <p><span class="ko">3600이 <b>무엇</b>인지 알 수 없습니다. 금액인지, 초인지, 사람 수인지.</span><span class="zh">不知道 3600 是<b>什么</b>。是金额、是秒数，还是人数？</span></p>
+      </div>
+      <div class="pane accent">
+        <div class="pt"><span class="ko">이렇게 하면</span><span class="zh">这样写的话</span></div>
+        <div class="code" style="margin-top:10px"><div class="chd"><span class="ko"><span class="fn">코드</span></span><span class="zh"><span class="fn">代码</span></span></div><pre><code>total = 3600
+print(f"총 금액은 {total}원입니다.")</code></pre></div>
+        <div class="code out" style="margin-top:8px"><div class="chd"><span class="ko"><span class="fn">출력</span></span><span class="zh"><span class="fn">输出</span></span></div><pre><code>총 금액은 3600원입니다.</code></pre></div>
+        <p><span class="ko">무엇을 계산한 값이며 <b>단위</b>가 무엇인지 드러납니다.</span><span class="zh">算的是什么、<b>单位</b>是什么，都显出来了。</span></p>
+      </div>
+    </div>
+
+    <h3 class="sub">f-string</h3>
+
+    <p><span class="ko">문자열 앞에 붙인 <code>f</code>는 문자열 안의 <code>{}</code> 자리에 변수 값을 넣을 수 있게 합니다. 이를 <span class="tt">f-string</span>이라고 합니다.</span><span class="zh">字符串前面加的 <code>f</code>，让字符串里 <code>{}</code> 的位置可以填入变量的值。这叫 <span class="tt">f-string</span>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">f-string 의 구조</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">f-string 的结构</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>total = 3600
+print(f"총 금액은 {total}원입니다.")
+#     ↑              ↑
+#     f를 붙인다      {} 안에 변수 이름</code></pre>
+    </div>
+
+    <p><span class="ko"><code>f</code>를 빠뜨리면 어떻게 될까요? <code>{total}</code>이 값으로 바뀌지 않고 <b>글자 그대로</b> 출력됩니다. 이것도 오류가 나지 않으므로, 출력 결과를 직접 보고 알아채야 합니다.</span><span class="zh">漏了 <code>f</code> 会怎样？<code>{total}</code> 不会被换成值，而是<b>原样</b>打出来。这也不会报错，所以只能靠自己看输出结果才发现。</span></p>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick"><span class="ko">6. 출력</span><span class="zh">6. 输出</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">출력은 읽는 사람을 고려해야 한다</span><span class="zh">输出要替读的人着想</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="code out">
+      <div class="chd"><span class="ko"><span class="fn">f 를 빠뜨린 경우의 출력</span></span><span class="zh"><span class="fn">漏掉 f 时的输出</span></span></div>
+      <pre><code>총 금액은 {total}원입니다.</code></pre>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">단위를 붙이는 습관</span><span class="zh">加上单位的习惯</span></div>
+      <p><span class="ko">출력에 <b>단위</b>를 함께 적으면 계산 실수를 스스로 발견하게 됩니다. “총 학습 시간은 175시간입니다”라는 문장이 나오면 “일주일에 175시간? 이상한데?” 하고 곧바로 알아챌 수 있습니다. 단위 없이 <code>175</code>만 나왔다면 그냥 지나쳤을 것입니다.</span><span class="zh">输出时把<b>单位</b>一并写上，能让你自己发现算错。看到“总学习时间是 175 小时”这句，就会立刻反应过来“一周 175 小时？不对劲吧？”。要是只出来一个 <code>175</code>，八成就放过去了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. AI 코드 검증</span><span class="zh">7. 验证 AI 的代码</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">AI가 만든 코드를 읽는 네 가지 질문</span><span class="zh">读 AI 写的代码要问的四个问题</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">AI가 다음 코드를 만들었다고 해 봅시다. 실행하기 전에 읽습니다.</span><span class="zh">假设下面这段代码是 AI 写的。运行之前先读。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI가 생성한 코드</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 生成的代码</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>minutes_per_day = 35
+days = 5
+total_minutes = minutes_per_day * days
+hours = total_minutes / 60
+print(f"총 학습 시간은 {hours}시간입니다.")</code></pre>
+    </div>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">네 가지 질문</span><span class="zh">四个问题</span></div>
+      <ol>
+        <li><span class="ko"><b>입력값은 무엇이며 단위는 무엇인가?</b><br/>하루 35, 5일. 변수 이름의 <code>minutes</code>를 보면 단위는 <b>분</b>이다.</span><span class="zh"><b>输入值是什么，单位是什么？</b><br/>每天 35，共 5 天。从变量名里的 <code>minutes</code> 可知单位是<b>分钟</b>。</span></li>
+        <li><span class="ko"><b>각 변수 이름은 값의 의미를 잘 나타내는가?</b><br/><code>minutes_per_day</code>, <code>days</code>, <code>total_minutes</code>는 뜻이 드러난다. 다만 <code>hours</code>는 나눗셈 결과이므로 소수가 나온다는 점을 이름만으로는 알 수 없다.</span><span class="zh"><b>各个变量名是否把值的含义表达清楚了？</b><br/><code>minutes_per_day</code>、<code>days</code>、<code>total_minutes</code> 含义明确。只是 <code>hours</code> 是除法结果、会得到小数这一点，光看名字看不出来。</span></li>
+        <li><span class="ko"><b>어떤 계산을 거쳐 결과가 만들어지는가?</b><br/>35 × 5 = 175분, 175 ÷ 60 ≈ 2.9166… 시간.</span><span class="zh"><b>经过什么计算得出结果？</b><br/>35 × 5 = 175 分钟，175 ÷ 60 ≈ 2.9166… 小时。</span></li>
+        <li><span class="ko"><b>예상 출력값은 현실적으로 맞는가?</b><br/>“총 학습 시간은 2.9166666666666665시간입니다.” 값은 맞지만 <b>보여 주기에는 적절하지 않다.</b> <code>round()</code>를 쓰거나 <code>//</code>·<code>%</code>로 ‘2시간 55분’으로 바꾸는 편이 낫다.</span><span class="zh"><b>预期的输出值在现实中说得通吗？</b><br/>“总学习时间是 2.9166666666666665 小时。”值没错，但<b>不适合这样展示</b>。用 <code>round()</code>，或用 <code>//</code>、<code>%</code> 换成“2 小时 55 分钟”更好。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page" id="s7_2">
+    <div class="kick"><span class="ko">7. AI 코드 검증</span><span class="zh">7. 验证 AI 的代码</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">AI가 만든 코드를 읽는 네 가지 질문</span><span class="zh">读 AI 写的代码要问的四个问题</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">실행된다는 것과 맞다는 것은 다르다</span><span class="zh">能运行和对，是两回事</span></div>
+      <p><span class="ko">코드가 <b>문법적으로 실행된다</b>는 사실과 <b>계산의 뜻이 올바르다</b>는 사실은 완전히 다른 이야기입니다.</span><span class="zh">代码<b>在语法上跑得起来</b>，和<b>计算的含义正确</b>，完全是两码事。</span></p>
+      <p><span class="ko">예를 들어 하루 학습 시간을 <b>분</b>으로 넣었는데 AI가 이를 <b>시간</b>으로 착각해 <code>total_hours = hours_per_day * days</code>라고 만들었다고 해 봅시다. 코드는 오류 없이 실행되고 <code>175</code>라는 숫자도 나옵니다. 그런데 “일주일에 175시간 공부했다”는 결과는 <b>한 주가 168시간</b>이라는 사실과 어긋납니다.</span><span class="zh">比如说，你把每天的学习时间按<b>分钟</b>填了进去，AI 却误当成<b>小时</b>，写成了 <code>total_hours = hours_per_day * days</code>。代码不报错，也确实出来一个 <code>175</code>。可“一周学了 175 小时”这个结果，和<b>一周只有 168 小时</b>这个事实是冲突的。</span></p>
+      <p><span class="ko">이런 오류는 컴퓨터가 잡아 주지 않습니다. <b>단위와 현실의 크기를 아는 사람만</b> 잡을 수 있습니다.</span><span class="zh">这种错误计算机不会替你抓。<b>只有懂单位、也懂现实量级的人</b>才抓得住。</span></p>
+    </div>
+
+    <p><span class="ko">1-2에서 “컴퓨터는 틀린 규칙도 성실하게 실행한다”라고 했습니다. 이것이 그 문장의 구체적인 사례입니다.</span><span class="zh">1-2 里说过“电脑连错的规则也会一丝不苟地执行”。这就是那句话的具体例子。</span></p>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. 오개념 점검</span><span class="zh">8. 误区检查</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">흔한 오해와 잘못된 설명</span><span class="zh">常见的误解与错误说法</span></h2>
+
+    <div class="myth">
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“변수는 값을 담는 상자다.”</span><span class="zh">“变量是装值的盒子。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">입문 단계에서는 상자 비유가 도움이 됩니다. 다만 Python에서 변수는 값 자체를 담는 그릇이라기보다 <b>값을 가리키는 이름</b>에 가깝습니다. 지금은 “변수로 값을 기억하고 다시 쓴다”를 이해하면 충분하고, 상자 비유가 안 맞는 상황은 나중에 만나게 됩니다.</span><span class="zh">入门阶段用盒子作比喻是有帮助的。只是在 Python 里，变量与其说是装值的容器，不如说更接近<b>指向值的名字</b>。现在理解“用变量记住值并再次使用”就够了，盒子比喻不适用的场合以后会遇到。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“따옴표는 보기 좋으라고 붙이는 꾸미기다.”</span><span class="zh">“引号是为了好看才加的装饰。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">따옴표는 글자를 <b>문자열 값으로 구분하는 문법</b>입니다. <code>hello</code>는 변수 이름으로 해석되지만 <code>"hello"</code>는 문자열 값입니다. 따옴표를 빼면 “그런 이름이 없다”는 <code>NameError</code>가 납니다.</span><span class="zh">引号是把文字<b>标记成字符串值的语法</b>。<code>hello</code> 会被当作变量名，而 <code>"hello"</code> 是字符串值。去掉引号就会报“没有这个名字”的 <code>NameError</code>。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“<code>1200</code>과 <code>"1200"</code>은 결국 같은 값이다.”</span><span class="zh">“<code>1200</code> 和 <code>"1200"</code> 说到底是同一个值。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">자료형이 다르므로 <b>다른 값</b>입니다. 앞은 계산할 수 있는 <code>int</code>, 뒤는 이어 붙일 수 있는 <code>str</code>입니다. <code>"1200" + "300"</code>은 <code>1500</code>이 아니라 <code>1200300</code>이 됩니다.</span><span class="zh">类型不同，所以是<b>不同的值</b>。前者是能计算的 <code>int</code>，后者是能拼接的 <code>str</code>。<code>"1200" + "300"</code> 不是 <code>1500</code>，而是 <code>1200300</code>。</span></div></div>
+    </div>
+  </section>
+
+  <section class="page" id="s8_i2">
+    <div class="kick"><span class="ko">8. 오개념 점검</span><span class="zh">8. 误区检查</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">흔한 오해와 잘못된 설명</span><span class="zh">常见的误解与错误说法</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="myth">
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“<code>=</code>는 양쪽이 같다는 뜻이다.”</span><span class="zh">“<code>=</code> 表示两边相等。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">Python에서 <code>=</code>는 <b>대입</b>, 즉 “오른쪽 값을 왼쪽 이름으로 기억해라”라는 명령입니다. 같은지 비교하는 것은 <code>==</code>입니다. 그래서 <code>count = 3</code> 다음 줄의 <code>count = 4</code>는 모순이 아닙니다.</span><span class="zh">在 Python 里 <code>=</code> 是<b>赋值</b>，即“把右边的值用左边的名字记住”这条命令。判断是否相等的是 <code>==</code>。所以 <code>count = 3</code> 下一行的 <code>count = 4</code> 并不矛盾。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“<code>0.1 + 0.2</code>가 <code>0.3</code>이 아니면 Python이 고장 난 것이다.”</span><span class="zh">“<code>0.1 + 0.2</code> 不等于 <code>0.3</code>，那是 Python 坏了。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">컴퓨터가 소수를 2진법의 <b>부동소수점</b>으로 저장하기 때문에 생기는 표현의 한계이며, 대부분의 언어에서 똑같이 나타납니다. <code>round()</code>는 화면 표시를 다듬을 뿐이고, 정확한 금액 계산에는 정수 저장 같은 별도 방법을 씁니다.</span><span class="zh">这是计算机用二进制<b>浮点</b>存储小数所带来的表示极限，大多数语言都一样。<code>round()</code> 只是修饰显示，精确的金额计算要用存成整数之类的另一套办法。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“오류 없이 실행되면 답이 맞는 것이다.”</span><span class="zh">“没报错就说明答案对。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">아닙니다. 단위를 잘못 넣거나 계산식을 잘못 세우면 <b>오류 없이 틀린 답</b>이 나옵니다. 실행 결과를 미리 예상하고, 나온 값을 현실의 의미와 비교해야 합니다.</span><span class="zh">不是。单位填错或算式列错，就会得到<b>不报错的错答案</b>。要先预测运行结果，再把得到的值和现实含义对照。</span></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">9. 확인하기</span><span class="zh">9. 检查</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+
+    <p class="lead"><span class="ko">다음 코드의 출력 결과를 <b>실행 전에</b> 예상해 보세요.</span><span class="zh">请<b>在运行之前</b>预测下面代码的输出结果。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">확인 문제 코드</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">检查题代码</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>price = 1500
+count = 4
+discount = 1000
+total = price * count - discount
+print(f"결제 금액: {total}원")</code></pre>
+    </div>
+  </section>
+
+  <section class="page" id="s9_2">
+    <div class="kick"><span class="ko">9. 확인하기</span><span class="zh">9. 检查</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">네 변수의 값은 각각 무엇인가?</span><span class="zh">四个变量的值分别是什么？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><code>price</code>는 1500, <code>count</code>는 4, <code>discount</code>는 1000입니다. <code>total</code>은 계산 결과인 <b>5000</b>입니다. (1500 × 4 = 6000, 6000 − 1000 = 5000)</span><span class="zh"><code>price</code> 是 1500，<code>count</code> 是 4，<code>discount</code> 是 1000。<code>total</code> 是计算结果 <b>5000</b>。（1500 × 4 = 6000，6000 − 1000 = 5000）</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">처리에 사용된 연산자는 무엇인가?</span><span class="zh">处理中用到了哪些运算符？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">곱하기 <code>*</code>와 빼기 <code>-</code>가 쓰였습니다. 곱하기가 빼기보다 먼저 계산된다는 점도 확인하세요. 수학과 같은 순서입니다.</span><span class="zh">用了乘 <code>*</code> 和减 <code>-</code>。也请确认乘法先于减法计算，顺序和数学一样。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">출력 결과는 무엇인가?</span><span class="zh">输出结果是什么？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><code>결제 금액: 5000원</code>이 출력됩니다. f-string 덕분에 <code>{total}</code> 자리에 5000이 들어갑니다.</span><span class="zh">输出 <code>결제 금액: 5000원</code>。多亏 f-string，<code>{total}</code> 的位置填进了 5000。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko"><code>discount = "1000"</code>으로 바꾸면 왜 문제가 생길까?</span><span class="zh">改成 <code>discount = "1000"</code> 为什么会出问题？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><code>"1000"</code>은 <b>문자열</b>이므로 정수 계산 결과에서 문자열을 뺄 수 없습니다. <code>TypeError</code>가 발생합니다.</span><span class="zh"><code>"1000"</code> 是<b>字符串</b>，不能从整数计算结果里减去一个字符串，会产生 <code>TypeError</code>。</span></p>
+          <p><span class="ko">주목할 점은 <b>이번엔 오류가 나 준다</b>는 것입니다. 빼기는 숫자와 글자 사이에 뜻을 만들 수 없으니 Python이 멈춰 줍니다. 반면 <code>+</code>였다면 상황에 따라 오류 없이 엉뚱한 결과가 나올 수도 있습니다. <b>오류가 나 주는 편이 오히려 다행인 경우</b>입니다.</span><span class="zh">值得注意的是<b>这次它肯报错</b>。减法在数字和文字之间构不成意义，所以 Python 停了下来。反过来若是 <code>+</code>，视情况可能不报错却给出离谱的结果。<b>肯报错反倒是件好事</b>。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko"><code>count</code>를 <code>input()</code>으로 받도록 바꾸면 어디를 더 손봐야 할까?</span><span class="zh">如果把 <code>count</code> 改成用 <code>input()</code> 接收，还要动哪里？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><code>input()</code>은 문자열을 주므로 <code>int()</code>로 변환해야 합니다. 변환하지 않고 <code>price * count</code>를 하면, 숫자 × 문자열은 <b>그 문자열을 여러 번 반복하는</b> 뜻이 되어 <code>"4"</code>가 1500번 이어 붙은 이상한 결과가 나옵니다. 오류조차 나지 않으므로 더 위험합니다.</span><span class="zh"><code>input()</code> 给的是字符串，所以要用 <code>int()</code> 转换。不转换就做 <code>price * count</code>，数字 × 字符串的含义是<b>把那个字符串重复若干次</b>，于是得到 <code>"4"</code> 连着重复 1500 次的怪结果。而且连错都不报，更危险。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">10. 정리</span><span class="zh">10. 小结</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko"><b>값</b>은 프로그램이 다루는 데이터 하나이며, <b>자료형</b>은 값의 종류다. 종류에 따라 할 수 있는 연산이 정해진다.</span><span class="zh"><b>值</b>是程序处理的一条数据，<b>数据类型</b>是值的种类。种类决定了能做什么运算。</span></li>
+        <li><span class="ko">먼저 쓰는 네 자료형은 <code>int</code>·<code>float</code>·<code>str</code>·<code>bool</code>이다.</span><span class="zh">先用的四种类型是 <code>int</code>、<code>float</code>、<code>str</code>、<code>bool</code>。</span></li>
+        <li><span class="ko"><code>1200</code>과 <code>"1200"</code>은 <b>다른 값</b>이다. 같은 <code>+</code>도 자료형에 따라 더하기가 되기도, 이어 붙이기가 되기도 한다.</span><span class="zh"><code>1200</code> 和 <code>"1200"</code> 是<b>不同的值</b>。同一个 <code>+</code>，依类型可能是相加，也可能是拼接。</span></li>
+        <li><span class="ko">Python은 <b>대입한 값을 보고</b> 자료형을 정한다. <code>type()</code>으로 확인할 수 있다.</span><span class="zh">Python <b>看你赋的值</b>来定类型。可以用 <code>type()</code> 查看。</span></li>
+        <li><span class="ko"><b>변수</b>는 값을 기억하고 다시 쓰기 위해 붙인 이름이다. 이름은 값의 의미가 드러나게 짓는다.</span><span class="zh"><b>变量</b>是为记住值并再次使用而起的名字。名字要起得让值的含义显露出来。</span></li>
+        <li><span class="ko"><code>=</code>는 <b>대입</b>이고 <code>==</code>는 <b>같은지 비교</b>하는 연산자다.</span><span class="zh"><code>=</code> 是<b>赋值</b>，<code>==</code> 是判断<b>是否相等</b>的运算符。</span></li>
+        <li><span class="ko"><code>/</code>는 소수까지, <code>//</code>는 몫만, <code>%</code>는 나머지만 준다.</span><span class="zh"><code>/</code> 给到小数，<code>//</code> 只给商，<code>%</code> 只给余数。</span></li>
+        <li><span class="ko">소수 계산에는 <b>부동소수점</b>의 표현 한계로 작은 오차가 생길 수 있다. <code>round()</code>는 표시를 다듬을 뿐이다.</span><span class="zh">小数计算会因<b>浮点</b>表示的极限而产生微小误差。<code>round()</code> 只是修饰显示。</span></li>
+        <li><span class="ko">코드는 <b>입력 · 처리 · 출력</b>의 흐름으로 읽는다.</span><span class="zh">代码按<b>输入 · 处理 · 输出</b>的流程来读。</span></li>
+        <li><span class="ko"><code>input()</code>의 결과는 <b>문자열</b>이므로 숫자 계산에는 <code>int()</code> 같은 변환이 필요하다.</span><span class="zh"><code>input()</code> 的结果是<b>字符串</b>，要做数字计算就需要 <code>int()</code> 之类的转换。</span></li>
+        <li><span class="ko">출력에는 <b>설명과 단위</b>를 함께 넣는다. f-string을 쓰면 값이 문장 안으로 들어간다.</span><span class="zh">输出里要一并写上<b>说明和单位</b>。用 f-string 可以把值放进句子里。</span></li>
+        <li><span class="ko">실행 성공만 확인하지 말고 <b>값의 뜻, 단위, 예상 결과</b>를 검증한다.</span><span class="zh">不要只确认运行成功，还要验证<b>值的含义、单位与预期结果</b>。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s10_3">
+    <div class="kick"><span class="ko">10. 정리</span><span class="zh">10. 小结</span><b>3-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">지금까지는 값 하나하나에 이름을 붙여 계산했습니다. 그런데 값이 다섯 개, 서른 개가 되면 어떻게 할까요? 그리고 “정한 범위를 넘었는가”처럼 <b>상황에 따라 다르게 행동하는</b> 코드는 어떻게 쓸까요?</span><span class="zh">到现在为止，我们都是给每一个值起名字来计算。可要是值有五个、三十个呢？还有，像“是否超出了规定范围”这种<b>依情况而行为不同</b>的代码，又该怎么写？</span></p>
+      <p><span class="ko">다음 차시에서는 <b>리스트·튜플·조건문·반복문·함수·딕셔너리</b>를 하나씩 익힌 뒤, 그 여섯이 모두 들어 있는 코드 하나를 끝까지 읽고 검증합니다. 오늘 배운 <code>type()</code>과 <code>=</code>·<code>==</code>의 구분이 그 코드를 읽는 열쇠가 됩니다.</span><span class="zh">下一课时会逐个掌握<b>列表、元组、条件语句、循环、函数、字典</b>，然后把这六样全都用上的一段代码从头读到尾并加以验证。今天学的 <code>type()</code> 以及 <code>=</code> 与 <code>==</code> 的区分，就是读那段代码的钥匙。</span></p>
+      <a class="next" href="03-2.html">3-2. 코드의 흐름과 오류 읽기 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="02-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">2-2. Python 실습 환경 준비하기</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="03-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">3-2. 코드의 흐름과 오류 읽기</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

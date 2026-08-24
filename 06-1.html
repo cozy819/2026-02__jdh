@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>6-1. 서비스 기획의 기초 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 6-1 — 서비스 기획의 기초. 사용자, 목적 한 문장, 대표 사용 흐름, 핵심 기능 하나와 완성 기준" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>6-1</em> <span class="lesson">서비스 기획의 기초</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 6-1</span><span class="zh">本课时 — 6-1</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 기능이 스무 개인 계획</a>
+  <a href="#sp"><span class="n">·</span> PRD란 무엇인가</a>
+  <a href="#s1"><span class="n">1</span> 익숙한 불편에서 시작한다</a>
+  <a href="#s2"><span class="n">2</span> 사용자는 상황과 함께</a>
+  <a href="#s3"><span class="n">3</span> 목적을 한 문장으로</a>
+  <a href="#s4"><span class="n">4</span> 대표 사용 흐름은 하나</a>
+  <a href="#s5"><span class="n">5</span> 핵심 기능 하나로 줄이기</a>
+  <a href="#s6"><span class="n">6</span> 입력과 결과를 정한다</a>
+  <a href="#s7"><span class="n">7</span> 화면은 글로 설명한다</a>
+  <a href="#s8"><span class="n">8</span> 완성 기준 2~3개</a>
+  <a href="#s9"><span class="n">9</span> AI는 생각을 정리하는 도구</a>
+  <a href="#s10"><span class="n">10</span> 흔한 오해</a>
+  <a href="#s11"><span class="n">11</span> 누가 무엇을 정하는가</a>
+  <a href="#s12"><span class="n">12</span> 확인 문제</a>
+  <a href="#s13"><span class="n">13</span> 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html" class="here"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">6회 · 첫째 차시</span><span class="zh">第 6 次课 · 第 1 课时</span></div>
+    <h1><span class="ko">서비스 기획의 기초</span><span class="zh">服务规划基础</span></h1>
+    <div class="osub"><span class="ko">누구를 위해, 어떤 상황에서, 무엇을 할 수 있는<br/>작은 서비스를 만들지 정합니다.</span><span class="zh">为谁、在什么情况下、能做什么，<br/>先定下要做的这个小服务。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 5-2. 수행평가 1 · 데이터 시각화<br/>
+      <b>다음 차시</b> · 6-2. 서비스 제작 계획서(PRD) 시작하기</span><span class="zh"><b>上一课时</b> · 5-2. 实作评价 1 · 数据可视化<br/> <b>下一课时</b> · 6-2. 服务制作计划书（PRD）起步</span></div>
+  </section>
+
+  <!-- ══════════ 들어가며 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">기능이 스무 개인 계획</span><span class="zh">有二十个功能的计划</span></h2>
+
+    <div class="scene">
+      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
+      <p><span class="ko">친구가 들뜬 얼굴로 말합니다. “우리 앱 하나 만들자. 로그인 되고, 친구 추가되고, 채팅도 되고, 사진도 올리고, 랭킹도 나오고, 알림도 오고….”</span><span class="zh">朋友一脸兴奋地说：“我们做个 App 吧。能登录、能加好友、能聊天、能传照片、还有排行榜、还有推送……”</span></p>
+      <p><span class="ko">듣기에는 근사합니다. 그런데 “그래서 <b>누가</b> 그걸 <b>언제</b> 쓰는데?”라고 물으면 대답이 잘 나오지 않습니다. “그냥… 다들 쓰겠지.”</span><span class="zh">听着挺像样。可你一问“那到底<b>谁</b>会在<b>什么时候</b>用它？”，就答不太上来了。“就……大家都会用吧。”</span></p>
+      <p><span class="ko">이런 계획은 만들기 시작하면 곧 멈춥니다. 기능이 많아서가 아니라, <b>무엇이 완성인지 아무도 모르기 때문</b>입니다. 스무 개 중 열다섯 개를 만들어도 “다 됐다”라고 말할 수 없습니다.</span><span class="zh">这样的计划一动手就会停下。不是因为功能多，而是<b>没人知道做到哪儿算做完</b>。二十个里做出十五个，也说不出一句“做完了”。</span></p>
+    </div>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
+      <p><span class="ko">누구를 위해, 어떤 상황에서,<br/>무엇을 할 수 있는 작은 서비스를 만들 것인가?</span><span class="zh">为谁、在什么情况下，<br/>要做一个能做什么的小服务？</span></p>
+    </div>
+
+    <div class="recall">
+      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
+      <ul class="blist">
+        <li><span class="ko">1-1에서 <b>아이디어 씨앗</b>을 메모해 두었습니다. 오늘 그 메모를 다시 꺼냅니다.</span><span class="zh">1-1 里你记下过<b>创意的种子</b>。今天把那张便条再翻出来。</span></li>
+        <li><span class="ko">5회 수행평가에서는 <b>주어진 데이터</b>를 읽고 판단했습니다. 6회부터는 <b>무엇을 만들지 스스로 정합니다.</b></span><span class="zh">第 5 次课的实作评价里，我们读的、判断的是<b>别人给的数据</b>。从第 6 次课起，<b>做什么由自己定</b>。</span></li>
+        <li><span class="ko">1-2에서 소프트웨어 개발은 코딩만이 아니라 <b>무엇을 만들지 정하는 일</b>부터라고 했습니다. 오늘이 그 앞부분입니다.</span><span class="zh">1-2 说过，软件开发不只是编码，而是从<b>决定要做什么</b>开始。今天做的就是那前半段。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s0_2">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">기능이 스무 개인 계획</span><span class="zh">有二十个功能的计划</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">6~8회 세 번의 수업으로 <b>서비스 제작 계획서(PRD)</b> 한 편을 완성합니다. 오늘은 그 문서에 들어갈 내용을 이해하고, 다음 차시에 직접 적습니다.</span><span class="zh">第 6~8 次课，用三节课完成一份<b>服务制作计划书（PRD）</b>。今天先理解这份文档要装什么，下一课时亲手写。</span></p>
+
+    <div class="note">
+      <div class="nt"><span class="ko">전문 기획서를 배우는 시간이 아닙니다</span><span class="zh">这不是学专业策划书的时间</span></div>
+      <p><span class="ko">회사에서 쓰는 사업 계획서나 사용자 조사 보고서를 만드는 것이 아닙니다. <b>처음 개발하는 학생이 AI에게 무엇을 만들지 설명하고, 만들어진 결과가 맞는지 확인할 수 있을 만큼</b>만 정리합니다.</span><span class="zh">我们不是要写公司里的商业计划书或用户调研报告。只整理到<b>让第一次做开发的学生能向 AI 说清要做什么，并能确认做出来的结果对不对</b>为止。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ PRD ══════════ -->
+  <section class="page" id="sp">
+    <div class="kick"><span class="ko">용어</span><span class="zh">术语</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">서비스 제작 계획서(PRD)란</span><span class="zh">什么是服务制作计划书（PRD）</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="w">PRD</span><span class="en">Product Requirements Document</span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">조별 과제를 시작하며 “각자 알아서 하자”라고 흩어졌습니다. 나중에 모아 보니 두 사람이 같은 부분을 했고, 정작 결론은 아무도 쓰지 않았습니다. 무엇을 누가 어디까지 할지 <b>먼저 한 장에 적어 두었다면</b> 생기지 않았을 일입니다.</span><span class="zh">小组作业一开始就说“各自看着办”，然后就散了。后来一凑，发现两个人做了同一部分，偏偏结论没人写。要是<b>一开始就在一张纸上写清谁做到哪儿</b>，这事就不会发生。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">만들 서비스가 <b>무엇인지 미리 적어 둔 문서</b>입니다.</span><span class="zh">它是<b>预先写下“要做的服务是什么”的文档</b>。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">만들 서비스의 사용자, 목적, 핵심 기능, 사용 흐름, 필요한 데이터와 완성 기준을 정리한 문서. 개발을 시작할 때 무엇을 만들어야 하는지 설명하고, 완성된 결과가 처음 계획과 맞는지 확인하는 기준이 된다.</span><span class="zh">把要做的服务的用户、目的、核心功能、使用流程、所需数据与完成标准整理起来的文档。开发开始时用它说明该做什么，完成后用它确认结果是否与最初的计划相符。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">PRD는 <b>무엇을 왜 만드는가</b>를 담습니다. <b>어떻게 만드는가</b>—코드, 폴더 구조, 화면 디자인, 데이터베이스 설정—는 담지 않습니다. 그것들은 개발 단계에서 AI와 함께 정합니다.</span><span class="zh">PRD 装的是<b>做什么、为什么做</b>。<b>怎么做</b>——代码、文件夹结构、画面设计、数据库设置——它不装。那些在开发阶段与 AI 一起定。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“PRD에 적은 완성 기준으로 AI가 만든 결과를 확인했다.”</span><span class="zh">“我按 PRD 里写的完成标准，核对了 AI 做出来的结果。”</span></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="page" id="sp_2">
+    <div class="kick"><span class="ko">용어</span><span class="zh">术语</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">서비스 제작 계획서(PRD)란</span><span class="zh">什么是服务制作计划书（PRD）</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">회사에서 쓰는 PRD를 그대로 쓰지 않습니다</span><span class="zh">不照搬公司用的 PRD</span></div>
+      <p><span class="ko">실제 회사의 PRD에는 시장 조사, 경쟁 서비스 분석, 일정과 인력 계획까지 들어갑니다. 이 수업에서는 <b>그 모든 항목을 작성하지 않습니다.</b></span><span class="zh">真实公司的 PRD 里连市场调查、竞品分析、日程与人力计划都有。这门课<b>不写那全部项目</b>。</span></p>
+      <p><span class="ko">처음 서비스를 만드는 학생이 자신의 생각을 AI에게 설명하고 결과를 검토할 수 있도록, 꼭 필요한 항목만 담은 <b>수업용 간소화 PRD</b>를 작성합니다.</span><span class="zh">为了让第一次做服务的学生能向 AI 说明自己的想法并检查结果，我们只写装了必要项目的<b>课堂用简化 PRD</b>。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">평가에서 보는 것</span><span class="zh">评价看的是什么</span></div>
+      <p><span class="ko">수행평가 2에서는 <b>전문 용어를 많이 사용했는지</b>를 보지 않습니다. <b>각 항목이 서로 맞게 연결되는지</b>를 확인합니다.</span><span class="zh">实作评价 2 不看<b>你用了多少专业术语</b>，而是确认<b>各个项目之间是否彼此吻合</b>。</span></p>
+      <p><span class="ko">사용자가 “시험 전날 외울 것을 고르기 어려운 학생”인데 핵심 기능이 “친구와 사진 공유하기”라면, 용어를 아무리 잘 써도 어긋난 문서입니다.</span><span class="zh">用户写的是“考试前一天难以决定先背什么的学生”，核心功能却是“和朋友分享照片”——术语用得再好，这份文档也是错位的。</span></p>
+    </div>
+
+    <p><span class="ko">오늘 배우는 1~9절의 항목이 그대로 PRD의 항목이 됩니다. 다음 차시에 그 항목을 하나씩 문서에 옮겨 적습니다.</span><span class="zh">今天学的第 1~9 节，各项就是 PRD 的各项。下一课时把它们一项项抄进文档。</span></p>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 출발점</span><span class="zh">1. 出发点</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">익숙한 불편이나 관심사에서 시작한다</span><span class="zh">从熟悉的不便或兴趣出发</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">처음부터 새로운 사업이나 거대한 문제를 찾을 필요는 없습니다. 자신이 자주 하는 일, 기록하고 싶은 것, 비교하고 싶은 것과 <b>반복되는 작은 불편</b>에서 시작합니다.</span><span class="zh">不必一上来就找新事业或宏大问题。从自己常做的事、想记录的事、想比较的事，以及<b>反复出现的小不便</b>出发。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:46%"><span class="ko">이런 데서 나온다</span><span class="zh">它从这里来</span></th><th><span class="ko">서비스가 될 수 있는 모습</span><span class="zh">可能长成的服务</span></th></tr>
+      <tr><td><span class="ko">매일 할 일을 자꾸 잊는다</span><span class="zh">每天要做的事老是忘</span></td><td><span class="ko">오늘 할 일을 짧게 적고 완료 여부를 확인한다</span><span class="zh">把今天要做的事简短记下，并确认有没有完成</span></td></tr>
+      <tr><td><span class="ko">읽은 책이 기억나지 않는다</span><span class="zh">读过的书记不住</span></td><td><span class="ko">읽은 책과 감상을 남기고 다시 찾아본다</span><span class="zh">留下读过的书和感想，之后还能找回来</span></td></tr>
+      <tr><td><span class="ko">글의 첫 문장이 떠오르지 않는다</span><span class="zh">作文的第一句想不出来</span></td><td><span class="ko">입력한 단어를 이용해 이야기 소재를 얻는다</span><span class="zh">用输入的词得到故事的素材</span></td></tr>
+      <tr><td><span class="ko">무엇부터 외울지 정하기 어렵다</span><span class="zh">不知道该先背什么</span></td><td><span class="ko">공부할 항목을 정리하고 무작위로 하나를 골라 연습한다</span><span class="zh">把要学的项目整理好，随机抽一个来练</span></td></tr>
+    </table>
+    </div>
+
+    <p><span class="ko">이미 있는 서비스와 비슷해도 괜찮습니다. 이 수업에서는 아이디어의 새로움보다 <b>만들 범위를 이해하고 설명할 수 있는지</b>가 더 중요합니다.</span><span class="zh">和已有的服务相似也没关系。这门课看重的不是创意有多新，而是<b>你是否理解并说得清要做的范围</b>。</span></p>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">“이미 있는 건데요?”</span><span class="zh">“这不是已经有了吗？”</span></div>
+      <p><span class="ko">할 일 목록 앱은 세상에 수천 개가 있습니다. 그래도 괜찮습니다. 평가하는 것은 <b>세상에 없던 것을 생각해 냈는가</b>가 아니라 <b>내가 만들 것을 내가 설명할 수 있는가</b>입니다.</span><span class="zh">待办清单 App 世上有好几千个。也没关系。评价的不是<b>你想出了世上没有的东西</b>，而是<b>你能不能说明自己要做的东西</b>。</span></p>
+      <p><span class="ko">오히려 흔한 주제가 유리합니다. 무엇이 필요한지 이미 알고 있으므로 사용자와 흐름을 적기 쉽습니다.</span><span class="zh">反倒是常见的题目更有利。你已经知道需要什么，用户和流程都好写。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">피하는 것이 좋은 출발점</span><span class="zh">最好避开的出发点</span></div>
+      <ul class="blist">
+        <li><span class="ko">친구나 가족의 <b>실제 개인정보</b>를 모아야 하는 아이디어</span><span class="zh">需要收集朋友或家人<b>真实个人信息</b>的点子</span></li>
+        <li><span class="ko">돈을 주고받거나 <b>결제</b>가 필요한 아이디어</span><span class="zh">要收付钱、需要<b>支付</b>的点子</span></li>
+        <li><span class="ko">여러 사람이 동시에 접속해 <b>실시간으로 주고받아야</b> 하는 아이디어</span><span class="zh">多人同时连线、要<b>实时来回传递</b>的点子</span></li>
+      </ul>
+      <p><span class="ko">재미없어서가 아니라, 한 학기 안에 안전하게 완성하기 어렵기 때문입니다.</span><span class="zh">不是因为不好玩，而是一个学期内很难安全地做完。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 사용자</span><span class="zh">2. 用户</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">사용자는 상황과 함께 표현한다</span><span class="zh">用户要连同情境一起写</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">사용자</span><span class="en">user</span></span><span class="zh"><span class="w">用户</span><span class="en">user</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">같은 지도 앱이라도 배달하는 사람과 여행 온 사람은 서로 다른 화면을 원합니다. 한쪽은 도착 시간이, 다른 쪽은 주변 볼거리가 먼저 보이기를 바랍니다.</span><span class="zh">同样一个地图 App，送外卖的人和来旅游的人想看的画面并不一样。一边希望先看到到达时间，另一边希望先看到周边景点。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">서비스를 <b>실제로 열어서 쓰는 사람</b>입니다. 만든 사람이 아니라 쓰는 사람 쪽입니다.</span><span class="zh">就是<b>真的打开来用这个服务的人</b>。不是做的人，是用的人这一边。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">특정한 목적을 가지고 특정한 상황에서 서비스를 이용하는 사람. 서비스의 기능과 화면은 이 사람의 목적과 상황을 기준으로 정해진다.</span><span class="zh">带着特定目的、在特定情境下使用服务的人。服务的功能与画面，以这个人的目的和情境为准来决定。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko"><b>고객</b>은 돈을 내는 사람이고 <b>사용자</b>는 쓰는 사람입니다. 둘이 다를 때도 많습니다. 이 수업에서는 돈을 다루지 않으므로 <b>사용자</b>만 생각합니다.</span><span class="zh"><b>顾客</b>是付钱的人，<b>用户</b>是使用的人，两者常常不是同一个人。这门课不涉及钱，所以只考虑<b>用户</b>。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“이 서비스의 사용자는 시험 전날 외울 것을 고르기 어려운 학생이다.”</span><span class="zh">“这个服务的用户，是考试前一天难以决定先背什么的学生。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">“모든 사람”이나 “학생”처럼 넓게 적으면 필요한 기능을 고를 수 없습니다. <b>누가 언제 사용하는지</b>를 함께 적어야 무엇을 만들지 정해집니다. 전문적인 사용자 조사나 페르소나 문서는 만들지 않습니다.</span><span class="zh">写成“所有人”或“学生”这样宽泛的说法，就挑不出该做哪些功能。要把<b>谁在什么时候用</b>一起写上，要做什么才定得下来。我们不做专业的用户调研，也不写人物角色文档。</span></p>
+  </section>
+
+  <section class="page" id="s2_2">
+    <div class="kick"><span class="ko">2. 사용자</span><span class="zh">2. 用户</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">사용자는 상황과 함께 표현한다</span><span class="zh">用户要连同情境一起写</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="row">
+      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
+        <div class="pt" style="color:var(--danger)"><span class="ko">이렇게 적으면 정해지는 것이 없다</span><span class="zh">这样写，什么都定不下来</span></div>
+        <ul class="blist">
+          <li><span class="ko">모든 사람</span><span class="zh">所有人</span></li>
+          <li><span class="ko">학생</span><span class="zh">学生</span></li>
+          <li><span class="ko">바쁜 현대인</span><span class="zh">忙碌的现代人</span></li>
+        </ul>
+      </div>
+      <div class="pane okp">
+        <div class="pt"><span class="ko">상황이 함께 있다</span><span class="zh">情境也在里面</span></div>
+        <ul class="blist">
+          <li><span class="ko">이야기의 첫 문장을 떠올리기 어려울 때 소재가 필요한 학생</span><span class="zh">想不出故事第一句、需要素材的学生</span></li>
+          <li><span class="ko">오늘 해야 할 일을 잊지 않도록 한곳에 적고 싶은 학생</span><span class="zh">想把今天要做的事记在一处、别忘掉的学生</span></li>
+          <li><span class="ko">수업에서 배운 단어를 짧게 확인하고 싶은 학생</span><span class="zh">想快速确认课上学过的单词的学生</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p><span class="ko">오른쪽 문장에는 모두 <b>언제</b>가 들어 있습니다. “이야기의 첫 문장을 떠올리기 어려울 때”, “오늘 해야 할 일을 잊지 않도록”. 이 부분이 있어야 다음 단계에서 화면에 무엇을 놓을지 정할 수 있습니다.</span><span class="zh">右边这些句子里都有<b>什么时候</b>。“想不出故事第一句时”“为了别忘掉今天要做的事”。有这一部分，下一步才定得了画面上该放什么。</span></p>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">친구를 조사하지 않습니다</span><span class="zh">不去调查朋友</span></div>
+      <p><span class="ko">사용자를 정한다고 해서 친구의 개인정보를 묻거나 설문을 돌릴 필요는 없습니다. <b>가상의 사용자</b>나 <b>자신이 잘 아는 일반적인 상황</b>을 사용합니다.</span><span class="zh">定用户，并不需要打听朋友的个人信息或发问卷。用<b>虚拟的用户</b>，或<b>自己很熟悉的一般情境</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 목적</span><span class="zh">3. 目的</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">서비스 목적을 한 문장으로 정한다</span><span class="zh">把服务目的定成一句话</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">사용자를 정했으면 <b>그 사용자가 무엇을 할 수 있게 되는지</b>를 한 문장으로 적습니다. 다음 틀을 그대로 사용합니다.</span><span class="zh">定好用户之后，把<b>那位用户将能做到什么</b>写成一句话。直接套用下面的模板。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">한 문장 정의 틀</span></span><span class="zh"><span class="fn">一句话定义模板</span></span></div>
+      <pre><code>나는 ___한 사용자가 ___할 수 있도록 돕는 ___을 만든다.</code></pre>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">채워 넣은 예</span></span><span class="zh"><span class="fn">填好的例子</span></span></div>
+      <pre><code>나는 이야기 시작이 어려운 학생이
+단어를 조합해 이야기 소재를 얻도록 돕는
+웹 도구를 만든다.</code></pre>
+    </div>
+
+    <p><span class="ko">이 한 문장만 읽어도 <b>사용자</b>, <b>하는 일</b>과 <b>결과</b>를 알 수 있어야 합니다. 세 칸이 각각 그 셋에 해당합니다.</span><span class="zh">光读这一句，就该知道<b>用户</b>、<b>做的事</b>和<b>结果</b>。三个空格正好对应这三样。</span></p>
+
+    <div class="vflow">
+      <div class="vf"><span class="ko"><b>첫째 칸 — 사용자</b><span>이야기 시작이 어려운 학생</span></span><span class="zh"><b>第一格 — 用户</b><span>难以开始写故事的学生</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>둘째 칸 — 사용자가 하는 일과 얻는 것</b><span>단어를 조합해 이야기 소재를 얻는다</span></span><span class="zh"><b>第二格 — 用户做的事与得到的东西</b><span>组合词语，得到故事素材</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>셋째 칸 — 내가 만드는 것</b><span>웹 도구</span></span><span class="zh"><b>第三格 — 我要做的东西</b><span>网页小工具</span></span></div>
+    </div>
+  </section>
+
+  <section class="page" id="s3_2">
+    <div class="kick"><span class="ko">3. 목적</span><span class="zh">3. 目的</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">서비스 목적을 한 문장으로 정한다</span><span class="zh">把服务目的定成一句话</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">확인할 수 없는 말로 채우지 않습니다</span><span class="zh">不要用无法确认的词来填</span></div>
+      <p><span class="ko">“편리한 앱”, “재미있는 서비스”, “혁신적인 플랫폼” 같은 표현은 <b>다 만든 뒤에 맞는지 확인할 방법이 없습니다.</b> 편리한지 아닌지는 사람마다 다르기 때문입니다.</span><span class="zh">“方便的 App”“有趣的服务”“创新的平台”这类说法，<b>做完之后没办法确认对不对</b>。方便不方便，因人而异。</span></p>
+      <p><span class="ko">반대로 “단어를 조합해 이야기 소재를 얻는다”는 실행해 보면 됩니다. 소재가 나오면 맞고, 안 나오면 아직 안 된 것입니다.</span><span class="zh">反过来，“组合词语，得到故事素材”跑一下就知道了。出得来素材就对了，出不来就是还没做到。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">이 문장을 왜 이렇게 공들여 쓰는가</span><span class="zh">为什么要这么费心写这一句</span></div>
+      <p><span class="ko">10회부터 AI에게 서비스를 만들어 달라고 요청할 때, <b>이 문장이 요청문의 첫 줄</b>이 됩니다. 그리고 결과물을 받았을 때 “이게 맞나?”를 판단하는 기준도 이 문장입니다.</span><span class="zh">从第 10 次课起向 AI 请求做服务时，<b>这句话就是请求文的第一行</b>。拿到成果时，判断“这对吗？”的标准也是这一句。</span></p>
+      <p><span class="ko">5-1에서 AI 요청문에 조건을 갖춰 적었던 것과 같은 이유입니다. 조건이 흐릿하면 결과도 흐릿합니다.</span><span class="zh">这和 5-1 里给 AI 请求文配齐条件是同一个道理。条件模糊，结果也模糊。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 사용 흐름</span><span class="zh">4. 使用流程</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">대표 사용 흐름은 하나만 정한다</span><span class="zh">代表性使用流程只定一条</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">사용자가 <b>가장 중요하게 이용할 상황 하나</b>를 골라 3~4단계로 적습니다. 모든 화면과 예외 상황을 미리 정할 필요는 없습니다.</span><span class="zh">挑出用户<b>最看重的那一种情境</b>，写成 3~4 步。不必事先把所有画面和例外情况都定下来。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>① 서비스를 연다</b></span><span class="zh"><b>① 打开服务</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>② 값을 입력하거나 선택한다</b></span><span class="zh"><b>② 输入或选择值</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>③ 핵심 기능을 실행한다</b></span><span class="zh"><b>③ 执行核心功能</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>④ 결과를 확인한다</b></span><span class="zh"><b>④ 确认结果</b></span></div>
+    </div>
+
+    <h3 class="sub"><span class="ko">이야기 소재 도구의 경우</span><span class="zh">以故事素材工具为例</span></h3>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th class="c" style="width:56px"><span class="ko">단계</span><span class="zh">步骤</span></th><th style="width:44%"><span class="ko">사용자가 하는 일</span><span class="zh">用户做的事</span></th><th><span class="ko">화면에서 확인하는 결과</span><span class="zh">在画面上确认到的结果</span></th></tr>
+      <tr><td class="c">1</td><td><span class="ko">서비스를 연다.</span><span class="zh">打开服务。</span></td><td><span class="ko">무엇을 하는 곳인지 한 줄 안내가 보인다.</span><span class="zh">看到一行说明，知道这是做什么的地方。</span></td></tr>
+      <tr><td class="c">2</td><td><span class="ko">단어 세 개를 입력한다.</span><span class="zh">输入三个词。</span></td><td><span class="ko">입력한 단어가 칸에 보인다.</span><span class="zh">输入的词显示在框里。</span></td></tr>
+      <tr><td class="c">3</td><td><span class="ko">‘만들기’ 버튼을 누른다.</span><span class="zh">按下“生成”按钮。</span></td><td>—</td></tr>
+      <tr><td class="c">4</td><td><span class="ko">결과를 읽는다.</span><span class="zh">读结果。</span></td><td><span class="ko">단어를 이용한 이야기 소재 한 개가 나타난다.</span><span class="zh">出现一条用这些词写成的故事素材。</span></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s4_2">
+    <div class="kick"><span class="ko">4. 사용 흐름</span><span class="zh">4. 使用流程</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">대표 사용 흐름은 하나만 정한다</span><span class="zh">代表性使用流程只定一条</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note">
+      <div class="nt"><span class="ko">흐름을 쓰면 빠진 것이 보입니다</span><span class="zh">一写流程，缺的东西就露出来了</span></div>
+      <p><span class="ko">위 표를 쓰다 보면 “입력한 단어를 지우려면?”, “한 번 더 만들려면?” 같은 질문이 떠오릅니다. 그런 것들이 바로 <b>보조 기능 후보</b>입니다. 다음 절에서 다룹니다.</span><span class="zh">写上面这张表时，“想删掉输入的词怎么办？”“想再生成一次怎么办？”之类的问题会冒出来。那些正是<b>辅助功能的候选</b>。下一节会讲。</span></p>
+      <p><span class="ko">반대로 흐름을 쓰지 않으면 이런 질문 자체가 떠오르지 않습니다. 그래서 만들다가 멈춥니다.</span><span class="zh">反过来，不写流程，这些问题根本不会冒出来。于是做到一半就卡住。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">흐름을 여러 개 적지 않습니다</span><span class="zh">不要写好几条流程</span></div>
+      <p><span class="ko">“관리자가 들어오면”, “처음 온 사람이면”, “로그인한 사람이면” 같은 갈래를 늘리지 않습니다. <b>가장 중요한 흐름 하나</b>만 정확하게 적습니다. 그 하나가 작동해야 나머지도 의미가 있습니다.</span><span class="zh">不要去增加“管理员进来时”“第一次来的人”“已登录的人”这些分支。只把<b>最重要的那一条流程</b>写准确。那一条能跑起来，其余才有意义。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. 범위</span><span class="zh">5. 范围</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">핵심 기능 하나를 중심으로 범위를 줄인다</span><span class="zh">以一个核心功能为中心，把范围缩小</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">이 수업 프로젝트의 기본 범위는 다음과 같습니다. 이보다 크게 잡지 않습니다.</span><span class="zh">这门课项目的基本范围如下。不要比它更大。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:46%"><span class="ko">항목</span><span class="zh">项目</span></th><th class="c"><span class="ko">개수</span><span class="zh">个数</span></th></tr>
+      <tr><td><span class="ko"><b>핵심 기능</b> — 반드시 작동해야 하는 기능</span><span class="zh"><b>核心功能</b> — 必须能运行的功能</span></td><td class="c"><span class="ko"><b>1개</b></span><span class="zh"><b>1 个</b></span></td></tr>
+      <tr><td><span class="ko"><b>보조 기능</b> — 핵심 기능을 돕는 기능</span><span class="zh"><b>辅助功能</b> — 帮助核心功能的功能</span></td><td class="c"><span class="ko">최대 2개</span><span class="zh">最多 2 个</span></td></tr>
+      <tr><td><span class="ko"><b>대표 사용 흐름</b></span><span class="zh"><b>代表性使用流程</b></span></td><td class="c"><span class="ko">1개</span><span class="zh">1 条</span></td></tr>
+      <tr><td><span class="ko"><b>화면 구성 설명</b> — 핵심 기능이 이루어지는 화면</span><span class="zh"><b>画面构成说明</b> — 核心功能发生的那个画面</span></td><td class="c"><span class="ko">1개</span><span class="zh">1 个</span></td></tr>
+    </table>
+    </div>
+
+    <h3 class="sub"><span class="ko">할 일 기록 서비스의 예</span><span class="zh">以待办记录服务为例</span></h3>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:110px"><span class="ko">구분</span><span class="zh">类别</span></th><th style="width:44%"><span class="ko">기능</span><span class="zh">功能</span></th><th><span class="ko">사용자가 얻는 결과</span><span class="zh">用户得到的结果</span></th></tr>
+      <tr><td><span class="ko"><b>핵심</b></span><span class="zh"><b>核心</b></span></td><td><span class="ko">할 일을 적고 목록에서 확인한다</span><span class="zh">写下要做的事，并在列表里确认</span></td><td><span class="ko">적은 것이 목록에 남아 다시 보인다</span><span class="zh">写下的内容留在列表里，还能再看到</span></td></tr>
+      <tr><td><span class="ko">보조 1</span><span class="zh">辅助 1</span></td><td><span class="ko">완료 표시를 한다</span><span class="zh">做完成标记</span></td><td><span class="ko">끝낸 것과 남은 것이 구분된다</span><span class="zh">做完的和没做的区分开</span></td></tr>
+      <tr><td><span class="ko">보조 2</span><span class="zh">辅助 2</span></td><td><span class="ko">분류를 붙인다</span><span class="zh">加上分类</span></td><td><span class="ko">학교·집처럼 나눠서 볼 수 있다</span><span class="zh">可以按学校、家里这样分开看</span></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s5_2">
+    <div class="kick"><span class="ko">5. 범위</span><span class="zh">5. 范围</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">핵심 기능 하나를 중심으로 범위를 줄인다</span><span class="zh">以一个核心功能为中心，把范围缩小</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">기본 범위에서 제외하는 것</span><span class="zh">基本范围里排除的东西</span></div>
+      <p><span class="ko"><b>로그인, 결제, 실시간 채팅, 외부 생성형 AI API 연결, 복잡한 관리자 기능</b>은 이번 수업에서 만들지 않습니다.</span><span class="zh"><b>登录、支付、实时聊天、连接外部生成式 AI API、复杂的管理员功能</b>，这门课都不做。</span></p>
+      <p><span class="ko">어렵기만 해서가 아닙니다. 로그인은 남의 비밀번호를 <b>안전하게 보관할 책임</b>을 지는 일이고, 결제는 <b>돈</b>을 다루는 일입니다. 한 학기 수업에서 책임질 수 있는 범위를 넘어섭니다.</span><span class="zh">不只是因为难。登录意味着要担起<b>安全保管别人密码</b>的责任，支付则是在动<b>钱</b>。这超出一个学期的课能承担的范围。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">기능이 많다고 좋은 기획이 아닙니다</span><span class="zh">功能多不等于策划好</span></div>
+      <p><span class="ko">기능 하나가 <b>끝까지 작동하는</b> 서비스가, 기능 다섯 개가 <b>절반씩 작동하는</b> 서비스보다 낫습니다. 13회에 제출할 창작물도 같은 기준으로 봅니다.</span><span class="zh">一个功能<b>从头跑到尾</b>的服务，胜过五个功能<b>各跑一半</b>的服务。第 13 次课要交的作品也按同一标准看。</span></p>
+      <p><span class="ko">5-1에서 “정확한 그래프 한 개가 여러 개보다 낫다”라고 했던 것과 같은 원칙입니다.</span><span class="zh">这和 5-1 说过的“准确的一张图胜过很多张”是同一条原则。</span></p>
+    </div>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">내 아이디어에서 <b>이것 하나가 안 되면 서비스라고 할 수 없는</b> 기능은 무엇인가요? 한 문장으로 적어 보세요.</span><span class="zh">在我的点子里，<b>少了它就不能叫这个服务</b>的功能是哪一个？请用一句话写下来。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. 입력과 결과</span><span class="zh">6. 输入与结果</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">사용자가 무엇을 주고 무엇을 받는지 정한다</span><span class="zh">先定用户给什么、得到什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">기술이나 코드를 정하기 전에 <b>입력</b>과 <b>결과</b>를 먼저 적습니다. 3-2에서 코드를 읽을 때 입력·처리·출력을 짚었던 것과 같은 방식입니다.</span><span class="zh">在定技术或代码之前，先写<b>输入</b>和<b>结果</b>。这和 3-2 读代码时点出输入、处理、输出是同一种做法。</span></p>
+
+    <div class="iot">
+      <div class="b"><div class="h"><span class="ko">입력</span><span class="zh">输入</span></div><p><span class="ko">단어 세 개</span><span class="zh">三个词</span></p></div>
+      <div class="b"><div class="h"><span class="ko">처리</span><span class="zh">处理</span></div><p><span class="ko">단어를 이용해 이야기 소재 문장을 만든다</span><span class="zh">用这些词造出一句故事素材</span></p></div>
+      <div class="b"><div class="h"><span class="ko">출력</span><span class="zh">输出</span></div><p><span class="ko">이야기 소재 한 개</span><span class="zh">一条故事素材</span></p></div>
+    </div>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:46%"><span class="ko">질문</span><span class="zh">问题</span></th><th><span class="ko">예</span><span class="zh">例</span></th></tr>
+      <tr><td><span class="ko">사용자가 입력하거나 선택하는 것은 무엇인가?</span><span class="zh">用户输入或选择的是什么？</span></td><td><span class="ko">단어 세 개</span><span class="zh">三个词</span></td></tr>
+      <tr><td><span class="ko">어떤 동작을 하는가?</span><span class="zh">做什么动作？</span></td><td><span class="ko">‘만들기’ 버튼을 누른다</span><span class="zh">按下“生成”按钮</span></td></tr>
+      <tr><td><span class="ko">서비스가 보여 주는 결과는 무엇인가?</span><span class="zh">服务展示的结果是什么？</span></td><td><span class="ko">단어를 이용한 이야기 소재 한 개</span><span class="zh">一条用这些词写成的故事素材</span></td></tr>
+      <tr><td><span class="ko">입력이 비어 있으면 무엇을 알려 주는가?</span><span class="zh">输入为空时，告诉用户什么？</span></td><td><span class="ko">단어를 입력하라는 안내</span><span class="zh">提示请输入词语</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">네 번째 줄을 빠뜨리지 마세요</span><span class="zh">不要漏掉第四行</span></div>
+      <p><span class="ko">“입력이 비어 있으면”은 <b>잘못된 입력에 대한 안내</b>입니다. 12회 테스트 차시에서 정상·경계·잘못된 입력을 넣어 볼 때, 이 줄이 있어야 무엇을 확인할지 정할 수 있습니다.</span><span class="zh">“输入为空时”指的是<b>对错误输入的提示</b>。第 12 次课测试时要试正常值、边界值和错误值，有这一行才知道该确认什么。</span></p>
+      <p><span class="ko">이 줄이 없으면 사용자는 버튼을 눌렀는데 아무 일도 일어나지 않는 화면을 보게 됩니다. 고장인지 아닌지도 알 수 없습니다.</span><span class="zh">没有这一行，用户按了按钮却看到什么都没发生的画面，连是不是坏了都不知道。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. 화면</span><span class="zh">7. 画面</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">화면은 그림 대신 글로 설명한다</span><span class="zh">画面不画图，用文字说明</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">이미지를 만들거나 화면을 그리지 않습니다. 핵심 기능이 이루어지는 <b>화면 하나</b>를 다음 여섯 질문에 따라 글로 설명합니다.</span><span class="zh">不做图片，也不画画面。把核心功能发生的<b>那一个画面</b>，按下面六个问题用文字说明。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">화면 구성 설명 — 여섯 항목</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">画面构成说明 — 六个项目</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>화면 이름:
+화면을 처음 열면 보이는 내용:
+사용자가 입력하거나 선택하는 것:
+사용자가 누르는 것:
+동작한 뒤 나타나는 결과:
+입력이 없거나 잘못되었을 때 나타나는 안내:</code></pre>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">채워 넣은 예</span></span><span class="zh"><span class="fn">填好的例子</span></span></div>
+      <pre><code>화면 이름: 이야기 소재 만들기 화면
+화면을 처음 열면 보이는 내용:
+  제목 한 줄과 "단어 세 개를 넣어 보세요"라는 안내, 빈 입력칸 세 개
+사용자가 입력하거나 선택하는 것: 단어 세 개
+사용자가 누르는 것: 만들기 버튼
+동작한 뒤 나타나는 결과:
+  버튼 아래에 이야기 소재 한 문장이 나타난다
+입력이 없거나 잘못되었을 때 나타나는 안내:
+  "단어를 세 개 모두 입력해 주세요"라는 문장이 입력칸 아래에 나타난다</code></pre>
+    </div>
+  </section>
+
+  <section class="page" id="s7_2">
+    <div class="kick"><span class="ko">7. 화면</span><span class="zh">7. 画面</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">화면은 그림 대신 글로 설명한다</span><span class="zh">画面不画图，用文字说明</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">왜 그림을 그리지 않는가</span><span class="zh">为什么不画图</span></div>
+      <p><span class="ko">색과 글꼴, 버튼의 정확한 위치는 <b>개발 단계에서 AI가 만들고 사람이 확인</b>합니다. 지금 그림을 그리면 시간은 많이 쓰는데 정작 <b>무엇이 있어야 하는지</b>는 빠지기 쉽습니다.</span><span class="zh">颜色、字体、按钮的确切位置，都是<b>开发阶段由 AI 做、由人确认</b>的。现在画图，花不少时间，偏偏<b>该有什么</b>容易漏掉。</span></p>
+      <p><span class="ko">위의 여섯 줄은 AI에게 화면을 요청하는 <b>재료</b>이자, 만들어진 화면에 필요한 것이 다 들어갔는지 확인하는 <b>기준</b>입니다. 그림은 이 두 가지를 하지 못합니다.</span><span class="zh">上面那六行，既是向 AI 请求画面的<b>材料</b>，也是确认做出来的画面有没有装齐所需内容的<b>标准</b>。图做不到这两件事。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">화면을 여러 개 설명하지 않습니다</span><span class="zh">不要说明好几个画面</span></div>
+      <p><span class="ko">설정 화면, 도움말 화면, 시작 화면을 각각 설명할 필요 없습니다. <b>핵심 기능이 일어나는 화면 하나</b>면 충분합니다.</span><span class="zh">设置画面、帮助画面、启动画面不必逐个说明。<b>核心功能发生的那一个画面</b>就够。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. 완성 기준</span><span class="zh">8. 完成标准</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">무엇을 보면 다 됐다고 할 수 있는가</span><span class="zh">看到什么才能说“做完了”</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">“잘 작동한다” 대신 <b>눈으로 확인할 수 있는 문장</b>을 2~3개 적습니다.</span><span class="zh">不写“运行良好”，而写 2~3 句<b>用眼睛就能确认的话</b>。</span></p>
+
+    <div class="row">
+      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
+        <div class="pt" style="color:var(--danger)"><span class="ko">확인할 수 없는 기준</span><span class="zh">无法确认的标准</span></div>
+        <ul class="blist">
+          <li><span class="ko">잘 작동한다</span><span class="zh">运行良好</span></li>
+          <li><span class="ko">사용하기 편하다</span><span class="zh">用起来方便</span></li>
+          <li><span class="ko">디자인이 깔끔하다</span><span class="zh">设计干净</span></li>
+          <li><span class="ko">속도가 빠르다</span><span class="zh">速度快</span></li>
+        </ul>
+      </div>
+      <div class="pane okp">
+        <div class="pt"><span class="ko">확인할 수 있는 기준</span><span class="zh">能够确认的标准</span></div>
+        <ul class="blist">
+          <li><span class="ko">단어를 입력하고 버튼을 누르면 결과가 나타난다</span><span class="zh">输入词语并按下按钮后，结果就出现</span></li>
+          <li><span class="ko">입력이 비어 있으면 입력 안내가 나타난다</span><span class="zh">输入为空时，出现输入提示</span></li>
+          <li><span class="ko">처음 화면을 보고 무엇을 해야 하는지 알 수 있다</span><span class="zh">看第一眼的画面就知道该做什么</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p><span class="ko">오른쪽 문장들은 모두 <b>해 보면 판정이 나옵니다.</b> 버튼을 눌러 보면 결과가 나오거나 안 나오거나 둘 중 하나입니다. 왼쪽 문장들은 열 사람이 열 가지로 답합니다.</span><span class="zh">右边这些句子<b>做一下就有判定</b>。按一下按钮，结果要么出来要么不出来。左边那些，十个人会有十种答案。</span></p>
+
+    <div class="note">
+      <div class="nt"><span class="ko">이 기준이 나중에 어디에 쓰이는가</span><span class="zh">这些标准以后用在哪里</span></div>
+      <p><span class="ko">10~13회에 AI가 만든 결과를 받았을 때, <b>이 문장들을 하나씩 실행해 보고 표시</b>합니다. 세 개가 모두 확인되면 핵심 기능이 완성된 것입니다.</span><span class="zh">第 10~13 次课拿到 AI 做出的结果时，<b>把这些句子一句句执行一遍并做标记</b>。三条都确认到了，核心功能就算完成。</span></p>
+      <p><span class="ko">12회 테스트 차시의 기록 양식도 이 기준을 그대로 가져다 씁니다. 그래서 지금 <b>확인할 수 있는 문장</b>으로 적어 두는 것이 중요합니다.</span><span class="zh">第 12 次课测试的记录表也直接沿用这些标准。所以现在就写成<b>能确认的句子</b>很重要。</span></p>
+    </div>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">“사용자가 만족한다”는 완성 기준으로 쓸 수 있을까?</span><span class="zh">“用户很满意”能当完成标准吗？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">쓸 수 없습니다. <b>무엇을 보면 만족했다고 판정할지</b>가 없기 때문입니다. 다 만든 뒤 화면을 열어도 “만족했는지” 확인할 방법이 없습니다.</span><span class="zh">不能。因为<b>没有说看到什么才算满意</b>。做完之后打开画面，也没办法确认“满不满意”。</span></p>
+          <p><span class="ko">바꾸려면 만족을 <b>눈에 보이는 행동이나 화면</b>으로 옮겨야 합니다. 예를 들어 “결과가 마음에 들지 않으면 다시 만들기 버튼을 눌러 새 결과를 받을 수 있다”처럼 적으면 확인할 수 있습니다.</span><span class="zh">要改的话，得把“满意”换成<b>看得见的行为或画面</b>。比如写成“结果不合心意时，可以按重新生成按钮拿到新结果”，就能确认了。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">9. AI 사용</span><span class="zh">9. AI 的使用</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">AI는 생각을 정리하는 도구로 쓴다</span><span class="zh">把 AI 当作整理思路的工具</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">기획 단계에서도 AI를 쓸 수 있습니다. 다만 <b>순서가 중요합니다.</b> 학생이 사용자·목적·핵심 기능을 <b>먼저 정한 뒤</b>, AI에게 문장을 정리하거나 빠진 연결을 질문하게 합니다.</span><span class="zh">策划阶段也能用 AI。只是<b>顺序很重要</b>。要由学生<b>先定下</b>用户、目的与核心功能，再让 AI 帮忙理顺句子或就缺失的衔接提问。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>① 학생이 먼저 정한다</b><span>사용자 · 목적 · 핵심 기능 · 흐름</span></span><span class="zh"><b>① 先由学生定</b><span>用户 · 目的 · 核心功能 · 流程</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>② AI에게 질문을 요청한다</b><span>새 기능 추가가 아니라 어긋난 곳 찾기</span></span><span class="zh"><b>② 请 AI 提问</b><span>不是加新功能，而是找出错位的地方</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>③ 학생이 결정한다</b><span>무엇을 유지하고 무엇을 바꿀지</span></span><span class="zh"><b>③ 由学生决定</b><span>保留什么、改什么</span></span></div>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI에게 보낼 요청문 — 그대로 써도 됩니다</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">发给 AI 的请求文 — 照抄也可以</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>내가 만들 작은 서비스의 아이디어를 적었어.
+새 기능을 추가하지 말고 사용자, 목적, 핵심 기능과 결과가
+서로 맞지 않거나 불분명한 부분만 질문해 줘.
+전문 개발 용어는 사용하지 말아 줘.</code></pre>
+    </div>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:44%"><span class="ko">이 줄이 없으면</span><span class="zh">少了这一句</span></th><th><span class="ko">이런 일이 생길 수 있다</span><span class="zh">可能发生的事</span></th></tr>
+      <tr><td><span class="ko">“새 기능을 추가하지 마”가 없으면</span><span class="zh">不写“不要加新功能”</span></td><td><span class="ko">AI가 로그인·알림·공유 기능을 덧붙여 범위가 커진다</span><span class="zh">AI 会补上登录、推送、分享，范围就变大了</span></td></tr>
+      <tr><td><span class="ko">“질문해 줘”가 없으면</span><span class="zh">不写“请提问”</span></td><td><span class="ko">AI가 대신 다 고쳐서, 내 계획이 아닌 문서가 된다</span><span class="zh">AI 会替你全改一遍，文档就不是你的计划了</span></td></tr>
+      <tr><td><span class="ko">“전문 용어 쓰지 마”가 없으면</span><span class="zh">不写“不要用专业术语”</span></td><td><span class="ko">읽어도 무슨 말인지 몰라 판단할 수 없다</span><span class="zh">读了也不知道在说什么，没法判断</span></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s9_2">
+    <div class="kick"><span class="ko">9. AI 사용</span><span class="zh">9. AI 的使用</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">AI는 생각을 정리하는 도구로 쓴다</span><span class="zh">把 AI 当作整理思路的工具</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">AI가 제안한 기능을 모두 추가하지 않습니다</span><span class="zh">不要把 AI 提议的功能全加进来</span></div>
+      <p><span class="ko">AI에게 물으면 대개 기능을 <b>늘리는</b> 방향으로 답합니다. 그것이 더 그럴듯해 보이기 때문입니다. 그러나 만드는 사람은 여러분이고, 시간도 여러분의 것입니다.</span><span class="zh">问 AI，它大多会往<b>增加</b>功能的方向答，因为那看起来更像样。可动手做的是你们，时间也是你们的。</span></p>
+      <p><span class="ko">AI의 답을 읽고 <b>무엇을 유지하거나 바꿀지는 학생이 결정</b>합니다. 그리고 그 결정을 PRD에 기록합니다. 8회 수행평가에서 <b>AI의 의견과 학생의 판단을 구분해 적었는지</b>를 확인합니다.</span><span class="zh">读完 AI 的回答，<b>保留什么、改什么由学生决定</b>。然后把这个决定记进 PRD。第 8 次课的实作评价会确认<b>你是否把 AI 的意见和自己的判断分开写了</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">10. 오해</span><span class="zh">10. 误解</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">흔한 오해와 사실</span><span class="zh">常见的误解与事实</span></h2>
+
+    <div class="myth">
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“PRD를 잘 쓰면 좋은 평가를 받으니까 길게, 전문 용어를 써서 써야 한다.”</span><span class="zh">“PRD 写得好就能拿好评价，所以要写长、要用专业术语。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">분량도 용어 수도 기준이 아닙니다. 짧더라도 <b>사용자·목적·기능·흐름·화면·데이터가 서로 맞고</b>, 학생이 그 뜻을 설명할 수 있으면 됩니다. 길게 쓰다 보면 오히려 앞뒤가 어긋나기 쉽습니다.</span><span class="zh">篇幅和术语数量都不是标准。哪怕短，只要<b>用户、目的、功能、流程、画面、数据彼此吻合</b>，并且学生能讲清它的意思，就可以。写长了反而容易前后错位。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“기능을 많이 넣어야 열심히 한 것처럼 보인다.”</span><span class="zh">“功能多才显得用心。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">기능 수는 평가 항목이 아닙니다. 핵심 기능이 <b>1개</b>이고 보조 기능이 <b>2개 이하</b>인지를 확인합니다. 범위를 줄이는 것도 판단력입니다.</span><span class="zh">功能数量不是评价项目。要确认的是核心功能是不是 <b>1 个</b>、辅助功能是不是 <b>2 个以内</b>。把范围收小，也是判断力。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“어차피 AI가 만들어 주니까 PRD는 대충 적어도 된다.”</span><span class="zh">“反正 AI 会做出来，PRD 随便写写就行。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">AI는 <b>적힌 대로</b> 만듭니다. PRD가 흐릿하면 AI는 빈 곳을 스스로 채워 넣고, 그 결과가 내가 원한 것인지 판단할 기준이 없어집니다. PRD는 AI를 위한 문서이자 <b>내가 결과를 검사할 자</b>입니다.</span><span class="zh">AI 是<b>照写的内容</b>做的。PRD 一模糊，AI 就自己把空处填满，而你也失去了判断结果是不是自己想要的标准。PRD 既是给 AI 的文档，也是<b>我用来检查结果的尺子</b>。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“화면 디자인을 예쁘게 정해 놓아야 개발이 쉬워진다.”</span><span class="zh">“先把画面设计定得漂漂亮亮，开发才容易。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">이 단계에서 정할 것은 <b>무엇이 화면에 있어야 하는가</b>이지 색과 위치가 아닙니다. 디자인을 먼저 정해 두면 오히려 개발 중에 바꾸기 어려워집니다.</span><span class="zh">这个阶段要定的是<b>画面上该有什么</b>，不是颜色和位置。先把设计定死，开发中反而不好改。</span></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 11 ══════════ -->
+  <section class="page" id="s11">
+    <div class="kick"><span class="ko">11. 역할 구분</span><span class="zh">11. 角色划分</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">누가 무엇을 정하는가</span><span class="zh">谁来定什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">지금 정할 것과 나중에 정할 것을 구분해 두면 불필요한 고민을 줄일 수 있습니다.</span><span class="zh">把现在要定的和以后再定的分清楚，能少走不少弯路。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:33%"><span class="ko">6회에 학생이 정한다</span><span class="zh">第 6 次课由学生定</span></th><th style="width:33%"><span class="ko">7회에 배우고 덧붙인다</span><span class="zh">第 7 次课学了再补上</span></th><th><span class="ko">개발 과정에서 AI와 정한다</span><span class="zh">开发过程中与 AI 一起定</span></th></tr>
+      <tr><td><span class="ko">사용자와 사용 상황</span><span class="zh">用户与使用情境</span></td><td><span class="ko">서비스가 기억할 기록과 이유</span><span class="zh">服务要记住的记录及其理由</span></td><td><span class="ko">실제 화면 디자인</span><span class="zh">实际的画面设计</span></td></tr>
+      <tr><td><span class="ko">서비스 목적</span><span class="zh">服务目的</span></td><td><span class="ko">기억해야 할 정보</span><span class="zh">需要记住的信息</span></td><td><span class="ko">파일과 폴더 구조</span><span class="zh">文件与文件夹结构</span></td></tr>
+      <tr><td><span class="ko">핵심 기능 1개와 보조 기능</span><span class="zh">核心功能 1 个与辅助功能</span></td><td><span class="ko">필요한 테이블 후보와 역할</span><span class="zh">需要的候选数据表及其作用</span></td><td><span class="ko">테이블의 열과 자료형</span><span class="zh">表的列与数据类型</span></td></tr>
+      <tr><td><span class="ko">대표 사용 흐름</span><span class="zh">代表性使用流程</span></td><td><span class="ko">둘 이상의 표가 필요한 경우 관계 설명</span><span class="zh">需要两张以上表时的关系说明</span></td><td><span class="ko">PK·FK의 실제 위치와 DB 설정</span><span class="zh">主键、外键的实际位置与数据库设置</span></td></tr>
+      <tr><td><span class="ko">입력·결과와 화면 구성 설명</span><span class="zh">输入、结果与画面构成说明</span></td><td><span class="ko">저장하지 않을 정보</span><span class="zh">不保存的信息</span></td><td><span class="ko">프레임워크와 코드</span><span class="zh">框架与代码</span></td></tr>
+      <tr><td><span class="ko">완성 기준 2~3개</span><span class="zh">完成标准 2~3 条</span></td><td><span class="ko">개인정보 점검</span><span class="zh">个人信息检查</span></td><td><span class="ko">실행·수정·배포 방법</span><span class="zh">运行、修改与发布方式</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">오른쪽 칸을 지금 고민하지 마세요</span><span class="zh">现在不要去纠结右边那一栏</span></div>
+      <p><span class="ko">“무슨 프레임워크를 쓰지?”, “데이터베이스는 어떻게 만들지?” 같은 질문은 <b>지금 답할 필요가 없습니다.</b> 10회부터 표준 프로젝트와 함께 다룹니다.</span><span class="zh">“该用什么框架？”“数据库怎么建？”这类问题<b>现在不必回答</b>。从第 10 次课起会连同标准项目一起讲。</span></p>
+      <p><span class="ko">지금 그 고민에 시간을 쓰면, 정작 <b>무엇을 만들지</b>가 비어 있는 계획서가 됩니다.</span><span class="zh">现在把时间花在那上面，反而会写出一份<b>没写清要做什么</b>的计划书。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">가운데 칸도 아직입니다</span><span class="zh">中间那栏也还没到时候</span></div>
+      <p><span class="ko">“어떤 기록을 남기지?”는 다음 주(7회)에 배우고 나서 적습니다. 오늘은 <b>왼쪽 칸</b>만 정하면 충분합니다.</span><span class="zh">“要留下哪些记录？”下周（第 7 次课）学了之后再写。今天定好<b>左边那一栏</b>就够了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 12 ══════════ -->
+  <section class="page" id="s12">
+    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">처음 만드는 서비스에서 핵심 기능을 하나로 제한하는 이유는 무엇인가?</span><span class="zh">第一次做服务时，为什么要把核心功能限定为一个？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><b>완성 여부를 판단할 수 있게 하기 위해서</b>입니다. 기능이 하나면 “그 기능이 작동하는가”로 완성을 판정할 수 있습니다. 기능이 다섯 개면 세 개만 되었을 때 완성인지 아닌지 말할 수 없습니다.</span><span class="zh"><b>为了能判断有没有做完</b>。功能只有一个时，用“这个功能能不能跑”就能判定完成。功能有五个时，做出三个，你说不清算不算完成。</span></p>
+          <p><span class="ko">또 한 가지 이유는 시간입니다. 9회에 흐름을 설계하고 10~13회 네 번의 수업 안에 만들고, 시험하고, 고치고, 설명까지 해야 합니다. 기능 하나도 그 과정을 다 거치면 시간이 빠듯합니다.</span><span class="zh">还有一个理由是时间。第 9 次课设计流程，再用第 10~13 次课这四节做出来、测试、修改，还要说明。就算只有一个功能，把这一整套走完也很紧张。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">화면을 그림이 아니라 입력·동작·결과를 설명하는 글로 작성하는 이유는 무엇인가?</span><span class="zh">画面为什么不用图，而要写成说明输入、动作与结果的文字？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">그 글이 <b>AI에게 화면을 요청하는 재료</b>이자 <b>만들어진 화면을 확인하는 기준</b>이 되기 때문입니다. 그림은 색과 위치를 보여 주지만, “입력이 잘못되면 무엇이 나와야 하는가” 같은 것은 담지 못합니다.</span><span class="zh">因为那段文字既是<b>向 AI 请求画面的材料</b>，也是<b>确认做出来的画面的标准</b>。图能显示颜色和位置，却装不下“输入错了该出现什么”这类内容。</span></p>
+          <p><span class="ko">그리고 색·글꼴·위치는 개발 단계에서 AI가 만들고 사람이 확인합니다. 지금 정해 두면 시간만 쓰고 다시 바꾸게 됩니다.</span><span class="zh">而且颜色、字体、位置在开发阶段由 AI 做、由人确认。现在定下来，只会白花时间，之后还要改。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">AI가 “알림 기능과 공유 기능도 넣으면 좋겠다”라고 제안했다. 학생이 확인해야 할 것은 무엇인가?</span><span class="zh">AI 提议说“加上推送功能和分享功能会更好”。学生该确认什么？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">먼저 <b>그 기능이 한 문장 정의와 핵심 기능에 실제로 필요한지</b>를 확인합니다. 정의에 없는 일을 하는 기능이면 넣지 않습니다.</span><span class="zh">首先确认<b>这个功能对那句一句话定义和核心功能是否真的必要</b>。做的是定义里没有的事，就不加。</span></p>
+          <p><span class="ko">다음으로 <b>수업 범위 안에 있는지</b>를 봅니다. 알림과 공유는 대체로 로그인이나 외부 연결이 필요해 기본 범위 밖입니다.</span><span class="zh">其次看<b>是否在课程范围之内</b>。推送和分享大多需要登录或外部连接，在基本范围之外。</span></p>
+          <p><span class="ko">넣지 않기로 했다면 그것도 기록합니다. PRD의 <b>‘만들지 않을 기능과 이유’</b>와 <b>‘AI 사용과 학생의 판단’</b> 항목에 적습니다. <b>거절한 것도 판단</b>이며, 8회 평가에서 확인하는 항목입니다.</span><span class="zh">如果决定不加，这件事也要记下来。写进 PRD 的<b>“不做的功能与理由”</b>和<b>“AI 的使用与学生的判断”</b>两项。<b>拒绝也是一种判断</b>，是第 8 次课评价要确认的项目。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s12_2">
+    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">“나는 ______한 사용자가 ______할 수 있도록 돕는 ______을 만든다.” 오늘 배운 틀로 내 아이디어를 한 문장으로 적어 보세요. 다음 차시에 이 문장부터 문서에 옮깁니다.</span><span class="zh">“我要做的是帮助 ______ 的用户能够 ______ 的 ______。”用今天学的模板，把自己的点子写成一句话。下一课时就从这句话开始抄进文档。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 13 ══════════ -->
+  <section class="page" id="s13">
+    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko">전문적인 서비스 기획 방법을 모두 배우는 것이 목표가 아니다. <b>AI에게 설명하고 결과를 확인할 수 있을 만큼</b> 정리한다.</span><span class="zh">目标不是把专业的服务策划方法全学一遍。整理到<b>能向 AI 说明、能确认结果</b>的程度即可。</span></li>
+        <li><span class="ko"><b>서비스 제작 계획서(PRD)</b>는 AI에게 무엇을 만들지 설명하고 결과를 확인하는 <b>기준 문서</b>다. 이 수업에서는 <b>수업용 간소화 PRD</b>를 쓴다.</span><span class="zh"><b>服务制作计划书（PRD）</b>是向 AI 说明要做什么、并据以确认结果的<b>标准文档</b>。这门课写的是<b>课堂用简化 PRD</b>。</span></li>
+        <li><span class="ko">아이디어는 <b>익숙한 불편이나 관심사</b>에서 시작한다. 이미 있는 서비스와 비슷해도 된다.</span><span class="zh">点子从<b>熟悉的不便或兴趣</b>出发。和已有的服务相似也可以。</span></li>
+        <li><span class="ko">사용자는 <b>상황과 함께</b> 적는다. “모든 사람”이 아니라 “___할 때 ___이 필요한 학생”.</span><span class="zh">用户要<b>连同情境</b>一起写。不是“所有人”，而是“在___时需要___的学生”。</span></li>
+        <li><span class="ko">목적은 <b>“나는 ___한 사용자가 ___할 수 있도록 돕는 ___을 만든다”</b> 한 문장으로 적는다.</span><span class="zh">目的写成<b>“我要做的是帮助 ___ 的用户能够 ___ 的 ___”</b>这一句话。</span></li>
+        <li><span class="ko">대표 사용 흐름은 <b>하나만</b> 3~4단계로 적는다.</span><span class="zh">代表性使用流程<b>只写一条</b>，分 3~4 步。</span></li>
+        <li><span class="ko">핵심 기능 <b>1개</b>, 보조 기능 <b>최대 2개</b>. 로그인·결제·실시간 채팅·외부 AI API는 제외한다.</span><span class="zh">核心功能 <b>1 个</b>，辅助功能 <b>最多 2 个</b>。登录、支付、实时聊天、外部 AI API 都排除。</span></li>
+        <li><span class="ko">기술을 정하기 전에 <b>입력·처리·출력</b>과 잘못된 입력에 대한 안내를 정한다.</span><span class="zh">定技术之前，先定<b>输入、处理、输出</b>和对错误输入的提示。</span></li>
+        <li><span class="ko">화면은 그리지 않고 <b>여섯 항목</b>으로 글로 설명한다.</span><span class="zh">画面不画，用<b>六个项目</b>写成文字说明。</span></li>
+        <li><span class="ko">완성 기준은 <b>눈으로 확인할 수 있는 문장</b> 2~3개로 적는다.</span><span class="zh">完成标准写成<b>用眼睛能确认的句子</b> 2~3 条。</span></li>
+        <li><span class="ko">AI는 <b>학생이 먼저 정한 뒤</b> 질문을 요청하는 데 쓴다. 최종 범위는 학생이 결정하고, 그 판단을 기록한다.</span><span class="zh">AI 要在<b>学生先定好之后</b>，用来请它提问。最终范围由学生决定，并把这个判断记下来。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s13_2">
+    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note">
+      <div class="nt"><span class="ko">다음 주에 정할 네 가지</span><span class="zh">下周要定的四件事</span></div>
+      <p><span class="ko">이 수업의 모든 서비스는 <b>사용자가 만든 의미 있는 기록을 최소 한 종류 저장</b>합니다. 7회에는 그 기록을 다음 순서로 정합니다.</span><span class="zh">这门课的每个服务都要<b>至少保存一种由用户产生的、有意义的记录</b>。第 7 次课按下面的顺序来定这份记录。</span></p>
+      <ul class="blist">
+        <li><span class="ko">서비스가 <b>기억해야 할 기록</b>을 정한다.</span><span class="zh">定下服务<b>要记住的记录</b>。</span></li>
+        <li><span class="ko">그 기록이 생기는 <b>사용자 행동</b>을 생각한다.</span><span class="zh">想清楚这条记录是由哪个<b>用户行为</b>产生的。</span></li>
+        <li><span class="ko">사용자가 저장된 기록을 <b>다시 확인하는 순간</b>을 생각한다.</span><span class="zh">想清楚用户<b>再次查看</b>这条记录的时刻。</span></li>
+        <li><span class="ko">기록을 담을 <b>후보 테이블과 역할</b>을 정한다.</span><span class="zh">定下承载记录的<b>候选数据表及其作用</b>。</span></li>
+      </ul>
+      <p><span class="ko">오늘은 여기까지 생각하지 않아도 됩니다. 다만 핵심 기능을 정할 때 <b>사용자가 나중에 다시 볼 만한 것이 생기는지</b>만 한 번 떠올려 보세요.</span><span class="zh">今天还不必想到这一步。只是在定核心功能时，顺便想一想<b>会不会产生用户日后还想再看的东西</b>。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s13_3">
+    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>6-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">다음 차시에는 오늘 배운 항목을 <b>실제 문서에 옮겨 적습니다.</b> 교사가 제공한 <b>PRD 양식</b>을 복사해 <code>08_assessment2_학생ID_이름.md</code>로 이름을 바꾸고, 사용자·목적·흐름·기능·화면·완성 기준을 채웁니다.</span><span class="zh">下一课时把今天学的各项<b>抄进真正的文档</b>。复制老师提供的 <b>PRD 样式</b>，改名为 <code>08_assessment2_학생ID_이름.md</code>，填上用户、目的、流程、功能、画面与完成标准。</span></p>
+      <p><span class="ko">이 문서 하나가 7회에 데이터 항목을 더해 자라고, 8회에 <b>수행평가 2</b>로 제출됩니다. 새 문서를 여러 개 만들지 않습니다.</span><span class="zh">这一份文档会在第 7 次课加上数据项而长大，到第 8 次课作为<b>实作评价 2</b> 提交。不要另建好几份文档。</span></p>
+      <a class="next" href="06-2.html">6-2. 서비스 제작 계획서(PRD) 시작하기 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="05-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">5-2. 수행평가 1 · 데이터 시각화</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="06-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">6-2. 서비스 제작 계획서(PRD) 시작하기</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>9~13회 교사용 개발 수업 준비자료 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교사용 자료 — 9~13회 개발 수업 준비. 표준 Next.js 프로젝트, 차시별 준비물, 검증 체크리스트, 문제 대응 순서" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <div class="brand"><em>교사용</em> <span class="lesson">9~13회 개발 수업 준비자료</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h">이 자료 — 교사용</div>
+  <a href="#opener"><span class="n">·</span> 표지</a>
+  <a href="#s1"><span class="n">1</span> 문서 목적</a>
+  <a href="#s2"><span class="n">2</span> 수업에서 고정할 개발 방향</a>
+  <a href="#s3"><span class="n">3</span> 학생과 교사의 역할 경계</a>
+  <a href="#s4"><span class="n">4</span> 표준 Next.js 프로젝트</a>
+  <a href="#s4b"><span class="n">·</span> 권장 기본 구조</a>
+  <a href="#s4c"><span class="n">·</span> 템플릿 포함 기능과 감출 설정</a>
+  <a href="#s5"><span class="n">5</span> 배포와 플랫폼 운영 원칙</a>
+  <a href="#s6"><span class="n">6</span> 차시별 교사 준비자료</a>
+  <a href="#s6b"><span class="n">·</span> 수업 전 필수 준비 게이트</a>
+  <a href="#s6c"><span class="n">·</span> 45분 운영 기준</a>
+  <a href="#s7"><span class="n">7</span> 배포 전 템플릿 검증</a>
+  <a href="#s8"><span class="n">8</span> 수업 중 문제 대응 순서</a>
+  <a href="#s9"><span class="n">9</span> 평가에서 제외할 기술 요소</a>
+  <a href="#s10"><span class="n">10</span> 최종 확정이 필요한 항목</a>
+  <a href="#s11"><span class="n">11</span> 준비물 관리표</a>
+
+  <div class="h">별도 배포 자료</div>
+  <a href="09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+  <a href="09-13.html" class="here"><span class="n">교사용</span> 9~13회 준비자료</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum">교사용 자료 · 학생 배포본 아님</div>
+    <h1>9~13회<br/>개발 수업 준비자료</h1>
+    <div class="abar"></div>
+    <div class="osub">사용자 흐름 설계와 서비스 구현 수업 전에<br/>교사가 준비할 조건 · 템플릿 · 환경 · 제출 자료를 정리합니다.</div>
+    <div class="ometa"><b>관련 학생용 문서</b> · 9-1 서비스 사용자 흐름(Flow) 설계 ~ 13-2 수행평가 3<br/>
+      <b>함께 배포</b> · 9-0. AI 개발 조건 (학생·AI가 함께 읽는 조건표)</div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick">1. 목적<b>교사용</b></div>
+    <h2 class="title">이 문서가 다루는 것</h2>
+
+    <p class="lead">9회 사용자 흐름 설계와 10~13회 서비스 구현 수업 전에 교사가 준비해야 할 <b>AI 개발 조건, 표준 프로젝트, 실행 환경, 데이터 저장 도구, 제출 자료와 대체 운영 절차</b>를 정리합니다.</p>
+
+    <div class="bigq">
+      <div class="qt">전제</div>
+      <p>학생은 전문 개발자가 되는 것을 목표로 하지 않는다.</p>
+    </div>
+
+    <p>코드를 처음부터 작성하거나 개발 환경을 설계하기보다, <b>수행평가 2에서 작성한 PRD를 기준으로 AI가 만든 결과를 실행·확인·수정 요청·테스트</b>하는 데 집중합니다.</p>
+
+    <div class="note stop">
+      <div class="nt">학생에게 배포하지 않습니다</div>
+      <p>이 문서는 <b>교사용</b>입니다. 같은 폴더의 <code>09-0.html</code>(AI 개발 조건)은 학생과 AI가 함께 읽는 자료이므로 배포해도 됩니다.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick">2. 개발 방향<b>교사용</b></div>
+    <h2 class="title">수업에서 고정할 개발 방향</h2>
+
+    <ul class="blist">
+      <li>초반 Python 학습과 9~13회 웹서비스 구현 단계를 <b>분리</b>한다.</li>
+      <li>9회에는 사용자 흐름과 개발 계획을 확정하며 <b>코드를 작성하지 않는다.</b></li>
+      <li>실제 서비스 개발은 10회부터 시작하고 <b>Python을 사용하지 않는다.</b></li>
+      <li>학생 작품은 교사가 제공한 <b>표준 Next.js 프로젝트 하나</b>에서 만든다.</li>
+      <li>프론트엔드와 백엔드를 <b>별도 프로젝트로 나누지 않는다.</b></li>
+      <li>화면·내부 API·SQLite의 역할은 구분하되 <b>프론트엔드와 백엔드를 별도 프로젝트로 연결하는 절차는 가르치지 않는다.</b></li>
+      <li>학생이 프레임워크, 패키지, 포트, DB 경로와 배포 방식을 <b>선택하거나 설정하지 않는다.</b></li>
+      <li>서비스마다 <b>핵심 기능은 한 가지</b>로 제한한다.</li>
+      <li>모든 작품은 핵심 기능과 관련된 <b>의미 있는 기록을 하나 이상 SQLite에 저장</b>하고 다시 보여 준다.</li>
+      <li>한 테이블로 충분하면 늘리지 않으며, DB 사용을 보여 주기 위한 <b>가짜 기록을 만들지 않는다.</b></li>
+      <li>로그인·결제·외부 API·관리자 기능은 기본 수업 범위에서 <b>제외</b>한다.</li>
+      <li>파일 업로드는 핵심 기능에 꼭 필요하고 <b>교사가 승인한 작품만</b> 선택적으로 허용한다.</li>
+    </ul>
+
+    <div class="note">
+      <div class="nt">학생에게 쓸 용어</div>
+      <p><b>화면의 행동</b>, <b>API에 보내는 요청</b>, <b>API가 돌려주는 응답</b>, <b>SQLite에 남는 기록</b>의 연결을 우선 사용합니다.</p>
+      <p><code>프론트엔드</code>, <code>백엔드</code>, <code>포트</code>, <code>CORS</code>, <code>빌드</code>, <code>마이그레이션</code>, <code>리버스 프록시</code> 등은 <b>결과를 이해하는 데 꼭 필요한 경우에만</b> 짧게 설명합니다.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick">3. 역할 경계<b>교사용</b></div>
+    <h2 class="title">학생과 교사의 역할 경계</h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:50%">학생이 하는 일</th><th>교사가 미리 처리하는 일</th></tr>
+      <tr><td>사용자 흐름과 개발 계획 확인</td><td>수업에서 가능한 기능과 제한 조건 제공</td></tr>
+      <tr><td>10회에 표준 프로젝트 복사</td><td>Next.js·TypeScript와 패키지 버전 고정</td></tr>
+      <tr><td>수업 조건·PRD·개발 계획을 <code>docs/</code>에 넣기</td><td>프로젝트 구조와 실행 명령 통일</td></tr>
+      <tr><td>명령 하나로 프로젝트 실행</td><td>포트·DB·업로드 경로 처리</td></tr>
+      <tr><td>로컬 주소 하나를 브라우저에서 열기</td><td>SQLite·Prisma 기본 설정</td></tr>
+      <tr><td>AI의 변경 계획과 결과 확인</td><td>상태 확인 경로와 플랫폼 실행 규격 준비</td></tr>
+      <tr><td>핵심 기능 실행과 입력 테스트</td><td>제출 ZIP 검증과 격리 실행 환경 준비</td></tr>
+      <tr><td>SQLite Viewer로 저장된 데이터 확인</td><td>외부 공개 여부와 게시 주소 관리</td></tr>
+      <tr><td>표준 ZIP 제출</td><td>플랫폼 장애 시 대체 제출 운영</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick">4. 표준 프로젝트<b>교사용</b></div>
+    <h2 class="title">표준 Next.js 프로젝트의 기본 원칙</h2>
+
+    <ul class="blist">
+      <li>모든 학생이 <b>같은 시작 파일</b>을 사용한다.</li>
+      <li>한 프로젝트 안에서 <b>화면과 서버 기능이 함께</b> 작동한다.</li>
+      <li>학생이 <b>수정해도 되는 영역</b>과 <b>수정하면 안 되는 설정 영역</b>을 구분한다.</li>
+      <li>AI가 전체 프로젝트를 다시 만들거나 패키지를 임의로 추가하지 않도록 <b>프로젝트 안내 파일에 제한을 적는다.</b></li>
+      <li>모든 작품이 <b>같은 SQLite 기반 템플릿</b>을 사용한다.</li>
+      <li>학생 서비스와 관계없는 가짜 기록을 넣지 않고 <b>PRD의 후보 테이블을 기준으로 최소 기록만</b> 연결한다.</li>
+      <li><b>로컬 실행과 플랫폼 실행에 같은 코드</b>가 사용되어야 한다.</li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt">학생용 README에 보일 여덟 가지</div>
+      <ol class="nlist">
+        <li>프로젝트 폴더 이름 바꾸기</li>
+        <li>VS Code에서 폴더 열기</li>
+        <li>프로젝트 실행 명령 <b>한 개</b></li>
+        <li>브라우저에서 열 <b>로컬 주소</b></li>
+        <li>실행 중지와 다시 실행 방법</li>
+        <li>수업 조건·PRD·개발 계획·테스트 기록을 넣을 위치</li>
+        <li>제출 ZIP을 만드는 방법</li>
+        <li>수정하면 안 되는 설정 파일</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════ 4b ══════════ -->
+  <section class="page" id="s4b">
+    <div class="kick">4. 표준 프로젝트 (이어서)<b>교사용</b></div>
+    <h2 class="title">권장 기본 구조</h2>
+
+    <div class="code">
+      <div class="chd"><span class="fn">student-project/</span><button class="cp" onclick="copyCode(this)">복사</button></div>
+      <pre><code>student-project/
+├─ app/                         # 화면과 교사가 허용한 서버 기능
+├─ components/                  # 반복되는 화면 요소
+├─ lib/                         # 공통 처리와 데이터 접근
+├─ prisma/                      # SQLite 설정
+├─ public/                      # 정적 이미지
+├─ docs/
+│  ├─ 00_course_project_rules.md
+│  ├─ 08_assessment2_학생ID_이름.md
+│  ├─ 09_development_plan_학생ID_이름.md
+│  └─ 12_test_record_학생ID_이름.md
+├─ data/                        # 작품별 SQLite 파일
+├─ project-manifest.json        # 플랫폼 실행 정보
+├─ package.json
+├─ lockfile
+└─ README-학생용.md</code></pre>
+    </div>
+
+    <div class="note">
+      <div class="nt">docs/ 폴더가 핵심입니다</div>
+      <p>학생이 <b>수업 조건(09-0)</b>, <b>PRD(수행평가 2)</b>, <b>개발 계획(9회)</b>, <b>테스트 기록(12회)</b>을 한곳에 두게 하면, AI에게 자료를 전달할 때 경로만 알려 주면 됩니다. 제출 ZIP에도 그대로 포함됩니다.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4c ══════════ -->
+  <section class="page" id="s4c">
+    <div class="kick">4. 표준 프로젝트 (이어서)<b>교사용</b></div>
+    <h2 class="title">템플릿에 넣을 것과 감출 것</h2>
+
+    <h3 class="sub">미리 포함할 기능</h3>
+
+    <ul class="blist">
+      <li>서비스 제목·설명·입력·실행·결과 영역이 있는 <b>최소 화면</b></li>
+      <li><b>빈 입력을 안내</b>하는 최소 예시</li>
+      <li>화면과 서버 기능이 한 프로젝트 안에서 작동하는 <b>예시 한 개</b></li>
+      <li>모든 작품이 사용하는 <b>표준 SQLite 데이터 접근 위치</b></li>
+      <li>플랫폼이 지정한 <b>SQLite 경로</b>를 사용하는 처리</li>
+      <li>플랫폼 <b>상태 확인용 경로</b></li>
+      <li>오류가 발생해도 <b>전체 화면이 사라지지 않는</b> 기본 안내</li>
+      <li>학생이 편집할 위치를 알려 주는 <b>짧은 주석</b></li>
+      <li>AI가 패키지와 설정을 바꾸지 않도록 하는 <b>프로젝트 지침</b></li>
+      <li><code>docs/</code> 폴더와 <code>project-manifest.json</code> 예시</li>
+    </ul>
+  </section>
+
+  <section class="page" id="s4c_2">
+    <div class="kick">4. 표준 프로젝트 (이어서)<b>교사용</b></div>
+    <h2 class="title">템플릿에 넣을 것과 감출 것<span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub">학생에게 감출 설정</h3>
+
+    <div class="note stop">
+      <div class="nt">템플릿과 플랫폼이 처리 — 학생 활동으로 제시하지 않습니다</div>
+      <ul class="blist">
+        <li>Node.js와 Next.js의 <b>세부 버전 선택</b></li>
+        <li>개발 서버 <b>포트 선택과 충돌 처리</b></li>
+        <li>외부 공개 포트와 내부 실행 포트 연결</li>
+        <li>SQLite 파일의 <b>로컬·플랫폼 경로 차이</b></li>
+        <li>Prisma 초기화와 생성 명령</li>
+        <li>프로덕션 빌드 명령과 상태 확인</li>
+        <li>기준 경로 또는 서브도메인 설정</li>
+        <li>업로드 저장 폴더의 실제 서버 경로</li>
+        <li>컨테이너·프로세스·리버스 프록시 설정</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick">5. 배포·플랫폼<b>교사용</b></div>
+    <h2 class="title">배포와 플랫폼 운영 원칙</h2>
+
+    <p class="lead">학생에게 <b>외부 호스팅 서비스 가입과 공개 배포를 요구하지 않습니다.</b> 플랫폼 업로드는 배포 기술을 배우는 활동이 아니라 <b>제출한 작품이 다른 환경에서도 실행되는지 확인하는 절차</b>로 다룹니다.</p>
+
+    <ul class="blist">
+      <li>학생은 <b>외부 배포 계정을 만들지 않는다.</b></li>
+      <li>학생은 서버, 도메인, 포트와 인증서를 설정하지 않는다.</li>
+      <li>교사 플랫폼이 <b>ZIP 검증·빌드·실행·미리보기</b>를 담당한다.</li>
+      <li>외부 공개는 <b>교사가 승인한 작품과 버전</b>에만 적용한다.</li>
+      <li>공개 주소에는 <b>실제 학번과 학생 실명을 사용하지 않는다.</b></li>
+      <li>플랫폼 실행 성공 여부만으로 <b>수행평가 결과를 결정하지 않는다.</b></li>
+      <li>플랫폼 장애나 교사 준비 미완료는 <b>학생 감점 사유가 될 수 없다.</b></li>
+    </ul>
+
+    <div class="steps">
+      <div class="st-h">플랫폼 준비가 되지 않았을 때의 대체 방식</div>
+      <ol>
+        <li>학생은 로컬에서 핵심 기능과 테스트 결과를 확인한다.</li>
+        <li>표준 파일명의 프로젝트 ZIP을 제출한다.</li>
+        <li>교사는 제출 ZIP과 학생 기기의 로컬 실행 결과를 확인한다.</li>
+        <li>필요한 경우 교사 기기에서 제출본을 다시 실행한다.</li>
+        <li>플랫폼 미리보기 항목은 <code>미실시</code>로 기록하고 평가에서 제외한다.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick">6. 차시별 준비물<b>교사용</b></div>
+    <h2 class="title">차시별 교사 준비자료</h2>
+
+    <h3 class="sub">9회 · 사용자 흐름과 개발 계획</h3>
+
+    <ul class="blist dash">
+      <li>AI가 먼저 읽을 수업 프로젝트 개발 조건 (<code>09-0.html</code>)</li>
+      <li>정상 흐름·예외 흐름 작성 양식과 쉬운 예시</li>
+      <li>기능별 구현 가능성 판정 예시</li>
+      <li>외부 AI·유료 키·로그인·외부 DB 등이 필요한 아이디어의 대안 자료</li>
+      <li><code>09_development_plan_학생ID_이름.md</code> 작성 구조</li>
+      <li>AI가 코드를 만들지 않고 질문·흐름·범위·개발 순서만 제안하게 하는 요청문</li>
+    </ul>
+
+    <h3 class="sub">10회 · API 이해와 핵심 요청·응답 연결</h3>
+
+    <ul class="blist dash">
+      <li>최종 표준 프로젝트 ZIP과 학생용 한 장 실행 안내</li>
+      <li>수업 조건·PRD·개발 계획을 <code>docs/</code>에 넣는 예시</li>
+      <li>프로젝트 폴더 이름 규칙과 AI에 전달할 기본 프로젝트 지침</li>
+      <li>교사용 정상 실행본과 화면 캡처, 기본 템플릿 복구본</li>
+      <li>사용자 행동 → 요청 → 내부 API → 응답 → 화면 변화의 최소 예시</li>
+      <li>GET·POST, JSON <code>이름: 값</code>, 성공·실패 응답 예시와 학생별 API 약속표</li>
+      <li>AI가 수정해도 되는 파일 목록</li>
+      <li>프로젝트 전체 재작성과 패키지 추가를 막는 요청문</li>
+      <li>화면은 열리지만 기능이 작동하지 않을 때의 교사용 점검 순서</li>
+    </ul>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick">6. 차시별 준비물<b>교사용</b></div>
+    <h2 class="title">차시별 교사 준비자료<span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub">11회 · 핵심 기록 저장</h3>
+
+    <ul class="blist dash">
+      <li>계산·추천·퀴즈·목록 등 서로 다른 서비스가 <b>의미 있는 최소 기록</b>을 남기는 예시</li>
+      <li>한 테이블로 충분한 예시와 여러 테이블 관계가 필요한 참고 예시</li>
+      <li>SQLite가 포함된 교사용 정상 실행본</li>
+      <li>승인한 <b>SQLite Viewer의 정확한 확장 이름</b>과 설치 안내</li>
+      <li>화면의 값과 DB 행을 비교하는 예시</li>
+      <li>DB 파일 위치와 재실행 후 데이터 유지 확인법</li>
+      <li>파일 업로드 승인 기준과 안전한 시험 파일</li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 6a2 ══════════ -->
+  <section class="page" id="s6a2">
+    <div class="kick">6. 차시별 준비물 (이어서)<b>교사용</b></div>
+    <h2 class="title">12~13회 준비자료</h2>
+
+    <h3 class="sub">12회 · 사용자 흐름 테스트와 시험 제출</h3>
+    <ul class="blist dash">
+      <li><code>12_test_record_학생ID_이름.md</code> 양식</li>
+      <li>처음 방문·대표 정상 흐름·예외 뒤 회복·다시 방문 시나리오의 예시</li>
+      <li>학생용 ZIP 생성 안내</li>
+      <li>ZIP 제외 목록: <code>node_modules</code>, 빌드 캐시, <code>.env</code>, 비밀키, 실제 개인정보, 실행 중 생성된 업로드 파일</li>
+      <li>플랫폼 시험 제출 과제와 오류 요약 화면</li>
+      <li>플랫폼을 사용할 수 없을 때의 대체 제출 위치</li>
+    </ul>
+
+    <h3 class="sub">13회 · 수행평가 3</h3>
+    <ul class="blist dash">
+      <li>최종 제출 체크리스트</li>
+      <li>수행평가 3 평가 기준과 설명 질문</li>
+      <li>최종 ZIP 파일명 자동 확인</li>
+      <li>로컬 실행 확인용 교사 체크표</li>
+      <li>플랫폼 최종 제출 확정 절차</li>
+      <li>플랫폼 장애 시 대체 평가 기록 양식</li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 6b ══════════ -->
+  <section class="page" id="s6b">
+    <div class="kick">6. 준비 게이트<b>교사용</b></div>
+    <h2 class="title">수업 전 필수 준비 게이트</h2>
+
+    <h3 class="sub">9회 전</h3>
+
+    <ul class="blist checks">
+      <li>수행평가 2로 제출된 <b>모든 PRD를 미리 읽고</b> 구현 가능성을 1차 분류한다.</li>
+      <li>모든 PRD에 <b>핵심 기능과 연결된 의미 있는 기록</b>, 기록이 생기는 행동과 다시 보는 순간이 있는지 확인한다.</li>
+      <li>외부 AI·유료 키·소셜 로그인·외부 DB·파일 업로드가 포함된 아이디어를 표시한다.</li>
+      <li>그대로 만들기 어려운 학생에게 제시할 <b>작은 대안 한두 개</b>를 준비한다.</li>
+      <li>학생이 사용하는 AI 도구가 수업 개발 조건·PRD·Markdown 문서를 <b>읽을 수 있는지</b> 확인한다.</li>
+      <li>학생 계정의 <b>모델 사용 한도와 로그인 상태</b>를 확인하고, 사용할 도구를 하나로 확정한다.</li>
+      <li>특정 AI 도구 이름에 의존하지 않도록 <b>같은 조건과 요청문</b>을 쓸 수 있게 준비한다.</li>
+    </ul>
+  </section>
+
+  <section class="page" id="s6b_2">
+    <div class="kick">6. 준비 게이트<b>교사용</b></div>
+    <h2 class="title">수업 전 필수 준비 게이트<span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub">10회 전</h3>
+
+    <ul class="blist checks">
+      <li>2회에 설치한 <b>Node.js와 npm</b>이 학생 기기에서 계속 실행되는지 다시 확인한다.</li>
+      <li>Next.js 템플릿이 사용할 <b>Node.js 버전</b>과 학생 기기의 버전이 맞는지 확인한다.</li>
+      <li>템플릿의 의존성을 <b>수업 중 인터넷 다운로드에 의존하지 않도록</b> 설치 방식과 로컬 캐시를 준비한다.</li>
+      <li>학생이 실행할 명령은 <b>한 개로 고정</b>하고 교사용 설치·복구 명령은 별도로 둔다.</li>
+      <li><b>최소 사양 수업용 노트북</b>에서 Next.js와 AI 도구를 함께 실행해 속도와 메모리를 확인한다.</li>
+      <li>한 테이블에 핵심 기록을 저장·조회하는 <b>정상 예제</b>를 준비한다.</li>
+      <li>서비스와 관계없는 가짜 기록을 넣은 <b>잘못된 예시</b>도 비교용으로 준비한다.</li>
+      <li>깨끗한 폴더에 템플릿을 복사하여 <b>처음부터 실행하는 과정을 최소 두 번</b> 확인한다.</li>
+    </ul>
+
+    <h3 class="sub">11회 전</h3>
+
+    <ul class="blist checks">
+      <li><b>SQLite Viewer</b>가 학생 기기에서 설치·실행되는지 확인한다.</li>
+      <li>Prisma 또는 DB 구조 변경 명령은 학생이 직접 조합하지 않도록 <b>템플릿에 고정</b>한다.</li>
+      <li>각 학생의 PRD에서 <b>처음 연결할 후보 테이블</b>과 저장·조회 흐름을 미리 표시한다.</li>
+      <li>파일 업로드를 허용할 학생과 허용하지 않을 학생을 <b>수업 전에 확정</b>한다.</li>
+    </ul>
+  </section>
+
+  <section class="page" id="s6b_3">
+    <div class="kick">6. 준비 게이트<b>교사용</b></div>
+    <h2 class="title">수업 전 필수 준비 게이트<span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub">12회 전</h3>
+
+    <ul class="blist checks">
+      <li>학생이 파일을 직접 골라 제외하지 않아도 되도록 <b>ZIP 생성 방법 또는 교사용 도구</b>를 준비한다.</li>
+      <li>ZIP 결과에서 <code>node_modules</code>, 빌드 캐시, 비밀정보와 업로드 파일이 <b>제외되는지</b> 확인한다.</li>
+      <li>플랫폼 시험 제출이 가능한지 확인하고, 불가능하면 <b>대체 제출 위치를 수업 시작 전에 공지</b>한다.</li>
+      <li>플랫폼과 상관없이 <b>로컬 실행으로 평가할 수 있는 교사용 확인표</b>를 준비한다.</li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 6c ══════════ -->
+  <section class="page" id="s6c">
+    <div class="kick">6. 시간 배분<b>교사용</b></div>
+    <h2 class="title">차시별 45분 운영 기준</h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th class="c" style="width:70px">차시</th><th>권장 시간 배분</th></tr>
+      <tr><td class="c"><b>9-1</b></td><td>PRD 흐름 확인 5분 → Flow 개념과 예시 15분 → 자신의 정상·예외 흐름 초안 20분 → 정리 5분</td></tr>
+      <tr><td class="c"><b>9-2</b></td><td>자료 전달·AI의 이해 확인 5분 → Flow 구체화 15분 → 구현 가능성·대안 판단 15분 → 개발 순서·파일 저장 10분</td></tr>
+      <tr><td class="c"><b>10-1</b></td><td>API·요청·응답 15분 → GET·POST·JSON·성공/실패 응답 15분 → 학생별 API 약속표 15분</td></tr>
+      <tr><td class="c"><b>10-2</b></td><td>템플릿·문서 배치·실행 10분 → AI의 API 약속 설명·확인 10분 → 핵심 API 연결 15분 → 정상·실패 응답 관찰·기록 10분</td></tr>
+      <tr><td class="c"><b>11-1</b></td><td>다시 방문하는 사용자 상황 10분 → 핵심 기록 선택 10분 → SQLite·Viewer 이해와 설치 15분 → AI 제안 확인 10분</td></tr>
+      <tr><td class="c"><b>11-2</b></td><td>시작 상태 확인 5분 → SQLite 저장·조회 연결 25분 → 다시 방문·Viewer 확인 15분</td></tr>
+      <tr><td class="c"><b>12-1</b></td><td>사용자 흐름 테스트 개념 15분 → 시나리오 선택 15분 → 예상 반응과 기록 양식 작성 15분</td></tr>
+      <tr><td class="c"><b>12-2</b></td><td>정상·예외·다시 방문 흐름 실행 25분 → 문제 우선순위 10분 → ZIP·시험 제출 10분</td></tr>
+      <tr><td class="c"><b>13-1</b></td><td>수정 문제 선택 5분 → 수정 20분 → 같은 흐름 재시험 15분 → 최종 ZIP 5분</td></tr>
+      <tr><td class="c"><b>13-2</b></td><td>대표·예외 흐름 실행 15분 → 계획·테스트·학생 판단 설명 20분 → 안전 확인·최종 제출 10분</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s6c_2">
+    <div class="kick">6. 시간 배분<b>교사용</b></div>
+    <h2 class="title">차시별 45분 운영 기준<span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt">시간이 부족할 때 줄이는 순서</div>
+      <p>화면 장식, 보조 기능, 선택 테스트와 플랫폼 미리보기부터 줄입니다.</p>
+      <p><b>사용자 흐름 설계, 대표 흐름 실행, 테스트 기록과 학생 설명은 줄이지 않습니다.</b></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick">7. 템플릿 검증<b>교사용</b></div>
+    <h2 class="title">배포 전 템플릿 검증</h2>
+
+    <p class="lead">학생에게 배포하기 전 <b>깨끗한 수업용 환경</b>에서 다음을 직접 확인합니다.</p>
+
+    <ul class="blist checks">
+      <li>새 폴더에 복사한 뒤 안내된 <b>명령 하나로 실행</b>된다.</li>
+      <li>학생이 보는 <b>로컬 주소가 하나</b>다.</li>
+      <li>다른 학생 프로젝트와 <b>동시에 실행</b>해도 교사가 대응할 수 있다.</li>
+      <li><b>한글·공백이 포함된 상위 경로</b>에서도 문제가 없는지 확인했다.</li>
+      <li>기본 화면과 최소 서버 기능이 작동한다.</li>
+      <li><b>빈 입력 안내</b>가 작동한다.</li>
+      <li>핵심 기록 저장 예시는 <b>재실행 후에도 데이터가 남는다.</b></li>
+      <li>서비스와 관계없는 <b>가짜 기록을 저장하지 않는다.</b></li>
+      <li>SQLite Viewer에서 DB를 <b>읽기 전용</b>으로 확인할 수 있다.</li>
+      <li>ZIP에 불필요한 대용량 파일과 비밀정보가 들어가지 않는다.</li>
+      <li>제출 ZIP을 <b>새 폴더에 풀어 다시 실행</b>할 수 있다.</li>
+      <li>플랫폼이 같은 ZIP을 <b>검증·빌드·실행</b>할 수 있다.</li>
+      <li>플랫폼이 실패해도 <b>로컬 제출본과 이전 버전이 보존</b>된다.</li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick">8. 문제 대응<b>교사용</b></div>
+    <h2 class="title">수업 중 문제 대응 순서</h2>
+
+    <p class="lead">학생에게 상세 원인을 모두 해석하게 하지 않고 <b>마지막으로 성공한 단계</b>를 찾습니다.</p>
+
+    <div class="vflow">
+      <div class="vf plain"><b>프로젝트 폴더를 제대로 열었는가?</b></div>
+      <div class="varr">▼</div>
+      <div class="vf"><b>표준 실행 명령이 시작되는가?</b></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><b>로컬 첫 화면이 열리는가?</b></div>
+      <div class="varr">▼</div>
+      <div class="vf"><b>입력할 수 있는가?</b></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><b>실행 동작이 시작되는가?</b></div>
+      <div class="varr">▼</div>
+      <div class="vf"><b>처리 결과가 화면에 나타나는가?</b></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><b>핵심 기록이 저장되고 다시 보이는가?</b></div>
+      <div class="varr">▼</div>
+      <div class="vf"><b>ZIP 제출과 플랫폼 확인이 가능한가?</b></div>
+    </div>
+  </section>
+
+  <section class="page" id="s8_2">
+    <div class="kick">8. 문제 대응<b>교사용</b></div>
+    <h2 class="title">수업 중 문제 대응 순서<span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note">
+      <div class="nt">준비할 복구 자료</div>
+      <ul class="blist">
+        <li>수정 전 표준 템플릿</li>
+        <li>10회 핵심 API 연결 전·후 기준 복구본</li>
+        <li>11회 데이터 기억 기능 기준 복구본</li>
+        <li>SQLite 포함 예시 프로젝트</li>
+        <li>교사가 확인한 정상 ZIP</li>
+        <li>플랫폼 없이 제출할 수 있는 대체 위치</li>
+      </ul>
+      <p>복구본은 학생 작품을 <b>대신 완성하기 위한 것이 아닙니다.</b> 환경·설정 문제를 제거하고 학생이 자신의 PRD에 따른 작업을 계속할 수 있게 하는 데 사용합니다.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick">9. 평가 제외<b>교사용</b></div>
+    <h2 class="title">평가에서 제외할 기술 요소</h2>
+
+    <div class="row">
+      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
+        <div class="pt" style="color:var(--danger)">평가하지 않는 것</div>
+        <ul class="blist">
+          <li>Next.js·React·TypeScript <b>문법 암기</b></li>
+          <li>포트와 서버 운영 원리</li>
+          <li>패키지 설치와 버전 충돌 해결</li>
+          <li>Prisma 설정과 migration 작성</li>
+          <li>외부 호스팅 가입과 <b>공개 배포 성공 여부</b></li>
+          <li>기능 수와 코드의 양</li>
+          <li>화면의 화려함</li>
+          <li>테이블 수와 DB 구조의 복잡함</li>
+        </ul>
+      </div>
+      <div class="pane okp">
+        <div class="pt">평가의 중심</div>
+        <ul class="blist">
+          <li>PRD의 <b>목적 유지</b></li>
+          <li>9회 <b>사용자 흐름과 범위 판단</b></li>
+          <li><b>대표 흐름의 실행</b></li>
+          <li><b>테스트 기록</b></li>
+          <li>AI 제안에 대한 <b>학생의 판단</b>과 결과 설명</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note ok">
+      <div class="nt">공통 이수 기준</div>
+      <p><b>SQLite에 핵심 기록을 저장하고 다시 보여 주는 흐름</b>은 공통 이수 기준으로 확인합니다. 구현 방식의 정교함이 아니라 <b>흐름이 작동하는가</b>를 봅니다.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick">10. 확정 항목<b>교사용</b></div>
+    <h2 class="title">최종 확정이 필요한 항목</h2>
+
+    <p class="lead">템플릿 제작 전에 다음 값을 <b>하나로 고정</b>합니다.</p>
+
+    <ul class="blist checks">
+      <li>Node.js 버전</li>
+      <li>Next.js·React·TypeScript 버전</li>
+      <li>패키지 관리자와 lockfile 종류</li>
+      <li>학생이 사용할 <b>실행 명령 한 개</b></li>
+      <li>화면과 서버 기능의 기본 구현 방식</li>
+      <li>Prisma·SQLite 버전과 <b>DB 파일 위치</b></li>
+      <li>상태 확인 경로</li>
+      <li>플랫폼 주소 방식: <b>경로형 또는 서브도메인형</b></li>
+      <li>파일 업로드 허용 여부와 제한</li>
+      <li>프로젝트 ZIP 최대 크기</li>
+      <li>플랫폼 시험 운영 가능 시점</li>
+      <li>플랫폼 미완성·장애 시 <b>대체 제출 위치</b></li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 11 ══════════ -->
+  <section class="page" id="s11">
+    <div class="kick">11. 준비물<b>교사용</b></div>
+    <h2 class="title">준비물 관리표</h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:34%">준비물</th><th class="c" style="width:70px">사용 차시</th><th class="c" style="width:80px">상태</th><th>비고</th></tr>
+      <tr><td>수업 프로젝트 개발 조건</td><td class="c">9~13</td><td class="c">설계됨</td><td><code>09-0.html</code></td></tr>
+      <tr><td>사용자 흐름·개발 계획 양식</td><td class="c">9</td><td class="c">설계됨</td><td>9-2 차시</td></tr>
+      <tr><td><b>표준 Next.js 프로젝트</b></td><td class="c">10~13</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>학생용 실행 안내</td><td class="c">10</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>AI 프로젝트 지침</td><td class="c">10~13</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>단계별 교사용 정상 실행본</td><td class="c">10~11</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>SQLite Viewer 설치 안내</td><td class="c">11</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>안전한 파일 업로드 샘플</td><td class="c">11~12</td><td class="c">선택</td><td></td></tr>
+      <tr><td>테스트 기록 양식</td><td class="c">12</td><td class="c">설계됨</td><td>12-0 양식</td></tr>
+      <tr><td>ZIP 생성 안내</td><td class="c">12~13</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>플랫폼 시험 제출 화면</td><td class="c">12</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>수행평가 3 평가표</td><td class="c">13</td><td class="c">준비 전</td><td></td></tr>
+      <tr><td>대체 제출 위치·절차</td><td class="c">12~13</td><td class="c">준비 전</td><td></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s11_3">
+    <div class="kick">11. 준비물<b>교사용</b></div>
+    <h2 class="title">준비물 관리표<span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="bridge">
+      <div class="bt">핵심 원칙</div>
+      <p>학생은 사용자 흐름을 먼저 설계하고 10회부터 <b>하나의 프로젝트, 하나의 실행 명령, 하나의 로컬 주소</b>로 구현한다. 모든 작품은 핵심 기능의 의미 있는 기록을 <b>SQLite에 저장하고 다시 보여 주되</b>, 포트·DB 경로·빌드·배포는 교사가 준비한 템플릿과 플랫폼이 처리한다.</p>
+      <p>플랫폼은 수업 결과를 보여 주고 제출을 돕는 도구이며, <b>플랫폼 자체의 성공 여부를 학생의 개발 역량으로 평가하지 않는다.</b></p>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

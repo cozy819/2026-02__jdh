@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>4-2. AI로 데이터 그래프 만들고 해석하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 4-2 — 질문을 먼저 정하고 AI에게 그래프를 요청한 뒤 원본과 대조하고 사실과 한계를 구분해 해석한다" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>4-2</em> <span class="lesson">AI로 데이터 그래프 만들고 해석하기</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 4-2</span><span class="zh">本课时 — 4-2</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 오늘의 범위</a>
+  <a href="#s1"><span class="n">1</span> 데이터의 뜻과 질문</a>
+  <a href="#s2"><span class="n">2</span> AI에게 요청한다</a>
+  <a href="#s2b"><span class="n">·</span> 조건마다 이유가 있다</a>
+  <a href="#s3"><span class="n">3</span> 실행 전에 코드를 본다</a>
+  <a href="#s4"><span class="n">4</span> 그래프를 원본과 비교</a>
+  <a href="#s5"><span class="n">5</span> 사실과 한계를 해석한다</a>
+  <a href="#s6"><span class="n">6</span> 축을 바꿔 관찰한다</a>
+  <a href="#s7"><span class="n">7</span> 점검과 재현 검증</a>
+  <a href="#s8"><span class="n">8</span> 막힐 때</a>
+  <a href="#s9"><span class="n">9</span> 기록과 완료 확인</a>
+  <a href="#s10"><span class="n">10</span> 핵심 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html" class="here"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">4회 · 둘째 차시</span><span class="zh">第 4 次课 · 第 2 课时 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></div>
+    <h1><span class="ko">AI로 데이터 그래프<br/>만들고 해석하기</span><span class="zh">用 AI 生成并<br/>解读数据图表</span></h1>
+    <div class="osub"><span class="ko">질문을 먼저 정하고, AI에게 그래프를 맡기고,<br/>나온 그림이 원본과 맞는지 <b>내가</b> 확인합니다.</span><span class="zh">先定下问题，把画图交给 AI，<br/>再由<b>我</b>确认画出来的图和原始数据是否一致。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 4-1. 데이터와 라이브러리로 그래프 만들기<br/>
+      <b>다음 차시</b> · 5-1. 수행평가 1 안내<br/>
+      <b>준비물</b> · <code>jdh-info</code> 폴더와 <code>.venv</code> 커널</span><span class="zh"><b>上一课时</b> · 4-1. 用数据和库画图表<br/> <b>下一课时</b> · 5-1. 实作评价 1 说明<br/> <b>准备</b> · <code>jdh-info</code> 文件夹与 <code>.venv</code> 内核</span></div>
+  </section>
+
+  <!-- ══════════ 오늘의 범위 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">오늘도 코드를 쓰지 않습니다</span><span class="zh">今天也不写代码</span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">이 실습의 범위</span><span class="zh">本次实践的范围</span></div>
+      <p><span class="ko">학생이 pandas나 Matplotlib 코드를 <b>직접 작성하거나 오류를 수정하는 수업이 아닙니다.</b> AI가 그래프를 만들도록 요청하고, <b>생성된 코드와 그래프가 요구사항에 맞는지 확인하는 데</b> 집중합니다.</span><span class="zh">这<b>不是让学生亲自编写 pandas 或 Matplotlib 代码、修改报错的课</b>。重点在于请 AI 生成图表，并<b>确认生成的代码与图表是否符合要求</b>。</span></p>
+      <p><span class="ko">3-2가 “코드를 읽는” 시간이었다면 오늘은 <b>“그림을 검증하는”</b> 시간입니다.</span><span class="zh">如果说 3-2 是“读代码”的时间，今天就是<b>“验证图”</b>的时间。</span></p>
+    </div>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">이번 실습의 목표</span><span class="zh">本次实践的目标</span></div>
+      <p><span class="ko">표의 의미와 확인하려는 질문을 <b>먼저 정한 뒤</b> AI에게 적절한 그래프를 요청한다.<br/>AI가 만든 그래프가 원본 데이터를 정확히 나타내는지 확인하고,<br/>그래프에서 <b>알 수 있는 사실</b>과 <b>알 수 없는 원인</b>을 구분해 해석한다.</span><span class="zh"><b>先定下</b>表格的含义和要确认的问题，再请 AI 画出合适的图表。<br/>确认 AI 画的图是否准确呈现了原始数据，<br/>并把图上<b>能知道的事实</b>与<b>无法知道的原因</b>区分开来解读。</span></p>
+    </div>
+
+    <div class="recall">
+      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
+      <ul class="blist">
+        <li><span class="ko">그래프 종류는 데이터가 아니라 <b>질문</b>이 정한다. 비교면 막대, 변화면 선.</span><span class="zh">图表类型不由数据决定，由<b>问题</b>决定。比较用柱状图，变化用折线图。</span></li>
+        <li><span class="ko">그래프는 <b>원인을 증명하지 않는다.</b></span><span class="zh">图表<b>不证明原因</b>。</span></li>
+        <li><span class="ko">세로축이 0에서 시작하지 않으면 작은 차이가 커 보인다.</span><span class="zh">纵轴若不从 0 开始，微小的差异会显得很大。</span></li>
+        <li><span class="ko">AI 그래프를 검토하는 <b>일곱 질문</b>을 오늘 실제로 쓴다.</span><span class="zh">检查 AI 图表的<b>七个问题</b>，今天要真正用上。</span></li>
+      </ul>
+    </div>
+
+    <h3 class="sub"><span class="ko">완성 결과</span><span class="zh">完成后的成果</span></h3>
+
+    <p><span class="ko">가상 도서관 이용 데이터를 막대그래프로 나타내고, 그 그래프를 두세 문장으로 해석한 Notebook을 만듭니다. <b>그래프는 한 개면 충분합니다.</b></span><span class="zh">把虚拟的图书馆使用数据画成柱状图，并用两三句话解读这张图，做成一份 Notebook。<b>图表一张就够。</b></span></p>
+  </section>
+
+  <section class="page" id="s0_2">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">오늘도 코드를 쓰지 않습니다</span><span class="zh">今天也不写代码</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <figure class="fig">
+      <img class="figimg" src="assets/img/04-2-01-notebook-flow.png" alt="Notebook 한 문서가 위에서 아래로 이어지는 골격 그림 — 맨 위 설명 셀, 그 아래 코드 셀, 그 아래 실행 결과로 나타난 막대그래프, 다시 그 아래 해석을 적은 설명 셀이 차례로 놓여 있다" data-id="04-2-01-notebook-flow" data-spec="세로 3:4 · Notebook 구조 골격" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 4-2-1. 완성된 Notebook은 이렇게 이어진다</span><span class="zh">图 4-2-1. 完成的 Notebook 是这样连起来的</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="page" id="s0_2_2">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">오늘도 코드를 쓰지 않습니다</span><span class="zh">今天也不写代码</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">지금까지는 셀을 하나씩 실행해 봤을 뿐, <b>한 문서로 이어 붙여 본 적은 없습니다.</b> 오늘 처음으로 설명·코드·그래프·해석이 순서대로 놓인 문서를 만듭니다.</span><span class="zh">到目前为止我们只是一个个地运行单元格，<b>还没有把它们串成一份文档过</b>。今天第一次做出说明、代码、图表、解读依次排列的文档。</span></p>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">다음 주가 수행평가입니다</span><span class="zh">下周就是实作评价</span></div>
+      <p><span class="ko">오늘 하는 절차가 <b>5회 수행평가 1과 거의 같습니다.</b> 데이터가 CSV 파일로 바뀌고 스스로 해야 한다는 점만 다릅니다. 오늘 한 번 끝까지 해 보는 것이 가장 좋은 준비입니다.</span><span class="zh">今天走的这套流程，<b>和第 5 次课的实作评价 1 几乎一样</b>。差别只在于数据换成了 CSV 文件，而且要自己独立完成。今天完整走一遍，就是最好的准备。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 사람이 먼저</span><span class="zh">1. 人先来</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">데이터의 뜻과 질문을 확인한다</span><span class="zh">确认数据的含义与问题</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">이번 실습에서는 실제 학생의 기록이 아닌 <b>가상 도서관 이용 데이터</b>를 씁니다.</span><span class="zh">本次实践使用的不是学生的真实记录，而是<b>虚拟的图书馆使用数据</b>。</span></p>
+
+    <table class="kv">
+      <tr><th style="width:140px">day</th><th class="c">visitors</th></tr>
+      <tr><td>Mon</td><td class="c">18</td></tr>
+      <tr><td>Tue</td><td class="c">25</td></tr>
+      <tr><td>Wed</td><td class="c">21</td></tr>
+      <tr><td>Thu</td><td class="c">32</td></tr>
+      <tr><td>Fri</td><td class="c">29</td></tr>
+    </table>
+
+    <h3 class="sub"><span class="ko">그래프를 그리기 전에 확인할 네 가지</span><span class="zh">画图之前要确认的四件事</span></h3>
+
+    <ul class="blist checks">
+      <li><span class="ko">한 <b>행</b>은 한 요일의 도서관 이용 기록이다.</span><span class="zh">每一<b>行</b>是某一天图书馆的使用记录。</span></li>
+      <li><span class="ko"><code>visitors</code>의 <b>단위</b>는 명이다.</span><span class="zh"><code>visitors</code> 的<b>单位</b>是人。</span></li>
+      <li><span class="ko">확인할 <b>질문</b>은 “요일별 이용 인원을 비교하면 어느 요일이 가장 많은가?”이다.</span><span class="zh">要确认的<b>问题</b>是“比较各星期的使用人数，哪一天最多？”。</span></li>
+      <li><span class="ko">이 데이터에는 이용 인원이 <b>달라진 이유가 들어 있지 않다.</b></span><span class="zh">这份数据里<b>没有包含人数变化的原因</b>。</span></li>
+    </ul>
+
+    <p><span class="ko">질문이 <b>“요일별 항목의 크기 비교”</b>이므로 4-1의 표에 따라 <b>막대그래프</b>가 알맞습니다.</span><span class="zh">问题是<b>“按星期比较项目的大小”</b>，所以按 4-1 的表，<b>柱状图</b>合适。</span></p>
+  </section>
+
+  <section class="page" id="s1_2">
+    <div class="kick"><span class="ko">1. 사람이 먼저</span><span class="zh">1. 人先来</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">데이터의 뜻과 질문을 확인한다</span><span class="zh">确认数据的含义与问题</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">네 번째 항목을 왜 미리 적어 두는가</span><span class="zh">为什么要预先写下第四条</span></div>
+      <p><span class="ko">“이 데이터에는 이유가 들어 있지 않다”를 <b>시작할 때</b> 적어 두면, 나중에 해석을 쓸 때 자기도 모르게 원인을 지어내는 일을 막을 수 있습니다.</span><span class="zh">把“这份数据里没有原因”写在<b>开头</b>，后面写解读时就不容易不知不觉地编造原因。</span></p>
+      <p><span class="ko">3-2에서 “정상 범위를 미리 정해 두면 무엇이 잘못인지 판단할 수 있다”고 했습니다. 같은 원리로 <b>알 수 없는 것을 미리 정해 두면</b> 무엇을 말하면 안 되는지 알 수 있습니다.</span><span class="zh">3-2 说过“预先定好正常范围，就能判断什么是错的”。同理，<b>预先定好什么是无法知道的</b>，就知道什么话不能说。</span></p>
+    </div>
+
+    <ul class="blist">
+      <li><span class="ko">가장 많을 것 같은 요일 (미리 예상)</span><span class="zh">估计人数最多的一天（预先预测）</span></li>
+      <li><span class="ko">가장 적을 것 같은 요일</span><span class="zh">估计人数最少的一天</span></li>
+      <li><span class="ko">두 값의 차이</span><span class="zh">两者之差</span></li>
+    </ul>
+
+    <p><span class="ko">표를 눈으로 읽어서 미리 답을 적어 두세요. 그래야 그래프가 나왔을 때 <b>맞는지 확인</b>할 수 있습니다. 3-1부터 계속해 온 “실행 전에 예상하기”가 여기서도 그대로입니다.</span><span class="zh">用眼睛读表，先把答案写下来。这样图出来时才能<b>确认对不对</b>。从 3-1 一路延续的“运行前先预测”，在这里也一样。</span></p>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 요청</span><span class="zh">2. 提要求</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 그래프를 요청한다</span><span class="zh">向 AI 请求图表 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">AI에게 <b>데이터·질문·그래프 종류·표시 조건</b>을 함께 전달합니다.</span><span class="zh">把<b>数据、问题、图表类型、显示条件</b>一并交给 AI。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI에게 보낼 요청문</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">发给 AI 的请求文</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>Jupyter Notebook에서 실행할 Python 코드를 작성해 줘.
+pandas와 Matplotlib을 사용해서 다음 가상 데이터를 막대그래프로 나타내 줘.
+
+Mon 18명, Tue 25명, Wed 21명, Thu 32명, Fri 29명
+
+요일별 이용 인원을 비교하는 그래프이며 다음 조건을 지켜 줘.
+- 데이터는 바꾸거나 추가하지 않는다.
+- 가로축은 요일, 세로축은 이용 인원(명)으로 한다.
+- 세로축은 0에서 시작한다.
+- 제목과 축 이름을 표시한다.
+- 가장 이용자가 많은 막대 하나만 다른 색으로 표시한다.
+- 복잡한 기능은 사용하지 않는다.</code></pre>
+    </div>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">실행 순서</span><span class="zh">执行顺序</span></div>
+      <ol>
+        <li><span class="ko">새 Notebook <code>04_visualization.ipynb</code>를 만든다.</span><span class="zh">新建 Notebook <code>04_visualization.ipynb</code>。</span></li>
+        <li><span class="ko"><code>.venv</code> 커널을 선택한다.</span><span class="zh">选择 <code>.venv</code> 内核。</span></li>
+        <li><span class="ko">첫 Markdown 셀에 <b>데이터의 뜻과 질문</b>을 적는다. (1절에서 확인한 네 가지)</span><span class="zh">在第一个 Markdown 单元格里写下<b>数据的含义与问题</b>。（第 1 节确认的四件事）</span></li>
+        <li><span class="ko">요청문을 AI에게 보낸다.</span><span class="zh">把请求文发给 AI。</span></li>
+        <li><span class="ko">받은 코드를 <b>아직 실행하지 말고</b> 다음 쪽으로 넘어간다.</span><span class="zh">收到的代码<b>先别运行</b>，翻到下一页。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page" id="s2_2">
+    <div class="kick"><span class="ko">2. 요청</span><span class="zh">2. 提要求</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 그래프를 요청한다</span><span class="zh">向 AI 请求图表 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note">
+      <div class="nt"><span class="ko">AI가 설명을 길게 하더라도</span><span class="zh">就算 AI 解释得很长</span></div>
+      <p><span class="ko">학생이 코드를 직접 다시 작성할 필요는 없습니다. 생성된 코드를 Notebook의 코드 셀에 넣고 실행하면 됩니다. 설명이 길면 <b>읽되 외우지는 않습니다.</b></span><span class="zh">学生也不必自己重写代码。把生成的代码放进 Notebook 的代码单元格运行就行。解释长就<b>读一读，但不用背</b>。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">한글이 깨져 나올 수 있습니다</span><span class="zh">韩文可能显示成乱码</span></div>
+      <p><span class="ko">Matplotlib은 기본 설정에서 한글 글꼴을 찾지 못해 제목이나 축 이름이 <b>네모(□□□)</b>로 보일 수 있습니다. 오류가 아니라 글꼴 문제입니다.</span><span class="zh">Matplotlib 在默认设置下找不到韩文字体，标题或轴名可能显示成<b>方块（□□□）</b>。这不是报错，是字体问题。</span></p>
+      <p><span class="ko">이럴 때는 축과 제목을 <b>영어로</b> 적어 달라고 요청하는 것이 가장 간단합니다. 수행평가의 그래프 조건도 영어로 지정되어 있습니다.</span><span class="zh">这时最简单的办法，是请它把轴名和标题<b>用英文</b>写。实作评价里的图表条件也是用英文指定的。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2b ══════════ -->
+  <section class="page" id="s2b">
+    <div class="kick"><span class="ko">2. 요청 (이어서)</span><span class="zh">2. 提要求（续）</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">조건마다 이유가 있다</span><span class="zh">每个条件都有它的理由</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">요청문의 여섯 조건은 임의로 고른 것이 아닙니다. 각각 4-1에서 배운 위험 하나씩을 막습니다.</span><span class="zh">请求文里的六个条件不是随便挑的。每一条各挡住 4-1 学过的一种风险。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:40%"><span class="ko">조건</span><span class="zh">条件</span></th><th><span class="ko">막으려는 위험</span><span class="zh">要挡住的风险</span></th></tr>
+      <tr><td><span class="ko">“데이터는 바꾸거나 추가하지 않는다”</span><span class="zh">“不修改也不添加数据”</span></td><td><span class="ko">AI가 <b>보기 좋게 만들려고</b> 값을 다듬거나 없는 요일을 만들어 넣는 일</span><span class="zh">AI 为了<b>好看</b>而修饰数值，或造出原本没有的日子</span></td></tr>
+      <tr><td><span class="ko">“가로축은 요일, 세로축은 인원(명)”</span><span class="zh">“横轴是星期，纵轴是人数（人）”</span></td><td><span class="ko"><b>엉뚱한 열</b>을 축으로 잡는 일 · 단위 누락</span><span class="zh">把<b>错误的列</b>当成坐标轴 · 漏掉单位</span></td></tr>
+      <tr><td><span class="ko">“세로축은 0에서 시작한다”</span><span class="zh">“纵轴从 0 开始”</span></td><td><span class="ko">작은 차이를 <b>과장</b>해 보이게 하는 일</span><span class="zh">把微小的差异<b>夸大</b></span></td></tr>
+      <tr><td><span class="ko">“제목과 축 이름을 표시한다”</span><span class="zh">“显示标题和轴名”</span></td><td><span class="ko">읽는 사람이 <b>무엇을 보는지</b> 알 수 없게 되는 일</span><span class="zh">让读的人不知道<b>自己在看什么</b></span></td></tr>
+      <tr><td><span class="ko">“가장 많은 막대 하나만 다른 색”</span><span class="zh">“只把最高的那根柱子换个颜色”</span></td><td><span class="ko"><b>너무 많은 색</b>으로 중요한 차이가 묻히는 일</span><span class="zh"><b>颜色太多</b>把重要的差异淹没</span></td></tr>
+      <tr><td><span class="ko">“복잡한 기능은 사용하지 않는다”</span><span class="zh">“不使用复杂的功能”</span></td><td><span class="ko">내가 <b>읽을 수 없는</b> 코드가 되는 일</span><span class="zh">变成我<b>读不懂</b>的代码</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">요청문을 쓰는 것이 곧 판단하는 것입니다</span><span class="zh">写请求文，本身就是在做判断</span></div>
+      <p><span class="ko">“세로축은 0에서 시작한다”라는 한 줄을 넣을 수 있으려면, <b>축을 조작하면 인상이 달라진다</b>는 것을 알아야 합니다. 몰랐다면 그 줄을 쓸 생각조차 못 합니다.</span><span class="zh">要能写下“纵轴从 0 开始”这一行，就得先知道<b>动坐标轴会改变印象</b>。不知道的话，根本想不到要写这一句。</span></p>
+      <p><span class="ko">AI에게 잘 요청하는 능력은 말재주가 아니라 <b>무엇이 잘못될 수 있는지 아는 것</b>에서 나옵니다. 이것이 4-1을 먼저 배운 이유입니다.</span><span class="zh">向 AI 提好要求的本事，不是嘴皮子功夫，而是来自<b>知道什么地方可能出错</b>。这就是先学 4-1 的理由。</span></p>
+    </div>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">여섯 조건 가운데 하나를 골라, <b>그 조건이 없었다면 어떤 그래프가 나왔을지</b> 상상해서 적어 보세요.</span><span class="zh">从六个条件里挑一个，想象一下<b>要是没有这个条件，会画出什么样的图</b>，写下来。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 코드 확인</span><span class="zh">3. 查看代码</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">실행 전에 코드를 본다</span><span class="zh">运行前先看代码 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">코드를 <b>이해할</b> 필요는 없습니다. 다음 다섯 가지만 <b>찾아보면</b> 됩니다.</span><span class="zh">不需要<b>看懂</b>代码。只要能<b>找到</b>下面五样就行。</span></p>
+
+    <ul class="blist checks">
+      <li><span class="ko">코드에 원본의 <b>다섯 요일과 이용 인원이 그대로</b> 들어 있는가?</span><span class="zh">代码里是不是<b>原样</b>放着原始的五个星期和使用人数？</span></li>
+      <li><span class="ko"><b>pandas</b>로 표를 만들고 <b>Matplotlib</b>으로 그래프를 그리는가?</span><span class="zh">是不是用 <b>pandas</b> 建表、用 <b>Matplotlib</b> 画图？</span></li>
+      <li><span class="ko"><b>막대그래프</b>를 사용했는가? (선이나 원이 아닌가)</span><span class="zh">用的是<b>柱状图</b>吗？（不是折线或饼图吧）</span></li>
+      <li><span class="ko">가로축·세로축·제목을 표시하는 부분이 있는가?</span><span class="zh">有没有显示横轴、纵轴、标题的部分？</span></li>
+      <li><span class="ko">원본에 <b>없는 데이터</b>를 만들지 않았는가?</span><span class="zh">有没有造出原始数据里<b>没有的数据</b>？</span></li>
+    </ul>
+
+    <div class="note">
+      <div class="nt"><span class="ko">어디를 보면 되는지</span><span class="zh">该看哪里</span></div>
+      <p><span class="ko">코드 전체를 읽지 말고 <b>숫자와 낱말</b>만 훑으세요.</span><span class="zh">不要通读整段代码，只扫<b>数字和词</b>。</span></p>
+      <ul class="blist">
+        <li><span class="ko"><code>18</code>, <code>25</code>, <code>21</code>, <code>32</code>, <code>29</code> 다섯 숫자가 그대로 있는가</span><span class="zh"><code>18</code>、<code>25</code>、<code>21</code>、<code>32</code>、<code>29</code> 这五个数字在不在</span></li>
+        <li><span class="ko"><code>Mon</code> ~ <code>Fri</code> 다섯 요일이 있는가</span><span class="zh"><code>Mon</code> ~ <code>Fri</code> 五天在不在</span></li>
+        <li><span class="ko"><code>bar</code>라는 낱말이 보이는가 (막대그래프를 그리는 명령)</span><span class="zh">有没有 <code>bar</code> 这个词（画柱状图的命令）</span></li>
+        <li><span class="ko"><code>title</code>, <code>xlabel</code>, <code>ylabel</code>이 보이는가 (제목과 축 이름)</span><span class="zh">有没有 <code>title</code>、<code>xlabel</code>、<code>ylabel</code>（标题和轴名）</span></li>
+        <li><span class="ko"><code>ylim</code>이 보인다면 축 범위를 지정한 것이니 <b>0에서 시작하는지</b> 확인</span><span class="zh">若看到 <code>ylim</code>，那是指定了轴范围，确认它是不是<b>从 0 开始</b></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s3_2">
+    <div class="kick"><span class="ko">3. 코드 확인</span><span class="zh">3. 查看代码</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">실행 전에 코드를 본다</span><span class="zh">运行前先看代码 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">문제가 보이면 내가 고치지 않습니다</span><span class="zh">看到问题也不由我来改</span></div>
+      <p><span class="ko">수정이 필요한 문제가 보이면 <b>학생이 코드를 고치지 않고</b>, AI에게 <b>잘못된 점과 유지할 조건</b>을 알려 주어 다시 작성하게 합니다.</span><span class="zh">发现需要修改的问题时，<b>学生不去改代码</b>，而是把<b>错在哪里、要保留哪些条件</b>告诉 AI，让它重写。</span></p>
+      <div class="code">
+        <div class="chd"><span class="ko"><span class="fn">다시 요청하는 예</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">重新提要求的例子</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+        <pre><code>수요일 값이 21인데 코드에는 22로 되어 있어.
+원본 값을 그대로 쓰고, 나머지 조건(세로축 0 시작, 제목과 축 이름,
+최댓값 막대만 강조)은 그대로 유지해서 다시 작성해 줘.</code></pre>
+      </div>
+      <p><span class="ko">“무엇이 틀렸는지”와 <b>“무엇을 유지할지”</b>를 함께 말하는 것이 요령입니다. 유지할 조건을 안 적으면 다시 만들면서 다른 조건이 사라지기도 합니다.</span><span class="zh">诀窍是把“哪里错了”和<b>“要保留什么”</b>一起说。不写要保留的条件，重写时别的条件常常就消失了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 대조</span><span class="zh">4. 对照</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">그래프를 원본 데이터와 비교한다</span><span class="zh">把图表与原始数据比对</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">이제 실행합니다. 그래프가 나타나면 <b>원본 표와 하나씩</b> 비교합니다.</span><span class="zh">现在运行。图出来后，和<b>原始表格逐项</b>比对。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:52%"><span class="ko">확인할 것</span><span class="zh">要确认的</span></th><th style="width:110px" class="c"><span class="ko">원본</span><span class="zh">原始数据</span></th><th class="c"><span class="ko">그래프</span><span class="zh">图表</span></th></tr>
+      <tr><td><span class="ko">막대가 다섯 개인가?</span><span class="zh">柱子有五根吗？</span></td><td class="c"><span class="ko">5개</span><span class="zh">5 根</span></td><td class="c"></td></tr>
+      <tr><td><span class="ko">월요일 막대의 높이</span><span class="zh">星期一柱子的高度</span></td><td class="c">18</td><td class="c"></td></tr>
+      <tr><td><span class="ko">화요일 막대의 높이</span><span class="zh">星期二柱子的高度</span></td><td class="c">25</td><td class="c"></td></tr>
+      <tr><td><span class="ko">수요일 막대의 높이</span><span class="zh">星期三柱子的高度</span></td><td class="c">21</td><td class="c"></td></tr>
+      <tr><td><span class="ko">목요일 막대의 높이</span><span class="zh">星期四柱子的高度</span></td><td class="c">32</td><td class="c"></td></tr>
+      <tr><td><span class="ko">금요일 막대의 높이</span><span class="zh">星期五柱子的高度</span></td><td class="c">29</td><td class="c"></td></tr>
+      <tr><td><span class="ko">가장 높은 막대는 목요일인가?</span><span class="zh">最高的柱子是星期四吗？</span></td><td class="c">Thu</td><td class="c"></td></tr>
+      <tr><td><span class="ko">세로축이 0에서 시작하는가?</span><span class="zh">纵轴是从 0 开始的吗？</span></td><td class="c">—</td><td class="c"></td></tr>
+      <tr><td><span class="ko">제목·축 이름·단위가 있는가?</span><span class="zh">有标题、轴名和单位吗？</span></td><td class="c">—</td><td class="c"></td></tr>
+      <tr><td><span class="ko">강조된 막대가 실제 최댓값인가?</span><span class="zh">被强调的柱子确实是最大值吗？</span></td><td class="c">Thu 32</td><td class="c"></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s4_2">
+    <div class="kick"><span class="ko">4. 대조</span><span class="zh">4. 对照</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">그래프를 원본 데이터와 비교한다</span><span class="zh">把图表与原始数据比对</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">실행되었다는 것이 정확하다는 뜻은 아닙니다</span><span class="zh">跑起来了不等于准确</span></div>
+      <p><span class="ko">코드가 오류 없이 그래프를 그렸다는 사실만으로 <b>그래프가 정확하다고 판단하지 않습니다.</b> 원본 데이터와 그래프가 <b>일치해야</b> 합니다.</span><span class="zh">不能仅凭代码没报错、图画出来了，就<b>判断这张图是准确的</b>。原始数据和图表必须<b>一致</b>。</span></p>
+      <p><span class="ko">1-2의 “실행된다는 것과 맞다는 것은 다르다”가 이번에는 그림으로 나타났습니다. 3-2의 <b>논리 오류</b>가 그래프에서 나타나는 모습이기도 합니다.</span><span class="zh">1-2 的“能运行和对是两回事”，这次以图的形式出现了。这也是 3-2 的<b>逻辑错误</b>在图表上的样子。</span></p>
+    </div>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">막대 높이를 눈으로 어떻게 확인할까?</span><span class="zh">柱子的高度用眼睛怎么确认？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">세로축의 눈금을 보고 막대 끝이 어디쯤인지 읽습니다. 정확히 읽기 어렵다면 AI에게 <b>“각 막대 위에 값을 숫자로 표시해 줘”</b>라고 추가 요청할 수 있습니다.</span><span class="zh">看纵轴的刻度，读出柱顶大致落在哪里。若难以读准，可以追加要求 AI <b>“在每根柱子上方用数字标出数值”</b>。</span></p>
+          <p><span class="ko">다만 값 표시를 넣으면 그래프가 복잡해지므로, <b>확인용으로만 잠깐 넣었다가</b> 최종본에서는 뺄지 판단하면 됩니다. 이것도 사람이 정하는 일입니다.</span><span class="zh">不过加了数值标注图会变复杂，所以可以<b>只在确认时临时加上</b>，最终版是否去掉由自己判断。这也是人来决定的事。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. 해석</span><span class="zh">5. 解读</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">사실과 한계를 나누어 쓴다</span><span class="zh">把事实和局限分开写</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">그래프를 보고 <b>두세 문장</b>으로 설명합니다. 짧아도 됩니다. 대신 <b>사실과 한계가 모두</b> 들어가야 합니다.</span><span class="zh">看着图用<b>两三句话</b>说明。短一点没关系，但<b>事实和局限都要有</b>。</span></p>
+
+    <div class="code out">
+      <div class="chd"><span class="ko"><span class="fn">해석 예시</span></span><span class="zh"><span class="fn">解读示例</span></span></div>
+      <pre><code>이 그래프는 가상의 월요일부터 금요일까지 도서관 이용 인원을 비교한다.
+가장 많은 날은 목요일로 32명이며, 가장 적은 날은 월요일로 18명이다.
+다만 이 데이터만으로 이용 인원이 달라진 원인은 알 수 없다.</code></pre>
+    </div>
+
+    <p><span class="ko">세 문장의 역할이 각각 다릅니다.</span><span class="zh">这三句话各有各的作用。</span></p>
+
+    <div class="row r3">
+      <div class="pane">
+        <div class="pt"><span class="ko">① 무엇을 보는가</span><span class="zh">① 在看什么</span></div>
+        <p><span class="ko">대상과 기간, 그리고 <b>가상 데이터</b>라는 사실을 밝힙니다.</span><span class="zh">说明对象与时间范围，并点明这是<b>虚拟数据</b>。</span></p>
+      </div>
+      <div class="pane accent">
+        <div class="pt"><span class="ko">② 사실</span><span class="zh">② 事实</span></div>
+        <p><span class="ko">그래프에서 <b>직접 읽을 수 있는</b> 구체적인 값과 비교입니다.</span><span class="zh">是能从图上<b>直接读出的</b>具体数值与比较。</span></p>
+      </div>
+      <div class="pane warnp">
+        <div class="pt"><span class="ko">③ 한계</span><span class="zh">③ 局限</span></div>
+        <p><span class="ko">이 데이터로는 <b>말할 수 없는 것</b>을 분명히 적습니다.</span><span class="zh">明确写出凭这份数据<b>说不了的东西</b>。</span></p>
+      </div>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">데이터에 없는 원인을 만들어 쓰지 않습니다</span><span class="zh">不要编造数据里没有的原因</span></div>
+      <p><span class="ko">“목요일에 행사가 있어서 이용자가 많았다”라고 쓰면 안 됩니다. 그런 정보는 이 표 어디에도 없습니다. <b>그럴듯한 추측을 사실처럼 적는 것</b>이 이 수업에서 가장 경계하는 일입니다.</span><span class="zh">不能写“星期四因为有活动所以人多”。这张表里哪儿也没有那种信息。<b>把看似合理的猜测写成事实</b>，是这门课最要提防的事。</span></p>
+      <p><span class="ko">또 그래프의 축이 0에서 시작하지 않거나 단위·출처가 없다면 <b>그 점도 해석의 한계로</b> 함께 적습니다.</span><span class="zh">另外，若图的坐标轴不从 0 开始，或没有单位与出处，<b>也要把这一点作为解读的局限</b>一并写上。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s5_2">
+    <div class="kick"><span class="ko">5. 해석</span><span class="zh">5. 解读</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">사실과 한계를 나누어 쓴다</span><span class="zh">把事实和局限分开写</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">Markdown 셀에 직접 써 보세요</span><span class="zh">在 Markdown 单元格里亲手写</span></div>
+      <p><span class="ko">①②③ 세 문장을 자기 말로 작성하세요. 사실 문장에는 <b>구체적인 숫자</b>가 반드시 들어가야 합니다.</span><span class="zh">请用自己的话写出①②③三句。事实那一句里，一定要有<b>具体数字</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. 관찰</span><span class="zh">6. 观察</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">축을 바꿔 직접 확인한다</span><span class="zh">改一改坐标轴，亲眼确认 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">4-1에서 “축을 바꾸면 인상이 달라진다”를 글로 읽었습니다. 이제 <b>직접 눈으로</b> 확인합니다. 데이터는 하나도 바꾸지 않습니다.</span><span class="zh">4-1 里我们是从文字上读到“动坐标轴会改变印象”。现在<b>亲眼</b>确认一次。数据一点都不改。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI에게 추가 요청</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">向 AI 追加要求</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>같은 데이터로 하나만 바꾼 그래프를 하나 더 그려 줘.
+데이터와 다른 조건은 모두 그대로 두고,
+세로축만 0이 아니라 15에서 시작하게 해 줘.
+비교용이니 두 그래프를 나란히 보여 줘.</code></pre>
+    </div>
+
+    <ul class="blist">
+      <li><span class="ko">0에서 시작한 그래프의 인상</span><span class="zh">从 0 开始那张图给人的印象</span></li>
+      <li><span class="ko">15에서 시작한 그래프의 인상</span><span class="zh">从 15 开始那张图给人的印象</span></li>
+      <li><span class="ko">두 그래프에서 바뀐 값의 개수</span><span class="zh">两张图中被改动的数值个数</span></li>
+    </ul>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick"><span class="ko">6. 관찰</span><span class="zh">6. 观察</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">축을 바꿔 직접 확인한다</span><span class="zh">改一改坐标轴，亲眼确认 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">세 번째 칸의 답은?</span><span class="zh">第三格的答案是？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><b>0개</b>입니다. 값은 하나도 바뀌지 않았습니다. 그런데도 목요일과 월요일의 차이가 훨씬 커 보입니다.</span><span class="zh">是 <b>0 个</b>。一个值都没有改。可星期四和星期一的差距却显得大多了。</span></p>
+          <p><span class="ko">월요일 18명, 목요일 32명. 0부터 그리면 목요일이 월요일의 약 1.8배로 보이지만, 15부터 그리면 막대 길이가 3과 17이 되어 <b>약 5.7배</b>로 보입니다.</span><span class="zh">星期一 18 人，星期四 32 人。从 0 画起，星期四看着约是星期一的 1.8 倍；从 15 画起，柱子长度变成 3 和 17，看着约是 <b>5.7 倍</b>。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">그렇다면 축을 0이 아닌 곳에서 시작하는 것은 언제나 나쁜가?</span><span class="zh">那么，坐标轴不从 0 开始就一定不好吗？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">그렇지 않습니다. 체온이나 주가처럼 <b>작은 변화가 중요한 데이터</b>는 0부터 그리면 아무 변화도 안 보입니다. 이럴 때는 축을 좁히는 것이 오히려 정확합니다.</span><span class="zh">并非如此。像体温或股价这种<b>微小变化很要紧的数据</b>，从 0 画起就什么变化都看不见了。这时收窄坐标轴反而更准确。</span></p>
+          <p><span class="ko">기준은 <b>“읽는 사람이 축의 시작점을 알 수 있는가”</b>입니다. 숨기면 속이는 것이고, 밝히면 강조하는 것입니다. 이번 실습에서 0부터 시작하게 한 것은 <b>인원수를 비교</b>하는 그래프이기 때문입니다.</span><span class="zh">标准是<b>“读的人能不能知道轴从哪里开始”</b>。藏起来就是骗人，说明白就是强调。本次实践要求从 0 开始，是因为这是<b>比较人数</b>的图。</span></p>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">비교가 끝나면 지웁니다</span><span class="zh">比较完就删掉</span></div>
+      <p><span class="ko">15에서 시작한 그래프는 <b>관찰용</b>입니다. 최종 결과물에는 <b>0에서 시작한 그래프 하나만</b> 남깁니다. 4-1에서 배운 대로 그래프는 여러 개 만들 필요가 없습니다.</span><span class="zh">从 15 开始的那张图是<b>用来观察的</b>。最终成果里<b>只留从 0 开始的那一张</b>。正如 4-1 学过的，图表不需要做很多张。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. 점검</span><span class="zh">7. 检查</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">점검과 재현 검증</span><span class="zh">检查与可重现性验证</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <table class="kv">
+      <tr><th style="width:46%"><span class="ko">점검 항목</span><span class="zh">检查项</span></th><th><span class="ko">왜 확인하는가</span><span class="zh">为什么要确认</span></th></tr>
+      <tr><td><span class="ko">실제 사람의 기록을 쓰지 않았는가?</span><span class="zh">有没有用到真实的人的记录？</span></td><td><span class="ko">가상 데이터만 쓴다. Notebook은 제출·공유될 수 있다.</span><span class="zh">只用虚拟数据。Notebook 可能被提交或分享。</span></td></tr>
+      <tr><td><span class="ko">가상 데이터를 실제 조사 결과처럼 쓰지 않았는가?</span><span class="zh">有没有把虚拟数据当成真实调查结果来写？</span></td><td><span class="ko">“가상”이라고 밝히지 않으면 읽는 사람이 사실로 오해한다.</span><span class="zh">不说明是“虚拟的”，读的人就会误以为是事实。</span></td></tr>
+      <tr><td><span class="ko">AI가 원본 값을 바꾸지 않았는가?</span><span class="zh">AI 有没有改动原始数值？</span></td><td><span class="ko">보기 좋게 다듬는 과정에서 값이 달라질 수 있다.</span><span class="zh">在“修饰得好看些”的过程中数值可能变样。</span></td></tr>
+      <tr><td><span class="ko">해석에 데이터에 없는 원인이 섞이지 않았는가?</span><span class="zh">解读里有没有混进数据中没有的原因？</span></td><td><span class="ko">추측을 사실처럼 쓰지 않는다.</span><span class="zh">不把猜测当事实写。</span></td></tr>
+      <tr><td><span class="ko">그래프가 한 개만 남았는가?</span><span class="zh">最后只剩下一张图了吗？</span></td><td><span class="ko">정확한 하나가 여러 개보다 낫다.</span><span class="zh">准确的一张胜过很多张。</span></td></tr>
+      <tr><td><span class="ko">AI에게 도움받은 부분을 밝혔는가?</span><span class="zh">有没有说明从 AI 得到帮助的部分？</span></td><td><span class="ko">1-1에서 약속한 AI 사용 표시다.</span><span class="zh">这是 1-1 约定的 AI 使用标注。</span></td></tr>
+    </table>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">마무리 — 커널 다시 시작 → 모두 실행</span><span class="zh">收尾 — 커널 다시 시작（重启内核）→ 모두 실행（全部运行）</span></div>
+      <ol>
+        <li><span class="ko"><b>커널 다시 시작</b>을 선택한다.</span><span class="zh">选择<b>커널 다시 시작</b>（重启内核）。</span></li>
+        <li><span class="ko"><b>모두 실행</b>을 선택한다.</span><span class="zh">选择<b>모두 실행</b>（全部运行）。</span></li>
+        <li><span class="ko">위에서부터 오류 없이 실행되고 <b>그래프가 다시 그려지는지</b> 확인한다.</span><span class="zh">确认从上到下没有报错，并且<b>图表被重新画了出来</b>。</span></li>
+        <li><span class="ko">Notebook을 저장한다.</span><span class="zh">保存 Notebook。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page" id="s7_2">
+    <div class="kick"><span class="ko">7. 점검</span><span class="zh">7. 检查</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">점검과 재현 검증</span><span class="zh">检查与可重现性验证</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">그래프에서는 이 검증이 특히 중요합니다</span><span class="zh">在图表这里，这道验证尤其重要</span></div>
+      <p><span class="ko">Notebook에는 <b>이전에 그린 그래프 그림이 남아 있습니다.</b> 코드를 고친 뒤 실행하지 않으면 화면에는 <b>예전 그래프</b>가 그대로 보입니다.</span><span class="zh">Notebook 里<b>还留着之前画的图</b>。改了代码却没运行，屏幕上看到的仍然是<b>旧图</b>。</span></p>
+      <p><span class="ko">“분명히 축을 0으로 바꿨는데 그대로네?”의 대부분이 이 경우입니다. 2-1에서 배운 Notebook의 함정이 그래프에서는 더 잘 드러나지 않습니다. 그림은 코드처럼 눈에 띄게 바뀌지 않기 때문입니다.</span><span class="zh">“我明明把轴改成 0 了，怎么没变？”——大多就是这种情况。2-1 学过的 Notebook 陷阱，在图表上更不容易被发现，因为图不像代码那样一眼看出变化。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. 문제 해결</span><span class="zh">8. 排查</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">막힐 때 확인할 순서</span><span class="zh">卡住时的检查顺序 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="trouble">
+      <div class="th"><span class="ko">이런 증상이라면</span><span class="zh">如果是这些症状</span></div>
+      <table>
+        <tr><td><code>ModuleNotFoundError: No module named 'pandas'</code></td><td><span class="ko">커널이 <code>.venv</code>가 아닌 다른 Python을 가리키고 있습니다. 오른쪽 위 커널을 다시 고르세요. 2-2의 “세 곳이 같은 <code>.venv</code>”로 돌아갑니다.</span><span class="zh">内核指向了 <code>.venv</code> 以外的另一个 Python。请在右上角重新选择内核。回到 2-2 的“三处同一个 <code>.venv</code>”。</span></td></tr>
+        <tr><td><span class="ko">제목과 축 이름이 <b>네모(□□□)</b>로 보인다</span><span class="zh">标题和轴名显示成<b>方块（□□□）</b></span></td><td><span class="ko">Matplotlib이 한글 글꼴을 못 찾은 것입니다. 오류가 아닙니다. 제목과 축을 <b>영어로</b> 적어 달라고 AI에게 요청하세요.</span><span class="zh">这是 Matplotlib 没找到韩文字体，不是报错。请让 AI 把标题和轴名<b>用英文</b>写。</span></td></tr>
+        <tr><td><span class="ko">그래프가 아예 안 보인다</span><span class="zh">图完全不显示</span></td><td><span class="ko">셀 실행이 끝났는지 확인하세요. <code>plt.show()</code>가 있는지도 보세요. 그래도 안 보이면 커널을 다시 시작하고 위에서부터 실행합니다.</span><span class="zh">先确认单元格是否运行完了，也看看有没有 <code>plt.show()</code>。还是不显示，就重启内核并从上往下运行。</span></td></tr>
+        <tr><td><span class="ko">막대 개수가 원본과 다르다</span><span class="zh">柱子数量和原始数据不一致</span></td><td><span class="ko">AI가 데이터를 옮기며 빠뜨렸거나 더한 것입니다. 코드를 고치지 말고 <b>원본 값을 알려 주며 다시 요청</b>하세요.</span><span class="zh">AI 在搬数据时漏了或多了。别去改代码，<b>把原始数值告诉它并重新提要求</b>。</span></td></tr>
+        <tr><td><span class="ko">세로축이 0에서 시작하지 않는다</span><span class="zh">纵轴不是从 0 开始</span></td><td><span class="ko"><code>ylim</code> 설정을 확인하고, AI에게 “세로축을 0에서 시작하게” 다시 요청하세요.</span><span class="zh">确认 <code>ylim</code> 的设置，并请 AI 重新做成“纵轴从 0 开始”。</span></td></tr>
+        <tr><td><span class="ko">코드를 바꿨는데 그래프가 그대로다</span><span class="zh">代码改了图却没变</span></td><td><span class="ko">셀을 다시 실행하지 않은 것입니다. 그래프는 그림이라 바뀌지 않은 것을 알아채기 어렵습니다.</span><span class="zh">是没有重新运行单元格。图是图像，不容易察觉它没变。</span></td></tr>
+        <tr><td><span class="ko">AI가 코드를 계속 복잡하게 만든다</span><span class="zh">AI 把代码越写越复杂</span></td><td><span class="ko">“<code>pandas</code>와 <code>Matplotlib</code>의 기본 기능만 써서 더 짧게 다시 작성해 줘”라고 요청하세요. 읽을 수 있는 수준을 내가 정합니다.</span><span class="zh">请求它“只用 <code>pandas</code> 和 <code>Matplotlib</code> 的基本功能，重写得更短一些”。读得懂的程度由我来定。</span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">9. 기록</span><span class="zh">9. 记录</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">학습 기록과 완료 확인</span><span class="zh">学习记录与完成确认 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <h3 class="sub"><span class="ko">오늘의 학습 기록</span><span class="zh">今天的学习记录</span></h3>
+    <ul class="blist">
+      <li><span class="ko">내가 정한 질문</span><span class="zh">我定下的问题</span></li>
+      <li><span class="ko">그 질문에 막대그래프를 고른 이유</span><span class="zh">为这个问题选柱状图的理由</span></li>
+      <li><span class="ko">AI 그래프에서 원본과 달랐던 점</span><span class="zh">AI 的图与原始数据不一致的地方</span></li>
+      <li><span class="ko">다시 요청해서 고친 내용</span><span class="zh">重新提要求后改掉的内容</span></li>
+      <li><span class="ko">축을 바꿔 보고 알게 된 것</span><span class="zh">改了坐标轴之后知道的事</span></li>
+      <li><span class="ko">AI에게 도움받은 부분</span><span class="zh">从 AI 得到帮助的部分</span></li>
+      <li><span class="ko">아직 이해하지 못한 부분</span><span class="zh">还没理解的部分</span></li>
+    </ul>
+
+    <h3 class="sub"><span class="ko">완료 확인</span><span class="zh">完成确认</span></h3>
+    <ul class="blist checks">
+      <li><span class="ko">데이터의 <b>대상과 단위</b>를 설명했다.</span><span class="zh">说明了数据的<b>对象与单位</b>。</span></li>
+      <li><span class="ko"><b>질문과 표시 조건</b>을 포함해 AI에게 그래프를 요청했다.</span><span class="zh">把<b>问题与显示条件</b>一并写进请求，向 AI 要了图表。</span></li>
+      <li><span class="ko">AI가 <b>원본 데이터를 바꾸지 않았는지</b> 확인했다.</span><span class="zh">确认了 AI <b>有没有改动原始数据</b>。</span></li>
+      <li><span class="ko">그래프 <b>종류·제목·축 이름·단위·축 범위</b>를 확인했다.</span><span class="zh">确认了图表的<b>类型、标题、轴名、单位、轴范围</b>。</span></li>
+      <li><span class="ko">그래프를 <b>원본 표와 하나씩</b> 비교했다.</span><span class="zh">把图表与原始表格<b>逐项</b>比对了。</span></li>
+      <li><span class="ko">축을 바꿔 보고 <b>값이 하나도 안 바뀌었는데</b> 인상이 달라지는 것을 확인했다.</span><span class="zh">改了坐标轴，确认了<b>一个值都没变</b>而印象却不同。</span></li>
+      <li><span class="ko">그래프에서 <b>알 수 있는 사실</b>과 <b>알 수 없는 원인</b>을 구분해 적었다.</span><span class="zh">把图上<b>能知道的事实</b>和<b>无法知道的原因</b>分开写了。</span></li>
+      <li><span class="ko">커널을 다시 시작한 뒤 전체를 실행해 그래프가 다시 그려지는지 확인했다.</span><span class="zh">重启内核后整体运行，确认图表被重新画了出来。</span></li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">10. 정리</span><span class="zh">10. 小结</span><b>4-2</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko">그래프를 그리기 전에 <b>대상·단위·질문·알 수 없는 것</b>을 먼저 확인한다.</span><span class="zh">画图之前，先确认<b>对象、单位、问题，以及无法知道的东西</b>。</span></li>
+        <li><span class="ko">요청문의 조건 하나하나가 <b>알려진 위험 하나씩</b>을 막는다. 위험을 알아야 조건을 쓸 수 있다.</span><span class="zh">请求文里的每一个条件，各挡住<b>一种已知的风险</b>。知道风险，才写得出条件。</span></li>
+        <li><span class="ko">코드를 <b>이해할</b> 필요는 없지만 <b>찾아볼</b> 수는 있어야 한다. 숫자와 낱말만 훑는다.</span><span class="zh">不需要<b>看懂</b>代码，但要能<b>找到</b>东西。只扫数字和词。</span></li>
+        <li><span class="ko">문제가 보이면 내가 고치지 않고 <b>무엇이 틀렸는지 + 무엇을 유지할지</b>를 알려 다시 요청한다.</span><span class="zh">看到问题不自己改，而是告诉它<b>哪里错了 + 要保留什么</b>，让它重做。</span></li>
+        <li><span class="ko">그래프가 나오면 <b>원본 표와 하나씩 대조</b>한다. 실행되었다는 것은 정확하다는 뜻이 아니다.</span><span class="zh">图出来后要<b>与原始表格逐项对照</b>。跑起来了不等于准确。</span></li>
+        <li><span class="ko">해석은 <b>무엇을 보는가 · 사실 · 한계</b> 세 부분으로 쓴다. 사실에는 구체적인 숫자를 넣는다.</span><span class="zh">解读分<b>在看什么 · 事实 · 局限</b>三部分写。事实那部分要有具体数字。</span></li>
+        <li><span class="ko">값을 하나도 바꾸지 않고 <b>축만 바꿔도</b> 인상이 달라진다. 기준은 <b>읽는 사람이 축을 알 수 있는가</b>이다.</span><span class="zh">一个值都不改，<b>只动坐标轴</b>印象就变。标准是<b>读的人能否知道轴的起点</b>。</span></li>
+        <li><span class="ko">그래프는 그림이라서 <b>바뀌지 않은 것을 알아채기 어렵다.</b> 마무리는 커널 다시 시작 → 모두 실행.</span><span class="zh">图是图像，<b>不容易察觉它没变</b>。收尾一定要 커널 다시 시작（重启内核）→ 모두 실행（全部运行）。</span></li>
+      </ul>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">다음 주는 <b>수행평가 1</b>입니다. 오늘 한 절차를 거의 그대로 하되, 데이터가 <b>CSV 파일</b>로 주어지고 처음부터 끝까지 스스로 합니다. 다음 차시(5-1)에서는 CSV가 무엇인지, 무엇을 제출해야 하는지, 무엇으로 이수를 판단하는지 안내합니다.</span><span class="zh">下周是<b>实作评价 1</b>。流程和今天几乎一样，只是数据以 <b>CSV 文件</b>给出，而且要从头到尾自己完成。下一课时（5-1）会说明 CSV 是什么、要提交什么、依据什么判定通过。</span></p>
+      <p><span class="ko">미리 알아 두면 좋은 것 하나 — <b>Python 코드를 직접 작성하는 능력은 평가하지 않습니다.</b> 오늘 한 것처럼 <b>요청하고, 대조하고, 해석하는</b> 능력을 봅니다.</span><span class="zh">先说一件值得知道的事 — <b>不评价你亲手编写 Python 代码的能力</b>。看的是像今天这样<b>提要求、做对照、做解读</b>的能力。</span></p>
+      <a class="next" href="05-1.html">5-1. 수행평가 1 안내 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="04-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">4-1. 데이터와 라이브러리로 그래프 만들기</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="05-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">5-1. 수행평가 1 안내</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

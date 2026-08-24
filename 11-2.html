@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>11-2. SQLite 데이터 저장 연결하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 11-2 — SQLite 데이터 저장 연결하기. 저장 기준 전달, 제안 대조, 흐름 실행, Viewer 확인, 재실행 확인" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>11-2</em> <span class="lesson">SQLite 데이터 저장 연결하기</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 11-2</span><span class="zh">本课时 — 11-2</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 오늘의 원칙</a>
+  <a href="#s1"><span class="n">1</span> 저장할 핵심 기록 확인</a>
+  <a href="#s2"><span class="n">2</span> 연결 전 상태 확인</a>
+  <a href="#s3"><span class="n">3</span> AI에게 데이터 기준 전달</a>
+  <a href="#s4"><span class="n">4</span> 제안을 계획서와 대조</a>
+  <a href="#s5"><span class="n">5</span> 기억하고 다시 보는 흐름 실행</a>
+  <a href="#s6"><span class="n">6</span> SQLite Viewer로 확인</a>
+  <a href="#s7"><span class="n">7</span> 재실행 뒤 확인</a>
+  <a href="#s8"><span class="n">8</span> 복잡하게 만들지 않았는가</a>
+  <a href="#s9"><span class="n">9</span> 선택 참고 — 파일 업로드</a>
+  <a href="#s10"><span class="n">10</span> 문제를 한 가지씩 수정</a>
+  <a href="#s11"><span class="n">11</span> 완료 확인과 결과</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html" class="here"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">11회 · 둘째 차시</span><span class="zh">第 11 次课 · 第 2 课时</span></div>
+    <h1><span class="ko">SQLite 데이터<br/>저장 연결하기</span><span class="zh">接上 SQLite<br/>数据保存</span></h1>
+    <div class="abar"></div>
+    <div class="osub"><span class="ko">기록을 하나 남기고, 화면에서 다시 확인하고,<br/><b>SQLite Viewer</b>에서 그 행이 실제로 있는지 봅니다.</span><span class="zh">留下一条记录，在画面上再确认一次，<br/>并在 <b>SQLite Viewer</b> 里看那一行是不是真的在。</span></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 11-1. 서비스가 데이터를 기억하는 과정<br/>
+      <b>다음 차시</b> · 12-1. 사용자 흐름으로 서비스 테스트하기<br/>
+      <b>오늘의 목표</b> · 대표 흐름 + 데이터 기억 기능이 함께 작동</span><span class="zh"><b>上一课时</b> · 11-1. 服务记住数据的过程<br/> <b>下一课时</b> · 12-1. 用用户流程测试服务<br/> <b>今天的目标</b> · 代表流程与数据记忆功能一起跑通</span></div>
+  </section>
+
+  <!-- ══════════ 오늘의 원칙 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">시작하기 전에</span><span class="zh">开始之前</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">오늘의 원칙</span><span class="zh">今天的原则</span></h2>
+
+    <p class="lead"><span class="ko"><b>모든 프로젝트</b>가 AI와 함께 사용자 흐름에 <b>SQLite 데이터 기억 기능</b>을 연결합니다. 기록을 남기고 다시 확인하는 흐름을 실행한 뒤, <b>SQLite Viewer에서 같은 정보가 실제로 저장되었는지</b> 확인합니다.</span><span class="zh"><b>每个项目</b>都要和 AI 一起，把 <b>SQLite 数据记忆功能</b>接到用户流程上。跑一遍“留下记录、再次查看”的流程，然后<b>在 SQLite Viewer 里确认同一份信息是否真的被保存</b>。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>① 기준 확인</b><span>기록 · 행동 · 다시 보는 순간</span></span><span class="zh"><b>① 确认基准</b><span>记录 · 行为 · 再看的时刻</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>② AI에게 전달 · 대조</b><span>제안을 계획서와 맞춰 본다</span></span><span class="zh"><b>② 交给 AI 并对照</b><span>把提议与计划书对上</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>③ 화면에서 확인</b><span>남기고 → 다시 본다</span></span><span class="zh"><b>③ 在画面上确认</b><span>留下 → 再看到</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>④ DB와 재실행으로 확인</b><span>행이 있는가 · 껐다 켜도 있는가</span></span><span class="zh"><b>④ 用数据库与重启确认</b><span>行在不在 · 关掉再开还在不在</span></span></div>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">확인이 세 번입니다</span><span class="zh">要确认三次</span></div>
+      <p><span class="ko"><b>화면에서 한 번</b>, <b>DB에서 한 번</b>, <b>재실행 뒤 한 번</b>. 세 번 모두 통과해야 “기억한다”라고 말할 수 있습니다. 화면에만 보이는 것은 아직 기억이 아닙니다.</span><span class="zh"><b>画面上一次</b>、<b>数据库里一次</b>、<b>重启之后一次</b>。三次都过了，才能说“它记住了”。只在画面上看得到，还不算记忆。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 기록 확인</span><span class="zh">1. 确认记录</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">저장할 핵심 기록을 다시 확인한다</span><span class="zh">再确认一遍要保存的核心记录</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist">
+      <li><span class="ko">핵심 기능을 실행하면 생기는 기록</span><span class="zh">执行核心功能会产生的记录</span></li>
+      <li><span class="ko">그 기록에서 꼭 남길 정보</span><span class="zh">这条记录里一定要留的信息</span></li>
+      <li><span class="ko">사용자가 다시 보는 때</span><span class="zh">用户再看它的时候</span></li>
+      <li><span class="ko">저장하지 않을 개인정보·불필요한 값</span><span class="zh">不保存的个人信息与多余的值</span></li>
+      <li><span class="ko">먼저 연결할 후보 테이블</span><span class="zh">先接上的候选数据表</span></li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">즉시 결과만 보여 주는 서비스도 마찬가지입니다</span><span class="zh">只即时展示结果的服务也一样</span></div>
+      <p><span class="ko">계산 · 변환처럼 결과를 즉시 보여 주는 서비스도 <b>‘입력과 결과의 최근 기록’</b>처럼 핵심 기능과 연결된 <b>최소 기록</b>을 남깁니다.</span><span class="zh">像计算、换算这种即时给出结果的服务，也要留下<b>“输入与结果的最近记录”</b>这样与核心功能相连的<b>最小记录</b>。</span></p>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">가짜 기록을 추가하지 않습니다</span><span class="zh">不加假记录</span></div>
+      <p><span class="ko">DB 사용을 보여 주기 위한 <b>가짜 방문 횟수</b>나 서비스와 관계없는 <b>메모</b>를 추가하지 않습니다.</span><span class="zh">不要为了显示用了数据库而加<b>假的访问次数</b>，或与服务无关的<b>备注</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 시작 상태</span><span class="zh">2. 起始状态</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">저장 연결 전 상태를 확인한다</span><span class="zh">接保存之前先确认状态</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <ul class="blist checks">
+      <li><span class="ko">프로젝트가 <b>실행된다.</b></span><span class="zh">项目<b>能运行</b>。</span></li>
+      <li><span class="ko"><b>첫 화면</b>이 열린다.</span><span class="zh"><b>第一个画面</b>能打开。</span></li>
+      <li><span class="ko"><b>핵심 기능 한 가지</b>가 작동한다.</span><span class="zh"><b>那一个核心功能</b>能用。</span></li>
+      <li><span class="ko"><b>대표 정상 흐름</b>과 <b>핵심 예외 흐름</b>이 작동한다.</span><span class="zh"><b>代表性正常流程</b>与<b>核心例外流程</b>都能跑。</span></li>
+      <li><span class="ko">PRD와 9회 개발 계획에서 <b>기억할 정보와 다시 보는 순간</b>을 찾았다.</span><span class="zh">从 PRD 与第 9 次课开发计划里找到了<b>要记住的信息与再看的时刻</b>。</span></li>
+      <li><span class="ko"><b>SQLite Viewer</b>를 설치했다.</span><span class="zh">装好了 <b>SQLite Viewer</b>。</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">확인하지 않고 DB를 붙이면</span><span class="zh">不确认就接数据库的话</span></div>
+      <p><span class="ko">현재 작동 상태를 확인하지 않고 DB를 추가하면 <b>새 문제와 기존 문제를 구분하기 어렵습니다.</b> 버튼이 안 되는 것이 저장 때문인지 원래부터였는지 알 수 없게 됩니다.</span><span class="zh">不确认当前的运行状态就加数据库，<b>就分不清新问题和原有问题</b>。按钮不好用，到底是因为保存，还是本来就不行，会说不清。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 기준 전달</span><span class="zh">3. 交出基准</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 데이터 기준을 전달한다</span><span class="zh">把数据基准交给 AI</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI 요청문</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>현재 대표 사용자 흐름은 처음부터 결과까지 작동해.
+docs 폴더의 PRD와 09_development_plan_학생ID_이름.md를 읽어 줘.
+
+[이번 단계]
+- 사용자 흐름에서 기억하기로 한 정보만 SQLite에 저장
+- 사용자가 다시 보는 단계에서 저장한 결과를 화면에 표시
+- 프로젝트를 다시 실행해도 기록 유지
+- 표준 프로젝트가 정한 DB 위치와 방식 사용
+
+[제한]
+- 실제 개인정보와 비밀정보 저장 금지
+- 불필요한 테이블과 열 추가 금지
+- 파일 업로드 기능 추가 금지
+- 새 패키지와 전체 프로젝트 재작성 금지
+- 사용자 입력을 안전한 DB 기능을 통해 처리
+
+코드를 바꾸기 전에 다음을 쉬운 말로 설명해 줘.
+- 사용자의 어떤 행동에서 무엇을 기억할지
+- 사용자가 언제 그 정보를 다시 보게 될지
+- 필요한 테이블의 역할
+- 수정할 파일과 확인할 사용자 흐름</code></pre>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">파일 업로드가 승인된 프로젝트라면</span><span class="zh">若是获批了文件上传的项目</span></div>
+      <p><span class="ko">교사의 승인을 받았다면 <b>9절의 선택 참고 지침</b>을 따로 사용합니다. 승인 없이 이 기능을 추가하지 않습니다.</span><span class="zh">若已获老师批准，则另按<b>第 9 节的可选参考指引</b>来做。未获批准不要加这个功能。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 대조</span><span class="zh">4. 对照</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">AI의 제안을 계획서와 대조한다</span><span class="zh">把 AI 的提议与计划书对照</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist checks">
+      <li><span class="ko">테이블의 역할이 <b>후보 테이블과 맞는가</b>?</span><span class="zh">表的作用与<b>候选数据表一致吗</b>？</span></li>
+      <li><span class="ko">저장할 정보가 <b>핵심 기능에 필요한가</b>?</span><span class="zh">要保存的信息<b>对核心功能必要吗</b>？</span></li>
+      <li><span class="ko">계획서에 없는 <b>개인정보</b>가 추가되지 않았는가?</span><span class="zh">有没有加了计划书里没有的<b>个人信息</b>？</span></li>
+      <li><span class="ko"><b>불필요하게 복잡한 관계</b>를 만들지 않았는가?</span><span class="zh">有没有造出<b>不必要的复杂关系</b>？</span></li>
+      <li><span class="ko">사용자가 남긴 정보와 <b>저장할 값이 연결되는가</b>?</span><span class="zh">用户留下的信息与<b>要保存的值对得上吗</b>？</span></li>
+      <li><span class="ko">사용자가 <b>다시 보는 단계</b>에서 필요한 정보가 나타나는가?</span><span class="zh">在用户<b>再次查看的那一步</b>，需要的信息会出现吗？</span></li>
+      <li><span class="ko"><b>표준 DB 위치와 패키지</b>를 유지하는가?</span><span class="zh">是否保持了<b>标准的数据库位置与包</b>？</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">학생이 다시 설계하지 않습니다</span><span class="zh">学生不重新设计</span></div>
+      <p><span class="ko"><b>세부 열 · 자료형 · 키를 학생이 다시 설계하지 않습니다.</b> <b>사용자의 기대와 맞지 않는 부분만</b> 지적합니다.</span><span class="zh"><b>细节的列、数据类型、键，学生不重新设计。</b>只指出<b>与用户期待不符的地方</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. 흐름 실행</span><span class="zh">5. 跑流程</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">기억하고 다시 보는 흐름을 실행한다</span><span class="zh">跑一遍“记住并再看到”的流程</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">여섯 단계</span><span class="zh">六步</span></div>
+      <ol>
+        <li><span class="ko">AI가 제안한 <b>변경 범위</b>를 확인한다.</span><span class="zh">确认 AI 提议的<b>改动范围</b>。</span></li>
+        <li><span class="ko">변경을 적용하고 <b>프로젝트를 실행</b>한다.</span><span class="zh">应用改动并<b>运行项目</b>。</span></li>
+        <li><span class="ko">대표 흐름으로 <b>정상 기록 한 개</b>를 만든다.</span><span class="zh">按代表流程<b>造出一条正常记录</b>。</span></li>
+        <li><span class="ko">화면에서 <b>완료 반응</b>을 확인한다.</span><span class="zh">在画面上确认<b>完成的反应</b>。</span></li>
+        <li><span class="ko">사용자가 기록을 <b>다시 보는 단계</b>로 이동한다.</span><span class="zh">走到用户<b>再次查看记录的那一步</b>。</span></li>
+        <li><span class="ko"><b>같은 정보</b>가 화면에 나타나는지 확인한다.</span><span class="zh">确认<b>同一份信息</b>是否出现在画面上。</span></li>
+      </ol>
+    </div>
+
+    <ul class="blist">
+      <li><span class="ko">사용자가 한 행동</span><span class="zh">用户做的行动</span></li>
+      <li><span class="ko">기억해야 할 정보</span><span class="zh">该记住的信息</span></li>
+      <li><span class="ko">다시 보는 단계</span><span class="zh">再次查看的步骤</span></li>
+      <li><span class="ko">화면에서 확인한 내용</span><span class="zh">在画面上确认到的内容</span></li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. DB 확인</span><span class="zh">6. 查数据库</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">SQLite Viewer로 실제 데이터를 확인한다</span><span class="zh">用 SQLite Viewer 确认真实数据</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">다섯 단계</span><span class="zh">五步</span></div>
+      <ol>
+        <li><span class="ko">프로젝트에서 표준 <code>.db</code> 파일을 찾는다.</span><span class="zh">在项目里找到标准的 <code>.db</code> 文件。</span></li>
+        <li><span class="ko">VS Code에서 파일을 클릭하여 <b>SQLite Viewer로 연다.</b></span><span class="zh">在 VS Code 里点开文件，<b>用 SQLite Viewer 打开</b>。</span></li>
+        <li><span class="ko">계획서와 관련된 <b>테이블 이름</b>을 찾는다.</span><span class="zh">找到与计划书对应的<b>表名</b>。</span></li>
+        <li><span class="ko">화면에서 입력한 값이 <b>행으로 보이는지</b> 확인한다.</span><span class="zh">确认在画面上输入的值<b>是否显示为一行</b>。</span></li>
+        <li><span class="ko">화면의 값과 <b>DB의 값이 같은지</b> 비교한다.</span><span class="zh">比较画面上的值与<b>数据库里的值是否相同</b>。</span></li>
+      </ol>
+    </div>
+
+    <ul class="blist checks">
+      <li><span class="ko">DB 파일 위치</span><span class="zh">数据库文件位置</span></li>
+      <li><span class="ko">확인한 테이블</span><span class="zh">查看的表</span></li>
+      <li><span class="ko">행의 개수</span><span class="zh">行数</span></li>
+      <li><span class="ko">화면과 일치하는 값</span><span class="zh">与画面一致的值</span></li>
+      <li><span class="ko">불필요하게 저장된 값</span><span class="zh">多余保存的值</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">Viewer에서 값을 고치지 않습니다</span><span class="zh">不要在查看器里改值</span></div>
+      <p><span class="ko">SQLite Viewer에서 값을 <b>직접 수정하거나 삭제하지 않습니다.</b> 최신 값이 보이지 않으면 저장 동작을 마친 뒤 <b>DB 화면을 다시 엽니다.</b></span><span class="zh">在 SQLite Viewer 里<b>不直接修改或删除值</b>。若看不到最新的值，就在保存动作完成后<b>重新打开数据库界面</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. 재실행</span><span class="zh">7. 重新运行</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">프로젝트 재실행 뒤 사용자 경험을 확인한다</span><span class="zh">重启项目后确认用户体验</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">10-2에서 사라졌던 문제의 답</span><span class="zh">10-2 里“消失了”那个问题的答案</span></div>
+      <ol>
+        <li><span class="ko">프로젝트 실행을 <b>완전히 중지</b>한다.</span><span class="zh"><b>彻底停止</b>项目的运行。</span></li>
+        <li><span class="ko">같은 방법으로 <b>다시 실행</b>한다.</span><span class="zh">用同样的方法<b>重新运行</b>。</span></li>
+        <li><span class="ko">브라우저를 <b>새로 연다.</b></span><span class="zh"><b>重新打开</b>浏览器。</span></li>
+        <li><span class="ko">이전 기록이 <b>다시 나타나는지</b> 확인한다.</span><span class="zh">确认之前的记录<b>是否再次出现</b>。</span></li>
+        <li><span class="ko">SQLite Viewer에서 <b>같은 행이 남아 있는지</b> 확인한다.</span><span class="zh">在 SQLite Viewer 里确认<b>那一行是否还在</b>。</span></li>
+      </ol>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">사라지면 흐름에 맞지 않습니다</span><span class="zh">消失了就与流程不符</span></div>
+      <p><span class="ko">기록이 사라지면 <b>PRD와 9회의 사용자 흐름에 맞지 않습니다.</b> 10절의 요청문으로 <b>기억하기 · 다시 불러오기 · 화면에 보여 주기</b> 중 어느 단계가 문제인지부터 좁힙니다.</span><span class="zh">记录消失，就<b>与 PRD 和第 9 次课的用户流程不符</b>。用第 10 节的请求文，先在<b>记住 · 取回 · 显示到画面</b>三步里收窄问题出在哪一步。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">여기까지 되면 11회 목표 달성입니다</span><span class="zh">做到这里，第 11 次课的目标就达成了</span></div>
+      <p><span class="ko">껐다 켜도 기록이 남아 있고 사용자가 그것을 다시 볼 수 있다면, <b>대표 흐름과 데이터 기억 기능이 함께 작동</b>하는 것입니다.</span><span class="zh">关掉再开记录还在，用户也能再看到，就说明<b>代表流程与数据记忆功能一起跑通了</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. 단순함 점검</span><span class="zh">8. 检查是否简单</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">복잡하게 만들지 않았는지 확인한다</span><span class="zh">确认有没有做复杂了</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist checks">
+      <li><span class="ko">핵심 기능과 <b>관계없는 기록을 추가하지 않았다.</b></span><span class="zh"><b>没有加与核心功能无关的记录。</b></span></li>
+      <li><span class="ko">한 테이블로 충분한데 <b>여러 테이블로 나누지 않았다.</b></span><span class="zh">一张表就够，<b>没有拆成好几张</b>。</span></li>
+      <li><span class="ko">실제 개인정보와 <b>불필요한 입력값을 저장하지 않았다.</b></span><span class="zh"><b>没有保存</b>真实个人信息与<b>多余的输入值</b>。</span></li>
+      <li><span class="ko">기록을 만드는 행동과 다시 보는 화면이 <b>사용자 흐름에 포함된다.</b></span><span class="zh">产生记录的行为与再次查看的画面，<b>都包含在用户流程里</b>。</span></li>
+      <li><span class="ko">학생이 열 · 자료형 · 관계를 <b>직접 설계하거나 외우지 않는다.</b></span><span class="zh">学生<b>没有亲自设计或背诵</b>列、数据类型与关系。</span></li>
+    </ul>
+
+    <div class="note">
+      <div class="nt"><span class="ko">두 번째 항목이 자주 걸립니다</span><span class="zh">第二项最常出问题</span></div>
+      <p><span class="ko">AI는 표를 <b>더 잘게 나누는</b> 방향으로 답하기 쉽습니다. 그것이 더 전문적으로 보이기 때문입니다. 7-1에서 본 대로 <b>나눌 이유가 없으면 하나가 정답</b>입니다.</span><span class="zh">AI 很容易往<b>把表拆得更细</b>的方向答，因为那看起来更专业。正如 7-1 所见，<b>没有理由拆开时，一张就是正解</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">9. 선택 참고</span><span class="zh">9. 可选参考</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">승인된 파일 업로드 기능</span><span class="zh">已获批准的文件上传功能</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이 — 교사 승인을 받은 프로젝트만</span><span class="zh">更深一层 — 仅限获老师批准的项目</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+
+      <p><span class="ko">교사 승인을 받은 프로젝트만 다음 조건을 AI에게 전달합니다.</span><span class="zh">只有获老师批准的项目，才把下面的条件交给 AI。</span></p>
+
+      <div class="code">
+        <div class="chd"><span class="ko"><span class="fn">AI 요청문 — 승인된 경우만</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文 — 仅限获批时</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+        <pre><code>파일 업로드는 핵심 기능에 꼭 필요한 선택 기능이야.
+플랫폼이 제공하는 프로젝트별 업로드 폴더만 사용해 줘.
+
+- 교사가 허용한 확장자와 최대 크기만 받기
+- 서버가 안전한 새 파일명을 만들어 저장하기
+- SQLite에는 파일 자체가 아니라 표시 이름·저장 경로·설명만 기록하기
+- 실행 파일과 허용하지 않은 형식은 저장하지 않고 안내하기
+- 원래 파일명으로 서버 경로를 직접 만들지 않기
+- 파일 내용을 명령이나 코드로 실행하지 않기
+
+구현 전에 저장 위치, DB에 기록할 정보와 거부할 입력을 설명해 줘.</code></pre>
+      </div>
+
+      <h3 class="sub"><span class="ko">확인할 내용</span><span class="zh">要确认的内容</span></h3>
+      <ul class="blist checks">
+        <li><span class="ko">허용한 <b>작은 파일</b>이 업로드되는가?</span><span class="zh">允许的<b>小文件</b>能上传吗？</span></li>
+        <li><span class="ko">허용하지 않은 형식은 <b>거부되는가</b>?</span><span class="zh">不允许的格式<b>会被拒绝吗</b>？</span></li>
+        <li><span class="ko">크기 제한을 넘으면 <b>안내하는가</b>?</span><span class="zh">超过大小限制会<b>给出提示吗</b>？</span></li>
+        <li><span class="ko">업로드된 파일이 SQLite 안이 아니라 <b>별도 폴더에 있는가</b>?</span><span class="zh">上传的文件是在<b>单独的文件夹</b>而不是 SQLite 里吗？</span></li>
+        <li><span class="ko">DB에는 <b>파일 정보만</b> 기록되는가?</span><span class="zh">数据库里只记了<b>文件信息</b>吗？</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">10. 수정</span><span class="zh">10. 修改</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">문제를 한 가지씩 수정한다</span><span class="zh">问题一个一个改</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">수정 요청문 — 빈칸을 채워 쓰세요</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">修改请求文 — 填空后使用</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>사용자 흐름에서 ___ 단계까지는 예상대로 작동하고,
+기억하거나 다시 보는 단계에서 ___이 예상과 달라.
+사용자가 한 행동은 ___이고 화면에 보인 내용은 ___이야.
+
+전체 DB 구조를 다시 만들지 말고,
+기억하기·다시 불러오기·화면에 보여 주기 중 문제 단계를 먼저 설명해 줘.
+가장 작은 수정 하나만 제안해 줘.</code></pre>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">세 단계 중 어디인지부터</span><span class="zh">先分清是三步中的哪一步</span></div>
+      <ul class="blist">
+        <li><span class="ko"><b>기억하기</b> — DB에 행이 아예 생기지 않는다</span><span class="zh"><b>记住</b> —— 数据库里根本没有新行</span></li>
+        <li><span class="ko"><b>다시 불러오기</b> — DB에는 행이 있는데 화면이 비어 있다</span><span class="zh"><b>取回</b> —— 数据库里有行，画面却是空的</span></li>
+        <li><span class="ko"><b>화면에 보여 주기</b> — 불러왔지만 다른 값이 보인다</span><span class="zh"><b>显示到画面</b> —— 取回来了，显示的却是别的值</span></li>
+      </ul>
+      <p><span class="ko">SQLite Viewer가 이 셋을 구분해 줍니다. <b>행이 있는지 없는지</b>만 보면 앞의 둘이 갈립니다.</span><span class="zh">SQLite Viewer 能帮你分开这三种。只看<b>有没有那一行</b>，前两种就分开了。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">수정 전후를 같은 입력으로</span><span class="zh">改前改后用同样的输入</span></div>
+      <p><span class="ko"><b>같은 입력으로 수정 전후를 다시 확인</b>합니다. 입력을 바꾸면 무엇 때문에 달라졌는지 알 수 없습니다.</span><span class="zh"><b>用同样的输入把改前改后各确认一遍</b>。换了输入，就说不清是什么导致了差异。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 11 ══════════ -->
+  <section class="page" id="s11">
+    <div class="kick"><span class="ko">11. 정리</span><span class="zh">11. 小结</span><b>11-2</b></div>
+    <h2 class="title"><span class="ko">완료 확인과 오늘의 결과</span><span class="zh">完成确认与今天的成果</span></h2>
+
+    <ul class="blist checks">
+      <li><span class="ko">핵심 기능과 관련된 <b>의미 있는 기록</b>을 정했다.</span><span class="zh">定下了与核心功能相关的<b>有意义的记录</b>。</span></li>
+      <li><span class="ko">AI의 저장 제안을 <b>PRD와 9회의 사용자 흐름에 대조</b>했다.</span><span class="zh">把 AI 的保存提议<b>与 PRD 和第 9 次课的用户流程对照</b>了。</span></li>
+      <li><span class="ko">화면에서 <b>저장된 기록을 다시 확인</b>했다.</span><span class="zh">在画面上<b>再次确认了已保存的记录</b>。</span></li>
+      <li><span class="ko"><b>SQLite Viewer</b>에서 테이블과 행을 확인했다.</span><span class="zh">在 <b>SQLite Viewer</b> 里确认了表与行。</span></li>
+      <li><span class="ko"><b>프로젝트 재실행 뒤</b> 사용자가 기록을 다시 볼 수 있는지 확인했다.</span><span class="zh">确认了<b>项目重启后</b>用户仍能再看到记录。</span></li>
+      <li><span class="ko">실제 개인정보와 <b>계획서에 없는 정보를 저장하지 않았다.</b></span><span class="zh"><b>没有保存</b>真实个人信息与<b>计划书里没有的信息</b>。</span></li>
+      <li><span class="ko">파일 업로드는 <b>교사 승인 없이 추가하지 않았다.</b></span><span class="zh">文件上传<b>未经老师批准没有添加</b>。</span></li>
+    </ul>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">11회가 끝나면 작동해야 하는 것</span><span class="zh">第 11 次课结束时该能跑的</span></div>
+      <ul>
+        <li><span class="ko"><b>대표 사용자 흐름</b>과 <b>SQLite 데이터 기억 기능</b>이 함께 작동</span><span class="zh"><b>代表性用户流程</b>与 <b>SQLite 数据记忆功能</b>一起跑通</span></li>
+        <li><span class="ko">껐다 켜도 <b>기록이 남아 있고 사용자가 다시 볼 수 있음</b></span><span class="zh">关掉再开，<b>记录还在，用户能再看到</b></span></li>
+      </ul>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">12회에는 <b>기능을 더 늘리지 않습니다.</b> 정상 흐름, 예외 뒤 회복, 저장된 기록을 다시 보는 흐름을 <b>사용자 관점에서 시험</b>합니다.</span><span class="zh">第 12 次课<b>不再增加功能</b>。而是<b>从用户视角测试</b>正常流程、例外后的恢复，以及再次查看已保存记录的流程。</span></p>
+      <p><span class="ko">지금까지는 “되게 만드는” 시간이었고, 다음은 “정말 되는지 확인하는” 시간입니다.</span><span class="zh">到目前为止是“把它做成”的时间，接下来是“确认它真的成了”的时间。</span></p>
+      <a class="next" href="12-1.html">12-1. 사용자 흐름으로 서비스 테스트하기 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="11-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">11-1. 서비스가 데이터를 기억하는 과정</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="12-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">12-1. 사용자 흐름으로 서비스 테스트하기</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

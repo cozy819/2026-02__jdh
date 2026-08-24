@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>2-2. Python 실습 환경 준비하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 2-2 — VS Code·Node.js·OpenCode·uv·가상환경·Jupyter 커널을 준비하고 첫 코드를 실행한다" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>2-2</em> <span class="lesson">Python 실습 환경 준비하기</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 2-2</span><span class="zh">本课时 — 2-2</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 왜 이 실습이 필요한가</a>
+  <a href="#s1"><span class="n">1</span> 오늘 준비할 도구 지도</a>
+  <a href="#s2"><span class="n">2</span> 준비 상태 확인</a>
+  <a href="#s3"><span class="n">3</span> PowerShell 열기</a>
+  <a href="#s4"><span class="n">4</span> VS Code와 확장</a>
+  <a href="#s5"><span class="n">5</span> Node.js 설치</a>
+  <a href="#s6"><span class="n">6</span> OpenCode 설치</a>
+  <a href="#s7"><span class="n">7</span> AI 모델 연결</a>
+  <a href="#s8"><span class="n">8</span> OpenCode에 첫 요청</a>
+  <a href="#s9"><span class="n">9</span> 가상환경이 필요한 이유</a>
+  <a href="#s9b"><span class="n">·</span> 버전 충돌과 재현</a>
+  <a href="#s10"><span class="n">10</span> uv가 관리하는 것</a>
+  <a href="#s11"><span class="n">11</span> uv와 Python 설치</a>
+  <a href="#s12"><span class="n">12</span> 수업 프로젝트 동기화</a>
+  <a href="#s13"><span class="n">13</span> 인터프리터와 커널 선택</a>
+  <a href="#s14"><span class="n">14</span> 실행 전에 읽고 예상하기</a>
+  <a href="#s15"><span class="n">15</span> 첫 코드 수정하기</a>
+  <a href="#s16"><span class="n">16</span> 오류도 관찰한다</a>
+  <a href="#s17"><span class="n">17</span> AI 설명을 검증한다</a>
+  <a href="#s18"><span class="n">18</span> .py 파일 실행하기</a>
+  <a href="#s19"><span class="n">19</span> Notebook 재검증</a>
+  <a href="#s20"><span class="n">20</span> 보안·개인정보 점검</a>
+  <a href="#s21"><span class="n">21</span> 막힐 때 확인 순서</a>
+  <a href="#s22"><span class="n">22</span> 실습 기록과 완료 확인</a>
+  <a href="#s23"><span class="n">23</span> 핵심 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html" class="here"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">2회 · 둘째 차시</span><span class="zh">第 2 次课 · 第 2 课时</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></div>
+    <h1><span class="ko">Python 실습<br/>환경 준비하기</span><span class="zh">准备 Python<br/>实践环境</span></h1>
+    <div class="osub"><span class="ko">아무것도 설치되지 않은 노트북에서 시작해,<br/>Python 코드와 AI 도구가 돌아가는 환경을 손으로 만들어 봅니다.</span><span class="zh">从一台什么都没装的笔记本开始，<br/>亲手搭出能跑 Python 代码和 AI 工具的环境。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 2-1. 프로그래밍 언어와 Python<br/>
+      <b>다음 차시</b> · 3-1. 값과 변수로 정보 표현하기<br/>
+      <b>준비물</b> · 노트북, 충전기, 학교 Wi-Fi 연결</span><span class="zh"><b>上一课时</b> · 2-1. 编程语言与 Python<br/> <b>下一课时</b> · 3-1. 用值和变量表示信息<br/> <b>准备</b> · 笔记本电脑、充电器、连上学校 Wi-Fi</span></div>
+  </section>
+
+  <!-- ══════════ 왜 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">왜 이 실습이 필요한가</span><span class="zh">为什么需要这次实践</span></h2>
+
+    <div class="scene">
+      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
+      <p><span class="ko">인터넷에서 “Python 설치 방법”을 검색해 안내대로 따라 합니다. 설치가 끝났다는 화면이 뜹니다. 그런데 코드를 실행하려니 “찾을 수 없습니다”라는 메시지가 나옵니다.</span><span class="zh">在网上搜“Python 安装方法”，照着指引做完了。屏幕显示安装完成。可一要运行代码，却弹出“找不到”。</span></p>
+      <p><span class="ko">다시 검색합니다. 이번에는 다른 블로그의 방법으로 뭔가를 또 설치합니다. 이제는 실행은 되는데, 어제 잘 되던 다른 코드가 안 됩니다. 무엇을 설치했는지, 지금 어느 Python이 돌아가는지 이미 알 수 없게 되었습니다.</span><span class="zh">再搜一次。这回按另一个博客的方法又装了点什么。现在能跑了，可昨天好好的另一段代码又不行了。装过什么、现在跑的是哪个 Python，已经说不清了。</span></p>
+      <p><span class="ko">이 상황은 실력이 부족해서 생기는 것이 아닙니다. <b>각 도구가 무슨 역할을 하는지 모르는 채로 설치했기</b> 때문에 생깁니다.</span><span class="zh">这种局面不是因为水平不够，而是因为<b>在不知道每个工具各管什么的情况下就装了</b>。</span></p>
+    </div>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">이번 실습의 목표</span><span class="zh">本次实践的目标</span></div>
+      <p><span class="ko">설치 명령을 외우는 것이 아니라, <b>각 도구가 왜 필요하며 내 코드와 AI 도구가 정확히 어떤 환경에서 실행되는지 설명할 수 있게 되는 것</b>이 목표다. 여기에 더해 <b><code>uv sync</code>·<code>uv add</code>·<code>uv run</code>의 역할을 구분</b>할 수 있어야 한다.</span><span class="zh">目标不是背下安装命令，而是<b>能说清每个工具为什么需要，以及我的代码和 AI 工具究竟在什么样的环境里运行</b>。此外还要能<b>区分 <code>uv sync</code>、<code>uv add</code>、<code>uv run</code> 的职责</b>。</span></p>
+    </div>
+
+    <div class="recall">
+      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
+      <ul class="blist">
+        <li><span class="ko">VS Code는 <b>편집기</b>, Python은 <b>실행기</b>, 확장은 <b>연결</b>, Jupyter는 <b>기록</b>, uv는 <b>환경 관리</b>를 맡는다.</span><span class="zh">VS Code 管<b>编辑</b>，Python 管<b>执行</b>，扩展管<b>连接</b>，Jupyter 管<b>记录</b>，uv 管<b>环境管理</b>。</span></li>
+        <li><span class="ko">확장을 설치했다고 Python 자체가 생기는 것은 아니다.</span><span class="zh">装了扩展并不等于就有了 Python 本身。</span></li>
+        <li><span class="ko">사람이 쓴 코드는 <b>번역 과정</b>을 거쳐 운영체제가 마련한 환경에서 실행된다.</span><span class="zh">人写的代码要经过<b>翻译过程</b>，在操作系统备好的环境中运行。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s0_2">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">왜 이 실습이 필요한가</span><span class="zh">为什么需要这次实践</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">오늘 끝나면 이렇게 됩니다</span><span class="zh">今天结束时会是这样</span></h3>
+
+    <div class="row">
+      <div class="pane okp">
+        <div class="pt"><span class="ko">완성 상태</span><span class="zh">完成状态</span></div>
+        <ul class="blist">
+          <li><span class="ko">Notebook 셀을 실행하면 결과가 바로 아래 나온다</span><span class="zh">运行 Notebook 单元格，结果就出现在正下方</span></li>
+          <li><span class="ko">일부러 낸 오류를 읽고 스스로 고칠 수 있다</span><span class="zh">能读懂自己故意造出的报错并自行修好</span></li>
+          <li><span class="ko"><code>.py</code> 파일을 실행해 터미널에서 결과를 본다</span><span class="zh">运行 <code>.py</code> 文件，在终端里看到结果</span></li>
+          <li><span class="ko">AI 도구가 내 프로젝트 파일을 읽고 설명해 준다</span><span class="zh">AI 工具能读我的项目文件并加以说明</span></li>
+        </ul>
+      </div>
+      <div class="pane">
+        <div class="pt"><span class="ko">설명할 수 있게 되는 것</span><span class="zh">能说清楚的事</span></div>
+        <ul class="blist">
+          <li><span class="ko">지금 어느 Python이 내 코드를 실행하는가</span><span class="zh">现在是哪个 Python 在跑我的代码</span></li>
+          <li><span class="ko">가상환경이 왜 필요한가</span><span class="zh">为什么需要虚拟环境</span></li>
+          <li><span class="ko"><code>.venv</code>·<code>pyproject.toml</code>·<code>uv.lock</code>의 차이</span><span class="zh"><code>.venv</code>、<code>pyproject.toml</code>、<code>uv.lock</code> 的区别</span></li>
+          <li><span class="ko">AI에게 넣으면 안 되는 정보는 무엇인가</span><span class="zh">哪些信息不能输入给 AI</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 전체 지도</span><span class="zh">1. 全景图</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">오늘 준비할 도구와 각자의 역할</span><span class="zh">今天要装的工具和各自的职责</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">여섯 가지를 설치합니다. 많아 보이지만 <b>역할이 겹치지 않습니다.</b> 하나씩 왜 필요한지 알고 넘어가면 나중에 문제가 생겼을 때 어디를 봐야 할지 알 수 있습니다.</span><span class="zh">要装六样。看着多，但<b>职责互不重叠</b>。逐个弄清为什么需要，日后出问题时就知道该看哪里。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">오늘 만들 환경의 구조</span></span><span class="zh"><span class="fn">今天要搭出的环境结构</span></span></div>
+      <pre><code>VS Code                     ← 작업 공간
+├─ 편집기      파일과 코드를 읽고 고친다
+├─ 터미널      명령을 실행한다
+├─ Python 확장 Python 실행 환경을 연결한다
+└─ Jupyter 확장 Notebook 화면과 셀 실행
+
+Node.js와 npm               ← AI 도구의 기반
+├─ JavaScript를 브라우저 밖에서 실행하는 환경
+└─ npm으로 OpenCode를 설치한다
+
+OpenCode                    ← AI 코딩 도구
+└─ 프로젝트 파일을 읽고 수정한다
+
+uv                          ← 환경 관리
+├─ Python 설치와 버전 관리
+├─ 프로젝트의 가상환경 생성
+└─ 라이브러리 설치와 버전 기록
+
+.venv의 Python과 Jupyter 커널  ← 실제 실행
+└─ Python 코드와 Notebook 셀을 실행한다</code></pre>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">왜 이런 순서인가</span><span class="zh">为什么是这个顺序</span></div>
+      <p><span class="ko">순서에 이유가 있습니다. <b>OpenCode를 설치하려면 Node.js가 먼저</b> 있어야 하고, <b>Python 코드를 실행하려면 Python이</b> 있어야 합니다. 그리고 Python은 직접 설치하지 않고 <b>uv에게 맡깁니다.</b> 그러면 학생마다 Python 버전이 달라지는 일을 줄일 수 있습니다.</span><span class="zh">顺序是有理由的。<b>要装 OpenCode 就得先有 Node.js</b>，<b>要运行 Python 代码就得有 Python</b>。而 Python 不自己装，<b>交给 uv</b>。这样能减少每个同学 Python 版本各不相同的情况。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s1_2">
+    <div class="kick"><span class="ko">1. 전체 지도</span><span class="zh">1. 全景图</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">오늘 준비할 도구와 각자의 역할</span><span class="zh">今天要装的工具和各自的职责</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">이미 설치된 것이 있다면</span><span class="zh">如果已经装过了</span></div>
+      <p><span class="ko">지우고 다시 깔지 마세요. 먼저 <b>버전 확인 명령</b>만 실행해서 이미 있는지 확인하고, 있으면 그 단계를 건너뜁니다. 각 단계마다 확인 명령을 함께 적어 두었습니다.</span><span class="zh">不要卸载重装。先只执行<b>查看版本的命令</b>确认是否已有，有就跳过那一步。每一步都附了确认命令。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 시작 전 점검</span><span class="zh">2. 开始前检查</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">준비 상태 확인</span><span class="zh">确认准备状态 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">설치를 시작하기 전에 다음을 교사와 함께 확인합니다. 여기서 막히면 뒤의 모든 단계가 막힙니다.</span><span class="zh">开始安装前，和老师一起确认以下各项。这里卡住，后面所有步骤都会卡住。</span></p>
+
+    <ul class="blist checks">
+      <li><span class="ko">수업용 노트북에 로그인했다.</span><span class="zh">已登录课堂用笔记本电脑。</span></li>
+      <li><span class="ko">수업 자료 폴더의 위치를 찾았다.</span><span class="zh">找到了课程资料文件夹的位置。</span></li>
+      <li><span class="ko">학교 Wi-Fi에 연결되어 있다.</span><span class="zh">已连上学校 Wi-Fi。</span></li>
+      <li><span class="ko">프로그램을 설치할 권한이 있는지 확인했다.</span><span class="zh">确认了是否有安装程序的权限。</span></li>
+      <li><span class="ko">이미 설치된 프로그램이 있다면 먼저 버전을 확인했다.</span><span class="zh">若已装过某些程序，先查看了它们的版本。</span></li>
+      <li><span class="ko">저장공간이 충분히 남아 있다.</span><span class="zh">剩余存储空间足够。</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">AI에 입력하지 않을 정보</span><span class="zh">不输入给 AI 的信息</span></div>
+      <p><span class="ko">오늘부터 AI 도구를 쓰기 시작합니다. 다음은 <b>어떤 AI 서비스에도 입력하지 않습니다.</b></span><span class="zh">从今天起要开始用 AI 工具。以下内容<b>不输入给任何 AI 服务</b>。</span></p>
+      <ul class="blist">
+        <li><span class="ko">학교 계정의 비밀번호</span><span class="zh">学校账号的密码</span></li>
+        <li><span class="ko">전화번호, 주소, 주민등록번호</span><span class="zh">电话号码、住址、身份证号</span></li>
+        <li><span class="ko">다른 사람의 개인정보</span><span class="zh">他人的个人信息</span></li>
+        <li><span class="ko">API 키와 인증 토큰</span><span class="zh">API 密钥与认证令牌</span></li>
+      </ul>
+      <p><span class="ko">실습 파일에도 실제 개인정보 대신 <b>가상의 이름과 값</b>을 씁니다. 이 교과서의 예시에 나오는 이름도 모두 가상입니다.</span><span class="zh">实践文件里也用<b>虚构的名字和数值</b>，而不是真实个人信息。本书示例中出现的名字也都是虚构的。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">설치가 차단되어 있다면</span><span class="zh">如果安装被拦住</span></div>
+      <p><span class="ko">학교 정책으로 설치가 막혀 있을 수 있습니다. 그럴 때 <b>보안 설정을 우회하려고 시도하지 않습니다.</b> 교사나 학교 담당자에게 요청하는 것이 올바른 절차입니다. 우회는 문제를 해결하는 것이 아니라 옮기는 것입니다.</span><span class="zh">学校策略可能禁止安装。这时<b>不要试图绕过安全设置</b>。向老师或学校负责人提出请求，才是正确的做法。绕过不是解决问题，只是把问题挪个地方。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 명령 창</span><span class="zh">3. 命令窗口</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">설치 명령을 입력할 PowerShell</span><span class="zh">输入安装命令的 PowerShell </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">프로그램을 설치하는 방법은 두 가지입니다. 창과 버튼을 눌러 진행하는 <span class="tt">GUI</span>(graphical user interface, 그래픽 사용자 인터페이스) 방식과, 글자로 명령을 입력하는 <span class="tt">CLI</span>(command-line interface, 명령 줄 인터페이스) 방식입니다.</span><span class="zh">安装程序有两种办法：点窗口和按钮进行的 <span class="tt">GUI</span>（graphical user interface，图形用户界面）方式，以及用文字敲命令的 <span class="tt">CLI</span>（command-line interface，命令行界面）方式。</span></p>
+
+    <p><span class="ko">이번 수업에서는 <b>CLI</b>를 주로 씁니다. 명령이 <b>문장</b>이라서 설치 과정과 결과를 그대로 기록할 수 있고, 모든 학생이 <b>똑같은 문장</b>을 실행할 수 있기 때문입니다. 버튼을 눌러 설치하면 무엇을 눌렀는지 남지 않습니다.</span><span class="zh">本课主要用 <b>CLI</b>。因为命令是<b>句子</b>，安装过程和结果可以原样记录下来，而且所有同学都能执行<b>一模一样的句子</b>。用按钮安装的话，按了什么并不会留下来。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">PowerShell 열기</span><span class="zh">打开 PowerShell</span></div>
+      <ol>
+        <li><span class="ko">키보드의 <code>Win</code> 키를 누른다.</span><span class="zh">按键盘上的 <code>Win</code> 键。</span></li>
+        <li><span class="ko"><code>powershell</code>을 검색한다.</span><span class="zh">搜索 <code>powershell</code>。</span></li>
+        <li><span class="ko"><b>Windows PowerShell</b> 또는 <b>Terminal</b>을 연다.</span><span class="zh">打开 <b>Windows PowerShell</b> 或 <b>Terminal</b>。</span></li>
+        <li><span class="ko">다음 명령을 입력하고 <code>Enter</code>를 누른다.</span><span class="zh">输入下面的命令并按 <code>Enter</code>。</span>
+          <div class="code term">
+            <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+            <pre><code>echo hello</code></pre>
+          </div>
+        </li>
+        <li><span class="ko"><code>hello</code>가 나타나면 명령을 실행할 수 있는 상태다.</span><span class="zh">出现 <code>hello</code>，就说明可以执行命令了。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page" id="s3_2">
+    <div class="kick"><span class="ko">3. 명령 창</span><span class="zh">3. 命令窗口</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">설치 명령을 입력할 PowerShell</span><span class="zh">输入安装命令的 PowerShell </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">먼저 익힐 다섯 개의 명령</span><span class="zh">先掌握的五条命令</span></h3>
+
+    <table class="kv">
+      <tr><th style="width:170px"><span class="ko">명령</span><span class="zh">命令</span></th><th><span class="ko">뜻</span><span class="zh">含义</span></th></tr>
+      <tr><td><code>pwd</code></td><td><span class="ko">지금 터미널이 어느 폴더에 있는지 확인한다.</span><span class="zh">查看当前终端处在哪个文件夹。</span></td></tr>
+      <tr><td><code>ls</code></td><td><span class="ko">현재 폴더 안의 파일과 폴더를 본다.</span><span class="zh">查看当前文件夹里的文件和子文件夹。</span></td></tr>
+      <tr><td><span class="ko"><code>cd 폴더이름</code></span><span class="zh"><code>cd 文件夹名</code></span></td><td><span class="ko">지정한 폴더 안으로 들어간다.</span><span class="zh">进入指定的文件夹。</span></td></tr>
+      <tr><td><code>cd ..</code></td><td><span class="ko">한 단계 위 폴더로 나간다.</span><span class="zh">退到上一级文件夹。</span></td></tr>
+      <tr><td><code>code .</code></td><td><span class="ko">현재 폴더 전체를 VS Code로 연다.</span><span class="zh">用 VS Code 打开整个当前文件夹。</span></td></tr>
+    </table>
+
+    <div class="note">
+      <div class="nt"><span class="ko"><code>pwd</code>를 습관으로</span><span class="zh">把 <code>pwd</code> 变成习惯</span></div>
+      <p><span class="ko">설치나 프로젝트 명령을 실행하기 전에 <code>pwd</code>로 위치를 확인하세요. <b>같은 명령도 어느 폴더에서 실행했는지에 따라 결과가 달라집니다.</b> 뒤에서 <code>uv sync</code>를 실행할 때 이 습관이 특히 중요해집니다.</span><span class="zh">执行安装或项目命令之前，先用 <code>pwd</code> 确认位置。<b>同一条命令，在哪个文件夹里执行，结果会不一样。</b>后面执行 <code>uv sync</code> 时，这个习惯尤其重要。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko"><code>winget</code>은 Windows의 프로그램 설치 도구</span><span class="zh"><code>winget</code> 是 Windows 的程序安装工具</span></div>
+      <p><span class="ko"><code>winget install 프로그램ID</code>는 지정한 프로그램을 찾아 설치합니다. 앞으로 나올 설치 명령 대부분이 이 형태입니다. 학교 정책으로 <code>winget</code>을 쓸 수 없다면 우회하지 말고 교사에게 요청합니다.</span><span class="zh"><code>winget install 程序 ID</code> 会找到并安装指定的程序。后面出现的安装命令大多是这个形式。若学校策略禁用 <code>winget</code>，不要绕过，请向老师提出。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 편집기</span><span class="zh">4. 编辑器</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">VS Code와 필수 확장 설치</span><span class="zh">安装 VS Code 与必需扩展 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <h3 class="sub"><span class="ko">4.1 VS Code 설치</span><span class="zh">4.1 安装 VS Code</span></h3>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>winget install --id Microsoft.VisualStudioCode -e</code></pre>
+    </div>
+
+    <p><span class="ko">설치가 끝나면 <b>PowerShell을 닫았다가 다시 열고</b> 확인합니다. 새로 열어야 하는 이유는, 프로그램이 설치되면서 바뀐 설정을 이미 열려 있던 창은 모르기 때문입니다.</span><span class="zh">安装完成后，<b>把 PowerShell 关掉再重新打开</b>后确认。之所以要重开，是因为程序安装时改动的设置，已经开着的窗口并不知道。</span></p>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>code --version</code></pre>
+    </div>
+
+    <p><span class="ko">버전 번호가 나타나면 설치된 것입니다. 명령이 인식되지 않으면 VS Code와 터미널을 완전히 종료한 뒤 다시 엽니다. <code>winget</code>을 쓸 수 없다면 <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">VS Code 공식 다운로드</a>를 이용합니다.</span><span class="zh">出现版本号就说明装好了。若命令无法识别，请把 VS Code 和终端完全退出再打开。若无法使用 <code>winget</code>，请用 <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">VS Code 官方下载</a>。</span></p>
+
+    <h3 class="sub"><span class="ko">4.2 VS Code에서 쓸 네 곳</span><span class="zh">4.2 VS Code 里要用的四处</span></h3>
+
+    <p><span class="ko">VS Code에는 수많은 버튼이 있지만, 이 수업에서 쓰는 곳은 네 군데뿐입니다.</span><span class="zh">VS Code 上按钮无数，但这门课只用到四个地方。</span></p>
+  </section>
+
+  <section class="page" id="s4_2">
+    <div class="kick"><span class="ko">4. 편집기</span><span class="zh">4. 编辑器</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">VS Code와 필수 확장 설치</span><span class="zh">安装 VS Code 与必需扩展 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <table class="kv">
+      <tr><th style="width:190px"><span class="ko">위치</span><span class="zh">位置</span></th><th><span class="ko">하는 일</span><span class="zh">做什么</span></th></tr>
+      <tr><td><span class="ko">탐색기 Explorer</span><span class="zh">资源管理器 Explorer</span></td><td><span class="ko">프로젝트의 파일과 폴더를 열고 관리한다.</span><span class="zh">打开并管理项目的文件与文件夹。</span></td></tr>
+      <tr><td><span class="ko">편집기 Editor</span><span class="zh">编辑器 Editor</span></td><td><span class="ko">Markdown, Python과 웹 코드를 읽고 수정한다.</span><span class="zh">阅读并修改 Markdown、Python 和网页代码。</span></td></tr>
+      <tr><td><span class="ko">확장 Extensions</span><span class="zh">扩展 Extensions</span></td><td><span class="ko">Python·Jupyter 같은 추가 기능을 설치한다.</span><span class="zh">安装 Python、Jupyter 之类的附加功能。</span></td></tr>
+      <tr><td><span class="ko">터미널 Terminal</span><span class="zh">终端 Terminal</span></td><td><span class="ko">uv와 OpenCode 명령을 실행한다.</span><span class="zh">执行 uv 和 OpenCode 命令。</span></td></tr>
+    </table>
+
+    <p><span class="ko">터미널은 메뉴의 <b>터미널 → 새 터미널</b> 또는 <code>Ctrl</code> + <code>`</code> 로 엽니다.</span><span class="zh">终端从菜单的<b>터미널 → 새 터미널</b>（终端 → 新建终端），或按 <code>Ctrl</code> + <code>`</code> 打开。</span></p>
+
+    <figure class="fig">
+      <img class="figimg" src="assets/img/02-2-01-vscode-4.png" alt="VS Code 화면에서 왼쪽 탐색기, 가운데 편집기, 왼쪽 아이콘 줄의 확장, 아래쪽 터미널 네 영역을 번호로 표시한 화면 안내 그림" data-id="02-2-01-vscode-4" data-spec="가로 16:9 · 실제 화면 캡처 위에 번호 표시" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 2-2-1. VS Code에서 쓰게 될 네 곳</span><span class="zh">图 2-2-1. VS Code 里会用到的四处</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="page" id="s4_3">
+    <div class="kick"><span class="ko">4. 편집기</span><span class="zh">4. 编辑器</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">VS Code와 필수 확장 설치</span><span class="zh">安装 VS Code 与必需扩展 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">4.3 필수 확장 두 개</span><span class="zh">4.3 两个必需扩展</span></h3>
+
+    <p><span class="ko">왼쪽의 확장 아이콘을 누르거나 <code>Ctrl+Shift+X</code>를 누릅니다. <b>이름이 비슷한 확장이 많으므로 게시자도 함께 확인</b>합니다.</span><span class="zh">点左侧的扩展图标，或按 <code>Ctrl+Shift+X</code>。<b>名字相近的扩展很多，请连发布者一并确认</b>。</span></p>
+
+    <table class="kv">
+      <tr><th style="width:130px"><span class="ko">표시 이름</span><span class="zh">显示名称</span></th><th style="width:130px"><span class="ko">게시자</span><span class="zh">发布者</span></th><th><span class="ko">이번 수업의 역할</span><span class="zh">在本课中的职责</span></th></tr>
+      <tr><td><b>Python</b></td><td>Microsoft</td><td><span class="ko">Python 실행 환경 선택과 코드 실행</span><span class="zh">选择 Python 运行环境并执行代码</span></td></tr>
+      <tr><td><b>Jupyter</b></td><td>Microsoft</td><td><span class="ko"><code>.ipynb</code> Notebook 열기와 셀 실행</span><span class="zh">打开 <code>.ipynb</code> Notebook 并运行单元格</span></td></tr>
+    </table>
+
+    <p><span class="ko">Korean Language Pack은 메뉴를 한국어로 보고 싶을 때 선택해서 설치합니다. Live Server는 이후 정적 웹페이지 실습에서 필요할 때 추가하며, Python Notebook 실행에는 필요하지 않습니다.</span><span class="zh">想把菜单看成韩语时，可自行安装 Korean Language Pack。Live Server 等到之后做静态网页实践时再按需添加，运行 Python Notebook 并不需要它。</span></p>
+  </section>
+
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. AI 도구의 기반</span><span class="zh">5. AI 工具的基础</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">Node.js 설치</span><span class="zh">安装 Node.js </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">다음에 설치할 AI 코딩 도구 <b>OpenCode</b>는 npm이라는 도구로 설치합니다. 그리고 npm을 쓰려면 <b>Node.js</b>가 먼저 있어야 합니다. 그래서 순서가 이렇습니다.</span><span class="zh">接下来要装的 AI 编程工具 <b>OpenCode</b>，是用 npm 这个工具安装的。而要用 npm，就得先有 <b>Node.js</b>。顺序因此如此。</span></p>
+
+    <div class="row">
+      <div class="pane">
+        <div class="pt">Node.js</div>
+        <p><span class="ko">JavaScript를 <b>브라우저 밖에서도</b> 실행하는 환경입니다. 원래 JavaScript는 웹페이지 안에서만 돌았는데, Node.js가 나오면서 일반 프로그램처럼 쓸 수 있게 됐습니다.</span><span class="zh">它是让 JavaScript <b>在浏览器之外</b>也能运行的环境。JavaScript 原本只在网页里跑，有了 Node.js 之后就能当普通程序用了。</span></p>
+      </div>
+      <div class="pane accent">
+        <div class="pt">npm</div>
+        <p><span class="ko">Node.js 도구와 라이브러리를 설치하는 <b>패키지 관리자</b>입니다. Node.js를 설치하면 함께 들어옵니다.</span><span class="zh">它是安装 Node.js 工具与库的<b>包管理器</b>。装了 Node.js 就会一并带来。</span></p>
+      </div>
+    </div>
+
+    <p><span class="ko">이 수업에서는 여러 Node.js 버전을 바꿔 쓰지 않습니다. OpenCode를 실행하는 데 필요한 <span class="tt">LTS(Long Term Support, 장기 지원 버전)</span> 하나만 설치합니다.</span><span class="zh">本课不会在多个 Node.js 版本之间切换，只装运行 OpenCode 所需的 <span class="tt">LTS（Long Term Support，长期支持版）</span>一个。</span></p>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>winget install --id OpenJS.NodeJS.LTS -e</code></pre>
+    </div>
+
+    <p><span class="ko">설치가 끝나면 <b>PowerShell과 VS Code를 모두 닫았다가 다시 엽니다.</b> 그다음 두 명령으로 확인합니다.</span><span class="zh">安装完成后，<b>把 PowerShell 和 VS Code 都关掉再重新打开</b>。然后用两条命令确认。</span></p>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>node --version
+npm --version</code></pre>
+    </div>
+
+    <p><span class="ko"><code>node</code>와 <code>npm</code>의 버전 번호가 <b>모두</b> 나타나면 준비된 것입니다. <code>winget</code>을 쓸 수 없다면 <a href="https://nodejs.org/en/download" target="_blank" rel="noopener">Node.js 공식 다운로드</a>에서 LTS를 선택하고 교사의 안내를 따릅니다.</span><span class="zh"><code>node</code> 和 <code>npm</code> 的版本号<b>都</b>出现，就说明准备好了。若无法使用 <code>winget</code>，请到 <a href="https://nodejs.org/en/download" target="_blank" rel="noopener">Node.js 官方下载</a>选 LTS，并按老师的指引安装。</span></p>
+  </section>
+
+  <section class="page" id="s5_2">
+    <div class="kick"><span class="ko">5. AI 도구의 기반</span><span class="zh">5. AI 工具的基础</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">Node.js 설치</span><span class="zh">安装 Node.js </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이 — nvm은 왜 안 쓰나</span><span class="zh">更深一层 — 为什么不用 nvm</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+      <div class="body">
+        <p><span class="ko">실제 개발에서는 프로젝트마다 요구하는 Node.js 버전이 달라서 <b>nvm</b> 같은 버전 관리 도구를 쓰기도 합니다. 이번 수업에서는 LTS 하나만 쓰므로 설치 과정에 넣지 않았습니다. “이런 것이 있다” 정도만 알아 두면 됩니다.</span><span class="zh">实际开发中各项目要求的 Node.js 版本不同，所以也会用 <b>nvm</b> 这类版本管理工具。本课只用一个 LTS，所以没放进安装流程。知道“有这么个东西”就行。</span></p>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">PowerShell이 실행을 막는 경우</span><span class="zh">PowerShell 阻止执行的情况</span></div>
+      <p><span class="ko">CMD에서는 되는데 VS Code의 PowerShell 터미널에서 <code>npm.ps1 cannot be loaded because running scripts is disabled</code> 같은 오류가 날 수 있습니다. <b>이 오류가 실제로 나타났을 때만</b> 교사의 안내에 따라 다음을 한 번 실행합니다.</span><span class="zh">CMD 里可以，VS Code 的 PowerShell 终端里却报 <code>npm.ps1 cannot be loaded because running scripts is disabled</code> 之类的错。<b>只有真的出现这个报错时</b>，才按老师的指引执行一次下面的命令。</span></p>
+      <div class="code term">
+        <div class="chd"><span class="ko"><span class="fn">PowerShell — 오류가 났을 때만</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell — 仅在报错时</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+        <pre><code>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</code></pre>
+      </div>
+      <p><span class="ko">확인 질문이 나오면 내용을 읽고 <code>Y</code>를 입력한 뒤 터미널을 닫았다 새로 엽니다. <code>CurrentUser</code>는 <b>지금 로그인한 사용자에게만</b> 적용되고, <code>RemoteSigned</code>는 <b>내가 만든 스크립트는 허용하되 인터넷에서 받은 것에는 서명을 요구</b>하는 정책입니다. 범위가 더 넓은 <code>LocalMachine</code>이나 제한을 크게 낮추는 <code>Unrestricted</code>는 쓰지 않습니다.</span><span class="zh">出现确认提问时，读一遍内容并输入 <code>Y</code>，然后关掉终端重新打开。<code>CurrentUser</code> 只对<b>当前登录的用户</b>生效，<code>RemoteSigned</code> 则是<b>允许自己写的脚本，但要求从网上下载的脚本带签名</b>的策略。范围更大的 <code>LocalMachine</code> 和大幅放宽限制的 <code>Unrestricted</code> 都不用。</span></p>
+      <p><span class="ko">학교 그룹 정책이 우선하도록 설정되어 있으면 이 명령이 적용되지 않을 수 있습니다. 그때는 <b>정책을 반복해 우회하지 말고</b> PowerShell에서 <code>npm.cmd</code>·<code>opencode.cmd</code>를 쓰거나 CMD에서 실행합니다.</span><span class="zh">若学校的组策略被设为优先，这条命令可能不生效。那时<b>不要反复绕过策略</b>，请在 PowerShell 里用 <code>npm.cmd</code>、<code>opencode.cmd</code>，或在 CMD 里执行。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. AI 코딩 도구</span><span class="zh">6. AI 编程工具</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">OpenCode 설치</span><span class="zh">安装 OpenCode </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">AI 코딩 에이전트</span><span class="en">AI coding agent</span></span><span class="zh"><span class="w">AI 编程代理</span><span class="en">AI coding agent</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">Gemini에게 코드를 물으면 답을 글로 보여 줍니다. 그것을 내가 복사해서 파일에 붙여 넣어야 합니다. 파일이 여러 개면 이 과정이 번거롭습니다.</span><span class="zh">问 Gemini 要代码，它把答案用文字显示出来，我得复制粘贴到文件里。文件一多，这个过程就很烦。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">답만 알려 주는 것이 아니라, <b>허락한 폴더 안의 파일을 직접 읽고 고쳐 주는</b> AI 도구입니다.</span><span class="zh">它不只告诉你答案，还能<b>直接读取并修改你允许的文件夹里的文件</b>的 AI 工具。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">지정된 작업 공간에서 파일 읽기·생성·수정 같은 동작을 수행하며 사용자의 요청을 처리하는 AI 프로그램.</span><span class="zh">在指定的工作空间中执行读取、创建、修改文件等操作，以处理用户请求的 AI 程序。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">‘질문에 답하는 챗봇’보다 권한이 큽니다. 그래서 <b>어느 폴더에서 실행하는지</b>가 중요합니다. 실행한 폴더가 곧 AI가 손댈 수 있는 범위입니다.</span><span class="zh">它的权限比“回答问题的聊天机器人”大。所以<b>在哪个文件夹里运行</b>很关键。运行所在的文件夹，就是 AI 能动手的范围。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“연습 폴더에서만 OpenCode를 실행해서 파일을 읽게 했다.”</span><span class="zh">“我只在练习文件夹里运行 OpenCode，让它读文件。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">OpenCode 공식 문서가 안내하는 npm 설치 명령을 실행합니다.</span><span class="zh">执行 OpenCode 官方文档给出的 npm 安装命令。</span></p>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>npm install -g opencode-ai
+opencode --version</code></pre>
+    </div>
+
+    <p><span class="ko">버전 번호가 나타나면 설치된 것입니다.</span><span class="zh">出现版本号就说明装好了。</span></p>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick"><span class="ko">6. AI 코딩 도구</span><span class="zh">6. AI 编程工具</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">OpenCode 설치</span><span class="zh">安装 OpenCode </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">실행 위치가 곧 권한 범위입니다</span><span class="zh">运行位置就是权限范围</span></div>
+      <p><span class="ko">OpenCode는 반드시 <b>작업할 프로젝트 폴더를 VS Code로 연 뒤, 그 폴더의 터미널에서</b> 실행합니다. 아무 데서나 실행하면 의도하지 않은 폴더의 파일을 다룰 수 있습니다. 실행 전에 <code>pwd</code>로 위치를 확인하는 습관을 여기서 씁니다.</span><span class="zh">OpenCode 必须<b>先用 VS Code 打开要作业的项目文件夹，再在那个文件夹的终端里</b>运行。随便在哪儿运行，它就可能碰到你没打算给它的文件夹。运行前用 <code>pwd</code> 确认位置的习惯，在这里派上用场。</span></p>
+    </div>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell — 프로젝트 폴더에서</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell — 在项目文件夹里</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>opencode</code></pre>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. 모델 연결</span><span class="zh">7. 连接模型</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">AI 모델 연결하기</span><span class="zh">连接 AI 模型 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">여기서 헷갈리기 쉬운 구분이 하나 있습니다. <b>OpenCode는 도구</b>이고, <b>실제 답변과 코드를 만드는 AI 모델은 따로</b> 연결해야 합니다. 자동차와 연료의 관계에 가깝습니다.</span><span class="zh">这里有一个容易混的区分：<b>OpenCode 是工具</b>，而<b>真正生成回答和代码的 AI 模型要另外</b>连接。类似汽车和燃料的关系。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">모델 연결 순서</span><span class="zh">连接模型的顺序</span></div>
+      <ol>
+        <li><span class="ko">OpenCode 안에서 <code>/connect</code>를 입력한다.</span><span class="zh">在 OpenCode 中输入 <code>/connect</code>。</span></li>
+        <li><span class="ko">수업에서 지정한 제공자를 선택한다.</span><span class="zh">选择课上指定的提供方。</span></li>
+        <li><span class="ko">화면에 표시된 <b>공식 인증 주소</b>에서 안내에 따라 연결한다.</span><span class="zh">在屏幕显示的<b>官方认证网址</b>上按提示完成连接。</span></li>
+        <li><span class="ko"><code>/models</code>를 입력하여 <b>교사가 수업 전에 검증한 모델</b>을 선택한다.</span><span class="zh">输入 <code>/models</code>，选择<b>老师课前验证过的模型</b>。</span></li>
+      </ol>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">교과서에 적힌 모델 이름을 그대로 고르지 않습니다</span><span class="zh">不要照抄教科书上写的模型名</span></div>
+      <p><span class="ko">무료 모델의 이름, 제공 기간과 사용 한도는 <b>수시로 바뀝니다.</b> 그래서 이 교과서에는 특정 모델 이름을 적지 않았습니다. 수업 당일 교사가 확인한 모델을 사용하세요.</span><span class="zh">免费模型的名称、提供期限和用量上限<b>随时会变</b>。所以本书没有写具体的模型名。请使用上课当天老师确认过的模型。</span></p>
+      <p><span class="ko">이것도 디지털 문해력의 한 부분입니다. <b>바뀔 수 있는 정보</b>와 <b>잘 바뀌지 않는 원리</b>를 구분하는 것입니다. 원리(도구와 모델은 별개다)는 오래 갑니다.</span><span class="zh">这也是数字素养的一部分：区分<b>会变的信息</b>和<b>不太会变的原理</b>。原理（工具和模型是两回事）能管很久。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s7_2">
+    <div class="kick"><span class="ko">7. 모델 연결</span><span class="zh">7. 连接模型</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">AI 모델 연결하기</span><span class="zh">连接 AI 模型 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">API 키는 비밀번호와 같습니다</span><span class="zh">API 密钥就等同于密码</span></div>
+      <p><span class="ko"><span class="tt">API 키</span>는 “이 사람이 맞다”를 증명하는 문자열입니다. 비밀번호와 똑같이 다뤄야 합니다.</span><span class="zh"><span class="tt">API 密钥</span>是一串用来证明“确实是这个人”的字符。要像对待密码一样对待它。</span></p>
+      <ul class="blist">
+        <li><span class="ko">코드, Notebook, 채팅, 화면 캡처에 <b>넣지 않습니다.</b></span><span class="zh"><b>不要放进</b>代码、Notebook、聊天、截图里。</span></li>
+        <li><span class="ko">다른 사람에게 복사해 주거나 <b>같이 쓰지 않습니다.</b></span><span class="zh">不要复制给别人，也<b>不要共用</b>。</span></li>
+        <li><span class="ko">결제수단 등록과 유료 모델 사용은 <b>학생이 임의로 진행하지 않습니다.</b></span><span class="zh"><b>学生不得擅自</b>绑定支付方式或使用付费模型。</span></li>
+      </ul>
+      <p><span class="ko">키가 노출되면 다른 사람이 내 이름으로 사용하게 되고, 그 사용료와 책임이 나에게 옵니다.</span><span class="zh">密钥一旦外泄，别人就会以你的名义使用，费用和责任都落到你身上。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">OpenCode 설치가 막히면</span><span class="zh">如果 OpenCode 装不上</span></div>
+      <p><span class="ko">Python 실습 자체는 VS Code·uv·Python·Jupyter만으로 진행할 수 있습니다. OpenCode 연결에 문제가 생기면 브라우저의 <b>학교 허용 AI</b>로 코드 설명과 오류 도움을 받고, 설치 문제는 따로 보충합니다. 오늘 이것 때문에 진도를 멈추지 않습니다.</span><span class="zh">Python 实践本身只用 VS Code、uv、Python、Jupyter 也能进行。OpenCode 连接出问题时，就用浏览器里<b>学校允许的 AI</b> 获取代码讲解和排错帮助，安装问题另外补。今天不因为这个停下进度。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. 첫 요청</span><span class="zh">8. 第一次提要求</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 무엇을, 어떻게 요청할까</span><span class="zh">向 AI 提什么、怎么提</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">AI 도구가 준비됐다고 곧바로 “뭐 만들어 줘”라고 하지 않습니다. <b>사람이 먼저 목적·입력·출력을 정하고</b> 요청하는 것이 이 수업의 순서입니다.</span><span class="zh">AI 工具备好了，也不要马上说“给我做点什么”。<b>先由人定下目的、输入、输出</b>再提要求，这是本课的顺序。</span></p>
+
+    <div class="iot">
+      <div class="b"><div class="h"><span class="ko">목적</span><span class="zh">目的</span></div><p><span class="ko">이 폴더에 어떤 파일이 있고 각각 무슨 역할인지 알고 싶다.</span><span class="zh">想知道这个文件夹里有哪些文件、各自起什么作用。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">입력</span><span class="zh">输入</span></div><p><span class="ko">현재 프로젝트 폴더의 파일 목록.</span><span class="zh">当前项目文件夹的文件清单。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">출력</span><span class="zh">输出</span></div><p><span class="ko">파일마다 한 줄 설명. <b>파일 변경은 없어야 한다.</b></span><span class="zh">每个文件一句说明。<b>不得改动任何文件。</b></span></p></div>
+    </div>
+
+    <p><span class="ko">이렇게 정한 뒤에 프롬프트를 씁니다. 수업용 연습 폴더에서만 다음처럼 요청합니다.</span><span class="zh">这样定好之后再写提示词。只在课堂练习文件夹里这样提要求。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">OpenCode에 입력할 프롬프트</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">要输入 OpenCode 的提示词</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>현재 폴더의 파일 목록을 읽고 각각의 역할을 설명해 줘.
+아직 어떤 파일도 만들거나 수정하지 마.</code></pre>
+    </div>
+
+    <p><span class="ko">두 번째 줄에 주목하세요. <b>“하지 마”라고 명시적으로 적었습니다.</b> AI 에이전트는 파일을 고칠 권한이 있으므로, 아직 고치기를 원하지 않을 때는 그 사실을 분명히 말해야 합니다.</span><span class="zh">请注意第二行：<b>明确写了“不要做”</b>。AI 代理有修改文件的权限，所以在还不希望它动手时，必须把这一点说清楚。</span></p>
+
+    <h3 class="sub"><span class="ko">결과를 받은 뒤 확인할 것</span><span class="zh">拿到结果后要确认的</span></h3>
+
+    <ul class="blist checks">
+      <li><span class="ko">OpenCode가 <b>실제로 존재하는</b> 파일을 말하고 있는가?</span><span class="zh">OpenCode 说的文件是<b>真实存在</b>的吗？</span></li>
+      <li><span class="ko">설명이 그럴듯하기만 한 것이 아니라 파일 내용과 맞는가?</span><span class="zh">说明只是听着像样，还是与文件内容相符？</span></li>
+      <li><span class="ko">요청하지 않은 <b>파일 생성이나 수정</b>이 일어나지 않았는가?</span><span class="zh">有没有发生你没要求的<b>文件创建或修改</b>？</span></li>
+    </ul>
+  </section>
+
+  <section class="page" id="s8_2">
+    <div class="kick"><span class="ko">8. 첫 요청</span><span class="zh">8. 第一次提要求</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 무엇을, 어떻게 요청할까</span><span class="zh">向 AI 提什么、怎么提</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">이 수업의 AI 사용 순서</span><span class="zh">本课的 AI 使用顺序</span></div>
+      <p><span class="ko">학기 내내 이 순서를 씁니다. 지금 한 번 해 보는 것이 그 시작입니다.</span><span class="zh">整个学期都用这个顺序。今天做一次，就是开始。</span></p>
+      <div class="vflow">
+        <div class="vf plain"><span class="ko"><b>① 사람이 목적을 정한다</b></span><span class="zh"><b>① 人来定目的</b></span></div>
+        <div class="varr">▼</div>
+        <div class="vf"><span class="ko"><b>② AI에 맥락과 조건을 준다</b></span><span class="zh"><b>② 给 AI 背景与条件</b></span></div>
+        <div class="varr">▼</div>
+        <div class="vf plain"><span class="ko"><b>③ 결과를 관찰한다</b></span><span class="zh"><b>③ 观察结果</b></span></div>
+        <div class="varr">▼</div>
+        <div class="vf plain"><span class="ko"><b>④ 근거와 테스트로 확인한다</b></span><span class="zh"><b>④ 用依据和测试来确认</b></span></div>
+        <div class="varr">▼</div>
+        <div class="vf plain"><span class="ko"><b>⑤ 수정한다 · 사용 사실을 밝힌다</b></span><span class="zh"><b>⑤ 修改 · 说明使用情况</b></span></div>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">수정을 요청할 때</span><span class="zh">要它修改时</span></div>
+      <p><span class="ko">곧바로 파일 생성을 시키지 않습니다. 수정 전에는 <b>“바꿀 파일과 내용을 먼저 설명해 줘”</b>라고 요청해서, 무엇이 바뀔지 확인한 다음 진행합니다.</span><span class="zh">不要一上来就让它创建文件。修改之前先要求<b>“先说明要改哪些文件、改什么内容”</b>，确认会变成什么样再进行。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">9. 개념</span><span class="zh">9. 概念</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">가상환경이 필요한 이유</span><span class="zh">为什么需要虚拟环境</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">가상환경</span><span class="en">virtual environment</span></span><span class="zh"><span class="w">虚拟环境</span><span class="en">virtual environment</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">미술 수업 준비물과 과학 수업 준비물을 한 서랍에 섞어 두면, 무엇이 어느 수업 것인지 알 수 없고 하나를 정리하다 다른 것을 잃어버립니다. 그래서 보통 수업별로 가방을 따로 씁니다.</span><span class="zh">把美术课和科学课的用具混放在一个抽屉里，就分不清哪样是哪门课的，收拾一样东西时还会弄丢另一样。所以通常按课程分开装包。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">한 프로젝트에서 쓸 Python과 라이브러리를 <b>다른 프로젝트와 분리해 두는 공간</b>입니다.</span><span class="zh">它是把一个项目要用的 Python 和库，<b>与其他项目隔开来存放的空间</b>。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">프로젝트별로 독립된 Python 인터프리터와 패키지 집합을 갖도록 격리한 디렉터리 기반 실행 환경.</span><span class="zh">按项目隔离，使其拥有独立的 Python 解释器与软件包集合的、基于目录的运行环境。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko"><b>가상머신이나 보안 격리와는 다릅니다.</b> Python과 라이브러리를 구분해 줄 뿐, 실행한 코드가 파일을 읽거나 네트워크를 쓰는 것까지 막아 주지는 않습니다.</span><span class="zh"><b>它和虚拟机或安全隔离不同。</b>它只是把 Python 和库分开，并不能阻止运行的代码读取文件或使用网络。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“이 프로젝트의 <code>.venv</code>에만 pandas를 설치했다.”</span><span class="zh">“我只在这个项目的 <code>.venv</code> 里装了 pandas。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">이 수업에서는 프로젝트 폴더 안의 <code>.venv</code>가 가상환경입니다. 왜 이런 것이 필요한지 네 가지 이유로 나누어 보겠습니다.</span><span class="zh">在本课里，项目文件夹内的 <code>.venv</code> 就是虚拟环境。下面分四个理由说明为什么需要它。</span></p>
+
+    <h3 class="sub"><span class="ko">이유 1 — Python의 설치 위치는 눈에 잘 보이지 않는다</span><span class="zh">理由 1 — Python 的安装位置不容易看清</span></h3>
+
+    <p><span class="ko">Node.js에서는 프로젝트 폴더에서 <code>npm install 라이브러리이름</code>을 실행하면 보통 그 프로젝트의 <code>node_modules</code>에 설치됩니다. 컴퓨터 전체에서 쓸 도구를 설치할 때만 <code>-g</code>를 따로 붙입니다. <b>기본이 프로젝트 안</b>입니다.</span><span class="zh">在 Node.js 里，在项目文件夹执行 <code>npm install 库名</code>，通常装到该项目的 <code>node_modules</code> 里。只有要装全机通用的工具时才另加 <code>-g</code>。<b>默认就是装在项目内</b>。</span></p>
+  </section>
+
+  <section class="page" id="s9_2">
+    <div class="kick"><span class="ko">9. 개념</span><span class="zh">9. 概念</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">가상환경이 필요한 이유</span><span class="zh">为什么需要虚拟环境</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">그런데 Python의 <code>pip install 라이브러리이름</code>은 <b>지금 <code>pip</code>가 연결된 Python 환경</b>에 설치합니다. 가상환경을 만들지 않은 상태라면 컴퓨터의 기본 Python이나 사용자 공용 영역에 설치될 수 있습니다. 처음 배우는 학생은 지금 어느 Python과 <code>pip</code>를 쓰고 있는지 알아보기 어렵습니다.</span><span class="zh">可 Python 的 <code>pip install 库名</code>，装到的是<b>当前 <code>pip</code> 所连接的那个 Python 环境</b>。没建虚拟环境的话，可能装进电脑自带的 Python 或用户公共区域。初学的学生很难看出此刻用的是哪个 Python 和 <code>pip</code>。</span></p>
+
+    <p><span class="ko">사실 uv가 없어도 <code>python -m venv .venv</code>로 가상환경을 만들고 활성화한 뒤 라이브러리를 설치할 수 있습니다. 그러나 그러면 <b>가상환경이 지금 켜져 있는지</b>, <b><code>python</code>과 <code>pip</code>가 같은 환경을 가리키는지</b>를 계속 신경 써야 합니다.</span><span class="zh">其实没有 uv，也可以用 <code>python -m venv .venv</code> 建虚拟环境、激活后再装库。但那样就得一直留意<b>虚拟环境现在是否开着</b>、<b><code>python</code> 和 <code>pip</code> 是否指向同一个环境</b>。</span></p>
+
+    <p><span class="ko">그래서 이 수업에서는 <code>uv add</code>로 프로젝트 가상환경에 라이브러리를 추가하고, <code>uv run</code>으로 그 환경에서 코드를 실행합니다. 라이브러리를 컴퓨터 전체에 무심코 설치하는 일을 줄이고, <b>모든 학생의 환경을 비슷하게 맞추기 위해서</b>입니다.</span><span class="zh">所以本课用 <code>uv add</code> 往项目虚拟环境里加库，用 <code>uv run</code> 在那个环境里运行代码。这样能减少不经意间把库装到全机的情况，也<b>让所有同学的环境尽量一致</b>。</span></p>
+  </section>
+
+  <!-- ══════════ 10b ══════════ -->
+  <section class="page" id="s9b">
+    <div class="kick"><span class="ko">9. 개념 (이어서)</span><span class="zh">9. 概念（续）</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">가상환경이 필요한 나머지 세 가지 이유</span><span class="zh">需要虚拟环境的其余三个理由</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <h3 class="sub"><span class="ko">이유 2 — 프로젝트마다 필요한 라이브러리가 다르다</span><span class="zh">理由 2 — 每个项目需要的库不同</span></h3>
+
+    <p><span class="ko">데이터 분석 프로젝트에는 pandas와 Matplotlib이 필요하지만, 웹에서 자료를 받아 오는 프로젝트에는 또 다른 라이브러리가 필요합니다. 모든 라이브러리를 컴퓨터 전체에 한꺼번에 설치하면 어떤 프로젝트가 무엇을 쓰는지 구분할 수 없게 됩니다.</span><span class="zh">数据分析项目需要 pandas 和 Matplotlib，而从网上取数据的项目又需要另外的库。把所有库一股脑装到全机，就分不清哪个项目在用什么了。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">프로젝트별로 나뉜 환경</span></span><span class="zh"><span class="fn">按项目分开的环境</span></span></div>
+      <pre><code>data-project/.venv
+└─ pandas, Matplotlib
+
+web-scrape-project/.venv
+└─ requests, beautifulsoup4</code></pre>
+    </div>
+
+    <h3 class="sub"><span class="ko">이유 3 — 같은 라이브러리도 필요한 버전이 다를 수 있다</span><span class="zh">理由 3 — 同一个库，所需版本也可能不同</span></h3>
+
+    <p><span class="ko">프로젝트 A는 어떤 라이브러리의 이전 버전에서 만들어졌고, 프로젝트 B는 새 버전이 필요할 수 있습니다. 컴퓨터 전체에 하나의 버전만 설치하면, 한쪽을 위해 업데이트한 순간 다른 프로젝트가 동작을 멈춥니다. 가상환경은 프로젝트마다 다른 버전을 쓸 수 있게 해서 이런 충돌을 줄입니다.</span><span class="zh">项目 A 是基于某个库的旧版本做的，项目 B 却需要新版本。全机只装一个版本的话，为了迁就一边而升级的那一刻，另一个项目就停摆了。虚拟环境让各项目能用不同版本，从而减少这类冲突。</span></p>
+
+    <h3 class="sub"><span class="ko">이유 4 — 다른 컴퓨터에서 같은 환경을 다시 만들 수 있다</span><span class="zh">理由 4 — 能在别的电脑上重建同样的环境</span></h3>
+
+    <p><span class="ko">여기서 중요한 구분이 나옵니다. 다른 사람에게 <code>.venv</code> 폴더 <b>자체를 전달하는 것이 아닙니다.</b> 대신 <b>필요한 라이브러리와 정확한 버전을 적어 둔 기록 파일</b>을 함께 전달합니다. 이 수업에서는 <code>pyproject.toml</code>과 <code>uv.lock</code>이 그 역할을 합니다.</span><span class="zh">这里出现一个重要的区分：<b>不是把 <code>.venv</code> 文件夹本身交给别人</b>，而是把<b>写明所需库与确切版本的记录文件</b>一并交出去。本课里担任这个角色的是 <code>pyproject.toml</code> 和 <code>uv.lock</code>。</span></p>
+
+    <p><span class="ko">다른 노트북에서 <code>uv sync</code>를 실행하면 그 기록을 읽고 같은 환경을 다시 만듭니다. 덕분에 모든 학생의 노트북에서 같은 코드가 같은 라이브러리 버전으로 실행되도록 맞추기 쉬워집니다.</span><span class="zh">在另一台笔记本上执行 <code>uv sync</code>，它就会读取这些记录并重建同样的环境。这样一来，让所有同学的笔记本用同样的库版本运行同样的代码，就容易多了。</span></p>
+  </section>
+
+  <section class="page" id="s9b_2">
+    <div class="kick"><span class="ko">9. 개념 (이어서)</span><span class="zh">9. 概念（续）</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">가상환경이 필요한 나머지 세 가지 이유</span><span class="zh">需要虚拟环境的其余三个理由</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <figure class="fig">
+      <img class="figimg" src="assets/img/02-2-02-venv.png" alt="두 개의 프로젝트 폴더가 각각 자기 .venv 안에 서로 다른 라이브러리를 담고 있고, 기록 파일을 다른 컴퓨터로 전달하면 uv sync로 같은 환경이 다시 만들어지는 과정을 나타낸 그림" data-id="02-2-02-venv" data-spec="가로 16:9 · 개념 도해" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 2-2-2. 환경 자체가 아니라 ‘환경을 만드는 기록’을 전달한다</span><span class="zh">图 2-2-2. 交出去的不是环境本身，而是“造出环境的记录”</span></figcaption>
+    </figure>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">가상환경은 보안용 가상 컴퓨터가 아닙니다</span><span class="zh">虚拟环境不是用来做安全隔离的虚拟计算机</span></div>
+      <p><span class="ko">가상환경은 Python과 라이브러리를 <b>구분</b>하는 장치입니다. 실행한 코드가 파일을 읽거나 네트워크를 쓰는 것까지 막아 주는 <b>보안 장벽이 아닙니다.</b> 출처를 모르는 코드와 Notebook은 가상환경 안에서도 함부로 실행하지 않습니다.</span><span class="zh">虚拟环境是<b>区分</b> Python 与库的装置，<b>不是</b>连运行的代码读文件、用网络都能挡住的<b>安全屏障</b>。来路不明的代码和 Notebook，即使在虚拟环境里也不要随便运行。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">10. 환경 관리 도구</span><span class="zh">10. 环境管理工具</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">uv가 관리하는 것</span><span class="zh">uv 管的是什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko"><code>uv</code>는 Python 프로젝트에 필요한 환경을 관리하는 도구입니다. 이 수업에서 uv에게 맡기는 일은 다음과 같습니다.</span><span class="zh"><code>uv</code> 是管理 Python 项目所需环境的工具。本课交给 uv 做的事如下。</span></p>
+
+    <ul class="blist">
+      <li><span class="ko">필요한 <b>Python 버전 설치</b></span><span class="zh">安装所需的 <b>Python 版本</b></span></li>
+      <li><span class="ko">프로젝트의 <code>.venv</code> 가상환경 준비</span><span class="zh">准备项目的 <code>.venv</code> 虚拟环境</span></li>
+      <li><span class="ko">pandas, Matplotlib 같은 <b>라이브러리 설치</b></span><span class="zh"><b>安装</b> pandas、Matplotlib 之类的<b>库</b></span></li>
+      <li><span class="ko">필요한 라이브러리를 <code>pyproject.toml</code>에 <b>기록</b></span><span class="zh">把所需的库<b>记录</b>到 <code>pyproject.toml</code></span></li>
+      <li><span class="ko">실제 설치할 정확한 버전을 <code>uv.lock</code>에 <b>기록</b></span><span class="zh">把实际要装的确切版本<b>记录</b>到 <code>uv.lock</code></span></li>
+      <li><span class="ko">다른 노트북에서 <code>uv sync</code>로 <b>환경 복원</b></span><span class="zh">在别的笔记本上用 <code>uv sync</code> <b>还原环境</b></span></li>
+    </ul>
+
+    <h3 class="sub"><span class="ko">수업에서 사용하는 세 가지 기본 명령</span><span class="zh">课上使用的三条基本命令</span></h3>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:170px"><span class="ko">명령</span><span class="zh">命令</span></th><th style="width:32%"><span class="ko">사용하는 상황</span><span class="zh">使用的场合</span></th><th><span class="ko">하는 일</span><span class="zh">做什么</span></th></tr>
+      <tr><td><code>uv sync</code></td><td><span class="ko">교사가 제공한 프로젝트를 처음 받았거나 환경을 다시 준비할 때</span><span class="zh">第一次拿到老师提供的项目，或要重新准备环境时</span></td><td><span class="ko">프로젝트 기록을 읽고 필요한 Python, <code>.venv</code>와 라이브러리를 준비한다.</span><span class="zh">读取项目记录，准备所需的 Python、<code>.venv</code> 与库。</span></td></tr>
+      <tr><td><code>uv add 라이브러리이름</code></td><td><span class="ko">프로젝트에 새로운 Python 라이브러리가 필요할 때</span><span class="zh">项目需要新的 Python 库时</span></td><td><span class="ko">라이브러리를 설치하고 <b>이 프로젝트에 필요한 항목으로 기록</b>한다.</span><span class="zh">安装该库，并<b>记录为本项目所需的条目</b>。</span></td></tr>
+      <tr><td><code>uv run 명령</code></td><td><span class="ko">프로젝트의 Python 환경에서 명령을 실행할 때</span><span class="zh">要在项目的 Python 环境中执行命令时</span></td><td><span class="ko">컴퓨터의 다른 Python이 아니라 <b>현재 프로젝트의 <code>.venv</code></b>에서 뒤의 명령을 실행한다.</span><span class="zh">不是用电脑上别的 Python，而是在<b>当前项目的 <code>.venv</code></b> 里执行后面的命令。</span></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s10_2">
+    <div class="kick"><span class="ko">10. 환경 관리 도구</span><span class="zh">10. 环境管理工具</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">uv가 관리하는 것</span><span class="zh">uv 管的是什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="code term">
+      <div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+      <pre><code>uv sync
+uv add pandas
+uv run python app.py</code></pre>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko"><code>uv add</code>는 설치로 끝나지 않습니다</span><span class="zh"><code>uv add</code> 不是装完就完事</span></div>
+      <p><span class="ko">필요한 라이브러리를 <code>pyproject.toml</code>에 기록하고 <code>uv.lock</code>을 갱신합니다. 그래서 <b>다른 노트북에서도 <code>uv sync</code> 한 줄로 같은 환경을 준비</b>할 수 있습니다. 설치와 기록이 한 번에 일어나는 것입니다.</span><span class="zh">它会把所需的库记进 <code>pyproject.toml</code> 并更新 <code>uv.lock</code>。所以<b>在别的笔记本上也能用一行 <code>uv sync</code> 准备出同样的环境</b>。安装和记录是一次完成的。</span></p>
+      <p><span class="ko">AI가 라이브러리 설치를 제안하더라도 <b>이름과 용도를 확인</b>하고, 수업에 필요한 경우에만 교사의 안내에 따라 추가합니다.</span><span class="zh">即使 AI 建议安装某个库，也要<b>确认它的名字和用途</b>，只在课程需要时按老师的指引添加。</span></p>
+    </div>
+
+    <h3 class="sub"><span class="ko">네 가지 파일의 역할 구분</span><span class="zh">四个文件的职责区分</span></h3>
+
+    <p><span class="ko">이 구분은 시험에도, 실제 작업에도 계속 쓰입니다.</span><span class="zh">这个区分在考查中和实际工作中都会一直用到。</span></p>
+  </section>
+
+  <section class="page" id="s10_3">
+    <div class="kick"><span class="ko">10. 환경 관리 도구</span><span class="zh">10. 环境管理工具</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">uv가 관리하는 것</span><span class="zh">uv 管的是什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:170px"><span class="ko">파일·폴더</span><span class="zh">文件 · 文件夹</span></th><th><span class="ko">역할</span><span class="zh">职责</span></th><th style="width:140px" class="c"><span class="ko">직접 수정하는가?</span><span class="zh">要自己改吗？</span></th></tr>
+      <tr><td><code>.venv/</code></td><td><span class="ko">실제 Python과 설치된 라이브러리가 들어 있는 <b>가상환경</b></span><span class="zh">装着真正的 Python 与已安装库的<b>虚拟环境</b></span></td><td class="c"><span class="ko">직접 수정하지 않는다</span><span class="zh">不要自己改</span></td></tr>
+      <tr><td><code>pyproject.toml</code></td><td><span class="ko">프로젝트 정보와 <b>필요한 라이브러리 목록</b></span><span class="zh">项目信息与<b>所需库的清单</b></span></td><td class="c"><span class="ko">보통 <code>uv add</code>로 변경</span><span class="zh">通常用 <code>uv add</code> 来改</span></td></tr>
+      <tr><td><code>uv.lock</code></td><td><span class="ko">설치할 라이브러리의 <b>정확한 버전 기록</b></span><span class="zh">要安装的库的<b>确切版本记录</b></span></td><td class="c"><span class="ko">uv가 관리 · 직접 수정 안 함</span><span class="zh">由 uv 管理 · 不要自己改</span></td></tr>
+      <tr><td><code>.python-version</code></td><td><span class="ko">프로젝트에서 주로 쓸 <b>Python 버전</b></span><span class="zh">项目主要使用的 <b>Python 版本</b></span></td><td class="c"><span class="ko">교사가 정한 버전 유지</span><span class="zh">保持老师定下的版本</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">한 문장으로 정리하면</span><span class="zh">用一句话总结</span></div>
+      <p><span class="ko"><code>.venv</code>는 <b>실행 환경</b>이고, <code>pyproject.toml</code>과 <code>uv.lock</code>은 <b>그 환경을 다시 만들기 위한 기록</b>입니다.</span><span class="zh"><code>.venv</code> 是<b>运行环境</b>，<code>pyproject.toml</code> 和 <code>uv.lock</code> 是<b>用来重建这个环境的记录</b>。</span></p>
+      <p><span class="ko">그래서 프로젝트를 제출하거나 공유할 때는 무거운 <code>.venv</code>를 복사하지 않고 <b>기록 파일과 소스 코드</b>를 전달합니다.</span><span class="zh">所以提交或分享项目时，不复制沉重的 <code>.venv</code>，而是交出<b>记录文件与源代码</b>。</span></p>
+    </div>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">짝에게 <code>.venv</code>와 <code>uv.lock</code>의 차이를 한 문장씩으로 설명해 보세요. 비유를 써도 좋지만, 비유 뒤에 정확한 설명을 덧붙이세요.</span><span class="zh">请各用一句话，向同桌说明 <code>.venv</code> 和 <code>uv.lock</code> 的区别。用比喻也可以，但比喻之后要补上准确的说明。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 11 ══════════ -->
+  <section class="page" id="s11">
+    <div class="kick"><span class="ko">11. 설치</span><span class="zh">11. 安装</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">uv와 Python 설치하기</span><span class="zh">安装 uv 与 Python </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">학교 노트북의 운영체제를 Windows로 가정한 방법입니다. 교사가 이미 설치를 끝냈다면 <b>버전 확인만</b> 하고 다음 쪽으로 넘어갑니다.</span><span class="zh">这是把学校笔记本的操作系统假定为 Windows 的做法。若老师已经装好，只需<b>确认版本</b>后翻到下一页。</span></p>
+
+    <h3 class="sub"><span class="ko">11.1 설치 권한 확인</span><span class="zh">11.1 确认安装权限</span></h3>
+
+    <ul class="blist checks">
+      <li><span class="ko">학교 노트북에서 프로그램 설치가 허용되는가?</span><span class="zh">学校笔记本上允许安装程序吗？</span></li>
+      <li><span class="ko">Windows의 <code>winget</code> 명령을 쓸 수 있는가?</span><span class="zh">能使用 Windows 的 <code>winget</code> 命令吗？</span></li>
+      <li><span class="ko">저장공간과 Wi-Fi 연결이 충분한가?</span><span class="zh">存储空间和 Wi-Fi 连接是否充足？</span></li>
+    </ul>
+
+    <p><span class="ko">설치가 차단되어 있다면 보안 설정을 우회하지 말고 교사나 학교 담당자에게 요청합니다.</span><span class="zh">若安装被禁止，不要绕过安全设置，请向老师或学校负责人提出请求。</span></p>
+
+    <h3 class="sub"><span class="ko">11.2 uv 설치</span><span class="zh">11.2 安装 uv</span></h3>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>winget install --id=astral-sh.uv -e</code></pre>
+    </div>
+
+    <p><span class="ko">설치가 끝나면 터미널과 VS Code를 <b>완전히 닫았다가</b> 다시 열고 확인합니다.</span><span class="zh">安装完成后，把终端和 VS Code <b>完全关闭</b>再打开确认。</span></p>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>uv --version</code></pre>
+    </div>
+
+    <p><span class="ko">버전 번호가 나타나면 uv가 설치된 것입니다. <code>winget</code>을 쓸 수 없다면 <b>임의의 설치 파일을 검색하지 말고</b> <a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener">uv 공식 설치 안내</a>와 교사의 지시를 따릅니다.</span><span class="zh">出现版本号就说明 uv 装好了。若无法使用 <code>winget</code>，<b>不要随便搜索安装文件</b>，请按 <a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener">uv 官方安装指引</a>和老师的指示操作。</span></p>
+  </section>
+
+  <section class="page" id="s11_2">
+    <div class="kick"><span class="ko">11. 설치</span><span class="zh">11. 安装</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">uv와 Python 설치하기</span><span class="zh">安装 uv 与 Python </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">11.3 Python 설치</span><span class="zh">11.3 安装 Python</span></h3>
+
+    <p><span class="ko">이 수업에서는 교사가 검증한 <b>Python 3.13 계열</b>을 씁니다.</span><span class="zh">本课使用老师验证过的 <b>Python 3.13 系列</b>。</span></p>
+
+    <div class="code term">
+      <div class="chd"><span class="ko"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>uv python install 3.13
+uv python list --only-installed</code></pre>
+    </div>
+
+    <p><span class="ko">첫 명령은 uv가 관리하는 Python 3.13을 설치합니다. 둘째 명령은 설치된 Python 목록을 보여 줍니다.</span><span class="zh">第一条命令安装由 uv 管理的 Python 3.13。第二条显示已安装的 Python 列表。</span></p>
+
+    <div class="note">
+      <div class="nt"><span class="ko">Python을 따로 설치하지 않는 이유</span><span class="zh">为什么不另外安装 Python</span></div>
+      <p><span class="ko">이 방식에서는 Python 설치 프로그램을 따로 내려받지 않습니다. <b>uv가 필요한 Python을 관리</b>합니다. 학교 기기에 이미 Python이 있을 수도 있지만, 수업에서는 학생마다 버전이 달라지는 일을 줄이려고 <b>uv가 관리하는 버전을 기준</b>으로 삼습니다.</span><span class="zh">这种做法不需要另外下载 Python 安装程序，<b>由 uv 管理所需的 Python</b>。学校的机器上可能本来就有 Python，但课上为了减少每人版本不同的情况，<b>以 uv 管理的版本为准</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 12 ══════════ -->
+  <section class="page" id="s12">
+    <div class="kick"><span class="ko">12. 프로젝트 준비</span><span class="zh">12. 项目准备</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">준비된 수업 프로젝트 동기화하기</span><span class="zh">同步准备好的课堂项目 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">교사가 <code>pyproject.toml</code>과 <code>uv.lock</code>이 들어 있는 <code>jdh-info</code> 폴더를 제공했다면, <b>새 프로젝트를 다시 만들지 않습니다.</b> 앞에서 배운 “기록을 전달하고 환경을 복원한다”가 바로 이 장면입니다.</span><span class="zh">如果老师提供了含 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的 <code>jdh-info</code> 文件夹，就<b>不要重新创建新项目</b>。前面学的“交出记录、还原环境”，说的正是这个场面。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">동기화 순서</span><span class="zh">同步顺序</span></div>
+      <ol>
+        <li><span class="ko">VS Code에서 <b>파일 → 폴더 열기</b>로 <code>jdh-info</code> <b>폴더 전체</b>를 연다.</span><span class="zh">在 VS Code 里用<b>파일 → 폴더 열기</b>（文件 → 打开文件夹）打开<b>整个</b> <code>jdh-info</code> 文件夹。</span></li>
+        <li><span class="ko">VS Code 터미널을 연다. (<code>Ctrl</code> + <code>`</code>)</span><span class="zh">打开 VS Code 终端。（<code>Ctrl</code> + <code>`</code>）</span></li>
+        <li><span class="ko"><code>pwd</code>로 현재 위치가 <code>jdh-info</code>인지 확인한다.</span><span class="zh">用 <code>pwd</code> 确认当前位置是 <code>jdh-info</code>。</span></li>
+        <li><span class="ko">다음 명령을 실행한다.</span><span class="zh">执行下面的命令。</span>
+          <div class="code term">
+            <div class="chd"><span class="ko"><span class="fn">VS Code 터미널</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">VS Code 终端</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+            <pre><code>uv sync</code></pre>
+          </div>
+        </li>
+        <li><span class="ko">설치된 환경을 확인한다.</span><span class="zh">确认已安装好的环境。</span>
+          <div class="code term">
+            <div class="chd"><span class="ko"><span class="fn">VS Code 터미널</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">VS Code 终端</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+            <pre><code>uv run python --version</code></pre>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <p><span class="ko"><code>uv sync</code>는 프로젝트의 기록을 읽고 필요한 Python, <code>.venv</code>와 라이브러리를 준비합니다. <code>uv run</code>은 <b>현재 프로젝트의 가상환경에서</b> 뒤에 오는 명령을 실행합니다.</span><span class="zh"><code>uv sync</code> 读取项目的记录，准备好所需的 Python、<code>.venv</code> 和库。<code>uv run</code> 则<b>在当前项目的虚拟环境里</b>执行其后的命令。</span></p>
+  </section>
+
+  <section class="page" id="s12_2">
+    <div class="kick"><span class="ko">12. 프로젝트 준비</span><span class="zh">12. 项目准备</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">준비된 수업 프로젝트 동기화하기</span><span class="zh">同步准备好的课堂项目 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이 — 새 프로젝트를 처음 만드는 경우</span><span class="zh">更深一层 — 从零创建新项目时</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+      <div class="body">
+        <p><span class="ko">아래는 <b>교사가 수업용 기준 프로젝트를 만들 때</b> 쓰는 과정입니다. 이미 준비된 <code>jdh-info</code>를 받은 학생은 실행하지 않습니다. 어떤 일이 일어나는지 참고로만 읽어 두세요.</span><span class="zh">下面是<b>老师制作课堂基准项目时</b>用的过程。已经拿到现成 <code>jdh-info</code> 的学生不要执行。当作参考读一读，了解会发生什么就行。</span></p>
+        <div class="code term">
+          <div class="chd"><span class="ko"><span class="fn">PowerShell — 교사용</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell — 教师用</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+          <pre><code>uv init --python 3.13
+uv add --dev ipykernel
+uv add pandas matplotlib</code></pre>
+        </div>
+        <p><span class="ko"><code>uv init</code>은 Python 프로젝트와 기본 기록 파일을 만듭니다. <code>uv add --dev ipykernel</code>은 Notebook이 이 프로젝트의 Python을 커널로 쓸 수 있게 준비합니다. <code>uv add pandas matplotlib</code>은 데이터와 그래프 수업에 필요한 라이브러리를 추가합니다.</span><span class="zh"><code>uv init</code> 创建 Python 项目和基本记录文件。<code>uv add --dev ipykernel</code> 让 Notebook 能把这个项目的 Python 当作内核使用。<code>uv add pandas matplotlib</code> 添加数据与图表课所需的库。</span></p>
+        <div class="code term">
+          <div class="chd"><span class="ko"><span class="fn">PowerShell — 교사용</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">PowerShell — 教师用</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+          <pre><code>uv add fastapi uvicorn</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">AI가 추천했다고 설치하지 않습니다</span><span class="zh">不要因为 AI 推荐就安装</span></div>
+      <p><span class="ko">필요하지 않은 라이브러리를 AI의 제안만 보고 설치하지 않습니다. 라이브러리를 추가하면 <b>프로젝트의 실행 환경과 보안 점검 대상도 함께 늘어납니다.</b> 2-1에서 “유명하다고 안전한 것은 아니다”라고 했던 이야기가 여기서 실제 판단으로 이어집니다.</span><span class="zh">不要仅凭 AI 的建议就装用不上的库。每加一个库，<b>项目的运行环境和需要做安全检查的范围也会跟着变大</b>。2-1 说的“有名不等于安全”，在这里变成了真正要做的判断。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 13 ══════════ -->
+  <section class="page" id="s13">
+    <div class="kick"><span class="ko">13. 연결</span><span class="zh">13. 连接</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">인터프리터와 커널 선택하기</span><span class="zh">选择解释器与内核 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">환경은 준비됐습니다. 이제 VS Code와 Notebook이 <b>그 환경을 쓰도록</b> 알려 줘야 합니다. 이 단계를 빠뜨려서 생기는 문제가 가장 많습니다.</span><span class="zh">环境备好了。现在要告诉 VS Code 和 Notebook <b>去用那个环境</b>。漏掉这一步而出问题的情况最多。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">① 수업 폴더 전체 열기</span><span class="zh">① 打开整个课程文件夹</span></div>
+      <ol>
+        <li><span class="ko">VS Code를 실행한다.</span><span class="zh">启动 VS Code。</span></li>
+        <li><span class="ko"><b>파일 → 폴더 열기</b>를 선택한다.</span><span class="zh">选择<b>파일 → 폴더 열기</b>（文件 → 打开文件夹）。</span></li>
+        <li><span class="ko">교사가 안내한 <code>jdh-info</code> 폴더를 선택한다.</span><span class="zh">选中老师指定的 <code>jdh-info</code> 文件夹。</span></li>
+        <li><span class="ko">왼쪽 탐색기에 <code>notebooks</code>, <code>projects</code> 같은 폴더가 보이는지 확인한다.</span><span class="zh">确认左侧资源管理器里能看到 <code>notebooks</code>、<code>projects</code> 等文件夹。</span></li>
+      </ol>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">파일 하나만 여는 것과 다릅니다</span><span class="zh">这和只打开一个文件不同</span></div>
+      <p><span class="ko"><b>폴더 전체</b>를 열어야 VS Code가 이 수업에서 쓸 Python 환경과 파일 위치를 함께 찾을 수 있습니다. 파일 하나만 열면 <code>.venv</code>를 못 찾을 수 있습니다.</span><span class="zh">必须打开<b>整个文件夹</b>，VS Code 才能同时找到这门课要用的 Python 环境和文件位置。只打开一个文件，可能找不到 <code>.venv</code>。</span></p>
+    </div>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">② Python 인터프리터 선택</span><span class="zh">② 选择 Python 解释器</span></div>
+      <ol>
+        <li><span class="ko"><code>Ctrl+Shift+P</code>를 누른다.</span><span class="zh">按 <code>Ctrl+Shift+P</code>。</span></li>
+        <li><span class="ko"><code>Python: Select Interpreter</code>를 찾아 선택한다.</span><span class="zh">找到并选择 <code>Python: Select Interpreter</code>。</span></li>
+        <li><span class="ko">경로에 <code>jdh-info</code>와 <code>.venv</code>가 들어 있는 Python을 고른다.</span><span class="zh">选路径里含有 <code>jdh-info</code> 和 <code>.venv</code> 的那个 Python。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page" id="s13_2">
+    <div class="kick"><span class="ko">13. 연결</span><span class="zh">13. 连接</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">인터프리터와 커널 선택하기</span><span class="zh">选择解释器与内核 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">Notebook에서 코드를 실행하는 Python 과정을 <span class="tt">커널(kernel)</span>이라고 합니다. Notebook에도 같은 환경을 지정해 줍니다.</span><span class="zh">在 Notebook 中运行代码的 Python 进程叫做<span class="tt">内核（kernel）</span>。给 Notebook 也指定同一个环境。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">③ Notebook 커널 선택</span><span class="zh">③ 选择 Notebook 内核</span></div>
+      <ol>
+        <li><span class="ko"><code>notebooks/00_setup_test.ipynb</code>를 연다.</span><span class="zh">打开 <code>notebooks/00_setup_test.ipynb</code>。</span></li>
+        <li><span class="ko">화면 오른쪽 위의 <b>커널 선택</b>을 누른다.</span><span class="zh">点右上角的<b>커널 선택</b>（选择内核）。</span></li>
+        <li><span class="ko">같은 <code>.venv</code> 환경을 선택한다.</span><span class="zh">选择同一个 <code>.venv</code> 环境。</span></li>
+      </ol>
+    </div>
+
+    <figure class="fig">
+      <img class="figimg" src="assets/img/02-2-03-three-pythons.png" alt="터미널의 uv run python, VS Code의 Python 인터프리터, Notebook의 커널 세 곳이 모두 같은 프로젝트의 점venv 하나를 가리켜야 한다는 것을 화살표로 보여 주는 그림" data-id="02-2-03-three-pythons" data-spec="가로 16:9 · 세 갈래가 하나로 모이는 도해" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 2-2-3. 세 곳이 모두 같은 <code>.venv</code>를 가리켜야 한다</span><span class="zh">图 2-2-3. 三处都必须指向同一个 <code>.venv</code></span></figcaption>
+    </figure>
+  </section>
+
+  <section class="page" id="s13_3">
+    <div class="kick"><span class="ko">13. 연결</span><span class="zh">13. 连接</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">인터프리터와 커널 선택하기</span><span class="zh">选择解释器与内核 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">가장 흔한 실패 지점</span><span class="zh">最常见的失败点</span></div>
+      <p><span class="ko">uv가 환경을 잘 준비해 놓았어도, <b>VS Code와 Notebook이 다른 Python을 선택하면</b> 라이브러리를 찾지 못합니다. 다음 세 곳이 모두 같은 프로젝트 <code>.venv</code>를 가리키는지 확인하세요.</span><span class="zh">即使 uv 把环境准备得很好，<b>只要 VS Code 和 Notebook 选了别的 Python</b>，就会找不到库。请确认下面三处都指向同一个项目的 <code>.venv</code>。</span></p>
+      <ul class="blist">
+        <li><span class="ko">터미널의 <code>uv run python</code></span><span class="zh">终端里的 <code>uv run python</code></span></li>
+        <li><span class="ko">VS Code의 Python 인터프리터</span><span class="zh">VS Code 的 Python 解释器</span></li>
+        <li><span class="ko">Notebook 오른쪽 위의 커널</span><span class="zh">Notebook 右上角的内核</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ 14 ══════════ -->
+  <section class="page" id="s14">
+    <div class="kick"><span class="ko">14. 읽기</span><span class="zh">14. 阅读</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">실행 전에 코드를 읽고 예상한다</span><span class="zh">运行前先读代码并预测</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">여기서부터가 이 수업의 핵심 습관입니다. <b>실행 버튼을 누르기 전에 먼저 읽고 예상합니다.</b> 예상 없이 실행하면 결과가 나와도 배우는 것이 없습니다.</span><span class="zh">从这里开始才是本课的核心习惯：<b>按下运行按钮之前，先读、先预测</b>。不预测就运行，即使出了结果也学不到东西。</span></p>
+
+    <p><span class="ko">첫 번째 코드 셀을 <b>아직 실행하지 말고</b> 읽어 보세요.</span><span class="zh">第一个代码单元格<b>先别运行</b>，读一读。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">notebooks/00_setup_test.ipynb — 첫 번째 셀</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">notebooks/00_setup_test.ipynb — 第一个单元格</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>import sys
+
+print("Python:", sys.version)
+print("실행 환경:", sys.executable)
+print("설정 확인 완료")</code></pre>
+    </div>
+
+    <p><span class="ko">모르는 표현이 있어도 괜찮습니다. <code>import</code>가 무엇인지 아직 배우지 않았지만, <code>print</code>가 있는 세 줄이 <b>화면에 무언가를 보여 준다</b>는 것은 짐작할 수 있습니다. 코드를 읽을 때는 모든 낱말을 다 알아야 하는 것이 아니라 <b>전체가 무엇을 하려는지</b>부터 잡습니다.</span><span class="zh">有看不懂的写法也没关系。虽然还没学 <code>import</code> 是什么，但有 <code>print</code> 的那三行<b>会在屏幕上显示点什么</b>，是猜得到的。读代码时不必认得每一个词，先抓住<b>整体想做什么</b>。</span></p>
+
+    <div class="iot">
+      <div class="b"><div class="h"><span class="ko">입력</span><span class="zh">输入</span></div><p><span class="ko">지금 실행 중인 Python 자신에 대한 정보.</span><span class="zh">关于当前正在运行的 Python 自身的信息。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">처리</span><span class="zh">处理</span></div><p><span class="ko">버전과 실행 파일 경로를 꺼내 온다.</span><span class="zh">取出版本与可执行文件路径。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">출력</span><span class="zh">输出</span></div><p><span class="ko">세 줄을 셀 <b>바로 아래</b>에 보여 준다.</span><span class="zh">把三行显示在单元格<b>正下方</b>。</span></p></div>
+    </div>
+  </section>
+
+  <section class="page" id="s14_2">
+    <div class="kick"><span class="ko">14. 읽기</span><span class="zh">14. 阅读</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">실행 전에 코드를 읽고 예상한다</span><span class="zh">运行前先读代码并预测</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">실행 전에 적어 보기</span><span class="zh">运行前先写下来</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">첫째 줄에는 무엇이 나타날까?</span><span class="zh">第一行会出现什么？</span></li>
+      <li><span class="ko">둘째 줄의 경로에 꼭 들어 있어야 할 단어는?</span><span class="zh">第二行的路径里一定要含有的词是什么？</span></li>
+      <li><span class="ko">마지막 줄에는 어떤 문장이 나타날까?</span><span class="zh">最后一行会出现什么句子？</span></li>
+    </ul>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">이제 실행합니다</span><span class="zh">现在来运行</span></div>
+      <ol>
+        <li><span class="ko">셀 왼쪽의 실행 버튼을 누르거나 <code>Shift+Enter</code>를 누른다.</span><span class="zh">点单元格左侧的运行按钮，或按 <code>Shift+Enter</code>。</span></li>
+        <li><span class="ko">세 줄이 셀 아래에 나타나는지 확인한다.</span><span class="zh">确认三行出现在单元格下方。</span></li>
+        <li><span class="ko"><b>둘째 줄의 경로에 <code>.venv</code>가 들어 있는지</b> 반드시 확인한다.</span><span class="zh">务必确认<b>第二行的路径里含有 <code>.venv</code></b>。</span></li>
+        <li><span class="ko">내가 적은 예상과 실제 결과를 비교한다.</span><span class="zh">把自己写下的预测和实际结果对照。</span></li>
+      </ol>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">3번이 오늘의 진짜 검사입니다</span><span class="zh">第 3 条才是今天真正的检查</span></div>
+      <p><span class="ko">경로에 <code>.venv</code>가 없다면 지금 코드를 실행하는 Python이 <b>우리가 준비한 그 Python이 아니라는 뜻</b>입니다. 그대로 진행하면 나중에 pandas를 찾지 못하는 등의 문제가 생깁니다. 13번으로 돌아가 커널을 다시 선택하세요.</span><span class="zh">路径里若没有 <code>.venv</code>，就说明现在运行代码的 Python <b>不是我们准备的那一个</b>。这样继续下去，之后会出现找不到 pandas 之类的问题。请回到第 13 节重新选择内核。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 15 ══════════ -->
+  <section class="page" id="s15">
+    <div class="kick"><span class="ko">15. 수정</span><span class="zh">15. 修改</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">첫 코드를 직접 바꿔 본다</span><span class="zh">亲手改一改第一段代码 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">읽고 실행했으니 이제 <b>바꿔 봅니다.</b> 값을 하나 바꾸고 결과가 어떻게 달라지는지 보는 것이 코드를 이해하는 가장 빠른 방법입니다.</span><span class="zh">读过也运行过了，现在<b>改一改</b>。改一个值、看结果怎么变，是理解代码最快的办法。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">새 셀 만들고 입력하기</span><span class="zh">新建单元格并输入</span></div>
+      <ol>
+        <li><span class="ko">새 코드 셀을 만든다.</span><span class="zh">新建一个代码单元格。</span></li>
+        <li><span class="ko">다음 코드를 입력한다.</span><span class="zh">输入下面的代码。</span>
+          <div class="code">
+            <div class="chd"><span class="ko"><span class="fn">새 코드 셀</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">新的代码单元格</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+            <pre><code>name = "다현"
+print(name + "님, Python 실행에 성공했습니다.")</code></pre>
+          </div>
+        </li>
+        <li><span class="ko"><b>실행하기 전에</b> 출력될 문장을 예상해 적는다.</span><span class="zh"><b>在运行之前</b>写下你预测会输出的句子。</span></li>
+        <li><span class="ko">셀을 실행하고 예상과 비교한다.</span><span class="zh">运行单元格，与预测对照。</span></li>
+        <li><span class="ko"><code>다현</code>을 자신이 정한 <b>별명</b>으로 바꾸어 다시 실행한다.</span><span class="zh">把 <code>다현</code> 换成自己定的<b>昵称</b>再运行一次。</span></li>
+      </ol>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">실명 대신 별명을 씁니다</span><span class="zh">用昵称而不是真名</span></div>
+      <p><span class="ko">실습 파일에는 실제 이름 대신 별명이나 가상의 이름을 씁니다. Notebook은 나중에 제출하거나 공유할 수 있고, 저장된 결과에도 그 이름이 남기 때문입니다.</span><span class="zh">实践文件里用昵称或虚构的名字，而不是真名。因为 Notebook 以后可能提交或分享，而且保存下来的运行结果里也会留下那个名字。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s15_2">
+    <div class="kick"><span class="ko">15. 수정</span><span class="zh">15. 修改</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">첫 코드를 직접 바꿔 본다</span><span class="zh">亲手改一改第一段代码 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">이 코드의 입력·처리·출력</span><span class="zh">这段代码的输入 · 处理 · 输出</span></h3>
+
+    <div class="iot">
+      <div class="b"><div class="h"><span class="ko">입력</span><span class="zh">输入</span></div><p><span class="ko">코드에 이름을 직접 적었다.</span><span class="zh">名字直接写在代码里。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">처리</span><span class="zh">处理</span></div><p><span class="ko">이름과 뒤의 문장을 <code>+</code>로 이어 붙인다.</span><span class="zh">用 <code>+</code> 把名字和后面的句子连起来。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">출력</span><span class="zh">输出</span></div><p><span class="ko"><code>print</code>가 완성된 문장을 셀 아래에 보여 준다.</span><span class="zh"><code>print</code> 把拼好的句子显示在单元格下方。</span></p></div>
+    </div>
+
+    <p><span class="ko">이 세 칸으로 나누어 보는 습관은 앞으로 모든 코드에 적용합니다. AI가 만든 긴 코드를 만났을 때도 <b>“입력은 어디서 오고, 무엇을 하고, 결과는 어디에 나오지?”</b> 세 질문부터 던지면 길을 잃지 않습니다.</span><span class="zh">把代码分成这三格来看的习惯，今后对所有代码都适用。遇到 AI 写的长代码时，先问<b>“输入从哪来、做了什么、结果出现在哪里？”</b>这三个问题，就不会迷路。</span></p>
+
+    <div class="note">
+      <div class="nt"><span class="ko"><code>+</code>가 두 가지 일을 한다</span><span class="zh"><code>+</code> 做两件事</span></div>
+      <p><span class="ko">숫자에 쓰면 더하기이고, 글자에 쓰면 <b>이어 붙이기</b>입니다. 같은 기호가 상황에 따라 다르게 동작합니다. 이 이야기는 3-1에서 자료형을 배우며 제대로 다룹니다. 지금은 “글자끼리 <code>+</code>하면 이어진다” 정도로 충분합니다.</span><span class="zh">用在数字上是相加，用在文字上是<b>拼接</b>。同一个符号因情况而行为不同。这件事 3-1 学数据类型时会正式讲。现在知道“文字之间 <code>+</code> 就是接起来”就够了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 16 ══════════ -->
+  <section class="page" id="s16">
+    <div class="kick"><span class="ko">16. 오류</span><span class="zh">16. 报错</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">오류도 관찰 대상이다</span><span class="zh">报错也是观察对象</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">이번에는 <b>일부러</b> 오류를 내 봅니다. 오류를 피하는 법이 아니라 <b>읽는 법</b>을 배우기 위해서입니다.</span><span class="zh">这次我们<b>故意</b>造个错。目的不是学怎么避开报错，而是学怎么<b>读</b>它。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">일부러 잘못 쓴 코드</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">故意写错的代码</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>name = "다현"
+print(nam + "님, 반갑습니다.")</code></pre>
+    </div>
+
+    <p><span class="ko">둘째 줄에서 <code>name</code> 대신 <code>nam</code>이라고 썼습니다. 글자 하나가 빠졌을 뿐인데 프로그램은 멈춥니다. 실행해 보고 나오는 메시지를 <b>끝에서부터</b> 읽어 보세요. 마지막 부분에 <code>NameError</code>와 문제가 된 이름이 적혀 있습니다.</span><span class="zh">第二行把 <code>name</code> 写成了 <code>nam</code>。只少了一个字母，程序就停了。运行一下，把出现的信息<b>从末尾往前</b>读。最后那部分写着 <code>NameError</code> 和出问题的名字。</span></p>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">오류는 고장 신호가 아닙니다</span><span class="zh">报错不是故障信号</span></div>
+      <p><span class="ko">오류 메시지는 컴퓨터가 망가졌다는 뜻이 아니라, <b>“어떤 조건에서 더 진행할 수 없었는지”를 알려 주는 안내문</b>입니다. 안내문을 읽지 않고 코드를 아무렇게나 고치면 시간만 오래 걸립니다.</span><span class="zh">报错信息不是说计算机坏了，而是<b>告诉你“在什么条件下无法继续下去”的说明书</b>。不读说明书就胡乱改代码，只会更费时间。</span></p>
+    </div>
+
+    <h3 class="sub"><span class="ko">오류를 만나면 먼저 세 가지를 적는다</span><span class="zh">遇到报错先写下三件事</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">① 오류의 이름은 무엇인가?</span><span class="zh">① 报错的名称是什么？</span></li>
+      <li><span class="ko">② 어느 줄에서 발생했는가?</span><span class="zh">② 发生在第几行？</span></li>
+      <li><span class="ko">③ 내가 예상한 이름과 실제로 적은 이름의 차이는?</span><span class="zh">③ 我以为的名字和实际写的名字差在哪里？</span></li>
+    </ul>
+
+    <p><span class="ko">세 가지를 적고 나면 대개 고칠 곳이 보입니다. 이제 <code>nam</code>을 <code>name</code>으로 고쳐 다시 실행하세요.</span><span class="zh">写完这三条，多半就看得出该改哪里了。现在把 <code>nam</code> 改成 <code>name</code> 再运行一次。</span></p>
+  </section>
+
+  <section class="page" id="s16_2">
+    <div class="kick"><span class="ko">16. 오류</span><span class="zh">16. 报错</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">오류도 관찰 대상이다</span><span class="zh">报错也是观察对象</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note">
+      <div class="nt"><span class="ko">왜 굳이 적게 하는가</span><span class="zh">为什么非要写下来</span></div>
+      <p><span class="ko">적지 않고 바로 AI에게 물으면 답은 빨리 얻지만 <b>다음에 같은 오류를 만나도 또 물어야 합니다.</b> 세 줄을 적는 데는 30초가 걸리고, 그 30초가 다음번 5분을 아낍니다. 그리고 다음 쪽에서 보듯, 적어 둔 내용이 있어야 AI의 설명이 맞는지도 판단할 수 있습니다.</span><span class="zh">不写就直接问 AI，答案是来得快，可<b>下次再遇到同样的错还得再问一遍</b>。写这三行花 30 秒，这 30 秒省下的是下一次的 5 分钟。而且正如下一页所示，有写下来的内容，才能判断 AI 的说明对不对。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 17 ══════════ -->
+  <section class="page" id="s17">
+    <div class="kick"><span class="ko">17. AI 검증</span><span class="zh">17. 验证 AI</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 설명을 요청하고 검증한다</span><span class="zh">请 AI 解释，并加以验证</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">이제 AI를 씁니다. 다만 <b>“고쳐 줘”가 아니라 “설명해 줘”</b>로 시작합니다. 답을 받는 것이 목적이 아니라 읽는 힘을 기르는 것이 목적이기 때문입니다.</span><span class="zh">现在用 AI。不过要从<b>“帮我解释”而不是“帮我改”</b>开始。因为目的不是拿到答案，而是练出读的能力。</span></p>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">보내기 전에 확인</span><span class="zh">发送之前先确认</span></div>
+      <p><span class="ko">오류 메시지와 코드를 AI에게 보여 주기 전에 <b>개인정보나 비밀정보가 섞여 있지 않은지</b> 먼저 확인합니다. 파일 경로에 실명이 들어 있는 경우도 있으니 함께 살펴보세요.</span><span class="zh">把报错信息和代码给 AI 看之前，先确认<b>里面有没有混进个人信息或机密信息</b>。文件路径里带真名的情况也有，请一并检查。</span></p>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI에게 보낼 프롬프트</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">要发给 AI 的提示词</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>나는 Python을 처음 배우는 고등학생이야.
+아래 코드에서 NameError가 난 이유를 정답 코드부터 주지 말고,
+오류 메시지에서 확인할 부분과 고칠 위치를 순서대로 설명해 줘.
+
+name = "다현"
+print(nam + "님, 반갑습니다.")</code></pre>
+    </div>
+
+    <p><span class="ko">이 프롬프트에는 세 가지 장치가 들어 있습니다. 앞으로 AI에게 요청할 때 그대로 응용할 수 있습니다.</span><span class="zh">这段提示词里藏了三个装置。今后向 AI 提要求时可以照搬。</span></p>
+
+    <table class="kv">
+      <tr><th style="width:230px"><span class="ko">장치</span><span class="zh">装置</span></th><th><span class="ko">왜 넣었는가</span><span class="zh">为什么加它</span></th></tr>
+      <tr><td><span class="ko">“처음 배우는 고등학생이야”</span><span class="zh">“我是刚开始学的高中生”</span></td><td><span class="ko">설명의 눈높이를 정한다.</span><span class="zh">定下讲解的深浅。</span></td></tr>
+      <tr><td><span class="ko">“정답 코드부터 주지 말고”</span><span class="zh">“先别给正确代码”</span></td><td><span class="ko">답만 받고 끝나는 것을 막는다.</span><span class="zh">防止只拿到答案就完事。</span></td></tr>
+      <tr><td><span class="ko">“순서대로 설명해 줘”</span><span class="zh">“请按顺序说明”</span></td><td><span class="ko">결과가 아니라 <b>과정</b>을 받는다.</span><span class="zh">拿到的是<b>过程</b>而不是结果。</span></td></tr>
+    </table>
+  </section>
+
+  <section class="page" id="s17_2">
+    <div class="kick"><span class="ko">17. AI 검증</span><span class="zh">17. 验证 AI</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">AI에게 설명을 요청하고 검증한다</span><span class="zh">请 AI 解释，并加以验证</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">받은 설명을 검증하는 법</span><span class="zh">怎样验证收到的说明</span></h3>
+
+    <ul class="blist checks">
+      <li><span class="ko">AI가 말한 <b>줄 번호</b>가 실제 오류 메시지의 줄과 같은가?</span><span class="zh">AI 说的<b>行号</b>和实际报错信息里的行是同一行吗？</span></li>
+      <li><span class="ko">AI가 말한 <b>이름</b>이 내 코드에 실제로 있는가?</span><span class="zh">AI 说的<b>名字</b>在我的代码里真的存在吗？</span></li>
+      <li><span class="ko">AI의 설명이 내가 16번에서 적은 세 가지와 맞아떨어지는가?</span><span class="zh">AI 的说明和我在第 16 节写下的三条对得上吗？</span></li>
+      <li><span class="ko">설명에 내가 모르는 낱말이 있으면 그것도 다시 물었는가?</span><span class="zh">说明里若有我不懂的词，我是否也追问了？</span></li>
+    </ul>
+
+    <p><span class="ko">설명이 맞으면 <b>직접</b> 코드를 고칩니다. AI에게 고쳐 달라고 하지 않습니다. 오늘은 한 글자짜리 오류지만, 같은 방식이 나중에 100줄짜리 코드에서도 쓰입니다.</span><span class="zh">说明没问题的话，<b>由自己</b>去改代码，不要让 AI 代改。今天只是一个字母的错，但同样的做法以后在 100 行的代码上也照用。</span></p>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">AI가 틀리게 설명하는 경우도 있습니다</span><span class="zh">AI 也有讲错的时候</span></div>
+      <p><span class="ko">실제로 없는 줄을 가리키거나, 코드에 없는 이름을 지어내기도 합니다. 그래서 <b>검증</b>이 필요합니다. 이때 “AI가 틀렸다”를 알아채는 근거는 여러분이 직접 적어 둔 오류 메시지입니다.</span><span class="zh">它可能指向根本不存在的行，或编出代码里没有的名字。所以才需要<b>验证</b>。而这时判断“AI 讲错了”的依据，正是你自己写下的报错信息。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 18 ══════════ -->
+  <section class="page" id="s18">
+    <div class="kick"><span class="ko">18. 형식 비교</span><span class="zh">18. 格式对比</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko"><code>.py</code> 파일을 실행해 본다</span><span class="zh">运行一次 <code>.py</code> 文件</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">2-1에서 <code>.py</code>와 <code>.ipynb</code>의 차이를 표로 봤습니다. 이제 <b>직접 실행해서</b> 그 차이를 눈으로 확인합니다.</span><span class="zh">2-1 里我们用表格看过 <code>.py</code> 与 <code>.ipynb</code> 的差别。现在<b>亲自运行</b>，用眼睛确认这个差别。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">hello.py 만들고 실행하기</span><span class="zh">创建并运行 hello.py</span></div>
+      <ol>
+        <li><span class="ko"><code>projects</code> 폴더에 <code>hello.py</code> 파일을 만든다.</span><span class="zh">在 <code>projects</code> 文件夹里创建 <code>hello.py</code> 文件。</span></li>
+        <li><span class="ko">다음 코드를 입력하고 <b>저장</b>한다. (<code>Ctrl+S</code>)</span><span class="zh">输入下面的代码并<b>保存</b>。（<code>Ctrl+S</code>）</span>
+          <div class="code">
+            <div class="chd"><span class="ko"><span class="fn">projects/hello.py</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">projects/hello.py</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+            <pre><code>message = "일반 Python 파일 실행 성공"
+print(message)</code></pre>
+          </div>
+        </li>
+        <li><span class="ko">오른쪽 위의 실행 버튼을 누른다.</span><span class="zh">点右上角的运行按钮。</span></li>
+        <li><span class="ko"><b>아래쪽 터미널</b>에 같은 문장이 나타나는지 확인한다.</span><span class="zh">确认<b>下方终端</b>里出现了同样的句子。</span></li>
+      </ol>
+    </div>
+
+    <h3 class="sub"><span class="ko">방금 확인한 차이</span><span class="zh">刚才确认到的差别</span></h3>
+
+    <div class="row">
+      <div class="pane">
+        <div class="pt">Notebook <code>.ipynb</code></div>
+        <p><span class="ko">결과가 <b>실행한 셀 바로 아래</b>에 나타납니다. 그리고 그 결과가 파일에 함께 저장됩니다.</span><span class="zh">结果出现在<b>所运行单元格的正下方</b>，而且这个结果会和文件一起保存下来。</span></p>
+      </div>
+      <div class="pane accent">
+        <div class="pt"><span class="ko">Python 파일 <code>.py</code></span><span class="zh">Python 文件 <code>.py</code></span></div>
+        <p><span class="ko">결과가 <b>아래쪽 터미널</b>에 나타납니다. 파일에는 코드만 남고 결과는 저장되지 않습니다.</span><span class="zh">结果出现在<b>下方终端</b>。文件里只留下代码，结果不会被保存。</span></p>
+      </div>
+    </div>
+
+    <p><span class="ko">같은 <code>print</code>인데 결과가 나타나는 자리가 다릅니다. 이유는 두 형식이 <b>결과를 보여 주는 방식</b>이 다르게 설계되었기 때문입니다. 계산 능력의 차이가 아닙니다. 실행한 것은 두 경우 모두 같은 <code>.venv</code>의 Python입니다.</span><span class="zh">同样是 <code>print</code>，结果出现的位置却不同。原因在于两种格式<b>展示结果的方式</b>被设计得不一样，不是计算能力的差别。两次运行的，都是同一个 <code>.venv</code> 里的 Python。</span></p>
+  </section>
+
+  <section class="page" id="s18_2">
+    <div class="kick"><span class="ko">18. 형식 비교</span><span class="zh">18. 格式对比</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko"><code>.py</code> 파일을 실행해 본다</span><span class="zh">运行一次 <code>.py</code> 文件</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">방금 두 파일을 실행해 봤습니다. 결과가 나타나는 자리가 왜 달랐을까요? 그리고 이 수업의 2~5회 연습에 <b>Notebook</b>을 고른 이유는 무엇일까요? 한두 문장으로 적어 보세요.</span><span class="zh">刚才你运行了两种文件。结果出现的位置为什么不一样？还有，本课第 2~5 次课的练习为什么选了 <b>Notebook</b>？请写一两句话。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 19 ══════════ -->
+  <section class="page" id="s19">
+    <div class="kick"><span class="ko">19. 재현 검증</span><span class="zh">19. 可重现性验证</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">Notebook을 처음부터 다시 검증한다</span><span class="zh">把 Notebook 从头重新验证一遍</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">2-1에서 배운 Notebook의 함정을 기억하나요? <b>실행 순서가 문서 순서와 다를 수 있다</b>는 것이었습니다. 오늘 여러 셀을 만들고 고치고 다시 실행했으니, 지금 이 Notebook도 그 상태일 수 있습니다.</span><span class="zh">还记得 2-1 学过的 Notebook 陷阱吗？就是<b>运行顺序可能和文档顺序不同</b>。今天你建了、改了、又重跑了好几个单元格，所以现在这份 Notebook 也可能正处在那种状态。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">마무리 검증</span><span class="zh">收尾验证</span></div>
+      <ol>
+        <li><span class="ko">Notebook의 <b>커널 다시 시작</b>을 선택한다.</span><span class="zh">选择 Notebook 的<b>커널 다시 시작</b>（重启内核）。</span></li>
+        <li><span class="ko"><b>모두 실행</b>을 선택한다.</span><span class="zh">选择<b>모두 실행</b>（全部运行）。</span></li>
+        <li><span class="ko">위에서부터 오류 없이 실행되는지 확인한다.</span><span class="zh">确认从上到下没有报错。</span></li>
+        <li><span class="ko">Notebook을 저장한다.</span><span class="zh">保存 Notebook。</span></li>
+      </ol>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">‘커널 다시 시작’이 하는 일</span><span class="zh">“重启内核”做的事</span></div>
+      <p><span class="ko">지금까지 기억하고 있던 <b>모든 값을 지웁니다.</b> 그래서 위쪽 셀에서 만든 값에 의존하는 아래쪽 셀은, 위쪽부터 순서대로 실행하지 않으면 오류가 납니다. 바로 그 점을 이용해 <b>“이 문서를 처음 받은 사람도 똑같이 실행할 수 있는가”</b>를 검사하는 것입니다.</span><span class="zh">它会<b>清掉此前记住的所有值</b>。所以依赖上面单元格所造之值的下面单元格，如果不从上往下依次运行就会报错。正是利用这一点，来检查<b>“第一次拿到这份文档的人，能不能同样跑通”</b>。</span></p>
+    </div>
+
+    <p><span class="ko">여기서 오류가 나면 실패가 아닙니다. <b>오늘 발견해서 다행인 상태</b>입니다. 만약 이 검증 없이 제출했다면 다른 사람의 컴퓨터에서 동작하지 않았을 것입니다.</span><span class="zh">这里报错不是失败，而是<b>幸好今天发现了</b>。若没做这道验证就提交，在别人的电脑上就跑不起来。</span></p>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">수행평가에서도 이 검증을 합니다</span><span class="zh">实作评价里也要做这道验证</span></div>
+      <p><span class="ko">5회 수행평가 1에서 Notebook을 제출할 때 <b>커널 다시 시작 → 모두 실행</b>이 통과되는지가 기준에 들어갑니다. 오늘 배운 이 습관을 그대로 씁니다.</span><span class="zh">第 5 次课的实作评价 1 提交 Notebook 时，<b>重启内核 → 全部运行</b>能否通过会列入标准。今天学的这个习惯原样照用。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 20 ══════════ -->
+  <section class="page" id="s20">
+    <div class="kick"><span class="ko">20. 점검</span><span class="zh">20. 检查</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">오류·보안·개인정보 점검</span><span class="zh">报错 · 安全 · 个人信息检查</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">실습을 마치기 전에 매번 하는 점검입니다. 오늘은 처음이니 하나씩 이유를 붙여 두겠습니다.</span><span class="zh">这是每次实践收尾前都要做的检查。今天是第一次，所以逐条附上理由。</span></p>
+
+    <table class="kv">
+      <tr><th style="width:44%"><span class="ko">점검 항목</span><span class="zh">检查项</span></th><th><span class="ko">왜 확인하는가</span><span class="zh">为什么要确认</span></th></tr>
+      <tr><td><span class="ko">Notebook과 <code>.py</code>에 실명·전화번호·주소가 없는가?</span><span class="zh">Notebook 和 <code>.py</code> 里有没有真名、电话、住址？</span></td><td><span class="ko">파일은 제출·공유될 수 있고, Notebook에는 실행 결과까지 저장된다.</span><span class="zh">文件可能被提交或分享，而且 Notebook 连运行结果都保存进去。</span></td></tr>
+      <tr><td><span class="ko">API 키나 비밀번호를 코드에 적지 않았는가?</span><span class="zh">有没有把 API 密钥或密码写进代码？</span></td><td><span class="ko">키가 노출되면 다른 사람이 내 이름으로 쓰게 되고 책임은 나에게 온다.</span><span class="zh">密钥外泄，别人就以我的名义使用，责任却落到我身上。</span></td></tr>
+      <tr><td><span class="ko">AI에게 보낸 내용에 개인정보가 없었는가?</span><span class="zh">发给 AI 的内容里有没有个人信息？</span></td><td><span class="ko">한 번 보낸 내용은 되돌릴 수 없다.</span><span class="zh">一旦发出去就收不回来。</span></td></tr>
+      <tr><td><span class="ko">내가 설치한 라이브러리를 모두 설명할 수 있는가?</span><span class="zh">我能说清自己装的每一个库吗？</span></td><td><span class="ko">설명할 수 없는 것이 환경에 들어와 있으면 점검 대상이 늘어난다.</span><span class="zh">说不清的东西进了环境，需要检查的范围就变大。</span></td></tr>
+      <tr><td><span class="ko">OpenCode가 내 허락 없이 파일을 바꾸지 않았는가?</span><span class="zh">OpenCode 有没有未经我允许就改动文件？</span></td><td><span class="ko">AI 에이전트는 파일을 고칠 권한이 있다.</span><span class="zh">AI 代理拥有修改文件的权限。</span></td></tr>
+      <tr><td><span class="ko">공용 노트북에 내 계정 정보를 남기지 않았는가?</span><span class="zh">有没有在公用笔记本上留下我的账号信息？</span></td><td><span class="ko">다음 시간에 다른 학생이 같은 기기를 쓸 수 있다.</span><span class="zh">下节课可能有别的同学用同一台机器。</span></td></tr>
+    </table>
+
+    <div class="note">
+      <div class="nt"><span class="ko">오늘 만난 두 가지 ‘가상’ 구분하기</span><span class="zh">区分今天遇到的两个“虚拟”</span></div>
+      <p><span class="ko"><b>가상환경</b>은 Python과 라이브러리를 나누어 두는 장치입니다. 흔히 생각하는 <b>가상 컴퓨터(가상머신)</b>처럼 코드의 동작 자체를 가둬 두는 보안 장치가 <b>아닙니다.</b></span><span class="zh"><b>虚拟环境</b>是把 Python 与库分开存放的装置。它<b>不是</b>人们常想的<b>虚拟机</b>那样、把代码的行为本身关起来的安全装置。</span></p>
+      <p><span class="ko">따라서 “가상환경 안이니까 아무 코드나 실행해도 안전하다”는 말은 틀렸습니다. 출처를 모르는 코드와 Notebook은 가상환경 안에서도 실행하지 않습니다.</span><span class="zh">因此“反正在虚拟环境里，跑什么代码都安全”这句话是错的。来路不明的代码和 Notebook，在虚拟环境里也不要运行。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s20_2">
+    <div class="kick"><span class="ko">20. 점검</span><span class="zh">20. 检查</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">오류·보안·개인정보 점검</span><span class="zh">报错 · 安全 · 个人信息检查</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">학교 정책을 우회하지 않습니다</span><span class="zh">不要绕过学校策略</span></div>
+      <p><span class="ko">오늘 설치 과정에서 막히는 곳이 있었다면, 검색해서 나온 우회 방법을 시도하지 않습니다. 정책은 이유가 있어 설정된 것이고, 우회는 그 이유를 없애지 않습니다. 교사에게 요청하는 것이 올바른 절차입니다.</span><span class="zh">今天安装过程中若有卡住的地方，不要去试搜出来的绕过方法。策略是有理由才设的，绕过并不能消掉那个理由。向老师提出请求，才是正确的做法。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 21 ══════════ -->
+  <section class="page" id="s21">
+    <div class="kick"><span class="ko">21. 문제 해결</span><span class="zh">21. 排查</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">막힐 때 확인할 순서</span><span class="zh">卡住时的检查顺序 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">아무것도 안 될 때 아무 데나 손대면 더 꼬입니다. <b>위에서부터 차례대로</b> 확인하세요. 어느 단계에서 멈추는지 알면 원인이 좁혀집니다.</span><span class="zh">什么都不行的时候乱动，只会越缠越乱。请<b>从上往下依次</b>确认。知道在哪一步停住，原因范围就缩小了。</span></p>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">순서대로 확인하기</span><span class="zh">按顺序确认</span></div>
+      <ol>
+        <li><span class="ko">PowerShell을 <b>새로 열고</b> <code>code --version</code>을 확인한다.</span><span class="zh"><b>重新打开</b> PowerShell，确认 <code>code --version</code>。</span></li>
+        <li><span class="ko"><code>node --version</code>과 <code>npm --version</code>을 차례대로 확인한다.</span><span class="zh">依次确认 <code>node --version</code> 和 <code>npm --version</code>。</span></li>
+        <li><span class="ko"><code>opencode --version</code>으로 OpenCode가 실행되는지 확인한다.</span><span class="zh">用 <code>opencode --version</code> 确认 OpenCode 能否运行。</span></li>
+        <li><span class="ko"><code>uv --version</code>으로 uv가 실행되는지 확인한다.</span><span class="zh">用 <code>uv --version</code> 确认 uv 能否运行。</span></li>
+        <li><span class="ko"><code>uv run python --version</code>으로 프로젝트의 Python이 실행되는지 확인한다.</span><span class="zh">用 <code>uv run python --version</code> 确认项目的 Python 能否运行。</span></li>
+        <li><span class="ko"><code>pwd</code>로 현재 위치가 교사가 제공한 수업 폴더인지 확인한다.</span><span class="zh">用 <code>pwd</code> 确认当前位置是否是老师提供的课程文件夹。</span></li>
+        <li><span class="ko">VS Code의 인터프리터와 Notebook 오른쪽 위에서 <code>.venv</code>가 선택되었는지 본다.</span><span class="zh">看 VS Code 的解释器和 Notebook 右上角是否选中了 <code>.venv</code>。</span></li>
+        <li><span class="ko">오류 메시지의 <b>마지막 줄</b>과 오류가 표시된 코드 줄을 읽는다.</span><span class="zh">读报错信息的<b>最后一行</b>，以及被标出的那行代码。</span></li>
+        <li><span class="ko">철자, 따옴표와 괄호가 서로 맞는지 확인한다.</span><span class="zh">确认拼写、引号和括号是否配对。</span></li>
+        <li><span class="ko">그래도 안 되면 <b>오류가 난 코드와 이미 시도한 내용</b>을 교사 또는 AI에게 설명한다.</span><span class="zh">还是不行，就把<b>出错的代码和已经尝试过的做法</b>说明给老师或 AI。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page" id="s21_2">
+    <div class="kick"><span class="ko">21. 문제 해결</span><span class="zh">21. 排查</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">막힐 때 확인할 순서</span><span class="zh">卡住时的检查顺序 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">증상별 빠른 안내</span><span class="zh">按症状快速指引</span></h3>
+
+    <div class="trouble">
+      <div class="th"><span class="ko">이런 증상이라면</span><span class="zh">如果是这些症状</span></div>
+      <table>
+        <tr><td><span class="ko">명령을 입력했는데 “찾을 수 없습니다”라고 나온다</span><span class="zh">输入了命令却提示“找不到”</span></td><td><span class="ko">설치 후 터미널을 새로 열지 않았을 가능성이 큽니다. PowerShell과 VS Code를 <b>완전히 닫았다가</b> 다시 여세요.</span><span class="zh">多半是安装后没有重新打开终端。请把 PowerShell 和 VS Code <b>完全关闭</b>后再打开。</span></td></tr>
+        <tr><td><span class="ko">CMD에서는 되는데 VS Code 터미널에서만 안 된다</span><span class="zh">CMD 里可以，只有 VS Code 终端里不行</span></td><td><span class="ko">PowerShell 실행 정책 문제일 수 있습니다. 5번의 경고 상자를 확인하고, 교사의 안내에 따라서만 조치하세요.</span><span class="zh">可能是 PowerShell 执行策略问题。请查看第 5 节的警告框，并只按老师的指引处理。</span></td></tr>
+        <tr><td><span class="ko">셀을 실행하니 라이브러리를 찾을 수 없다고 한다</span><span class="zh">运行单元格时提示找不到库</span></td><td><span class="ko">커널이 다른 Python을 가리키고 있을 가능성이 큽니다. 13번으로 돌아가 세 곳이 모두 <code>.venv</code>인지 확인하세요.</span><span class="zh">多半是内核指向了别的 Python。请回到第 13 节，确认三处是否都是 <code>.venv</code>。</span></td></tr>
+        <tr><td><span class="ko"><code>uv sync</code>가 엉뚱한 곳에 환경을 만든다</span><span class="zh"><code>uv sync</code> 把环境建到了别的地方</span></td><td><span class="ko"><code>pwd</code>로 위치를 확인하세요. <code>jdh-info</code> 폴더 안에서 실행해야 합니다.</span><span class="zh">请用 <code>pwd</code> 确认位置。必须在 <code>jdh-info</code> 文件夹里执行。</span></td></tr>
+        <tr><td><span class="ko">어제는 됐는데 오늘 안 된다</span><span class="zh">昨天还行，今天不行了</span></td><td><span class="ko">폴더 전체가 아니라 파일 하나만 열었을 수 있습니다. <b>파일 → 폴더 열기</b>로 다시 여세요.</span><span class="zh">可能打开的不是整个文件夹，而只是一个文件。请用<b>파일 → 폴더 열기</b>（文件 → 打开文件夹）重新打开。</span></td></tr>
+        <tr><td><span class="ko">OpenCode가 모델에 연결되지 않는다</span><span class="zh">OpenCode 连不上模型</span></td><td><span class="ko">오늘 Python 실습은 그대로 진행할 수 있습니다. 브라우저의 학교 허용 AI를 쓰고, 설치 문제는 따로 보충하세요.</span><span class="zh">今天的 Python 实践照常可以进行。请用浏览器里学校允许的 AI，安装问题另外补。</span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════ 22 ══════════ -->
+  <section class="page" id="s22">
+    <div class="kick"><span class="ko">22. 기록</span><span class="zh">22. 记录</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">실습 기록과 완료 확인</span><span class="zh">实践记录与完成确认 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <h3 class="sub"><span class="ko">오늘의 실습 기록</span><span class="zh">今天的实践记录</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">내가 선택한 Python 환경의 경로</span><span class="zh">我选择的 Python 环境的路径</span></li>
+      <li><span class="ko">Notebook 결과가 나타난 위치</span><span class="zh">Notebook 结果出现的位置</span></li>
+      <li><span class="ko"><code>.py</code> 결과가 나타난 위치</span><span class="zh"><code>.py</code> 结果出现的位置</span></li>
+      <li><span class="ko">오늘 만난 오류 이름</span><span class="zh">今天遇到的报错名称</span></li>
+      <li><span class="ko">오류를 고친 방법</span><span class="zh">修好报错的方法</span></li>
+      <li><span class="ko">AI에게 도움받은 부분</span><span class="zh">从 AI 得到帮助的部分</span></li>
+      <li><span class="ko">AI 설명이 맞는지 확인한 방법</span><span class="zh">确认 AI 的说明是否正确的方法</span></li>
+      <li><span class="ko">아직 이해하지 못한 부분</span><span class="zh">还没理解的部分</span></li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">마지막 칸을 비워 두지 마세요</span><span class="zh">最后一格不要留白</span></div>
+      <p><span class="ko">“아직 이해하지 못한 부분”을 적는 것은 실력이 부족하다는 표시가 아니라 <b>정확한 자기 평가</b>입니다. 1-1에서 약속한 대로, 이 수업은 그것을 높이 봅니다.</span><span class="zh">写下“还没理解的部分”，不是水平不够的标志，而是<b>准确的自我评估</b>。正如 1-1 约定的，这门课看重的正是这一点。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s22_2">
+    <div class="kick"><span class="ko">22. 기록</span><span class="zh">22. 记录</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">실습 기록과 완료 확인</span><span class="zh">实践记录与完成确认 </span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">완료 확인</span><span class="zh">完成确认</span></h3>
+
+    <ul class="blist checks">
+      <li><span class="ko">PowerShell에서 <code>pwd</code>, <code>ls</code>, <code>cd</code>와 <code>code .</code>을 사용했다.</span><span class="zh">在 PowerShell 里使用了 <code>pwd</code>、<code>ls</code>、<code>cd</code> 和 <code>code .</code>。</span></li>
+      <li><span class="ko">VS Code와 Python·Jupyter 확장을 설치하고 <b>역할을 구분</b>했다.</span><span class="zh">安装了 VS Code 与 Python、Jupyter 扩展，并<b>区分了各自职责</b>。</span></li>
+            <li><span class="ko">Node.js LTS를 설치하고 <code>node --version</code>·<code>npm --version</code>을 확인했다.</span><span class="zh">安装了 Node.js LTS，并确认了 <code>node --version</code>、<code>npm --version</code>。</span></li>
+      <li><span class="ko">OpenCode를 설치하고 수업에서 지정한 AI 모델에 연결했다.</span><span class="zh">安装了 OpenCode，并连接到课上指定的 AI 模型。</span></li>
+      <li><span class="ko">OpenCode가 폴더를 <b>읽게만</b> 하고 파일은 수정하지 않도록 요청했다.</span><span class="zh">要求 OpenCode <b>只读</b>文件夹，不修改文件。</span></li>
+      <li><span class="ko">API 키와 개인정보를 코드·채팅·화면 캡처에 넣지 않아야 함을 안다.</span><span class="zh">知道不可把 API 密钥与个人信息放进代码、聊天或截图。</span></li>
+      <li><span class="ko">uv, Python과 가상환경의 역할을 구분했다.</span><span class="zh">区分了 uv、Python 与虚拟环境的职责。</span></li>
+      <li><span class="ko">가상환경을 쓰는 이유를 <b>두 가지 이상</b> 설명할 수 있다.</span><span class="zh">能说出使用虚拟环境的理由<b>两条以上</b>。</span></li>
+      <li><span class="ko"><code>uv --version</code>과 <code>uv run python --version</code>으로 설치 상태를 확인했다.</span><span class="zh">用 <code>uv --version</code> 和 <code>uv run python --version</code> 确认了安装状态。</span></li>
+      <li><span class="ko"><code>pyproject.toml</code>, <code>uv.lock</code>과 <code>.venv</code>의 역할을 구분했다.</span><span class="zh">区分了 <code>pyproject.toml</code>、<code>uv.lock</code> 与 <code>.venv</code> 的职责。</span></li>
+      <li><span class="ko">수업 폴더 <b>전체</b>를 VS Code로 열었다.</span><span class="zh">用 VS Code 打开了<b>整个</b>课程文件夹。</span></li>
+      <li><span class="ko"><code>.venv</code>의 Python 인터프리터와 Notebook 커널을 선택했다.</span><span class="zh">选择了 <code>.venv</code> 的 Python 解释器与 Notebook 内核。</span></li>
+      <li><span class="ko">실행 <b>전에</b> 결과를 예상했다.</span><span class="zh">在运行<b>之前</b>预测了结果。</span></li>
+      <li><span class="ko">Notebook 셀을 실행하고 값을 바꾸었다.</span><span class="zh">运行了 Notebook 单元格并改动了数值。</span></li>
+      <li><span class="ko">일부러 만든 오류를 읽고 수정했다.</span><span class="zh">读懂了故意造出的报错并加以修正。</span></li>
+      <li><span class="ko">AI의 설명을 받고 <b>맞는지 검증</b>했다.</span><span class="zh">拿到 AI 的说明后<b>验证了它是否正确</b>。</span></li>
+      <li><span class="ko"><code>.py</code> 파일을 저장하고 실행했다.</span><span class="zh">保存并运行了 <code>.py</code> 文件。</span></li>
+      <li><span class="ko">커널을 다시 시작한 뒤 Notebook 전체를 다시 실행했다.</span><span class="zh">重启内核后重新运行了整份 Notebook。</span></li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 23 ══════════ -->
+  <section class="page" id="s23">
+    <div class="kick"><span class="ko">23. 정리</span><span class="zh">23. 小结</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko">도구마다 역할이 다르다. VS Code는 <b>편집</b>, Python은 <b>실행</b>, 확장은 <b>연결</b>, Node.js는 <b>OpenCode의 기반</b>, uv는 <b>환경 관리</b>다.</span><span class="zh">每个工具职责不同。VS Code 管<b>编辑</b>，Python 管<b>执行</b>，扩展管<b>连接</b>，Node.js 是 <b>OpenCode 的基础</b>，uv 管<b>环境管理</b>。</span></li>
+        <li><span class="ko">CLI로 설치하는 이유는 <b>같은 명령을 정확히 기록하고 반복</b>할 수 있기 때문이다. 명령 전에는 <code>pwd</code>로 위치를 확인한다.</span><span class="zh">用 CLI 安装的理由，是能<b>准确记录并重复同一条命令</b>。执行命令前先用 <code>pwd</code> 确认位置。</span></li>
+        <li><span class="ko"><b>가상환경</b>은 프로젝트별로 Python과 라이브러리를 분리한다. 보안 격리 장치가 아니다.</span><span class="zh"><b>虚拟环境</b>按项目把 Python 与库分开。它不是安全隔离装置。</span></li>
+        <li><span class="ko"><code>.venv</code>는 <b>실행 환경</b>, <code>pyproject.toml</code>과 <code>uv.lock</code>은 <b>환경을 다시 만드는 기록</b>이다. 공유할 때는 기록을 전달한다.</span><span class="zh"><code>.venv</code> 是<b>运行环境</b>，<code>pyproject.toml</code> 和 <code>uv.lock</code> 是<b>重建环境的记录</b>。分享时交出记录。</span></li>
+        <li><span class="ko">터미널·VS Code 인터프리터·Notebook 커널 <b>세 곳이 모두 같은 <code>.venv</code></b>를 가리켜야 한다.</span><span class="zh">终端、VS Code 解释器、Notebook 内核<b>三处都必须指向同一个 <code>.venv</code></b>。</span></li>
+        <li><span class="ko">코드는 <b>읽기 → 예상 → 실행 → 비교 → 수정</b> 순서로 다룬다.</span><span class="zh">处理代码的顺序是<b>读 → 预测 → 运行 → 对照 → 修改</b>。</span></li>
+        <li><span class="ko"><b>오류는 안내문</b>이다. 이름·줄 번호·차이 세 가지를 먼저 적는다.</span><span class="zh"><b>报错是说明书</b>。先写下名称、行号、差异这三条。</span></li>
+        <li><span class="ko">AI에게는 “고쳐 줘”가 아니라 <b>“설명해 줘”</b>로 시작하고, 받은 설명을 내 기록과 대조해 <b>검증</b>한다.</span><span class="zh">向 AI 不要说“帮我改”，而要从<b>“帮我解释”</b>开始，并把收到的说明与自己的记录对照<b>验证</b>。</span></li>
+        <li><span class="ko">Notebook은 완성 후 <b>커널 다시 시작 → 모두 실행</b>으로 재현성을 확인한다.</span><span class="zh">Notebook 完成后要用<b>重启内核 → 全部运行</b>确认可重现性。</span></li>
+        <li><span class="ko">API 키·개인정보는 코드·채팅·저장소에 넣지 않고, 학교 정책을 우회하지 않는다.</span><span class="zh">API 密钥与个人信息不放进代码、聊天或代码仓库，也不绕过学校策略。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s23_3">
+    <div class="kick"><span class="ko">23. 정리</span><span class="zh">23. 小结</span><b>2-2</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">오늘 <code>name = "다현"</code>이라는 코드를 썼습니다. 등호는 ‘같다’가 아니라 ‘넣어라’라는 뜻이라고 지나가듯 말했고, <code>+</code>가 숫자에서는 더하기, 글자에서는 이어 붙이기라고도 했습니다. 다음 차시에서는 이 이야기들을 제대로 다룹니다. <b>값</b>이란 무엇이고, <b>자료형</b>은 왜 나뉘며, <b>변수</b>는 어떻게 값을 기억하는지 살펴봅니다.</span><span class="zh">今天我们写了 <code>name = "다현"</code> 这段代码。当时顺口说过等号不是“相等”而是“放进去”，也说过 <code>+</code> 在数字上是相加、在文字上是拼接。下一课时我们正式讲这些：<b>值</b>是什么、<b>数据类型</b>为什么要分、<b>变量</b>又是怎样记住值的。</span></p>
+      <a class="next" href="03-1.html">3-1. 값과 변수로 정보 표현하기 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="02-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">2-1. 프로그래밍 언어와 Python</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="03-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">3-1. 값과 변수로 정보 표현하기</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

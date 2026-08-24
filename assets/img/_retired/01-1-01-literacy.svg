@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#fff"/><style>text{font-family:Arial,'Apple SD Gothic Neo',sans-serif;fill:#1B1D21}.h{font-size:42px;font-weight:700}.l{font-size:31px;font-weight:700}.s{font-size:24px;fill:#6C7078}</style>
+  <text x="800" y="80" text-anchor="middle" class="h">서로 포개지고 넓어지는 문해력</text>
+  <rect x="175" y="125" width="1250" height="680" fill="#F1F2F4" stroke="#6C7078" stroke-width="5"/>
+  <text x="250" y="190" class="l" fill="#FF5C00">AI 문해력</text>
+  <rect x="300" y="235" width="1000" height="500" fill="#F1F2F4" stroke="#C7C9CE" stroke-width="4"/>
+  <text x="370" y="300" class="l">디지털 문해력</text>
+  <rect x="455" y="345" width="690" height="320" fill="#fff" stroke="#6C7078" stroke-width="4"/>
+  <text x="520" y="410" class="l">문해력</text>
+  <rect x="620" y="455" width="360" height="145" fill="#E8EAED" stroke="#6C7078" stroke-width="4"/>
+  <text x="800" y="520" text-anchor="middle" class="l">정보</text>
+  <circle cx="800" cy="565" r="15" fill="#FF5C00"/><text x="835" y="574" class="s">데이터</text>
+  <text x="800" y="850" text-anchor="middle" class="s">안쪽의 개념을 바탕으로 바깥쪽의 능력이 확장된다</text>
+</svg>

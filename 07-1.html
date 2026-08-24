@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>7-1. 관계형 데이터베이스의 기초 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 7-1 — 관계형 데이터베이스의 기초. 표·행·열, 기본키와 외래키, 1:N 관계와 JOIN을 예시에서 알아본다" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>7-1</em> <span class="lesson">관계형 데이터베이스의 기초</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 7-1</span><span class="zh">本课时 — 7-1</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 껐다 켜니 사라진 것</a>
+  <a href="#s1"><span class="n">1</span> 데이터베이스가 하는 일</a>
+  <a href="#s1b"><span class="n">·</span> 참고 — NoSQL도 있다</a>
+  <a href="#s2"><span class="n">2</span> 표는 같은 종류를 모은다</a>
+  <a href="#s3"><span class="n">3</span> 열에는 값의 종류가 있다</a>
+  <a href="#s4"><span class="n">4</span> 기본키는 행을 구별한다</a>
+  <a href="#s5"><span class="n">5</span> 반복되면 표를 나눈다</a>
+  <a href="#s6"><span class="n">6</span> 외래키는 다른 표를 가리킨다</a>
+  <a href="#s7"><span class="n">7</span> 1:N 관계</a>
+  <a href="#s8"><span class="n">8</span> JOIN</a>
+  <a href="#s9"><span class="n">9</span> 표가 하나여도 된다</a>
+  <a href="#s10"><span class="n">10</span> 흔한 오해</a>
+  <a href="#s11"><span class="n">11</span> 학습 범위</a>
+  <a href="#s12"><span class="n">12</span> 확인 문제</a>
+  <a href="#s13"><span class="n">13</span> 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html" class="here"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">7회 · 첫째 차시</span><span class="zh">第 7 次课 · 第 1 课时</span></div>
+    <h1><span class="ko">관계형 데이터베이스의<br/>기초</span><span class="zh">关系数据库<br/>基础</span></h1>
+    <div class="osub"><span class="ko">서비스가 기억해야 할 정보를 어떤 표에 나누어 저장하고,<br/>필요한 순간에 어떻게 연결해 보여 주는지 살펴봅니다.</span><span class="zh">看看服务要记住的信息该分到哪些表里保存，<br/>需要的时候又怎样连起来展示。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 6-2. 서비스 제작 계획서(PRD) 시작하기<br/>
+      <b>다음 차시</b> · 7-2. PRD에 데이터 목록 덧붙이기</span><span class="zh"><b>上一课时</b> · 6-2. 服务制作计划书（PRD）起步<br/> <b>下一课时</b> · 7-2. 给 PRD 补上数据清单</span></div>
+  </section>
+
+  <!-- ══════════ 들어가며 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">껐다 켜니 사라진 것</span><span class="zh">关掉再打开就没了的东西</span></h2>
+
+    <div class="scene">
+      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
+      <p><span class="ko">메모장 프로그램을 열어 할 일을 세 개 적었습니다. 화면에 잘 보입니다. 그런데 창을 닫았다가 다시 열었더니 <b>아무것도 없습니다.</b></span><span class="zh">打开记事本程序，写下三件要做的事，屏幕上看得清清楚楚。可关掉窗口再打开，<b>什么都没有了</b>。</span></p>
+      <p><span class="ko">반면 휴대전화의 메모 앱은 다릅니다. 껐다 켜도, 며칠이 지나도 적어 둔 것이 그대로 있습니다. 심지어 지난달에 쓴 것도 찾아볼 수 있습니다.</span><span class="zh">手机上的备忘录 App 却不一样。关了再开，过几天也还在，甚至上个月写的都能翻出来。</span></p>
+      <p><span class="ko">같아 보이는 두 프로그램의 차이는 무엇일까요? 한쪽은 값을 <b>실행 중에만</b> 들고 있었고, 다른 한쪽은 <b>어딘가에 저장</b>해 두었습니다. 그 ‘어딘가’를 오늘 다룹니다.</span><span class="zh">看起来一样的两个程序，差别在哪里？一个只在<b>运行期间</b>拿着那些值，另一个把它们<b>存到了某个地方</b>。今天讲的就是那个“某个地方”。</span></p>
+    </div>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
+      <p><span class="ko">서비스가 기억해야 할 정보를 어떤 표에 나누어 저장하고,<br/>필요한 순간에 어떻게 연결해 보여 줄까?</span><span class="zh">服务要记住的信息该分到哪些表里保存，<br/>需要的时候又怎样连起来展示？</span></p>
+    </div>
+
+    <div class="recall">
+      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
+      <ul class="blist">
+        <li><span class="ko">3-1에서 <b>변수</b>는 값에 붙인 이름이라고 배웠습니다. 변수의 값은 <b>프로그램이 끝나면 사라집니다.</b></span><span class="zh">3-1 学过，<b>变量</b>是给值取的名字。变量里的值<b>在程序结束时就会消失</b>。</span></li>
+        <li><span class="ko">4-1에서 <b>표</b>를 다뤘습니다. 행은 하나의 기록, 열은 항목이었습니다. 오늘도 같은 구조가 나옵니다.</span><span class="zh">4-1 处理过<b>表格</b>。行是一条记录，列是项目。今天出现的还是同样的结构。</span></li>
+        <li><span class="ko">5회 수행평가에서 <b>CSV 파일</b>에서 데이터를 읽었습니다. 파일도 저장 방법의 하나입니다.</span><span class="zh">第 5 次课的实作评价里，我们从 <b>CSV 文件</b>读过数据。文件也是保存方式之一。</span></li>
+        <li><span class="ko">6-2에서 시작한 <b>서비스 제작 계획서(PRD)</b>에 <b>5. 데이터</b> 항목이 비어 있습니다. 오늘 배운 뒤 다음 차시에 채웁니다.</span><span class="zh">6-2 起步的<b>服务制作计划书（PRD）</b>里，<b>5. 数据</b>那一项还空着。今天学完，下一课时来填。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s0_2">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">껐다 켜니 사라진 것</span><span class="zh">关掉再打开就没了的东西</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">오늘 배우지 않는 것</span><span class="zh">今天不学的东西</span></div>
+      <p><span class="ko">SQL 문법, 데이터베이스 프로그램 사용법, 그리고 <b>자신의 서비스에 쓸 데이터베이스를 직접 설계하는 일</b>은 이번 차시의 범위가 아닙니다.</span><span class="zh">SQL 语法、数据库程序的用法，以及<b>亲自为自己的服务设计数据库</b>，都不在本课时范围内。</span></p>
+      <p><span class="ko">제공된 예시를 통해 <b>표·행·열과 관계의 기본 개념</b>을 이해하고, 자신의 서비스에 어떤 정보 묶음이 필요할지만 생각합니다.</span><span class="zh">通过所给示例理解<b>表、行、列与关系的基本概念</b>，只想一想自己的服务需要哪些信息的组合。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 데이터베이스</span><span class="zh">1. 数据库</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">데이터베이스는 서비스를 다시 사용할 수 있게 한다</span><span class="zh">数据库让服务可以再次被使用</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">데이터베이스</span><span class="en">database, DB</span></span><span class="zh"><span class="w">数据库</span><span class="en">database, DB</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">쇼핑 앱에서 장바구니에 물건을 담아 두고 앱을 껐습니다. 다음 날 다시 열었더니 <b>담아 둔 물건이 그대로</b> 있습니다. 내 휴대전화가 아니라 다른 기기로 접속해도 마찬가지입니다.</span><span class="zh">在购物 App 里把商品放进购物车，然后关掉了 App。第二天再打开，<b>放进去的东西还在</b>。不用自己的手机、换台设备登录也一样。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">서비스가 <b>나중에도 다시 꺼내 볼 수 있도록</b> 정보를 모아 두는 곳입니다.</span><span class="zh">它是服务为了<b>以后还能再取出来看</b>而把信息聚在一起的地方。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">여러 사람이나 프로그램이 함께 사용할 수 있도록 구조를 정해 저장하고 관리하는 데이터의 모음.</span><span class="zh">为了让多个人或程序共同使用，按既定结构保存并加以管理的数据集合。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko"><b>변수</b>는 프로그램이 실행되는 동안에만 값을 들고 있습니다. <b>파일</b>은 저장되지만 원하는 줄만 골라 꺼내기는 번거롭습니다. <b>데이터베이스</b>는 저장뿐 아니라 <b>찾고, 고치고, 연결하는 일</b>까지 맡습니다.</span><span class="zh"><b>变量</b>只在程序运行期间拿着值。<b>文件</b>能保存，但想只挑出某一行取出来会很麻烦。<b>数据库</b>不只负责保存，还负责<b>查找、修改和连接</b>。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“이 서비스는 사용자가 적은 기록을 데이터베이스에 저장한다.”</span><span class="zh">“这个服务把用户写下的记录保存到数据库里。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">프로그램의 변수에 들어 있는 값은 실행이 끝나면 사라질 수 있습니다. 다음에 다시 실행해도 기록을 보고 수정하려면 데이터를 <b>파일이나 데이터베이스에 저장</b>해야 합니다.</span><span class="zh">程序里变量装着的值，运行一结束就可能消失。要在下次运行时还能看到并修改记录，就得把数据<b>保存到文件或数据库</b>。</span></p>
+
+    <p><span class="ko">관계형 데이터베이스 관리 시스템인 <span class="tt">RDBMS</span>(Relational Database Management System)는 데이터를 <b>서로 관련된 표</b>로 저장하고 관리합니다.</span><span class="zh">作为关系数据库管理系统的 <span class="tt">RDBMS</span>（Relational Database Management System），把数据以<b>彼此关联的表</b>来保存和管理。</span></p>
+  </section>
+
+  <section class="page" id="s1_2">
+    <div class="kick"><span class="ko">1. 데이터베이스</span><span class="zh">1. 数据库</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">데이터베이스는 서비스를 다시 사용할 수 있게 한다</span><span class="zh">数据库让服务可以再次被使用</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">데이터베이스 안의 모습</span></span><span class="zh"><span class="fn">数据库里的样子</span></span></div>
+      <pre><code>데이터베이스
+├─ 사용자 표
+├─ 게시글 표
+└─ 댓글 표</code></pre>
+    </div>
+
+    <p><span class="ko">이번 수업에서는 특정 제품의 사용법보다 <b>표와 관계의 원리</b>를 먼저 다룹니다. 개발 단계에서는 이 이해를 수업에서 정한 데이터베이스 도구와 연결합니다.</span><span class="zh">这门课比起某个具体产品的用法，先讲<b>表与关系的原理</b>。到了开发阶段，再把这份理解与课上定下的数据库工具接起来。</span></p>
+
+    <div class="note">
+      <div class="nt"><span class="ko">‘관계형’이라는 말</span><span class="zh">“关系型”这个词</span></div>
+      <p><span class="ko">표 여러 개를 두고 <b>서로 이어 놓는다</b>는 뜻입니다. 사람 사이의 관계가 아니라 <b>표와 표 사이의 연결</b>을 가리킵니다. 어떻게 잇는지는 6절에서 다룹니다.</span><span class="zh">意思是摆上好几张表，并<b>把它们彼此接起来</b>。指的不是人际关系，而是<b>表与表之间的连接</b>。怎么接，第 6 节讲。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1b ══════════ -->
+  <section class="page" id="s1b">
+    <div class="kick"><span class="ko">1. 데이터베이스 (이어서)</span><span class="zh">1. 数据库（续）</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">참고 — NoSQL도 있다</span><span class="zh">参考 — 也有 NoSQL</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이 — 표가 아닌 저장 방식</span><span class="zh">更深一层 — 不是表的保存方式</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+
+      <p><span class="ko">데이터베이스가 모두 관계형 표를 사용하는 것은 아닙니다. 데이터를 문서나 키와 값처럼 다른 형태로 저장하는 <b>NoSQL</b> 방식도 있습니다.</span><span class="zh">并不是所有数据库都用关系表。也有把数据以文档、或键与值等其他形态保存的 <b>NoSQL</b> 方式。</span></p>
+
+      <p><span class="ko">NoSQL은 하나의 제품 이름이 아니고, RDBMS보다 <b>더 새롭거나 더 나은 상위 방식도 아닙니다.</b> 서비스의 데이터와 사용 목적에 따라 고르는 <b>여러 저장 방식의 묶음</b>을 부르는 말입니다.</span><span class="zh">NoSQL 不是某个产品的名字，也<b>不是比 RDBMS 更新或更高级的方式</b>。它是对<b>按服务的数据与使用目的来挑选的若干种保存方式</b>的统称。</span></p>
+
+      <h3 class="sub"><span class="ko">키–값 방식</span><span class="zh">键–值方式</span></h3>
+      <p><span class="ko">하나의 키에 하나의 값을 연결합니다. 설정값처럼 단순한 것을 담기에 좋습니다.</span><span class="zh">把一个键和一个值连起来。装设置值这类简单东西很合适。</span></p>
+      <div class="code">
+        <pre><code>theme : dark
+last_page : 7</code></pre>
+      </div>
+
+      <h3 class="sub"><span class="ko">문서형 방식</span><span class="zh">文档型方式</span></h3>
+      <p><span class="ko">서로 관련된 값을 하나의 문서처럼 묶어 저장할 수 있습니다.</span><span class="zh">可以把彼此相关的值像一份文档那样打包保存。</span></p>
+      <div class="code">
+        <pre><code>{
+  "title": "어린 왕자",
+  "rating": 5
+}</code></pre>
+      </div>
+
+      <p><span class="ko">이 밖에도 여러 NoSQL 방식이 있지만, 이번 수업에서는 <b>종류를 외우거나 직접 설계하지 않습니다.</b></span><span class="zh">除此之外还有多种 NoSQL 方式，但这门课<b>不要求记住种类，也不亲自设计</b>。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s1b_2">
+    <div class="kick"><span class="ko">1. 데이터베이스 (이어서)</span><span class="zh">1. 数据库（续）</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">참고 — NoSQL도 있다</span><span class="zh">参考 — 也有 NoSQL</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">그런데도 RDBMS를 배우는 이유</span><span class="zh">那为什么还是学 RDBMS</span></div>
+      <p><span class="ko">실제 웹서비스에서는 RDBMS가 여전히 많이 사용됩니다. 그리고 <b>표와 관계를 이해하면</b> 데이터가 어떻게 저장되고 연결되는지 파악하기 좋습니다.</span><span class="zh">真实的网络服务里，RDBMS 至今仍被大量使用。而且<b>理解了表与关系</b>，就更容易看懂数据是怎么保存、怎么连接的。</span></p>
+      <p><span class="ko">그래서 이번 수업에서는 NoSQL의 종류와 사용법까지 다루지 않고 <b>RDBMS를 중심으로</b> 배웁니다. NoSQL은 “그런 것도 있다”는 정도로 알아 두면 충분합니다.</span><span class="zh">所以这门课不讲到 NoSQL 的种类与用法，而是<b>以 RDBMS 为中心</b>来学。NoSQL 知道“还有这么一类”就够了。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 표·행·열</span><span class="zh">2. 表 · 行 · 列</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">표는 같은 종류의 대상을 모은다</span><span class="zh">表把同一类对象聚在一起</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">독서 기록을 담은 표를 예로 봅니다. 4-1에서 본 표와 구조가 같습니다.</span><span class="zh">以装读书记录的表为例。它和 4-1 见过的表结构相同。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th class="c" style="width:60px">id</th><th style="width:30%">title</th><th class="c" style="width:80px">rating</th><th>comment</th></tr>
+      <tr><td class="c">1</td><td><span class="ko">어린 왕자</span><span class="zh">小王子</span></td><td class="c">5</td><td><span class="ko">다시 읽고 싶다.</span><span class="zh">想再读一遍。</span></td></tr>
+      <tr><td class="c">2</td><td><span class="ko">모모</span><span class="zh">毛毛</span></td><td class="c">4</td><td><span class="ko">시간에 대해 생각했다.</span><span class="zh">想了想关于时间的事。</span></td></tr>
+    </table>
+    </div>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:150px"><span class="ko">이름</span><span class="zh">名称</span></th><th><span class="ko">무엇인가</span><span class="zh">是什么</span></th></tr>
+      <tr><td><span class="ko"><b>표</b> <code>table</code></span><span class="zh"><b>表</b> <code>table</code></span></td><td><span class="ko">같은 종류의 데이터를 모은 구조</span><span class="zh">把同一类数据聚起来的结构</span></td></tr>
+      <tr><td><span class="ko"><b>행</b> <code>row</code></span><span class="zh"><b>行</b> <code>row</code></span></td><td><span class="ko">저장된 대상 하나 — 위 표에서 가로 한 줄</span><span class="zh">被保存的一个对象 — 上表中横着的一条</span></td></tr>
+      <tr><td><span class="ko"><b>열</b> <code>column</code></span><span class="zh"><b>列</b> <code>column</code></span></td><td><span class="ko">대상이 가진 항목 — 위 표에서 세로 한 칸</span><span class="zh">对象所具有的项目 — 上表中竖着的一格</span></td></tr>
+    </table>
+    </div>
+
+    <p><span class="ko">표를 만들기 전에 <b>한 행이 무엇을 뜻하는지</b> 먼저 문장으로 정해야 합니다.</span><span class="zh">做表之前，要先用一句话定下<b>一行代表什么</b>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">먼저 정할 문장</span></span><span class="zh"><span class="fn">要先定下的句子</span></span></div>
+      <pre><code>이 표의 한 행은 독서 기록 하나를 나타낸다.</code></pre>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">서로 다른 종류를 한 표에 섞지 않습니다</span><span class="zh">不要把不同种类混进一张表</span></div>
+      <p><span class="ko">‘책’과 ‘독서 기록’과 ‘회원’을 한 표에 넣으면, 어떤 행은 책이고 어떤 행은 기록이 되어 <b>한 행이 무엇인지 말할 수 없게 됩니다.</b></span><span class="zh">把“书”“读书记录”“会员”放进同一张表，就会有的行是书、有的行是记录，<b>说不清一行到底是什么</b>。</span></p>
+      <p><span class="ko">그러면 “기록을 세어 보자” 같은 간단한 일도 어려워집니다. 무엇을 세야 할지 정할 수 없기 때문입니다.</span><span class="zh">那样一来，连“数一数有多少条记录”这种简单的事都变难了，因为定不下来该数什么。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s2_2">
+    <div class="kick"><span class="ko">2. 표·행·열</span><span class="zh">2. 表 · 行 · 列</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">표는 같은 종류의 대상을 모은다</span><span class="zh">表把同一类对象聚在一起</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">표를 볼 때 던지는 첫 질문</span><span class="zh">看一张表时先问的第一个问题</span></div>
+      <p><span class="ko">“이 표의 <b>한 행</b>은 무엇인가?” 이 질문에 한 문장으로 답할 수 있으면 그 표는 잘 만들어진 것입니다.</span><span class="zh">“这张表的<b>一行</b>是什么？”能用一句话回答，这张表就做得不错。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 값의 종류</span><span class="zh">3. 值的种类</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">열에는 이름과 값의 종류가 있다</span><span class="zh">列有名称，也有值的种类</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
+
+    <p class="lead"><span class="ko">각 열에는 <b>어떤 종류의 값</b>이 들어갈지 정해집니다. 3-1에서 다룬 데이터 타입과 같은 생각입니다.</span><span class="zh">每一列会定下要装<b>哪种值</b>。这和 3-1 讲的数据类型是同一个想法。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:130px"><span class="ko">데이터 종류</span><span class="zh">数据种类</span></th><th style="width:32%"><span class="ko">예</span><span class="zh">例</span></th><th><span class="ko">사용하는 상황</span><span class="zh">使用的场合</span></th></tr>
+      <tr><td><span class="ko">글자</span><span class="zh">文字</span></td><td><span class="ko">제목, 설명</span><span class="zh">标题、说明</span></td><td><span class="ko">문장을 저장할 때</span><span class="zh">保存句子时</span></td></tr>
+      <tr><td><span class="ko">정수</span><span class="zh">整数</span></td><td><span class="ko">수량, 점수</span><span class="zh">数量、分数</span></td><td><span class="ko">소수점 없는 수</span><span class="zh">没有小数点的数</span></td></tr>
+      <tr><td><span class="ko">소수</span><span class="zh">小数</span></td><td><span class="ko">평균, 비율</span><span class="zh">平均、比例</span></td><td><span class="ko">소수점이 필요한 수</span><span class="zh">需要小数点的数</span></td></tr>
+      <tr><td><span class="ko">날짜와 시간</span><span class="zh">日期与时间</span></td><td><span class="ko">작성 시각</span><span class="zh">撰写时刻</span></td><td><span class="ko">언제 생겼는지 기록할 때</span><span class="zh">记录什么时候产生时</span></td></tr>
+      <tr><td><span class="ko">참·거짓</span><span class="zh">真 · 假</span></td><td><span class="ko">완료 여부</span><span class="zh">是否完成</span></td><td><span class="ko">두 상태 중 하나를 나타낼 때</span><span class="zh">表示两种状态之一时</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">자료형 이름을 외우지 않습니다</span><span class="zh">不背数据类型的名称</span></div>
+      <p><span class="ko">데이터베이스 제품마다 자료형 이름이 다릅니다. 그 이름을 외우거나, <b>자신의 서비스에 사용할 열과 자료형을 결정하는 일은 하지 않습니다.</b></span><span class="zh">每个数据库产品的数据类型名称都不同。我们不背那些名称，也<b>不决定自己服务要用的列与数据类型</b>。</span></p>
+      <p><span class="ko">제공된 예시에서 <b>열마다 서로 다른 종류의 값이 들어갈 수 있다</b>는 점만 이해하면 됩니다.</span><span class="zh">只要从所给示例里理解<b>每一列可以装不同种类的值</b>这一点就够了。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">3-1과 이어지는 부분</span><span class="zh">与 3-1 相连的地方</span></div>
+      <p><span class="ko">3-1에서 <code>1200</code>과 <code>"1200"</code>이 <b>보기에 같아도 다른 값</b>이라고 배웠습니다. 표에서도 마찬가지입니다. 평점 열이 글자면 더하거나 평균을 낼 수 없고, 정수면 계산할 수 있습니다.</span><span class="zh">3-1 学过，<code>1200</code> 和 <code>"1200"</code> <b>看着一样却是不同的值</b>。表里也一样。评分那一列若是文字，就没法相加或求平均；若是整数，就能计算。</span></p>
+      <p><span class="ko">어떤 종류로 둘지는 개발 단계에서 AI가 제안하고 사람이 검토합니다. 지금은 <b>종류가 다르면 할 수 있는 일도 달라진다</b>는 것만 기억하면 됩니다.</span><span class="zh">定成哪种，由开发阶段 AI 提议、人来审。现在只要记住<b>种类不同，能做的事也不同</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 기본키</span><span class="zh">4. 主键</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">기본키는 각 행을 하나로 구별한다</span><span class="zh">主键把每一行唯一地区分开</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">기본키</span><span class="en">PK, Primary Key</span></span><span class="zh"><span class="w">主键</span><span class="en">PK, Primary Key</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">같은 반에 ‘김민준’이 두 명 있습니다. 선생님이 “민준이 성적을 고쳐야겠다”라고 하면 누구를 말하는지 알 수 없습니다. 그래서 학교는 <b>학번</b>을 씁니다.</span><span class="zh">班里有两个“金敏俊”。老师说“得改一下敏俊的成绩”，你不知道说的是谁。所以学校用<b>学号</b>。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">표에서 <b>이 행 하나</b>를 딱 집어낼 수 있게 해 주는 값입니다.</span><span class="zh">它是让你能在表里<b>准确点出这一行</b>的值。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">한 표 안에서 각 행을 유일하게 구별하기 위해 지정한 열. 값이 겹치지 않으며 비어 있을 수 없다.</span><span class="zh">为在一张表内唯一区分每一行而指定的列。其值不重复，也不能为空。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">제목이나 이름도 행을 가리키는 데 쓸 수 있을 것 같지만, <b>같을 수 있고 나중에 바뀔 수 있습니다.</b> 기본키는 변하지 않는 값이어야 합니다.</span><span class="zh">标题或姓名看似也能用来指一行，但它们<b>可能相同，日后也可能变</b>。主键必须是不会变的值。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“독서 기록 표의 기본키는 <code>id</code>다.”</span><span class="zh">“读书记录表的主键是 <code>id</code>。”</span></dd>
+      </dl>
+    </div>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">독서 기록 표의 구조</span></span><span class="zh"><span class="fn">读书记录表的结构</span></span></div>
+      <pre><code>독서 기록
+- id (PK)
+- title
+- rating
+- comment</code></pre>
+    </div>
+
+    <p><span class="ko">이 수업에서는 각 표에 <b>자동으로 생성되는 <code>id</code></b>를 기본키로 둡니다. 학생이 직접 정할 필요가 없습니다.</span><span class="zh">这门课在每张表里放<b>自动生成的 <code>id</code></b> 作主键。学生不必自己去定。</span></p>
+  </section>
+
+  <section class="page" id="s4_2">
+    <div class="kick"><span class="ko">4. 기본키</span><span class="zh">4. 主键</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">기본키는 각 행을 하나로 구별한다</span><span class="zh">主键把每一行唯一地区分开</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <ul class="blist">
+      <li><span class="ko">기본키 값은 <b>한 표 안에서 겹치지 않습니다.</b></span><span class="zh">主键的值<b>在一张表内不会重复</b>。</span></li>
+      <li><span class="ko">한 행을 <b>찾고 수정하거나 다른 표와 연결할 때</b> 사용합니다.</span><span class="zh">在<b>查找、修改某一行或与其他表连接时</b>使用。</span></li>
+      <li><span class="ko">실제 이름, 전화번호와 같은 <b>개인정보를 기본키로 사용하지 않습니다.</b></span><span class="zh"><b>不用真实姓名、电话号码这类个人信息作主键。</b></span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">세 번째 항목이 중요합니다</span><span class="zh">第三条很重要</span></div>
+      <p><span class="ko">전화번호를 기본키로 쓰면 그 번호가 <b>표 곳곳에 퍼집니다.</b> 다른 표에서도 그 번호로 연결하기 때문입니다. 나중에 지우기도 어렵고, 새어 나갈 위험도 커집니다.</span><span class="zh">用电话号码作主键，这个号码就会<b>散到表的各处</b>，因为别的表也要靠它来连接。以后既难删除，泄露的风险也变大。</span></p>
+      <p><span class="ko">5-1에서 데이터에 개인정보를 넣지 않기로 한 원칙이 여기에도 그대로 적용됩니다.</span><span class="zh">5-1 定下的“数据里不放个人信息”这条原则，在这里同样适用。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. 표 나누기</span><span class="zh">5. 拆表</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">반복되는 대상을 별도 표로 나눈다</span><span class="zh">把重复出现的对象拆成单独的表</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">책 제목과 저자를 독서 기록마다 계속 적으면 <b>같은 정보가 반복</b>됩니다.</span><span class="zh">每条读书记录都写上书名和作者，<b>同样的信息就会重复</b>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">한 표에 다 넣으면</span></span><span class="zh"><span class="fn">全放进一张表的话</span></span></div>
+      <pre><code>책 정보 + 읽은 날짜 + 평점 + 감상
+책 정보 + 읽은 날짜 + 평점 + 감상
+책 정보 + 읽은 날짜 + 평점 + 감상</code></pre>
+    </div>
+
+    <p><span class="ko"><b>책 자체의 정보</b>와 <b>책을 읽은 기록</b>은 서로 다른 대상입니다. 다음처럼 나눌 수 있습니다.</span><span class="zh"><b>书本身的信息</b>和<b>读这本书的记录</b>是两种不同的对象。可以像下面这样拆开。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">두 표로 나누면</span></span><span class="zh"><span class="fn">拆成两张表的话</span></span></div>
+      <pre><code>[책]
+id(PK), title, author
+
+[독서 기록]
+id(PK), book_id(FK), read_date, rating, comment</code></pre>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">나누면 무엇이 좋아지는가</span><span class="zh">拆开之后好在哪里</span></div>
+      <p><span class="ko">책 제목에 오타가 있었다면, 나누기 전에는 <b>그 책이 나온 기록을 전부</b> 고쳐야 합니다. 나눈 뒤에는 <b>책 표의 한 줄</b>만 고치면 됩니다.</span><span class="zh">要是书名打错了，拆之前得把<b>出现过这本书的全部记录</b>都改一遍；拆之后只改<b>书表里的一行</b>就行。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">표를 많이 만드는 것이 목표가 아닙니다</span><span class="zh">目标不是多做几张表</span></div>
+      <p><span class="ko">다음 두 경우에만 분리를 검토합니다.</span><span class="zh">只有下面两种情况才考虑拆分。</span></p>
+      <ul class="blist">
+        <li><span class="ko">한 행이 <b>서로 다른 두 대상</b>을 동시에 나타낼 때</span><span class="zh">一行同时代表<b>两种不同的对象</b>时</span></li>
+        <li><span class="ko">같은 정보가 <b>계속 반복</b>될 때</span><span class="zh">同样的信息<b>不断重复</b>时</span></li>
+      </ul>
+      <p><span class="ko">그렇지 않다면 표 하나로 두는 편이 낫습니다. 표가 늘어날수록 연결해서 봐야 할 곳도 늘어납니다.</span><span class="zh">否则放在一张表里更好。表越多，需要连起来看的地方也越多。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. 외래키</span><span class="zh">6. 外键</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">외래키는 다른 표의 행을 가리킨다</span><span class="zh">外键指向另一张表的行</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">외래키</span><span class="en">FK, Foreign Key</span></span><span class="zh"><span class="w">外键</span><span class="en">FK, Foreign Key</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">도서관 대출 기록에는 책 제목 전체가 아니라 <b>청구기호</b>만 적혀 있습니다. 그 기호로 서가의 책을 찾아갑니다.</span><span class="zh">图书馆的借阅记录上写的不是完整书名，而只是<b>索书号</b>。凭这个号去书架上找书。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">다른 표의 어떤 행을 가리키기 위해 <b>그 행의 번호를 적어 둔 열</b>입니다.</span><span class="zh">它是为了指向另一张表的某一行，而<b>写下那一行编号的列</b>。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">다른 표의 기본키를 참조하는 열. 두 표 사이의 연결을 만든다.</span><span class="zh">引用另一张表主键的列。它在两张表之间建立连接。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko"><b>기본키</b>는 자기 표 안에서 행을 구별하고, <b>외래키</b>는 다른 표의 행을 가리킵니다. 방향이 반대입니다.</span><span class="zh"><b>主键</b>在自己表内区分行，<b>外键</b>指向另一张表的行。方向正相反。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“독서 기록의 <code>book_id</code>는 책 표를 가리키는 외래키다.”</span><span class="zh">“读书记录里的 <code>book_id</code> 是指向书表的外键。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko"><code>독서 기록.book_id</code>는 <code>책.id</code>를 가리킵니다.</span><span class="zh"><code>독서 기록.book_id</code> 指向 <code>책.id</code>。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">가리키는 방향</span></span><span class="zh"><span class="fn">指向的方向</span></span></div>
+      <pre><code>책.id(PK)  ←  독서 기록.book_id(FK)</code></pre>
+    </div>
+
+    <p><span class="ko">외래키에는 책 제목 전체가 아니라 <b>어떤 책인지 식별할 <code>id</code></b>가 들어갑니다. 이를 통해 <b>책 제목이 바뀌어도</b> 독서 기록과의 연결을 유지할 수 있습니다.</span><span class="zh">外键里放的不是完整书名，而是<b>能识别是哪本书的 <code>id</code></b>。这样<b>即使书名改了</b>，也能保住与读书记录的连接。</span></p>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick"><span class="ko">6. 외래키</span><span class="zh">6. 外键</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">외래키는 다른 표의 행을 가리킨다</span><span class="zh">外键指向另一张表的行</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">독서 기록에 <code>book_id</code> 대신 <code>book_title</code>을 넣고 제목을 그대로 적으면 어떤 문제가 생길까?</span><span class="zh">如果读书记录里不放 <code>book_id</code>，而放 <code>book_title</code> 直接写书名，会出什么问题？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">첫째, <b>제목이 바뀌면 연결이 끊깁니다.</b> 책 표의 제목만 고치면 기록 쪽 제목과 달라져 서로를 찾지 못합니다.</span><span class="zh">第一，<b>书名一改，连接就断了</b>。只改书表里的书名，就和记录那边的书名对不上，彼此找不到。</span></p>
+          <p><span class="ko">둘째, <b>같은 제목의 다른 책</b>을 구분할 수 없습니다. 번역판이 여러 개면 어느 것인지 알 수 없습니다.</span><span class="zh">第二，<b>同名的不同书</b>没法区分。译本有好几个时，不知道是哪一个。</span></p>
+          <p><span class="ko">셋째, 같은 문자열이 기록마다 반복되어 <b>오타가 섞이기 쉽습니다.</b> 한 글자만 달라도 다른 책이 됩니다.</span><span class="zh">第三，同一串文字在每条记录里重复，<b>容易混进错字</b>。差一个字就成了另一本书。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. 1:N</span><span class="zh">7. 1:N</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">1:N은 하나와 여러 개의 관계다</span><span class="zh">1:N 是“一个”与“多个”的关系</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">책 한 권에는 <b>여러 독서 기록</b>이 연결될 수 있습니다. 같은 책을 두 번 읽고 두 번 기록할 수 있기 때문입니다.</span><span class="zh">一本书可以连着<b>多条读书记录</b>，因为同一本书可以读两遍、记两次。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">1:N 관계</span></span><span class="zh"><span class="fn">1:N 关系</span></span></div>
+      <pre><code>[책] 1 ───── N [독서 기록]</code></pre>
+    </div>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:100px"><span class="ko">기호</span><span class="zh">符号</span></th><th><span class="ko">뜻</span><span class="zh">含义</span></th></tr>
+      <tr><td class="c"><b>1</b></td><td><span class="ko">책 한 권</span><span class="zh">一本书</span></td></tr>
+      <tr><td class="c"><b>N</b></td><td><span class="ko">그 책에 연결된 여러 독서 기록</span><span class="zh">连在那本书上的多条读书记录</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">외래키는 어느 쪽에 두는가</span><span class="zh">外键放在哪一边</span></div>
+      <p><span class="ko">외래키는 <b>여러 개가 있는 쪽</b>, 즉 <code>독서 기록</code> 표에 둡니다.</span><span class="zh">外键放在<b>“多”的那一边</b>，也就是 <code>독서 기록</code>（读书记录）表里。</span></p>
+      <p><span class="ko">반대로 두면 곤란해집니다. 책 표에 “이 책의 기록들” 칸을 만들면, 기록이 세 개일 때 한 칸에 세 개를 넣어야 합니다. 표의 한 칸에는 값 하나가 들어가는 것이 원칙입니다.</span><span class="zh">反过来放就麻烦了。在书表里做一格“这本书的记录们”，记录有三条时就得往一格里塞三个。表的一格里放一个值，这是原则。</span></p>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">여기까지가 공통 범위입니다</span><span class="zh">共同范围到此为止</span></div>
+      <p><span class="ko">이번 공통 수업에서는 <b>1:N 관계까지만</b> 다룹니다. 다대다 관계(N:M), 복합키와 정규화 단계는 <b>필수 범위가 아닙니다.</b></span><span class="zh">这门共同课只讲到 <b>1:N 关系</b>。多对多关系（N:M）、复合键与范式化阶段<b>不属于必修范围</b>。</span></p>
+      <p><span class="ko">이름을 들어 본 적이 있어도 지금 찾아볼 필요는 없습니다. 필요해지면 개발 단계에서 AI와 함께 다룹니다.</span><span class="zh">即使听说过这些名字，现在也不必去查。需要时会在开发阶段与 AI 一起处理。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. JOIN</span><span class="zh">8. JOIN</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">JOIN은 연결된 표의 정보를 함께 보는 방법이다</span><span class="zh">JOIN 是把相连表的信息一起看的方法</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">독서 기록 표에는 <code>book_id</code>만 있으므로 <b>그 표만 보면 책 제목을 알기 어렵습니다.</b></span><span class="zh">读书记录表里只有 <code>book_id</code>，<b>光看那张表很难知道书名</b>。</span></p>
+
+    <div class="row">
+      <div class="pane">
+        <div class="pt"><span class="ko">독서 기록 표만 보면</span><span class="zh">只看读书记录表</span></div>
+        <table class="kv" style="margin-top:10px">
+          <tr><th class="c">book_id</th><th class="c">rating</th></tr>
+          <tr><td class="c">1</td><td class="c">5</td></tr>
+        </table>
+        <p><span class="ko">1번이 무슨 책인지 알 수 없습니다.</span><span class="zh">不知道 1 号是什么书。</span></p>
+      </div>
+      <div class="pane accent">
+        <div class="pt"><span class="ko">책 표와 연결하면</span><span class="zh">和书表连起来</span></div>
+        <table class="kv" style="margin-top:10px">
+          <tr><th><span class="ko">책 제목</span><span class="zh">书名</span></th><th class="c"><span class="ko">평점</span><span class="zh">评分</span></th></tr>
+          <tr><td><span class="ko">어린 왕자</span><span class="zh">小王子</span></td><td class="c">5</td></tr>
+        </table>
+        <p><span class="ko">사람이 읽을 수 있는 결과가 됩니다.</span><span class="zh">就成了人能读懂的结果。</span></p>
+      </div>
+    </div>
+
+    <p><span class="ko">이처럼 관계로 연결된 표의 정보를 <b>필요한 순간에 함께 가져오는 것</b>을 <span class="tt">JOIN</span>이라고 합니다.</span><span class="zh">像这样，把靠关系相连的表的信息<b>在需要的时候一起取来</b>，就叫 <span class="tt">JOIN</span>。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th><span class="ko">책 제목</span><span class="zh">书名</span></th><th><span class="ko">읽은 날짜</span><span class="zh">阅读日期</span></th><th class="c"><span class="ko">평점</span><span class="zh">评分</span></th><th><span class="ko">감상</span><span class="zh">感想</span></th></tr>
+      <tr><td><span class="ko">어린 왕자</span><span class="zh">小王子</span></td><td>2026-08-10</td><td class="c">5</td><td><span class="ko">다시 읽고 싶다.</span><span class="zh">想再读一遍。</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">SQL 문장을 쓰지 않습니다</span><span class="zh">不写 SQL 语句</span></div>
+      <p><span class="ko">이번 수업에서는 JOIN 문장을 작성하거나 JOIN의 종류를 외우지 않습니다. 제공된 예시를 보고 다음 <b>세 가지를 알아볼 수 있으면</b> 충분합니다.</span><span class="zh">这门课不写 JOIN 语句，也不背 JOIN 的种类。看着所给示例，<b>能认出下面三件事</b>就够。</span></p>
+      <ol class="blist">
+        <li><span class="ko">어떤 <b>두 표</b>를 연결하는가?</span><span class="zh">连接的是哪<b>两张表</b>？</span></li>
+        <li><span class="ko">어느 <b>기본키와 외래키</b>가 연결되는가?</span><span class="zh">连接的是哪个<b>主键与外键</b>？</span></li>
+        <li><span class="ko">연결한 결과 화면에 <b>무엇을 보여 주는가</b>?</span><span class="zh">连接的结果在画面上<b>展示什么</b>？</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page" id="s8_2">
+    <div class="kick"><span class="ko">8. JOIN</span><span class="zh">8. JOIN</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">JOIN은 연결된 표의 정보를 함께 보는 방법이다</span><span class="zh">JOIN 是把相连表的信息一起看的方法</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note">
+      <div class="nt"><span class="ko">왜 처음부터 한 표에 다 넣지 않는가</span><span class="zh">为什么不一开始就全放进一张表</span></div>
+      <p><span class="ko">연결해서 봐야 한다면 번거로워 보입니다. 그러나 5절에서 본 것처럼, 나누지 않으면 <b>같은 정보가 반복되고 고칠 곳이 늘어납니다.</b></span><span class="zh">要连起来才能看，显得麻烦。可正如第 5 节所见，不拆开的话<b>同样的信息会重复，要改的地方也变多</b>。</span></p>
+      <p><span class="ko">나누어 저장하고 필요할 때 합쳐 보는 것 — 이것이 관계형 데이터베이스의 기본 생각입니다.</span><span class="zh">分开保存、需要时合起来看 —— 这就是关系数据库的基本想法。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">9. 표의 수</span><span class="zh">9. 表的数量</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">서비스마다 필요한 표의 수는 다르다</span><span class="zh">每个服务需要的表数各不相同</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">모든 프로젝트에 외래키와 JOIN을 <b>억지로 넣지 않습니다.</b> 단순한 메모장처럼 저장 대상이 한 종류뿐이라면 <b>표 하나가 더 올바른 설계</b>일 수 있습니다.</span><span class="zh">不要给所有项目<b>硬塞</b>外键和 JOIN。像简单的备忘录那样保存对象只有一种时，<b>一张表反而是更正确的设计</b>。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:36%"><span class="ko">서비스</span><span class="zh">服务</span></th><th class="c" style="width:90px"><span class="ko">표 수</span><span class="zh">表数</span></th><th><span class="ko">이유</span><span class="zh">理由</span></th></tr>
+      <tr><td><span class="ko">할 일 기록</span><span class="zh">待办记录</span></td><td class="c"><span class="ko">1개</span><span class="zh">1 张</span></td><td><span class="ko">저장 대상이 ‘할 일’ 한 종류뿐</span><span class="zh">保存对象只有“待办”这一种</span></td></tr>
+      <tr><td><span class="ko">독서 기록</span><span class="zh">读书记录</span></td><td class="c"><span class="ko">2개</span><span class="zh">2 张</span></td><td><span class="ko">‘책’과 ‘읽은 기록’이 서로 다른 대상</span><span class="zh">“书”和“阅读记录”是不同的对象</span></td></tr>
+      <tr><td><span class="ko">이야기 소재 만들기</span><span class="zh">生成故事素材</span></td><td class="c"><span class="ko">1개</span><span class="zh">1 张</span></td><td><span class="ko">사용자가 마음에 들어 보관한 소재를 다시 볼 수 있어야 함</span><span class="zh">用户收藏的素材要能再次查看</span></td></tr>
+    </table>
+    </div>
+
+    <p><span class="ko">학생은 자신의 서비스에 필요한 <b>표의 이름과 역할</b>을 대략적으로 생각합니다. <b>열, 자료형, PK·FK와 관계를 직접 설계할 필요는 없습니다.</b></span><span class="zh">学生只要大致想一想自己服务需要的<b>表的名称与作用</b>。<b>不必亲自设计列、数据类型、主键外键与关系。</b></span></p>
+
+    <p><span class="ko">예를 들어 독서 기록 서비스라면 <code>책</code>, <code>독서 기록</code>과 같은 표가 필요할 수 있다고 적고, <b>각 표가 무엇을 기억하는지만</b> 설명합니다. 실제 열과 키 및 관계는 개발 단계에서 전문가나 AI가 구체화하고 사람이 검토합니다.</span><span class="zh">比如读书记录服务，就写下可能需要 <code>책</code>（书）、<code>독서 기록</code>（读书记录）这样的表，并<b>只说明各表记住什么</b>。实际的列、键与关系，由开发阶段的专业人员或 AI 具体化，再由人来审。</span></p>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">모든 프로젝트가 기록을 하나는 남깁니다</span><span class="zh">每个项目都要留下至少一种记录</span></div>
+      <p><span class="ko">이 수업의 모든 서비스는 <b>사용자가 만든 의미 있는 기록을 최소 한 종류 저장</b>하고, 사용자가 <b>나중에 다시 확인</b>할 수 있어야 합니다. 개발 단계(11회)에서 그 기록을 <b>SQLite</b>에 연결합니다.</span><span class="zh">这门课的每个服务都要<b>至少保存一种由用户产生的、有意义的记录</b>，并且用户<b>日后能再次查看</b>。到开发阶段（第 11 次课）再把这份记录接到 <b>SQLite</b> 上。</span></p>
+      <p><span class="ko">다만 <b>데이터베이스를 썼다는 표시를 남기려고</b> 가짜 방문 횟수나 서비스와 상관없는 값을 만들지는 않습니다. 기록은 <b>핵심 기능에서 자연스럽게 생기는 것</b>이어야 합니다.</span><span class="zh">但也不要<b>为了显示“我用了数据库”</b>而造出假的访问次数或与服务无关的值。记录必须是<b>核心功能里自然产生的东西</b>。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">그래도 표 하나로 충분한 경우가 많습니다</span><span class="zh">不过多数情况一张表就够</span></div>
+      <p><span class="ko">저장을 반드시 한다는 것과 <b>표를 여러 개 만든다</b>는 것은 다릅니다. 저장 대상이 한 종류라면 <b>표 하나가 정답</b>이고, 표 수가 많다고 좋은 평가를 받지 않습니다.</span><span class="zh">“一定要保存”和“要做很多张表”是两回事。保存对象只有一种时，<b>一张表就是正解</b>；表多并不会得到更好的评价。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 ══════════ -->
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">10. 오해</span><span class="zh">10. 误解</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">흔한 오해와 사실</span><span class="zh">常见的误解与事实</span></h2>
+
+    <div class="myth">
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“표를 많이 나눌수록 잘 설계한 것이다.”</span><span class="zh">“表拆得越多，设计得越好。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">표는 <b>서로 다른 대상이 섞여 있거나 같은 정보가 반복될 때</b> 나눕니다. 나눌 이유가 없는데 나누면 연결해서 봐야 할 곳만 늘어납니다. 저장 대상이 한 종류면 <b>표 하나가 정답</b>입니다.</span><span class="zh">表是在<b>混进了不同对象，或同样的信息重复</b>时才拆。没有理由却拆开，只会让需要连起来看的地方变多。保存对象只有一种时，<b>一张表就是正解</b>。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“NoSQL이 RDBMS보다 새롭고 좋은 방식이다.”</span><span class="zh">“NoSQL 比 RDBMS 更新、更好。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">NoSQL은 하나의 제품도, 상위 방식도 아닙니다. <b>표가 아닌 여러 저장 방식을 묶어 부르는 말</b>입니다. 실제 웹서비스에서는 RDBMS가 여전히 널리 쓰입니다. 데이터와 목적에 따라 고르는 것입니다.</span><span class="zh">NoSQL 既不是某个产品，也不是更高级的方式，而是<b>对若干种非表式保存方式的统称</b>。真实的网络服务里 RDBMS 仍被广泛使用。要依数据与目的来挑。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“데이터베이스를 쓰려면 로그인이나 회원 정보가 있어야 한다.”</span><span class="zh">“要用数据库，就得有登录或会员信息。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">필요 없습니다. 계산기라도 <b>사용한 값과 결과</b>를 남기면 사용자가 최근 실행 기록을 다시 볼 수 있습니다. <b>누가 썼는지가 아니라 무엇을 했는지</b>를 기록하면 되므로, 로그인과 개인정보 없이도 저장할 수 있습니다.</span><span class="zh">不需要。哪怕是计算器，只要留下<b>用过的值与结果</b>，用户就能再看最近的运行记录。记的是<b>做了什么，而不是谁做的</b>，所以不用登录、不用个人信息也能保存。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“기본키는 이름이나 제목처럼 뜻이 있는 값이어야 좋다.”</span><span class="zh">“主键最好是像姓名、标题那样有含义的值。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">이름과 제목은 <b>같을 수 있고 바뀔 수 있습니다.</b> 기본키는 뜻이 없어도 되고, 오히려 변하지 않는 <code>id</code>가 안전합니다. 전화번호처럼 개인정보인 값은 기본키로 쓰지 않습니다.</span><span class="zh">姓名和标题<b>可能相同，也可能改变</b>。主键没有含义也无妨，反而是不会变的 <code>id</code> 更安全。像电话号码这种属于个人信息的值，不用作主键。</span></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 11 ══════════ -->
+  <section class="page" id="s11">
+    <div class="kick"><span class="ko">11. 범위</span><span class="zh">11. 范围</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">이번 차시의 학습 범위</span><span class="zh">本课时的学习范围</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">헷갈릴 때 이 표로 돌아오세요. 왼쪽만 이해하면 됩니다.</span><span class="zh">拿不准时就回到这张表。理解左边就够了。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:50%"><span class="ko">필수 — 이해할 것</span><span class="zh">必修 — 要理解的</span></th><th><span class="ko">이번에는 다루지 않음</span><span class="zh">这次不涉及</span></th></tr>
+      <tr><td><span class="ko">표 · 행 · 열</span><span class="zh">表 · 行 · 列</span></td><td><span class="ko">SQL 문법</span><span class="zh">SQL 语法</span></td></tr>
+      <tr><td><span class="ko">간단한 값의 종류</span><span class="zh">简单的值的种类</span></td><td><span class="ko">자신의 서비스에 사용할 열·자료형 설계</span><span class="zh">为自己的服务设计列与数据类型</span></td></tr>
+      <tr><td><span class="ko">기본키와 외래키의 개념</span><span class="zh">主键与外键的概念</span></td><td><span class="ko">PK·FK 위치 결정</span><span class="zh">决定主键、外键的位置</span></td></tr>
+      <tr><td><span class="ko">1:N 관계의 개념</span><span class="zh">1:N 关系的概念</span></td><td><span class="ko">관계도 작성</span><span class="zh">绘制关系图</span></td></tr>
+      <tr><td><span class="ko">JOIN의 결과 개념</span><span class="zh">JOIN 结果的概念</span></td><td><span class="ko">JOIN 종류와 문법</span><span class="zh">JOIN 的种类与语法</span></td></tr>
+      <tr><td><span class="ko">데이터 최소 수집</span><span class="zh">数据最小化收集</span></td><td><span class="ko">트랜잭션 · DB 운영</span><span class="zh">事务 · 数据库运维</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">“데이터 최소 수집”이란</span><span class="zh">什么是“数据最小化收集”</span></div>
+      <p><span class="ko">서비스에 <b>꼭 필요한 정보만</b> 저장한다는 원칙입니다. 있으면 좋을 것 같아서 생년월일이나 연락처를 받아 두지 않습니다.</span><span class="zh">就是只保存服务<b>确实需要的信息</b>这条原则。不要觉得“有了也好”就去收生日或联系方式。</span></p>
+      <p><span class="ko">저장하지 않은 정보는 새어 나갈 수도 없습니다. 가장 확실한 보호 방법입니다. 다음 차시에서 <b>저장하지 않을 정보</b>를 적을 때 이 원칙을 씁니다.</span><span class="zh">没有保存的信息，也就无从泄露。这是最可靠的保护办法。下一课时写<b>不保存的信息</b>时会用到这条原则。</span></p>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">오른쪽 칸을 몰라도 됩니다</span><span class="zh">右边那栏不懂也没关系</span></div>
+      <p><span class="ko">오른쪽은 이 수업에서 <b>요구하지도, 평가하지도 않는</b> 내용입니다. 8회 수행평가 2에서도 열·자료형·PK·FK 위치·ERD·SQL은 채점 대상이 아닙니다.</span><span class="zh">右边是这门课<b>既不要求、也不评价</b>的内容。第 8 次课的实作评价 2 里，列、数据类型、主键外键位置、ERD 与 SQL 都不是评分对象。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 12 ══════════ -->
+  <section class="page" id="s12">
+    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">다음 표의 한 행은 무엇을 나타내는가? 그리고 이 표에 문제가 있다면 무엇인가?<br/><code>id, 학생이름, 학생학년, 대여한책제목, 대여일</code></span><span class="zh">下面这张表的一行代表什么？如果这张表有问题，问题是什么？<br/><code>id, 학생이름, 학생학년, 대여한책제목, 대여일</code></span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">한 행은 <b>대여 기록 하나</b>를 나타냅니다. 그런데 <b>학생</b>과 <b>대여 기록</b>이라는 서로 다른 두 대상이 한 표에 섞여 있습니다.</span><span class="zh">一行代表<b>一条借阅记录</b>。可是<b>学生</b>和<b>借阅记录</b>这两种不同的对象混在了一张表里。</span></p>
+          <p><span class="ko">같은 학생이 다섯 번 빌리면 이름과 학년이 <b>다섯 번 반복</b>됩니다. 학년이 올라가면 다섯 줄을 모두 고쳐야 합니다.</span><span class="zh">同一个学生借五次，姓名和年级就<b>重复五次</b>。年级升上去，五行都得改。</span></p>
+          <p><span class="ko">나눈다면 <code>[학생] id(PK), 이름, 학년</code>과 <code>[대여 기록] id(PK), student_id(FK), 책제목, 대여일</code>이 됩니다. 다만 <b>학생 이름은 개인정보</b>이므로, 수업 프로젝트에서는 이런 정보를 저장하지 않는 편이 좋습니다.</span><span class="zh">要拆的话就成了 <code>[학생] id(PK), 이름, 학년</code> 和 <code>[대여 기록] id(PK), student_id(FK), 책제목, 대여일</code>。不过<b>学生姓名属于个人信息</b>，课堂项目里最好不要保存这类信息。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">1:N 관계에서 외래키를 ‘N 쪽’ 표에 두는 이유는 무엇인가?</span><span class="zh">1:N 关系中，为什么把外键放在“N 那一边”的表里？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko">표의 <b>한 칸에는 값 하나</b>가 들어가는 것이 원칙이기 때문입니다.</span><span class="zh">因为表的<b>一格里放一个值</b>是原则。</span></p>
+          <p><span class="ko">‘1 쪽’인 책 표에 “이 책의 기록들”이라는 칸을 만들면, 기록이 세 개일 때 한 칸에 세 개를 넣어야 합니다. 반대로 ‘N 쪽’인 기록 표에 <code>book_id</code>를 두면 <b>각 기록이 책 하나를 가리키므로</b> 한 칸에 값 하나면 충분합니다.</span><span class="zh">在“1 那一边”的书表里做一格“这本书的记录们”，记录有三条时就得往一格里塞三个。反过来，在“N 那一边”的记录表里放 <code>book_id</code>，<b>每条记录只指向一本书</b>，一格一个值就够了。</span></p>
+        </div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">내 서비스가 “입력한 단어로 이야기 소재를 만들어 보여 주기”만 한다면, 무엇을 기록으로 남길 수 있을까?</span><span class="zh">如果我的服务只做“用输入的词生成故事素材并展示”，可以把什么留成记录？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><b>사용자가 넣은 단어와 만들어진 소재</b>를 남길 수 있습니다. 그러면 사용자는 다음에 들어와서 <b>지난번에 만든 소재</b>를 다시 볼 수 있습니다.</span><span class="zh">可以留下<b>用户输入的词与生成的素材</b>。这样用户下次进来，就能再看到<b>上次生成的素材</b>。</span></p>
+          <p><span class="ko">표는 <b>하나면 충분합니다.</b> 이름은 <code>만든 소재</code> 정도, 기억하는 내용은 “입력한 단어와 만들어진 소재 문장”, 연결되는 기능은 “소재 만들기와 다시 보기”가 됩니다.</span><span class="zh">表<b>一张就够</b>。名称大致是 <code>만든 소재</code>（生成的素材），记住的内容是“输入的词与生成的素材句子”，关联的功能是“生成素材与再次查看”。</span></p>
+          <p><span class="ko">즉 <b>저장할 것이 없는 서비스는 없습니다.</b> 핵심 기능에서 자연스럽게 나오는 결과를 남기면 됩니다. 다음 차시에서 자신의 기능 목록을 보고 정합니다.</span><span class="zh">也就是说，<b>没有“无可保存”的服务</b>。把核心功能里自然产生的结果留下来就行。下一课时看着自己的功能清单来定。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s12_2">
+    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">“기본키와 외래키의 차이는 ______________이다.” 빈칸을 자기 문장으로 채워 보세요.</span><span class="zh">“主键和外键的区别是 ______________。”请用自己的话填空。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 13 ══════════ -->
+  <section class="page" id="s13">
+    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko">변수의 값은 실행이 끝나면 사라진다. 다시 보고 고치려면 <b>파일이나 데이터베이스에 저장</b>해야 한다.</span><span class="zh">变量的值在运行结束时消失。要能再看到并修改，就得<b>保存到文件或数据库</b>。</span></li>
+        <li><span class="ko">관계형 데이터베이스는 같은 종류의 대상을 <b>표</b>로 저장하고 <b>관계</b>로 연결한다.</span><span class="zh">关系数据库把同一类对象保存成<b>表</b>，再用<b>关系</b>连起来。</span></li>
+        <li><span class="ko">NoSQL 같은 다른 저장 방식도 있지만, 이번 수업은 널리 쓰이는 <b>RDBMS</b>를 중심으로 다룬다.</span><span class="zh">虽然也有 NoSQL 这类其他保存方式，但这门课以广泛使用的 <b>RDBMS</b> 为中心。</span></li>
+        <li><span class="ko"><b>한 행이 무엇을 나타내는지</b> 먼저 정하고 열을 선택한다.</span><span class="zh">先定下<b>一行代表什么</b>，再选列。</span></li>
+        <li><span class="ko"><b>기본키(PK)</b>는 한 표 안에서 행을 구별한다. 개인정보를 기본키로 쓰지 않는다.</span><span class="zh"><b>主键（PK）</b>在一张表内区分行。不用个人信息作主键。</span></li>
+        <li><span class="ko"><b>외래키(FK)</b>는 다른 표의 행을 가리킨다. 제목이 아니라 <code>id</code>를 적는다.</span><span class="zh"><b>外键（FK）</b>指向另一张表的行。写的是 <code>id</code> 而不是标题。</span></li>
+        <li><span class="ko"><b>1:N</b> 관계에서 외래키는 <b>N 쪽</b> 표에 둔다.</span><span class="zh"><b>1:N</b> 关系中，外键放在<b>“N”那一边</b>的表里。</span></li>
+        <li><span class="ko"><b>JOIN</b>은 연결된 표의 정보를 필요한 결과로 함께 보는 방법이다. 문법은 배우지 않는다.</span><span class="zh"><b>JOIN</b> 是把相连表的信息合成所需结果一起看的方法。不学它的语法。</span></li>
+        <li><span class="ko">학생은 세부 구조를 설계하지 않고 <b>서비스에 필요할 것 같은 표와 그 역할</b>을 설명한다.</span><span class="zh">学生不设计细节结构，只说明<b>服务可能需要的表及其作用</b>。</span></li>
+        <li><span class="ko">모든 프로젝트는 사용자가 나중에 다시 볼 <b>의미 있는 기록을 최소 한 종류</b> 정하고, 개발 단계에서 <b>SQLite</b>에 연결한다.</span><span class="zh">每个项目都要定下用户日后会再看的<b>至少一种有意义的记录</b>，并在开发阶段接到 <b>SQLite</b> 上。</span></li>
+        <li><span class="ko">테이블 수와 관계를 늘리는 것이 목표가 아니다. <b>한 테이블만으로 충분할 수 있다.</b></span><span class="zh">目标不是把表和关系做多。<b>只用一张表也可能就够了。</b></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" id="s13_3">
+    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">다음 차시에는 6-2에서 시작한 <b>같은 PRD 파일</b>을 다시 열어 <b>5. 데이터</b> 항목을 채웁니다. 서비스가 나중에도 기억해야 할 정보가 있는지 판단하고, 저장이 필요하다면 <b>테이블 후보의 이름과 역할만</b> 덧붙입니다.</span><span class="zh">下一课时再打开 6-2 起步的<b>同一个 PRD 文件</b>，填上 <b>5. 数据</b>。判断服务日后是否还要记住某些信息；若需要保存，只补上<b>候选数据表的名称与作用</b>。</span></p>
+      <p><span class="ko">열 이름, 자료형, PK·FK의 위치, 관계도와 SQL은 <b>적지 않습니다.</b> 오늘 배운 것은 그 문서를 읽고 판단하기 위한 바탕입니다.</span><span class="zh">列名、数据类型、主键外键的位置、关系图与 SQL <b>都不写</b>。今天学的，是为了能读懂那份文档并作出判断的底子。</span></p>
+      <a class="next" href="07-2.html">7-2. PRD에 데이터 목록 덧붙이기 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="06-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">6-2. 서비스 제작 계획서(PRD) 시작하기</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="07-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">7-2. PRD에 데이터 목록 덧붙이기</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

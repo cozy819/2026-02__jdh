@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#fff"/><style>text{font-family:Arial,'Apple SD Gothic Neo',sans-serif;fill:#1B1D21}.h{font-size:42px;font-weight:700}.l{font-size:29px;font-weight:700}.s{font-size:23px}.n{font-size:25px;font-weight:700;fill:#fff}</style>
+  <text x="800" y="72" text-anchor="middle" class="h">Notebook: 보이는 순서와 실행 순서는 다를 수 있다</text><line x1="800" y1="115" x2="800" y2="795" stroke="#E0E3E7" stroke-width="4"/>
+  <text x="410" y="145" text-anchor="middle" class="l">문서에 보이는 순서</text><text x="1190" y="145" text-anchor="middle" class="l">실제로 실행한 순서</text>
+  <g><rect x="150" y="190" width="530" height="145" fill="#F1F2F4" stroke="#E0E3E7" stroke-width="4"/><rect x="150" y="370" width="530" height="145" fill="#F1F2F4" stroke="#E0E3E7" stroke-width="4"/><rect x="150" y="550" width="530" height="145" fill="#F1F2F4" stroke="#E0E3E7" stroke-width="4"/>
+  <g fill="#FF5C00"><circle cx="128" cy="230" r="28"/><circle cx="128" cy="410" r="28"/><circle cx="128" cy="590" r="28"/></g><text x="128" y="239" text-anchor="middle" class="n">1</text><text x="128" y="419" text-anchor="middle" class="n">2</text><text x="128" y="599" text-anchor="middle" class="n">3</text>
+  <text x="200" y="250" class="s">값을 만든다</text><text x="200" y="430" class="s">값을 계산한다</text><text x="200" y="610" class="s">결과를 출력한다</text></g>
+  <g><rect x="920" y="190" width="530" height="145" fill="#F1F2F4" stroke="#E0E3E7" stroke-width="4"/><rect x="920" y="370" width="530" height="145" fill="#F1F2F4" stroke="#0E7C86" stroke-width="6"/><rect x="920" y="550" width="530" height="145" fill="#F1F2F4" stroke="#E0E3E7" stroke-width="4"/>
+  <text x="970" y="250" class="s">값을 만든다</text><text x="970" y="430" class="s">값을 계산한다</text><text x="970" y="610" class="s">결과를 출력한다</text>
+  <path d="M1500 625 C1550 540 1500 460 1438 445 C1500 390 1490 280 1430 255" fill="none" stroke="#6C7078" stroke-width="12" stroke-linecap="round"/><path d="M1430 255l15 26 17-30z" fill="#FF5C00"/>
+  <circle cx="1490" cy="600" r="27" fill="#FF5C00"/><text x="1490" y="609" text-anchor="middle" class="n">3</text><circle cx="1490" cy="255" r="27" fill="#FF5C00"/><text x="1490" y="264" text-anchor="middle" class="n">1</text><circle cx="1490" cy="430" r="27" fill="#0E7C86"/><text x="1490" y="439" text-anchor="middle" class="n">2</text></g>
+  <rect x="950" y="735" width="470" height="70" fill="#F1F2F4" stroke="#0E7C86" stroke-width="3"/><text x="1185" y="778" text-anchor="middle" class="s" fill="#0E7C86">위 셀의 값이 없어서 오류</text>
+</svg>

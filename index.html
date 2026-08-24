@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>정보와 디지털 문해력 · 바이브코딩연구소 아카데미</title>
+<meta name="description" content="정보 교과를 처음 배우는 고등학생을 위한 학생용 교과서 — Python 기초와 데이터 시각화, 서비스 기획과 데이터 설계, AI를 활용한 바이브 코딩" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>정보와 디지털 문해력</em> <span class="lesson">· 장대현중고등학교</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">교과서</span><span class="zh">教材</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+
+  <div class="h"><span class="ko">1부 · 오리엔테이션 (1회)</span><span class="zh">第 1 部 · 导论（第 1 次）</span></div>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+
+  <div class="h"><span class="ko">2부 · Python과 데이터 (2~5회)</span><span class="zh">第 2 部 · Python 与数据（第 2~5 次）</span></div>
+  <a href="02-1.html"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+
+  <div class="h"><span class="ko">3부 · 기획과 데이터 설계 (6~8회)</span><span class="zh">第 3 部 · 规划与数据设计（第 6~8 次）</span></div>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+
+  <div class="h"><span class="ko">4부 · AI와 서비스 개발 (9~13회)</span><span class="zh">第 4 部 · 与 AI 开发服务（第 9~13 次）</span></div>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 표지 (바이브코딩연구소 브랜딩본) ══════════ -->
+  <section class="page cover" id="cover">
+
+    <div class="cbrand">
+      <div class="lockup">
+        <svg width="38" height="38" viewBox="0 0 96 96" aria-hidden="true"><g fill="none" stroke="#FF5C00" stroke-width="10"><path d="M48 12 A36 36 0 0 1 48 84"></path><path d="M48 84 A36 36 0 0 1 48 12"></path></g><path d="M48 1 L48 23 L67 12 Z" fill="#FF5C00"></path><path d="M48 73 L48 95 L29 84 Z" fill="#FF5C00"></path><path d="M63.6 32.4 L55.8 55.8 L40.2 40.2 Z" fill="#FFFFFF"></path><path d="M32.4 63.6 L40.2 40.2 L55.8 55.8 Z" fill="#7A8089"></path></svg>
+        <div>
+          <div class="nm">바이브코딩연구소 <em>아카데미</em></div>
+          <div class="en">VIBE CODING LABS ACADEMY</div>
+        </div>
+      </div>
+      <div class="docno">VCL-EDU-2026-01</div>
+    </div>
+
+    <div class="cmid">
+      <div class="cno"><span class="ko">2026년 2학기</span><span class="zh">2026 第二学期</span></div>
+      <h1 class="ctitle"><span class="ko">정보와<br/><b>디지털 문해력</b></span><span class="zh">信息与<br/><b>数字素养</b></span></h1>
+      <div class="abar"></div>
+      <p class="csub"><span class="ko">AI에게 맡기는 법이 아니라,<br/>AI가 만든 것을 <b>읽고 판단하는 법</b>을 배웁니다.</span><span class="zh">不是学着把事情交给 AI，<br/>而是学<b>读懂并判断 AI 所做之物</b>。</span></p>
+    </div>
+
+    <div class="cfoot">
+      <div class="cmeta"><span class="ko"><b>장대현중고등학교</b> · 정보와 디지털 문해력<br/><span class="dim">2026년 2학기</span></span><span class="zh"><b>长大岘中高等学校</b> · 信息与数字素养<br/><span class="dim">2026 第二学期</span></span></div>
+      <div class="csite">VIBECODINGLABS.CO.KR</div>
+    </div>
+
+  </section>
+
+  <!-- ══════════ 이 교과서를 읽는 법 ══════════ -->
+  <section class="page" id="howto">
+    <div class="kick"><span class="ko">이 교과서를 읽는 법</span><span class="zh">怎样读这本教科书</span><b>2026-2</b></div>
+    <h2 class="title"><span class="ko">읽기 전에 알아 둘 세 가지</span><span class="zh">开读之前要知道的三件事</span></h2>
+
+    <p class="lead"><span class="ko">이 교과서는 수업 시간에만 보는 자료가 아닙니다. 수업 전에 미리 읽을 수도 있고, 수업이 끝난 뒤 다시 확인할 수도 있으며, 결석했을 때 혼자 따라올 수도 있도록 만들었습니다.</span><span class="zh">这本教科书不只是课堂上用的材料。你可以课前预读，课后复查，缺课时也能自己跟上。</span></p>
+
+    <h3 class="sub"><span class="ko">1. 세 가지 깊이 표시</span><span class="zh">1. 三种深度标记</span></h3>
+
+    <p><span class="ko">모든 내용을 똑같은 무게로 외울 필요는 없습니다. 각 부분에는 다음 표시가 붙어 있습니다.</span><span class="zh">不必把所有内容都同等分量地记住。每一部分都带有下面的标记。</span></p>
+
+    <table class="kv">
+      <tr><th style="width:110px"><span class="ko">표시</span><span class="zh">标记</span></th><th><span class="ko">뜻</span><span class="zh">含义</span></th><th><span class="ko">평가</span><span class="zh">评价</span></th></tr>
+      <tr><td><span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></td><td><span class="ko">자기 말로 설명할 수 있어야 하는 내용</span><span class="zh">必须能用自己的话说明的内容</span></td><td><span class="ko">평가에 포함</span><span class="zh">计入评价</span></td></tr>
+      <tr><td><span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></td><td><span class="ko">안내를 보며 실행하고 수정할 수 있어야 하는 내용</span><span class="zh">要能照着说明运行并修改的内容</span></td><td><span class="ko">평가에 포함</span><span class="zh">计入评价</span></td></tr>
+      <tr><td><span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></td><td><span class="ko">“이런 것이 있다”는 정도로 알아 두면 되는 내용</span><span class="zh">知道“有这么回事”即可的内容</span></td><td><span class="ko">공통 평가에서 제외</span><span class="zh">不列入共同评价</span></td></tr>
+    </table>
+
+    <p><span class="ko"><span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span> 표시가 붙은 부분을 건너뛰어도 다음 차시를 따라가는 데 문제가 없습니다. 궁금할 때 돌아와 읽으면 됩니다.</span><span class="zh">跳过带 <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span> 标记的部分，也不影响跟上下一课时。想知道时再回来读就行。</span></p>
+
+    <h3 class="sub"><span class="ko">2. 모르는 낱말이 나오면</span><span class="zh">2. 遇到不懂的词</span></h3>
+
+    <p><span class="ko">처음 나오는 용어는 <span class="tt">굵은 주황 글씨</span>로 표시하고, 그 자리에서 다섯 단계로 설명합니다. 먼저 여러분이 이미 겪어 본 <b>현상</b>을 이야기하고, <b>쉬운 설명</b>을 한 뒤, 기술 문서에서 다시 만날 <b>정확한 정의</b>를 붙입니다. 그다음 헷갈리기 쉬운 개념과의 <b>경계</b>를 긋고, 마지막으로 그 낱말을 넣어 <b>문장을 만들어</b> 봅니다.</span><span class="zh">首次出现的术语用<span class="tt">橙色粗体</span>标出，并当场分五步讲解。先说你已经经历过的<b>现象</b>，再给<b>通俗说法</b>，接着附上你会在技术文档里再遇到的<b>准确定义</b>。然后划清它与易混概念的<b>边界</b>，最后用这个词<b>造一个句子</b>。</span></p>
+  </section>
+
+  <section class="page" id="howto_2">
+    <div class="kick"><span class="ko">이 교과서를 읽는 법</span><span class="zh">怎样读这本教科书</span><b>2026-2</b></div>
+    <h2 class="title"><span class="ko">읽기 전에 알아 둘 세 가지</span><span class="zh">开读之前要知道的三件事</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">그러니 낱말이 낯설다고 멈추지 말고 그 자리에서 조금만 더 읽어 보세요. 설명이 바로 이어집니다.</span><span class="zh">所以别因为词生就停下来，就在原地再往下读一点，解释马上就接着来。</span></p>
+
+    <h3 class="sub"><span class="ko">3. 코드는 외우는 것이 아니라 읽는 것</span><span class="zh">3. 代码不是拿来背的，是拿来读的</span></h3>
+
+    <p><span class="ko">이 교과서에 나오는 코드는 통째로 외우라고 실어 놓은 것이 아닙니다. 코드가 나올 때마다 <b>실행하기 전에 결과를 예상</b>하고, <b>실행한 뒤 예상과 비교</b>하고, <b>값을 하나 바꿔서 다시 확인</b>하는 순서로 읽습니다.</span><span class="zh">书里的代码不是让你整段背下来的。每次遇到代码，都按这个顺序读：<b>运行前先预测结果</b>，<b>运行后与预测对照</b>，<b>改动一个值再确认一次</b>。</span></p>
+
+    <p><span class="ko">AI가 코드를 대신 써 주는 시대에도 이 순서는 사라지지 않습니다. 오히려 AI가 만든 코드가 맞는지 판단하려면 이 순서가 더 필요합니다.</span><span class="zh">即使在 AI 代写代码的时代，这个顺序也不会消失。恰恰相反，要判断 AI 写的代码对不对，更需要它。</span></p>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">이 교과서에서 반복해서 만날 문장</span><span class="zh">这本书里会反复出现的一句话</span></div>
+      <p><span class="ko">AI는 코드를 만들 수 있지만, <b>무엇을 만들지 정하는 일</b>과 <b>만들어진 것이 맞는지 판단하는 일</b>은 사람의 몫입니다.</span><span class="zh">AI 能生成代码，但<b>决定要做什么</b>和<b>判断做出来的东西对不对</b>，是人的事。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 교과서 구성 요소 ══════════ -->
+  <section class="page" id="parts">
+    <div class="kick"><span class="ko">이 교과서를 읽는 법</span><span class="zh">怎样读这本教科书</span><b>2026-2</b></div>
+    <h2 class="title"><span class="ko">본문에서 만나게 될 상자들</span><span class="zh">正文里会遇到的方框</span></h2>
+
+    <p class="lead"><span class="ko">본문 사이사이에 여러 모양의 상자가 나옵니다. 모양마다 역할이 다르니 미리 익혀 두면 읽기가 훨씬 수월합니다.</span><span class="zh">正文中会穿插各种样式的方框。每种样式作用不同，先认一遍会读得轻松很多。</span></p>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
+      <p><span class="ko">차시마다 맨 앞에 놓입니다. 그 차시를 다 읽고 나서 이 질문에 답할 수 있으면 됩니다.</span><span class="zh">放在每个课时的最前面。读完这一课时后，能回答这个问题就可以了。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">알아 두기</span><span class="zh">顺带一提</span></div>
+      <p><span class="ko">본문을 이해하는 데 도움이 되는 보충 설명입니다.</span><span class="zh">有助于理解正文的补充说明。</span></p>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">주의</span><span class="zh">注意</span></div>
+      <p><span class="ko">실수하기 쉬운 곳, 또는 잘못하면 되돌리기 어려운 곳입니다.</span><span class="zh">容易出错的地方，或者一旦做错就难以挽回的地方。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="parts_2">
+    <div class="kick"><span class="ko">이 교과서를 읽는 법</span><span class="zh">怎样读这本教科书</span><b>2026-2</b></div>
+    <h2 class="title"><span class="ko">본문에서 만나게 될 상자들</span><span class="zh">正文里会遇到的方框</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">하지 않기</span><span class="zh">不要做</span></div>
+      <p><span class="ko">개인정보나 비밀정보처럼 절대로 하면 안 되는 일을 표시합니다.</span><span class="zh">标出像个人信息、机密信息这类绝对不能做的事。</span></p>
+    </div>
+
+    <div class="steps">
+      <div class="st-h"><span class="ko">직접 해보기</span><span class="zh">动手做</span></div>
+      <ol>
+        <li><span class="ko">순서대로 따라 하는 실습입니다.</span><span class="zh">按顺序照做的实践。</span></li>
+        <li><span class="ko">한 단계를 마치고 결과를 확인한 뒤 다음으로 넘어갑니다.</span><span class="zh">做完一步、确认结果之后再进入下一步。</span></li>
+      </ol>
+    </div>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이</span><span class="zh">更深一层</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+      <div class="body"><p><span class="ko">건너뛰어도 되는 내용입니다. 더 알고 싶을 때 읽으세요.</span><span class="zh">可以跳过的内容。想多了解时再读。</span></p></div>
+    </div>
+
+    <div class="row">
+      <div class="pane"><div class="pt"><span class="ko">확인 문제</span><span class="zh">检查题</span></div><p><span class="ko">중간중간 짧은 질문이 나옵니다. <b>해설 보기</b>를 누르면 답과 이유가 함께 나옵니다.</span><span class="zh">中间会出现一些短问题。点<b>查看解析</b>就会显示答案和理由。</span></p></div>
+      <div class="pane accent"><div class="pt"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></div><p><span class="ko">차시 끝에서 그날 배운 것을 문장으로 다시 모읍니다.</span><span class="zh">在课时末尾，把当天学到的内容再用句子收拢一遍。</span></p></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 전체 흐름 ══════════ -->
+  <section class="page" id="map">
+    <div class="kick"><span class="ko">학습 지도</span><span class="zh">学习地图</span><b>2026-2</b></div>
+    <h2 class="title"><span class="ko">한 학기 동안 어디로 가는가</span><span class="zh">一个学期走向哪里</span></h2>
+
+    <p class="lead"><span class="ko">이 과목의 중심 주제는 <b>AI를 활용한 창작</b>입니다. AI로 할 수 있는 일은 여러 갈래인데, 이 수업은 그중 <b>프로그램 만들기</b>를 골라 연습합니다. 실행해 보면 맞았는지 틀렸는지가 드러나서, 확인하고 판단하는 연습을 하기에 가장 좋기 때문입니다. 그런데 창작을 바로 시작하지 않고 Python부터 배웁니다. 왜 그런지는 아래 흐름을 보면 알 수 있습니다.</span><span class="zh">本科目的核心主题是<b>用 AI 创作</b>。用 AI 能做的事有好几类，这门课挑了其中<b>做程序</b>来练 —— 因为它一运行就见分晓，最适合练习确认与判断。但我们不马上开始创作，而是先学 Python。看下面的流程就明白为什么。</span></p>
+
+    <figure class="fig">
+      <img class="figimg" src="assets/img/00-01-course-map.png" alt="한 학기 학습 흐름 — 1회 오리엔테이션에서 시작해 2~5회 Python과 데이터 시각화, 6~8회 서비스 기획과 데이터 설계를 거쳐 9~13회 AI와 서비스 개발로 이어지는 가로 흐름도" data-id="00-01-course-map" data-spec="가로 16:6 · 흐름도 일러스트 · 4단계" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 0-1. 한 학기 학습 흐름</span><span class="zh">图 0-1. 一个学期的学习流程</span></figcaption>
+    </figure>
+
+    <h3 class="sub"><span class="ko">세 단계로 이어진다</span><span class="zh">分三个阶段推进</span></h3>
+  </section>
+
+  <section class="page" id="map_2">
+    <div class="kick"><span class="ko">학습 지도</span><span class="zh">学习地图</span><b>2026-2</b></div>
+    <h2 class="title"><span class="ko">한 학기 동안 어디로 가는가</span><span class="zh">一个学期走向哪里</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="row r3">
+      <div class="pane">
+        <div class="pt"><span class="ko">2~5회 · 읽는 힘</span><span class="zh">第 2~5 次 · 读的能力</span></div>
+        <p><span class="ko">Python으로 값·조건·반복·함수를 읽고, 데이터를 그래프로 나타냅니다. 목표는 <b>빨리 타이핑하는 것</b>이 아니라 <b>코드를 읽고 결과를 예상하는 것</b>입니다.</span><span class="zh">用 Python 读懂值、条件、循环、函数，并把数据画成图表。目标不是<b>打字快</b>，而是<b>读懂代码并预测结果</b>。</span></p>
+      </div>
+      <div class="pane">
+        <div class="pt"><span class="ko">6~8회 · 계획하는 힘</span><span class="zh">第 6~8 次 · 规划的能力</span></div>
+        <p><span class="ko">만들 서비스의 사용자·목적·핵심 기능을 정하고, 그 서비스가 기억해야 할 데이터를 설계합니다. 코드보다 <b>문서</b>를 먼저 만듭니다.</span><span class="zh">确定要做的服务的用户、目的与核心功能，并设计它需要记住的数据。先做<b>文档</b>，后写代码。</span></p>
+      </div>
+      <div class="pane accent">
+        <div class="pt"><span class="ko">9~13회 · 만드는 힘</span><span class="zh">第 9~13 次 · 做出来的能力</span></div>
+        <p><span class="ko">계획서를 기준으로 AI와 함께 실제로 동작하는 웹서비스를 만들고, 시험하고, 설명합니다.</span><span class="zh">以计划书为准，与 AI 一起做出真正能运行的网络服务，进行测试并加以说明。</span></p>
+      </div>
+    </div>
+
+    <h3 class="sub"><span class="ko">왜 이 순서인가</span><span class="zh">为什么是这个顺序</span></h3>
+
+    <p><span class="ko">AI에게 “쇼핑몰 만들어 줘”라고 말하면 코드가 나옵니다. 문제는 그다음입니다. 그 코드가 무엇을 하는지 모르면 <b>고칠 수도, 믿을 수도 없습니다.</b> 화면이 예쁘게 나왔다는 것과 프로그램이 올바르게 동작한다는 것은 다른 이야기입니다.</span><span class="zh">对 AI 说“给我做个购物网站”，代码就出来了。问题在之后。不知道那段代码在做什么，就<b>既改不了，也信不过</b>。画面好看，和程序运行正确，是两回事。</span></p>
+
+    <p><span class="ko">그래서 앞의 네 번은 코드를 읽는 훈련에 씁니다. 그리고 <b>바로 개발을 시작하지 않고</b> 6~8회에 무엇을 만들지 문서로 정합니다. 개발 시간에 주제를 처음 고민하면 만들 시간이 남지 않기 때문입니다.</span><span class="zh">所以前四次用来训练读代码。而且<b>不马上开始开发</b>，第 6~8 次先用文档定下要做什么。因为到了开发时间才开始想题目，就没有时间真正做出来了。</span></p>
+
+    <div class="note">
+      <div class="nt"><span class="ko">수행평가는 세 번</span><span class="zh">实作评价共三次</span></div>
+      <p><span class="ko"><b>수행평가 1(5회)</b> — 데이터 시각화. 읽는 힘을 확인합니다.<br/><b>수행평가 2(8회)</b> — 서비스 제작 계획서. 코드가 아니라 <b>문서</b>를 냅니다.<br/><b>수행평가 3(13회)</b> — 바이브 코딩 창작물. 만드는 힘과 설명하는 힘을 함께 확인합니다.<br/>모두 수업 시간 안에 진행하며, 평가는 <b>이수·미이수</b>로 매깁니다.</span><span class="zh"><b>实作评价 1（第 5 次）</b> — 数据可视化，考查读的能力。<br/><b>实作评价 2（第 8 次）</b> — 服务制作计划书，交的是<b>文档</b>而不是代码。<br/><b>实作评价 3（第 13 次）</b> — Vibe Coding 作品，同时考查做出来和说明清楚的能力。<br/>三次都在课堂时间内进行，评价记为<b>通过·未通过</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 목차 1 ══════════ -->
+  <section class="page" id="toc-1">
+    <div class="kick">Contents<b>2026-2</b></div>
+    <h2 class="title"><span class="ko">전체 목차</span><span class="zh">总目录</span> <span style="font-size:.6em; color:var(--muted); font-weight:600"><span class="ko">1부 · 2부</span><span class="zh">第 1·2 部</span></span></h2>
+
+    <p class="lead"><span class="ko">13회 수업이 각각 두 차시로 나뉩니다. 앞 차시는 개념, 뒤 차시는 실습인 경우가 많습니다.</span><span class="zh">13 次课各分为两个课时。通常前一课时讲概念，后一课时做实践。</span></p>
+
+    <ol class="toclist dense">
+      <li class="grp"><span class="ko">1부 · 오리엔테이션 (1회)</span><span class="zh">第 1 部 · 导论（第 1 次）</span></li>
+      <li><a href="01-1.html"><span class="tn">1-1</span><span class="tt"><span class="ko">수업 소개</span><span class="zh">课程介绍</span><span class="td"><span class="ko">무엇을 배우고, 어떻게 평가하며, 무엇을 약속하는가</span><span class="zh">学什么、怎么评价、约定什么</span></span></span></a></li>
+      <li><a href="01-2.html"><span class="tn">1-2</span><span class="tt"><span class="ko">수업 열기</span><span class="zh">开课</span><span class="td"><span class="ko">‘computer’는 원래 사람이었다 — 하드웨어·운영체제·코딩·바이브 코딩</span><span class="zh">“computer”原本是人 — 硬件、操作系统、编程、Vibe Coding</span></span></span></a></li>
+      <li class="grp"><span class="ko">2부 · Python과 데이터 (2~5회)</span><span class="zh">第 2 部 · Python 与数据（第 2~5 次）</span></li>
+      <li><a href="02-1.html"><span class="tn">2-1</span><span class="tt"><span class="ko">프로그래밍 언어와 Python</span><span class="zh">编程语言与 Python</span><span class="td"><span class="ko">언어가 여러 개인 이유, 이 수업이 Python을 고른 이유</span><span class="zh">为什么语言有很多种，这门课为什么选 Python</span></span></span></a></li>
+      <li><a href="02-2.html"><span class="tn">2-2</span><span class="tt"><span class="ko">Python 실습 환경 준비하기</span><span class="zh">准备 Python 实践环境</span><span class="td"><span class="ko">VS Code·Node.js·OpenCode·uv·가상환경·Notebook 커널</span><span class="zh">VS Code、Node.js、OpenCode、uv、虚拟环境、Notebook 内核</span></span></span></a></li>
+      <li><a href="03-1.html"><span class="tn">3-1</span><span class="tt"><span class="ko">값과 변수로 정보 표현하기</span><span class="zh">用值和变量表示信息</span><span class="td"><span class="ko">값·자료형·변수·연산자, 그리고 = 와 == 의 차이</span><span class="zh">值、数据类型、变量、运算符，以及 = 与 == 的区别</span></span></span></a></li>
+      <li><a href="03-2.html"><span class="tn">3-2</span><span class="tt"><span class="ko">코드의 흐름과 오류 읽기</span><span class="zh">读懂代码的流程与报错</span><span class="td"><span class="ko">리스트·튜플·조건·반복·함수·딕셔너리, 그리고 논리 오류</span><span class="zh">列表、元组、条件、循环、函数、字典，以及逻辑错误</span></span></span></a></li>
+      <li><a href="04-1.html"><span class="tn">4-1</span><span class="tt"><span class="ko">데이터와 라이브러리로 그래프 만들기</span><span class="zh">用数据和库画图表</span><span class="td"><span class="ko">pandas·Matplotlib·DataFrame, 그리고 정직한 그래프란 무엇인가</span><span class="zh">pandas、Matplotlib、DataFrame，以及什么叫诚实的图表</span></span></span></a></li>
+      <li><a href="04-2.html"><span class="tn">4-2</span><span class="tt"><span class="ko">AI로 데이터 그래프 만들고 해석하기</span><span class="zh">用 AI 生成并解读数据图表</span><span class="td"><span class="ko">요청하고, 원본과 대조하고, 사실과 한계를 나누어 쓰기</span><span class="zh">提出要求、与原始数据核对、把事实与局限分开写</span></span></span></a></li>
+      <li><a href="05-1.html"><span class="tn">5-1</span><span class="tt"><span class="ko">수행평가 1 안내</span><span class="zh">实作评价 1 说明</span><span class="td"><span class="ko">CSV, 제출물 구성, 데이터·AI 사용 원칙과 이수 기준</span><span class="zh">CSV、提交物构成、数据与 AI 使用原则及通过标准</span></span></span></a></li>
+      <li><a href="05-2.html"><span class="tn">5-2</span><span class="tt"><span class="ko">수행평가 1 · 데이터 시각화</span><span class="zh">实作评价 1 · 数据可视化</span><span class="td"><span class="ko">CSV 데이터로 그래프 하나를 만들고 해석해 제출한다</span><span class="zh">用 CSV 数据做出一张图表并加以解读后提交</span></span></span></a></li>
+    </ol>
+  </section>
+
+  <!-- ══════════ 목차 2 ══════════ -->
+  <section class="page" id="toc-2">
+    <div class="kick">Contents<b>2026-2</b></div>
+    <h2 class="title"><span class="ko">전체 목차</span><span class="zh">总目录</span> <span style="font-size:.6em; color:var(--muted); font-weight:600"><span class="ko">3부</span><span class="zh">第 3 部</span></span></h2>
+    <p class="lead"><span class="ko">6회부터는 만들 서비스를 문서로 계획합니다. 사용자와 문제를 정하고, 기억해야 할 데이터를 표로 옮겨 <b>서비스 제작 계획서(PRD)</b>를 완성합니다.</span><span class="zh">从第 6 次起用文档规划要做的服务。定下用户与问题，把需要记住的数据整理成表，完成<b>服务制作计划书（PRD）</b>。</span></p>
+
+    <ol class="toclist dense">
+      <li class="grp"><span class="ko">3부 · 서비스 기획과 데이터 설계 (6~8회)</span><span class="zh">第 3 部 · 服务规划与数据设计（第 6~8 次）</span></li>
+      <li><a href="06-1.html"><span class="tn">6-1</span><span class="tt"><span class="ko">서비스 기획의 기초</span><span class="zh">服务规划基础</span><span class="td"><span class="ko">사용자·문제·핵심 기능과 만들지 않을 것 정하기</span><span class="zh">确定用户、问题、核心功能，以及不做什么</span></span></span></a></li>
+      <li><a href="06-2.html"><span class="tn">6-2</span><span class="tt"><span class="ko">서비스 제작 계획서(PRD) 시작하기</span><span class="zh">开始撰写服务制作计划书（PRD）</span><span class="td"><span class="ko">아이디어를 하나 고르고 흐름·범위·화면을 문서로 옮기기</span><span class="zh">选定一个创意，把流程、范围与画面写成文档</span></span></span></a></li>
+      <li><a href="07-1.html"><span class="tn">7-1</span><span class="tt"><span class="ko">관계형 데이터베이스의 기초</span><span class="zh">关系数据库基础</span><span class="td"><span class="ko">표·행·열·PK·FK·1:N·JOIN을 예시에서 알아보기</span><span class="zh">从示例中认出表、行、列、主键、外键、1:N、JOIN</span></span></span></a></li>
+      <li><a href="07-2.html"><span class="tn">7-2</span><span class="tt"><span class="ko">PRD에 데이터 목록 덧붙이기</span><span class="zh">给 PRD 补上数据清单</span><span class="td"><span class="ko">내 서비스가 기억해야 할 것과 테이블 후보</span><span class="zh">我的服务需要记住什么，候选数据表有哪些</span></span></span></a></li>
+      <li><a href="08-1.html"><span class="tn">8-1</span><span class="tt"><span class="ko">수행평가 2 안내</span><span class="zh">实作评价 2 说明</span><span class="td"><span class="ko">서비스 제작 계획서 — 무엇을 어떻게 제출하는가</span><span class="zh">服务制作计划书 — 交什么、怎么交</span></span></span></a></li>
+      <li><a href="08-2.html"><span class="tn">8-2</span><span class="tt"><span class="ko">수행평가 2 · PRD 완성·제출</span><span class="zh">实作评价 2 · 完成并提交 PRD</span><span class="td"><span class="ko">기획과 데이터 설계가 서로 맞는지 검증하고 제출한다</span><span class="zh">验证规划与数据设计是否彼此吻合后提交</span></span></span></a></li>
+    </ol>
+  </section>
+
+  <!-- ══════════ 목차 3 ══════════ -->
+  <section class="page" id="toc-3">
+    <div class="kick">Contents<b>2026-2</b></div>
+    <h2 class="title"><span class="ko">전체 목차</span><span class="zh">总目录</span> <span style="font-size:.6em; color:var(--muted); font-weight:600"><span class="ko">4부</span><span class="zh">第 4 部</span></span></h2>
+
+    <p class="lead"><span class="ko">9회에 사용자 흐름을 설계한 뒤, 10회부터 AI와 함께 실제로 동작하는 창작물을 만들고, 테스트해서 고친 다음 제출합니다. 이 구간의 개발 조건은 <b>별도 자료 9-0</b>에 정리되어 있습니다.</span><span class="zh">第 9 次设计用户流程，从第 10 次起与 AI 一起做出真正能运行的作品，再测试、修改，然后提交。这一段的开发条件整理在<b>单独资料 9-0</b> 里。</span></p>
+
+    <ol class="toclist dense">
+      <li class="grp"><span class="ko">4부 · AI와 서비스 개발 (9~13회)</span><span class="zh">第 4 部 · 与 AI 开发服务（第 9~13 次）</span></li>
+      <li><a href="09-1.html"><span class="tn">9-1</span><span class="tt"><span class="ko">서비스 사용자 흐름(Flow) 설계</span><span class="zh">服务用户流程（Flow）设计</span><span class="td"><span class="ko">사용자가 처음부터 결과까지 지나가는 길을 단계로 그린다</span><span class="zh">把用户从开头走到结果的路，一步步画出来</span></span></span></a></li>
+      <li><a href="09-2.html"><span class="tn">9-2</span><span class="tt"><span class="ko">AI와 사용자 흐름·개발 계획 확정하기</span><span class="zh">与 AI 一起确定用户流程与开发计划</span><span class="td"><span class="ko">구현 가능성을 확인하고 범위를 조정해 개발 계획을 확정한다</span><span class="zh">确认可实现性，调整范围，敲定开发计划</span></span></span></a></li>
+      <li><a href="10-1.html"><span class="tn">10-1</span><span class="tt"><span class="ko">API와 요청·응답 이해하기</span><span class="zh">理解 API 与请求·响应</span><span class="td"><span class="ko">사용자 행동이 요청·처리·응답으로 이어지는 방식을 읽는다</span><span class="zh">读懂用户行动如何连到请求、处理与响应</span></span></span></a></li>
+      <li><a href="10-2.html"><span class="tn">10-2</span><span class="tt"><span class="ko">AI와 핵심 API 연결하기</span><span class="zh">与 AI 连接核心 API</span><span class="td"><span class="ko">AI의 API 약속을 확인한 뒤 프로젝트 내부 기능 하나를 연결한다</span><span class="zh">确认 AI 说明的 API 约定后，连接一个项目内部功能</span></span></span></a></li>
+      <li><a href="11-1.html"><span class="tn">11-1</span><span class="tt"><span class="ko">서비스가 데이터를 기억하는 과정</span><span class="zh">服务记住数据的过程</span><span class="td"><span class="ko">기록이 어디에 어떻게 남는지, 왜 다시 보이는지 이해한다</span><span class="zh">弄懂记录存在哪里、怎么存，以及为什么还能再看到</span></span></span></a></li>
+      <li><a href="11-2.html"><span class="tn">11-2</span><span class="tt"><span class="ko">SQLite 데이터 저장 연결하기</span><span class="zh">接上 SQLite 数据保存</span><span class="td"><span class="ko">핵심 기능의 기록을 저장하고 다시 방문해 확인한다</span><span class="zh">保存核心功能的记录，再次访问时加以确认</span></span></span></a></li>
+      <li><a href="12-1.html"><span class="tn">12-1</span><span class="tt"><span class="ko">사용자 흐름으로 서비스 테스트하기</span><span class="zh">用用户流程测试服务</span><span class="td"><span class="ko">시나리오를 만들고 예상한 반응을 먼저 적는다</span><span class="zh">做出场景，并先写下预期的反应</span></span></span></a></li>
+      <li><a href="12-2.html"><span class="tn">12-2</span><span class="tt"><span class="ko">사용자 흐름 테스트와 시험 제출</span><span class="zh">用户流程测试与试提交</span><span class="td"><span class="ko">대표·예외·다시 방문 흐름을 실행해 보고 기록한다</span><span class="zh">跑一遍代表流程、例外流程与再次访问流程并记录</span></span></span></a></li>
+      <li><a href="13-1.html"><span class="tn">13-1</span><span class="tt"><span class="ko">수행평가 3 · 테스트 결과 반영과 최종 가다듬기</span><span class="zh">实作评价 3 · 反映测试结果并做最后打磨</span><span class="td"><span class="ko">테스트 기록을 근거로 한 가지씩 고치고 재시험한다</span><span class="zh">依据测试记录，一次改一处，改完再测</span></span></span></a></li>
+      <li><a href="13-2.html"><span class="tn">13-2</span><span class="tt"><span class="ko">수행평가 3 · 실행·설명·최종 제출</span><span class="zh">实作评价 3 · 运行·说明·最终提交</span><span class="td"><span class="ko">최종본을 실행하고 근거와 함께 설명한 뒤 제출한다</span><span class="zh">运行最终版本，带着依据说明后提交</span></span></span></a></li>
+    </ol>
+
+    <div class="startlink"><div class="sl"><span class="ko">시작하기</span><span class="zh">开始</span></div><a class="next" href="01-1.html">1-1. 수업 소개로 가기 →</a></div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600">
+  <rect width="1600" height="600" fill="#fff"/>
+  <style>
+    text{font-family:Arial,'Apple SD Gothic Neo',sans-serif;fill:#1B1D21} .h{font-size:34px;font-weight:700}.s{font-size:23px}.w{fill:#fff}.muted{fill:#6C7078}
+  </style>
+  <text x="800" y="82" text-anchor="middle" class="h">한 학기 학습 흐름</text>
+  <line x1="125" y1="330" x2="1490" y2="330" stroke="#6C7078" stroke-width="10" stroke-linecap="round"/>
+  <path d="M1496 330l-30-21v42z" fill="#FF5C00"/>
+
+  <rect x="95" y="235" width="150" height="190" fill="#F1F2F4" stroke="#E0E3E7" stroke-width="3"/>
+  <text x="170" y="295" text-anchor="middle" class="h">1주</text><text x="170" y="342" text-anchor="middle" class="s">오리엔테이션</text><text x="170" y="378" text-anchor="middle" class="s muted">수업 열기</text>
+
+  <rect x="285" y="235" width="330" height="190" fill="#F1F2F4" stroke="#E0E3E7" stroke-width="3"/>
+  <text x="450" y="295" text-anchor="middle" class="h">2~5주</text><text x="450" y="342" text-anchor="middle" class="s">Python과 데이터</text><text x="450" y="378" text-anchor="middle" class="s" fill="#FF5C00">읽는 힘</text>
+
+  <rect x="700" y="235" width="330" height="190" fill="#E8EAED" stroke="#C7C9CE" stroke-width="3"/>
+  <text x="865" y="295" text-anchor="middle" class="h">6~8주</text><text x="865" y="342" text-anchor="middle" class="s">기획과 데이터 설계</text><text x="865" y="378" text-anchor="middle" class="s" fill="#FF5C00">계획하는 힘</text>
+
+  <rect x="1105" y="235" width="290" height="190" fill="#FF5C00"/>
+  <text x="1250" y="295" text-anchor="middle" class="h w">9~13주</text><text x="1250" y="342" text-anchor="middle" class="s w">AI와 서비스 개발</text><text x="1250" y="378" text-anchor="middle" class="s w">만드는 힘</text>
+
+  <g><circle cx="650" cy="330" r="38" fill="#0E7C86" stroke="#fff" stroke-width="7"/><text x="650" y="339" text-anchor="middle" class="s w" font-weight="700">5</text><text x="650" y="478" text-anchor="middle" class="s">수행평가 1</text><text x="650" y="510" text-anchor="middle" class="s muted">데이터 시각화</text></g>
+  <g><circle cx="1065" cy="330" r="38" fill="#0E7C86" stroke="#fff" stroke-width="7"/><text x="1065" y="339" text-anchor="middle" class="s w" font-weight="700">8</text><text x="1065" y="478" text-anchor="middle" class="s">수행평가 2</text><text x="1065" y="510" text-anchor="middle" class="s muted">제작 계획서</text></g>
+  <g><circle cx="1432" cy="330" r="38" fill="#0E7C86" stroke="#fff" stroke-width="7"/><text x="1432" y="339" text-anchor="middle" class="s w" font-weight="700">13</text><text x="1432" y="478" text-anchor="middle" class="s">수행평가 3</text><text x="1432" y="510" text-anchor="middle" class="s muted">창작물</text></g>
+</svg>

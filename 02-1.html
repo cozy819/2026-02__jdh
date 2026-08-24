@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>2-1. 프로그래밍 언어와 Python · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 2-1 — 언어가 여러 개인 이유, 이 수업이 Python을 고른 이유, .py와 .ipynb의 차이" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>2-1</em> <span class="lesson">프로그래밍 언어와 Python</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 2-1</span><span class="zh">本课时 — 2-1</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 들어가며</a>
+  <a href="#s1"><span class="n">1</span> 언어가 여러 개인 이유</a>
+  <a href="#s2"><span class="n">2</span> 왜 Python을 배우는가</a>
+  <a href="#s2b"><span class="n">·</span> 라이브러리라는 자산</a>
+  <a href="#s2c"><span class="n">·</span> 학교 밖에서도 쓰인다</a>
+  <a href="#s3"><span class="n">3</span> 언어만으로는 실행되지 않는다</a>
+  <a href="#s4"><span class="n">4</span> .py 파일</a>
+  <a href="#s4b"><span class="n">·</span> Jupyter Notebook</a>
+  <a href="#s4c"><span class="n">·</span> 두 형식 비교</a>
+  <a href="#s5"><span class="n">5</span> AI 시대에 언어를 배운다는 것</a>
+  <a href="#s6"><span class="n">6</span> 흔한 오해</a>
+  <a href="#s7"><span class="n">7</span> 확인하기</a>
+  <a href="#s8"><span class="n">8</span> 핵심 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="02-1.html" class="here"><span class="n">2-1</span> 프로그래밍 언어와 Python</a>
+  <a href="02-2.html"><span class="n">2-2</span> Python 실습 환경 준비하기</a>
+  <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
+  <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
+  <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="05-2.html"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="별도배포/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">2회 · 첫째 차시</span><span class="zh">第 2 次课 · 第 1 课时</span></div>
+    <h1><span class="ko">프로그래밍 언어와<br/>Python</span><span class="zh">编程语言与<br/>Python</span></h1>
+    <div class="osub"><span class="ko">언어가 왜 이렇게 많은지, 이 수업이 왜 Python을 골랐는지,<br/>그리고 코드를 담는 두 가지 파일 형식이 어떻게 다른지 살펴봅니다.</span><span class="zh">看看为什么语言这么多、这门课为什么选了 Python，<br/>以及装代码的两种文件格式有什么不同。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 1-2. 수업 열기<br/>
+      <b>다음 차시</b> · 2-2. Python 실습 환경 준비하기</span><span class="zh"><b>上一课时</b> · 1-2. 开课<br/> <b>下一课时</b> · 2-2. 准备 Python 实践环境</span></div>
+  </section>
+
+  <!-- ══════════ 들어가며 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">“어떤 언어부터 배워야 해요?”</span><span class="zh">“该从哪门语言学起？”</span></h2>
+
+    <div class="scene">
+      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
+      <p><span class="ko">코딩을 시작하려고 검색창에 “프로그래밍 언어 추천”을 칩니다. 결과가 쏟아집니다. Python, JavaScript, Java, C, C++, C#, Go, Rust, Swift, Kotlin… 이름만 스무 개가 넘습니다.</span><span class="zh">想开始学编程，在搜索框里打“编程语言推荐”。结果哗哗地出来：Python、JavaScript、Java、C、C++、C#、Go、Rust、Swift、Kotlin……光名字就二十多个。</span></p>
+      <p><span class="ko">글마다 말이 다릅니다. 어떤 글은 “무조건 Python”이라 하고, 다른 글은 “취업하려면 Java”라고 하고, 또 다른 글은 “C부터 해야 기초가 잡힌다”라고 합니다. 모두 나름의 근거를 댑니다.</span><span class="zh">每篇文章说法都不一样。有的说“无脑选 Python”，有的说“想就业就学 Java”，还有的说“得从 C 开始才打得牢基础”。每一种都讲得头头是道。</span></p>
+      <p><span class="ko">혼란스러운 이유는 질문이 잘못되었기 때문입니다. “가장 좋은 언어는?”이라는 질문에는 답이 없습니다. <b>“무엇을 만들려고 하는가?”</b>를 먼저 물어야 답이 정해집니다.</span><span class="zh">之所以混乱，是因为问题本身问错了。“最好的语言是哪个？”这个问题没有答案。要先问<b>“你想做什么？”</b>，答案才定得下来。</span></p>
+    </div>
+
+    <div class="bigq">
+      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
+      <p><span class="ko">프로그래밍 언어는 왜 여러 종류이며, 이 수업에서는 왜 Python을 사용할까?</span><span class="zh">为什么编程语言有那么多种，而这门课为什么用 Python？</span></p>
+    </div>
+
+    <div class="recall">
+      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
+      <ul class="blist">
+        <li><span class="ko">CPU는 <b>기계어</b>만 실행할 수 있고, 사람은 문제에 가까운 <b>고급 프로그래밍 언어</b>를 쓴다.</span><span class="zh">CPU 只能执行<b>机器语言</b>，而人使用贴近问题的<b>高级编程语言</b>。</span></li>
+        <li><span class="ko">사람이 쓴 코드는 <b>컴파일러나 인터프리터</b>를 거쳐 운영체제가 마련한 환경에서 실행된다.</span><span class="zh">人写的代码要经过<b>编译器或解释器</b>，在操作系统备好的环境中运行。</span></li>
+        <li><span class="ko">‘고급’은 어렵다는 뜻이 아니라 <b>하드웨어에서 멀고 사람에게 가깝다</b>는 뜻이다.</span><span class="zh">“高级”不是难的意思，而是<b>离硬件远、离人近</b>的意思。</span></li>
+      </ul>
+    </div>
+
+    <p><span class="ko">고급 언어가 하나뿐이라면 고민할 일이 없었을 것입니다. 그런데 실제로는 수십 가지가 함께 쓰입니다. 이번 차시는 그 이유에서 출발합니다.</span><span class="zh">要是高级语言只有一种，就不用纠结了。可实际上有几十种在同时使用。这一课时就从这个原因说起。</span></p>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. 언어의 다양성</span><span class="zh">1. 语言的多样性</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">프로그래밍 언어가 여러 개인 이유</span><span class="zh">为什么编程语言有很多种</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">프로그래밍 언어</span><span class="en">programming language</span></span><span class="zh"><span class="w">编程语言</span><span class="en">programming language</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">사람끼리도 상황에 따라 다른 말을 씁니다. 요리법은 순서대로 적고, 수학 문제는 기호로 적고, 노래 가사는 또 다르게 적습니다. 담는 내용에 따라 알맞은 형식이 다릅니다.</span><span class="zh">人与人之间也会因场合而换说法。菜谱按步骤写，数学题用符号写，歌词又是另一种写法。装的内容不同，合适的形式也不同。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">컴퓨터가 할 일과 규칙을 사람이 적어 두기 위해 만든 <b>약속된 표기 방식</b>입니다.</span><span class="zh">它是为了让人写下计算机要做的事和规则，而制定的<b>约定好的记法</b>。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">컴퓨터가 수행할 연산과 제어 흐름을 사람이 기술할 수 있도록 문법과 의미 규칙을 정해 둔 형식 언어.</span><span class="zh">为使人能够描述计算机要执行的运算与控制流程，而规定了语法和语义规则的形式语言。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">일상에서 ‘코딩 언어’라고도 하지만, 교과서와 기술 문서에서는 보통 <b>프로그래밍 언어</b>라고 씁니다. HTML은 화면의 구조를 적는 <b>마크업 언어</b>여서 엄밀히는 프로그래밍 언어로 분류하지 않습니다.</span><span class="zh">日常里也说“编码语言”，但教科书和技术文档通常写作<b>编程语言</b>。HTML 是描述页面结构的<b>标记语言</b>，严格说不归类为编程语言。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“이 프로젝트는 서버는 Python으로, 화면은 JavaScript로 만들었다.”</span><span class="zh">“这个项目服务器用 Python 写，界面用 JavaScript 写。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">모든 작업에 가장 좋은 언어 하나가 정해져 있지는 않습니다. 언어마다 <b>만들어진 목적</b>과 <b>잘하는 일</b>이 다르기 때문입니다.</span><span class="zh">并不存在一种对所有工作都最好的语言。因为每种语言<b>被造出来的目的</b>和<b>擅长的事</b>都不同。</span></p>
+  </section>
+
+  <section class="page" id="s1_2">
+    <div class="kick"><span class="ko">1. 언어의 다양성</span><span class="zh">1. 语言的多样性</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">프로그래밍 언어가 여러 개인 이유</span><span class="zh">为什么编程语言有很多种</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:110px"><span class="ko">언어</span><span class="zh">语言</span></th><th style="width:32%"><span class="ko">자주 쓰이는 곳</span><span class="zh">常用于</span></th><th><span class="ko">특징</span><span class="zh">特点</span></th></tr>
+      <tr><td><b>Python</b></td><td><span class="ko">데이터 분석, AI, 자동화, 교육, 서버</span><span class="zh">数据分析、AI、自动化、教育、服务器</span></td><td><span class="ko">문법이 비교적 읽기 쉽고 쓸 수 있는 라이브러리가 많다.</span><span class="zh">语法相对易读，可用的库很多。</span></td></tr>
+      <tr><td><b>JavaScript</b></td><td><span class="ko">웹페이지의 동작, 웹 서버</span><span class="zh">网页的交互行为、Web 服务器</span></td><td><span class="ko">브라우저에서 직접 실행되는 대표적인 언어다.</span><span class="zh">在浏览器中直接运行的代表性语言。</span></td></tr>
+      <tr><td><b>C · C++</b></td><td><span class="ko">운영체제, 게임 엔진, 장치 제어, 고성능 프로그램</span><span class="zh">操作系统、游戏引擎、设备控制、高性能程序</span></td><td><span class="ko">하드웨어와 가까운 수준까지 다룰 수 있고 성능을 세밀하게 조정할 수 있다.</span><span class="zh">能处理到接近硬件的层面，可以精细调优性能。</span></td></tr>
+      <tr><td><b>Java · Kotlin</b></td><td><span class="ko">기업용 서버, Android 앱</span><span class="zh">企业级服务器、Android 应用</span></td><td><span class="ko">큰 프로그램을 구조적으로 관리하는 데 널리 쓰인다.</span><span class="zh">广泛用于结构化地管理大型程序。</span></td></tr>
+      <tr><td><b>Swift</b></td><td><span class="ko">Apple 기기의 앱</span><span class="zh">Apple 设备的应用</span></td><td><span class="ko">iPhone, iPad와 Mac용 앱 개발에 주로 쓰인다.</span><span class="zh">主要用于开发 iPhone、iPad 和 Mac 上的应用。</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">이 표는 경계선이 아닙니다</span><span class="zh">这张表不是分界线</span></div>
+      <p><span class="ko">표를 보고 “Python은 웹을 못 만든다”라고 읽으면 안 됩니다. Python으로 웹서비스를 만들 수도 있고 JavaScript로 서버를 만들 수도 있습니다. 실제 개발에서는 <b>만들려는 것, 실행할 장소, 필요한 속도, 이미 쓰고 있는 기술, 함께 일하는 사람</b>을 모두 보고 언어를 고릅니다.</span><span class="zh">看了表不能读成“Python 做不了网站”。Python 可以做网络服务，JavaScript 也可以做服务器。真实开发中会综合考虑<b>要做什么、在哪里运行、需要多快、已经在用什么技术、和谁一起工作</b>再选语言。</span></p>
+    </div>
+
+    <p><span class="ko">정리하면 이렇습니다. 언어가 여러 개인 이유는 누가 더 뛰어나서가 아니라, <b>서로 다른 문제를 풀려고 서로 다른 시기에 만들어졌기 때문</b>입니다.</span><span class="zh">归纳起来是这样：语言之所以有很多种，不是因为谁更强，而是因为<b>它们为解决不同的问题、在不同的时期被造出来</b>。</span></p>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 언어 선택</span><span class="zh">2. 语言选择</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">왜 이 수업은 Python을 고르는가</span><span class="zh">这门课为什么选 Python</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">Python이 모든 상황에서 가장 뛰어난 언어이기 때문은 아닙니다. 그러나 <b>처음 프로그래밍을 배우는 학생이 한 가지 언어로 여러 분야를 경험하기에는</b> 매우 좋은 선택입니다. 이유를 하나씩 보겠습니다.</span><span class="zh">并不是因为 Python 在所有场合都最强。但<b>对于第一次学编程、想用一门语言体验多个领域的学生</b>来说，它是非常好的选择。我们逐条来看。</span></p>
+
+    <h3 class="sub"><span class="ko">이유 1 — 한 언어로 여러 분야를 갈 수 있다</span><span class="zh">理由 1 — 一门语言可以通向多个领域</span></h3>
+    <p><span class="ko">Python은 간단한 계산과 파일 정리부터 데이터 분석, 그래프, 웹 서버, 업무 자동화, 과학 계산과 AI 개발까지 폭넓게 쓰입니다. 한 분야에만 쓰는 전용 언어가 아니어서, 기초를 배운 뒤 자기 관심 분야로 이어 가기 좋습니다.</span><span class="zh">Python 从简单计算和文件整理，到数据分析、图表、Web 服务器、办公自动化、科学计算和 AI 开发，用途都很广。它不是只用于某一个领域的专用语言，所以打好基础后，很容易接着走向自己感兴趣的方向。</span></p>
+    <p><span class="ko">이 점은 여러분에게 실질적인 이득입니다. 지금은 무엇에 관심이 생길지 모릅니다. 나중에 데이터 쪽으로 가든, 웹 쪽으로 가든, AI 쪽으로 가든 <b>지금 배운 것을 버리지 않고 이어 쓸 수 있습니다.</b></span><span class="zh">这一点对你们有实实在在的好处。现在还不知道以后会对什么产生兴趣。将来无论走数据、走 Web 还是走 AI，<b>现在学的东西都不用丢，可以接着用</b>。</span></p>
+
+    <h3 class="sub"><span class="ko">이유 2 — 코드가 짧고 읽기 쉽다</span><span class="zh">理由 2 — 代码短，读起来容易</span></h3>
+    <p><span class="ko">Python 코드는 비교적 짧고, 문장이 하는 일이 겉으로 잘 드러납니다. 처음 코드를 보는 학생도 값이 어디에 저장되고 어떤 계산이 일어나는지 따라가기 좋습니다.</span><span class="zh">Python 代码比较短，句子在做什么也比较显眼。第一次看代码的学生也容易跟上值存到了哪里、发生了什么计算。</span></p>
+    <p><span class="ko">이 수업의 목표가 <b>‘코드를 읽는 힘’</b>이라는 점을 떠올리면, 읽기 쉬운 언어를 고르는 것은 자연스러운 선택입니다. 같은 일을 하는 코드라도 언어에 따라 읽는 부담이 크게 다릅니다.</span><span class="zh">想到这门课的目标是<b>“读代码的能力”</b>，选一门易读的语言就是很自然的事。做同一件事的代码，因语言不同，阅读负担会差很多。</span></p>
+
+    <h3 class="sub"><span class="ko">이유 3 — 학교를 떠난 뒤에도 이어진다</span><span class="zh">理由 3 — 离开学校之后还接得上</span></h3>
+    <p><span class="ko">이런 이유로 Python은 중·고등학교 정보 수업과 대학의 프로그래밍 입문 수업에서 널리 쓰입니다. 여기서 배운 변수, 조건, 반복과 함수는 대학의 데이터 분석 수업이나 웹 개발 수업에서 그대로 다시 등장합니다. <b>이번 학기가 마지막이 아니라 첫 칸</b>이라는 뜻입니다.</span><span class="zh">正因如此，Python 在中学信息课和大学的编程入门课上被广泛使用。这里学到的变量、条件、循环和函数，在大学的数据分析课或 Web 开发课上会原样再次出现。也就是说，<b>这个学期不是终点，而是第一格</b>。</span></p>
+
+    <h3 class="sub"><span class="ko">이유 4 — AI를 다루는 사람들이 쓰는 언어다</span><span class="zh">理由 4 — 这是做 AI 的人在用的语言</span></h3>
+    <p><span class="ko">오늘날 AI와 기계학습 분야의 대표적인 도구 상당수가 Python을 중심으로 제공됩니다. AI 개발자는 Python으로 데이터를 정리하고, 학습 코드를 작성하고, 만들어진 모델을 시험하거나 서비스와 연결합니다.</span><span class="zh">今天 AI 与机器学习领域相当多的代表性工具，都以 Python 为中心提供。AI 开发者用 Python 整理数据、编写训练代码、测试做好的模型或把它接入服务。</span></p>
+    <p><span class="ko">여기에 더해 실용적인 이유가 하나 더 있습니다. 생성형 AI는 Python 예시를 특히 풍부하게 만들어 냅니다. 인터넷에 Python 코드와 설명이 워낙 많이 쌓여 있기 때문입니다. 따라서 Python은 <b>AI가 만든 코드를 읽고 실행하며 검증하는 연습</b>에도 적합합니다.</span><span class="zh">此外还有一个很实际的理由：生成式 AI 产出的 Python 示例格外丰富，因为互联网上积累的 Python 代码和讲解实在太多。因此 Python 也很适合用来练习<b>读懂、运行并验证 AI 写的代码</b>。</span></p>
+  </section>
+
+  <!-- ══════════ 2b ══════════ -->
+  <section class="page" id="s2b">
+    <div class="kick"><span class="ko">2. 언어 선택 (이어서)</span><span class="zh">2. 语言选择（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">이유 5 — 라이브러리라는 큰 자산</span><span class="zh">理由 5 — 库这项大资产</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">라이브러리</span><span class="en">library</span></span><span class="zh"><span class="w">库</span><span class="en">library</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">그래프를 하나 그리려고 선을 긋고, 눈금을 매기고, 글씨를 배치하는 코드를 처음부터 다 짜야 한다면 며칠이 걸릴 것입니다. 그런데 실제로는 몇 줄이면 그래프가 나옵니다.</span><span class="zh">要画一张图表，如果连画线、标刻度、摆文字的代码都得从头写，大概得花上好几天。可实际上几行就出来了。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">다른 사람이 이미 만들어 공개해 둔 <b>기능 묶음</b>입니다. 가져다 쓰면 그 부분을 직접 만들지 않아도 됩니다.</span><span class="zh">它是别人已经做好并公开的<b>功能包</b>。拿来用，那部分就不用自己造了。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">특정 기능을 수행하는 코드를 재사용할 수 있도록 묶어 배포한 소프트웨어 꾸러미.</span><span class="zh">把实现特定功能的代码打包发布、以便重复使用的软件包。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">라이브러리는 <b>내 프로그램이 불러다 쓰는</b> 부품입니다. 반대로 전체 구조를 미리 정해 두고 그 틀 안에 내 코드를 끼워 넣게 하는 것은 <b>프레임워크</b>라고 구분해 부릅니다.</span><span class="zh">库是<b>我的程序去调用</b>的零件。反过来，先把整体结构定好、让我的代码嵌进那个框子里的，则另外称作<b>框架</b>。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“그래프는 Matplotlib 라이브러리를 불러와서 그렸다.”</span><span class="zh">“图表是引入 Matplotlib 库画出来的。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">Python은 오랫동안 여러 나라와 분야에서 쓰여 온 언어입니다. 사용자와 개발자가 많으므로 학습 자료, 질문과 답변, 예제와 문제 해결 기록을 찾기 쉽습니다. 그리고 널리 쓰이는 라이브러리는 <b>많은 사람이 실제 작업에서 쓰면서 오류를 찾고 기능을 개선해 왔습니다.</b></span><span class="zh">Python 是一门在许多国家和领域使用了很久的语言。用户和开发者多，所以学习资料、问答、示例和问题排查记录都好找。而且被广泛使用的库，<b>经过许多人在实际工作中使用，不断发现错误、改进功能</b>。</span></p>
+  </section>
+
+  <section class="page" id="s2b_2">
+    <div class="kick"><span class="ko">2. 언어 선택 (이어서)</span><span class="zh">2. 语言选择（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">이유 5 — 라이브러리라는 큰 자산</span><span class="zh">理由 5 — 库这项大资产</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:120px"><span class="ko">분야</span><span class="zh">领域</span></th><th style="width:34%"><span class="ko">대표적인 Python 도구</span><span class="zh">代表性的 Python 工具</span></th><th><span class="ko">할 수 있는 일</span><span class="zh">能做什么</span></th></tr>
+      <tr><td><span class="ko">수치 계산</span><span class="zh">数值计算</span></td><td>NumPy, SciPy</td><td><span class="ko">많은 수를 빠르게 계산하고 과학·공학 문제를 다룬다.</span><span class="zh">快速计算大量数值，处理科学与工程问题。</span></td></tr>
+      <tr><td><span class="ko">데이터 분석</span><span class="zh">数据分析</span></td><td>pandas, Jupyter</td><td><span class="ko">데이터를 정리하고 계산 과정과 결과를 기록한다.</span><span class="zh">整理数据，记录计算过程与结果。</span></td></tr>
+      <tr><td><span class="ko">그래프</span><span class="zh">图表</span></td><td>Matplotlib</td><td><span class="ko">데이터를 막대·선·점 등의 그래프로 나타낸다.</span><span class="zh">把数据画成柱状图、折线图、散点图等。</span></td></tr>
+      <tr><td><span class="ko">AI·기계학습</span><span class="zh">AI · 机器学习</span></td><td>PyTorch, TensorFlow, scikit-learn</td><td><span class="ko">데이터로 모델을 만들고 학습·평가한다.</span><span class="zh">用数据建立模型并进行训练与评估。</span></td></tr>
+      <tr><td><span class="ko">웹 서버</span><span class="zh">Web 服务器</span></td><td>Django, Flask</td><td><span class="ko">브라우저의 요청을 처리하는 서버를 만든다.</span><span class="zh">构建处理浏览器请求的服务器。</span></td></tr>
+      <tr><td><span class="ko">자동화</span><span class="zh">自动化</span></td><td><span class="ko">Python 기본 기능과 여러 라이브러리</span><span class="zh">Python 基本功能与各种库</span></td><td><span class="ko">파일 정리와 반복 작업을 코드로 처리한다.</span><span class="zh">用代码处理文件整理与重复作业。</span></td></tr>
+    </table>
+    </div>
+
+    <p><span class="ko">이 표에서 <b>pandas</b>와 <b>Matplotlib</b>은 4회에 실제로 쓰게 됩니다. 나머지는 지금 이름만 눈에 익혀 두면 됩니다.</span><span class="zh">表中的 <b>pandas</b> 和 <b>Matplotlib</b> 会在第 4 次课实际用到。其余的现在把名字混个眼熟就够了。</span></p>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">유명하다고 안전한 것은 아니다</span><span class="zh">有名不等于安全</span></div>
+      <p><span class="ko">라이브러리가 유명하다는 이유만으로 모든 코드가 자동으로 안전하거나 정확해지지는 않습니다. <b>출처, 사용 목적, 최근 업데이트 상태, 실제 결과</b>는 여전히 확인해야 합니다.</span><span class="zh">不能因为一个库有名，就认为所有代码自动变得安全或准确。<b>来源、使用目的、最近的更新状况、实际结果</b>仍然需要确认。</span></p>
+      <p><span class="ko">특히 AI가 “이 라이브러리를 설치하세요”라고 제안할 때 그대로 따르지 않습니다. 라이브러리를 하나 추가하면 프로그램의 실행 환경과 점검해야 할 범위도 함께 늘어납니다. 이 원칙은 2-2에서 다시 만납니다.</span><span class="zh">尤其当 AI 建议“请安装这个库”时，不要照单全收。每加一个库，程序的运行环境和需要检查的范围也会跟着变大。这条原则在 2-2 会再次遇到。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 2c ══════════ -->
+  <section class="page" id="s2c">
+    <div class="kick"><span class="ko">2. 언어 선택 (이어서)</span><span class="zh">2. 语言选择（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Python은 입문용 언어에 머물지 않는다</span><span class="zh">Python 不止是入门语言</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
+
+    <p class="lead"><span class="ko">“학교에서 배우기 좋은 언어”라는 말에는 “실제로는 별로 안 쓰인다”는 뉘앙스가 섞이기 쉽습니다. Python은 그렇지 않습니다. 두 가지 사례를 보겠습니다.</span><span class="zh">“适合在学校学的语言”这种说法，容易夹带“实际上不太用”的意味。Python 不是这样。我们看两个例子。</span></p>
+
+    <h3 class="sub"><span class="ko">사례 1 — 대학과 연구에서 MATLAB을 대신하고 있다</span><span class="zh">例 1 — 在大学和科研中正在取代 MATLAB</span></h3>
+
+    <p><span class="ko">수학·과학·공학 분야에서는 오랫동안 MATLAB 같은 전용 프로그램을 많이 썼습니다. 지금은 대학생과 연구자들이 MATLAB으로 하던 수치 계산, 데이터 분석과 그래프 작업의 상당 부분을 Python으로 하기도 합니다.</span><span class="zh">数学、科学与工程领域长期大量使用 MATLAB 这类专用软件。如今大学生和研究者会用 Python 来做原本用 MATLAB 做的相当一部分数值计算、数据分析和绘图工作。</span></p>
+
+    <p><span class="ko">NumPy·SciPy·Matplotlib과 Jupyter를 함께 쓰면 <b>계산 과정, 코드, 설명과 그래프를 한곳에 기록</b>할 수 있습니다. 게다가 Python은 무료로 쓸 수 있고 다른 분야의 코드와 연결하기도 쉽습니다. 그래서 대학 수업과 연구에서 MATLAB을 대신하거나 함께 쓰는 경우가 많아졌습니다.</span><span class="zh">把 NumPy、SciPy、Matplotlib 和 Jupyter 一起用，就能<b>把计算过程、代码、说明和图表记录在同一个地方</b>。而且 Python 免费，也容易和其他领域的代码衔接。所以在大学课程和科研中，用它取代 MATLAB 或与之并用的情况多了起来。</span></p>
+
+    <p><span class="ko">다만 모든 MATLAB 기능이 Python으로 완전히 옮겨진 것은 아닙니다. 특정 전공의 전용 도구나 Simulink처럼 MATLAB 환경이 필요한 작업도 있습니다. 중요한 점은 Python이 <b>단순한 입문 언어를 넘어 실제 학습과 연구에서 쓰이는 언어</b>라는 것입니다.</span><span class="zh">不过并非所有 MATLAB 功能都完全搬到了 Python。某些专业的专用工具，或像 Simulink 这样必须在 MATLAB 环境里做的工作依然存在。要点在于：Python <b>已经越过单纯的入门语言，成为实际用于学习与研究的语言</b>。</span></p>
+
+    <h3 class="sub"><span class="ko">사례 2 — AI에서 웹까지 이어진다</span><span class="zh">例 2 — 从 AI 一路连到 Web</span></h3>
+
+    <p><span class="ko">Python은 AI 모델을 개발하는 데 그치지 않고 Django·Flask 같은 도구로 웹 서버를 만들 때도 씁니다. 앞에서 본 Instagram이 그 예입니다.</span><span class="zh">Python 不只用于开发 AI 模型，用 Django、Flask 之类的工具做 Web 服务器时也在用。前面提到的 Instagram 就是例子。</span></p>
+
+    <p><span class="ko">다만 <b>이 수업의 웹서비스는 Python으로 만들지 않습니다.</b> 10회 이후에는 화면과 서버 기능을 <b>한 프로젝트 안에서 함께</b> 다루는 JavaScript 계열 도구를 씁니다. 우리 수업에는 화면과 서버를 따로 두고 연결할 시간이 없기 때문입니다.</span><span class="zh">不过<b>本课的网络服务不用 Python 来做</b>。第 10 次课以后使用的是能把画面与服务器功能<b>放在同一个项目里一起处理</b>的 JavaScript 系工具。因为我们的课时不够把画面和服务器分开再对接。</span></p>
+
+    <p><span class="ko">언어가 바뀌어도 걱정할 것은 없습니다. 지금 Python으로 익히는 <b>값·조건·반복·함수</b>는 그 언어에도 그대로 나타납니다.</span><span class="zh">语言换了也不用担心。现在用 Python 掌握的<b>值、条件、循环、函数</b>，在那门语言里同样会出现。</span></p>
+  </section>
+
+  <section class="page" id="s2c_2">
+    <div class="kick"><span class="ko">2. 언어 선택 (이어서)</span><span class="zh">2. 语言选择（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Python은 입문용 언어에 머물지 않는다</span><span class="zh">Python 不止是入门语言</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="deep">
+      <div class="deep-h"><span class="ko">더 깊이 — 브라우저 안의 Python, PyScript</span><span class="zh">更深一层 — 浏览器里的 Python，PyScript</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
+      <div class="body">
+        <p><span class="ko">일반적인 웹브라우저는 JavaScript를 직접 실행합니다. 그런데 <b>PyScript</b> 같은 도구를 쓰면 웹페이지 안에서 Python 코드를 실행하는 구성도 만들 수 있습니다.</span><span class="zh">一般的网页浏览器直接执行 JavaScript。不过用 <b>PyScript</b> 这类工具，也能构造出在网页中运行 Python 代码的形态。</span></p>
+        <p><span class="ko">이것이 “웹에서 JavaScript가 필요 없다”는 뜻은 아닙니다. PyScript는 Python의 활용 범위가 브라우저까지 이어질 수 있음을 보여 주는 <b>확장 사례</b>로 이해하면 됩니다.</span><span class="zh">这并不是说“网页不需要 JavaScript”。把 PyScript 理解为一个<b>扩展案例</b>就好：它表明 Python 的适用范围可以一直延伸到浏览器。</span></p>
+      </div>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">10회 이후에는 JavaScript도 만납니다</span><span class="zh">第 10 次课以后还会遇到 JavaScript</span></div>
+      <p><span class="ko">겁먹을 필요는 없습니다. Python으로 값, 조건, 반복과 함수 같은 <b>공통 원리</b>를 먼저 익히면, 문법이 다른 JavaScript 코드에서도 같은 구조를 알아볼 수 있습니다. 언어를 하나 더 배우는 것이 아니라 <b>같은 구조를 다른 표기로 다시 보는 것</b>에 가깝습니다.</span><span class="zh">不必害怕。先用 Python 掌握值、条件、循环和函数这些<b>共通原理</b>，在语法不同的 JavaScript 代码里也能认出同样的结构。与其说是多学一门语言，不如说是<b>用另一种写法再看一遍同样的结构</b>。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 실행 환경</span><span class="zh">3. 运行环境</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">언어만 있어서는 코드가 실행되지 않는다</span><span class="zh">光有语言，代码是跑不起来的</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">Python 코드를 문서에 적어 놓는 것만으로는 아무 일도 일어나지 않습니다. 코드를 <b>작성하고, 실행하고, 결과를 확인할 환경</b>이 있어야 합니다.</span><span class="zh">把 Python 代码写在文档里，什么也不会发生。必须有能<b>编写、运行并查看结果的环境</b>。</span></p>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>사람이 Python 코드를 작성한다</b><span>편집기에서</span></span><span class="zh"><b>人编写 Python 代码</b><span>在编辑器里</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>Python 인터프리터가 코드를 읽고 실행한다</b></span><span class="zh"><b>Python 解释器读取并执行代码</b></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>운영체제가 CPU·메모리·파일 사용을 관리한다</b><span>1-2에서 배운 그 층입니다</span></span><span class="zh"><b>操作系统管理 CPU、内存与文件的使用</b><span>就是 1-2 学过的那一层</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>화면이나 파일로 결과가 나타난다</b></span><span class="zh"><b>结果显示在屏幕上或写入文件</b></span></div>
+    </div>
+
+    <p><span class="ko">다음 차시(2-2)에서 실제로 설치하게 될 도구들이 각각 이 흐름의 어느 자리를 맡는지 미리 정리해 두겠습니다. 이름이 낯설어도 지금은 <b>역할이 서로 다르다</b>는 점만 잡으면 됩니다.</span><span class="zh">下一课时（2-2）要实际安装的工具，各自在这条流程里占哪个位置，我们先理一遍。名字陌生没关系，现在只要抓住<b>各自职责不同</b>这一点就行。</span></p>
+  </section>
+
+  <section class="page" id="s3_2">
+    <div class="kick"><span class="ko">3. 실행 환경</span><span class="zh">3. 运行环境</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">언어만 있어서는 코드가 실행되지 않는다</span><span class="zh">光有语言，代码是跑不起来的</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:190px"><span class="ko">도구</span><span class="zh">工具</span></th><th><span class="ko">역할</span><span class="zh">职责</span></th></tr>
+      <tr><td><b>VS Code</b></td><td><span class="ko">코드와 파일을 작성하고 관리하는 편집기</span><span class="zh">编写和管理代码与文件的编辑器</span></td></tr>
+      <tr><td><b>Python</b></td><td><span class="ko">Python 코드를 실제로 읽고 실행하는 언어와 인터프리터</span><span class="zh">真正读取并执行 Python 代码的语言与解释器</span></td></tr>
+      <tr><td><b>Jupyter Notebook</b></td><td><span class="ko">설명, 코드와 실행 결과를 셀 단위로 함께 기록하는 문서</span><span class="zh">把说明、代码与运行结果按单元格一起记录下来的文档</span></td></tr>
+      <tr><td><span class="ko">VS Code Python 확장</span><span class="zh">VS Code Python 扩展</span></td><td><span class="ko">VS Code가 Python 실행 환경을 찾고 쓸 수 있게 돕는 기능</span><span class="zh">帮助 VS Code 找到并使用 Python 运行环境的功能</span></td></tr>
+      <tr><td><span class="ko">VS Code Jupyter 확장</span><span class="zh">VS Code Jupyter 扩展</span></td><td><span class="ko">VS Code에서 Notebook을 열고 셀을 실행하게 하는 기능</span><span class="zh">让 VS Code 能打开 Notebook 并运行单元格的功能</span></td></tr>
+      <tr><td><b>uv</b></td><td><span class="ko">Python 버전, 가상환경과 라이브러리를 준비하고 관리하는 도구</span><span class="zh">准备和管理 Python 版本、虚拟环境与库的工具</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">가장 자주 생기는 오해</span><span class="zh">最常见的误会</span></div>
+      <p><span class="ko">VS Code에 Python <b>확장</b>을 설치했다고 해서 Python 자체가 생기는 것이 아닙니다. 확장은 VS Code와 Python을 <b>연결</b>할 뿐이고, 실제 코드는 선택한 Python 인터프리터가 실행합니다.</span><span class="zh">在 VS Code 里装了 Python <b>扩展</b>，并不等于就有了 Python 本身。扩展只是把 VS Code 和 Python <b>连接</b>起来，真正执行代码的是你选定的 Python 解释器。</span></p>
+      <p><span class="ko">다음 차시에서 “확장은 깔았는데 왜 안 되지?”라는 상황을 만나면 이 문단을 떠올리세요.</span><span class="zh">下一课时若遇到“扩展明明装了，怎么还是不行？”的情况，请想起这一段。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 두 가지 파일 형식</span><span class="zh">4. 两种文件格式</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Python 파일 <code>.py</code></span><span class="zh">Python 文件 <code>.py</code></span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">Python 코드를 담는 대표적인 형식은 두 가지입니다. <code>.py</code> 파일과 <code>.ipynb</code> Notebook입니다. 두 형식 모두 <b>같은 Python 인터프리터와 같은 라이브러리</b>를 씁니다. 그러니 계산 능력이 다른 것이 아닙니다. 다른 것은 <b>코드를 구성하는 방법, 결과를 기록하는 방법, 그리고 주된 용도</b>입니다.</span><span class="zh">装 Python 代码的代表性格式有两种：<code>.py</code> 文件和 <code>.ipynb</code> Notebook。两种格式用的是<b>同一个 Python 解释器和同样的库</b>，所以计算能力并无差别。不同的是<b>组织代码的方式、记录结果的方式，以及主要用途</b>。</span></p>
+
+    <p><span class="ko"><code>.py</code> 파일은 Python 소스 코드를 저장하는 일반적인 <b>텍스트 파일</b>입니다. 특별한 형식이 아니라 그냥 글자입니다. 실행하면 보통 파일의 코드를 위에서 아래로 차례대로 처리합니다.</span><span class="zh"><code>.py</code> 文件是保存 Python 源代码的普通<b>文本文件</b>。没有什么特别格式，就是文字。运行时通常把文件里的代码从上到下依次处理。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">hello.py</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">hello.py</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>name = "다현"
+print(name + "님, 반갑습니다.")</code></pre>
+    </div>
+
+    <div class="iot">
+      <div class="b"><div class="h"><span class="ko">입력</span><span class="zh">输入</span></div><p><span class="ko">코드 안에 이름을 직접 적어 두었다.</span><span class="zh">名字直接写在代码里。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">처리</span><span class="zh">处理</span></div><p><span class="ko"><code>+</code>로 이름과 뒷문장을 이어 붙인다.</span><span class="zh">用 <code>+</code> 把名字和后半句连接起来。</span></p></div>
+      <div class="b"><div class="h"><span class="ko">출력</span><span class="zh">输出</span></div><p><span class="ko"><code>print</code>가 완성된 문장을 <b>터미널</b>에 보여 준다.</span><span class="zh"><code>print</code> 把拼好的句子显示到<b>终端</b>。</span></p></div>
+    </div>
+
+    <h3 class="sub"><span class="ko"><code>.py</code>를 주로 쓰는 경우</span><span class="zh">主要使用 <code>.py</code> 的场合</span></h3>
+    <ul class="blist">
+      <li><span class="ko">처음부터 끝까지 정해진 순서로 실행되는 프로그램</span><span class="zh">从头到尾按既定顺序运行的程序</span></li>
+      <li><span class="ko">여러 번 반복해서 사용하는 자동화 코드</span><span class="zh">要反复多次使用的自动化代码</span></li>
+      <li><span class="ko">웹 서버처럼 <b>계속 실행되는</b> 프로그램</span><span class="zh">像 Web 服务器那样<b>持续运行</b>的程序</span></li>
+      <li><span class="ko">여러 Python 파일로 구성된 프로젝트</span><span class="zh">由多个 Python 文件构成的项目</span></li>
+      <li><span class="ko">코드 변경 내용을 Git으로 비교하고 관리하는 작업</span><span class="zh">用 Git 比较和管理代码改动的工作</span></li>
+    </ul>
+
+    <p><span class="ko">실행 결과는 보통 터미널, 별도의 프로그램 화면, 파일이나 웹 응답으로 나타납니다. <b>결과가 <code>.py</code> 파일 안에 저장되지는 않습니다.</b> 파일에는 코드만 남습니다. 이 점이 다음 쪽의 Notebook과 결정적으로 다릅니다.</span><span class="zh">运行结果通常出现在终端、单独的程序窗口、文件或 Web 响应里。<b>结果并不会保存进 <code>.py</code> 文件</b>。文件里只留下代码。这一点和下一页的 Notebook 有决定性的差别。</span></p>
+  </section>
+
+  <!-- ══════════ 4b ══════════ -->
+  <section class="page" id="s4b">
+    <div class="kick"><span class="ko">4. 두 가지 파일 형식 (이어서)</span><span class="zh">4. 两种文件格式（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Jupyter Notebook <code>.ipynb</code></span><span class="zh">Jupyter Notebook <code>.ipynb</code></span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <div class="term">
+      <div class="term-h"><span class="ko"><span class="w">셀</span><span class="en">cell</span></span><span class="zh"><span class="w">单元格</span><span class="en">cell</span></span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">수학 문제를 풀 때 한 줄씩 계산하고 그 아래에 중간 답을 적습니다. 틀리면 그 줄만 고칩니다. 처음부터 다시 풀지 않습니다.</span><span class="zh">解数学题时一行行算，在下面写出中间答案。错了就只改那一行，不会从头重解。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">Notebook을 여러 칸으로 나눈 것이고, <b>칸 하나만 따로 실행</b>할 수 있습니다.</span><span class="zh">把 Notebook 分成很多格，而且<b>可以只运行其中一格</b>。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">Notebook 문서를 구성하는 편집·실행 단위. 코드 셀은 실행되어 아래에 결과를 남기고, Markdown 셀은 설명 텍스트를 담는다.</span><span class="zh">构成 Notebook 文档的编辑与执行单位。代码单元格运行后在下方留下结果，Markdown 单元格则装说明文字。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">셀은 <b>화면상의 칸</b>일 뿐, 서로 독립된 프로그램이 아닙니다. 위 셀에서 만든 값은 아래 셀에서도 그대로 쓰입니다. 이 점이 뒤에 나올 함정의 원인이 됩니다.</span><span class="zh">单元格只是<b>画面上的格子</b>，并不是彼此独立的程序。上面格子里造出的值，下面的格子照样能用。这一点正是后面那个陷阱的根源。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“두 번째 셀만 다시 실행해서 값이 어떻게 바뀌는지 봤다.”</span><span class="zh">“我只重跑了第二个单元格，看值会怎么变。”</span></dd>
+      </dl>
+    </div>
+
+    <p><span class="ko">Notebook은 셀을 나누어 <b>설명과 코드를 함께 기록하는 문서</b>입니다. Markdown 셀에는 제목과 설명을 쓰고, 코드 셀에는 Python 코드를 씁니다. 코드 셀을 실행하면 표, 글자, 오류와 그래프가 <b>바로 그 아래에</b> 나타납니다.</span><span class="zh">Notebook 是把单元格分开、<b>把说明和代码记在一起的文档</b>。Markdown 单元格里写标题和说明，代码单元格里写 Python 代码。运行代码单元格后，表格、文字、报错和图表会<b>就出现在它正下方</b>。</span></p>
+  </section>
+
+  <section class="page" id="s4b_2">
+    <div class="kick"><span class="ko">4. 두 가지 파일 형식 (이어서)</span><span class="zh">4. 两种文件格式（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Jupyter Notebook <code>.ipynb</code></span><span class="zh">Jupyter Notebook <code>.ipynb</code></span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>설명 셀</b><span>무엇을 확인하려는가?</span></span><span class="zh"><b>说明单元格</b><span>想确认什么？</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>코드 셀</b><span>Python 코드</span></span><span class="zh"><b>代码单元格</b><span>Python 代码</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>실행 결과</b><span>값 · 표 · 오류 · 그래프</span></span><span class="zh"><b>运行结果</b><span>值 · 表 · 报错 · 图表</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>설명 셀</b><span>결과를 어떻게 해석했는가?</span></span><span class="zh"><b>说明单元格</b><span>结果是怎么解读的？</span></span></div>
+    </div>
+
+    <h3 class="sub"><span class="ko">Notebook이 알맞은 작업</span><span class="zh">适合 Notebook 的工作</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">Python 문법과 코드 흐름을 <b>한 단계씩</b> 연습하기</span><span class="zh"><b>一步一步</b>地练习 Python 语法与代码流程</span></li>
+      <li><span class="ko">값을 조금씩 바꾸며 결과 비교하기</span><span class="zh">一点点改动数值，比较结果</span></li>
+      <li><span class="ko">데이터의 일부를 확인하고 정리하기</span><span class="zh">查看并整理数据的一部分</span></li>
+      <li><span class="ko">계산 과정과 그래프를 함께 기록하기</span><span class="zh">把计算过程和图表记在一起</span></li>
+      <li><span class="ko">실험 과정, 설명과 결론을 한 문서에 남기기</span><span class="zh">把实验过程、说明与结论留在同一份文档里</span></li>
+      <li><span class="ko">AI가 만든 짧은 코드를 <b>부분별로 실행하고 검증</b>하기</span><span class="zh">把 AI 写的短代码<b>分块运行并验证</b></span></li>
+    </ul>
+  </section>
+
+  <section class="page" id="s4b_3">
+    <div class="kick"><span class="ko">4. 두 가지 파일 형식 (이어서)</span><span class="zh">4. 两种文件格式（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Jupyter Notebook <code>.ipynb</code></span><span class="zh">Jupyter Notebook <code>.ipynb</code></span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">이 수업에서 Notebook을 쓰는 이유</span><span class="zh">这门课为什么用 Notebook</span></div>
+      <p><span class="ko">2~5회의 Python 연습과 데이터 시각화에는 Notebook을 씁니다. 코드를 실행하자마자 결과가 셀 아래에 나타나므로, 처음 배우는 학생이 <b>코드 → 실행 결과 → 수정 결과</b>를 빠르게 비교할 수 있기 때문입니다. 이 비교가 바로 ‘읽는 힘’을 기르는 훈련입니다.</span><span class="zh">第 2~5 次课的 Python 练习和数据可视化用 Notebook。因为一运行代码，结果就出现在单元格下方，初学的学生可以很快地比较<b>代码 → 运行结果 → 修改后的结果</b>。这个比较，正是练“读的能力”的训练。</span></p>
+      <p><span class="ko">반면 10회 이후 웹 프로젝트에서는 Notebook을 쓰지 않습니다. 기능이 <b>여러 개의 프로젝트 파일</b>로 나뉘고, 프로그램이 <b>계속 실행되는</b> 형태가 되기 때문입니다. 이런 프로그램에는 일반 프로젝트 파일이 더 알맞습니다.</span><span class="zh">而第 10 次课以后的 Web 项目里不用 Notebook。因为功能会分散到<b>多个项目文件</b>中，程序也变成<b>持续运行</b>的形态。这类程序更适合用普通项目文件。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4c ══════════ -->
+  <section class="page" id="s4c">
+    <div class="kick"><span class="ko">4. 두 가지 파일 형식 (이어서)</span><span class="zh">4. 两种文件格式（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Notebook의 함정 — 실행 순서</span><span class="zh">Notebook 的陷阱 — 运行顺序</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+
+    <p class="lead"><span class="ko">Notebook은 원하는 셀부터 실행할 수 있어 편리합니다. 그런데 바로 그 편리함이 함정을 만듭니다. <b>실행한 순서</b>가 <b>눈에 보이는 문서 순서</b>와 달라질 수 있기 때문입니다.</span><span class="zh">Notebook 可以从任意单元格开始运行，很方便。可正是这份方便造出了陷阱：<b>运行的顺序</b>可能和<b>眼睛看到的文档顺序</b>不一致。</span></p>
+
+    <figure class="fig">
+      <img class="figimg" src="assets/img/02-1-01-notebook-order.png" alt="Notebook 셀이 위에서 아래로 1·2·3번 배치되어 있지만 실행 순서는 3번 다음 1번 다음 2번이어서 문서 순서와 실행 순서가 어긋나는 상황을 화살표로 보여 주는 그림" data-id="02-1-01-notebook-order" data-spec="가로 16:9 · 개념 도해" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 2-1-1. 보이는 순서와 실행한 순서는 다를 수 있다</span><span class="zh">图 2-1-1. 看到的顺序和运行过的顺序可能不同</span></figcaption>
+    </figure>
+
+    <p><span class="ko">아래쪽 셀을 먼저 실행하면, 위쪽 셀에서 만들기로 한 값이 아직 없어서 오류가 납니다. 반대로 더 곤란한 경우도 있습니다. <b>예전에 실행해 둔 값이 아직 남아 있어서, 지금 코드가 틀렸는데도 결과가 멀쩡하게 나오는 것</b>입니다.</span><span class="zh">先运行下面的单元格，上面单元格本该造出的值还不存在，就会报错。反过来还有更麻烦的情况：<b>以前运行留下的值还在，于是现在的代码明明是错的，结果却显示得好好的</b>。</span></p>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">그래서 반드시 하는 마무리</span><span class="zh">所以一定要做的收尾</span></div>
+      <p><span class="ko">Notebook을 완성한 뒤에는 <b>커널을 다시 시작하고 위에서부터 모두 실행</b>하여 같은 결과가 나오는지 확인합니다. 이 확인을 하지 않은 Notebook은 “내 컴퓨터에서만 되는 문서”일 수 있습니다.</span><span class="zh">Notebook 完成之后，要<b>重启内核并从上到下全部运行</b>，确认得到同样的结果。没做过这道确认的 Notebook，可能只是一份“只在我电脑上能用的文档”。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s4c_2">
+    <div class="kick"><span class="ko">4. 두 가지 파일 형식 (이어서)</span><span class="zh">4. 两种文件格式（续）</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">Notebook의 함정 — 실행 순서</span><span class="zh">Notebook 的陷阱 — 运行顺序</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <p><span class="ko">또 하나 알아 둘 점이 있습니다. Notebook 파일에는 코드뿐 아니라 <b>셀의 실행 결과와 문서 정보도 함께 저장</b>됩니다. 그래서 남에게 받은 Notebook에 결과가 예쁘게 남아 있어도, 그것만으로 “이 코드는 지금도 정상 실행된다”라고 판단하면 안 됩니다. 결과는 과거의 흔적일 뿐입니다. 직접 커널을 다시 시작하고 전체를 실행해 재현되는지 확인해야 합니다.</span><span class="zh">还有一点要知道。Notebook 文件里保存的不只是代码，<b>单元格的运行结果和文档信息也一并存了进去</b>。所以别人给你的 Notebook 里结果留得再漂亮，也不能仅凭这个就判断“这段代码现在也能正常运行”。结果只是过去的痕迹。必须自己重启内核、整体运行一遍，确认能否重现。</span></p>
+
+    <h3 class="sub"><span class="ko">두 형식 한눈에 비교</span><span class="zh">两种格式一览对比</span></h3>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:130px"><span class="ko">구분</span><span class="zh">项目</span></th><th><code>.py</code></th><th><code>.ipynb</code></th></tr>
+      <tr><td><span class="ko">기본 실행 방식</span><span class="zh">默认运行方式</span></td><td><span class="ko">파일 전체를 위에서 아래로 실행</span><span class="zh">整个文件从上到下运行</span></td><td><span class="ko">셀을 하나씩 또는 전체 실행</span><span class="zh">逐个单元格运行，或全部运行</span></td></tr>
+      <tr><td><span class="ko">파일의 중심</span><span class="zh">文件的重心</span></td><td><span class="ko">Python 소스 코드</span><span class="zh">Python 源代码</span></td><td><span class="ko">설명·코드·실행 결과를 담은 문서</span><span class="zh">装着说明、代码与运行结果的文档</span></td></tr>
+      <tr><td><span class="ko">결과가 나타나는 곳</span><span class="zh">结果出现的位置</span></td><td><span class="ko">주로 터미널·파일·화면·웹 응답</span><span class="zh">主要在终端、文件、窗口或 Web 响应</span></td><td><span class="ko">실행한 코드 셀 <b>바로 아래</b></span><span class="zh">所运行代码单元格的<b>正下方</b></span></td></tr>
+      <tr><td><span class="ko">잘 맞는 용도</span><span class="zh">适合的用途</span></td><td><span class="ko">프로그램, 자동화, 서버, 여러 파일 프로젝트</span><span class="zh">程序、自动化、服务器、多文件项目</span></td><td><span class="ko">학습, 실험, 데이터 탐색과 그래프</span><span class="zh">学习、实验、数据探索与图表</span></td></tr>
+      <tr><td><span class="ko">주의할 점</span><span class="zh">要注意的地方</span></td><td><span class="ko">전체 실행 흐름과 파일 연결 확인</span><span class="zh">整体运行流程与文件之间的衔接</span></td><td><span class="ko">셀 실행 순서와 남아 있는 이전 결과</span><span class="zh">单元格的运行顺序，以及残留的旧结果</span></td></tr>
+      <tr><td><span class="ko">이 수업에서</span><span class="zh">在这门课里</span></td><td><span class="ko">2-2에서 한 번 비교 실습</span><span class="zh">2-2 里做一次对比实践</span></td><td><span class="ko">2~5회 연습과 수행평가 1</span><span class="zh">第 2~5 次课的练习与实作评价 1</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">둘 중 하나만 골라야 하는 것이 아닙니다</span><span class="zh">并不是二选一</span></div>
+      <p><span class="ko">Notebook에서 원리를 탐색한 뒤 정리된 코드를 <code>.py</code> 파일로 옮길 수 있습니다. 반대로 <code>.py</code>에 있는 함수를 Notebook에서 불러와 데이터로 시험해 볼 수도 있습니다. 실제 현장에서는 둘을 섞어 씁니다.</span><span class="zh">可以先在 Notebook 里探索原理，再把整理好的代码搬到 <code>.py</code> 文件。反过来，也可以把 <code>.py</code> 里的函数拿到 Notebook 里用数据试验。实际工作中两者是混着用的。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. AI 시대의 학습</span><span class="zh">5. AI 时代的学习</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">AI 시대에 언어를 배운다는 것</span><span class="zh">在 AI 时代学一门语言意味着什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">AI는 짧은 시간에 많은 코드를 만들 수 있습니다. 그렇다고 프로그래밍 언어를 전혀 몰라도 된다는 뜻은 아닙니다. 왜 그런지 실제 코드로 확인해 보겠습니다.</span><span class="zh">AI 能在很短时间里生成大量代码。但这不等于完全不懂编程语言也行。我们用实际代码来看看为什么。</span></p>
+
+    <p><span class="ko">다음 코드를 AI가 만들어 주었다고 해 봅시다.</span><span class="zh">假设下面这段代码是 AI 生成的。</span></p>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">AI가 생성한 코드</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 生成的代码</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>price = 5000
+count = 3
+total = price * count
+print(total)</code></pre>
+    </div>
+
+    <p><span class="ko">문법을 전부 외우지 않았더라도 다음 다섯 가지는 판단할 수 있어야 합니다. 이것이 이 수업에서 말하는 <b>‘읽는 힘’</b>의 실체입니다.</span><span class="zh">就算没把语法全背下来，下面五点也应该判断得出。这就是本课所说的<b>“读的能力”</b>的实质。</span></p>
+  </section>
+
+  <section class="page" id="s5_2">
+    <div class="kick"><span class="ko">5. AI 시대의 학습</span><span class="zh">5. AI 时代的学习</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">AI 시대에 언어를 배운다는 것</span><span class="zh">在 AI 时代学一门语言意味着什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko"><code>price</code>와 <code>count</code>에는 어떤 값이 들어 있는가?</span><span class="zh"><code>price</code> 和 <code>count</code> 里装的是什么值？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko"><code>price</code>에는 <code>5000</code>, <code>count</code>에는 <code>3</code>이 들어 있습니다. 등호는 ‘같다’가 아니라 <b>‘오른쪽 값을 왼쪽 이름에 넣어라’</b>라는 뜻입니다. 이 내용은 3-1에서 자세히 다룹니다.</span><span class="zh"><code>price</code> 里是 <code>5000</code>，<code>count</code> 里是 <code>3</code>。等号不是“相等”，而是<b>“把右边的值放进左边的名字里”</b>。这部分 3-1 会详细讲。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko"><code>*</code>는 어떤 계산을 하는가?</span><span class="zh"><code>*</code> 做的是什么计算？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">곱하기입니다. 즉 <code>5000 × 3</code>을 계산합니다.</span><span class="zh">是乘法。也就是计算 <code>5000 × 3</code>。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">계산 결과는 어디에 저장되는가?</span><span class="zh">计算结果存到哪里？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko"><code>total</code>이라는 이름에 저장됩니다.</span><span class="zh">存进名为 <code>total</code> 的名字里。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">화면에는 무엇이 출력될 것으로 예상하는가?</span><span class="zh">你预计屏幕上会输出什么？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko"><code>15000</code>이 출력됩니다. <b>실행하기 전에 예상해 보는 것</b>이 중요합니다. 예상과 실제가 다르면 그 차이가 배울 지점입니다.</span><span class="zh">会输出 <code>15000</code>。重要的是<b>运行之前先预测</b>。预测和实际不同的地方，就是该学的地方。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">가격이나 개수가 잘못 입력되면 이 결과를 믿을 수 있는가?</span><span class="zh">如果价格或数量输错了，这个结果还信得过吗？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">믿을 수 없습니다. 이 코드에는 값이 올바른지 확인하는 부분이 <b>전혀 없습니다.</b> 개수에 <code>-3</code>이 들어와도 그대로 계산해 <code>-15000</code>을 출력합니다. 코드가 오류 없이 실행된다는 것과 결과가 옳다는 것은 다른 문제입니다. 이 관점은 뒤에서 서비스를 만들 때 <b>입력을 시험하는 일</b>로 이어집니다.</span><span class="zh">信不过。这段代码里<b>完全没有</b>检查数值是否正确的部分。数量填成 <code>-3</code> 它也照算，输出 <code>-15000</code>。代码没报错和结果正确，是两码事。这个视角会一直延伸到后面做服务时<b>测试输入</b>这件事。</span></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s5_3">
+    <div class="kick"><span class="ko">5. AI 시대의 학습</span><span class="zh">5. AI 时代的学习</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">AI 시대에 언어를 배운다는 것</span><span class="zh">在 AI 时代学一门语言意味着什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">이 수업에서 Python을 배우는 목적</span><span class="zh">这门课学 Python 的目的</span></div>
+      <p><span class="ko">코드를 외워서 빠르게 타이핑하는 데 있지 않습니다. <b>AI가 만든 코드를 읽고, 실행 결과를 예상하고, 실제 결과를 확인하며, 필요한 수정을 요구하는 힘</b>을 기르는 데 있습니다.</span><span class="zh">不在于把代码背下来打得快，而在于培养<b>读懂 AI 写的代码、预测运行结果、核对实际结果、并提出必要修改</b>的能力。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">6. 오개념 점검</span><span class="zh">6. 误区检查</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">흔한 오해와 잘못된 설명</span><span class="zh">常见的误解与错误说法</span></h2>
+
+    <div class="myth">
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“가장 좋은 프로그래밍 언어가 하나 정해져 있다.”</span><span class="zh">“最好的编程语言只有一种，早就定好了。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">언어마다 만들어진 목적과 실행 환경이 다릅니다. 무엇을 만들지, 어디에서 실행할지, 누구와 함께 일할지에 따라 알맞은 언어가 달라집니다.</span><span class="zh">每种语言被造出来的目的和运行环境都不同。要做什么、在哪里运行、和谁一起做，合适的语言就会不同。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“Python은 쉬우니까 초보용이고, 진짜 개발은 다른 언어로 한다.”</span><span class="zh">“Python 简单，所以是新手用的，真正开发要用别的语言。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">Python은 대학 연구, 데이터 분석, AI 개발, 실제 서비스 서버에서 널리 쓰입니다. ‘읽기 쉽다’는 것은 수준이 낮다는 뜻이 아니라 <b>사람에게 가깝게 설계됐다</b>는 뜻입니다.</span><span class="zh">Python 广泛用于大学科研、数据分析、AI 开发和真实的服务端。“易读”不等于水平低，而是<b>设计得更贴近人</b>。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“VS Code를 설치하면 Python이 같이 설치된다.”</span><span class="zh">“装了 VS Code，Python 就一起装好了。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">VS Code는 <b>편집기</b>일 뿐입니다. Python 확장을 깔아도 Python 자체가 생기지는 않습니다. 확장은 둘을 연결하고, 실제 실행은 별도로 설치된 Python 인터프리터가 합니다.</span><span class="zh">VS Code 只是<b>编辑器</b>。装了 Python 扩展也不会凭空出现 Python 本身。扩展负责把两者连起来，实际执行由另行安装的 Python 解释器完成。</span></div></div>
+    </div>
+  </section>
+
+  <section class="page" id="s6_i2">
+    <div class="kick"><span class="ko">6. 오개념 점검</span><span class="zh">6. 误区检查</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">흔한 오해와 잘못된 설명</span><span class="zh">常见的误解与错误说法</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="myth">
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“Notebook은 <code>.py</code>보다 성능이 떨어지는 간이 도구다.”</span><span class="zh">“Notebook 是性能不如 <code>.py</code> 的简易工具。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">두 형식은 <b>같은 인터프리터와 같은 라이브러리</b>를 씁니다. 계산 능력이 아니라 <b>용도</b>가 다릅니다. Notebook은 탐색과 기록에, <code>.py</code>는 반복 실행과 여러 파일 프로젝트에 알맞습니다.</span><span class="zh">两种格式用的是<b>同一个解释器和同样的库</b>。不同的不是计算能力，而是<b>用途</b>。Notebook 适合探索与记录，<code>.py</code> 适合反复运行和多文件项目。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“Notebook에 결과가 남아 있으니 이 코드는 지금도 잘 돌아간다.”</span><span class="zh">“Notebook 里还留着结果，说明这段代码现在也跑得通。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">저장된 결과는 <b>과거에 실행한 흔적</b>입니다. 그 사이 코드가 바뀌었을 수도 있고, 실행 순서가 뒤엉켰을 수도 있습니다. 커널을 다시 시작하고 전체를 실행해 봐야 확인됩니다.</span><span class="zh">保存下来的结果是<b>过去运行留下的痕迹</b>。这期间代码可能改过，运行顺序也可能乱过。必须重启内核、整体运行一遍才能确认。</span></div></div>
+      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“유명한 라이브러리를 쓰면 코드가 안전해진다.”</span><span class="zh">“用有名的库，代码就变安全了。”</span></div></div>
+      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">널리 쓰이는 라이브러리가 검증 기회를 더 많이 거친 것은 맞습니다. 그러나 출처·목적·업데이트 상태·실제 결과는 여전히 사용자가 확인해야 합니다.</span><span class="zh">被广泛使用的库确实经历了更多次检验，这是事实。但来源、用途、更新状况和实际结果，仍然要由使用者确认。</span></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">7. 확인하기</span><span class="zh">7. 检查</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">프로그래밍 언어가 여러 종류인 이유를 한 문장으로 설명해 보자.</span><span class="zh">请用一句话说明为什么编程语言有很多种。</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">언어마다 만들어진 목적, 실행 환경과 잘하는 일이 다르기 때문입니다. 우열이 아니라 용도의 차이입니다.</span><span class="zh">因为每种语言被造出来的目的、运行环境和擅长的事都不同。这不是优劣之分，而是用途之别。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">VS Code와 Python 인터프리터의 역할은 어떻게 다른가?</span><span class="zh">VS Code 和 Python 解释器的职责有什么不同？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">VS Code는 코드를 작성하고 파일을 관리하는 <b>편집기</b>이고, Python 인터프리터는 Python 코드를 실제로 읽고 <b>실행</b>합니다. 확장은 이 둘을 연결할 뿐 실행을 대신하지 않습니다.</span><span class="zh">VS Code 是编写代码、管理文件的<b>编辑器</b>，Python 解释器则真正读取并<b>执行</b> Python 代码。扩展只是把两者连起来，并不代替执行。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">라이브러리는 무엇이며, 왜 Python의 강점으로 꼽히는가?</span><span class="zh">什么是库？为什么它被视为 Python 的强项？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">라이브러리는 다른 사람이 만들어 공개한 기능 묶음입니다. Python은 사용자층이 크고 오래 쓰여 온 만큼 수치 계산·데이터 분석·그래프·AI·웹까지 검증된 라이브러리가 풍부해서, 한 언어로 여러 분야를 이어 갈 수 있습니다.</span><span class="zh">库是别人做好并公开的功能包。Python 用户基数大、使用时间久，从数值计算、数据分析、图表到 AI、Web 都有经过检验的丰富库，因此可以用一门语言贯通多个领域。</span></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s7_i2">
+    <div class="kick"><span class="ko">7. 확인하기</span><span class="zh">7. 检查</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">데이터와 그래프를 탐색할 때 Notebook이 편리한 이유는 무엇인가?</span><span class="zh">探索数据和图表时，Notebook 为什么方便？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">설명, 코드와 실행 결과를 셀 단위로 함께 기록하면서 한 단계씩 바로 실행할 수 있기 때문입니다. 값을 조금 바꿔 결과를 곧바로 비교하기 좋습니다.</span><span class="zh">因为可以把说明、代码与运行结果按单元格记在一起，并且一步一步立刻运行。稍微改个值就能马上比较结果。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">Notebook을 완성한 뒤 ‘커널 다시 시작 → 모두 실행’을 반드시 해야 하는 이유는?</span><span class="zh">Notebook 完成后为什么一定要做“重启内核 → 全部运行”？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">셀을 실행한 순서가 문서에 보이는 순서와 다를 수 있고, 예전 실행에서 남은 값 때문에 지금 코드가 틀렸는데도 결과가 맞아 보일 수 있기 때문입니다. 처음부터 다시 실행해야 다른 사람도 같은 결과를 재현할 수 있습니다.</span><span class="zh">因为运行单元格的顺序可能和文档上看到的顺序不同，而且旧运行残留的值可能让现在明明写错的代码看起来结果正确。只有从头重跑一遍，别人才能重现同样的结果。</span></p></div></details>
+      </div>
+      <div class="q">
+        <div class="qq"><span class="ko">AI가 코드를 작성해 주는데도 사람이 Python의 기본을 알아야 하는 이유는 무엇인가?</span><span class="zh">既然 AI 会写代码，人为什么还要懂 Python 的基础？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">코드의 입력·처리·출력을 파악하고, 결과와 오류가 올바른지 판단하여 수정을 요구할 수 있어야 하기 때문입니다. 오류 없이 실행되는 것과 결과가 옳은 것은 별개의 문제입니다.</span><span class="zh">因为要能把握代码的输入、处理、输出，判断结果与报错是否正确，并据此提出修改。运行没报错和结果正确，是两个不同的问题。</span></p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="s7_2">
+    <div class="kick"><span class="ko">7. 확인하기</span><span class="zh">7. 检查</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="mysay">
+      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
+      <p><span class="ko">가족에게 “이번 학기에 Python을 배운다”라고 말했더니 “그게 뭔데?”라고 묻습니다. <b>프로그래밍 언어</b>와 <b>라이브러리</b>라는 낱말을 넣어 두세 문장으로 설명해 보세요.</span><span class="zh">你跟家人说“这学期学 Python”，对方问“那是什么？”。请用上<b>编程语言</b>和<b>库</b>这两个词，用两三句话解释一下。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ -->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">8. 정리</span><span class="zh">8. 小结</span><b>2-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko"><b>프로그래밍 언어</b>는 컴퓨터가 수행할 일과 규칙을 사람이 적기 위해 만든 형식이다.</span><span class="zh"><b>编程语言</b>是为了让人写下计算机要做的事和规则而制定的形式。</span></li>
+        <li><span class="ko">언어마다 목적과 실행 환경이 달라 여러 종류가 <b>함께</b> 쓰인다. 우열이 아니라 용도의 차이다.</span><span class="zh">每种语言目的与运行环境不同，因此多种语言<b>并存</b>使用。这不是优劣，是用途之别。</span></li>
+        <li><span class="ko">이 수업이 Python을 고른 이유는 활용 범위가 넓고, 읽기 쉽고, 학교 밖에서도 이어지며, AI 관련 자료가 풍부하기 때문이다.</span><span class="zh">这门课选 Python，是因为它适用范围广、易读、离校后还接得上，而且 AI 相关资料丰富。</span></li>
+        <li><span class="ko"><b>라이브러리</b>는 다른 사람이 만들어 공개한 기능 묶음이다. 유명하다고 자동으로 안전해지지는 않으므로 출처와 결과를 확인한다.</span><span class="zh"><b>库</b>是别人做好并公开的功能包。有名不等于自动安全，要确认来源和实际结果。</span></li>
+        <li><span class="ko">VS Code(편집기), Python(실행), 확장(연결), Jupyter(기록), uv(환경 관리)는 <b>서로 다른 역할</b>을 맡는다.</span><span class="zh">VS Code（编辑）、Python（执行）、扩展（连接）、Jupyter（记录）、uv（环境管理）各有<b>不同职责</b>。</span></li>
+        <li><span class="ko"><code>.py</code>와 <code>.ipynb</code>는 같은 인터프리터를 쓰지만 구성 방식과 용도가 다르다.</span><span class="zh"><code>.py</code> 与 <code>.ipynb</code> 用同一个解释器，但组织方式和用途不同。</span></li>
+        <li><span class="ko">Notebook은 <b>실행 순서</b>가 문서 순서와 어긋날 수 있으므로, 완성 후 커널을 다시 시작하고 전체를 실행해 검증한다.</span><span class="zh">Notebook 的<b>运行顺序</b>可能与文档顺序不一致，所以完成后要重启内核、整体运行来验证。</span></li>
+        <li><span class="ko">AI 시대의 Python 학습은 암기보다 <b>읽기·예상·실행·검증</b>에 중심을 둔다.</span><span class="zh">AI 时代学 Python，重心不在背诵，而在<b>读、预测、运行、验证</b>。</span></li>
+      </ul>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">이제 이론은 충분합니다. 다음 차시에서는 <b>아무것도 설치되지 않은 노트북</b>에서 시작해 VS Code, Node.js, OpenCode, uv와 Python을 직접 준비합니다. 그리고 첫 코드를 실행해 봅니다. 이번 차시에서 정리한 <b>도구별 역할표</b>를 옆에 두고 시작하면 훨씬 수월합니다.</span><span class="zh">理论到这里够了。下一课时我们从<b>一台什么都没装的笔记本</b>开始，亲手准备 VS Code、Node.js、OpenCode、uv 和 Python，然后运行第一段代码。把这一课时整理的<b>工具职责表</b>放在手边再开始，会顺利得多。</span></p>
+      <a class="next" href="02-2.html">2-2. Python 실습 환경 준비하기 →</a>
+    </div>
+
+    <div class="lessonnav">
+      <a href="01-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">1-2. 수업 열기</span></a>
+      <a href="index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="02-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">2-2. Python 실습 환경 준비하기</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="assets/textbook.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#fff"/><defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0l12 6-12 6z" fill="#FF5C00"/></marker></defs><style>text{font-family:Arial,'Apple SD Gothic Neo',sans-serif;fill:#1B1D21}.h{font-size:42px;font-weight:700}.l{font-size:26px;font-weight:700}.s{font-size:22px}.w{fill:#fff}</style>
+  <text x="800" y="78" text-anchor="middle" class="h">세 곳이 모두 같은 Python 환경을 가리켜야 한다</text>
+  <g fill="#F1F2F4" stroke="#C7C9CE" stroke-width="4"><rect x="100" y="180" width="400" height="160"/><rect x="600" y="180" width="400" height="160"/><rect x="1100" y="180" width="400" height="160"/></g>
+  <text x="300" y="242" text-anchor="middle" class="l">터미널</text><text x="300" y="292" text-anchor="middle" class="s">uv run python</text><text x="800" y="242" text-anchor="middle" class="l">VS Code</text><text x="800" y="292" text-anchor="middle" class="s">Python 인터프리터</text><text x="1300" y="242" text-anchor="middle" class="l">Notebook</text><text x="1300" y="292" text-anchor="middle" class="s">커널</text>
+  <path d="M300 350C300 520 560 520 690 590M800 350V570M1300 350C1300 520 1040 520 910 590" fill="none" stroke="#6C7078" stroke-width="11"/>
+  <rect x="540" y="600" width="520" height="155" fill="#FF5C00"/><text x="800" y="672" text-anchor="middle" class="h w">jdh-info/.venv</text><text x="800" y="718" text-anchor="middle" class="s w">세 설정이 모두 이 환경을 선택</text>
+  <circle cx="800" cy="815" r="24" fill="#0E7C86"/><path d="M789 815l8 9 17-21" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
