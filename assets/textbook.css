@@ -146,6 +146,18 @@ main{padding:calc(var(--topH) + 26px) 16px 90px}
 body.lang-zh .pnum::before{content:"长大岘中高等学校 · 信息与数字素养"}
 .page.center{justify-content:center}
 
+/* 표지 뒤 안내 3·4쪽 통합본: A4 한 장 안에서 세 가지 읽기 원칙을 함께 보여 준다. */
+.howto-combined h2.title{margin-top:20px}
+.howto-combined h2.title::after{margin-top:10px}
+.howto-combined p{margin:10px 0 0; font-size:16.5px; line-height:1.52}
+.howto-combined p.lead{font-size:17.5px; line-height:1.55}
+.howto-combined h3.sub{margin-top:17px; font-size:20px}
+.howto-combined .kv{margin-top:10px; font-size:15px; line-height:1.4}
+.howto-combined .kv th,.howto-combined .kv td{padding:6px 10px}
+.howto-combined .note{margin-top:13px; padding:11px 15px}
+.howto-combined .note .nt{font-size:15.5px}
+.howto-combined .note p{font-size:16px; line-height:1.48; margin-top:4px}
+
 @media (max-width:960px){
   :root{--pagePad:34px 24px 56px}
   .page{min-height:0}
