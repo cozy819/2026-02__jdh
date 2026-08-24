@@ -219,6 +219,40 @@ body.lang-zh .cover .cmeta,body.lang-zh .cover .csub{letter-spacing:.01em}
   .cover .csite{align-items:flex-start}
 }
 
+/* 강의자료 접속 전용 페이지 */
+.course-access .course-access-body{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:34px 0 20px;
+}
+.course-access-heading{margin-bottom:30px}
+.course-access-label{font-size:16px; font-weight:600; color:var(--muted); margin-bottom:9px}
+.course-access-heading h2{font-size:clamp(34px,5vw,52px); line-height:1.15; letter-spacing:-.045em; margin:0}
+.course-access-url{
+  display:block; width:100%; padding:31px 20px; border-top:4px solid var(--vcl-orange);
+  border-bottom:4px solid var(--vcl-orange); background:var(--bg-zinc); color:var(--ink);
+  font-family:var(--num); font-size:clamp(18px,4.1vw,42px); font-weight:800;
+  letter-spacing:.005em; line-height:1.2; white-space:nowrap; text-decoration:none;
+}
+.course-access-url:hover{background:var(--vcl-cool)}
+.course-access-hint{font-size:15px; color:var(--muted); margin:15px 0 0}
+.course-access-or{
+  display:flex; align-items:center; gap:14px; width:100%; margin:30px 0 20px;
+  font-size:13px; font-weight:700; color:var(--muted-2);
+}
+.course-access-or::before,.course-access-or::after{content:""; flex:1; height:1px; background:var(--line)}
+.course-access-qr{margin:0; text-align:center}
+.course-access-qr img{
+  display:block; width:300px; height:300px; max-width:min(300px,72vw); max-height:min(300px,72vw);
+  margin:0 auto; image-rendering:pixelated;
+}
+.course-access-qr figcaption{font-size:14px; color:var(--muted); margin-top:12px}
+@media (max-width:700px){
+  .course-access .course-access-body{padding-top:22px}
+  .course-access-heading{margin-bottom:22px}
+  .course-access-url{padding:24px 8px}
+  .course-access-or{margin:24px 0 16px}
+}
+
 /* 차시 속표지 */
 .opener{justify-content:center}
 .opener .onum{font-weight:700; font-size:13px; letter-spacing:.1em; color:var(--vcl-orange)}
