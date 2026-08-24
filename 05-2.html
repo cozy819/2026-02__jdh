@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
-<title>5-2. 수행평가 1 · 데이터 시각화 · 정보와 디지털 문해력</title>
-<meta name="description" content="정보와 디지털 문해력 교과서 5-2 — 수행평가 1 실시. CSV 데이터로 그래프 하나를 만들고 원본과 대조한 뒤 사실과 한계를 해석해 제출한다" />
+<title>5-2. 수행평가 1 · AI 활용 데이터 시각화 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 5-2 — 수행평가 1 실시. CSV 데이터로 지정 그래프를 만들고 원본과 대조한 뒤 AI 활용 과정과 사실 한 가지를 기록해 제출한다" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
   <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
   <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
   <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
-  <div class="brand"><em>5-2</em> <span class="lesson">수행평가 1 · 데이터 시각화</span></div>
+  <div class="brand"><em>5-2</em> <span class="lesson">수행평가 1 · AI 활용 데이터 시각화</span></div>
   <div class="spacer"></div>
   <div class="pct" id="count">1 / 1</div>
   <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
@@ -34,7 +34,7 @@
   <a href="#s4"><span class="n">1</span> 배정 데이터 확인</a>
   <a href="#s5"><span class="n">2</span> OpenCode에 요청</a>
   <a href="#s6"><span class="n">3</span> 원본과 비교</a>
-  <a href="#s7"><span class="n">4</span> 해석</a>
+  <a href="#s7"><span class="n">4</span> AI 활용 과정 기록</a>
   <a href="#s8"><span class="n">5</span> 제출</a>
   <a href="#s9"><span class="n">·</span> 막힐 때</a>
   <a href="#s10"><span class="n">·</span> 개인 이수 확인</a>
@@ -49,9 +49,9 @@
   <a href="03-1.html"><span class="n">3-1</span> 값과 변수로 정보 표현하기</a>
   <a href="03-2.html"><span class="n">3-2</span> 코드의 흐름과 오류 읽기</a>
   <a href="04-1.html"><span class="n">4-1</span> 데이터와 라이브러리로 그래프 만들기</a>
-  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 해석하기</a>
+  <a href="04-2.html"><span class="n">4-2</span> AI로 데이터 그래프 만들고 확인하기</a>
   <a href="05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
-  <a href="05-2.html" class="here"><span class="n">5-2</span> 수행평가 1 · 데이터 시각화</a>
+  <a href="05-2.html" class="here"><span class="n">5-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
   <a href="06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
   <a href="06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
   <a href="07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
@@ -79,8 +79,8 @@
   <!-- ══════════ 차시 표지 ══════════ -->
   <section class="page opener" id="opener">
     <div class="onum"><span class="ko">5회 · 둘째 차시</span><span class="zh">第 5 次课 · 第 2 课时</span> <span class="badge lab"><span class="ko">수행평가 1</span><span class="zh">实作评价 1</span></span></div>
-    <h1><span class="ko">수행평가 1<br/>데이터 시각화</span><span class="zh">实作评价 1<br/>数据可视化</span></h1>
-    <div class="osub"><span class="ko">이번 시간 안에 그래프 하나를 만들고 해석하여 제출합니다.<br/>코드 작성 능력이 아니라 <b>판단하고 설명하는 능력</b>을 봅니다.</span><span class="zh">在这节课内做出一张图表、加以解读并提交。<br/>看的不是写代码的能力，而是<b>判断与说明的能力</b>。</span></div>
+    <h1><span class="ko">수행평가 1<br/>AI 활용 데이터 시각화</span><span class="zh">实作评价 1<br/>AI 应用数据可视化</span></h1>
+    <div class="osub"><span class="ko">이번 시간 안에 지정 그래프 하나와 AI 활용 기록을 제출합니다.<br/>코드 작성이 아니라 <b>요청·확인·판단하는 능력</b>을 봅니다.</span><span class="zh">在这节课内提交一张指定图表与 AI 使用记录。<br/>看的不是写代码，而是<b>请求、确认与判断的能力</b>。</span></div>
     <div class="abar"></div>
     <div class="ometa"><span class="ko"><b>이전 차시</b> · 5-1. 수행평가 1 안내<br/>
       <b>다음 차시</b> · 6-1. 서비스 기획의 기초<br/>
@@ -92,24 +92,21 @@
     <div class="kick"><span class="ko">시작하기 전에</span><span class="zh">开始之前</span><b>5-2</b></div>
     <h2 class="title"><span class="ko">오늘의 원칙</span><span class="zh">今天的原则</span></h2>
 
-    <p class="lead"><span class="ko">이번 시간 안에 <b>OpenCode를 사용해 데이터 그래프 하나를 만들고 해석하여 제출</b>합니다. 코드 작성이나 오류 수정 능력이 아니라, <b>데이터에 맞는 그래프를 만들고 정확하게 해석하는</b> 능력을 확인합니다.</span><span class="zh">在这节课内<b>用 OpenCode 做出一张数据图表、加以解读并提交</b>。考查的不是写代码或修错的能力，而是<b>做出与数据相符的图表并准确解读</b>的能力。</span></p>
+    <p class="lead"><span class="ko">이번 평가는 데이터 분석 시험이 아닙니다. <b>교사가 지정한 그래프를 AI로 완성하고 결과를 확인하는 과정</b>을 평가합니다.</span><span class="zh">本次评价不是数据分析考试。评价的是<b>用 AI 完成老师指定的图表并核对结果的过程</b>。</span></p>
 
     <div class="vflow">
-      <div class="vf plain"><span class="ko"><b>① 데이터와 질문 확인</b><span>대상·단위·한 행의 의미</span></span><span class="zh"><b>① 确认数据与问题</b><span>对象、单位、每行的含义</span></span></div>
+      <div class="vf plain"><span class="ko"><b>① 데이터와 요구사항 확인</b><span>대상·단위·그래프·표시 조건</span></span><span class="zh"><b>① 确认数据与要求</b><span>对象、单位、图表、显示条件</span></span></div>
       <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>② OpenCode에 요청</b><span>조건을 갖춘 요청문</span></span><span class="zh"><b>② 向 OpenCode 提要求</b><span>带齐条件的请求文</span></span></div>
+      <div class="vf"><span class="ko"><b>② OpenCode에 요청</b><span>조건을 빠뜨리지 않는다</span></span><span class="zh"><b>② 向 OpenCode 请求</b><span>不遗漏条件</span></span></div>
       <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>③ 실행</b></span><span class="zh"><b>③ 运行</b></span></div>
+      <div class="vf plain"><span class="ko"><b>③ 실행하고 원본과 비교</b></span><span class="zh"><b>③ 运行并与原始数据比对</b></span></div>
       <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>④ 원본과 비교</b><span>값이 맞는지 하나씩 대조</span></span><span class="zh"><b>④ 与原始数据比对</b><span>逐项核对数值是否吻合</span></span></div>
+      <div class="vf"><span class="ko"><b>④ 채택 또는 재요청 판단</b><span>확인한 조건과 판단 기록</span></span><span class="zh"><b>④ 判断采纳或重新请求</b><span>记录确认条件与判断</span></span></div>
       <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>⑤ 해석 · 제출</b><span>사실 둘 + 한계 하나</span></span><span class="zh"><b>⑤ 解读 · 提交</b><span>两项事实 + 一项局限</span></span></div>
+      <div class="vf plain"><span class="ko"><b>⑤ 사실 한 가지 확인 · 제출</b></span><span class="zh"><b>⑤ 确认一项事实并提交</b></span></div>
     </div>
 
-    <div class="note ok">
-      <div class="nt"><span class="ko">이미 두 번 해 본 절차입니다</span><span class="zh">这套流程已经做过两次了</span></div>
-      <p><span class="ko">4-2에서 도서관 데이터로, 그 전에 3-2에서 학습 시간 데이터로 같은 순서를 밟았습니다. 오늘 달라진 것은 <b>데이터가 CSV 파일로 주어진다</b>는 점과 <b>혼자 끝까지 한다</b>는 점뿐입니다.</span><span class="zh">4-2 用图书馆数据，再之前 3-2 用学习时间数据，走的都是同一顺序。今天不同的只有两点：<b>数据以 CSV 文件给出</b>，以及<b>要自己独立走完</b>。</span></p>
-    </div>
+    <div class="note ok"><div class="nt"><span class="ko">배점</span><span class="zh">分值</span></div><p><span class="ko"><b>지정 그래프 50 · AI 활용 과정 30 · 결과 확인 20</b>입니다.</span><span class="zh"><b>指定图表 50 · AI 应用过程 30 · 结果核对 20</b>。</span></p></div>
   </section>
 
   <section class="page" id="s0_2">
@@ -128,20 +125,16 @@
     <div class="kick"><span class="ko">결과물</span><span class="zh">成果</span><b>5-2</b></div>
     <h2 class="title"><span class="ko">만들어야 할 것</span><span class="zh">要做出来的东西</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
 
-    <p class="lead"><span class="ko">제출물은 <code>05_assessment1_학생ID_이름.ipynb</code> 형식의 <b>Notebook 한 개</b>와 <b>실제로 사용한 CSV 한 개</b>입니다. 두 파일을 <b>ZIP으로 묶지 않고</b> 플랫폼의 <b>같은 제출 화면에 함께</b> 올립니다. 교사가 제공한 CSV는 파일 이름과 내용을 바꾸지 않습니다.</span><span class="zh">提交物是 <code>05_assessment1_학생ID_이름.ipynb</code> 格式的<b>一份 Notebook</b>，加上<b>实际使用的那一份 CSV</b>。两个文件<b>不要打包成 ZIP</b>，而是<b>一起上传到平台的同一个提交页面</b>。老师提供的 CSV 不改文件名也不改内容。</span></p>
+    <p class="lead"><span class="ko"><code>05_assessment1_학생ID_이름.ipynb</code>와 실제 사용한 CSV 한 개를 ZIP 없이 같은 제출 화면에 올립니다.</span><span class="zh">将 <code>05_assessment1_학생ID_이름.ipynb</code> 与实际使用的一份 CSV 不打包，上传到同一提交页面。</span></p>
 
-    <p><span class="ko">완성된 Notebook에는 다음 <b>다섯 구역</b>이 순서대로 있어야 합니다.</span><span class="zh">完成的 Notebook 里必须按顺序包含以下<b>五个区块</b>。</span></p>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:150px"><span class="ko">구역</span><span class="zh">区块</span></th><th><span class="ko">반드시 포함할 내용</span><span class="zh">必须包含的内容</span></th></tr>
-      <tr><td><span class="ko"><b>1. 데이터 설명</b></span><span class="zh"><b>1. 数据说明</b></span></td><td><span class="ko"><b>학생 ID와 이름</b>, 선택한 CSV 파일 이름, 데이터의 대상, <b>한 행의 의미</b>, 사용할 열과 <b>단위</b></span><span class="zh"><b>学生 ID 与姓名</b>、所选 CSV 文件名、数据的对象、<b>每一行的含义</b>、要使用的列与<b>单位</b></span></td></tr>
-      <tr><td><span class="ko"><b>2. 질문과 그래프</b></span><span class="zh"><b>2. 问题与图表</b></span></td><td><span class="ko">배정받은 데이터의 질문, 요구된 그래프 종류와 <b>그 그래프가 알맞은 이유</b></span><span class="zh">所分配数据的问题、要求的图表类型，以及<b>该图表为何合适</b></span></td></tr>
-      <tr><td><span class="ko"><b>3. AI 요청</b></span><span class="zh"><b>3. AI 请求</b></span></td><td><span class="ko">OpenCode에 전달한 <b>요청문</b></span><span class="zh">发给 OpenCode 的<b>请求文</b></span></td></tr>
-      <tr><td><span class="ko"><b>4. 데이터와 그래프</b></span><span class="zh"><b>4. 数据与图表</b></span></td><td><span class="ko">CSV에서 불러온 <b>원본 표</b>, OpenCode가 만든 코드, 제목·축·단위가 있는 <b>그래프 한 개</b></span><span class="zh">从 CSV 读入的<b>原始表</b>、OpenCode 生成的代码、带标题·轴·单位的<b>一张图表</b></span></td></tr>
-      <tr><td><span class="ko"><b>5. 해석</b></span><span class="zh"><b>5. 解读</b></span></td><td><span class="ko">과제에서 요구한 <b>사실 두 가지</b>, 그래프만으로 알 수 없는 <b>원인이나 한계 한 가지</b></span><span class="zh">任务要求的<b>两项事实</b>，以及仅凭图表无法知道的<b>原因或局限一项</b></span></td></tr>
-    </table>
-    </div>
+    <div class="tablewrap"><table class="kv">
+      <tr><th style="width:155px"><span class="ko">구역</span><span class="zh">区块</span></th><th><span class="ko">반드시 포함할 내용</span><span class="zh">必须包含的内容</span></th></tr>
+      <tr><td><b>1. 데이터 설명</b></td><td><span class="ko">학생 정보, CSV 이름, 대상·한 행의 의미·단위</span><span class="zh">学生信息、CSV 名称、对象、每行含义与单位</span></td></tr>
+      <tr><td><b>2. 그래프 요구사항</b></td><td><span class="ko">지정 종류, 제목·축·단위와 추가 표시 조건</span><span class="zh">指定类型、标题、坐标轴、单位与附加条件</span></td></tr>
+      <tr><td><b>3. AI 활용 과정</b></td><td><span class="ko">첫 요청, 확인한 조건, 채택 또는 재요청 기록</span><span class="zh">首次请求、确认条件、采纳或重新请求记录</span></td></tr>
+      <tr><td><b>4. 데이터와 그래프</b></td><td><span class="ko">원본 표, 생성된 코드, 지정 그래프 한 개</span><span class="zh">原始表、生成代码与一张指定图表</span></td></tr>
+      <tr><td><b>5. 결과 확인</b></td><td><span class="ko">원본과 비교한 내용, 구체적인 사실 한 가지</span><span class="zh">与原始数据的比对内容及一项具体事实</span></td></tr>
+    </table></div>
   </section>
 
   <section class="page" id="s1_2">
@@ -160,7 +153,7 @@
 
     <div class="note stop">
       <div class="nt"><span class="ko">결과물의 기준</span><span class="zh">成果的标准</span></div>
-      <p><span class="ko">그래프는 <b>정확히 한 개만</b> 만듭니다. 코드의 길이와 복잡성은 평가하지 않습니다. 학생은 배정받은 데이터의 <b>과제 조건을 이해하고</b>, 그래프를 <b>원본과 비교하고</b>, 요구된 <b>사실과 한계를 직접 해석</b>합니다.</span><span class="zh">图表<b>只做一张</b>。代码的长度和复杂度不在评价之列。学生要<b>理解所分配数据的任务条件</b>、把图表<b>与原始数据比对</b>，并<b>亲自解读</b>所要求的事实与局限。</span></p>
+      <p><span class="ko">그래프는 <b>정확히 한 개만</b> 만듭니다. 코드의 길이와 복잡성은 평가하지 않습니다. <b>지정 그래프 완성 50점, AI 활용 과정 30점, 결과 확인 20점</b>으로 평가합니다.</span><span class="zh">图表<b>只做一张</b>。代码长度与复杂度不在评价之列。评分为<b>指定图表 50 分、AI 应用过程 30 分、结果核对 20 分</b>。</span></p>
     </div>
   </section>
 
@@ -194,8 +187,8 @@
     </table>
 
     <div class="bigq">
-      <div class="qt"><span class="ko">확인 질문</span><span class="zh">要确认的问题</span></div>
-      <p><span class="ko">학교 시설별 주간 이용 인원은 어떻게 다르며,<br/>가장 많이 이용한 시설과 가장 적게 이용한 시설의 <b>차이는 얼마인가?</b></span><span class="zh">各校内设施的周使用人数有何差异，<br/>使用最多与最少的设施<b>相差多少？</b></span></p>
+      <div class="qt"><span class="ko">과제</span><span class="zh">任务</span></div>
+      <p><span class="ko">시설별 주간 이용 인원을<br/><b>지정된 조건의 막대그래프로 정확하게 표현</b>합니다.</span><span class="zh">把各设施的周使用人数<br/><b>按指定条件准确呈现为柱状图</b>。</span></p>
     </div>
   </section>
 
@@ -229,11 +222,11 @@
     </div>
 
     <div class="note stop">
-      <div class="nt"><span class="ko">해석에 반드시 포함할 내용</span><span class="zh">解读中必须包含的内容</span></div>
+      <div class="nt"><span class="ko">결과 확인에 포함할 내용</span><span class="zh">结果核对中必须包含</span></div>
       <ul class="blist">
-        <li><span class="ko">이용 인원이 <b>가장 많은 시설과 가장 적은 시설</b>의 이름과 실제 값</span><span class="zh">使用人数<b>最多与最少的设施</b>的名称和实际数值</span></li>
-        <li><span class="ko">두 시설의 이용 인원 <b>차이</b></span><span class="zh">两处设施使用人数的<b>差值</b></span></li>
-        <li><span class="ko">시설별 차이가 생긴 <b>원인은 이 데이터만으로 알 수 없다</b>는 점</span><span class="zh">各设施差异产生的<b>原因，仅凭这份数据无法知道</b>这一点</span></li>
+        <li><span class="ko">원본 표와 그래프를 비교해 확인한 조건</span><span class="zh">把原始表与图表比对后确认的条件</span></li>
+        <li><span class="ko">이용 인원이 <b>가장 많은 시설의 이름과 실제 값</b></span><span class="zh">使用人数<b>最多设施的名称与实际数值</b></span></li>
+        <li><span class="ko">AI 결과를 채택하거나 다시 요청한 판단</span><span class="zh">采纳 AI 结果或重新请求的判断</span></li>
       </ul>
     </div>
   </section>
@@ -258,8 +251,8 @@
     </table>
 
     <div class="bigq">
-      <div class="qt"><span class="ko">확인 질문</span><span class="zh">要确认的问题</span></div>
-      <p><span class="ko">전력 사용량은 한 해 동안 어떻게 변하며,<br/>사용량이 <b>가장 높은 달·낮은 달</b>과 <b>가장 크게 증가한 구간</b>은 어디인가?</span><span class="zh">用电量在一年中如何变化，<br/>用量<b>最高的月份、最低的月份</b>以及<b>增幅最大的区间</b>在哪里？</span></p>
+      <div class="qt"><span class="ko">과제</span><span class="zh">任务</span></div>
+      <p><span class="ko">월별 전력 사용량을<br/><b>지정된 조건의 선그래프로 정확하게 표현</b>합니다.</span><span class="zh">把每月用电量<br/><b>按指定条件准确呈现为折线图</b>。</span></p>
     </div>
   </section>
 
@@ -295,19 +288,14 @@
     </div>
 
     <div class="note stop">
-      <div class="nt"><span class="ko">해석에 반드시 포함할 내용</span><span class="zh">解读中必须包含的内容</span></div>
+      <div class="nt"><span class="ko">결과 확인에 포함할 내용</span><span class="zh">结果核对中必须包含</span></div>
       <ul class="blist">
-        <li><span class="ko">사용량이 <b>가장 높은 달과 가장 낮은 달</b>의 실제 값</span><span class="zh">用量<b>最高的月份与最低的月份</b>的实际数值</span></li>
-        <li><span class="ko"><b>전달보다 사용량이 가장 크게 증가한 구간</b>과 증가량</span><span class="zh"><b>比上月增幅最大的区间</b>及其增加量</span></li>
-        <li><span class="ko">사용량 변화의 <b>원인은 이 데이터만으로 알 수 없다</b>는 점</span><span class="zh">用量变化的<b>原因，仅凭这份数据无法知道</b>这一点</span></li>
+        <li><span class="ko">원본 표와 그래프를 비교해 확인한 조건</span><span class="zh">把原始表与图表比对后确认的条件</span></li>
+        <li><span class="ko">사용량이 <b>가장 높은 달과 실제 값</b></span><span class="zh">用电量<b>最高的月份与实际数值</b></span></li>
+        <li><span class="ko">AI 결과를 채택하거나 다시 요청한 판단</span><span class="zh">采纳 AI 结果或重新请求的判断</span></li>
       </ul>
     </div>
 
-    <div class="note">
-      <div class="nt"><span class="ko">“가장 크게 증가한 구간”을 찾는 법</span><span class="zh">怎么找“增幅最大的区间”</span></div>
-      <p><span class="ko">이웃한 두 달의 <b>차이</b>를 순서대로 계산해 비교합니다. 표에서 손으로 계산해도 되고, OpenCode에 값을 알려 주고 확인해도 됩니다. 어느 쪽이든 <b>표를 보고 스스로 검산</b>하세요.</span><span class="zh">把相邻两个月的<b>差值</b>依次算出来比较。可以照表手算，也可以把数值告诉 OpenCode 让它确认。无论哪种，都要<b>看着表自己验算一遍</b>。</span></p>
-      <p><span class="ko">주의할 점 하나 — <b>가장 큰 증가</b>를 물었으므로 <b>감소한 구간</b>은 답이 아닙니다.</span><span class="zh">有一点要当心 — 问的是<b>增幅最大</b>，所以<b>下降的区间</b>不是答案。</span></p>
-    </div>
   </section>
 
   <!-- ══════════ 1단계 ══════════ -->
@@ -320,7 +308,7 @@
       <ol>
         <li><span class="ko">교사가 제공한 CSV 두 개 중 하나를 <b>배정받거나 선택</b>한다.</span><span class="zh">从老师提供的两份 CSV 中<b>被分配或自选</b>一份。</span></li>
         <li><span class="ko">데이터 이름, <b>한 행이 나타내는 것</b>, 사용할 열과 <b>단위</b>를 확인한다.</span><span class="zh">确认数据名称、<b>每一行代表什么</b>、要用的列与<b>单位</b>。</span></li>
-        <li><span class="ko">데이터별 과제에 제시된 <b>질문과 그래프 종류</b>를 확인한다.</span><span class="zh">确认各数据任务里所给的<b>问题与图表类型</b>。</span></li>
+        <li><span class="ko">데이터별 과제에 지정된 <b>그래프 종류와 표시 조건</b>를 확인한다.</span><span class="zh">确认各数据任务指定的<b>图表类型与显示条件</b>。</span></li>
         <li><span class="ko">데이터 1은 <b>막대그래프</b>, 데이터 2는 <b>선그래프</b>를 사용한다.</span><span class="zh">数据 1 用<b>柱状图</b>，数据 2 用<b>折线图</b>。</span></li>
       </ol>
     </div>
@@ -352,9 +340,9 @@
       <li><span class="ko">내가 배정받은 CSV 파일 이름</span><span class="zh">我被分配到的 CSV 文件名</span></li>
       <li><span class="ko">한 행이 나타내는 것</span><span class="zh">每一行代表什么</span></li>
       <li><span class="ko">사용할 열과 단위</span><span class="zh">要用的列与单位</span></li>
-      <li><span class="ko">확인 질문</span><span class="zh">要确认的问题</span></li>
-      <li><span class="ko">요구된 그래프 종류</span><span class="zh">要求的图表类型</span></li>
-      <li><span class="ko">그 그래프가 알맞은 이유</span><span class="zh">该图表合适的理由</span></li>
+      <li><span class="ko">지정된 그래프 종류</span><span class="zh">指定的图表类型</span></li>
+      <li><span class="ko">제목·축·단위와 추가 표시 조건</span><span class="zh">标题、坐标轴、单位与附加显示条件</span></li>
+      <li><span class="ko">AI에게 빠뜨리지 않고 전달할 조건</span><span class="zh">需要完整交给 AI 的条件</span></li>
     </ul>
 
     <div class="note ok">
@@ -379,8 +367,8 @@
     <ul class="blist checks">
       <li><span class="ko">데이터의 <b>열과 값</b> 또는 데이터 <b>파일의 위치</b></span><span class="zh">数据的<b>列与值</b>，或数据<b>文件的位置</b></span></li>
       <li><span class="ko">값의 <b>단위</b></span><span class="zh">数值的<b>单位</b></span></li>
-      <li><span class="ko">배정된 데이터의 <b>확인 질문</b></span><span class="zh">所分配数据<b>要确认的问题</b></span></li>
-      <li><span class="ko">과제에서 요구한 <b>그래프 종류</b></span><span class="zh">任务要求的<b>图表类型</b></span></li>
+      <li><span class="ko">배정된 데이터의 <b>과제와 표시 조건</b></span><span class="zh">所分配数据的<b>任务与显示条件</b></span></li>
+      <li><span class="ko">과제에서 지정한 <b>그래프 종류와 표시 조건</b></span><span class="zh">任务指定的<b>图表类型与显示条件</b></span></li>
       <li><span class="ko"><b>제목·축 이름·단위</b> 표시</span><span class="zh">显示<b>标题、轴名与单位</b></span></li>
       <li><span class="ko">원본 데이터를 <b>바꾸거나 추가하지 말라</b>는 조건</span><span class="zh"><b>不得修改或添加</b>原始数据这一条件</span></li>
     </ul>
@@ -439,7 +427,7 @@
       <li><span class="ko">그래프의 <b>항목 수</b>가 원본 표와 같은가?</span><span class="zh">图表的<b>项目数</b>与原始表一致吗？</span></li>
       <li><span class="ko">각 항목의 <b>값과 위치</b>가 원본과 맞는가?</span><span class="zh">各项目的<b>数值与位置</b>与原始数据吻合吗？</span></li>
       <li><span class="ko"><b>최솟값과 최댓값</b>이 올바르게 표현되었는가?</span><span class="zh"><b>最小值与最大值</b>表现得正确吗？</span></li>
-      <li><span class="ko">그래프 <b>종류</b>가 질문에 맞는가?</span><span class="zh">图表的<b>类型</b>切合问题吗？</span></li>
+      <li><span class="ko">교사가 지정한 <b>그래프 종류</b>인가?</span><span class="zh">是否为老师指定的<b>图表类型</b>？</span></li>
       <li><span class="ko"><b>제목·축 이름·단위</b>가 있는가?</span><span class="zh">有<b>标题、轴名与单位</b>吗？</span></li>
       <li><span class="ko"><b>축 범위</b>가 차이를 과장하거나 숨기지 않는가?</span><span class="zh"><b>轴范围</b>有没有夸大或掩盖差异？</span></li>
       <li><span class="ko">원본에 <b>없는 값이나 설명</b>을 AI가 추가하지 않았는가?</span><span class="zh">AI 有没有添加原始数据里<b>没有的数值或说明</b>？</span></li>
@@ -454,7 +442,7 @@
     <div class="note">
       <div class="nt"><span class="ko">마지막 항목을 놓치기 쉽습니다</span><span class="zh">最后一项最容易漏</span></div>
       <p><span class="ko">AI가 “여름철 냉방 때문에 사용량이 늘었습니다” 같은 <b>설명을 덧붙이는</b> 경우가 있습니다. 그럴듯하지만 <b>데이터에 없는 원인</b>입니다.</span><span class="zh">AI 有时会<b>额外补上</b>“因为夏季制冷所以用量增加了”这类说明。听着有理，却是<b>数据里没有的原因</b>。</span></p>
-      <p><span class="ko">이런 문장이 코드의 주석이나 출력에 섞여 있으면 <b>지워 달라고 요청</b>하세요. 해석은 학생이 직접 씁니다.</span><span class="zh">这类句子若混在代码注释或输出里，就<b>请它删掉</b>。解读由学生自己写。</span></p>
+      <p><span class="ko">이런 문장이 코드의 주석이나 출력에 섞여 있으면 <b>지워 달라고 요청</b>하세요. 결과 확인에는 원본에서 직접 확인한 사실 한 가지만 씁니다.</span><span class="zh">这类句子若混在代码注释或输出里，就<b>请它删掉</b>。结果核对中只写一项能从原始数据直接确认的事实。</span></p>
     </div>
 
     <ul class="blist">
@@ -465,48 +453,28 @@
 
   <!-- ══════════ 4단계 ══════════ -->
   <section class="page" id="s7">
-    <div class="kick"><span class="ko">4단계</span><span class="zh">第 4 步</span><b>5-2</b></div>
-    <h2 class="title"><span class="ko">그래프를 해석한다</span><span class="zh">解读图表</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+    <div class="kick"><span class="ko">4. 기록</span><span class="zh">4. 记录</span><b>5-2</b></div>
+    <h2 class="title"><span class="ko">AI 활용 과정과 결과를 기록한다</span><span class="zh">记录 AI 使用过程与结果</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
 
-    <p class="lead"><span class="ko">다음 내용을 <b>짧은 글</b>로 정리합니다. 길게 쓸 필요는 없습니다. 대신 요구된 항목이 빠지면 안 됩니다.</span><span class="zh">把下面的内容整理成<b>一段短文</b>。不必写长，但要求的项目不能缺。</span></p>
+    <div class="steps"><div class="st-h"><span class="ko">반드시 남길 기록</span><span class="zh">必须留下的记录</span></div><ol>
+      <li><span class="ko">OpenCode에 처음 전달한 요청문</span><span class="zh">第一次发给 OpenCode 的请求文</span></li>
+      <li><span class="ko">원본 표와 그래프를 비교해 확인한 조건</span><span class="zh">把原始表与图表比对后确认的条件</span></li>
+      <li><span class="ko">문제가 있었다면 재요청 내용, 없었다면 수정이 필요 없다고 판단한 이유</span><span class="zh">有问题时记录重新请求；没有问题时记录判断无需修改的理由</span></li>
+      <li><span class="ko">구체적인 값이 포함된 사실 한 가지</span><span class="zh">一项带具体数值的事实</span></li>
+    </ol></div>
 
-    <ul class="blist">
-      <li><span class="ko">그래프에서 확인할 수 있는 <b>가장 분명한 사실</b></span><span class="zh">图表上能确认的<b>最明确的事实</b></span></li>
-      <li><span class="ko"><b>최댓값과 최솟값</b> 또는 눈에 띄는 변화</span><span class="zh"><b>最大值与最小值</b>，或显眼的变化</span></li>
-      <li><span class="ko">그래프만으로는 <b>알 수 없는 원인</b></span><span class="zh">仅凭图表<b>无法知道的原因</b></span></li>
-      <li><span class="ko">데이터나 그래프를 해석할 때 <b>주의할 점</b></span><span class="zh">解读数据或图表时<b>要留意的地方</b></span></li>
-    </ul>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">그래프에 없는 원인을 상상해 사실처럼 쓰지 않습니다</span><span class="zh">不要凭想象把原因写成事实</span></div>
-      <p><span class="ko">학기 내내 반복한 원칙이 평가 기준으로 들어옵니다. “여름에 에어컨을 켜서” “체육관은 수업이 많아서” 같은 문장은 <b>그럴듯하지만 이 데이터에 없습니다.</b></span><span class="zh">整个学期反复强调的原则，成了评价标准。“因为夏天开空调”“体育馆因为课多”这类句子<b>听着有理，但这份数据里没有</b>。</span></p>
-    </div>
-
-    <h3 class="sub"><span class="ko">쓰는 틀</span><span class="zh">写作框架</span></h3>
-
-    <div class="code out">
-      <div class="chd"><span class="ko"><span class="fn">해석 예시 — 데이터 1의 경우</span></span><span class="zh"><span class="fn">解读示例 — 数据 1 的情况</span></span></div>
-      <pre><code>이 그래프는 가상의 학교 시설별 주간 이용 인원을 비교한 것이다.
-이용 인원이 가장 많은 시설은 ___로 ___명이고, 가장 적은 시설은
-___로 ___명이다. 두 시설의 차이는 ___명이다.
-다만 시설별 이용 인원이 왜 이렇게 다른지는 이 데이터만으로 알 수 없다.
-시설의 크기, 운영 시간, 수업 배정 같은 정보가 함께 있어야 확인할 수 있다.</code></pre>
-    </div>
+    <div class="note ok"><div class="nt"><span class="ko">억지 수정은 하지 않습니다</span><span class="zh">不要为了修改而修改</span></div><p><span class="ko">AI 결과가 처음부터 정확하면 확인한 조건과 채택 이유를 기록합니다. 수정 횟수는 점수가 아닙니다.</span><span class="zh">若 AI 的结果一开始就准确，记录确认条件与采纳理由。修改次数本身不计分。</span></p></div>
   </section>
 
   <section class="page" id="s7_2">
-    <div class="kick"><span class="ko">4단계</span><span class="zh">第 4 步</span><b>5-2</b></div>
-    <h2 class="title"><span class="ko">그래프를 해석한다</span><span class="zh">解读图表</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+    <div class="kick"><span class="ko">4. 기록</span><span class="zh">4. 记录</span><b>5-2</b></div>
+    <h2 class="title"><span class="ko">AI 활용 과정과 결과를 기록한다</span><span class="zh">记录 AI 使用过程与结果</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
 
-    <div class="note ok">
-      <div class="nt"><span class="ko">마지막 문장이 있으면 좋습니다</span><span class="zh">有最后这一句更好</span></div>
-      <p><span class="ko">“무엇이 더 있어야 알 수 있는지”까지 적으면, <b>한계를 알 뿐 아니라 그 한계를 어떻게 넘을지도 안다</b>는 것이 드러납니다. 필수는 아니지만 좋은 해석입니다.</span><span class="zh">把“还需要什么才能知道”也写上，就显出你<b>不仅知道局限，还知道怎样跨过这个局限</b>。这不是必需的，但是好的解读。</span></p>
-    </div>
+    <div class="code out"><div class="chd"><span class="ko"><span class="fn">작성 예시</span></span><span class="zh"><span class="fn">填写示例</span></span></div><pre><code>확인: CSV의 항목 수와 그래프의 항목 수가 같고 각 값도 일치했다.
+판단: 지정된 제목·축·단위를 모두 표시해 그대로 채택했다.
+결과: 이용 인원이 가장 많은 시설은 Gym이며 72명이다.</code></pre></div>
 
-    <div class="note warn">
-      <div class="nt"><span class="ko">숫자를 표에서 다시 확인하세요</span><span class="zh">数字要回到表里再确认一次</span></div>
-      <p><span class="ko">빈칸에 넣을 값은 <b>그래프를 눈으로 읽은 값</b>이 아니라 <b>원본 표의 값</b>이어야 합니다. 막대 높이를 눈대중으로 읽다가 틀리는 경우가 많습니다.</span><span class="zh">填进空格的数值，必须是<b>原始表里的值</b>，而不是<b>用眼睛从图上读来的值</b>。凭目测读柱子高度而弄错的情况很多。</span></p>
-    </div>
+    <p><span class="ko">결과 설명은 그래프를 확인했음을 보여 주는 <b>한 문장</b>이면 충분합니다. 원인을 추측하거나 복잡한 분석을 할 필요가 없습니다.</span><span class="zh">结果说明只需用<b>一句话</b>证明已核对图表。不必猜测原因，也不必做复杂分析。</span></p>
   </section>
 
   <!-- ══════════ 5단계 ══════════ -->
@@ -540,11 +508,11 @@ ___로 ___명이다. 두 시설의 차이는 ___명이다.
       <li><span class="ko"><code>.ipynb</code> 한 개와 <code>.csv</code> 한 개를 <b>모두</b> 올렸는가?</span><span class="zh"><code>.ipynb</code> 和 <code>.csv</code> <b>各一份都</b>上传了吗？</span></li>
       <li><span class="ko">플랫폼에서 표시한 데이터와 <b>CSV 파일명이 일치</b>하는가?</span><span class="zh">平台上标明的数据与 <b>CSV 文件名一致</b>吗？</span></li>
       <li><span class="ko">CSV의 파일명과 내용이 <b>교사가 제공한 원본과 같은가?</b></span><span class="zh">CSV 的文件名与内容<b>和老师提供的原件一致</b>吗？</span></li>
-      <li><span class="ko">Notebook 안에 <b>다섯 구역</b>(데이터 설명 · 질문과 그래프 · AI 요청 · 데이터와 그래프 · 해석)이 있는가?</span><span class="zh">Notebook 里有<b>五个区块</b>（数据说明 · 问题与图表 · AI 请求 · 数据与图表 · 解读）吗？</span></li>
+      <li><span class="ko">Notebook 안에 <b>다섯 구역</b>(데이터 설명 · 그래프 요구사항 · AI 활용 과정 · 데이터와 그래프 · 결과 확인)이 있는가?</span><span class="zh">Notebook 里有<b>五个区块</b>（数据说明 · 图表要求 · AI 使用过程 · 数据与图表 · 结果核对）吗？</span></li>
       <li><span class="ko">CSV에서 불러온 <b>원본 표</b>가 보이는가?</span><span class="zh">看得到从 CSV 读入的<b>原始表</b>吗？</span></li>
       <li><span class="ko">제목·축·단위가 있는 <b>그래프 한 개</b>가 보이는가?</span><span class="zh">看得到带标题·轴·单位的<b>一张图表</b>吗？</span></li>
-      <li><span class="ko">구체적인 값을 근거로 한 <b>사실 두 가지</b>가 있는가?</span><span class="zh">有以具体数值为依据的<b>两项事实</b>吗？</span></li>
-      <li><span class="ko">그래프만으로 알 수 없는 <b>원인이나 한계 한 가지</b>가 있는가?</span><span class="zh">有仅凭图表无法知道的<b>原因或局限一项</b>吗？</span></li>
+      <li><span class="ko">구체적인 값을 근거로 한 <b>사실 한 가지</b>가 있는가?</span><span class="zh">有以具体数值为依据的<b>一项事实</b>吗？</span></li>
+      <li><span class="ko">확인한 조건과 <b>채택 또는 재요청 판단 기록</b>가 있는가?</span><span class="zh">有确认条件与<b>采纳或重新请求的判断记录</b>吗？</span></li>
       <li><span class="ko">모든 셀을 실행하고 <b>출력이 보이는 상태로</b> Notebook을 저장했는가?</span><span class="zh">运行了所有单元格，并在<b>输出可见的状态下</b>保存了 Notebook 吗？</span></li>
       <li><span class="ko">플랫폼의 <b>제출 미리보기</b>에서 두 파일을 확인했는가?</span><span class="zh">在平台的<b>提交预览</b>里确认了这两个文件吗？</span></li>
     </ul>
@@ -592,7 +560,7 @@ ___로 ___명이다. 두 시설의 차이는 ___명이다.
         <tr><td><span class="ko">제목·축 이름이 <b>네모(□□□)</b>로 나온다</span><span class="zh">标题、轴名显示成<b>方块（□□□）</b></span></td><td><span class="ko">한글 글꼴 문제입니다. 이번 과제의 제목·축 이름은 <b>영어로 지정</b>되어 있으니 영어 그대로 쓰면 해결됩니다.</span><span class="zh">这是韩文字体问题。本次任务的标题与轴名<b>已指定为英文</b>，照英文写就解决了。</span></td></tr>
         <tr><td><span class="ko">막대(또는 점)의 개수가 원본과 다르다</span><span class="zh">柱子（或点）的数量和原始数据不一致</span></td><td><span class="ko">AI가 데이터를 옮기며 빠뜨렸거나, CSV를 읽지 않고 값을 직접 적었을 수 있습니다. <code>read_csv</code>로 읽도록 다시 요청하세요.</span><span class="zh">可能是 AI 搬数据时漏了，或者没读 CSV 而是直接把数值写死了。请重新要求它用 <code>read_csv</code> 读入。</span></td></tr>
         <tr><td><span class="ko">월 순서가 뒤섞여 나온다</span><span class="zh">月份顺序乱了</span></td><td><span class="ko">정렬이 들어간 것입니다. “1월부터 12월까지 <b>원본 순서를 유지</b>해 달라”고 다시 요청하세요.</span><span class="zh">是被排序了。请重新要求“从 1 月到 12 月<b>保持原始顺序</b>”。</span></td></tr>
-        <tr><td><span class="ko">AI가 원인 설명을 덧붙인다</span><span class="zh">AI 额外补上了原因说明</span></td><td><span class="ko">“데이터에 없는 원인은 쓰지 말고 그래프만 그려 달라”고 요청하세요. 해석은 학생이 씁니다.</span><span class="zh">请要求它“不要写数据里没有的原因，只画图”。解读由学生自己写。</span></td></tr>
+        <tr><td><span class="ko">AI가 원인 설명을 덧붙인다</span><span class="zh">AI 额外补上了原因说明</span></td><td><span class="ko">“데이터에 없는 원인은 쓰지 말고 그래프만 그려 달라”고 요청하세요. 결과 확인은 사실 한 문장만 씁니다.</span><span class="zh">请要求它“不要写数据里没有的原因，只画图”。结果核对只写一句事实。</span></td></tr>
         <tr><td><span class="ko">시간이 부족하다</span><span class="zh">时间不够</span></td><td><span class="ko">그래프 하나를 정확히 끝내는 데 집중하세요. 색과 장식, 추가 그래프는 평가 대상이 아닙니다. 교사의 시작 Notebook을 써도 됩니다.</span><span class="zh">请集中把一张图做准确。颜色、装饰和额外的图表都不在评价之列。也可以用老师的起始 Notebook。</span></td></tr>
       </table>
     </div>
@@ -611,17 +579,17 @@ ___로 ___명이다. 두 시설의 차이는 ___명이다.
       <li><span class="ko">Notebook 첫 부분에 <b>선택한 CSV 파일명</b>을 적었다.</span><span class="zh">在 Notebook 开头写了<b>所选 CSV 的文件名</b>。</span></li>
       <li><span class="ko">CSV를 <b>상대경로</b>로 불러왔다.</span><span class="zh">用<b>相对路径</b>读取了 CSV。</span></li>
       <li><span class="ko">데이터와 그래프의 값이 <b>맞는지 확인</b>했다.</span><span class="zh"><b>确认</b>了数据与图表的数值<b>是否吻合</b>。</span></li>
-      <li><span class="ko">배정된 데이터에 요구된 <b>그래프 종류를 사용하고 그 이유</b>를 설명했다.</span><span class="zh">使用了所分配数据要求的<b>图表类型，并说明了理由</b>。</span></li>
+      <li><span class="ko">배정된 데이터에 <b>지정된 그래프 종류</b>를 사용했다.</span><span class="zh">使用了所分配数据中<b>指定的图表类型</b>。</span></li>
       <li><span class="ko"><b>제목·축 이름·단위·축 범위</b>를 확인했다.</span><span class="zh">确认了<b>标题、轴名、单位与轴范围</b>。</span></li>
-      <li><span class="ko">구체적인 값을 근거로 그래프의 <b>사실 두 가지</b>를 설명했다.</span><span class="zh">以具体数值为依据说明了图表的<b>两项事实</b>。</span></li>
-      <li><span class="ko">그래프만으로 <b>알 수 없는 원인이나 한계</b>를 설명했다.</span><span class="zh">说明了仅凭图表<b>无法知道的原因或局限</b>。</span></li>
+      <li><span class="ko">구체적인 값을 근거로 그래프의 <b>사실 한 가지</b>를 설명했다.</span><span class="zh">以具体数值为依据说明了图表的<b>一项事实</b>。</span></li>
+      <li><span class="ko">확인한 조건과 <b>채택 또는 재요청 판단</b>을 기록했다.</span><span class="zh">记录了确认条件与<b>采纳或重新请求的判断</b>。</span></li>
       <li><span class="ko">Notebook과 사용한 CSV를 <b>함께 제출</b>했다.</span><span class="zh"><b>把 Notebook 和所用的 CSV 一起提交</b>了。</span></li>
     </ul>
 
     <div class="note ok">
       <div class="nt"><span class="ko">다시 확인합니다</span><span class="zh">再确认一次</span></div>
       <p><span class="ko"><b>Python 코드를 직접 작성하거나 수정했는지는 평가하지 않습니다.</b></span><span class="zh"><b>不评价你是否亲自编写或修改了 Python 代码。</b></span></p>
-      <p><span class="ko">코드를 한 줄도 쓰지 않았더라도 위 항목을 갖췄다면 이수입니다. 반대로 코드를 잘 써도 원본과 대조하지 않고 해석이 없다면 갖춰지지 않은 것입니다.</span><span class="zh">哪怕一行代码都没写，只要具备上面各项，就算通过。反过来，代码写得再好，若没有与原始数据对照、也没有解读，就是不具备。</span></p>
+      <p><span class="ko">코드를 한 줄도 쓰지 않았더라도 위 항목을 갖췄다면 이수입니다. 반대로 코드를 잘 써도 원본과 대조하지 않고 AI 활용 판단 기록이 없다면 갖춰지지 않은 것입니다.</span><span class="zh">哪怕一行代码都没写，只要具备上面各项，就算通过。反过来，代码写得再好，若没有与原始数据比对、也没有 AI 使用判断记录，就不算具备。</span></p>
     </div>
   </section>
 
