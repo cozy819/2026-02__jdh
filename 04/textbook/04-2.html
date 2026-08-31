@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>04-2. pandas로 표 데이터를 쉽게 사용하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 04-2 — pandas로 표 데이터를 쉽게 사용하기">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/textbook.css">
+</head>
+<body class="lang-ko">
+<div id="top">
+<button class="menu" onclick="tbToggleToc()">☰ 목차</button>
+<button id="modeBtn" onclick="tbToggleMode()">한 장씩 보기</button>
+<button class="lng" onclick="tbToggleLang()">中文</button>
+<div class="brand">
+<em>04-2</em> <span class="lesson">pandas로 표 데이터를 쉽게 사용하기</span>
+</div>
+<div class="spacer">
+</div>
+<div class="pct" id="count">1 / 1</div>
+<button class="pbtn" onclick="window.print()">인쇄</button>
+</div>
+<div id="prog">
+</div>
+<nav id="toc">
+<div class="h">
+<span class="ko">이 차시 — 04-2</span>
+<span class="zh">本课时 — 04-2</span>
+</div>
+<a href="#opener">
+<span class="n">·</span> 차시 표지</a>
+<a href="#s1">
+<span class="n">1</span> pandas와 DataFrame</a>
+<a href="#s2">
+<span class="n">2</span> dict에서 DataFrame</a>
+<a href="#s3">
+<span class="n">3</span> 표 상태 확인</a>
+<a href="#s4">
+<span class="n">4</span> DataFrame과 그래프</a>
+<a href="#s5">
+<span class="n">5</span> AI에게 요청</a>
+<a href="#s6">
+<span class="n">6</span> 결과 확인</a>
+<a href="#s7">
+<span class="n">7</span> 핵심 정리</a>
+<div class="h">
+<span class="ko">전체 차시</span>
+<span class="zh">全部课时</span>
+</div>
+<a href="../../index.html">
+<span class="n">표지</span> 전체 목차</a>
+<a href="../../01/textbook/01-1.html">
+<span class="n">01-1</span> 수업 소개</a>
+<a href="../../01/textbook/01-2.html">
+<span class="n">01-2</span> 수업 열기</a>
+<a href="../../02/textbook/02-1.html">
+<span class="n">02-1</span> 개발 도구 설치와 확인</a>
+<a href="../../02/textbook/02-2.html">
+<span class="n">02-2</span> 숫자와 변수로 계산하기</a>
+<a href="../../03/textbook/03-1.html">
+<span class="n">03-1</span> 비교 결과로 판단하기</a>
+<a href="../../03/textbook/03-2.html">
+<span class="n">03-2</span> 프로젝트별 Python 환경과 자료구조</a>
+<a href="../../04/textbook/04-1.html">
+<span class="n">04-1</span> Matplotlib으로 그래프 이해하기</a>
+<a href="../../04/textbook/04-2.html" class="here">
+<span class="n">04-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
+<a href="../../05/textbook/05-1.html">
+<span class="n">05-1</span> 수행평가 1 안내</a>
+<a href="../../05/textbook/05-2.html">
+<span class="n">05-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
+<a href="../../06/textbook/06-1.html">
+<span class="n">06-1</span> 서비스 기획의 기초</a>
+<a href="../../06/textbook/06-2.html">
+<span class="n">06-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+<a href="../../07/textbook/07-1.html">
+<span class="n">07-1</span> 관계형 데이터베이스의 기초</a>
+<a href="../../07/textbook/07-2.html">
+<span class="n">07-2</span> PRD에 데이터 목록 덧붙이기</a>
+<a href="../../08/textbook/08-1.html">
+<span class="n">08-1</span> 수행평가 2 안내</a>
+<a href="../../08/textbook/08-2.html">
+<span class="n">08-2</span> 수행평가 2 · PRD 완성·제출</a>
+<a href="../../09/textbook/09-1.html">
+<span class="n">09-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+<a href="../../09/textbook/09-2.html">
+<span class="n">09-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+<a href="../../10/textbook/10-1.html">
+<span class="n">10-1</span> API와 요청·응답 이해하기</a>
+<a href="../../10/textbook/10-2.html">
+<span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+<a href="../../11/textbook/11-1.html">
+<span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+<a href="../../11/textbook/11-2.html">
+<span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+<a href="../../12/textbook/12-1.html">
+<span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+<a href="../../12/textbook/12-2.html">
+<span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+<a href="../../13/textbook/13-1.html">
+<span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+<a href="../../13/textbook/13-2.html">
+<span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+<div class="h">
+<span class="ko">별도 자료</span>
+<span class="zh">单独资料</span>
+</div>
+<a href="../../09/textbook/09-0.html">
+<span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)">
+</div>
+<main>
+<section class="page opener" id="opener">
+<div class="onum">
+<span class="ko">4회 · 둘째 차시</span>
+<span class="zh">第 4 次课 · 第 2 课时</span>
+</div>
+<h1>
+<span class="ko">pandas로 표 데이터를 쉽게 사용하기</span>
+<span class="zh">用 pandas 更轻松地处理表格数据</span>
+</h1>
+<div class="osub">
+<span class="ko">dict에서 DataFrame으로 이어지는 관계를 보고, AI가 만든 표와 그래프를 원본과 비교합니다.</span>
+<span class="zh">理解从 dict 到 DataFrame 的连接，并把 AI 生成的表格与图表和原始数据核对。</span>
+</div>
+<div class="abar">
+</div>
+<div class="ometa">
+<span class="ko">
+<b>이전 차시</b> · 4-1. Matplotlib으로 그래프 이해하기<br>
+<b>다음 차시</b> · 5-1. 수행평가 1 안내</span>
+<span class="zh">
+<b>上一课时</b> · 4-1. Matplotlib으로 그래프 이해하기<br>
+<b>下一课时</b> · 5-1. 수행평가 1 안내</span>
+</div>
+</section>
+<section class="page" id="s1">
+<div class="kick">
+<span class="ko">1. 표 도구</span>
+<span class="zh">1. 表格工具</span>
+<b>04-2</b>
+</div>
+<h2 class="title">
+<span class="ko">pandas는 표를 다루고 DataFrame은 표를 담는다</span>
+<span class="zh">pandas 处理表格，DataFrame 保存表格</span>
+</h2>
+<div class="code ">
+<pre>import pandas as pd</pre>
+</div>
+<p>
+<span class="ko">pandas는 Python에서 행과 열로 된 표를 읽고 확인하고 정리하는 라이브러리입니다. pd는 긴 이름을 짧게 부르는 별명입니다.</span>
+<span class="zh">pandas 是在 Python 中读取、确认与整理行列表格的库，pd 是它的简写别名。</span>
+</p>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">낱말</span>
+<span class="zh">术语</span>
+</th>
+<th>
+<span class="ko">역할</span>
+<span class="zh">作用</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pandas</td>
+<td>
+<span class="ko">표 데이터를 다루는 도구</span>
+<span class="zh">处理表格数据的工具</span>
+</td>
+</tr>
+<tr>
+<td>DataFrame</td>
+<td>
+<span class="ko">pandas 안에서 실제 데이터를 담는 행·열 표</span>
+<span class="zh">在 pandas 中保存实际数据的行列表格</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note warn">
+<p>
+<span class="ko">pandas는 데이터를 대신 판단하는 AI가 아닙니다. 어떤 데이터와 열을 사용할지는 사람이 정합니다.</span>
+<span class="zh">pandas 不是替人判断数据的 AI；使用哪些数据与列仍由人决定。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s2">
+<div class="kick">
+<span class="ko">2. 연결</span>
+<span class="zh">2. 连接</span>
+<b>04-2</b>
+</div>
+<h2 class="title">
+<span class="ko">dict의 이름과 값이 DataFrame의 열이 된다</span>
+<span class="zh">dict 的名称和值成为 DataFrame 的列</span>
+</h2>
+<div class="code ">
+<pre>data = {
+    "day": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    "visitors": [18, 25, 21, 32, 29],
+}
+
+df = pd.DataFrame(data)
+print(df)</pre>
+</div>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">day</span>
+<span class="zh">day</span>
+</th>
+<th>
+<span class="ko">visitors</span>
+<span class="zh">visitors</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Tue</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Wed</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Thu</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Fri</td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<span class="ko">dict에서 각 이름이 열 이름이 되고, 같은 위치의 값들이 한 행으로 짝지어집니다.</span>
+<span class="zh">dict 中的名称成为列名，相同位置的值配成同一行。</span>
+</p>
+</section>
+<section class="page" id="s3">
+<div class="kick">
+<span class="ko">3. 읽기</span>
+<span class="zh">3. 读取</span>
+<b>04-2</b>
+</div>
+<h2 class="title">
+<span class="ko">AI 코드에서 표의 모양과 열을 확인한다</span>
+<span class="zh">在 AI 代码中确认表格形状与列</span>
+</h2>
+<div class="code ">
+<pre>print(df.head())
+print(df.columns)
+print(df["visitors"].max())</pre>
+</div>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">코드</span>
+<span class="zh">代码</span>
+</th>
+<th>
+<span class="ko">확인하는 것</span>
+<span class="zh">确认内容</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>df.head()</code>
+</td>
+<td>
+<span class="ko">표의 앞부분이 예상한 모양인지</span>
+<span class="zh">表格前几行是否符合预期</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>df.columns</code>
+</td>
+<td>
+<span class="ko">열 이름이 무엇인지</span>
+<span class="zh">列名是什么</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>df["visitors"].max()</code>
+</td>
+<td>
+<span class="ko">이용 인원의 최댓값</span>
+<span class="zh">访客数最大值</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note ok">
+<p>
+<span class="ko">함수 이름을 외우거나 처음부터 작성할 필요는 없습니다. AI가 올바른 열을 사용했는지와 출력이 원본과 맞는지 확인합니다.</span>
+<span class="zh">无需背函数名或从头编写；要确认 AI 使用了正确的列，输出与原始数据一致。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s4">
+<div class="kick">
+<span class="ko">4. 연결</span>
+<span class="zh">4. 连接</span>
+<b>04-2</b>
+</div>
+<h2 class="title">
+<span class="ko">열 이름으로 표와 그래프를 연결한다</span>
+<span class="zh">用列名把表格与图表连接起来</span>
+</h2>
+<div class="code ">
+<pre>df.plot(
+    x="day",
+    y="visitors",
+    kind="bar",
+    legend=False,
+)</pre>
+</div>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">설정</span>
+<span class="zh">设置</span>
+</th>
+<th>
+<span class="ko">뜻</span>
+<span class="zh">含义</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>x="day"</code>
+</td>
+<td>
+<span class="ko">가로축에 day 열 사용</span>
+<span class="zh">横轴使用 day 列</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>y="visitors"</code>
+</td>
+<td>
+<span class="ko">세로축에 visitors 열 사용</span>
+<span class="zh">纵轴使用 visitors 列</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind="bar"</code>
+</td>
+<td>
+<span class="ko">막대그래프</span>
+<span class="zh">柱状图</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<span class="ko">Matplotlib을 사용하지 않는다는 뜻이 아닙니다. pandas가 DataFrame의 열과 그래프를 더 짧게 연결해 줍니다.</span>
+<span class="zh">这并不表示没有使用 Matplotlib；pandas 只是更简短地连接 DataFrame 的列与图表。</span>
+</p>
+</section>
+<section class="page" id="s5">
+<div class="kick">
+<span class="ko">5. AI 활용</span>
+<span class="zh">5. 使用 AI</span>
+<b>04-2</b>
+</div>
+<h2 class="title">
+<span class="ko">표 확인과 그래프 완성을 한 요청에 담는다</span>
+<span class="zh">一次请求中同时说明表格确认与图表完成</span> <span class="badge lab">
+<span class="ko">실습</span>
+<span class="zh">实践</span>
+</span>
+</h2>
+<div class="code ">
+<div class="chd"><span class="fn"><span class="ko">OpenCode 요청문</span><span class="zh">OpenCode 请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+<pre>pandas로 요일과 이용 인원을 DataFrame으로 만들고,
+표의 앞부분과 최댓값을 출력한 뒤 막대그래프를 그려 줘.
+
+요일: Mon, Tue, Wed, Thu, Fri
+이용 인원: 18, 25, 21, 32, 29
+
+- x축은 day 열, y축은 visitors 열
+- 세로축은 0에서 시작
+- 제목과 축 이름 표시
+- 원본 데이터는 바꾸지 않기
+- 복잡한 기능은 사용하지 않기</pre>
+</div>
+<figure class="fig print-medium">
+<img class="figimg" src="../../assets/img/04-2-01-notebook-flow.png" alt="설명·코드·그래프·확인 순서로 된 Notebook 골격" data-id="04-2-01-notebook-flow" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+<figcaption>
+<span class="ko">Notebook에는 요청·코드·결과·확인이 함께 남는다.</span>
+<span class="zh">Notebook 中共同保留请求、代码、结果与确认。</span>
+</figcaption>
+</figure>
+<p><span class="ko"><code>sample/notebooks/04-2_pandas_table.ipynb</code>를 열고 준비된 셀을 위에서 아래로 실행합니다. dict → DataFrame → 그래프로 이어지는 결과를 확인합니다.</span><span class="zh">打开 <code>04-2_pandas_table.ipynb</code> 并从上到下运行单元，确认 dict → DataFrame → 图表的连接。</span></p>
+</section>
+<section class="page" id="s6">
+<div class="kick">
+<span class="ko">6. 검증</span>
+<span class="zh">6. 验证</span>
+<b>04-2</b>
+</div>
+<h2 class="title">
+<span class="ko">행·열·값·그래프를 차례로 원본과 비교한다</span>
+<span class="zh">依次把行、列、值与图表和原始数据核对</span>
+</h2>
+<figure class="fig print-medium"><img class="figimg" src="../../assets/img/04-2-02-dataframe-bar.png" alt="pandas DataFrame의 열을 사용해 만든 막대그래프" data-id="04-2-02-dataframe-bar" onerror="window.imgPlaceholder&&imgPlaceholder(this)"><figcaption><span class="ko">DataFrame의 <code>day</code>와 <code>visitors</code> 열이 그래프의 두 축으로 연결됩니다.</span><span class="zh">DataFrame 的 <code>day</code> 与 <code>visitors</code> 列连接到图表两轴。</span></figcaption></figure>
+<ol class="steps">
+<li>
+<span class="ko">DataFrame의 행 수와 열 이름이 원본과 같은가?</span>
+<span class="zh">DataFrame 的行数与列名与原始数据一致吗？</span>
+</li>
+<li>
+<span class="ko">요일과 이용 인원이 같은 행에 짝지어졌는가?</span>
+<span class="zh">星期与访客数是否在同一行配对？</span>
+</li>
+<li>
+<span class="ko">최댓값이 32로 나타나는가?</span>
+<span class="zh">最大值是否为 32？</span>
+</li>
+<li>
+<span class="ko">그래프가 day와 visitors 열을 사용했는가?</span>
+<span class="zh">图表是否使用 day 与 visitors 列？</span>
+</li>
+<li>
+<span class="ko">막대 수와 높이가 원본과 같은가?</span>
+<span class="zh">柱子数量与高度是否和原始数据一致？</span>
+</li>
+<li>
+<span class="ko">제목·축·단위·축 시작점이 조건에 맞는가?</span>
+<span class="zh">标题、坐标轴、单位与起点是否符合条件？</span>
+</li>
+</ol>
+<div class="note ok">
+<p>
+<span class="ko">다음 차시에는 교사가 제공한 CSV와 요구 조건을 사용합니다. 지정된 그래프와 조건을 AI에게 전달하고 Notebook과 사용한 CSV를 함께 제출합니다.</span>
+<span class="zh">下一课将使用教师提供的 CSV 与要求条件，并同时提交 Notebook 与使用的 CSV。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s7">
+<div class="kick">
+<span class="ko">7. 정리</span>
+<span class="zh">7. 小结</span>
+<b>04-2</b>
+</div>
+<h2 class="title">
+<span class="ko">표를 쉽게 다뤄도 확인 책임은 남는다</span>
+<span class="zh">表格处理更容易，确认责任仍在人</span>
+</h2>
+<div class="recap">
+<div class="rt">
+<span class="ko">이번 차시에서 남길 것</span>
+<span class="zh">本课时要记住的</span>
+</div>
+<ul class="blist">
+<li>
+<span class="ko">pandas는 표 데이터를 다루는 라이브러리다.</span>
+<span class="zh">pandas 是处理表格数据的库。</span>
+</li>
+<li>
+<span class="ko">DataFrame은 행과 열로 된 표다.</span>
+<span class="zh">DataFrame 是由行和列组成的表格。</span>
+</li>
+<li>
+<span class="ko">열 이름으로 표와 그래프를 연결할 수 있다.</span>
+<span class="zh">可以用列名连接表格与图表。</span>
+</li>
+<li>
+<span class="ko">AI가 만든 표와 그래프도 원본의 행·열·값과 비교한다.</span>
+<span class="zh">AI 生成的表格与图表也要和原始数据的行、列、值核对。</span>
+</li>
+</ul>
+</div>
+<div class="lessonnav">
+<a href="../../04/textbook/04-1.html">
+<span class="d">
+<span class="ko">← 이전</span>
+<span class="zh">← 上一课时</span>
+</span>
+<span class="t">4-1. Matplotlib으로 그래프 이해하기</span>
+</a>
+<a href="../../index.html">
+<span class="d">
+<span class="ko">목차</span>
+<span class="zh">目录</span>
+</span>
+<span class="t">
+<span class="ko">전체 목차로</span>
+<span class="zh">回到总目录</span>
+</span>
+</a>
+<a href="../../05/textbook/05-1.html">
+<span class="d">
+<span class="ko">다음 →</span>
+<span class="zh">下一课时 →</span>
+</span>
+<span class="t">5-1. 수행평가 1 안내</span>
+</a>
+</div>
+</section>
+</main>
+<div id="pager">
+<button id="pprev">‹</button>
+<button id="pnext">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../../assets/textbook.js">
+</script>
+</body>
+</html>

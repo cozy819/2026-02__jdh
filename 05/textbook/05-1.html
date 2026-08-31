@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
+<title>5-1. 수행평가 1 안내 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 5-1 — 수행평가 1 안내. CSV, 제출물 구성, 데이터·AI 사용 원칙과 이수 기준" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/textbook.css" />
+</head>
+<body class="lang-ko">
+
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>5-1</em> <span class="lesson">수행평가 1 안내</span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+</div>
+<div id="prog"></div>
+
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 5-1</span><span class="zh">本课时 — 5-1</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s0"><span class="n">·</span> 무엇을 평가하는가</a>
+  <a href="#s1"><span class="n">1</span> CSV란 무엇인가</a>
+  <a href="#s1b"><span class="n">·</span> CSV를 다루는 원칙</a>
+  <a href="#s2"><span class="n">2</span> 과제와 제출물 구성</a>
+  <a href="#s3"><span class="n">3</span> 만들기 전에 확인할 것</a>
+  <a href="#s4"><span class="n">4</span> 데이터 사용 원칙</a>
+  <a href="#s5"><span class="n">5</span> AI 사용 원칙</a>
+  <a href="#s5b"><span class="n">6</span> 파일 제출 기준</a>
+  <a href="#s6"><span class="n">7</span> 제출할 증거</a>
+  <a href="#s7"><span class="n">8</span> 이수 기준</a>
+  <a href="#s8"><span class="n">9</span> 시간이 부족할 때</a>
+  <a href="#s9"><span class="n">10</span> 정리</a>
+
+  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
+  <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
+  <a href="../../01/textbook/01-2.html"><span class="n">1-2</span> 수업 열기</a>
+  <a href="../../02/textbook/02-1.html"><span class="n">2-1</span> 개발 도구 설치와 확인</a>
+  <a href="../../02/textbook/02-2.html"><span class="n">2-2</span> 숫자와 변수로 계산하기</a>
+  <a href="../../03/textbook/03-1.html"><span class="n">3-1</span> 비교 결과로 판단하기</a>
+  <a href="../../03/textbook/03-2.html"><span class="n">3-2</span> 프로젝트별 Python 환경과 자료구조</a>
+  <a href="../../04/textbook/04-1.html"><span class="n">4-1</span> Matplotlib으로 그래프 이해하기</a>
+  <a href="../../04/textbook/04-2.html"><span class="n">4-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
+  <a href="../../05/textbook/05-1.html" class="here"><span class="n">5-1</span> 수행평가 1 안내</a>
+  <a href="../../05/textbook/05-2.html"><span class="n">5-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
+  <a href="../../06/textbook/06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
+  <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+  <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
+  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="../../08/textbook/08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
+  <a href="../../08/textbook/08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
+  <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+  <a href="../../09/textbook/09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+  <a href="../../10/textbook/10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
+  <a href="../../10/textbook/10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+  <a href="../../11/textbook/11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+  <a href="../../11/textbook/11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+  <a href="../../12/textbook/12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+  <a href="../../12/textbook/12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+  <a href="../../13/textbook/13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+  <a href="../../13/textbook/13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+
+  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
+  <a href="../../09/textbook/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+
+<main>
+
+  <!-- ══════════ 차시 표지 ══════════ -->
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">5회 · 첫째 차시</span><span class="zh">第 5 次课 · 第 1 课时</span></div>
+    <h1><span class="ko">수행평가 1 안내<br/><span style="font-size:.62em; color:var(--muted); font-weight:700">AI로 지정 그래프 완성하기</span></span><span class="zh">实作评价 1 说明<br/><span style="font-size:.62em; color:var(--muted); font-weight:700">用 AI 完成指定图表</span></span></h1>
+    <div class="osub"><span class="ko">무엇을 평가하고 무엇을 평가하지 않는지,<br/>무엇을 제출하고 무엇으로 이수를 판단하는지 미리 확인합니다.</span><span class="zh">先弄清评价什么、不评价什么，<br/>要交什么、依据什么判定通过。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 4-2. pandas로 표 데이터를 쉽게 사용하기<br/>
+      <b>다음 차시</b> · 5-2. 수행평가 1 · AI 활용 데이터 시각화 <b>(바로 실시)</b></span><span class="zh"><b>上一课时</b> · 4-2. 用 pandas 轻松处理表格数据<br/> <b>下一课时</b> · 5-2. 实作评价 1 · AI 应用数据可视化 <b>（紧接着进行）</b></span></div>
+  </section>
+
+  <!-- ══════════ 무엇을 평가하는가 ══════════ -->
+  <section class="page" id="s0">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">무엇을 평가하고, 무엇을 평가하지 않는가</span><span class="zh">评价什么，不评价什么</span></h2>
+
+    <p class="lead"><span class="ko">이 평가는 데이터 분석 시험이 아닙니다. <b>AI에게 요구사항을 전달하고 결과를 확인하는 활용 능력</b>을 봅니다.</span><span class="zh">这不是数据分析考试。评价的是<b>向 AI 传达要求并核对结果的应用能力</b>。</span></p>
+
+    <h3 class="sub"><span class="ko">평가에서 확인하는 능력</span><span class="zh">评价中确认的能力</span></h3>
+    <ul class="blist">
+      <li><span class="ko">데이터의 <b>대상과 단위</b>를 확인한다.</span><span class="zh">确认数据的<b>对象与单位</b>。</span></li>
+      <li><span class="ko">교사가 지정한 <b>그래프 종류와 표시 조건</b>을 확인한다.</span><span class="zh">确认老师指定的<b>图表类型与显示条件</b>。</span></li>
+      <li><span class="ko">조건을 빠뜨리지 않고 <b>OpenCode에 요청</b>한다.</span><span class="zh">不遗漏条件地<b>向 OpenCode 提出请求</b>。</span></li>
+      <li><span class="ko">AI가 만든 그래프를 <b>원본 데이터와 비교</b>한다.</span><span class="zh">把 AI 制作的图表<b>与原始数据比对</b>。</span></li>
+      <li><span class="ko">결과를 <b>채택하거나 다시 요청한 판단</b>을 기록한다.</span><span class="zh">记录<b>采纳结果或重新请求的判断</b>。</span></li>
+      <li><span class="ko">구체적인 값이 포함된 <b>사실 한 가지</b>를 설명한다.</span><span class="zh">说明<b>一项带具体数值的事实</b>。</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">평가 범위</span><span class="zh">评价范围</span></div>
+      <p><span class="ko"><b>직접 코딩, 그래프 종류 선택, 복잡한 계산과 깊이 있는 데이터 해석은 평가하지 않습니다.</b> 교사가 그래프와 조건을 지정하며, 학생은 AI 활용과 결과 확인에 집중합니다.</span><span class="zh"><b>不评价亲自写代码、选择图表、复杂计算或深入数据分析。</b>图表与条件由老师指定，学生专注于 AI 应用与结果核对。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s0_2">
+    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">배점의 중심을 확인한다</span><span class="zh">确认评分重点</span></h2>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th><span class="ko">평가 영역</span><span class="zh">评价领域</span></th><th style="width:90px"><span class="ko">배점</span><span class="zh">分值</span></th><th><span class="ko">평가의 중심</span><span class="zh">评价重点</span></th></tr>
+      <tr><td><span class="ko"><b>지정 그래프 완성</b></span><span class="zh"><b>完成指定图表</b></span></td><td class="c"><b>50</b></td><td><span class="ko">원본 값, 지정된 종류, 제목·축·단위</span><span class="zh">原始数值、指定类型、标题、坐标轴与单位</span></td></tr>
+      <tr><td><span class="ko"><b>AI 활용과 수정 과정</b></span><span class="zh"><b>AI 应用与调整过程</b></span></td><td class="c"><b>30</b></td><td><span class="ko">요청 조건, 결과 확인, 채택 또는 재요청 판단</span><span class="zh">请求条件、结果核对、采纳或重新请求的判断</span></td></tr>
+      <tr><td><span class="ko"><b>결과 확인과 간단한 설명</b></span><span class="zh"><b>结果核对与简短说明</b></span></td><td class="c"><b>20</b></td><td><span class="ko">원본과 비교하고 구체적인 사실 한 가지 설명</span><span class="zh">与原始数据比对并说明一项具体事实</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">정확하면 수정하지 않아도 됩니다</span><span class="zh">结果准确时不必修改</span></div>
+      <p><span class="ko">AI가 첫 요청에서 조건을 모두 지켰다면 억지로 수정하지 않습니다. <b>확인한 조건과 그대로 채택한 이유</b>를 기록하면 AI 활용 과정으로 인정합니다.</span><span class="zh">若 AI 第一次就满足全部条件，不必硬改。记录<b>确认的条件与直接采纳的理由</b>，同样属于 AI 应用过程。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 1 ══════════ -->
+  <section class="page" id="s1">
+    <div class="kick"><span class="ko">1. CSV</span><span class="zh">1. CSV</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">CSV는 표 데이터를 저장하는 파일이다</span><span class="zh">CSV 是保存表格数据的文件</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">수행평가에서는 교사가 준비한 <b>CSV 파일</b>을 기본 데이터로 씁니다. 4-2까지는 데이터를 코드에 직접 적었지만, 이제 <b>파일에서 읽어 옵니다.</b></span><span class="zh">实作评价用老师准备的 <b>CSV 文件</b>作为基础数据。到 4-2 为止数据都直接写在代码里，现在则<b>从文件读进来</b>。</span></p>
+
+    <div class="term">
+      <div class="term-h"><span class="w">CSV</span><span class="en">Comma-Separated Values</span></div>
+      <dl>
+        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
+        <dd><span class="ko">엑셀 파일을 열어 보면 칸이 그려진 표가 보입니다. 그런데 같은 데이터를 메모장으로 열면 쉼표로 이어진 글자만 보일 때가 있습니다.</span><span class="zh">打开 Excel 文件，看到的是画好格子的表。可同样的数据用记事本打开，有时只看到用逗号连起来的文字。</span></dd>
+        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
+        <dd><span class="ko">표의 각 값을 <b>쉼표로 구분해</b> 저장한 텍스트 파일입니다. 칸이나 색은 저장되지 않고 값만 남습니다.</span><span class="zh">它是把表格里每个值<b>用逗号隔开</b>保存的文本文件。格子和颜色不会被保存，只留下值。</span></dd>
+        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
+        <dd class="def"><span class="ko">각 행을 줄바꿈으로, 각 열을 쉼표로 구분하여 표 형태의 데이터를 저장하는 텍스트 파일 형식.</span><span class="zh">以换行分隔各行、以逗号分隔各列，来保存表格形式数据的文本文件格式。</span></dd>
+        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
+        <dd><span class="ko">엑셀의 <code>.xlsx</code>도 표를 저장하지만 <b>서식·수식·여러 시트</b>가 함께 들어갑니다. CSV는 <b>값만</b> 담습니다. 그래서 단순하고, 그래서 프로그램이 읽기 쉽습니다.</span><span class="zh">Excel 的 <code>.xlsx</code> 也能保存表格，但会一并装进<b>格式、公式、多个工作表</b>。CSV <b>只装值</b>。所以它简单，也因此程序容易读。</span></dd>
+        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
+        <dd><span class="ko">“CSV를 pandas로 읽어서 DataFrame으로 만들었다.”</span><span class="zh">“用 pandas 读了 CSV，做成了 DataFrame。”</span></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="page" id="s1_2">
+    <div class="kick"><span class="ko">1. CSV</span><span class="zh">1. CSV</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">CSV는 표 데이터를 저장하는 파일이다</span><span class="zh">CSV 是保存表格数据的文件</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <h3 class="sub"><span class="ko">같은 데이터, 두 가지 모습</span><span class="zh">同一份数据的两副面孔</span></h3>
+
+    <div class="row">
+      <div class="pane">
+        <div class="pt"><span class="ko">우리가 보는 표</span><span class="zh">我们看到的表</span></div>
+        <table class="kv" style="margin-top:10px">
+          <tr><th>day</th><th class="c">visitors</th></tr>
+          <tr><td>Mon</td><td class="c">18</td></tr>
+          <tr><td>Tue</td><td class="c">25</td></tr>
+          <tr><td>Wed</td><td class="c">21</td></tr>
+        </table>
+      </div>
+      <div class="pane accent">
+        <div class="pt"><span class="ko">파일 안의 실제 내용</span><span class="zh">文件里的真实内容</span></div>
+        <div class="code" style="margin-top:10px">
+          <div class="chd"><span class="fn">visitors.csv</span></div>
+          <pre><code>day,visitors
+Mon,18
+Tue,25
+Wed,21</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <ul class="blist">
+      <li><span class="ko">첫 번째 줄에는 <b>열 이름</b>이 들어간다.</span><span class="zh">第一行放<b>列名</b>。</span></li>
+      <li><span class="ko">그다음 줄부터 <b>한 줄이 표의 한 행</b>을 나타낸다.</span><span class="zh">从第二行起，<b>一行代表表格的一行</b>。</span></li>
+      <li><span class="ko"><b>쉼표를 기준으로</b> 각 열의 값이 나뉜다.</span><span class="zh"><b>以逗号为界</b>划分各列的值。</span></li>
+      <li><span class="ko">Excel이나 스프레드시트에서도 열 수 있지만, 실제 파일은 <b>간단한 텍스트</b>다.</span><span class="zh">虽然也能用 Excel 或电子表格打开，但文件本身是<b>简单的文本</b>。</span></li>
+    </ul>
+
+    <p><span class="ko">pandas에서는 보통 <code>pd.read_csv("파일이름.csv")</code> 형태로 불러옵니다. <b>이 코드는 학생이 직접 작성하지 않고 OpenCode가 만들게 합니다.</b></span><span class="zh">在 pandas 里通常用 <code>pd.read_csv("文件名.csv")</code> 的形式读入。<b>这段代码不由学生亲自写，而是让 OpenCode 生成。</b></span></p>
+  </section>
+
+  <!-- ══════════ 1b ══════════ -->
+  <section class="page" id="s1b">
+    <div class="kick"><span class="ko">1. CSV (이어서)</span><span class="zh">1. CSV（续）</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">CSV를 다루는 원칙</span><span class="zh">处理 CSV 的原则</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">CSV는 단순한 만큼 <b>쉽게 망가집니다.</b> 평가에서 지켜야 할 원칙이 있습니다.</span><span class="zh">CSV 简单，也因此<b>容易被弄坏</b>。评价中有几条必须遵守的原则。</span></p>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">원본을 바꾸지 않습니다</span><span class="zh">不要改动原始文件</span></div>
+      <p><span class="ko">제공된 CSV의 <b>값과 열 이름을 임의로 바꾸지 않습니다.</b> Excel로 파일을 열어 보더라도 <b>원본 파일을 다른 형식으로 덮어쓰지 않습니다.</b></span><span class="zh"><b>不要随意更改所给 CSV 的值和列名。</b>即使用 Excel 打开查看，<b>也不要把原始文件另存为其他格式覆盖它</b>。</span></p>
+      <p><span class="ko">Excel에서 CSV를 열고 저장하면 날짜 형식이 바뀌거나 앞의 0이 사라지는 등 <b>값이 조용히 달라질 수 있습니다.</b> 그래서 확인만 하고 닫는 것이 안전합니다.</span><span class="zh">在 Excel 里打开 CSV 再保存，可能会改变日期格式、丢掉开头的 0，<b>让数值悄悄变样</b>。所以看完就关掉最安全。</span></p>
+    </div>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:130px"><span class="ko">구분</span><span class="zh">项目</span></th><th>CSV <code>.csv</code></th><th>Excel <code>.xlsx</code></th></tr>
+      <tr><td><span class="ko">담는 것</span><span class="zh">装的内容</span></td><td><span class="ko"><b>값만</b></span><span class="zh"><b>只有值</b></span></td><td><span class="ko">값 + 서식·수식·여러 시트</span><span class="zh">值 + 格式、公式、多个工作表</span></td></tr>
+      <tr><td><span class="ko">파일 형태</span><span class="zh">文件形态</span></td><td><span class="ko">단순한 텍스트</span><span class="zh">简单的文本</span></td><td><span class="ko">프로그램 전용 형식</span><span class="zh">程序专用格式</span></td></tr>
+      <tr><td><span class="ko">Python에서 읽기</span><span class="zh">在 Python 里读取</span></td><td><span class="ko"><b>쉽다</b></span><span class="zh"><b>容易</b></span></td><td><span class="ko">추가 도구가 필요할 수 있다</span><span class="zh">可能需要额外工具</span></td></tr>
+      <tr><td><span class="ko">이번 평가에서</span><span class="zh">在这次评价里</span></td><td><span class="ko"><b>기본 형식</b></span><span class="zh"><b>基本格式</b></span></td><td><span class="ko">사용하지 않음</span><span class="zh">不使用</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">교사가 함께 안내하는 것</span><span class="zh">老师会一并说明的</span></div>
+      <p><span class="ko">CSV 파일과 함께 <b>열 이름, 단위, 한 행이 나타내는 의미</b>를 안내받습니다. 4-1에서 배운 <b>맥락</b>이 바로 이것입니다. 이 정보가 없으면 숫자만 보고는 해석할 수 없습니다.</span><span class="zh">随 CSV 文件会一并告知<b>列名、单位、每一行代表什么</b>。这就是 4-1 学过的<b>背景</b>。没有这些信息，光看数字是解读不了的。</span></p>
+      <p><span class="ko">한글이 들어 있는 파일은 <b>UTF-8</b> 형식으로 제공됩니다. 글자가 깨져 보이면 파일을 고치려 하지 말고 교사에게 알려 주세요.</span><span class="zh">含韩文的文件以 <b>UTF-8</b> 格式提供。若看到乱码，不要试图自己修文件，请告诉老师。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s1b_2">
+    <div class="kick"><span class="ko">1. CSV (이어서)</span><span class="zh">1. CSV（续）</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">CSV를 다루는 원칙</span><span class="zh">处理 CSV 的原则</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="quiz">
+      <div class="q">
+        <div class="qq"><span class="ko">CSV 파일을 Excel로 열어 확인한 뒤 어떻게 해야 할까?</span><span class="zh">用 Excel 打开 CSV 确认之后该怎么办？</span></div>
+        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
+          <p><span class="ko"><b>저장하지 않고 닫습니다.</b> “변경 사항을 저장하시겠습니까?”가 뜨면 <b>저장 안 함</b>을 고릅니다. 아무것도 고치지 않았는데 이 창이 뜨는 경우도 있습니다. Excel이 파일을 열면서 형식을 해석했기 때문입니다.</span><span class="zh"><b>不保存，直接关闭。</b>弹出“是否保存更改？”时选<b>不保存</b>。有时你什么都没改也会弹出这个窗口，那是因为 Excel 在打开时解释了文件格式。</span></p>
+          <p><span class="ko">가장 안전한 방법은 <b>아예 Excel로 열지 않고</b> Notebook에서 pandas로 읽어 표를 확인하는 것입니다. 평가에서 어차피 그 표를 보여 줘야 합니다.</span><span class="zh">最稳妥的办法是<b>干脆不用 Excel 打开</b>，直接在 Notebook 里用 pandas 读进来看表。反正评价里本来就要展示那张表。</span></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 2 ══════════ -->
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 과제</span><span class="zh">2. 任务</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">무엇을 만들어 제출하는가</span><span class="zh">要制作并提交什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">두 CSV 가운데 하나를 사용해 <b>교사가 지정한 조건의 그래프 한 개</b>를 OpenCode로 완성합니다. Notebook과 실제 사용한 CSV를 같은 제출 화면에 올립니다.</span><span class="zh">从两份 CSV 中使用一份，通过 OpenCode 完成<b>一张符合老师指定条件的图表</b>。Notebook 与实际使用的 CSV 一起上传。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:155px"><span class="ko">Notebook 구역</span><span class="zh">Notebook 区块</span></th><th><span class="ko">반드시 포함할 내용</span><span class="zh">必须包含的内容</span></th></tr>
+      <tr><td><b>1. 데이터 설명</b></td><td><span class="ko">학생 정보, CSV 이름, 대상·한 행의 의미·단위</span><span class="zh">学生信息、CSV 名称、对象、每行含义与单位</span></td></tr>
+      <tr><td><b>2. 그래프 요구사항</b></td><td><span class="ko">지정된 그래프 종류, 제목·축·단위와 추가 조건</span><span class="zh">指定图表类型、标题、坐标轴、单位与附加条件</span></td></tr>
+      <tr><td><b>3. AI 활용 과정</b></td><td><span class="ko">첫 요청, 확인한 조건, 채택 또는 재요청 기록</span><span class="zh">首次请求、确认条件、采纳或重新请求的记录</span></td></tr>
+      <tr><td><b>4. 데이터와 그래프</b></td><td><span class="ko">원본 표, 생성된 코드, 지정 그래프 한 개</span><span class="zh">原始表、生成的代码与一张指定图表</span></td></tr>
+      <tr><td><b>5. 결과 확인</b></td><td><span class="ko">원본과 비교한 내용, 구체적인 값이 포함된 사실 한 가지</span><span class="zh">与原始数据的比对内容及一项带具体数值的事实</span></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s2_2">
+    <div class="kick"><span class="ko">2. 과제</span><span class="zh">2. 任务</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">무엇을 만들어 제출하는가</span><span class="zh">要制作并提交什么</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="vflow">
+      <div class="vf plain"><span class="ko"><b>요구사항 확인</b><span>데이터·그래프 종류·표시 조건</span></span><span class="zh"><b>确认要求</b><span>数据、图表类型、显示条件</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>AI 요청</b><span>조건을 빠뜨리지 않는다</span></span><span class="zh"><b>请求 AI</b><span>不遗漏条件</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>원본과 비교</b><span>값·제목·축·단위 확인</span></span><span class="zh"><b>与原始数据比对</b><span>确认数值、标题、坐标轴、单位</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf"><span class="ko"><b>채택 또는 재요청</b><span>판단을 기록한다</span></span><span class="zh"><b>采纳或重新请求</b><span>记录判断</span></span></div>
+      <div class="varr">▼</div>
+      <div class="vf plain"><span class="ko"><b>사실 한 가지 확인 · 제출</b></span><span class="zh"><b>确认一项事实并提交</b></span></div>
+    </div>
+
+    <p><span class="ko">복잡한 해석이나 여러 그래프를 만들 필요가 없습니다. <b>요구사항에 맞는 그래프 한 개와 확인 가능한 AI 활용 기록</b>이 핵심입니다.</span><span class="zh">不需要复杂分析或多张图。核心是<b>一张符合要求的图表与可确认的 AI 使用记录</b>。</span></p>
+  </section>
+
+  <!-- ══════════ 3 ══════════ -->
+  <section class="page" id="s3">
+    <div class="kick"><span class="ko">3. 사전 확인</span><span class="zh">3. 事前确认</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">그래프를 만들기 전에 확인할 것</span><span class="zh">画图之前要确认的</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist checks">
+      <li><span class="ko">데이터가 <b>무엇을 나타내며 단위가 무엇인지</b> 확인한다.</span><span class="zh">确认数据<b>表示什么、单位是什么</b>。</span></li>
+      <li><span class="ko">데이터에서 <b>비교하거나 관찰할 값</b>을 확인한다.</span><span class="zh">确认数据中<b>要比较或观察的值</b>。</span></li>
+      <li><span class="ko">데이터별 과제에 제시된 <b>질문</b>을 확인한다.</span><span class="zh">确认各数据任务里所给的<b>问题</b>。</span></li>
+      <li><span class="ko">요구된 <b>그래프 종류가 그 질문에 알맞은 이유</b>를 확인한다.</span><span class="zh">确认<b>所要求的图表类型为何适合这个问题</b>。</span></li>
+    </ul>
+
+    <p><span class="ko">네 번째 항목이 중요합니다. 그래프 종류는 이미 정해져 있지만, <b>왜 그것이 알맞은지</b>는 여러분이 설명해야 합니다. 제출물의 4번 항목이 바로 이것입니다.</span><span class="zh">第四项很重要。图表类型虽然已经定好了，但<b>为什么它合适</b>要由你来说明。提交物的第 4 项正是这个。</span></p>
+
+    <h3 class="sub"><span class="ko">질문과 그래프 종류의 관계</span><span class="zh">问题与图表类型的对应</span></h3>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:52%"><span class="ko">질문</span><span class="zh">问题</span></th><th><span class="ko">우선 고려할 그래프</span><span class="zh">优先考虑的图表</span></th></tr>
+      <tr><td><span class="ko"><b>항목별 크기</b>를 비교하는가?</span><span class="zh">是在比较<b>各项目的大小</b>吗？</span></td><td><span class="ko">막대그래프</span><span class="zh">柱状图</span></td></tr>
+      <tr><td><span class="ko"><b>시간의 흐름</b>에 따른 변화를 보는가?</span><span class="zh">是在看<b>随时间</b>的变化吗？</span></td><td><span class="ko">선그래프</span><span class="zh">折线图</span></td></tr>
+      <tr><td><span class="ko">두 수치 사이의 <b>관계</b>를 보는가?</span><span class="zh">是在看两个数值之间的<b>关系</b>吗？</span></td><td><span class="ko">산점도</span><span class="zh">散点图</span></td></tr>
+    </table>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">“이유를 설명하라”는 것의 뜻</span><span class="zh">“说明理由”是什么意思</span></div>
+      <p><span class="ko">“막대그래프가 좋아서”가 아니라 <b>질문과 연결해서</b> 씁니다.</span><span class="zh">不是“因为我喜欢柱状图”，而要<b>和问题连起来</b>写。</span></p>
+      <p><span class="ko">예: “이 질문은 <b>시설별 이용 인원의 크기를 서로 비교</b>하는 것이므로, 항목마다 막대 길이로 크기를 나란히 견줄 수 있는 <b>막대그래프</b>가 알맞다. 시설은 시간 순서가 아니므로 선그래프는 맞지 않다.”</span><span class="zh">例：“这个问题是<b>把各设施的使用人数彼此比较大小</b>，所以能用柱子长度把各项目并排比较的<b>柱状图</b>合适。设施之间没有时间顺序，所以折线图不合适。”</span></p>
+      <p><span class="ko">뒷문장처럼 <b>맞지 않는 것을 함께 밝히면</b> 이해했다는 것이 더 분명해집니다.</span><span class="zh">像后半句那样<b>把不合适的一并说清</b>，更能显出你真的理解了。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s3_2">
+    <div class="kick"><span class="ko">3. 사전 확인</span><span class="zh">3. 事前确认</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">그래프를 만들기 전에 확인할 것</span><span class="zh">画图之前要确认的</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">평가에서 더 중요하게 보는 것</span><span class="zh">评价中更看重的</span></div>
+      <p><span class="ko">복잡하거나 화려한 그래프보다 <b>질문에 맞고 오해 없이 읽을 수 있는</b> 그래프를 더 중요하게 봅니다.</span><span class="zh">比起复杂或华丽的图表，更看重<b>与问题相符、读起来不会产生误解</b>的图表。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 4 ══════════ -->
+  <section class="page" id="s4">
+    <div class="kick"><span class="ko">4. 데이터 원칙</span><span class="zh">4. 数据原则</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">데이터 사용 원칙</span><span class="zh">数据使用原则</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <ul class="blist">
+      <li><span class="ko">교사가 <b>제공하거나 사용을 허용한 데이터만</b> 사용한다.</span><span class="zh">只使用老师<b>提供或允许使用的数据</b>。</span></li>
+      <li><span class="ko">실제 사람의 <b>이름, 연락처, 주소와 개인별 민감한 기록</b>을 사용하지 않는다.</span><span class="zh">不使用真实的人的<b>姓名、联系方式、住址及个人敏感记录</b>。</span></li>
+      <li><span class="ko">가상 데이터는 <b>실제 조사 결과인 것처럼 표현하지 않는다.</b></span><span class="zh">虚拟数据<b>不得表述成真实调查结果</b>。</span></li>
+      <li><span class="ko">외부 자료를 사용한다면 <b>자료 이름, 제공 기관, 주소와 확인 날짜</b>를 기록한다.</span><span class="zh">若使用外部资料，要记录<b>资料名称、提供机构、网址与查阅日期</b>。</span></li>
+      <li><span class="ko">데이터의 <b>일부만 골랐다면 선택 기준</b>을 밝힌다.</span><span class="zh">若<b>只选取了数据的一部分，要说明选取标准</b>。</span></li>
+    </ul>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">세 번째 항목을 특히 지켜 주세요</span><span class="zh">第三条请特别遵守</span></div>
+      <p><span class="ko">이번 평가의 데이터는 <b>실제 학교 통계가 아니라 수행평가용 가상 데이터</b>입니다. Notebook의 데이터 설명 부분에 <b>“가상 데이터”</b>라고 반드시 적으세요.</span><span class="zh">这次评价的数据<b>不是学校的真实统计，而是为实作评价准备的虚拟数据</b>。请务必在 Notebook 的数据说明部分写上<b>“虚拟数据”</b>。</span></p>
+      <p><span class="ko">이것을 빠뜨리면, 나중에 이 Notebook을 본 사람이 <b>우리 학교의 실제 기록이라고 오해</b>할 수 있습니다. 4-2에서 해석 첫 문장에 “가상의”를 넣었던 이유가 이것입니다.</span><span class="zh">漏了这一句，日后看到这份 Notebook 的人可能<b>误以为它是我们学校的真实记录</b>。4-2 里在解读的第一句加上“虚拟的”，就是这个原因。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">마지막 항목이 뜻하는 것</span><span class="zh">最后一条的含义</span></div>
+      <p><span class="ko">4-1에서 “필요한 일부 기간만 고르면 전체 흐름과 다른 인상을 줄 수 있다”라고 했습니다. 데이터를 일부만 쓰는 것 자체는 잘못이 아닙니다. <b>왜 그 부분을 골랐는지 밝히지 않는 것</b>이 문제입니다.</span><span class="zh">4-1 说过“只挑需要的那一段时间，会给出与整体走势不同的印象”。只用数据的一部分本身不算错，问题在于<b>不说明为什么选那一部分</b>。</span></p>
+      <p><span class="ko">이번 평가에서는 제공된 데이터를 <b>전부</b> 쓰므로 이 항목이 걸릴 일은 없습니다. 다만 앞으로 다른 데이터를 다룰 때를 위해 기억해 두세요.</span><span class="zh">这次评价要把所给数据<b>全部</b>用上，所以不会碰到这一条。但为了今后处理别的数据，请先记住。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 ══════════ -->
+  <section class="page" id="s5">
+    <div class="kick"><span class="ko">5. AI 원칙</span><span class="zh">5. AI 原则</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">AI 사용 원칙</span><span class="zh">AI 使用原则</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">수행평가 1까지는 수업에서 사용한 <b>OpenCode</b>를 이용합니다. 2-2에서 설치하고 모델을 연결해 둔 그 도구입니다.</span><span class="zh">到实作评价 1 为止，使用课上用的 <b>OpenCode</b>。就是 2-2 里安装好并连接了模型的那个工具。</span></p>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">붙여 넣기 전에 확인합니다</span><span class="zh">粘贴之前先确认</span></div>
+      <p><span class="ko">AI에게 데이터 전체를 무조건 붙여 넣기 전에 <b>개인정보와 이용 조건</b>을 확인합니다. 이번 평가에서는 <b>수업용 공개·가상 데이터만</b> 사용하므로 문제가 없지만, 확인하는 절차 자체를 몸에 익혀 두세요.</span><span class="zh">在把整份数据一股脑粘给 AI 之前，先确认<b>个人信息与使用条款</b>。这次评价只用<b>课堂用的公开、虚拟数据</b>，所以没有问题，但请把“先确认”这个步骤养成习惯。</span></p>
+    </div>
+
+    <h3 class="sub"><span class="ko">좋은 요청에 들어갈 것</span><span class="zh">好的请求里该有的</span></h3>
+
+    <div class="code">
+      <div class="chd"><span class="ko"><span class="fn">OpenCode 요청문 틀 — 빈칸을 채워 쓰세요</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">OpenCode 请求文模板 — 请填空后使用</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
+      <pre><code>Jupyter Notebook에서 실행할 Python 그래프 코드를 작성해 줘.
+데이터의 열과 값은 다음과 같고 단위는 ___이야: ___
+내가 확인하려는 질문은 ___이야.
+이 질문에 맞는 ___그래프를 pandas와 Matplotlib으로 만들어 줘.
+원본 데이터는 바꾸거나 추가하지 말고 제목, 축 이름과 단위를 표시해 줘.
+데이터에 없는 원인은 추측하지 말아 줘.</code></pre>
+    </div>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:40%"><span class="ko">이 줄이 없으면</span><span class="zh">少了这一句</span></th><th><span class="ko">이런 일이 생길 수 있다</span><span class="zh">可能发生的事</span></th></tr>
+      <tr><td><span class="ko">단위를 안 적으면</span><span class="zh">不写单位</span></td><td><span class="ko">축 이름에 단위가 빠져 읽는 사람이 무엇인지 모른다</span><span class="zh">轴名里漏掉单位，读的人不知道那是什么</span></td></tr>
+      <tr><td><span class="ko">질문을 안 적으면</span><span class="zh">不写问题</span></td><td><span class="ko">AI가 임의로 그래프 종류를 고른다</span><span class="zh">AI 自行挑一种图表类型</span></td></tr>
+      <tr><td><span class="ko">“바꾸지 마”를 안 적으면</span><span class="zh">不写“不要改动”</span></td><td><span class="ko">보기 좋게 값을 다듬거나 항목을 추가할 수 있다</span><span class="zh">它可能为了好看修饰数值或添加项目</span></td></tr>
+      <tr><td><span class="ko">“원인은 추측하지 마”를 안 적으면</span><span class="zh">不写“不要猜原因”</span></td><td><span class="ko">AI가 그럴듯한 원인을 지어내 설명에 섞는다</span><span class="zh">AI 会编出看似合理的原因掺进说明里</span></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s5_2">
+    <div class="kick"><span class="ko">5. AI 원칙</span><span class="zh">5. AI 原则</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">AI 사용 원칙</span><span class="zh">AI 使用原则</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">코드는 내가 고치지 않습니다</span><span class="zh">代码不由我来改</span></div>
+      <p><span class="ko">OpenCode가 만든 코드를 실행한 뒤 <b>원본 표와 그래프의 항목·값이 맞는지</b> 확인합니다. 문제가 있으면 학생이 코드를 직접 고치지 않고, <b>잘못된 점과 유지할 조건</b>을 OpenCode에 알려 다시 생성하게 합니다.</span><span class="zh">运行 OpenCode 生成的代码后，确认<b>原始表格与图表的项目、数值是否吻合</b>。有问题时学生不亲自改代码，而是把<b>错在哪里、要保留哪些条件</b>告诉 OpenCode，让它重新生成。</span></p>
+      <p><span class="ko">4-2에서 연습한 그대로입니다. 코드를 고치는 것은 평가 대상이 아니며, 고치다가 오히려 망가지는 경우가 많습니다.</span><span class="zh">这和 4-2 练过的完全一样。改代码不属于评价对象，而且越改越坏的情况很多。</span></p>
+    </div>
+  </section>
+
+
+  <!-- ══════════ 6. 파일 제출 ══════════ -->
+  <section class="page" id="s5b">
+    <div class="kick"><span class="ko">6. 파일 제출</span><span class="zh">6. 文件提交</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">파일 제출 기준</span><span class="zh">文件提交标准</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">여기서부터는 <b>내용이 아니라 형식</b>입니다. 내용이 아무리 좋아도 파일 이름이나 경로가 어긋나면 플랫폼이 제출을 받지 못하거나, 교사의 컴퓨터에서 열리지 않습니다.</span><span class="zh">从这里开始讲的<b>不是内容，而是形式</b>。内容再好，只要文件名或路径不对，平台就收不到提交，或者在老师的电脑上打不开。</span></p>
+
+    <h3 class="sub"><span class="ko">Notebook</span><span class="zh">Notebook</span></h3>
+
+    <div class="code">
+      <div class="chd"><span class="fn"><span class="ko">파일 이름 형식</span><span class="zh">文件名格式</span></span></div>
+      <pre><code>05_assessment1_학생ID_이름.ipynb
+
+05_assessment1_260701_홍길동.ipynb</code></pre>
+    </div>
+
+    <ul class="blist">
+      <li><span class="ko">첫 부분에 <b>학생 ID, 이름, 선택한 CSV 파일명</b>을 적는다.</span><span class="zh">在开头写上<b>学生 ID、姓名、所选 CSV 文件名</b>。</span></li>
+      <li><span class="ko"><b>모든 셀을 실행</b>하고 표와 그래프 출력이 <b>보이는 상태로</b> 저장한다.</span><span class="zh"><b>运行所有单元格</b>，在表格与图表输出<b>可见的状态下</b>保存。</span></li>
+    </ul>
+
+    <h3 class="sub"><span class="ko">CSV</span><span class="zh">CSV</span></h3>
+
+    <ul class="blist">
+      <li><span class="ko">학생이 <b>실제로 사용한 CSV 한 개</b>를 함께 제출한다.</span><span class="zh">把学生<b>实际使用的那一份 CSV</b> 一并提交。</span></li>
+      <li><span class="ko">교사가 제공한 <b>파일명과 내용을 바꾸지 않는다.</b></span><span class="zh"><b>不改动</b>老师提供的<b>文件名与内容</b>。</span></li>
+      <li><span class="ko">CSV를 Notebook과 <b>같은 폴더</b>에 두고 파일명만으로 불러온다.</span><span class="zh">把 CSV 放在与 Notebook <b>同一个文件夹</b>，只用文件名来读取。</span></li>
+    </ul>
+  </section>
+
+  <section class="page" id="s5b_2">
+    <div class="kick"><span class="ko">6. 파일 제출</span><span class="zh">6. 文件提交</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">파일 제출 기준</span><span class="zh">文件提交标准</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="row">
+      <div class="pane okp">
+        <div class="pt"><span class="ko">상대경로 — 이렇게</span><span class="zh">相对路径 — 这样写</span></div>
+        <div class="code"><pre><code>pd.read_csv("05-data-1-school-facility-users.csv")</code></pre></div>
+        <p><span class="ko">파일명만 적으면 <b>어느 컴퓨터에서든</b> 같은 폴더의 파일을 찾습니다.</span><span class="zh">只写文件名，<b>在任何一台电脑上</b>都会去同一个文件夹里找。</span></p>
+      </div>
+      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
+        <div class="pt" style="color:var(--danger)"><span class="ko">절대경로 — 쓰지 않기</span><span class="zh">绝对路径 — 不要用</span></div>
+        <div class="code"><pre><code>pd.read_csv("C:/Users/hong/바탕화면/05-data-1.csv")</code></pre></div>
+        <p><span class="ko"><b>내 컴퓨터에서만</b> 작동합니다. 교사가 열면 <code>FileNotFoundError</code>가 납니다.</span><span class="zh"><b>只在我自己的电脑上</b>有效。老师打开就会报 <code>FileNotFoundError</code>。</span></p>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="nt"><span class="ko">ZIP으로 묶지 않습니다</span><span class="zh">不要打包成 ZIP</span></div>
+      <p><span class="ko">두 파일을 압축하지 말고 <b>플랫폼의 같은 제출 화면에 나란히</b> 올립니다. 플랫폼은 <code>.ipynb</code> 한 개와 <code>.csv</code> 한 개가 <b>모두 있어야</b> 제출을 완료 처리합니다.</span><span class="zh">不要压缩这两个文件，而是<b>并排上传到平台的同一个提交页面</b>。平台要求 <code>.ipynb</code> 和 <code>.csv</code> <b>各一份都在</b>，才算提交完成。</span></p>
+      <p><span class="ko">선택한 데이터와 CSV 파일명이 맞지 않거나 원본 CSV의 값이 바뀌었다면 다시 확인해야 합니다.</span><span class="zh">若所选数据与 CSV 文件名不一致，或原始 CSV 的数值被改动过，就要重新确认。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6 ══════════ -->
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">7. 제출</span><span class="zh">7. 提交</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">제출할 증거</span><span class="zh">要提交的证据</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">“했다”가 아니라 <b>“한 흔적이 남아 있다”</b>가 기준입니다. 다음 일곱 가지가 남아 있어야 합니다.</span><span class="zh">标准不是“我做了”，而是<b>“做过的痕迹留在那里”</b>。下面七样必须留下来。</span></p>
+
+    <div class="tablewrap">
+    <table class="kv">
+      <tr><th style="width:44%"><span class="ko">제출할 증거</span><span class="zh">要提交的证据</span></th><th><span class="ko">무엇을 보여 주는가</span><span class="zh">它证明了什么</span></th></tr>
+      <tr><td><span class="ko">지정된 구성에 맞춘 <code>.ipynb</code> Notebook 한 개</span><span class="zh">按指定构成写成的一份 <code>.ipynb</code> Notebook</span></td><td><span class="ko">절차를 순서대로 밟았다</span><span class="zh">按顺序走完了流程</span></td></tr>
+      <tr><td><span class="ko">Notebook에서 사용한 <b>교사용 원본 <code>.csv</code> 파일 한 개</b></span><span class="zh">Notebook 中使用的<b>老师原始 <code>.csv</code> 文件一份</b></span></td><td><span class="ko">교사가 같은 데이터로 다시 실행해 볼 수 있다</span><span class="zh">老师可以用同一份数据重新运行一遍</span></td></tr>
+      <tr><td><span class="ko">교사가 제공한 CSV에서 불러온 <b>원본 데이터 표</b></span><span class="zh">从老师提供的 CSV 读入的<b>原始数据表</b></span></td><td><span class="ko">정해진 데이터를 그대로 썼다</span><span class="zh">原样使用了指定的数据</span></td></tr>
+      <tr><td><span class="ko">OpenCode에 전달한 <b>요청</b>과 생성된 <b>코드</b></span><span class="zh">发给 OpenCode 的<b>请求</b>与生成的<b>代码</b></span></td><td><span class="ko">조건을 갖춰 요청했고 AI 사용을 밝혔다</span><span class="zh">带着条件提出请求，并说明了 AI 的使用</span></td></tr>
+      <tr><td><span class="ko">제목·축·단위가 표시된 <b>그래프 한 개</b></span><span class="zh">标有标题、轴与单位的<b>一张图表</b></span></td><td><span class="ko">읽는 사람이 확인할 수 있는 그래프를 만들었다</span><span class="zh">做出了读的人能够确认的图表</span></td></tr>
+      <tr><td><span class="ko">구체적인 값을 근거로 한 <b>사실 한 가지</b></span><span class="zh">以具体数值为依据的<b>一项事实</b></span></td><td><span class="ko">그래프를 읽을 수 있다</span><span class="zh">能读懂图表</span></td></tr>
+      <tr><td><span class="ko"><b>채택 또는 재요청·수정 판단 기록</b></span><span class="zh"><b>采纳或重新请求、调整的判断记录</b></span></td><td><span class="ko">AI 결과를 확인하고 판단한 과정을 보여 준다</span><span class="zh">呈现核对并判断 AI 结果的过程</span></td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick"><span class="ko">7. 제출</span><span class="zh">7. 提交</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">제출할 증거</span><span class="zh">要提交的证据</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">세 번째 줄 — AI 요청문도 제출물입니다</span><span class="zh">第三行 — AI 请求文也是提交物</span></div>
+      <p><span class="ko">1-1에서 약속한 <b>AI 사용 표시</b>가 여기에 들어갑니다. 요청문을 그대로 붙여 넣으면 됩니다. 감추어야 할 것이 아니라 <b>정직하게 일한 기록</b>입니다.</span><span class="zh">1-1 约定的 <b>AI 使用标注</b>就落在这里。把请求文原样粘上去即可。它不是要藏起来的东西，而是<b>诚实工作的记录</b>。</span></p>
+      <p><span class="ko">오히려 요청문이 잘 쓰여 있으면 <b>무엇을 알고 요청했는지</b>가 드러나서 좋은 증거가 됩니다.</span><span class="zh">反过来，请求文写得好，反而显出<b>你是知道什么才这样要求的</b>，是很好的证据。</span></p>
+    </div>
+
+    <div class="note">
+      <div class="nt"><span class="ko">“사실 한 가지”를 쓰는 요령</span><span class="zh">写“一项事实”的诀窍</span></div>
+      <p><span class="ko">구체적인 <b>값</b>이 들어가야 합니다. “목요일이 많았다”는 부족하고, <b>“가장 많은 날은 목요일로 32명이다”</b>처럼 한 문장으로 쓰면 충분합니다.</span><span class="zh">必须带上具体的<b>数值</b>。“星期四人多”不够，写成<b>“最多的一天是星期四，32 人”</b>这样一句话就足够。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 7 ══════════ -->
+  <section class="page" id="s7">
+    <div class="kick"><span class="ko">8. 이수 기준</span><span class="zh">8. 通过标准</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">무엇을 갖추면 이수인가</span><span class="zh">具备什么才算通过</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">이 과목의 평가는 <b>이수·미이수</b>입니다. 다른 학생과 비교하지 않습니다. 아래 항목을 모두 확인하는 것이 <b>기본 이수 기준</b>입니다.</span><span class="zh">本科目的评价是<b>通过·未通过</b>，不和其他同学比较。确认下面各项全部做到，就是<b>基本通过标准</b>。</span></p>
+
+    <ul class="blist checks">
+      <li><span class="ko">Notebook을 직접 열고 실행했다.</span><span class="zh">自己打开并运行了 Notebook。</span></li>
+      <li><span class="ko">Notebook 첫 부분에 <b>선택한 CSV 파일명</b>을 적었다.</span><span class="zh">在 Notebook 开头写了<b>所选 CSV 的文件名</b>。</span></li>
+      <li><span class="ko">CSV를 <b>상대경로</b>로 불러왔다.</span><span class="zh">用<b>相对路径</b>读取了 CSV。</span></li>
+      <li><span class="ko">모든 셀을 실행하고 <b>출력이 보이는 상태로</b> 저장했다.</span><span class="zh">运行了所有单元格，并在<b>输出可见的状态下</b>保存。</span></li>
+      <li><span class="ko">Notebook과 사용한 CSV를 <b>같은 제출 묶음</b>에 올렸다.</span><span class="zh">把 Notebook 和所用 CSV 放进了<b>同一个提交包</b>。</span></li>
+      <li><span class="ko">데이터의 <b>대상과 단위</b>를 설명했다.</span><span class="zh">说明了数据的<b>对象与单位</b>。</span></li>
+      <li><span class="ko">배정된 데이터에 <b>지정된 그래프 종류</b>를 사용했다.</span><span class="zh">使用了所分配数据中<b>指定的图表类型</b>。</span></li>
+      <li><span class="ko">그래프에 <b>제목과 축 정보</b>가 있다.</span><span class="zh">图表上有<b>标题与坐标轴信息</b>。</span></li>
+      <li><span class="ko">그래프의 값이 <b>원본 데이터와 맞는지</b> 확인했다.</span><span class="zh">确认了图表的数值<b>与原始数据是否吻合</b>。</span></li>
+      <li><span class="ko">확인한 조건과 <b>채택 또는 재요청 판단</b>을 기록했다.</span><span class="zh">记录了确认的条件与<b>采纳或重新请求的判断</b>。</span></li>
+      <li><span class="ko">구체적인 값을 포함한 <b>사실 한 가지</b>를 설명했다.</span><span class="zh">说明了<b>一项带具体数值的事实</b>。</span></li>
+    </ul>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">막혀도 이수할 수 있습니다</span><span class="zh">卡住了也能通过</span></div>
+      <p><span class="ko">실행 중 문제가 생기면 <b>OpenCode나 교사의 도움을 받아 완성할 수 있습니다.</b> 혼자 힘으로만 해내야 하는 시험이 아닙니다.</span><span class="zh">运行中出问题，<b>可以借助 OpenCode 或老师的帮助完成</b>。这不是一场必须完全靠自己撑下来的考试。</span></p>
+      <p><span class="ko">도움을 받았다면 그 사실을 적으면 됩니다. 1-1의 다섯 가지 밝히기 — 사용한 도구, 도움받은 부분, 내가 결정한 부분, 검증 방법, 확신하지 못하는 부분 — 이 그대로 적용됩니다.</span><span class="zh">得到了帮助，写上这件事就行。1-1 的五项说明——使用的工具、得到帮助的部分、我自己决定的部分、验证方法、还没把握的部分——原样适用。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s7_2">
+    <div class="kick"><span class="ko">8. 이수 기준</span><span class="zh">8. 通过标准</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">무엇을 갖추면 이수인가</span><span class="zh">具备什么才算通过</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+
+    <div class="note stop">
+      <div class="nt"><span class="ko">이수 기준에 포함하지 않는 것</span><span class="zh">不列入通过标准的</span></div>
+      <p><span class="ko"><b>Python 문법, 코드 작성 속도, 오류 이름, 코드 수정 횟수, 그래프의 화려함</b>은 이수 기준에 포함하지 않습니다.</span><span class="zh"><b>Python 语法、写代码的速度、报错的名称、改代码的次数、图表的华丽程度</b>都不列入通过标准。</span></p>
+      <p><span class="ko">코드가 한 번에 잘 나왔든 다시 요청했든 <b>결과 확인과 판단 기록이 갖춰졌다면 같습니다.</b> 수정 횟수 자체는 점수가 아닙니다.</span><span class="zh">代码一次就正确，还是经过重新请求，<b>只要结果核对与判断记录齐备，就同样认可。</b>修改次数本身不计分。</span></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 ══════════ ═-->
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">9. 시간 관리</span><span class="zh">9. 时间管理</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">시간이 부족할 때</span><span class="zh">时间不够时</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+
+    <p class="lead"><span class="ko">수행평가는 <b>수업 시간 안에</b> 진행하고 완료합니다. 시간이 빠듯하다고 느껴질 때 무엇을 먼저 버릴지 미리 정해 두세요.</span><span class="zh">实作评价要在<b>课堂时间内</b>进行并完成。觉得时间紧的时候，先想好该舍弃什么。</span></p>
+
+    <div class="row">
+      <div class="pane okp">
+        <div class="pt"><span class="ko">먼저 지킬 것</span><span class="zh">优先保住的</span></div>
+        <ul class="blist">
+          <li><span class="ko">그래프 <b>하나</b>를 정확하게 완성</span><span class="zh">把<b>一张</b>图做准确</span></li>
+          <li><span class="ko">원본 표와 <b>대조 확인</b></span><span class="zh">与原始表格<b>对照确认</b></span></li>
+          <li><span class="ko"><b>AI 활용 판단 기록</b>과 <b>사실 한 가지</b></span><span class="zh"><b>AI 使用判断记录</b>与<b>一项事实</b></span></li>
+          <li><span class="ko">데이터의 <b>대상과 단위</b> 설명</span><span class="zh">数据的<b>对象与单位</b>说明</span></li>
+        </ul>
+      </div>
+      <div class="pane">
+        <div class="pt"><span class="ko">늘리지 말 것</span><span class="zh">不要增加的</span></div>
+        <ul class="blist">
+          <li><span class="ko">그래프 <b>개수</b></span><span class="zh">图表<b>数量</b></span></li>
+          <li><span class="ko">색과 장식</span><span class="zh">颜色与装饰</span></li>
+          <li><span class="ko">코드 손보기</span><span class="zh">去动代码</span></li>
+          <li><span class="ko">긴 설명문</span><span class="zh">冗长的说明文字</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note ok">
+      <div class="nt"><span class="ko">막히면 시작 Notebook을 쓰세요</span><span class="zh">卡住了就用起始 Notebook</span></div>
+      <p><span class="ko">어려움이 있으면 <b>교사가 제공한 시작 Notebook과 기본 데이터</b>를 사용할 수 있습니다. 처음부터 만드는 것이 평가 대상이 아니기 때문입니다.</span><span class="zh">遇到困难时，可以使用<b>老师提供的起始 Notebook 与基础数据</b>。因为“从零开始做”并不是评价对象。</span></p>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="bridge">
+      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
+      <p><span class="ko">바로 이어서 <b>수행평가를 실시</b>합니다. 다음 차시에는 두 개의 CSV 데이터와 각각의 과제, 그리고 다섯 단계 진행 순서가 나옵니다. 오늘 읽은 기준을 옆에 두고 시작하세요.</span><span class="zh">紧接着就<b>实施实作评价</b>。下一课时会给出两份 CSV 数据和各自的任务，以及五个步骤的进行顺序。把今天读的标准放在手边再开始。</span></p>
+      <a class="next" href="../../05/textbook/05-2.html">5-2. 수행평가 1 · AI 활용 데이터 시각화 →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 ══════════ -->
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">10. 정리</span><span class="zh">10. 小结</span><b>5-1</b></div>
+    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
+
+    <div class="recap">
+      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
+      <ul>
+        <li><span class="ko">평가하는 것은 <b>AI 요청·결과 확인·판단</b>이고, 평가하지 않는 것은 <b>코드 작성과 깊이 있는 데이터 해석 능력</b>이다.</span><span class="zh">评价的是<b>AI 请求、结果核对与判断</b>，不评价的是<b>写代码与深入数据分析能力</b>。</span></li>
+        <li><span class="ko"><b>CSV</b>는 값을 쉼표로 구분해 저장한 텍스트 파일이다. 첫 줄이 열 이름, 그다음부터 한 줄이 한 행이다.</span><span class="zh"><b>CSV</b> 是用逗号分隔数值保存的文本文件。第一行是列名，从第二行起一行代表一行数据。</span></li>
+        <li><span class="ko">제공된 CSV의 <b>값과 열 이름을 바꾸지 않고</b>, Excel로 열더라도 덮어쓰지 않는다.</span><span class="zh">不改动所给 CSV 的<b>数值与列名</b>，即使用 Excel 打开也不覆盖保存。</span></li>
+        <li><span class="ko">제출물은 <b>Notebook 한 개 + 사용한 CSV 한 개</b>이며, ZIP으로 묶지 않고 같은 제출 화면에 함께 올린다.</span><span class="zh">提交物是<b>一份 Notebook 加一份所用的 CSV</b>，不打包成 ZIP，一起上传到同一个提交页面。</span></li>
+        <li><span class="ko">파일 이름은 <code>05_assessment1_학생ID_이름.ipynb</code> 형식이고, CSV는 <b>상대경로</b>로 불러온다.</span><span class="zh">文件名为 <code>05_assessment1_학생ID_이름.ipynb</code> 格式，CSV 用<b>相对路径</b>读取。</span></li>
+        <li><span class="ko">그래프는 <b>한 개만</b> 만든다. 정확한 하나가 여러 개보다 낫다.</span><span class="zh">图表<b>只做一张</b>。准确的一张胜过很多张。</span></li>
+        <li><span class="ko">교사가 지정한 <b>그래프 종류와 표시 조건</b>을 사용한다.</span><span class="zh">使用老师指定的<b>图表类型与显示条件</b>。</span></li>
+        <li><span class="ko">가상 데이터임을 <b>반드시 밝힌다.</b></span><span class="zh"><b>务必写明</b>这是虚拟数据。</span></li>
+        <li><span class="ko">OpenCode 요청문에는 <b>단위·지정 그래프·표시 조건·원본을 바꾸지 말 것</b>을 넣는다.</span><span class="zh">OpenCode 请求文中要写上<b>单位、指定图表、显示条件、不得改动原始数据</b>。</span></li>
+        <li><span class="ko">문제가 있으면 코드를 고치지 않고 <b>다시 요청</b>한다. 도움을 받아도 이수할 수 있다.</span><span class="zh">有问题不改代码，而是<b>重新提要求</b>。得到帮助也能通过。</span></li>
+      </ul>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="lessonnav">
+      <a href="../../04/textbook/04-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">4-2. pandas로 표 데이터를 쉽게 사용하기</span></a>
+      <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="../../05/textbook/05-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">5-2. 수행평가 1 · AI 활용 데이터 시각화</span></a>
+    </div>
+  </section>
+
+</main>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="../../assets/textbook.js"></script>
+</body>
+</html>

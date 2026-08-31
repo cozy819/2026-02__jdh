@@ -1,0 +1,12 @@
+[project]
+name = "jdh-week03-sample"
+version = "0.1.0"
+description = "장대현중고등학교 정보와 디지털 문해력 3회 샘플"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=6.29",
+]
+
+[tool.uv]
+package = false

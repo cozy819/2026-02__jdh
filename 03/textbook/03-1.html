@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>03-1. 비교 결과로 판단하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 03-1 — 비교 결과로 판단하기">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/textbook.css">
+</head>
+<body class="lang-ko">
+<div id="top">
+<button class="menu" onclick="tbToggleToc()">☰ 목차</button>
+<button id="modeBtn" onclick="tbToggleMode()">한 장씩 보기</button>
+<button class="lng" onclick="tbToggleLang()">中文</button>
+<div class="brand">
+<em>03-1</em> <span class="lesson">비교 결과로 판단하기</span>
+</div>
+<div class="spacer">
+</div>
+<div class="pct" id="count">1 / 1</div>
+<button class="pbtn" onclick="window.print()">인쇄</button>
+</div>
+<div id="prog">
+</div>
+<nav id="toc">
+<div class="h">
+<span class="ko">이 차시 — 03-1</span>
+<span class="zh">本课时 — 03-1</span>
+</div>
+<a href="#opener">
+<span class="n">·</span> 차시 표지</a>
+<a href="#s1">
+<span class="n">1</span> 계산과 비교</a>
+<a href="#s2">
+<span class="n">2</span> 비교연산자</a>
+<a href="#s3">
+<span class="n">3</span> True와 False</a>
+<a href="#s4">
+<span class="n">4</span> 기준과 다음 행동</a>
+<a href="#s5">
+<span class="n">5</span> AI와 기준 확인</a>
+<a href="#s6">
+<span class="n">6</span> 핵심 정리</a>
+<div class="h">
+<span class="ko">전체 차시</span>
+<span class="zh">全部课时</span>
+</div>
+<a href="../../index.html">
+<span class="n">표지</span> 전체 목차</a>
+<a href="../../01/textbook/01-1.html">
+<span class="n">01-1</span> 수업 소개</a>
+<a href="../../01/textbook/01-2.html">
+<span class="n">01-2</span> 수업 열기</a>
+<a href="../../02/textbook/02-1.html">
+<span class="n">02-1</span> 개발 도구 설치와 확인</a>
+<a href="../../02/textbook/02-2.html">
+<span class="n">02-2</span> 숫자와 변수로 계산하기</a>
+<a href="../../03/textbook/03-1.html" class="here">
+<span class="n">03-1</span> 비교 결과로 판단하기</a>
+<a href="../../03/textbook/03-2.html">
+<span class="n">03-2</span> 프로젝트별 Python 환경과 자료구조</a>
+<a href="../../04/textbook/04-1.html">
+<span class="n">04-1</span> Matplotlib으로 그래프 이해하기</a>
+<a href="../../04/textbook/04-2.html">
+<span class="n">04-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
+<a href="../../05/textbook/05-1.html">
+<span class="n">05-1</span> 수행평가 1 안내</a>
+<a href="../../05/textbook/05-2.html">
+<span class="n">05-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
+<a href="../../06/textbook/06-1.html">
+<span class="n">06-1</span> 서비스 기획의 기초</a>
+<a href="../../06/textbook/06-2.html">
+<span class="n">06-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+<a href="../../07/textbook/07-1.html">
+<span class="n">07-1</span> 관계형 데이터베이스의 기초</a>
+<a href="../../07/textbook/07-2.html">
+<span class="n">07-2</span> PRD에 데이터 목록 덧붙이기</a>
+<a href="../../08/textbook/08-1.html">
+<span class="n">08-1</span> 수행평가 2 안내</a>
+<a href="../../08/textbook/08-2.html">
+<span class="n">08-2</span> 수행평가 2 · PRD 완성·제출</a>
+<a href="../../09/textbook/09-1.html">
+<span class="n">09-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+<a href="../../09/textbook/09-2.html">
+<span class="n">09-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+<a href="../../10/textbook/10-1.html">
+<span class="n">10-1</span> API와 요청·응답 이해하기</a>
+<a href="../../10/textbook/10-2.html">
+<span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+<a href="../../11/textbook/11-1.html">
+<span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+<a href="../../11/textbook/11-2.html">
+<span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+<a href="../../12/textbook/12-1.html">
+<span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+<a href="../../12/textbook/12-2.html">
+<span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+<a href="../../13/textbook/13-1.html">
+<span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+<a href="../../13/textbook/13-2.html">
+<span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+<div class="h">
+<span class="ko">별도 자료</span>
+<span class="zh">单独资料</span>
+</div>
+<a href="../../09/textbook/09-0.html">
+<span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)">
+</div>
+<main>
+<section class="page opener" id="opener">
+<div class="onum">
+<span class="ko">3회 · 첫째 차시</span>
+<span class="zh">第 3 次课 · 第 1 课时</span>
+</div>
+<h1>
+<span class="ko">비교 결과로 판단하기</span>
+<span class="zh">用比较结果进行判断</span>
+</h1>
+<div class="osub">
+<span class="ko">계산한 값을 기준과 비교해 True 또는 False가 만들어지는 과정을 확인합니다.</span>
+<span class="zh">把计算值与标准比较，观察 True 或 False 是如何产生的。</span>
+</div>
+<div class="abar">
+</div>
+<div class="ometa">
+<span class="ko">
+<b>이전 차시</b> · 2-2. 숫자와 변수로 계산하기<br>
+<b>다음 차시</b> · 3-2. 프로젝트별 Python 환경과 자료구조</span>
+<span class="zh">
+<b>上一课时</b> · 2-2. 숫자와 변수로 계산하기<br>
+<b>下一课时</b> · 3-2. 프로젝트별 Python 환경과 자료구조</span>
+</div>
+</section>
+<section class="page" id="s1">
+<div class="kick">
+<span class="ko">1. 결과의 종류</span>
+<span class="zh">1. 结果类型</span>
+<b>03-1</b>
+</div>
+<h2 class="title">
+<span class="ko">산술연산은 값을, 비교연산은 판단을 만든다</span>
+<span class="zh">算术产生数值，比较产生判断</span>
+</h2>
+<div class="code ">
+<pre>score = 72
+
+print(score + 10)
+print(score &gt;= 60)</pre>
+</div>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">표현</span>
+<span class="zh">表达式</span>
+</th>
+<th>
+<span class="ko">결과</span>
+<span class="zh">结果</span>
+</th>
+<th>
+<span class="ko">종류</span>
+<span class="zh">类型</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>score + 10</code>
+</td>
+<td>82</td>
+<td>
+<span class="ko">숫자</span>
+<span class="zh">数字</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>score >= 60</code>
+</td>
+<td>True</td>
+<td>
+<span class="ko">조건이 맞는지</span>
+<span class="zh">条件是否成立</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<span class="ko">비교연산은 두 값을 비교해 조건이 맞는지 알려 줍니다.</span>
+<span class="zh">比较运算会比较两个值，告诉我们条件是否成立。</span>
+</p>
+</section>
+<section class="page" id="s2">
+<div class="kick">
+<span class="ko">2. 기호</span>
+<span class="zh">2. 符号</span>
+<b>03-1</b>
+</div>
+<h2 class="title">
+<span class="ko">여섯 비교연산자와 경계값</span>
+<span class="zh">六个比较运算符与边界值</span>
+</h2>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">기호</span>
+<span class="zh">符号</span>
+</th>
+<th>
+<span class="ko">뜻</span>
+<span class="zh">含义</span>
+</th>
+<th>
+<span class="ko">예</span>
+<span class="zh">例</span>
+</th>
+<th>
+<span class="ko">결과</span>
+<span class="zh">结果</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>&gt;</code>
+</td>
+<td>
+<span class="ko">크다</span>
+<span class="zh">大于</span>
+</td>
+<td>
+<code>8 &gt; 5</code>
+</td>
+<td>True</td>
+</tr>
+<tr>
+<td>
+<code>&lt;</code>
+</td>
+<td>
+<span class="ko">작다</span>
+<span class="zh">小于</span>
+</td>
+<td>
+<code>8 &lt; 5</code>
+</td>
+<td>False</td>
+</tr>
+<tr>
+<td>
+<code>&gt;=</code>
+</td>
+<td>
+<span class="ko">크거나 같다</span>
+<span class="zh">大于等于</span>
+</td>
+<td>
+<code>8 &gt;= 8</code>
+</td>
+<td>True</td>
+</tr>
+<tr>
+<td>
+<code>&lt;=</code>
+</td>
+<td>
+<span class="ko">작거나 같다</span>
+<span class="zh">小于等于</span>
+</td>
+<td>
+<code>8 &lt;= 7</code>
+</td>
+<td>False</td>
+</tr>
+<tr>
+<td>
+<code>==</code>
+</td>
+<td>
+<span class="ko">같다</span>
+<span class="zh">等于</span>
+</td>
+<td>
+<code>8 == 8</code>
+</td>
+<td>True</td>
+</tr>
+<tr>
+<td>
+<code>!=</code>
+</td>
+<td>
+<span class="ko">같지 않다</span>
+<span class="zh">不等于</span>
+</td>
+<td>
+<code>8 != 5</code>
+</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note warn">
+<p>
+<span class="ko">=는 저장, ==는 비교입니다. ‘60점 이상’에서 정확히 60점이 포함되는지 경계값으로 확인합니다.</span>
+<span class="zh">= 是存储，== 是比较。用正好 60 分的边界值确认“60 分以上”是否包含 60。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s3">
+<div class="kick">
+<span class="ko">3. 판단값</span>
+<span class="zh">3. 判断值</span>
+<b>03-1</b>
+</div>
+<h2 class="title">
+<span class="ko">True와 False는 정답·오답이 아니다</span>
+<span class="zh">True 与 False 不是答对与答错</span>
+</h2>
+<div class="code ">
+<pre>age = 16
+minimum_age = 14
+
+can_join = age &gt;= minimum_age
+print(can_join)</pre>
+</div>
+<p>
+<span class="ko">can_join에는 True가 저장됩니다. 이는 사람이 정한 조건이 지금 값에서 맞다는 뜻이지, 현실의 결정이 무조건 옳다는 뜻은 아닙니다.</span>
+<span class="zh">can_join 中会保存 True。它只表示在人设定的条件下当前值符合，并不保证现实中的决定一定正确。</span>
+</p>
+<div class="note ok">
+<p>
+<span class="ko">비교 결과를 사용하기 전에 무엇을 비교하는지, 단위가 같은지, 기준값은 누가 정했는지를 먼저 확인합니다.</span>
+<span class="zh">使用比较结果前，要确认比较对象、单位是否一致，以及标准由谁制定。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s4">
+<div class="kick">
+<span class="ko">4. 흐름</span>
+<span class="zh">4. 流程</span>
+<b>03-1</b>
+</div>
+<h2 class="title">
+<span class="ko">비교 결과는 다음 행동의 기준이 된다</span>
+<span class="zh">比较结果成为下一步行动的依据</span>
+</h2>
+<div class="code ">
+<pre>score = 72
+
+if score &gt;= 60:
+    print("기준을 충족했습니다.")</pre>
+</div>
+<p>
+<span class="ko">이번 시간에는 if 문법을 자세히 쓰지 않습니다. score >= 60이 True일 때 아래 행동이 실행된다는 흐름만 봅니다.</span>
+<span class="zh">本课不详细学习 if 语法，只观察 score >= 60 为 True 时下面的动作会执行。</span>
+</p>
+<ul class="blist">
+<li>
+<span class="ko">이상과 초과를 구분했는가?</span>
+<span class="zh">是否区分“以上”和“超过”？</span>
+</li>
+<li>
+<span class="ko">이하와 미만을 구분했는가?</span>
+<span class="zh">是否区分“以下”和“未满”？</span>
+</li>
+<li>
+<span class="ko">비교하는 두 값의 단위가 같은가?</span>
+<span class="zh">比较的两个值单位是否一致？</span>
+</li>
+</ul>
+</section>
+<section class="page" id="s5">
+<div class="kick">
+<span class="ko">5. AI 활용</span>
+<span class="zh">5. 使用 AI</span>
+<b>03-1</b>
+</div>
+<h2 class="title">
+<span class="ko">AI가 만든 비교에서도 기준을 찾는다</span>
+<span class="zh">在 AI 生成的比较中也要找出标准</span> <span class="badge lab">
+<span class="ko">실습</span>
+<span class="zh">实践</span>
+</span>
+</h2>
+<div class="code ">
+<div class="chd"><span class="fn"><span class="ko">OpenCode 요청문</span><span class="zh">OpenCode 请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+<pre>현재 온도가 27도이고 기준 온도가 25도일 때,
+현재 온도가 기준 이상인지 True 또는 False로 출력하는
+짧은 Python 파일을 만들어 줘.
+비교 결과를 변수에 저장하고 print로 보여 줘.</pre>
+</div>
+<ul class="steps">
+<li>
+<span class="ko">비교하는 두 숫자</span>
+<span class="zh">比较的两个数字</span>
+</li>
+<li>
+<span class="ko">각 숫자의 의미와 단위</span>
+<span class="zh">每个数字的含义与单位</span>
+</li>
+<li>
+<span class="ko">사용한 비교연산자</span>
+<span class="zh">使用的比较运算符</span>
+</li>
+<li>
+<span class="ko">예상되는 True 또는 False</span>
+<span class="zh">预测的 True 或 False</span>
+</li>
+</ul>
+<div class="note">
+<p><span class="ko"><code>sample → code</code>에서 <code>03-1_temperature_25.py</code>와 <code>03-1_temperature_30.py</code>를 차례로 엽니다. 코드를 고치지 말고 달라진 기준값을 찾은 뒤, 실행 결과를 먼저 예상합니다.</span><span class="zh">依次打开 <code>03-1_temperature_25.py</code> 与 <code>03-1_temperature_30.py</code>。无需修改代码，先找出不同的标准值并预测结果。</span></p>
+</div>
+</section>
+<section class="page" id="s6">
+<div class="kick">
+<span class="ko">6. 정리</span>
+<span class="zh">6. 小结</span>
+<b>03-1</b>
+</div>
+<h2 class="title">
+<span class="ko">코드가 정확해도 기준이 틀릴 수 있다</span>
+<span class="zh">代码正确，标准仍可能错误</span>
+</h2>
+<div class="recap">
+<div class="rt">
+<span class="ko">이번 차시에서 남길 것</span>
+<span class="zh">本课时要记住的</span>
+</div>
+<ul class="blist">
+<li>
+<span class="ko">비교연산은 True 또는 False를 만든다.</span>
+<span class="zh">比较运算产生 True 或 False。</span>
+</li>
+<li>
+<span class="ko">=는 저장, ==는 비교다.</span>
+<span class="zh">= 是存储，== 是比较。</span>
+</li>
+<li>
+<span class="ko">기준·단위·연산자가 틀리면 판단도 틀린다.</span>
+<span class="zh">标准、单位或运算符错误，判断也会错误。</span>
+</li>
+<li>
+<span class="ko">AI가 만든 비교도 사람이 기준을 확인한다.</span>
+<span class="zh">AI 生成的比较也要由人确认标准。</span>
+</li>
+</ul>
+</div>
+<div class="lessonnav">
+<a href="../../02/textbook/02-2.html">
+<span class="d">
+<span class="ko">← 이전</span>
+<span class="zh">← 上一课时</span>
+</span>
+<span class="t">2-2. 숫자와 변수로 계산하기</span>
+</a>
+<a href="../../index.html">
+<span class="d">
+<span class="ko">목차</span>
+<span class="zh">目录</span>
+</span>
+<span class="t">
+<span class="ko">전체 목차로</span>
+<span class="zh">回到总目录</span>
+</span>
+</a>
+<a href="../../03/textbook/03-2.html">
+<span class="d">
+<span class="ko">다음 →</span>
+<span class="zh">下一课时 →</span>
+</span>
+<span class="t">3-2. 프로젝트별 Python 환경과 자료구조</span>
+</a>
+</div>
+</section>
+</main>
+<div id="pager">
+<button id="pprev">‹</button>
+<button id="pnext">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../../assets/textbook.js">
+</script>
+</body>
+</html>

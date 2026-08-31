@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>03-2. 프로젝트별 Python 환경과 자료구조 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 03-2 — 프로젝트별 Python 환경과 자료구조">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/textbook.css">
+</head>
+<body class="lang-ko">
+<div id="top">
+<button class="menu" onclick="tbToggleToc()">☰ 목차</button>
+<button id="modeBtn" onclick="tbToggleMode()">한 장씩 보기</button>
+<button class="lng" onclick="tbToggleLang()">中文</button>
+<div class="brand">
+<em>03-2</em> <span class="lesson">프로젝트별 Python 환경과 자료구조</span>
+</div>
+<div class="spacer">
+</div>
+<div class="pct" id="count">1 / 1</div>
+<button class="pbtn" onclick="window.print()">인쇄</button>
+</div>
+<div id="prog">
+</div>
+<nav id="toc">
+<div class="h">
+<span class="ko">이 차시 — 03-2</span>
+<span class="zh">本课时 — 03-2</span>
+</div>
+<a href="#opener">
+<span class="n">·</span> 차시 표지</a>
+<a href="#s1">
+<span class="n">1</span> 가상환경의 필요</a>
+<a href="#s2">
+<span class="n">2</span> 프로젝트별 도구함</a>
+<a href="#s3">
+<span class="n">3</span> Jupyter와 uv</a>
+<a href="#s4">
+<span class="n">4</span> uv sync와 환경 선택</a>
+<a href="#s5">
+<span class="n">5</span> list와 dict</a>
+<a href="#s6">
+<span class="n">6</span> 완료 확인</a>
+<div class="h">
+<span class="ko">전체 차시</span>
+<span class="zh">全部课时</span>
+</div>
+<a href="../../index.html">
+<span class="n">표지</span> 전체 목차</a>
+<a href="../../01/textbook/01-1.html">
+<span class="n">01-1</span> 수업 소개</a>
+<a href="../../01/textbook/01-2.html">
+<span class="n">01-2</span> 수업 열기</a>
+<a href="../../02/textbook/02-1.html">
+<span class="n">02-1</span> 개발 도구 설치와 확인</a>
+<a href="../../02/textbook/02-2.html">
+<span class="n">02-2</span> 숫자와 변수로 계산하기</a>
+<a href="../../03/textbook/03-1.html">
+<span class="n">03-1</span> 비교 결과로 판단하기</a>
+<a href="../../03/textbook/03-2.html" class="here">
+<span class="n">03-2</span> 프로젝트별 Python 환경과 자료구조</a>
+<a href="../../04/textbook/04-1.html">
+<span class="n">04-1</span> Matplotlib으로 그래프 이해하기</a>
+<a href="../../04/textbook/04-2.html">
+<span class="n">04-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
+<a href="../../05/textbook/05-1.html">
+<span class="n">05-1</span> 수행평가 1 안내</a>
+<a href="../../05/textbook/05-2.html">
+<span class="n">05-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
+<a href="../../06/textbook/06-1.html">
+<span class="n">06-1</span> 서비스 기획의 기초</a>
+<a href="../../06/textbook/06-2.html">
+<span class="n">06-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+<a href="../../07/textbook/07-1.html">
+<span class="n">07-1</span> 관계형 데이터베이스의 기초</a>
+<a href="../../07/textbook/07-2.html">
+<span class="n">07-2</span> PRD에 데이터 목록 덧붙이기</a>
+<a href="../../08/textbook/08-1.html">
+<span class="n">08-1</span> 수행평가 2 안내</a>
+<a href="../../08/textbook/08-2.html">
+<span class="n">08-2</span> 수행평가 2 · PRD 완성·제출</a>
+<a href="../../09/textbook/09-1.html">
+<span class="n">09-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+<a href="../../09/textbook/09-2.html">
+<span class="n">09-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+<a href="../../10/textbook/10-1.html">
+<span class="n">10-1</span> API와 요청·응답 이해하기</a>
+<a href="../../10/textbook/10-2.html">
+<span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+<a href="../../11/textbook/11-1.html">
+<span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+<a href="../../11/textbook/11-2.html">
+<span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+<a href="../../12/textbook/12-1.html">
+<span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+<a href="../../12/textbook/12-2.html">
+<span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+<a href="../../13/textbook/13-1.html">
+<span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+<a href="../../13/textbook/13-2.html">
+<span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+<div class="h">
+<span class="ko">별도 자료</span>
+<span class="zh">单独资料</span>
+</div>
+<a href="../../09/textbook/09-0.html">
+<span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)">
+</div>
+<main>
+<section class="page opener" id="opener">
+<div class="onum">
+<span class="ko">3회 · 둘째 차시</span>
+<span class="zh">第 3 次课 · 第 2 课时</span>
+</div>
+<h1>
+<span class="ko">프로젝트별 Python 환경과 자료구조</span>
+<span class="zh">按项目区分 Python 环境与数据结构</span>
+</h1>
+<div class="osub">
+<span class="ko">라이브러리를 쓰기 전에 프로젝트별 도구함을 준비하고, 여러 값을 list와 dict로 묶습니다.</span>
+<span class="zh">使用库之前，先准备每个项目自己的工具箱，并用 list 与 dict 组织多个值。</span>
+</div>
+<div class="abar">
+</div>
+<div class="ometa">
+<span class="ko">
+<b>이전 차시</b> · 3-1. 비교 결과로 판단하기<br>
+<b>다음 차시</b> · 4-1. Matplotlib으로 그래프 이해하기</span>
+<span class="zh">
+<b>上一课时</b> · 3-1. 비교 결과로 판단하기<br>
+<b>下一课时</b> · 4-1. Matplotlib으로 그래프 이해하기</span>
+</div>
+</section>
+<section class="page" id="s1">
+<div class="kick">
+<span class="ko">1. 문제</span>
+<span class="zh">1. 问题</span>
+<b>03-2</b>
+</div>
+<h2 class="title">
+<span class="ko">모든 프로젝트가 같은 도구를 원하는 것은 아니다</span>
+<span class="zh">不同项目需要的工具并不相同</span>
+</h2>
+<div class="bigq">
+<div class="qt">
+<span class="ko">핵심 질문</span>
+<span class="zh">核心问题</span>
+</div>
+<p>
+<span class="ko">프로젝트마다 필요한 도구가 달라질 때 어떻게 섞이지 않게 준비할까?</span>
+<span class="zh">每个项目需要不同工具时，怎样避免混在一起？</span>
+</p>
+</div>
+<ul class="blist">
+<li>
+<span class="ko">프로젝트 A는 어떤 라이브러리의 이전 버전이 필요할 수 있다.</span>
+<span class="zh">项目 A 可能需要某个库的旧版本。</span>
+</li>
+<li>
+<span class="ko">프로젝트 B는 같은 라이브러리의 새 버전이 필요할 수 있다.</span>
+<span class="zh">项目 B 可能需要同一库的新版本。</span>
+</li>
+<li>
+<span class="ko">한쪽을 바꾸면 잘 되던 다른 프로젝트가 멈출 수 있다.</span>
+<span class="zh">改动一边，原本正常的另一项目可能停止。</span>
+</li>
+</ul>
+<div class="note ok">
+<p>
+<span class="ko">가상환경은 별도의 컴퓨터나 보안 공간이 아니라, 프로젝트마다 사용할 Python과 라이브러리의 자리를 나누는 폴더입니다.</span>
+<span class="zh">虚拟环境不是另一台电脑或安全空间，而是按项目区分 Python 与库位置的文件夹。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s2">
+<div class="kick">
+<span class="ko">2. 비유</span>
+<span class="zh">2. 类比</span>
+<b>03-2</b>
+</div>
+<h2 class="title">
+<span class="ko">가상환경은 프로젝트 옆의 전용 도구함이다</span>
+<span class="zh">虚拟环境像项目旁边的专用工具箱</span>
+</h2>
+<div class="figstage">
+<figure class="fig ">
+<img class="figimg" src="../../assets/img/03-2-03-project-toolboxes.png" alt="서로 다른 두 프로젝트가 각각 별도의 도구함과 목록을 사용하는 그림" data-id="03-2-03-project-toolboxes" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+<figcaption>
+<span class="ko">프로젝트마다 필요한 도구함을 따로 둔다.</span>
+<span class="zh">每个项目都有自己的工具箱。</span>
+</figcaption>
+</figure>
+<span class="figlabel" style="left:27%;top:29%">Project A · .venv</span>
+<span class="figlabel" style="left:73%;top:29%">Project B · .venv</span>
+</div>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">실제 항목</span>
+<span class="zh">实际项目</span>
+</th>
+<th>
+<span class="ko">도구함 비유</span>
+<span class="zh">工具箱类比</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>.venv</code>
+</td>
+<td>
+<span class="ko">그 프로젝트만의 도구함</span>
+<span class="zh">该项目自己的工具箱</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>pyproject.toml</code>
+</td>
+<td>
+<span class="ko">필요한 도구 목록</span>
+<span class="zh">所需工具清单</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>uv.lock</code>
+</td>
+<td>
+<span class="ko">정확한 버전 기록</span>
+<span class="zh">精确版本记录</span>
+</td>
+</tr>
+<tr>
+<td>
+<code>uv sync</code>
+</td>
+<td>
+<span class="ko">목록대로 도구함 준비</span>
+<span class="zh">按清单准备工具箱</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="page" id="s3">
+<div class="kick">
+<span class="ko">3. 준비</span>
+<span class="zh">3. 准备</span>
+<b>03-2</b>
+</div>
+<h2 class="title">
+<span class="ko">Jupyter 확장과 uv를 설치한다</span>
+<span class="zh">安装 Jupyter 扩展与 uv</span> <span class="badge lab">
+<span class="ko">실습</span>
+<span class="zh">实践</span>
+</span>
+</h2>
+<p>
+<span class="ko">VS Code 확장에서 Microsoft가 게시한 Jupyter를 설치합니다. Python 확장은 .py 실행, Jupyter 확장은 .ipynb Notebook의 셀 실행을 돕습니다.</span>
+<span class="zh">在 VS Code 中安装 Microsoft 发布的 Jupyter 扩展。Python 扩展帮助运行 .py，Jupyter 扩展帮助逐单元运行 .ipynb。</span>
+</p>
+<div class="code term"><div class="chd"><span class="fn">Terminal</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+<pre>uv --version</pre>
+</div>
+<p>
+<span class="ko">uv가 없다면 uv 공식 설치 안내에서 교사가 확인한 Windows 방식을 사용합니다. 학교 PC에서 WinGet이 가능하면 아래 명령을 쓸 수 있습니다.</span>
+<span class="zh">若没有 uv，按教师当天确认的官方 Windows 方法安装。学校电脑可用 WinGet 时可使用下列命令。</span>
+</p>
+<div class="code term"><div class="chd"><span class="fn">Terminal</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+<pre>winget install --id=astral-sh.uv -e
+uv --version</pre>
+</div>
+<div class="note warn">
+<p>
+<span class="ko">설치 뒤 VS Code를 완전히 닫고 다시 열어야 새 명령을 찾을 수 있습니다.</span>
+<span class="zh">安装后要完全关闭并重新打开 VS Code，才能找到新命令。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s4">
+<div class="kick">
+<span class="ko">4. 연결</span>
+<span class="zh">4. 连接</span>
+<b>03-2</b>
+</div>
+<h2 class="title">
+<span class="ko">기록을 읽어 .venv를 준비하고 같은 환경을 고른다</span>
+<span class="zh">读取记录准备 .venv，并选择同一环境</span> <span class="badge lab">
+<span class="ko">실습</span>
+<span class="zh">实践</span>
+</span>
+</h2>
+<div class="code term"><div class="chd"><span class="fn">Terminal</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+<pre>uv sync</pre>
+</div>
+<ul class="steps">
+<li>
+<span class="ko">프로젝트 폴더 전체를 VS Code로 연다.</span>
+<span class="zh">用 VS Code 打开整个项目文件夹。</span>
+</li>
+<li>
+<span class="ko">uv sync를 실행해 .venv와 라이브러리를 준비한다.</span>
+<span class="zh">运行 uv sync，准备 .venv 与库。</span>
+</li>
+<li>
+<span class="ko">Python: Select Interpreter에서 .venv가 들어간 Python을 고른다.</span>
+<span class="zh">在 Python: Select Interpreter 中选择含 .venv 的 Python。</span>
+</li>
+<li>
+<span class="ko">Notebook의 커널도 같은 .venv로 고른다.</span>
+<span class="zh">Notebook 内核也选择同一个 .venv。</span>
+</li>
+</ul>
+<div class="code "><div class="chd"><span class="fn">Notebook</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+<pre>import sys
+print(sys.executable)</pre>
+</div>
+<div class="note ok">
+<p>
+<span class="ko">학생이 기억할 행동은 ‘프로젝트 열기 → uv sync → .venv 선택’ 세 단계입니다.</span>
+<span class="zh">学生只需记住“打开项目 → uv sync → 选择 .venv”三步。</span>
+</p>
+</div>
+<p><span class="ko">그다음 <code>sample/notebooks/03-2_environment_and_structures.ipynb</code>를 열고 셀 왼쪽의 <b>▶</b>를 위에서 아래로 누릅니다. 현재 Python 경로에 이 프로젝트의 <code>.venv</code>가 보이는지 먼저 확인합니다.</span><span class="zh">然后打开 <code>03-2_environment_and_structures.ipynb</code>，从上到下运行单元。先确认 Python 路径中出现当前项目的 <code>.venv</code>。</span></p>
+</section>
+<section class="page" id="s5">
+<div class="kick">
+<span class="ko">5. 여러 값</span>
+<span class="zh">5. 多个值</span>
+<b>03-2</b>
+</div>
+<h2 class="title">
+<span class="ko">list는 순서로, dict는 이름으로 값을 묶는다</span>
+<span class="zh">list 按顺序，dict 按名称组织值</span>
+</h2>
+<div class="code ">
+<pre>scores = [72, 85, 90, 68]
+print(scores[0])
+
+student = {
+    "name": "민준",
+    "score": 85,
+    "passed": True,
+}
+print(student["name"])</pre>
+</div>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">자료구조</span>
+<span class="zh">数据结构</span>
+</th>
+<th>
+<span class="ko">값을 찾는 기준</span>
+<span class="zh">查找依据</span>
+</th>
+<th>
+<span class="ko">알맞은 예</span>
+<span class="zh">适合的例子</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>
+<span class="ko">순서와 위치(0부터)</span>
+<span class="zh">顺序与位置（从 0 开始）</span>
+</td>
+<td>
+<span class="ko">여러 날의 점수·메뉴 목록</span>
+<span class="zh">多天分数、菜单列表</span>
+</td>
+</tr>
+<tr>
+<td>dict</td>
+<td>
+<span class="ko">이름과 의미</span>
+<span class="zh">名称与含义</span>
+</td>
+<td>
+<span class="ko">한 학생의 이름·점수·통과 여부</span>
+<span class="zh">一名学生的姓名、分数、是否通过</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p>
+<span class="ko">추가·삭제·복잡한 반복은 아직 하지 않습니다. 모양과 역할만 구분합니다.</span>
+<span class="zh">暂不学习添加、删除或复杂循环，只区分外形与作用。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s6">
+<div class="kick">
+<span class="ko">6. 정리</span>
+<span class="zh">6. 小结</span>
+<b>03-2</b>
+</div>
+<h2 class="title">
+<span class="ko">환경을 먼저 확인한 뒤 자료를 실행한다</span>
+<span class="zh">先确认环境，再运行数据</span>
+</h2>
+<ul class="checks">
+<li>
+<span class="ko">가상환경은 별도의 가상 컴퓨터가 아니다.</span>
+<span class="zh">虚拟环境不是另一台虚拟电脑。</span>
+</li>
+<li>
+<span class="ko">uv sync로 프로젝트의 .venv를 준비했다.</span>
+<span class="zh">用 uv sync 准备了项目的 .venv。</span>
+</li>
+<li>
+<span class="ko">인터프리터와 Notebook 커널에서 같은 .venv를 골랐다.</span>
+<span class="zh">解释器与 Notebook 内核选择了同一 .venv。</span>
+</li>
+<li>
+<span class="ko">list와 dict의 차이를 구분한다.</span>
+<span class="zh">能够区分 list 与 dict。</span>
+</li>
+</ul>
+<div class="recap">
+<div class="rt">
+<span class="ko">다음 차시로</span>
+<span class="zh">进入下一课时</span>
+</div>
+<p>
+<span class="ko">같은 환경에서 Matplotlib과 pandas를 사용해 여러 값을 그래프와 표로 바꿉니다.</span>
+<span class="zh">下一课将在同一环境中使用 Matplotlib 与 pandas，把多个值变成图表与表格。</span>
+</p>
+</div>
+<div class="lessonnav">
+<a href="../../03/textbook/03-1.html">
+<span class="d">
+<span class="ko">← 이전</span>
+<span class="zh">← 上一课时</span>
+</span>
+<span class="t">3-1. 비교 결과로 판단하기</span>
+</a>
+<a href="../../index.html">
+<span class="d">
+<span class="ko">목차</span>
+<span class="zh">目录</span>
+</span>
+<span class="t">
+<span class="ko">전체 목차로</span>
+<span class="zh">回到总目录</span>
+</span>
+</a>
+<a href="../../04/textbook/04-1.html">
+<span class="d">
+<span class="ko">다음 →</span>
+<span class="zh">下一课时 →</span>
+</span>
+<span class="t">4-1. Matplotlib으로 그래프 이해하기</span>
+</a>
+</div>
+</section>
+</main>
+<div id="pager">
+<button id="pprev">‹</button>
+<button id="pnext">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../../assets/textbook.js">
+</script>
+</body>
+</html>

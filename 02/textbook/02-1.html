@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>02-1. 개발 도구 설치와 확인 · 정보와 디지털 문해력</title>
+  <meta name="description" content="정보와 디지털 문해력 02-1 — 개발 도구 설치와 확인">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/textbook.css">
+</head>
+<body class="lang-ko">
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()">☰ 목차</button>
+  <button id="modeBtn" onclick="tbToggleMode()">한 장씩 보기</button>
+  <button class="lng" onclick="tbToggleLang()">中文</button>
+  <div class="brand"><em>02-1</em> <span class="lesson">개발 도구 설치와 확인</span></div>
+  <div class="spacer"></div><div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()">인쇄</button>
+</div>
+<div id="prog"></div>
+<nav id="toc">
+  <div class="h"><span class="ko">이 차시 — 02-1</span><span class="zh">本课时 — 02-1</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#s1"><span class="n">1</span> 먼저 만나는 결과</a>
+  <a href="#s2"><span class="n">2</span> 세 가지 핵심 도구</a>
+  <a href="#s3"><span class="n">1-1</span> Python 설치</a>
+  <a href="#s4"><span class="n">1-2</span> Python 설치 확인</a>
+  <a href="#s5"><span class="n">2-1</span> 설치 상태 먼저 확인</a>
+  <a href="#s5b"><span class="n">2-2</span> Node.js가 없을 때</a>
+  <a href="#s6"><span class="n">2-3</span> OpenCode 설치</a>
+  <a href="#s7"><span class="n">3-1</span> VS Code 설치</a>
+  <a href="#s7b"><span class="n">3-2</span> VS Code 화면</a>
+  <a href="#s7c"><span class="n">3-3</span> Python 확장 설치</a>
+  <a href="#s8"><span class="n">4-1</span> OpenCode 실행·연결</a>
+  <a href="#s8b"><span class="n">4-2</span> API 키·모델 선택</a>
+  <a href="#s9"><span class="n">5</span> 첫 대화</a>
+  <a href="#s10"><span class="n">6</span> 준비 완료</a>
+  <div class="h"><span class="ko">가까운 차시</span><span class="zh">相邻课时</span></div>
+  <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
+  <a href="../../01/textbook/01-2.html"><span class="n">01-2</span> 수업 열기</a>
+  <a href="../../02/textbook/02-1.html" class="here"><span class="n">02-1</span> 개발 도구 설치와 확인</a>
+  <a href="../../02/textbook/02-2.html"><span class="n">02-2</span> 숫자와 변수로 정보 표현하기</a>
+  <a href="../../03/textbook/03-1.html"><span class="n">03-1</span> 비교 결과로 판단하기</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)"></div>
+<main>
+  <section class="page opener" id="opener">
+    <div class="onum"><span class="ko">2회 · 첫째 차시</span><span class="zh">第 2 次课 · 第 1 课时</span></div>
+    <h1><span class="ko">개발 도구 설치와 확인</span><span class="zh">安装并确认开发工具</span></h1>
+    <div class="osub"><span class="ko">설치 순서를 외우는 시간이 아닙니다. 각 도구가 왜 필요한지 알고, 직접 실행할 수 있는 상태를 만듭니다.</span><span class="zh">这不是背安装顺序的时间。理解每个工具的用途，并让它们能够实际运行。</span></div>
+    <div class="abar"></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 1-2. 수업 열기<br><b>다음 차시</b> · 2-2. 숫자와 변수로 정보 표현하기</span><span class="zh"><b>上一课时</b> · 1-2. 수업 열기<br><b>下一课时</b> · 2-2. 用数字与变量表达信息</span></div>
+  </section>
+
+  <section class="page print-tight print-result-page" id="s1">
+    <div class="kick"><span class="ko">1. 먼저 보는 결과</span><span class="zh">1. 先看结果</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">100,000행의 기록을 한 화면으로 바꾼다</span><span class="zh">把 100,000 行记录整理成一个画面</span></h2>
+    <p class="lead"><span class="ko">100,000행을 사람의 눈으로 하나씩 읽기는 어렵습니다. 아래 세 화면은 같은 가상 CSV를 다룬 과정입니다. 먼저 <b>100,000행·9열·빈 값 0개</b>를 확인하고, 코드를 실행해 Notebook 안에서 그래프를 봅니다. 같은 결과에 제목·색상·배치를 더하면 발표나 공유에 사용할 한 장의 이미지로도 다듬을 수 있습니다.</span><span class="zh">人很难逐行阅读 100,000 行数据。下面三个画面展示了处理同一个虚拟 CSV 的过程。先确认<b>100,000 行、9 列、空值 0 个</b>，再运行代码，在 Notebook 中查看图表。之后还可以加入标题、颜色与版面，把同一结果整理成适合展示或分享的一张图片。</span></p>
+    <div class="result-showcase result-three-step">
+      <figure class="fig vscode-proof">
+        <img class="figimg" src="../../assets/img/02-1-01-vscode-execution.png" alt="VS Code에서 100,000행 CSV를 실제로 읽고 행·열 개수와 빈 값을 확인한 화면" data-id="02-1-01-vscode-execution" data-spec="실제 VS Code 캡처 · 가로 16:9 · 100000행·9열·빈 값 0개가 읽혀야 함">
+        <figcaption><span class="ko">① 데이터 확인 — VS Code에서 원본 CSV의 크기와 빈 값을 확인한다</span><span class="zh">① 确认数据 — 在 VS Code 中确认原始 CSV 的大小与空值</span></figcaption>
+      </figure>
+      <figure class="fig result-preview">
+        <img class="figimg" src="../../assets/img/02-1-01-vscode-inline-chart.jpg" alt="VS Code Notebook에서 코드 셀 바로 아래에 막대그래프와 선그래프가 나타난 실제 실행 화면">
+        <figcaption><span class="ko">② 그래프 확인 — 실행한 셀 바로 아래에 그래프가 나타난다</span><span class="zh">② 确认图表 — 图表直接显示在运行的单元格下方</span></figcaption>
+      </figure>
+      <figure class="fig result-preview polished-result">
+        <img class="figimg" src="../../assets/img/02-1-01-festival-dashboard.png" alt="같은 축제 데이터를 제목, 핵심 수치와 세 종류의 그래프로 정리한 발표용 대시보드 이미지">
+        <figcaption><span class="ko">③ 다듬어 저장 — 제목·색상·핵심 수치와 그래프를 한 화면에 배치해 공유용 이미지로 만든다</span><span class="zh">③ 整理并保存 — 把标题、颜色、核心数字与图表排在一个画面中，制作成分享用图片</span></figcaption>
+      </figure>
+    </div>
+    <div class="grow"></div>
+    <div class="note warn compact-note">
+      <div class="nt"><span class="ko">세 번째 화면까지 모두 만들어야 하는 것은 아닙니다</span><span class="zh">不需要制作到第三个画面的程度</span></div>
+      <p><span class="ko">지금은 코딩으로 많은 자료를 처리하고, 결과를 보기 좋게 다듬을 수도 있다는 예시를 봅니다. 수행평가 1에서는 더 단순한 CSV를 AI와 함께 다루며, 교사가 지정한 그래프 한 개를 완성합니다.</span><span class="zh">现在先看一个用代码处理大量资料，并把结果整理得更易读的例子。第一次评价会使用更简单的 CSV，与 AI 一起完成教师指定的一张图表。</span></p>
+    </div>
+  </section>
+
+  <section class="page" id="s2">
+    <div class="kick"><span class="ko">2. 준비물</span><span class="zh">2. 准备工具</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">이번 차시는 세 가지 도구를 순서대로 준비한다</span><span class="zh">本课时按顺序准备三种工具</span></h2>
+    <p class="lead"><span class="ko">코딩은 특별한 한 프로그램 안에서만 하는 일이 아닙니다. 먼저 컴퓨터에 할 일을 설명할 <b>언어</b>를 준비하고, 코드 작성을 도울 <b>AI 도구</b>를 설치합니다. 마지막에는 파일과 코드를 편하게 볼 <b>글쓰기 도구</b>를 준비합니다.</span><span class="zh">编程并不只发生在某一个特殊程序里。先准备向电脑说明任务的<b>语言</b>，再安装帮助编写代码的 <b>AI 工具</b>。最后准备便于查看文件与代码的<b>书写工具</b>。</span></p>
+    <div class="tool-cards">
+      <div class="pane accent"><div class="pt">Python · <span class="ko">프로그래밍 언어</span><span class="zh">编程语言</span></div><p><span class="ko">1주차에 배운 것처럼, 컴퓨터에 어떤 일을 시킬지 코드로 설명하는 언어입니다. 이번 차시는 Python으로 적은 코드가 실행될 수 있도록 준비합니다.</span><span class="zh">正如第一周所学，它是用代码向电脑说明要做什么的语言。本课时要让用 Python 写的代码能够运行。</span></p></div>
+      <div class="pane"><div class="pt">OpenCode · <span class="ko">AI 도구</span><span class="zh">AI 工具</span></div><p><span class="ko">하고 싶은 일을 자연어로 설명하면 코드 초안을 만들고, 이미 작성된 코드도 설명하거나 수정해 줍니다. 결과가 맞는지 판단하는 일은 사람이 합니다.</span><span class="zh">用自然语言说明想做的事，它会起草代码，也能解释或修改已有代码。判断结果是否正确仍由人负责。</span></p></div>
+      <div class="pane"><div class="pt">VS Code · <span class="ko">편리한 글쓰기 도구</span><span class="zh">便利的书写工具</span></div><p><span class="ko">코드는 글이므로 메모장에도 쓸 수 있고, VS Code만이 유일한 방법도 아닙니다. 다만 여러 파일과 코드, 실행 결과를 한 화면에서 보기 편해 이 수업의 작업 공간으로 사용합니다.</span><span class="zh">代码也是文字，记事本也能写，VS Code 也不是唯一的方法。但它便于在一个画面中查看多个文件、代码与运行结果，因此本课程把它作为工作空间。</span></p></div>
+    </div>
+    <div class="grow"></div>
+    <div class="note"><div class="nt"><span class="ko">준비 순서와 실제 작업 모습</span><span class="zh">准备顺序与实际工作方式</span></div><p><span class="ko">이번 차시는 <b>Python → OpenCode → VS Code</b> 순서로 준비합니다. 준비가 끝난 뒤에는 VS Code에서 파일을 보면서 OpenCode와 대화하고, Python으로 작성된 코드를 실행해 결과를 확인합니다.</span><span class="zh">本课时按 <b>Python → OpenCode → VS Code</b> 的顺序准备。准备完成后，会在 VS Code 中查看文件、与 OpenCode 对话，并执行 Python 代码来确认结果。</span></p></div>
+  </section>
+
+  <section class="page print-tight print-install" id="s3">
+    <div class="kick"><span class="ko">1. Python · 설치</span><span class="zh">1. Python · 安装</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">코드를 실행할 Python을 설치한다</span><span class="zh">安装用于执行代码的 Python</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p><span class="ko">Python은 우리가 작성하거나 AI가 만든 Python 코드를 컴퓨터가 실행할 수 있게 합니다. 공식 Windows 다운로드 페이지에서 <b>Python 3.13의 Windows installer (64-bit)</b>를 선택합니다.</span><span class="zh">Python 让电脑能够执行我们或 AI 编写的 Python 代码。在 Windows 官方下载页选择 <b>Python 3.13 的 Windows installer (64-bit)</b>。</span></p>
+    <figure class="fig site-shot compact">
+      <a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener noreferrer"><img class="figimg" src="../../assets/img/02-1-02-python-windows.png" alt="Python 공식 Windows 다운로드 페이지에서 Python 3.13의 64비트 설치 프로그램을 찾는 화면"></a>
+      <figcaption><a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener noreferrer"><span class="ko">공식 주소: python.org/downloads/windows ↗</span><span class="zh">官方网站：python.org/downloads/windows ↗</span></a></figcaption>
+    </figure>
+    <div class="steps"><div class="st-h"><span class="ko">화면을 따라 설치하기</span><span class="zh">按画面完成安装</span></div><ol>
+      <li><span class="ko">위의 공식 주소를 눌러 Python Windows 다운로드 페이지를 연다.</span><span class="zh">点击上方官方网站，打开 Python Windows 下载页。</span></li>
+      <li><span class="ko">Python 3.13의 <b>Windows installer (64-bit)</b>를 내려받는다.</span><span class="zh">下载 Python 3.13 的 <b>Windows installer (64-bit)</b>。</span></li>
+      <li><span class="ko">내려받은 설치 파일을 실행한다. 첫 화면에 <b>Add python.exe to PATH</b>가 보이면 반드시 체크한다.</span><span class="zh">运行下载的安装文件。如果首屏出现 <b>Add python.exe to PATH</b>，请务必勾选。</span></li>
+      <li><span class="ko"><b>Install Now</b> 또는 <b>Install</b>을 누르고 설치가 끝날 때까지 기다린다.</span><span class="zh">点击 <b>Install Now</b> 或 <b>Install</b>，等待安装完成。</span></li>
+      <li><span class="ko"><b>Setup was successful</b>이 보이면 설치 창을 닫는다.</span><span class="zh">出现 <b>Setup was successful</b> 后关闭安装窗口。</span></li>
+    </ol></div>
+    <div class="grow"></div>
+    <div class="note aside compact-note"><div class="nt"><span class="ko">참고 · PATH란?</span><span class="zh">参考 · 什么是 PATH？</span></div><p><span class="ko"><b>이번 설치에서 Add python.exe to PATH 항목이 보이면 반드시 체크합니다.</b> PATH는 Windows가 프로그램의 위치를 찾을 때 확인하는 주소 목록입니다. 이 항목을 체크해야 다음 쪽에서 프로그램 이름만 입력해도 Python을 찾을 수 있습니다.</span><span class="zh"><b>本次安装中如果看到 Add python.exe to PATH，请务必勾选。</b>PATH 是 Windows 查找程序位置时使用的地址列表。勾选后，下一页只输入程序名也能找到 Python。</span></p></div>
+  </section>
+
+  <section class="page print-tight print-cli-page" id="s4">
+    <div class="kick"><span class="ko">1. Python · 설치 확인</span><span class="zh">1. Python · 确认安装</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">설치가 끝났는지 직접 확인한다</span><span class="zh">亲自确认是否安装完成</span></h2>
+    <p class="lead"><span class="ko">설치 창이 닫혔다고 준비가 끝난 것은 아닙니다. 먼저 검은 화면을 열고 Python의 버전을 물어봅니다. 화면의 이름은 실습한 뒤에 알아봅니다.</span><span class="zh">安装窗口关闭并不代表准备完成。先打开黑色窗口，询问 Python 的版本。完成实践后再了解这个画面的名称。</span></p>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">PowerShell 열기</span><span class="zh">打开 PowerShell</span></div><ol>
+      <li><span class="ko">키보드의 <b>Windows 키</b>를 누르거나 화면 아래의 <b>시작 버튼</b>을 누른다.</span><span class="zh">按键盘上的 <b>Windows 键</b>，或点击屏幕下方的<b>开始按钮</b>。</span></li>
+      <li><span class="ko">검색창에 <b>PowerShell</b>을 입력한다.</span><span class="zh">在搜索框中输入 <b>PowerShell</b>。</span></li>
+      <li><span class="ko"><b>Windows PowerShell</b>을 누르면 글자를 입력할 수 있는 검은 화면이 열린다.</span><span class="zh">点击 <b>Windows PowerShell</b>，会打开可以输入文字的黑色窗口。</span></li>
+    </ol></div>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>python --version</pre></div>
+    <div class="code out"><div class="chd"><span class="fn"><span class="ko">응답 예시</span><span class="zh">回应示例</span></span></div><pre>Python 3.13.x</pre></div>
+    <div class="note ok compact-note"><div class="nt"><span class="ko">버전이 보이면 설치 확인 완료</span><span class="zh">看到版本号，安装确认完成</span></div><p><span class="ko">숫자가 완전히 같을 필요는 없습니다. <code>Python 3.13</code>으로 시작하면 다음 단계로 갑니다. 명령을 찾을 수 없다고 나오면 철자를 확인하고, Python 설치 과정의 <b>Add python.exe to PATH</b> 선택을 다시 확인합니다.</span><span class="zh">数字不必完全相同。以 <code>Python 3.13</code> 开头即可进入下一步。如果提示找不到命令，请检查拼写和安装时的 <b>Add python.exe to PATH</b> 选项。</span></p></div>
+    <figure class="fig cli-gui print-short">
+      <img class="figimg" src="../../assets/img/02-1-cli-gui.png" alt="문자 명령으로 조작하는 CLI와 창·아이콘·포인터로 조작하는 GUI 비교">
+      <figcaption><span class="ko">방금 사용한 PowerShell은 왼쪽의 CLI 방식이다</span><span class="zh">刚才使用的 PowerShell 属于左侧的 CLI 方式</span></figcaption>
+    </figure>
+    <div class="grow"></div>
+    <div class="note compact-note"><div class="nt"><span class="ko">방금 사용한 검은 화면의 이름: CLI</span><span class="zh">刚才使用的黑色画面叫 CLI</span></div><p><span class="ko"><b>GUI</b>는 창·아이콘·버튼을 마우스로 조작하고, <b>CLI</b>는 짧은 문자 명령을 입력해 컴퓨터의 응답을 읽습니다. 이번 차시는 명령을 외우는 것이 아니라, 화면에 나온 문장을 그대로 사용합니다.</span><span class="zh"><b>GUI</b> 用鼠标操作窗口、图标和按钮；<b>CLI</b> 输入简短文字命令并读取电脑的回应。本课时不用背命令，只需照着页面输入。</span></p></div>
+  </section>
+
+  <section class="page print-tight print-check-page" id="s5">
+    <div class="kick"><span class="ko">2. OpenCode · 먼저 확인</span><span class="zh">2. OpenCode · 先确认</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">Node.js와 OpenCode가 있는지 먼저 확인한다</span><span class="zh">先确认是否已有 Node.js 与 OpenCode</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p><span class="ko">OpenCode는 <b>npm</b>이라는 설치 도구를 사용하며, npm은 Node.js와 함께 설치됩니다. Python을 확인했던 것처럼 PowerShell에서 세 프로그램의 상태를 먼저 확인하고, 필요한 것만 설치합니다.</span><span class="zh">OpenCode 使用名为 <b>npm</b> 的安装工具，而 npm 会随 Node.js 一起安装。像确认 Python 一样，先在 PowerShell 中确认三个程序的状态，只安装缺少的项目。</span></p>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">먼저 세 줄을 모두 입력한다</span><span class="zh">先输入全部三行</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>node --version
+npm --version
+opencode --version</pre></div>
+    <div class="vflow">
+      <div class="vf"><b><span class="ko">세 줄 모두 숫자가 보인다</span><span class="zh">三行都显示版本号</span></b><span class="ko">Node.js와 OpenCode 설치를 건너뛰고 VS Code 단계로 간다.</span><span class="zh">跳过 Node.js 与 OpenCode 安装，进入 VS Code 步骤。</span></div>
+      <div class="varr">↓</div>
+      <div class="vf plain"><b><span class="ko">node 또는 npm을 찾을 수 없다</span><span class="zh">找不到 node 或 npm</span></b><span class="ko">Node.js LTS를 설치한다. 둘은 함께 설치된다.</span><span class="zh">安装 Node.js LTS；两者会一起安装。</span></div>
+      <div class="varr">↓</div>
+      <div class="vf plain"><b><span class="ko">node와 npm은 있지만 opencode만 없다</span><span class="zh">有 node 与 npm，但没有 opencode</span></b><span class="ko">Node.js 설치 쪽을 건너뛰고 OpenCode 설치 쪽으로 간다.</span><span class="zh">跳过 Node.js 安装页，直接进入 OpenCode 安装页。</span></div>
+    </div>
+    <div class="note ok"><div class="nt"><span class="ko">설치 전에 확인하는 이유</span><span class="zh">为什么安装前先确认</span></div><p><span class="ko">이미 있는 프로그램을 다시 설치하면 시간이 걸리고, 서로 다른 버전이 섞여 문제가 생길 수도 있습니다. 그래서 개발 도구는 항상 <b>확인 → 필요한 것만 설치 → 다시 확인</b>의 순서로 준비합니다.</span><span class="zh">重复安装已有程序会浪费时间，也可能混入不同版本造成问题。因此开发工具始终按<b>确认 → 只安装需要的项目 → 再次确认</b>的顺序准备。</span></p></div>
+    <div class="bridge"><div class="bt"><span class="ko">확인 결과에 따라 이동</span><span class="zh">根据确认结果移动</span></div><p><span class="ko"><b>node 또는 npm이 없다면</b> 다음 쪽에서 Node.js를 설치합니다. 둘은 있고 <b>opencode만 없다면</b> Node.js 설치 쪽을 건너뛰고 OpenCode 설치로 갑니다.</span><span class="zh"><b>没有 node 或 npm</b> 时，在下一页安装 Node.js。两者都有而<b>只有 opencode 没有</b>时，跳过 Node.js 安装，直接进入 OpenCode 安装。</span></p></div>
+  </section>
+
+  <section class="page" id="s5b">
+    <div class="kick"><span class="ko">2. OpenCode · Node.js 준비</span><span class="zh">2. OpenCode · 准备 Node.js</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">Node.js가 없을 때만 설치한다</span><span class="zh">仅在没有 Node.js 时安装</span></h2>
+    <p><span class="ko">Node.js 자체를 배우는 시간이 아닙니다. 지금은 OpenCode를 설치할 때 사용할 <b>npm</b>을 준비하기 위해 설치합니다.</span><span class="zh">这不是学习 Node.js 的时间。现在安装它，是为了准备安装 OpenCode 时要使用的 <b>npm</b>。</span></p>
+    <figure class="fig site-shot compact"><a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer"><img class="figimg" src="../../assets/img/02-1-03-node-windows.png" alt="Node.js 공식 다운로드 페이지에서 Windows x64 설치 프로그램을 선택한 화면"></a><figcaption><a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer"><span class="ko">공식 주소: nodejs.org/en/download · LTS · Windows · x64 · .msi ↗</span><span class="zh">官方网站：nodejs.org/en/download · LTS · Windows · x64 · .msi ↗</span></a></figcaption></figure>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">Node.js가 없을 때만 설치하기</span><span class="zh">仅在没有 Node.js 时安装</span></div><ol>
+      <li><span class="ko">위 공식 주소에서 <b>LTS · Windows · x64 · Windows Installer(.msi)</b>를 내려받아 실행한다.</span><span class="zh">从上方官网下载安装 <b>LTS · Windows · x64 · Windows Installer(.msi)</b> 并运行。</span></li>
+      <li><span class="ko">기본 선택을 유지하며 <b>Next → Install → Finish</b> 순서로 설치한다.</span><span class="zh">保持默认选项，按 <b>Next → Install → Finish</b> 顺序安装。</span></li>
+      <li><span class="ko"><b>PowerShell 창을 완전히 닫고 새로 연다.</b> Node.js와 npm의 버전을 다시 확인한다.</span><span class="zh"><b>完全关闭 PowerShell 窗口并重新打开。</b>再次确认 Node.js 与 npm 的版本。</span></li>
+    </ol></div>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">새 창에서 다시 확인</span><span class="zh">在新窗口中再次确认</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>node --version
+npm --version</pre></div>
+    <div class="grow"></div>
+    <div class="note aside compact-note"><div class="nt"><span class="ko">참고 · LTS란?</span><span class="zh">参考 · 什么是 LTS？</span></div><p><span class="ko"><b>Long Term Support</b>, 즉 ‘장기 지원’의 약자입니다. 새 기능을 가장 빨리 받는 버전보다 오랫동안 오류와 보안 문제를 수정해 주는 안정적인 버전입니다. 이 수업에서는 <b>LTS</b>를 선택합니다.</span><span class="zh"><b>Long Term Support</b> 的缩写，意思是“长期支持”。相比最快获得新功能的版本，它会长期修复错误和安全问题，更稳定。本课程选择 <b>LTS</b>。</span></p></div>
+  </section>
+
+  <section class="page" id="s6">
+    <div class="kick"><span class="ko">2. OpenCode · 설치</span><span class="zh">2. OpenCode · 安装</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">AI와 대화할 OpenCode를 설치한다</span><span class="zh">安装用于和 AI 对话的 OpenCode</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p><span class="ko">OpenCode는 코드를 직접 모두 입력하는 대신, 원하는 작업을 자연어로 설명하고 결과를 함께 확인하게 해 주는 도구입니다.</span><span class="zh">OpenCode 让我们用自然语言说明想做的工作，并一起检查结果，而不是亲手输入所有代码。</span></p>
+    <figure class="fig site-shot print-compact"><a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer"><img class="figimg" src="../../assets/img/02-1-04-opencode-install.png" alt="OpenCode 공식 문서의 npm 설치 명령 화면"></a><figcaption><a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer"><span class="ko">공식 주소: opencode.ai/download · OpenCode Terminal의 npm 명령 ↗</span><span class="zh">官方网站：opencode.ai/download · OpenCode Terminal 的 npm 命令 ↗</span></a></figcaption></figure>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>npm install -g opencode-ai</pre></div>
+    <p><span class="ko">설치가 끝나면 <b>PowerShell 창을 완전히 닫고 새로 엽니다.</b> 새 창에서 세 프로그램을 다시 확인합니다.</span><span class="zh">安装完成后，<b>完全关闭 PowerShell 窗口并重新打开。</b>在新窗口中再次确认三个程序。</span></p>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">설치 후 최종 확인</span><span class="zh">安装后的最终确认</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>node --version
+npm --version
+opencode --version</pre></div>
+    <div class="grow"></div>
+    <div class="note"><p><span class="ko"><code>npm</code>은 Node.js와 함께 설치된 도구입니다. 이번 차시는 이름과 역할만 알고, 사용법을 따로 외우지 않습니다. 세 줄에서 모두 버전 번호가 보이면 다음 VS Code 단계로 갑니다.</span><span class="zh"><code>npm</code> 是随 Node.js 一起安装的工具。本课时只需知道名称和作用，不必另外背使用方法。三行都显示版本号后，进入下一步 VS Code。</span></p></div>
+  </section>
+
+  <section class="page" id="s6_2">
+    <div class="kick"><span class="ko">2. OpenCode · 설치</span><span class="zh">2. OpenCode · 安装</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">AI와 대화할 OpenCode를 설치한다</span><span class="zh">安装用于和 AI 对话的 OpenCode</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+    <p class="lead"><span class="ko">앞쪽의 설치 명령이 정상적으로 끝났다면 이 페이지의 명령은 실행하지 않습니다. 아래와 같은 실행 차단 메시지가 실제로 나온 학생만 확인합니다.</span><span class="zh">如果前一页的安装命令正常完成，请不要执行本页命令。只有实际出现下面这类脚本阻止信息的学生才需要确认。</span></p>
+    <div class="note warn"><div class="nt"><span class="ko">오류가 실제로 나타날 때만 실행한다</span><span class="zh">仅在实际出现错误时执行</span></div><p><span class="ko"><code>npm.ps1 cannot be loaded because running scripts is disabled</code>와 같은 차단 메시지가 나오면 아래 명령을 한 번 입력합니다.</span><span class="zh">若出现 <code>npm.ps1 cannot be loaded because running scripts is disabled</code> 等拦截信息，只需输入一次下面的命令。</span></p></div>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">스크립트 실행이 차단된 경우에만</span><span class="zh">仅在脚本被阻止时</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</pre></div>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">차단을 풀고 다시 확인하기</span><span class="zh">解除阻止后再次确认</span></div><ol>
+      <li><span class="ko">확인 질문이 나오면 <code>Y</code>를 입력하고 Enter를 누른다.</span><span class="zh">出现确认问题时输入 <code>Y</code> 并按 Enter。</span></li>
+      <li><span class="ko"><b>PowerShell을 완전히 닫았다가 새로 연다.</b></span><span class="zh"><b>完全关闭 PowerShell 后重新打开。</b></span></li>
+      <li><span class="ko">앞쪽의 OpenCode 설치 명령과 버전 확인을 다시 진행한다.</span><span class="zh">重新执行前一页的 OpenCode 安装命令并确认版本。</span></li>
+    </ol></div>
+    <div class="grow"></div>
+    <div class="note stop compact-note"><div class="nt"><span class="ko">여기서 더 낮추지 않는다</span><span class="zh">不要继续降低安全设置</span></div><p><span class="ko">같은 차단 메시지가 계속 나오면 보안 설정을 더 바꾸지 말고 화면을 그대로 교사에게 보여 줍니다.</span><span class="zh">如果仍出现同样的阻止信息，不要继续更改安全设置，请把当前画面直接给老师看。</span></p></div>
+  </section>
+
+  <section class="page print-tight print-vscode-install" id="s7">
+    <div class="kick"><span class="ko">3. VS Code · 설치</span><span class="zh">3. VS Code · 安装</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">메모장보다 코드를 쓰기 편한 글쓰기 도구</span><span class="zh">比记事本更适合写代码的书写工具</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p class="lead"><span class="ko">코드는 글이므로 메모장에도 쓸 수 있습니다. 하지만 파일이 많아지면 찾기 어렵고, 틀린 부분도 눈에 잘 띄지 않습니다. <b>VS Code</b>는 코드와 폴더를 정리하고, 실행 결과까지 한 화면에서 볼 수 있게 해 주는 편집기입니다.</span><span class="zh">代码也是文字，所以记事本也能写。但文件变多后难以查找，错误也不容易发现。<b>VS Code</b> 是一种编辑器，可以整理代码和文件夹，并在一个画面中查看运行结果。</span></p>
+    <div class="row">
+      <div class="pane"><div class="pt"><span class="ko">메모장으로도 가능한 것</span><span class="zh">记事本也能做到</span></div><p><span class="ko">글자를 입력하고 <code>.py</code> 파일로 저장한다.</span><span class="zh">输入文字并保存为 <code>.py</code> 文件。</span></p></div>
+      <div class="pane accent"><div class="pt"><span class="ko">VS Code가 편하게 해 주는 것</span><span class="zh">VS Code 提供的便利</span></div><p><span class="ko">폴더와 파일 찾기 · 코드 구분하기 · 확장 기능 추가하기 · 터미널에서 실행하기</span><span class="zh">查找文件夹与文件 · 区分代码 · 添加扩展 · 在终端运行</span></p></div>
+    </div>
+    <figure class="fig site-shot"><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer"><img class="figimg" src="../../assets/img/02-1-05-vscode-windows.png" alt="Visual Studio Code 공식 다운로드 페이지의 Windows 버튼"></a><figcaption><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer"><span class="ko">공식 주소: code.visualstudio.com/download · Windows User Installer x64 ↗</span><span class="zh">官方网站：code.visualstudio.com/download · Windows User Installer x64 ↗</span></a></figcaption></figure>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">확인하고 설치하기</span><span class="zh">确认并安装</span></div><ol>
+      <li><span class="ko">시작 메뉴에서 <b>Visual Studio Code</b>를 검색한다. 실행되면 설치를 건너뛴다.</span><span class="zh">在开始菜单搜索 <b>Visual Studio Code</b>。能够运行就跳过安装。</span></li>
+      <li><span class="ko">없다면 위 공식 주소에서 <b>Windows User Installer x64</b>를 내려받아 실행한다.</span><span class="zh">没有时，从上方官网下载并运行 <b>Windows User Installer x64</b>。</span></li>
+      <li><span class="ko">사용권에 동의하고 기본 선택을 유지한다. <b>Add to PATH</b> 항목이 보이면 반드시 체크한다.</span><span class="zh">同意许可并保持默认选项。若看到 <b>Add to PATH</b>，请务必勾选。</span></li>
+      <li><span class="ko">설치를 마치고 <b>Visual Studio Code 실행</b>을 선택한다. VS Code 화면이 열리면 설치 완료다.</span><span class="zh">完成安装并选择<b>运行 Visual Studio Code</b>。VS Code 画面打开即表示安装完成。</span></li>
+    </ol></div>
+  </section>
+
+  <section class="page" id="s7b">
+    <div class="kick"><span class="ko">3. VS Code · 화면</span><span class="zh">3. VS Code · 画面</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">화면의 네 부분부터 찾는다</span><span class="zh">先找到画面的四个部分</span></h2>
+    <p><span class="ko">처음부터 모든 메뉴를 외울 필요는 없습니다. 이번 수업에서 계속 사용할 네 부분만 찾습니다.</span><span class="zh">不需要一开始就记住所有菜单。先找到本课程会持续使用的四个部分。</span></p>
+    <figure class="fig vscode-anatomy print-medium"><img class="figimg" src="../../assets/img/02-1-vscode-anatomy.png" alt="VS Code의 탐색기, 편집기, 터미널, 확장 영역이 함께 보이는 실제 화면" data-id="02-1-vscode-anatomy" data-spec="실제 VS Code 캡처 위에 번호와 얇은 지시선만 표시"><figcaption><span class="ko">① 탐색기 ② 편집기 ③ 터미널 ④ 확장</span><span class="zh">① 资源管理器 ② 编辑器 ③ 终端 ④ 扩展</span></figcaption></figure>
+    <div class="screen-parts">
+      <div><b>① <span class="ko">탐색기</span><span class="zh">资源管理器</span></b><span class="ko">폴더와 파일을 찾는다.</span><span class="zh">查找文件夹与文件。</span></div>
+      <div><b>② <span class="ko">편집기</span><span class="zh">编辑器</span></b><span class="ko">파일의 글과 코드를 읽는다.</span><span class="zh">阅读文件中的文字和代码。</span></div>
+      <div><b>③ <span class="ko">터미널</span><span class="zh">终端</span></b><span class="ko">명령을 입력하고 결과를 본다.</span><span class="zh">输入命令并查看结果。</span></div>
+      <div><b>④ <span class="ko">확장</span><span class="zh">扩展</span></b><span class="ko">VS Code에 필요한 기능을 더한다.</span><span class="zh">为 VS Code 添加所需功能。</span></div>
+    </div>
+    <div class="grow"></div>
+    <div class="note compact-note"><div class="nt"><span class="ko">이번 차시에 실제로 사용할 곳</span><span class="zh">本课时实际使用的位置</span></div><p><span class="ko">먼저 <b>탐색기</b>에서 수업 폴더를 확인하고, <b>터미널</b>을 열어 OpenCode를 실행합니다. 편집기는 다음 차시부터 준비된 Python 파일을 읽을 때 사용합니다.</span><span class="zh">先在<b>资源管理器</b>中确认课程文件夹，再打开<b>终端</b>运行 OpenCode。编辑器从下一课开始用于阅读准备好的 Python 文件。</span></p></div>
+  </section>
+
+  <section class="page" id="s7c">
+    <div class="kick"><span class="ko">3. VS Code · Python 확장</span><span class="zh">3. VS Code · Python 扩展</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">확장은 VS Code에 기능을 더하는 작은 도구다</span><span class="zh">扩展是为 VS Code 添加功能的小工具</span></h2>
+    <p class="lead"><span class="ko">이제 VS Code에 <b>여러분이 사용할 Python의 실행을 도와주는 도구</b>를 설치합니다. <b>Python 확장</b>을 설치하면 VS Code가 Python 파일을 알아보고, 앞에서 설치한 Python과 연결해 실행을 도와줍니다.</span><span class="zh">现在要在 VS Code 中安装一个<b>帮助运行我们将要使用的 Python 的工具</b>。安装 <b>Python 扩展</b>后，VS Code 能识别 Python 文件，并连接前面安装的 Python 来帮助运行。</span></p>
+    <div class="row">
+      <div class="pane"><div class="pt"><span class="ko">Python 본체</span><span class="zh">Python 本体</span></div><p><span class="ko">컴퓨터에서 Python 코드를 실제로 실행한다.</span><span class="zh">在电脑上实际执行 Python 代码。</span></p></div>
+      <div class="pane accent"><div class="pt"><span class="ko">VS Code의 Python 확장</span><span class="zh">VS Code 的 Python 扩展</span></div><p><span class="ko">Python 파일을 알아보고, 실행 버튼·코드 구분·오류 표시 같은 편의 기능을 더한다.</span><span class="zh">识别 Python 文件，并添加运行按钮、代码区分与错误提示等便利功能。</span></p></div>
+    </div>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">Python 확장 설치하기</span><span class="zh">安装 Python 扩展</span></div><ol>
+      <li><span class="ko">왼쪽의 <b>확장 아이콘(네모 네 개)</b>을 누르고 검색창에 <b>Python</b>을 입력한다.</span><span class="zh">点击左侧的<b>扩展图标（四个方块）</b>，在搜索框输入 <b>Python</b>。</span></li>
+      <li><span class="ko">이름이 <b>Python</b>이고 게시자가 <b>Microsoft</b>인 항목을 선택한다.</span><span class="zh">选择名称为 <b>Python</b>、发布者为 <b>Microsoft</b> 的项目。</span></li>
+      <li><span class="ko"><b>Install</b>을 누르고 버튼이 <b>Disable</b> 또는 <b>Uninstall</b>로 바뀌면 설치 완료다.</span><span class="zh">点击 <b>Install</b>；按钮变为 <b>Disable</b> 或 <b>Uninstall</b> 就表示安装完成。</span></li>
+    </ol></div>
+    <figure class="fig site-shot compact"><img class="figimg" src="../../assets/img/02-1-06-vscode-python-extension.png" alt="Microsoft가 게시한 VS Code Python 확장 페이지"><figcaption><span class="ko">같은 이름의 확장이 있을 수 있으므로 게시자 Microsoft를 함께 확인한다.</span><span class="zh">可能存在同名扩展，因此要同时确认发布者 Microsoft。</span></figcaption></figure>
+    <div class="grow"></div>
+    <div class="note aside compact-note"><div class="nt"><span class="ko">쉽게 생각하면</span><span class="zh">简单理解</span></div><p><span class="ko">VS Code가 기본 기능만 있는 스마트폰이라면, 확장은 필요한 기능을 더하는 앱과 비슷합니다. 확장을 많이 설치할 필요는 없으며, 이번에는 수업에 필요한 <b>Microsoft의 Python 확장 하나</b>만 설치합니다.</span><span class="zh">如果把 VS Code 看作只有基本功能的手机，扩展就像添加所需功能的应用。无需安装很多扩展，本次只安装课程需要的 <b>Microsoft Python 扩展</b>。</span></p></div>
+  </section>
+
+  <section class="page" id="s8">
+    <div class="kick"><span class="ko">4. OpenCode · 실행과 연결</span><span class="zh">4. OpenCode · 运行与连接</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">VS Code 안에서 OpenCode와 AI 모델을 연결한다</span><span class="zh">在 VS Code 中连接 OpenCode 与 AI 模型</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p><span class="ko">OpenCode 프로그램만 설치해서는 아직 AI와 대화할 수 없습니다. OpenCode는 대화 창구이고, 실제로 답을 만드는 <b>AI 모델 제공자</b>를 한 번 연결해야 합니다.</span><span class="zh">只安装 OpenCode 程序还不能与 AI 对话。OpenCode 是对话窗口，还需要连接一个真正生成回答的<b>AI 模型提供方</b>。</span></p>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">수업 폴더에서 OpenCode 실행하기</span><span class="zh">在课程文件夹中运行 OpenCode</span></div><ol>
+      <li><span class="ko">VS Code 위 메뉴에서 <b>파일 → 폴더 열기</b>를 누르고 내려받은 <b>sample</b> 폴더를 선택한다.</span><span class="zh">在 VS Code 上方菜单选择<b>文件 → 打开文件夹</b>，选择下载的 <b>sample</b> 文件夹。</span></li>
+      <li><span class="ko">위 메뉴에서 <b>터미널 → 새 터미널</b>을 누른다.</span><span class="zh">从上方菜单选择<b>终端 → 新建终端</b>。</span></li>
+      <li><span class="ko"><code>opencode</code>를 입력해 OpenCode 화면을 연다.</span><span class="zh">输入 <code>opencode</code> 打开 OpenCode 画面。</span></li>
+      <li><span class="ko">OpenCode 안에서 <code>/connect</code>를 입력하고 <b>OpenCode Zen (Recommended)</b>을 선택한다.</span><span class="zh">在 OpenCode 中输入 <code>/connect</code>，选择 <b>OpenCode Zen (Recommended)</b>。</span></li>
+    </ol></div>
+    <div class="code term"><div class="chd"><span class="fn">VS Code · Terminal</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>opencode</pre></div>
+    <div class="code term"><div class="chd"><span class="fn">OpenCode</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>/connect</pre></div>
+    <figure class="fig site-shot compact"><img class="figimg" src="../../assets/img/02-1-07-opencode-connect.png" alt="VS Code 터미널의 OpenCode에서 connect 명령을 입력하고 수업용 제공자를 선택하는 실제 화면" data-id="02-1-07-opencode-connect" data-spec="실제 VS Code 터미널 캡처 · 개인정보와 API 키 없음"><figcaption><span class="ko">실제 VS Code 화면에서 수업용 AI 제공자 연결 시작하기</span><span class="zh">在真实 VS Code 画面中开始连接课程使用的 AI 提供方</span></figcaption></figure>
+  </section>
+
+  <section class="page print-tight print-auth-page" id="s8b">
+    <div class="kick"><span class="ko">4. OpenCode · API 키와 모델</span><span class="zh">4. OpenCode · API 密钥与模型</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">수업용 연결 정보를 등록하고 모델을 고른다</span><span class="zh">登记课程连接信息并选择模型</span></h2>
+    <p class="lead"><span class="ko"><b>OpenCode Zen</b>에 로그인한 뒤 <span class="tt">API 키(API key)</span>를 만듭니다. API 키는 OpenCode가 AI 모델을 사용할 수 있도록 허락하는 <b>비밀 출입증</b>입니다.</span><span class="zh">登录 <b>OpenCode Zen</b> 后创建<span class="tt">API 密钥（API key）</span>。API 密钥是允许 OpenCode 使用 AI 模型的<b>秘密通行证</b>。</span></p>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">한 번만 연결하기</span><span class="zh">只需连接一次</span></div><ol>
+      <li><span class="ko"><a href="https://opencode.ai/zen" target="_blank" rel="noopener noreferrer"><b>opencode.ai/zen</b></a>의 공식 화면에서 수업에 사용할 계정으로 로그인한다.</span><span class="zh">在 <a href="https://opencode.ai/zen" target="_blank" rel="noopener noreferrer"><b>opencode.ai/zen</b></a> 官方页面使用课程账号登录。</span></li>
+      <li><span class="ko">왼쪽의 <b>API 키</b>를 열고 <b>API 키 생성</b>을 누른 뒤 새 키를 복사한다. 카드나 결제정보를 요구하면 진행을 멈춘다.</span><span class="zh">打开左侧的<b>API 密钥</b>，点击<b>创建 API 密钥</b>并复制新密钥。若要求银行卡或支付信息，请停止操作。</span></li>
+      <li><span class="ko">VS Code의 OpenCode 화면으로 돌아와 <b>API key 전용 입력칸</b>이 나타났을 때만 붙여넣고 Enter를 누른다.</span><span class="zh">回到 VS Code 的 OpenCode 画面，只有出现 <b>API key 专用输入框</b>时才粘贴并按 Enter。</span></li>
+      <li><span class="ko"><code>/models</code>를 입력하고 <b>DeepSeek V4 Flash Free</b>를 선택한다. 이름 끝에 <b>Free</b>가 있는지 확인한다.</span><span class="zh">输入 <code>/models</code>，选择 <b>DeepSeek V4 Flash Free</b>。确认名称末尾带有 <b>Free</b>。</span></li>
+    </ol></div>
+    <div class="code term"><div class="chd"><span class="fn">OpenCode</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>/models</pre></div>
+    <div class="auth-shots">
+      <figure class="fig"><img class="figimg" src="../../assets/img/02-1-08-opencode-api-key.png" alt="OpenCode Zen의 API 키 화면에서 API 키 생성 버튼과 복사할 키를 확인하는 실제 화면" data-id="02-1-08-opencode-api-key" data-spec="특강에서 사용한 실제 OpenCode Zen API 키 발급 화면 · 키와 계정정보 가림"><figcaption><span class="ko">OpenCode Zen에서 API 키 생성 → 새 키 복사</span><span class="zh">在 OpenCode Zen 中创建 API 密钥 → 复制新密钥</span></figcaption></figure>
+      <figure class="fig"><img class="figimg" src="../../assets/img/02-1-09-opencode-model-deepseek.png" alt="OpenCode 모델 목록에서 DeepSeek V4 Flash Free를 선택하는 실제 화면" data-id="02-1-09-opencode-model-deepseek" data-spec="특강에서 사용한 실제 OpenCode 모델 선택 화면 · DeepSeek V4 Flash Free 선택"><figcaption><span class="ko">/models → DeepSeek V4 Flash Free 선택</span><span class="zh">/models → 选择 DeepSeek V4 Flash Free</span></figcaption></figure>
+    </div>
+    <div class="grow"></div>
+    <div class="note warn compact-note"><div class="nt"><span class="ko">결제 정보와 API 키</span><span class="zh">支付信息与 API 密钥</span></div><p><span class="ko"><b>카드나 결제 정보 입력을 요구하면 입력하지 말고 교사에게 알립니다.</b> API 키는 OpenCode의 전용 입력칸에만 붙여넣습니다. 무료 모델 목록은 바뀔 수 있으므로 수업 당일에는 교사가 확인한 <b>Free DeepSeek</b> 항목을 고릅니다.</span><span class="zh"><b>如果要求输入银行卡或支付信息，不要输入，并告知老师。</b>API 密钥只粘贴在 OpenCode 的专用输入框中。免费模型列表可能变化，上课当天请选择老师确认过的 <b>Free DeepSeek</b> 项目。</span></p></div>
+  </section>
+
+  <section class="page" id="s9">
+    <div class="kick"><span class="ko">5. 첫 대화</span><span class="zh">5. 第一次对话</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">파일을 바꾸기 전에 작업 폴더부터 확인한다</span><span class="zh">修改文件前先确认工作文件夹</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p class="lead"><span class="ko">모델 연결이 끝나면 첫 요청을 보냅니다. 아직 코드를 만들지 않고, OpenCode가 지금 열어 둔 수업 폴더를 제대로 보고 있는지만 확인합니다.</span><span class="zh">模型连接完成后发送第一次请求。先不生成代码，只确认 OpenCode 是否正确读取当前打开的课程文件夹。</span></p>
+    <div class="code"><div class="chd"><span class="fn"><span class="ko">첫 요청</span><span class="zh">第一次请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>현재 폴더의 이름과 보이는 파일 수만 알려 줘.
+아직 파일을 만들거나 수정하지 마.</pre></div>
+    <div class="vflow">
+      <div class="vf plain"><b><span class="ko">내 요청</span><span class="zh">我的请求</span></b><span class="ko">폴더 이름과 파일 수만 확인</span><span class="zh">只确认文件夹名与文件数量</span></div>
+      <div class="varr">↓</div>
+      <div class="vf"><b>OpenCode</b><span class="ko">현재 수업 폴더를 읽고 답함</span><span class="zh">读取当前课程文件夹并回答</span></div>
+      <div class="varr">↓</div>
+      <div class="vf plain"><b><span class="ko">사람의 확인</span><span class="zh">人的确认</span></b><span class="ko">내가 연 폴더와 답이 맞는지 비교</span><span class="zh">比较回答是否与打开的文件夹一致</span></div>
+    </div>
+    <div class="grow"></div>
+    <div class="note ok"><div class="nt"><span class="ko">첫 요청에서 확인할 것</span><span class="zh">第一次请求要确认的内容</span></div><p><span class="ko">OpenCode가 말한 폴더 이름이 <b>sample</b>인지, 파일 수가 왼쪽 탐색기에 보이는 실제 파일과 맞는지 비교합니다. 답이 다르면 AI의 말을 그대로 믿지 말고 VS Code에서 연 폴더부터 다시 확인합니다.</span><span class="zh">请比较 OpenCode 说出的文件夹名是否为 <b>sample</b>，文件数量是否与左侧资源管理器中的实际文件一致。回答不一致时，不要直接相信 AI，应先确认 VS Code 打开的文件夹。</span></p></div>
+  </section>
+
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">6. 정리</span><span class="zh">6. 小结</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">설치보다 중요한 것은 역할과 상태다</span><span class="zh">比安装更重要的是作用与状态</span></h2>
+    <div class="recap"><div class="rt"><span class="ko">준비 완료 확인</span><span class="zh">确认准备完成</span></div><ul>
+      <li><span class="ko"><code>python --version</code>에서 Python의 버전 번호가 보인다.</span><span class="zh"><code>python --version</code> 显示 Python 的版本号。</span></li>
+      <li><span class="ko"><code>node --version</code>과 <code>npm --version</code>에서 숫자가 보인다.</span><span class="zh"><code>node --version</code> 与 <code>npm --version</code> 显示版本号。</span></li>
+      <li><span class="ko"><code>opencode --version</code>에서 숫자가 보인다.</span><span class="zh"><code>opencode --version</code> 显示版本号。</span></li>
+      <li><span class="ko">VS Code에서 Microsoft의 Python 확장이 설치되어 있다.</span><span class="zh">VS Code 中已安装 Microsoft 的 Python 扩展。</span></li>
+      <li><span class="ko">OpenCode에 수업용 제공자와 교사가 지정한 모델을 연결했다.</span><span class="zh">已在 OpenCode 中连接课程提供方并选择老师指定的模型。</span></li>
+      <li><span class="ko">VS Code 터미널에서 OpenCode의 답을 읽고 실제 폴더와 비교했다.</span><span class="zh">已在 VS Code 终端阅读 OpenCode 的回答，并与实际文件夹比较。</span></li>
+    </ul></div>
+    <div class="bigq"><div class="qt"><span class="ko">이번 차시에서 기억할 문장</span><span class="zh">本课时要记住的一句话</span></div><p><span class="ko">CLI는 무서운 검은 화면이 아니라, 컴퓨터와 AI에게 짧은 문장으로 요청하고 응답을 읽는 창이다.</span><span class="zh">CLI 不是可怕的黑色画面，而是用短句向电脑和 AI 提出请求并阅读回应的窗口。</span></p></div>
+    <div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">도구 준비가 끝났습니다. 다음에는 준비된 Python 파일을 읽고 실행하면서 <b>숫자·글자·변수·계산</b>이 어떻게 정보가 되는지 살펴봅니다.</span><span class="zh">工具已经准备好。下一课将读取并运行准备好的 Python 文件，观察<b>数字、文字、变量与计算</b>如何表达信息。</span></p></div>
+    <div class="lessonnav">
+      <a href="../../01/textbook/01-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">1-2. 수업 열기</span></a>
+      <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
+      <a href="../../02/textbook/02-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">2-2. 숫자와 변수로 정보 표현하기</span></a>
+    </div>
+  </section>
+</main>
+<div id="pager"><button id="pprev">‹</button><button id="pnext">›</button></div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../../assets/textbook.js"></script>
+</body>
+</html>

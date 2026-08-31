@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#fff"/>
+  <defs>
+    <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="17" refY="10" orient="auto">
+      <path d="M0 0l20 10-20 10z" fill="#6C7078"/>
+    </marker>
+    <marker id="aro" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="17" refY="10" orient="auto">
+      <path d="M0 0l20 10-20 10z" fill="#FF5C00"/>
+    </marker>
+  </defs>
+  <style>
+    text{font-family:'IBM Plex Sans KR',Arial,'Apple SD Gothic Neo',sans-serif;fill:#1B1D21}
+    .h{font-size:40px;font-weight:700}
+    .n{font-family:Archivo,Arial,sans-serif;font-size:24px;font-weight:700;fill:#FF5C00}
+    .l{font-size:28px;font-weight:700}
+    .e{font-family:Archivo,Arial,sans-serif;font-size:18px;font-weight:600;fill:#6C7078}
+    .s{font-size:20px;fill:#6C7078}
+    .cap{font-size:22px;font-weight:700;fill:#6C7078}
+    .cd{font-size:21px;font-weight:700;fill:#1B1D21}
+  </style>
+
+  <text x="800" y="74" text-anchor="middle" class="h">컴퓨터는 다섯 자리를 거쳐 결과를 만든다</text>
+
+  <!-- 1 입력 -->
+  <rect x="46" y="128" width="272" height="300" fill="#F1F2F4" stroke="#C7C9CE" stroke-width="3"/>
+  <text x="72" y="174" class="n">1</text>
+  <text x="72" y="226" class="l">입력장치</text>
+  <text x="72" y="256" class="e">input device</text>
+  <text x="72" y="312" class="s">키보드로 글자를</text>
+  <text x="72" y="344" class="s">마우스로 위치를</text>
+  <text x="72" y="376" class="s">마이크로 소리를</text>
+  <text x="72" y="408" class="s">컴퓨터 안으로 보낸다</text>
+
+  <!-- 2 CPU -->
+  <rect x="355" y="128" width="272" height="300" fill="#F1F2F4" stroke="#C7C9CE" stroke-width="3"/>
+  <text x="381" y="174" class="n">2</text>
+  <text x="381" y="226" class="l">CPU</text>
+  <text x="381" y="256" class="e">중앙처리장치</text>
+  <text x="381" y="312" class="s">받은 값을 실제로</text>
+  <text x="381" y="344" class="s">계산하고 비교한다</text>
+  <text x="381" y="376" class="s">정해진 단순 명령을</text>
+  <text x="381" y="408" class="s">아주 빠르게 반복한다</text>
+
+  <!-- 3 RAM -->
+  <rect x="664" y="128" width="272" height="300" fill="#F1F2F4" stroke="#C7C9CE" stroke-width="3"/>
+  <text x="690" y="174" class="n">3</text>
+  <text x="690" y="226" class="l">RAM</text>
+  <text x="690" y="256" class="e">주기억장치 · 메모리</text>
+  <text x="690" y="312" class="s">지금 계산에 쓰는 값을</text>
+  <text x="690" y="344" class="s">잠깐 펼쳐 두는 작업대</text>
+  <text x="690" y="376" class="s">전원이 꺼지면</text>
+  <text x="690" y="408" class="s">내용이 사라진다</text>
+
+  <!-- 4 저장장치 -->
+  <rect x="973" y="128" width="272" height="300" fill="#F1F2F4" stroke="#C7C9CE" stroke-width="3"/>
+  <text x="999" y="174" class="n">4</text>
+  <text x="999" y="226" class="l">저장장치</text>
+  <text x="999" y="256" class="e">SSD · HDD</text>
+  <text x="999" y="312" class="s">파일로 보관하는 곳</text>
+  <text x="999" y="344" class="s">전원을 꺼도 남는다</text>
+  <text x="999" y="376" class="s">저장하지 않은 것은</text>
+  <text x="999" y="408" class="s">여기까지 오지 못한다</text>
+
+  <!-- 5 출력 -->
+  <rect x="1282" y="128" width="272" height="300" fill="#FF5C00"/>
+  <text x="1308" y="174" class="n" style="fill:#fff">5</text>
+  <text x="1308" y="226" class="l" style="fill:#fff">출력장치</text>
+  <text x="1308" y="256" class="e" style="fill:#FFD9C2">output device</text>
+  <text x="1308" y="312" class="s" style="fill:#fff">화면에 글자와 그림</text>
+  <text x="1308" y="344" class="s" style="fill:#fff">스피커에 소리</text>
+  <text x="1308" y="376" class="s" style="fill:#fff">프린터에 종이</text>
+  <text x="1308" y="408" class="s" style="fill:#fff">사람이 결과를 본다</text>
+
+  <!-- 가로 화살표 -->
+  <path d="M322 278h22" fill="none" stroke="#6C7078" stroke-width="7" marker-end="url(#ar)"/>
+  <path d="M631 278h22" fill="none" stroke="#6C7078" stroke-width="7" marker-end="url(#ar)"/>
+  <path d="M940 278h22" fill="none" stroke="#6C7078" stroke-width="7" marker-end="url(#ar)"/>
+  <path d="M1249 278h22" fill="none" stroke="#FF5C00" stroke-width="7" marker-end="url(#aro)"/>
+
+  <!-- 되돌아오는 두 관계 -->
+  <path d="M712 462H505a18 18 0 0 1-18-18v-12" fill="none" stroke="#6C7078" stroke-width="5" marker-end="url(#ar)"/>
+  <text x="730" y="470" class="s">CPU는 계산할 때마다 RAM에서 값을 가져오고 다시 넣는다</text>
+
+  <path d="M986 524H726a18 18 0 0 1-18-18v-74" fill="none" stroke="#6C7078" stroke-width="5" marker-end="url(#ar)"/>
+  <text x="1002" y="532" class="s">파일을 열면 저장장치의 내용이 RAM으로 올라온다</text>
+
+  <!-- 아래: 프로그램 대응 -->
+  <rect x="46" y="590" width="1508" height="170" fill="none" stroke="#C7C9CE" stroke-width="3"/>
+  <text x="76" y="640" class="cap">우리가 곧 쓸 코드도 같은 다섯 자리를 지난다</text>
+  <text x="76" y="694" class="cd">input()으로 받고</text>
+  <text x="385" y="694" class="cd">계산하고</text>
+  <text x="694" y="694" class="cd">변수에 담고</text>
+  <text x="1003" y="694" class="cd">파일에 쓰고</text>
+  <text x="1312" y="694" class="cd">print()로 보인다</text>
+  <text x="76" y="730" class="e">1 입력장치</text>
+  <text x="385" y="730" class="e">2 CPU</text>
+  <text x="694" y="730" class="e">3 RAM</text>
+  <text x="1003" y="730" class="e">4 저장장치</text>
+  <text x="1312" y="730" class="e">5 출력장치</text>
+
+  <text x="800" y="838" text-anchor="middle" class="cap">부품의 사양을 외우지 않는다. 값이 어디로 들어와 어디를 거쳐 어디로 나가는지만 안다.</text>
+</svg>

@@ -107,7 +107,8 @@ body.lang-zh p, body.lang-zh dd, body.lang-zh li, body.lang-zh td{line-height:1.
 /* ===== 목차 서랍 ===== */
 #toc{
   position:fixed; top:var(--topH); left:0; bottom:0; width:308px; z-index:39; background:#fff;
-  border-right:1px solid var(--line); padding:14px 12px 40px; overflow-y:auto;
+  border-right:1px solid var(--line); padding:0; overflow:hidden;
+  display:flex; flex-direction:column;
   transform:translateX(-102%); transition:transform .22s;
 }
 #toc.open{transform:none}
@@ -121,6 +122,20 @@ body.lang-zh p, body.lang-zh dd, body.lang-zh li, body.lang-zh td{line-height:1.
 #toc a.todo{color:var(--muted-2); font-weight:500}
 #toc a.todo:hover{background:var(--bg-zinc); color:var(--muted)}
 #toc .sect{font-size:14px; font-weight:500; padding-left:34px; color:var(--muted)}
+#toc .toc-block{padding:0 12px 18px; overflow-y:auto; overscroll-behavior:contain}
+#toc .toc-global{flex:1 1 62%; min-height:220px; background:#fff}
+#toc .toc-local{flex:0 1 38%; min-height:170px; background:#F5F6F8; border-top:4px solid var(--vcl-orange)}
+#toc .toc-block-title{
+  position:sticky; top:0; z-index:2; display:flex; align-items:center; gap:7px;
+  margin:0 -12px 8px; padding:12px 16px 10px; background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--line); font-size:15px; font-weight:800; color:var(--ink);
+}
+#toc .toc-local .toc-block-title{background:rgba(245,246,248,.96)}
+#toc .toc-block-title small{margin-left:auto; font-family:var(--num); font-size:10px; letter-spacing:.12em; color:var(--muted-2)}
+#toc .toc-subhead{margin-top:15px; padding-top:10px; border-top:1px solid var(--line)}
+#toc .toc-local a{font-size:15.5px; color:var(--ink); font-weight:700}
+#toc .toc-local a.here{background:var(--vcl-orange); color:#fff}
+#toc .toc-local a.here .n{color:#fff}
 #scrim{position:fixed; inset:var(--topH) 0 0 0; background:rgba(0,0,0,.28); z-index:38; opacity:0; pointer-events:none; transition:.2s}
 #scrim.show{opacity:1; pointer-events:auto}
 
@@ -536,6 +551,21 @@ figure.fig{margin:20px 0 0}
 figure.fig img.figimg{display:block; width:100%; height:auto; border:1px solid var(--line); background:#fff}
 figure.fig figcaption{margin:9px 4px 0; text-align:center; font-size:15px; font-weight:600; color:var(--muted)}
 figure.fig.narrow img.figimg{max-width:560px; margin:0 auto}
+.figstage{position:relative; overflow:hidden; border:1px solid var(--line); background:#fff}
+.figstage img.figimg{border:0 !important}
+.figlabel{
+  position:absolute; transform:translate(-50%,-50%); z-index:2;
+  font-family:var(--num); font-size:15px; font-weight:800; letter-spacing:.02em;
+  color:#fff; background:rgba(27,29,33,.92); border:2px solid #fff;
+  padding:5px 12px; white-space:nowrap;
+  box-shadow:0 2px 8px rgba(27,29,33,.16);
+}
+.figlabel.cpu{left:55%; top:29%}
+.figlabel.ram{left:56%; top:76%}
+.figlabel.storage{left:16%; top:15%}
+@media (max-width:700px){
+  .figlabel{font-size:11px; padding:3px 7px; border-width:1px}
+}
 
 /* 이미지 자리표시자 — assets/img/<ID>.png 를 넣으면 자동으로 대체된다 */
 .imgph{
@@ -615,6 +645,113 @@ figure.fig.narrow img.figimg{max-width:560px; margin:0 auto}
   background:var(--vcl-cool); color:var(--muted-2); border:1px solid var(--line); padding:2px 7px; margin-left:9px; vertical-align:.1em;
 }
 
+/* ===== 02회차 전용 시각 요소 ===== */
+.result-preview img.figimg{
+  max-height:300px; object-fit:contain; background:#F7F8FA;
+}
+.result-showcase{display:flex; flex-direction:column; gap:12px; margin-top:14px}
+.result-showcase .fig{margin:0}
+.result-showcase .vscode-proof img.figimg{width:100%; max-height:300px; object-fit:contain; background:#17191e}
+.result-showcase figcaption{margin-top:5px; font-size:13.5px; line-height:1.45}
+.result-showcase.result-three-step{display:grid; grid-template-columns:1fr 1fr; gap:10px 12px}
+.result-three-step .vscode-proof{grid-column:1 / -1}
+.result-three-step .vscode-proof img.figimg{max-height:220px}
+.result-three-step .result-preview{margin-top:0 !important}
+.result-three-step .result-preview img.figimg{width:100%; height:205px; max-height:205px; object-fit:contain}
+.result-three-step .polished-result img.figimg{background:#fff}
+.result-proof{display:grid; grid-template-columns:1.18fr .82fr; gap:12px; margin-top:14px}
+.result-proof .code{margin-top:0}
+.result-proof .code pre{padding:11px 14px; font-size:13.5px; line-height:1.5}
+.result-preview{margin-top:13px !important}
+.result-preview figcaption{margin-top:6px !important; font-size:14px !important}
+.compact-note{margin-top:13px !important; padding:11px 15px !important}
+.compact-note .nt{font-size:15.5px !important}
+.compact-note p{margin-top:4px !important; font-size:15.5px !important; line-height:1.48 !important}
+.compact-steps{margin-top:14px; padding:12px 16px 13px}
+.compact-steps ol > li{padding-top:8px; padding-bottom:8px; font-size:16px; line-height:1.48}
+.tool-cards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:20px}
+.tool-cards .pane{margin:0; min-width:0}
+.tool-cards .pane .pt{font-size:16px; line-height:1.4}
+.tool-cards .pane p{font-size:16px; line-height:1.58}
+.site-shot figcaption a{color:var(--indigo-d); text-decoration:underline; text-underline-offset:3px}
+.cli-gui{margin-top:13px !important}
+.cli-gui img.figimg{max-height:210px; object-fit:contain; background:#fff}
+.cli-gui figcaption{margin-top:5px !important; font-size:14px !important}
+.vscode-anatomy{margin-top:14px !important}
+.vscode-anatomy img.figimg{max-height:360px; object-fit:contain; background:#17191e}
+.screen-parts{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px 12px; margin-top:13px}
+.screen-parts > div{display:flex; gap:10px; align-items:baseline; padding:10px 12px; border:1px solid var(--line); background:#fff}
+.screen-parts b{flex:none; color:var(--vcl-carbon); font-size:15px}
+.screen-parts span{font-size:14.5px; color:var(--ink-2)}
+.auth-shots{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px}
+.auth-shots .fig{margin:0; min-width:0}
+.auth-shots img.figimg{width:100%; height:205px; object-fit:contain; background:#F7F8FA}
+.auth-shots figcaption{margin-top:5px; font-size:13.5px; line-height:1.45}
+.auth-private-card{
+  min-height:205px; padding:26px 28px; display:flex; flex-direction:column; justify-content:center;
+  border:1px solid var(--line); background:#F7F8FA; text-align:left;
+}
+.auth-private-card .auth-private-label{
+  color:var(--vcl-orange); font-weight:800; font-size:16px; margin-bottom:10px;
+}
+.auth-private-card p{margin:0; font-size:15px; line-height:1.58; color:var(--ink-2)}
+@media (max-width:960px){
+  .result-proof,.tool-cards,.screen-parts,.auth-shots{grid-template-columns:1fr}
+  .auth-shots img.figimg{height:auto; max-height:320px}
+}
+.site-shot img.figimg{
+  max-height:450px; object-fit:contain; object-position:center; background:#F7F8FA;
+}
+.site-shot.compact{margin-top:14px}
+.site-shot.compact img.figimg{height:230px; object-fit:contain}
+.site-shot.compact figcaption{margin-top:5px; font-size:14px}
+.toolflow .f{min-width:130px}
+.toolflow .f b{font-family:var(--num); font-size:18px}
+.toolflow .f span{margin-top:4px; line-height:1.4}
+
+/* 실제 앱을 조작하지 않아도 실행 흐름이 보이는 VS Code 축약 그림 */
+.mock-ide{margin:20px 0 0; border:1px solid #33373D; background:#1E1E1E; color:#E8EAED; overflow:hidden}
+.mock-ide .mock-bar{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  min-height:46px; padding:9px 16px; background:#252526; border-bottom:1px solid #3B3B3B;
+  font-family:var(--mono); font-size:13px; color:#C9CDD2;
+}
+.mock-ide .mock-bar b{font-family:var(--sans); font-size:13px; color:#fff; background:#0E7C86; padding:6px 11px}
+.mock-ide .mock-editor{margin:0; min-height:150px; padding:34px 26px; font-family:var(--mono); font-size:24px; line-height:1.6; color:#F1F2F4}
+.mock-ide .mock-terminal{display:flex; align-items:center; gap:24px; padding:12px 20px 18px; border-top:1px solid #3B3B3B; background:#181818}
+.mock-ide .mock-terminal span{font-family:var(--num); font-size:11px; font-weight:700; letter-spacing:.08em; color:#9BA1A9}
+.mock-ide .mock-terminal strong{font-family:var(--mono); font-size:24px; color:#fff}
+.runflow .f{min-width:150px}
+.run-screen{margin-top:14px !important}
+.run-shot{position:relative; overflow:hidden; border:1px solid #33373D; background:#17191e}
+.run-shot img.figimg{display:block; width:100%; max-height:260px; object-fit:contain; background:#17191e}
+.shot-mark{position:absolute; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--vcl-orange); color:#fff; border:3px solid #fff; font-family:var(--num); font-size:15px; font-weight:900; box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.shot-mark.mark-file{left:2.5%; top:55%}
+.shot-mark.mark-run{right:13%; top:21%}
+.run-screen figcaption{margin-top:7px !important; font-size:14px !important}
+.calc-table td:last-child{font-family:var(--num); font-weight:800; color:var(--vcl-carbon)}
+.type-compare .pane{padding:18px}
+.type-compare .code{margin-top:10px}
+.type-compare .code pre{font-size:20px; text-align:center}
+.type-compare .answer{margin-top:12px; font-size:15px; color:var(--muted)}
+.type-compare .answer b{font-family:var(--num); font-size:30px; color:var(--vcl-orange); margin-left:8px}
+.type-compare .mismatch{border-color:#E2A28A; background:#FFF8F4}
+.type-compare .mismatch .answer b{font-family:var(--sans); font-size:22px; color:#B74622}
+.label-visual .loose-values{display:flex; justify-content:space-around; gap:12px; margin-top:30px}
+.label-visual .loose-values b{font-family:var(--num); font-size:34px; color:var(--muted)}
+.named-values{display:flex; flex-direction:column; gap:8px; margin-top:12px}
+.named-values span{display:grid; grid-template-columns:1fr 62px; align-items:center; gap:10px; border-bottom:1px solid var(--line); padding:6px 0}
+.named-values i{font-family:var(--mono); font-size:14px; font-style:normal; color:var(--ink-2)}
+.named-values b{font-family:var(--num); font-size:24px; color:var(--vcl-orange); text-align:right}
+.code-reading .vf span{font-family:var(--mono)}
+.prediction .pane p{font-family:var(--mono); font-size:21px; line-height:1.8}
+
+@media (max-width:700px){
+  .site-shot.compact img.figimg{height:auto; max-height:360px}
+  .mock-ide .mock-editor{font-size:19px; min-height:120px; padding:26px 18px}
+  .named-values span{grid-template-columns:1fr 52px}
+}
+
 /* ===== 인쇄 — .page 하나 = A4 한 장 ===== */
 @media print{
   @page{ size:A4 portrait; margin:16mm 15mm }
@@ -643,6 +780,55 @@ figure.fig.narrow img.figimg{max-width:560px; margin:0 auto}
   h2.title,h3.sub,h4.sub2{break-after:avoid; page-break-after:avoid}
   /* 세로로 긴 그림이 A4 한 장을 넘지 않도록 높이를 제한한다 */
   figure.fig img.figimg{max-height:198mm; width:auto; max-width:100%; margin:0 auto}
+  figure.fig.print-short img.figimg{max-height:58mm}
+  figure.fig.print-medium img.figimg{max-height:92mm}
+  figure.fig.print-compact img.figimg{max-height:70mm}
+  /* 내용은 그대로 유지하되 A4에서 다음 장으로 밀리는 설치·확인 쪽만 조밀하게 인쇄한다. */
+  .page.print-tight h2.title{font-size:17pt; margin-top:15px}
+  .page.print-tight h2.title::after{margin-top:8px; height:3px}
+  .page.print-tight p{margin-top:8px; font-size:9.8pt; line-height:1.42}
+  .page.print-tight p.lead{font-size:10.2pt; line-height:1.45}
+  .page.print-tight .row{margin-top:10px; gap:9px}
+  .page.print-tight .pane{padding:9px 11px}
+  .page.print-tight .pane p{font-size:9.4pt; line-height:1.38}
+  .page.print-tight .steps{margin-top:10px; padding:9px 11px 10px}
+  .page.print-tight .steps .st-h{font-size:9.8pt}
+  .page.print-tight .steps ol > li{padding:5px 0 5px 30px; font-size:9.4pt; line-height:1.35}
+  .page.print-tight .steps ol > li::before{top:5px; width:20px; height:20px; font-size:9pt}
+  .page.print-tight .code{margin-top:9px}
+  .page.print-tight .code .chd{padding:5px 9px}
+  .page.print-tight .code .fn{font-size:8.5pt}
+  .page.print-tight .code pre{padding:7px 10px; font-size:8.8pt; line-height:1.4}
+  .page.print-tight .note{margin-top:10px; padding:8px 11px}
+  .page.print-tight .note .nt{font-size:9.5pt}
+  .page.print-tight .note p{margin-top:3px; font-size:9.2pt; line-height:1.38}
+  .page.print-tight figure.fig{margin-top:10px}
+  .page.print-tight figure.fig figcaption{margin-top:4px; font-size:8.6pt; line-height:1.35}
+  .page.print-tight .pnum{padding-top:8px; font-size:8.5pt}
+  .page.print-install .site-shot img.figimg,
+  .page.print-vscode-install .site-shot img.figimg{height:auto; max-height:46mm}
+  .page.print-result-page .result-showcase{gap:7px; margin-top:9px}
+  .page.print-result-page .result-showcase .vscode-proof img.figimg,
+  .page.print-result-page .result-showcase .result-preview img.figimg{height:auto; max-height:52mm}
+  .page.print-result-page .result-preview{margin-top:0 !important}
+  .page.print-result-page .result-three-step{gap:5px 7px}
+  .page.print-result-page .result-three-step .vscode-proof img.figimg{max-height:39mm}
+  .page.print-result-page .result-three-step .result-preview img.figimg{height:36mm; max-height:36mm}
+  .page.print-cli-page .cli-gui img.figimg{height:auto; max-height:34mm}
+  .page.print-check-page .vflow{margin-top:10px}
+  .page.print-check-page .vflow .vf{padding:7px 10px}
+  .page.print-check-page .vflow .vf b{font-size:9.6pt}
+  .page.print-check-page .vflow .vf span{font-size:8.8pt}
+  .page.print-check-page .vflow .varr{padding:2px 0; font-size:10pt}
+  .page.print-check-page .bridge{margin-top:10px; padding:9px 12px}
+  .page.print-check-page .bridge p{margin-top:5px; font-size:9pt; line-height:1.4}
+  .page.print-auth-page .auth-shots{gap:8px; margin-top:9px}
+  .page.print-auth-page .auth-shots img.figimg{height:36mm; max-height:36mm}
+  .page.print-auth-page .auth-shots figcaption{font-size:8pt}
+  .page.print-auth-page .auth-private-card{min-height:36mm; padding:7mm 6mm}
+  .page.print-auth-page .auth-private-card .auth-private-label{font-size:9pt; margin-bottom:3mm}
+  .page.print-auth-page .auth-private-card p{font-size:8.5pt; line-height:1.4}
+  .figstage{max-width:100%; margin:0 auto}
   .code pre{white-space:pre-wrap; word-break:break-word; font-size:9.5pt}
   .quiz details{display:block}
   .quiz details summary{display:none}

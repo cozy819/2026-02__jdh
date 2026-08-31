@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko" class="lang-ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>04-1. Matplotlib으로 그래프 이해하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 04-1 — Matplotlib으로 그래프 이해하기">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/textbook.css">
+</head>
+<body class="lang-ko">
+<div id="top">
+<button class="menu" onclick="tbToggleToc()">☰ 목차</button>
+<button id="modeBtn" onclick="tbToggleMode()">한 장씩 보기</button>
+<button class="lng" onclick="tbToggleLang()">中文</button>
+<div class="brand">
+<em>04-1</em> <span class="lesson">Matplotlib으로 그래프 이해하기</span>
+</div>
+<div class="spacer">
+</div>
+<div class="pct" id="count">1 / 1</div>
+<button class="pbtn" onclick="window.print()">인쇄</button>
+</div>
+<div id="prog">
+</div>
+<nav id="toc">
+<div class="h">
+<span class="ko">이 차시 — 04-1</span>
+<span class="zh">本课时 — 04-1</span>
+</div>
+<a href="#opener">
+<span class="n">·</span> 차시 표지</a>
+<a href="#s1">
+<span class="n">1</span> 라이브러리와 Matplotlib</a>
+<a href="#s2">
+<span class="n">2</span> 표와 그래프</a>
+<a href="#s3">
+<span class="n">3</span> 질문과 그래프</a>
+<a href="#s4">
+<span class="n">4</span> AI 요청</a>
+<a href="#s5">
+<span class="n">5</span> 원본과 비교</a>
+<a href="#s6">
+<span class="n">6</span> 그래프의 한계</a>
+<div class="h">
+<span class="ko">전체 차시</span>
+<span class="zh">全部课时</span>
+</div>
+<a href="../../index.html">
+<span class="n">표지</span> 전체 목차</a>
+<a href="../../01/textbook/01-1.html">
+<span class="n">01-1</span> 수업 소개</a>
+<a href="../../01/textbook/01-2.html">
+<span class="n">01-2</span> 수업 열기</a>
+<a href="../../02/textbook/02-1.html">
+<span class="n">02-1</span> 개발 도구 설치와 확인</a>
+<a href="../../02/textbook/02-2.html">
+<span class="n">02-2</span> 숫자와 변수로 계산하기</a>
+<a href="../../03/textbook/03-1.html">
+<span class="n">03-1</span> 비교 결과로 판단하기</a>
+<a href="../../03/textbook/03-2.html">
+<span class="n">03-2</span> 프로젝트별 Python 환경과 자료구조</a>
+<a href="../../04/textbook/04-1.html" class="here">
+<span class="n">04-1</span> Matplotlib으로 그래프 이해하기</a>
+<a href="../../04/textbook/04-2.html">
+<span class="n">04-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
+<a href="../../05/textbook/05-1.html">
+<span class="n">05-1</span> 수행평가 1 안내</a>
+<a href="../../05/textbook/05-2.html">
+<span class="n">05-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
+<a href="../../06/textbook/06-1.html">
+<span class="n">06-1</span> 서비스 기획의 기초</a>
+<a href="../../06/textbook/06-2.html">
+<span class="n">06-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
+<a href="../../07/textbook/07-1.html">
+<span class="n">07-1</span> 관계형 데이터베이스의 기초</a>
+<a href="../../07/textbook/07-2.html">
+<span class="n">07-2</span> PRD에 데이터 목록 덧붙이기</a>
+<a href="../../08/textbook/08-1.html">
+<span class="n">08-1</span> 수행평가 2 안내</a>
+<a href="../../08/textbook/08-2.html">
+<span class="n">08-2</span> 수행평가 2 · PRD 완성·제출</a>
+<a href="../../09/textbook/09-1.html">
+<span class="n">09-1</span> 서비스 사용자 흐름(Flow) 설계</a>
+<a href="../../09/textbook/09-2.html">
+<span class="n">09-2</span> AI와 사용자 흐름·개발 계획 확정</a>
+<a href="../../10/textbook/10-1.html">
+<span class="n">10-1</span> API와 요청·응답 이해하기</a>
+<a href="../../10/textbook/10-2.html">
+<span class="n">10-2</span> AI와 핵심 API 연결하기</a>
+<a href="../../11/textbook/11-1.html">
+<span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
+<a href="../../11/textbook/11-2.html">
+<span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
+<a href="../../12/textbook/12-1.html">
+<span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
+<a href="../../12/textbook/12-2.html">
+<span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
+<a href="../../13/textbook/13-1.html">
+<span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
+<a href="../../13/textbook/13-2.html">
+<span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
+<div class="h">
+<span class="ko">별도 자료</span>
+<span class="zh">单独资料</span>
+</div>
+<a href="../../09/textbook/09-0.html">
+<span class="n">9-0</span> AI 개발 조건</a>
+</nav>
+<div id="scrim" onclick="tbToggleToc(false)">
+</div>
+<main>
+<section class="page opener" id="opener">
+<div class="onum">
+<span class="ko">4회 · 첫째 차시</span>
+<span class="zh">第 4 次课 · 第 1 课时</span>
+</div>
+<h1>
+<span class="ko">Matplotlib으로 그래프 이해하기</span>
+<span class="zh">用 Matplotlib 理解图表</span>
+</h1>
+<div class="osub">
+<span class="ko">그래프 함수를 외우기보다 데이터와 그래프의 대응, 교사가 지정한 조건, 원본과의 일치를 확인합니다.</span>
+<span class="zh">不背绘图函数，重点确认数据与图表的对应、教师指定条件以及与原始数据的一致。</span>
+</div>
+<div class="abar">
+</div>
+<div class="ometa">
+<span class="ko">
+<b>이전 차시</b> · 3-2. 프로젝트별 Python 환경과 자료구조<br>
+<b>다음 차시</b> · 4-2. pandas로 표 데이터를 쉽게 사용하기</span>
+<span class="zh">
+<b>上一课时</b> · 3-2. 프로젝트별 Python 환경과 자료구조<br>
+<b>下一课时</b> · 4-2. pandas로 표 데이터를 쉽게 사용하기</span>
+</div>
+</section>
+<section class="page" id="s1">
+<div class="kick">
+<span class="ko">1. 도구</span>
+<span class="zh">1. 工具</span>
+<b>04-1</b>
+</div>
+<h2 class="title">
+<span class="ko">라이브러리는 이미 만들어진 기능의 묶음이다</span>
+<span class="zh">库是已经做好的功能集合</span>
+</h2>
+<p>
+<span class="ko">그래프의 축·선·글자를 모두 직접 만들 필요는 없습니다. 특정 작업에 필요한 기능을 모아 다른 프로그램에서 사용할 수 있게 만든 것을 라이브러리라고 합니다.</span>
+<span class="zh">无需亲手制作图表的轴、线与文字。把某类工作所需功能汇集起来供程序使用的东西叫库。</span>
+</p>
+<div class="code ">
+<pre>import matplotlib.pyplot as plt</pre>
+</div>
+<p>
+<span class="ko">Matplotlib은 Python에서 그래프를 그릴 때 널리 사용하는 라이브러리입니다. import는 이미 설치된 기능을 현재 코드에서 사용하겠다는 뜻입니다.</span>
+<span class="zh">Matplotlib 是 Python 中常用的绘图库。import 表示在当前代码中使用已安装的功能。</span>
+</p>
+<div class="note ok">
+<p>
+<span class="ko">설치와 import는 다른 작업입니다. 학생은 함수를 외워 처음부터 코드를 쓰지 않고 AI가 만든 데이터·그래프 종류·제목·축을 확인합니다.</span>
+<span class="zh">安装与 import 是不同操作。学生无需背函数从头写代码，而要检查 AI 生成的数据、图表类型、标题与坐标轴。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s2">
+<div class="kick">
+<span class="ko">2. 같은 데이터</span>
+<span class="zh">2. 同一数据</span>
+<b>04-1</b>
+</div>
+<h2 class="title">
+<span class="ko">표는 정확한 값을, 그래프는 관계를 보기 좋다</span>
+<span class="zh">表格适合读精确值，图表适合看关系</span>
+</h2>
+<div class="code ">
+<pre>days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+visitors = [18, 25, 21, 32, 29]</pre>
+</div>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">day</span>
+<span class="zh">day</span>
+</th>
+<th>
+<span class="ko">visitors</span>
+<span class="zh">visitors</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Tue</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Wed</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Thu</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Fri</td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<span class="ko">두 리스트에서 같은 위치의 값이 한 쌍입니다. Mon과 18, Tue와 25가 함께 사용됩니다.</span>
+<span class="zh">两个列表中相同位置的值是一对：Mon 与 18，Tue 与 25。</span>
+</p>
+<div class="note">
+<p>
+<span class="ko">표와 그래프는 서로를 완전히 대신하지 않습니다.</span>
+<span class="zh">表格与图表不能完全互相替代。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s3">
+<div class="kick">
+<span class="ko">3. 선택</span>
+<span class="zh">3. 选择</span>
+<b>04-1</b>
+</div>
+<h2 class="title">
+<span class="ko">알고 싶은 질문에 따라 그래프 모양이 달라진다</span>
+<span class="zh">图表类型取决于想回答的问题</span>
+</h2>
+<figure class="fig ">
+<img class="figimg" src="../../assets/img/04-1-01-chart-types.png" alt="막대·선·산점도·원그래프 모양 비교" data-id="04-1-01-chart-types" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+<figcaption>
+<span class="ko">질문에 따라 그래프 모양이 달라진다.</span>
+<span class="zh">图表类型随问题而变化。</span>
+</figcaption>
+</figure>
+<div class="tablewrap">
+<table class="kv">
+<thead>
+<tr>
+<th>
+<span class="ko">알고 싶은 것</span>
+<span class="zh">想知道什么</span>
+</th>
+<th>
+<span class="ko">알맞은 그래프</span>
+<span class="zh">合适图表</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="ko">항목의 크기 비교</span>
+<span class="zh">比较项目大小</span>
+</td>
+<td>
+<span class="ko">막대그래프</span>
+<span class="zh">柱状图</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ko">시간에 따른 변화</span>
+<span class="zh">随时间变化</span>
+</td>
+<td>
+<span class="ko">선그래프</span>
+<span class="zh">折线图</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ko">두 수치의 관계</span>
+<span class="zh">两个数值的关系</span>
+</td>
+<td>
+<span class="ko">산점도</span>
+<span class="zh">散点图</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note warn">
+<p>
+<span class="ko">수행평가에서는 학생이 그래프 종류를 고르지 않습니다. 교사가 데이터별 그래프와 표시 조건을 지정합니다.</span>
+<span class="zh">在表现评价中，学生不选择图表类型；教师会按数据指定图表与显示条件。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s4">
+<div class="kick">
+<span class="ko">4. AI 활용</span>
+<span class="zh">4. 使用 AI</span>
+<b>04-1</b>
+</div>
+<h2 class="title">
+<span class="ko">데이터와 완료 조건을 함께 요청한다</span>
+<span class="zh">同时说明数据与完成条件</span> <span class="badge lab">
+<span class="ko">실습</span>
+<span class="zh">实践</span>
+</span>
+</h2>
+<div class="code ">
+<div class="chd"><span class="fn"><span class="ko">OpenCode 요청문</span><span class="zh">OpenCode 请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
+<pre>Jupyter Notebook에서 실행할 짧은 Python 코드를 작성해 줘.
+Matplotlib을 사용해 요일별 이용 인원을 막대그래프로 보여 줘.
+
+요일: Mon, Tue, Wed, Thu, Fri
+이용 인원: 18, 25, 21, 32, 29
+
+- 가로축은 요일, 세로축은 이용 인원(명)
+- 세로축은 0에서 시작
+- 제목과 축 이름 표시
+- 원본 데이터는 바꾸지 않기</pre>
+</div>
+<ul class="blist">
+<li>
+<span class="ko">두 리스트가 원본과 같은가?</span>
+<span class="zh">两个列表与原始数据一致吗？</span>
+</li>
+<li>
+<span class="ko">막대그래프를 사용했는가?</span>
+<span class="zh">使用了柱状图吗？</span>
+</li>
+<li>
+<span class="ko">제목과 축 이름이 있는가?</span>
+<span class="zh">有标题与轴名称吗？</span>
+</li>
+<li>
+<span class="ko">세로축이 0에서 시작하는가?</span>
+<span class="zh">纵轴从 0 开始吗？</span>
+</li>
+</ul>
+</section>
+<section class="page" id="s5">
+<div class="kick">
+<span class="ko">5. 검증</span>
+<span class="zh">5. 验证</span>
+<b>04-1</b>
+</div>
+<h2 class="title">
+<span class="ko">그래프가 나타난 뒤 원본과 대조한다</span>
+<span class="zh">图表出现后要与原始数据核对</span>
+</h2>
+<p><span class="ko"><code>sample/notebooks/04-1_matplotlib_graph.ipynb</code>를 열고 준비된 셀을 위에서 아래로 실행합니다. 코드를 고치기보다 요청 조건과 원본 표가 그래프에 그대로 반영됐는지 확인합니다.</span><span class="zh">打开 <code>04-1_matplotlib_graph.ipynb</code> 并从上到下运行单元。重点确认请求条件与原始表格是否正确反映在图表中。</span></p>
+<figure class="fig print-medium"><img class="figimg" src="../../assets/img/04-1-04-visitors-bar.png" alt="요일별 이용 인원을 나타낸 막대그래프 실행 결과" data-id="04-1-04-visitors-bar" onerror="window.imgPlaceholder&&imgPlaceholder(this)"><figcaption><span class="ko">Notebook 셀을 실행하면 코드 아래에 그래프가 바로 나타납니다.</span><span class="zh">运行 Notebook 单元后，图表会直接显示在代码下方。</span></figcaption></figure>
+<ul class="checks">
+<li>
+<span class="ko">막대가 다섯 개인가?</span>
+<span class="zh">有五根柱吗？</span>
+</li>
+<li>
+<span class="ko">높이가 18·25·21·32·29와 맞는가?</span>
+<span class="zh">高度与 18、25、21、32、29 一致吗？</span>
+</li>
+<li>
+<span class="ko">가장 높은 막대가 목요일인가?</span>
+<span class="zh">最高的是星期四吗？</span>
+</li>
+<li>
+<span class="ko">제목·축 이름·단위가 보이는가?</span>
+<span class="zh">标题、轴名与单位可见吗？</span>
+</li>
+<li>
+<span class="ko">세로축이 0에서 시작하는가?</span>
+<span class="zh">纵轴从 0 开始吗？</span>
+</li>
+</ul>
+<div class="note ok">
+<p>
+<span class="ko">코드가 실행되었다는 사실만으로 정확하다고 판단하지 않습니다. 그래프와 원본 데이터가 일치해야 합니다.</span>
+<span class="zh">不能因为代码运行了就判断正确；图表必须与原始数据一致。</span>
+</p>
+</div>
+</section>
+<section class="page" id="s6">
+<div class="kick">
+<span class="ko">6. 판단</span>
+<span class="zh">6. 判断</span>
+<b>04-1</b>
+</div>
+<h2 class="title">
+<span class="ko">그래프는 사실을 자동으로 설명하지 않는다</span>
+<span class="zh">图表不会自动解释事实</span>
+</h2>
+<figure class="fig ">
+<img class="figimg" src="../../assets/img/04-1-02-axis-trick.png" alt="같은 데이터지만 세로축 시작점이 달라 인상이 달라지는 두 그래프" data-id="04-1-02-axis-trick" onerror="window.imgPlaceholder&&imgPlaceholder(this)">
+<figcaption>
+<span class="ko">같은 데이터도 축에 따라 인상이 달라진다.</span>
+<span class="zh">同一数据会因坐标轴而产生不同印象。</span>
+</figcaption>
+</figure>
+<ul class="blist">
+<li>
+<span class="ko">축을 높은 값에서 시작하면 작은 차이가 크게 보일 수 있다.</span>
+<span class="zh">纵轴从较高数值开始，会让小差异看起来很大。</span>
+</li>
+<li>
+<span class="ko">일부 기간만 고르면 전체 흐름과 다른 인상을 줄 수 있다.</span>
+<span class="zh">只选部分时期，会产生不同于整体的印象。</span>
+</li>
+<li>
+<span class="ko">단위와 출처가 없으면 숫자의 의미를 확인하기 어렵다.</span>
+<span class="zh">没有单位与来源，就难以确认数字含义。</span>
+</li>
+</ul>
+<div class="note ok">
+<p>
+<span class="ko">이 과목은 수학·데이터 분석 과목이 아닙니다. 깊은 통계 해석보다 요구한 그래프를 정확히 만들고 원본과 비교하는 것이 우선입니다.</span>
+<span class="zh">本课不是数学或数据分析课。优先任务是按要求准确完成图表并与原始数据核对，而非深入统计解释。</span>
+</p>
+</div>
+<div class="lessonnav">
+<a href="../../03/textbook/03-2.html">
+<span class="d">
+<span class="ko">← 이전</span>
+<span class="zh">← 上一课时</span>
+</span>
+<span class="t">3-2. 프로젝트별 Python 환경과 자료구조</span>
+</a>
+<a href="../../index.html">
+<span class="d">
+<span class="ko">목차</span>
+<span class="zh">目录</span>
+</span>
+<span class="t">
+<span class="ko">전체 목차로</span>
+<span class="zh">回到总目录</span>
+</span>
+</a>
+<a href="../../04/textbook/04-2.html">
+<span class="d">
+<span class="ko">다음 →</span>
+<span class="zh">下一课时 →</span>
+</span>
+<span class="t">4-2. pandas로 표 데이터를 쉽게 사용하기</span>
+</a>
+</div>
+</section>
+</main>
+<div id="pager">
+<button id="pprev">‹</button>
+<button id="pnext">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../../assets/textbook.js">
+</script>
+</body>
+</html>

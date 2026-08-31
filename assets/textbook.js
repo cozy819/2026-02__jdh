@@ -123,6 +123,60 @@
     if (s) s.classList.toggle('show', open);
   }
 
+  function structureToc() {
+    var toc = $('#toc');
+    if (!toc || toc.dataset.structured === '1') return;
+    var nodes = Array.prototype.slice.call(toc.children);
+    var groups = [];
+    var current = null;
+
+    nodes.forEach(function (node) {
+      if (node.classList && node.classList.contains('h')) {
+        current = { heading: node, items: [] };
+        groups.push(current);
+      } else if (current) {
+        current.items.push(node);
+      }
+    });
+
+    var local = groups.find(function (g) {
+      return /이 차시|本课时/.test(g.heading.textContent);
+    });
+    var global = groups.find(function (g) {
+      return /전체 차시|全部课时/.test(g.heading.textContent);
+    });
+    var extras = groups.find(function (g) {
+      return /별도 자료|单独资料/.test(g.heading.textContent);
+    });
+    if (!local || !global) return;
+
+    toc.innerHTML = '';
+    var globalBlock = document.createElement('div');
+    globalBlock.className = 'toc-block toc-global';
+    globalBlock.innerHTML = '<div class="toc-block-title"><span class="ko">전체 교과서</span><span class="zh">全部教材</span><small>01–13</small></div>';
+    global.items.forEach(function (node) { globalBlock.appendChild(node); });
+    if (extras) {
+      extras.heading.classList.add('toc-subhead');
+      globalBlock.appendChild(extras.heading);
+      extras.items.forEach(function (node) { globalBlock.appendChild(node); });
+    }
+
+    var appendixLink = document.createElement('a');
+    appendixLink.href = '../../appendix/textbook/glossary.html';
+    appendixLink.className = /\/appendix\/textbook\/glossary\.html$/.test(location.pathname) ? 'here' : '';
+    appendixLink.innerHTML = '<span class="n">부록</span><span class="ko">프로그램 뒤편의 이야기</span><span class="zh">程序背后的故事</span>';
+    globalBlock.appendChild(appendixLink);
+
+    var localBlock = document.createElement('div');
+    localBlock.className = 'toc-block toc-local';
+    localBlock.innerHTML = '<div class="toc-block-title"><span class="ko">이 문서 안에서</span><span class="zh">本文件内</span><small>PAGE</small></div>';
+    local.items.forEach(function (node) { localBlock.appendChild(node); });
+
+    toc.appendChild(globalBlock);
+    toc.appendChild(localBlock);
+    toc.dataset.structured = '1';
+  }
+
   function highlightToc(pageIdx) {
     var links = $$('#toc a[href^="#"]');
     if (!links.length || !pages[pageIdx]) return;
@@ -151,9 +205,9 @@
     if (!pre) return;
     var text = pre.innerText;
     var done = function () {
-      if (!btn.dataset.orig) btn.dataset.orig = btn.textContent;
-      btn.textContent = '복사됨';
-      setTimeout(function () { btn.textContent = btn.dataset.orig; }, 1300);
+      if (!btn.dataset.origHtml) btn.dataset.origHtml = btn.innerHTML;
+      btn.textContent = document.documentElement.classList.contains('lang-zh') ? '已复制' : '복사됨';
+      setTimeout(function () { btn.innerHTML = btn.dataset.origHtml; }, 1300);
     };
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(done, function () { fallback(pre, done); });
@@ -224,6 +278,7 @@
 
   /* ── 8. 시작 ─────────────────────────────────────────── */
   function init() {
+    structureToc();
     collectPages();
 
     // 저장된 설정 복원
