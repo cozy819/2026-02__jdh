@@ -35,8 +35,7 @@
 | `code/03_four_calculations.py` | 네 가지 기본 산술연산을 차례로 확인하는 준비 파일 |
 | `code/04_number_and_text.py` | `2 + 3`과 `'2' + '3'`의 결과를 비교하는 준비 파일 |
 | `code/05_variables.py` | 학생 A의 이름과 세 과목 합계를 변수로 표현하는 준비 파일 |
-| `code/02_numbers_and_variables.py` | 학생 A의 점수로 합계·평균을 예상하고 확인하는 예시 코드 |
-| `code/02_numbers_and_variables_changed.py` | 교사가 필요할 때만 보여 주는 예비 비교본 |
+| `code/06_numbers_and_variables.py` | 학생 A의 점수로 합계·평균을 예상하고 확인하는 예시 코드 |
 
 주의할 점:
 
@@ -64,7 +63,7 @@ uv run python code/02_first_result.py
 uv run python code/03_four_calculations.py
 uv run python code/04_number_and_text.py
 uv run python code/05_variables.py
-uv run python code/02_numbers_and_variables.py
+uv run python code/06_numbers_and_variables.py
 ```
 
 VS Code에서 Notebook을 열 때는 이 폴더의 `.venv`를 Python 환경으로 선택한다.
@@ -83,5 +82,6 @@ Notebook은 실행 결과가 저장된 상태로 배포되므로, 수업 전에 
 
 - `data/`: 2-1 복합 CSV와 2-2 성적표 CSV
 - `notebooks/`: 2-1 완성 예시 Notebook
-- `code/`: 2-2 학생용 예시 코드와 교사용 이미지 생성 스크립트
+- `code/`: 2-2에서 학생이 읽고 실행할 예시 코드
+- `teacher_tools/`: CSV·이미지를 다시 만들 때만 사용하는 교사용 생성 스크립트
 - `output/`: PPT에 넣을 이미지

@@ -145,7 +145,7 @@ math_score = 76</pre></div>
     <div class="kick"><span class="ko">6. 표를 계산으로</span><span class="zh">6. 把表格变成计算</span><b>02-2</b></div>
     <h2 class="title"><span class="ko">학생 A의 합계와 평균을 구한다</span><span class="zh">计算学生 A 的总分与平均分</span></h2>
     <p><span class="ko">성적표에서 학생 A의 숫자 세 개를 찾고, 같은 숫자가 코드에 올바른 이름으로 들어갔는지 먼저 대조합니다.</span><span class="zh">先在成绩表中找到学生 A 的三个数字，再核对代码中是否以正确名称使用了相同数字。</span></p>
-    <div class="code"><div class="chd"><span class="fn">02_numbers_and_variables.py</span></div><pre>korean_score = 82
+    <div class="code"><div class="chd"><span class="fn">06_numbers_and_variables.py</span></div><pre>korean_score = 82
 english_score = 91
 math_score = 76
 
@@ -216,6 +216,33 @@ print(average)</pre></div>
       <li><span class="ko">실행 전에 예상하고 실제 결과와 비교한다.</span><span class="zh">运行前先预测，再与实际结果比较。</span></li>
     </ul></div>
     <div class="bigq"><div class="qt"><span class="ko">이번 차시에서 기억할 문장</span><span class="zh">本课时要记住的一句话</span></div><p><span class="ko">AI가 코드를 만들 수 있어도, 어떤 값으로 무엇을 계산했는지는 사람이 확인해야 한다.</span><span class="zh">即使 AI 能生成代码，人也必须确认它用什么值做了什么计算。</span></p></div>
+  </section>
+
+  <section class="page" id="s10">
+    <div class="kick"><span class="ko">더 알아보기</span><span class="zh">进一步了解</span><b>02-2</b></div>
+    <h2 class="title"><span class="ko">Python은 CLI에서만 실행될까?</span><span class="zh">Python 只能在 CLI 中运行吗？</span></h2>
+    <p class="lead"><span class="ko"><b>아닙니다.</b> Python은 프로그래밍 언어의 이름입니다. 우리가 컴퓨터에 설치한 것은 그 언어로 적힌 코드를 읽고 실행하는 <b>Python 실행기(인터프리터)</b>입니다. 실행기는 운영체제 위에서 작동하며, CLI는 실행기에게 일을 시키고 글자 결과를 확인하는 <b>여러 방법 중 하나</b>입니다.</span><span class="zh"><b>不是。</b>Python 是一种编程语言的名称。我们安装到计算机上的，是读取并运行这种语言代码的 <b>Python 运行器（解释器）</b>。运行器在操作系统上工作，而 CLI 只是向运行器下达任务并查看文字结果的<b>多种方式之一</b>。</span></p>
+
+    <div class="steps"><div class="st-h"><span class="ko">Run 버튼을 누르면 뒤에서 일어나는 일</span><span class="zh">点击 Run 按钮后在后台发生的事情</span></div><ol>
+      <li><span class="ko">VS Code가 <code>python 06_numbers_and_variables.py</code>와 같은 실행 명령을 준비한다.</span><span class="zh">VS Code 准备类似 <code>python 06_numbers_and_variables.py</code> 的运行命令。</span></li>
+      <li><span class="ko">운영체제가 설치된 Python 실행기를 시작하고 파일을 전달한다.</span><span class="zh">操作系统启动已安装的 Python 运行器，并把文件交给它。</span></li>
+      <li><span class="ko">Python 실행기가 코드를 위에서부터 읽으며 계산한다.</span><span class="zh">Python 运行器从上到下读取代码并进行计算。</span></li>
+      <li><span class="ko"><code>print()</code>가 보낸 글자 결과를 VS Code의 터미널이 보여 준다.</span><span class="zh">VS Code 的终端显示 <code>print()</code> 送出的文字结果。</span></li>
+    </ol></div>
+
+    <div class="row output-ways">
+      <div class="pane"><div class="pt"><span class="ko">지금 만든 코드</span><span class="zh">现在编写的代码</span></div><p><code>print(total)</code></p><p><span class="ko">글자를 출력하도록 만들었기 때문에 <b>터미널</b>에서 결과를 본다.</span><span class="zh">因为程序被写成输出文字，所以在<b>终端</b>中查看结果。</span></p></div>
+      <div class="pane accent"><div class="pt"><span class="ko">화면을 만드는 코드</span><span class="zh">创建画面的代码</span></div><p><span class="ko">창·버튼·그림을 만드는 기능을 사용하면 결과를 <b>GUI 화면</b>으로 볼 수 있다.</span><span class="zh">使用创建窗口、按钮和图像的功能，就能在<b>GUI 画面</b>中查看结果。</span></p></div>
+    </div>
+
+    <div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">실행하거나 보는 곳</span><span class="zh">运行或查看的位置</span></th><th><span class="ko">결과가 나타나는 방식</span><span class="zh">结果显示方式</span></th></tr></thead><tbody>
+      <tr><td><b>터미널</b></td><td><span class="ko"><code>print()</code> 결과와 오류를 글자로 확인한다.</span><span class="zh">以文字查看 <code>print()</code> 的结果和错误。</span></td></tr>
+      <tr><td><b>Jupyter Notebook</b></td><td><span class="ko">코드 바로 아래에 표와 그래프가 나타날 수 있다.</span><span class="zh">表格和图表可以显示在代码正下方。</span></td></tr>
+      <tr><td><b>GUI 프로그램</b></td><td><span class="ko">별도의 창에서 버튼·글자·그림을 보여 줄 수 있다.</span><span class="zh">可以在独立窗口中显示按钮、文字和图像。</span></td></tr>
+      <tr><td><b>웹 프로그램</b></td><td><span class="ko">Python이 뒤에서 일하고, 사용자는 브라우저 화면을 본다.</span><span class="zh">Python 在后台工作，用户看到的是浏览器画面。</span></td></tr>
+    </tbody></table></div>
+
+    <div class="note ok"><p><span class="ko">Python이 CLI에서만 작동하는 것이 아닙니다. 지금은 가장 단순하게 실행 과정과 결과를 확인할 수 있어서 터미널을 사용하는 것입니다.</span><span class="zh">Python 并不是只能在 CLI 中运行。现在使用终端，是因为它最容易让我们确认运行过程和结果。</span></p></div>
     <div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">지금까지는 값을 저장하고 계산했습니다. 다음에는 두 값을 비교해 나온 <b>참과 거짓</b>을 이용하여 프로그램이 판단하는 방법을 살펴봅니다.</span><span class="zh">到目前为止，我们存储并计算了值。下一课将利用比较得到的<b>真与假</b>，观察程序如何作出判断。</span></p></div>
     <div class="lessonnav">
       <a href="../../02/textbook/02-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">2-1. 개발 도구 설치와 확인</span></a>

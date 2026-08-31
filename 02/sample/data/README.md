@@ -31,7 +31,7 @@
 ### 다시 만들기
 
 ```bash
-uv run python code/make_01_festival_data.py
+uv run python teacher_tools/make_01_festival_data.py
 ```
 
 고정 시드(`RANDOM_SEED = 20260830`)를 쓰므로 **몇 번을 실행해도 같은 CSV가 나온다.**
@@ -61,7 +61,7 @@ student,korean,english,math
 ```
 
 - **2-2 수업에서 이 CSV를 Python으로 읽지 않는다.** 화면에 표로 보여 주기만 한다.
-- 표의 숫자는 `code/02_numbers_and_variables.py`에 **직접 적혀 있다.**
+- 표의 숫자는 `code/06_numbers_and_variables.py`에 **직접 적혀 있다.**
 - 과목 수와 학생 수를 늘리지 않는다. 등수·석차·표준편차 같은 항목도 넣지 않는다.
 
 두 파일 모두 UTF-8로 저장한다.

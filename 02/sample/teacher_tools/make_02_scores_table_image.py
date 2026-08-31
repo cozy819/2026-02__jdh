@@ -3,7 +3,7 @@
 학생에게 보여 주는 예시 코드가 아니다. `output/02_subject_scores_table.png`를
 다시 만들어야 할 때만 실행한다.
 
-    uv run python code/make_02_scores_table_image.py
+    uv run python teacher_tools/make_02_scores_table_image.py
 """
 
 from pathlib import Path

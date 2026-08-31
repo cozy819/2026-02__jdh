@@ -29,13 +29,13 @@ cp output/01_festival_dashboard.png ../../assets/img/02-1-01-festival-dashboard.
 
 `data/02_subject_scores.csv`를 수업 화면용 표로 만든 이미지다.
 **학생 A의 행(국어 82 · 영어 91 · 수학 76)을 강조**해, 그 세 숫자가
-`code/02_numbers_and_variables.py`의 변수로 이어진다는 것을 보여 준다.
+`code/06_numbers_and_variables.py`의 변수로 이어진다는 것을 보여 준다.
 오른쪽 위에 `가상 자료` 표시를 넣어 개인정보가 아님을 화면에서 바로 알 수 있게 했다.
 
 다시 만들어야 할 때만 실행한다.
 
 ```bash
-uv run python code/make_02_scores_table_image.py
+uv run python teacher_tools/make_02_scores_table_image.py
 ```
 
 ## `00_visualization_preview_executed.html` — 2-1
