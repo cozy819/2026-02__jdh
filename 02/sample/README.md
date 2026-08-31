@@ -31,11 +31,11 @@
 |---|---|
 | `data/02_subject_scores.csv` | 가상 과목 성적표 (학생 5명 × 3과목) |
 | `output/02_subject_scores_table.png` | 수업 화면용 성적표 이미지, 학생 A의 행을 강조 |
-| `code/02_first_result.py` | `print(3 + 5)`를 실행해 첫 결과 `8`을 확인하는 준비 파일 |
-| `code/03_four_calculations.py` | 네 가지 기본 산술연산을 차례로 확인하는 준비 파일 |
-| `code/04_number_and_text.py` | `2 + 3`과 `'2' + '3'`의 결과를 비교하는 준비 파일 |
-| `code/05_variables.py` | 학생 A의 이름과 세 과목 합계를 변수로 표현하는 준비 파일 |
-| `code/06_numbers_and_variables.py` | 학생 A의 점수로 합계·평균을 예상하고 확인하는 예시 코드 |
+| `code/01_first_result.py` | `print(3 + 5)`를 실행해 첫 결과 `8`을 확인하는 준비 파일 |
+| `code/02_four_calculations.py` | 네 가지 기본 산술연산을 차례로 확인하는 준비 파일 |
+| `code/03_number_text_cases.py` | 숫자 덧셈, 문자열 연결, 글자와 숫자의 TypeError를 순서대로 확인하는 준비 파일 |
+| `code/04_variables.py` | 학생 A의 이름과 세 과목 합계를 변수로 표현하는 준비 파일 |
+| `code/05_numbers_and_variables.py` | 학생 A의 점수로 합계·평균을 예상하고 확인하는 예시 코드 |
 
 주의할 점:
 
@@ -59,11 +59,11 @@ uv sync
 uv run jupyter lab
 
 # 2-2 예시 코드 실행
-uv run python code/02_first_result.py
-uv run python code/03_four_calculations.py
-uv run python code/04_number_and_text.py
-uv run python code/05_variables.py
-uv run python code/06_numbers_and_variables.py
+uv run python code/01_first_result.py
+uv run python code/02_four_calculations.py
+uv run python code/03_number_text_cases.py
+uv run python code/04_variables.py
+uv run python code/05_numbers_and_variables.py
 ```
 
 VS Code에서 Notebook을 열 때는 이 폴더의 `.venv`를 Python 환경으로 선택한다.

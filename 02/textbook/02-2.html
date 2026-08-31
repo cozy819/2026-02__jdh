@@ -23,6 +23,7 @@
 <nav id="toc">
   <div class="h"><span class="ko">이 차시 — 02-2</span><span class="zh">本课时 — 02-2</span></div>
   <a href="#opener"><span class="n">·</span> 차시 표지</a>
+  <a href="#prep"><span class="n">준비</span> 수업 폴더와 자료</a>
   <a href="#s1"><span class="n">1</span> 표 속 숫자</a>
   <a href="#s2"><span class="n">2</span> 첫 실행</a>
   <a href="#s3"><span class="n">3</span> 네 가지 계산</a>
@@ -32,10 +33,12 @@
   <a href="#s7"><span class="n">7</span> 예상과 확인</a>
   <a href="#s8"><span class="n">8</span> AI에게 요청</a>
   <a href="#s9"><span class="n">9</span> 핵심 정리</a>
+  <a href="#s10"><span class="n">참고</span> Python 실행과 결과</a>
   <div class="h"><span class="ko">가까운 차시</span><span class="zh">相邻课时</span></div>
   <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
   <a href="../../02/textbook/02-1.html"><span class="n">02-1</span> 개발 도구 설치와 확인</a>
   <a href="../../02/textbook/02-2.html" class="here"><span class="n">02-2</span> 숫자와 변수로 계산하기</a>
+  <a href="../../02/textbook/02-3.html"><span class="n">02-3</span> 웹과 프로그래밍 언어의 역사</a>
   <a href="../../03/textbook/03-1.html"><span class="n">03-1</span> 비교 결과로 판단하기</a>
 </nav>
 <div id="scrim" onclick="tbToggleToc(false)"></div>
@@ -45,7 +48,32 @@
     <h1><span class="ko">숫자와 변수로 계산하기</span><span class="zh">用数字与变量进行计算</span></h1>
     <div class="osub"><span class="ko">처음부터 프로그램을 만들지 않습니다. 준비된 짧은 Python 파일을 읽고 실행하며, 코드가 정보를 표현하는 방법을 살펴봅니다.</span><span class="zh">不从头制作程序。阅读并运行准备好的简短 Python 文件，观察代码如何表达信息。</span></div>
     <div class="abar"></div>
-    <div class="ometa"><span class="ko"><b>이전 차시</b> · 2-1. 개발 도구 설치와 확인<br><b>다음 차시</b> · 3-1. 비교 결과로 판단하기</span><span class="zh"><b>上一课时</b> · 2-1. 安装并确认开发工具<br><b>下一课时</b> · 3-1. 根据比较结果作出判断</span></div>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 2-1. 개발 도구 설치와 확인<br><b>다음 차시</b> · 2-3. 웹과 프로그래밍 언어의 역사</span><span class="zh"><b>上一课时</b> · 2-1. 安装并确认开发工具<br><b>下一课时</b> · 2-3. 网络与编程语言的历史</span></div>
+  </section>
+
+  <section class="page folder-prep-page" id="prep">
+    <div class="kick"><span class="ko">수업 자료 준비</span><span class="zh">准备课堂资料</span><b>02-2</b></div>
+    <h2 class="title"><span class="ko">수업 자료를 먼저 내려받아 내 폴더에 정리한다</span><span class="zh">先下载课堂资料，再整理到自己的文件夹</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p class="lead"><span class="ko">먼저 아래 버튼으로 이번 차시의 자료를 내려받습니다. 압축을 푼 뒤 <b>문서</b> 폴더 안에 <code>JDH_VibeCoding_자기이름</code> 폴더를 만들고, 내려받은 <code>02</code> 폴더를 그 안에 넣습니다.</span><span class="zh">先用下方按钮下载本课资料。解压后，在<b>文档</b>文件夹中创建 <code>JDH_VibeCoding_自己的名字</code> 文件夹，再把下载得到的 <code>02</code> 文件夹放进去。</span></p>
+    <div class="folder-download-row">
+      <a class="download-cta" href="../../downloads/02_student_files.zip" download>
+        <span class="download-icon" aria-hidden="true">↓</span>
+        <span><b class="ko">02 학생용 자료 내려받기</b><b class="zh">下载 02 学生资料</b><small>02_student_files.zip</small></span>
+      </a>
+      <div class="download-note"><b><span class="ko">ZIP 파일이란?</span><span class="zh">什么是 ZIP 文件？</span></b><p><span class="ko">여러 파일과 폴더를 하나로 묶어 둔 압축 파일입니다. 내려받은 뒤 <b>압축 풀기</b>를 해야 안의 파일을 사용할 수 있습니다.</span><span class="zh">它是把多个文件和文件夹打包在一起的压缩文件。下载后必须<b>解压</b>才能使用其中的文件。</span></p></div>
+    </div>
+    <figure class="fig folder-structure-figure">
+      <img class="figimg" src="../../assets/img/02-2-00-course-folder-structure.png" alt="JDH_VibeCoding_자기이름 폴더 아래 02 폴더와 code, data, notebooks, output 하위 폴더가 있는 구조">
+      <figcaption><span class="ko">이번에는 <b>02</b> 폴더를 넣고, 다음 회차에는 같은 자리에 <b>03·04</b> 폴더를 추가한다.</span><span class="zh">本次放入 <b>02</b> 文件夹，之后在同一位置继续添加 <b>03、04</b> 文件夹。</span></figcaption>
+    </figure>
+    <div class="steps"><div class="st-h"><span class="ko">자료를 제자리에 넣기</span><span class="zh">把资料放到正确位置</span></div><ol>
+      <li><span class="ko">위의 주황색 버튼으로 <code>02_student_files.zip</code>을 내려받는다.</span><span class="zh">点击上方橙色按钮下载 <code>02_student_files.zip</code>。</span></li>
+      <li><span class="ko">내려받은 ZIP 파일에서 <b>마우스 오른쪽 버튼 → 압축 풀기</b>를 누른다.</span><span class="zh">在下载的 ZIP 文件上点击<b>鼠标右键 → 解压</b>。</span></li>
+      <li><span class="ko"><b>문서</b> 폴더를 열고 <code>JDH_VibeCoding_자기이름</code> 형식으로 폴더를 새로 만든다.</span><span class="zh">打开<b>文档</b>文件夹，按 <code>JDH_VibeCoding_自己的名字</code> 的格式新建文件夹。</span></li>
+      <li><span class="ko">압축을 풀어 생긴 <code>02</code> 폴더를 <code>JDH_VibeCoding_자기이름</code> 안으로 옮긴다.</span><span class="zh">把解压得到的 <code>02</code> 文件夹移动到 <code>JDH_VibeCoding_自己的名字</code> 中。</span></li>
+      <li><span class="ko">VS Code에서 <b>파일 → 폴더 열기</b>를 누르고 <code>JDH_VibeCoding_자기이름</code>을 연다.</span><span class="zh">在 VS Code 中点击<b>文件 → 打开文件夹</b>，打开 <code>JDH_VibeCoding_自己的名字</code>。</span></li>
+    </ol></div>
+    <div class="note ok"><p><span class="ko">폴더 이름은 교과서와 똑같이 쓰는 것이 좋습니다. 그래야 수업 화면과 내 화면을 비교하며 파일을 쉽게 찾을 수 있습니다.</span><span class="zh">建议文件夹名称与教材完全一致，这样更容易对照课堂画面找到文件。</span></p></div>
   </section>
 
   <section class="page" id="s1">
@@ -63,17 +91,17 @@
   <section class="page" id="s2">
     <div class="kick"><span class="ko">2. 첫 실행</span><span class="zh">2. 第一次运行</span><b>02-2</b></div>
     <h2 class="title"><span class="ko">실행 버튼을 누르면 결과가 나타난다</span><span class="zh">点击运行按钮后显示结果</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-    <p><span class="ko">이번에는 일반 Python 파일 <code>.py</code>를 사용합니다. 왼쪽 탐색기에서 <b>sample → code → 02_first_result.py</b>를 차례로 찾아 엽니다.</span><span class="zh">这次使用普通的 Python 文件 <code>.py</code>。在左侧资源管理器中依次找到并打开 <b>sample → code → 02_first_result.py</b>。</span></p>
+    <p><span class="ko">이번에는 일반 Python 파일 <code>.py</code>를 사용합니다. 왼쪽 탐색기에서 <b>sample → code → 01_first_result.py</b>를 차례로 찾아 엽니다.</span><span class="zh">这次使用普通的 Python 文件 <code>.py</code>。在左侧资源管理器中依次找到并打开 <b>sample → code → 01_first_result.py</b>。</span></p>
     <figure class="fig run-screen">
       <div class="run-shot">
-        <img class="figimg" src="../../assets/img/02-2-run-button-new.png" alt="VS Code에서 02_first_result.py 파일과 오른쪽 위 Run Python File 버튼의 위치">
+        <img class="figimg" src="../../assets/img/02-2-run-button-new.png" alt="VS Code에서 Python 파일과 오른쪽 위 Run Python File 버튼의 위치">
         <span class="shot-mark mark-file">①</span>
         <span class="shot-mark mark-run">②</span>
       </div>
-      <figcaption><span class="ko">① <b>02_first_result.py</b>를 연다. ② 편집기 오른쪽 위의 <b>▶ Run Python File</b>을 누른다.</span><span class="zh">① 打开 <b>02_first_result.py</b>。② 点击编辑器右上角的 <b>▶ Run Python File</b>。</span></figcaption>
+      <figcaption><span class="ko">① <b>01_first_result.py</b>를 연다. ② 편집기 오른쪽 위의 <b>▶ Run Python File</b>을 누른다.</span><span class="zh">① 打开 <b>01_first_result.py</b>。② 点击编辑器右上角的 <b>▶ Run Python File</b>。</span></figcaption>
     </figure>
     <div class="flow runflow">
-      <div class="f"><b><span class="ko">열 파일</span><span class="zh">打开文件</span></b><span>sample/code/<br><b>02_first_result.py</b></span></div><div class="farrow">→</div>
+      <div class="f"><b><span class="ko">열 파일</span><span class="zh">打开文件</span></b><span>sample/code/<br><b>01_first_result.py</b></span></div><div class="farrow">→</div>
       <div class="f"><b><span class="ko">누를 버튼</span><span class="zh">点击按钮</span></b><span>▶ Run Python File</span></div><div class="farrow">→</div>
       <div class="f"><b><span class="ko">확인할 결과</span><span class="zh">确认结果</span></b><span>TERMINAL · 8</span></div>
     </div>
@@ -95,7 +123,7 @@
       <tr><td><code>*</code></td><td><span class="ko">곱하기</span><span class="zh">乘</span></td><td><code>print(8 * 2)</code></td><td>16</td></tr>
       <tr><td><code>/</code></td><td><span class="ko">나누기</span><span class="zh">除</span></td><td><code>print(8 / 2)</code></td><td>4.0</td></tr>
     </tbody></table></div>
-    <div class="code"><div class="chd"><span class="fn">03_four_calculations.py</span></div><pre>print(8 + 2)
+    <div class="code"><div class="chd"><span class="fn">02_four_calculations.py</span></div><pre>print(8 + 2)
 print(8 - 2)
 print(8 * 2)
 print(8 / 2)</pre></div>
@@ -115,6 +143,10 @@ print(8 / 2)</pre></div>
       <div class="pane"><div class="pt"><span class="ko">문자열</span><span class="zh">字符串</span></div><div class="code"><pre>print('2' + '3')</pre></div><div class="answer"><span class="ko">결과</span><span class="zh">结果</span> <b>23</b></div><p><span class="ko">글자끼리 더하면 앞뒤로 잇는다.</span><span class="zh">文字相加会前后连接。</span></p></div>
       <div class="pane mismatch"><div class="pt"><span class="ko">글자 + 숫자</span><span class="zh">文字 + 数字</span></div><div class="code"><pre>print('2' + 3)</pre></div><div class="answer"><span class="ko">결과</span><span class="zh">结果</span> <b><span class="ko">오류</span><span class="zh">错误</span></b></div><p><span class="ko">종류가 달라 그대로 더할 수 없다.</span><span class="zh">类型不同，不能直接相加。</span></p></div>
     </div>
+    <div class="code"><div class="chd"><span class="fn">03_number_text_cases.py</span></div><pre>print(2 + 3)
+print('2' + '3')
+print('2' + 3)</pre></div>
+    <p><span class="ko">준비된 <code>03_number_text_cases.py</code>를 실행하면 앞의 두 줄은 정상적으로 실행되고, 마지막 줄에서 종류가 다른 값을 더하려 해 오류가 한 번 나타납니다.</span><span class="zh">运行准备好的 <code>03_number_text_cases.py</code> 时，前两行正常执行，最后一行因为相加的值类型不同而出现一次错误。</span></p>
     <div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">모양</span><span class="zh">形式</span></th><th><span class="ko">종류 이름</span><span class="zh">类型名称</span></th><th><span class="ko">오늘 확인할 것</span><span class="zh">今天要确认</span></th></tr></thead><tbody>
       <tr><td><code>2</code>, <code>3</code></td><td>int</td><td><span class="ko">계산할 수 있는 정수</span><span class="zh">可以计算的整数</span></td></tr>
       <tr><td><code>'2'</code>, <code>'3'</code></td><td>str</td><td><span class="ko">따옴표 안에 있는 글자</span><span class="zh">引号中的文字</span></td></tr>
@@ -130,10 +162,14 @@ print(8 / 2)</pre></div>
       <div class="pane"><div class="pt"><span class="ko">이름이 없을 때</span><span class="zh">没有名称时</span></div><div class="loose-values"><b>82</b><b>91</b><b>76</b></div><p><span class="ko">어떤 과목의 점수인지 알기 어렵다.</span><span class="zh">很难知道是哪一科的分数。</span></p></div>
       <div class="pane accent"><div class="pt"><span class="ko">이름이 있을 때</span><span class="zh">有名称时</span></div><div class="named-values"><span><i>korean_score</i><b>82</b></span><span><i>english_score</i><b>91</b></span><span><i>math_score</i><b>76</b></span></div></div>
     </div>
-    <div class="code"><div class="chd"><span class="fn">05_variables.py</span></div><pre>student_name = '학생 A'
+    <div class="code"><div class="chd"><span class="fn">04_variables.py</span></div><pre>student_name = '학생 A'
 korean_score = 82
 english_score = 91
-math_score = 76</pre></div>
+math_score = 76
+total = korean_score + english_score + math_score
+
+print(student_name)
+print(total)</pre></div>
     <div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">코드 한 줄</span><span class="zh">一行代码</span></th><th><span class="ko">자연어로 읽기</span><span class="zh">用自然语言阅读</span></th></tr></thead><tbody>
       <tr><td><code>student_name = '학생 A'</code></td><td><span class="ko">‘학생 A’라는 글자에 student_name이라는 이름을 붙인다.</span><span class="zh">给“学生 A”这段文字取名为 student_name。</span></td></tr>
       <tr><td><code>korean_score = 82</code></td><td><span class="ko">82라는 숫자에 korean_score라는 이름을 붙인다.</span><span class="zh">给数字 82 取名为 korean_score。</span></td></tr>
@@ -145,7 +181,7 @@ math_score = 76</pre></div>
     <div class="kick"><span class="ko">6. 표를 계산으로</span><span class="zh">6. 把表格变成计算</span><b>02-2</b></div>
     <h2 class="title"><span class="ko">학생 A의 합계와 평균을 구한다</span><span class="zh">计算学生 A 的总分与平均分</span></h2>
     <p><span class="ko">성적표에서 학생 A의 숫자 세 개를 찾고, 같은 숫자가 코드에 올바른 이름으로 들어갔는지 먼저 대조합니다.</span><span class="zh">先在成绩表中找到学生 A 的三个数字，再核对代码中是否以正确名称使用了相同数字。</span></p>
-    <div class="code"><div class="chd"><span class="fn">06_numbers_and_variables.py</span></div><pre>korean_score = 82
+    <div class="code"><div class="chd"><span class="fn">05_numbers_and_variables.py</span></div><pre>korean_score = 82
 english_score = 91
 math_score = 76
 
@@ -186,15 +222,17 @@ print(average)</pre></div>
 
   <section class="page" id="s8">
     <div class="kick"><span class="ko">8. AI와 함께 만들기</span><span class="zh">8. 与 AI 一起制作</span><b>02-2</b></div>
-    <h2 class="title"><span class="ko">요청한 뒤에는 파일을 열어 확인한다</span><span class="zh">提出请求后要打开文件确认</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-    <div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode 요청문</span><span class="zh">OpenCode 请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>학생 이름은 '학생 A'이고,
+    <h2 class="title"><span class="ko">OpenCode로 student_scores.py를 만든다</span><span class="zh">使用 OpenCode 创建 student_scores.py</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <div class="practice-start"><strong><span class="ko">AI 실습 시작</span><span class="zh">开始 AI 实践</span></strong><span><span class="ko">이번에는 준비된 파일을 실행하는 것이 아니라, AI에 요청해 새 Python 파일을 만듭니다.</span><span class="zh">这次不是运行准备好的文件，而是向 AI 提出请求并创建新的 Python 文件。</span></span></div>
+    <div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode 요청문</span><span class="zh">OpenCode 请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>code 폴더 안에 student_scores.py 파일을 만들어 줘.
+
+학생 이름은 '학생 A'이고,
 국어 점수는 82점, 영어 점수는 91점, 수학 점수는 76점이야.
 
 학생 이름과 세 과목의 합계, 평균을 print로 보여 주는
 짧은 Python 파일을 만들어 줘.
 변수 이름은 값의 뜻이 드러나게 하고,
 복잡한 기능은 사용하지 마.</pre></div>
-    <p><span class="ko">AI가 “완료했습니다”라고 답해도 아직 끝난 것이 아닙니다. 채팅 답변이 아니라 실제로 만들어진 <code>.py</code> 파일을 엽니다.</span><span class="zh">即使 AI 回答“已完成”，工作也还没结束。不要只看聊天回答，要打开实际生成的 <code>.py</code> 文件。</span></p>
     <div class="recap"><div class="rt"><span class="ko">사람이 확인할 것</span><span class="zh">人要确认的内容</span></div><ul>
       <li><span class="ko">숫자 82·91·76이 정확히 들어 있는가?</span><span class="zh">数字 82、91、76 是否正确？</span></li>
       <li><span class="ko"><code>'학생 A'</code>가 따옴표로 감싸져 있는가?</span><span class="zh"><code>'学生 A'</code> 是否被引号包围？</span></li>
@@ -211,6 +249,7 @@ print(average)</pre></div>
     <div class="recap"><div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div><ul>
       <li><span class="ko"><code>print()</code>는 값과 계산 결과를 화면에 보여 준다.</span><span class="zh"><code>print()</code> 会把值与计算结果显示在画面上。</span></li>
       <li><span class="ko">숫자끼리의 <code>+</code>는 계산하고, 문자열끼리의 <code>+</code>는 글자를 잇는다.</span><span class="zh">数字之间的 <code>+</code> 会计算，字符串之间的 <code>+</code> 会连接文字。</span></li>
+      <li><span class="ko">글자와 숫자를 바로 더하면 값의 종류가 달라 오류가 난다.</span><span class="zh">文字与数字直接相加时，因为类型不同会发生错误。</span></li>
       <li><span class="ko">변수는 값의 뜻을 알려 주는 이름표다.</span><span class="zh">变量是说明值含义的标签。</span></li>
       <li><span class="ko">AI가 만든 코드에서도 숫자·문자열·변수·계산식을 사람이 확인한다.</span><span class="zh">AI 生成的代码也要由人确认数字、字符串、变量与计算式。</span></li>
       <li><span class="ko">실행 전에 예상하고 실제 결과와 비교한다.</span><span class="zh">运行前先预测，再与实际结果比较。</span></li>
@@ -224,7 +263,7 @@ print(average)</pre></div>
     <p class="lead"><span class="ko"><b>아닙니다.</b> Python은 프로그래밍 언어의 이름입니다. 우리가 컴퓨터에 설치한 것은 그 언어로 적힌 코드를 읽고 실행하는 <b>Python 실행기(인터프리터)</b>입니다. 실행기는 운영체제 위에서 작동하며, CLI는 실행기에게 일을 시키고 글자 결과를 확인하는 <b>여러 방법 중 하나</b>입니다.</span><span class="zh"><b>不是。</b>Python 是一种编程语言的名称。我们安装到计算机上的，是读取并运行这种语言代码的 <b>Python 运行器（解释器）</b>。运行器在操作系统上工作，而 CLI 只是向运行器下达任务并查看文字结果的<b>多种方式之一</b>。</span></p>
 
     <div class="steps"><div class="st-h"><span class="ko">Run 버튼을 누르면 뒤에서 일어나는 일</span><span class="zh">点击 Run 按钮后在后台发生的事情</span></div><ol>
-      <li><span class="ko">VS Code가 <code>python 06_numbers_and_variables.py</code>와 같은 실행 명령을 준비한다.</span><span class="zh">VS Code 准备类似 <code>python 06_numbers_and_variables.py</code> 的运行命令。</span></li>
+      <li><span class="ko">VS Code가 <code>python 05_numbers_and_variables.py</code>와 같은 실행 명령을 준비한다.</span><span class="zh">VS Code 准备类似 <code>python 05_numbers_and_variables.py</code> 的运行命令。</span></li>
       <li><span class="ko">운영체제가 설치된 Python 실행기를 시작하고 파일을 전달한다.</span><span class="zh">操作系统启动已安装的 Python 运行器，并把文件交给它。</span></li>
       <li><span class="ko">Python 실행기가 코드를 위에서부터 읽으며 계산한다.</span><span class="zh">Python 运行器从上到下读取代码并进行计算。</span></li>
       <li><span class="ko"><code>print()</code>가 보낸 글자 결과를 VS Code의 터미널이 보여 준다.</span><span class="zh">VS Code 的终端显示 <code>print()</code> 送出的文字结果。</span></li>
@@ -243,11 +282,11 @@ print(average)</pre></div>
     </tbody></table></div>
 
     <div class="note ok"><p><span class="ko">Python이 CLI에서만 작동하는 것이 아닙니다. 지금은 가장 단순하게 실행 과정과 결과를 확인할 수 있어서 터미널을 사용하는 것입니다.</span><span class="zh">Python 并不是只能在 CLI 中运行。现在使用终端，是因为它最容易让我们确认运行过程和结果。</span></p></div>
-    <div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">지금까지는 값을 저장하고 계산했습니다. 다음에는 두 값을 비교해 나온 <b>참과 거짓</b>을 이용하여 프로그램이 판단하는 방법을 살펴봅니다.</span><span class="zh">到目前为止，我们存储并计算了值。下一课将利用比较得到的<b>真与假</b>，观察程序如何作出判断。</span></p></div>
+    <div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">다음에는 주소창의 <code>www</code>에서 시작해 인터넷과 웹, HTTP, 브라우저와 서버를 살펴보고, 천공카드에서 AI까지 프로그래밍 방식의 변화를 이어 봅니다.</span><span class="zh">下一课将从地址栏中的 <code>www</code> 开始，了解互联网、Web、HTTP、浏览器与服务器，再观察从穿孔卡到 AI 的编程方式变化。</span></p></div>
     <div class="lessonnav">
       <a href="../../02/textbook/02-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">2-1. 개발 도구 설치와 확인</span></a>
       <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
-      <a href="../../03/textbook/03-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">3-1. 비교 결과로 판단하기</span></a>
+      <a href="../../02/textbook/02-3.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">2-3. 웹과 프로그래밍 언어의 역사</span></a>
     </div>
   </section>
 </main>

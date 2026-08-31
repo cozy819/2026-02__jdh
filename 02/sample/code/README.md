@@ -7,11 +7,12 @@
 
 | 파일 | 내용 | 실행 결과 |
 |---|---|---|
-| `02_first_result.py` | 첫 Python 실행과 `print()` 확인 | `8` |
-| `03_four_calculations.py` | 더하기·빼기·곱하기·나누기 확인 | `10` / `6` / `16` / `4.0` |
-| `04_number_and_text.py` | 숫자 덧셈과 문자열 이어 붙이기 비교 | `5` / `23` |
-| `05_variables.py` | 학생 A의 이름과 세 점수 합계 확인 | `학생 A` / `249` |
-| `06_numbers_and_variables.py` | 학생 A의 세 점수로 합계·평균을 예상하고 확인 | `249` / `83.0` |
+| `01_first_result.py` | 첫 Python 실행과 `print()` 확인 | `8` |
+| `02_four_calculations.py` | 더하기·빼기·곱하기·나누기 확인 | `10` / `6` / `16` / `4.0` |
+| `03_number_text_cases.py` | 숫자 덧셈 → 문자열 이어 붙이기 → 글자와 숫자의 오류를 순서대로 확인 | `5` / `23` / `TypeError` |
+| `04_variables.py` | 학생 A의 이름과 세 점수 합계 확인 | `학생 A` / `249` |
+| `05_numbers_and_variables.py` | 학생 A의 세 점수로 합계·평균을 예상하고 확인 | `249` / `83.0` |
+| `student_scores.py` | OpenCode에 요청해 수업 중 새로 만드는 AI 실습 파일 · 배포 자료에는 미포함 | `학생 A` / `249` / `83.0` |
 
 ### 사용 범위
 
@@ -26,13 +27,15 @@
 ### 실행
 
 ```bash
-uv run python code/02_first_result.py
-uv run python code/03_four_calculations.py
-uv run python code/04_number_and_text.py
-uv run python code/05_variables.py
-uv run python code/06_numbers_and_variables.py
+uv run python code/01_first_result.py
+uv run python code/02_four_calculations.py
+uv run python code/03_number_text_cases.py
+uv run python code/04_variables.py
+uv run python code/05_numbers_and_variables.py
 ```
 
 VS Code에서는 파일을 열고 오른쪽 위의 `▶ Run Python File` 버튼을 누른다. 학생은 준비된 파일을 읽고 실행하며, 숫자나 계산식을 임의로 바꾸지 않는다.
+
+AI 실습에서는 OpenCode에 파일명을 포함해 요청하고, 생성된 `student_scores.py`를 `code` 폴더에서 연 뒤 같은 방법으로 실행한다.
 
 CSV와 수업용 이미지를 다시 만드는 스크립트는 학생용 코드와 섞이지 않도록 `teacher_tools/`로 분리했다.

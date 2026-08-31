@@ -123,6 +123,44 @@
     if (s) s.classList.toggle('show', open);
   }
 
+  /* 전체 교과서 목차는 각 HTML에 복사하지 않고 이 공통 스크립트에서만 관리한다. */
+  var COURSE_TOC_HTML = [
+    '<div class="toc-part"><span class="ko">1부 · 오리엔테이션</span><span class="zh">第 1 部 · 导论</span></div>',
+    '<a href="../../01/textbook/01-1.html"><span class="n">01-1</span><span>수업 소개</span></a>',
+    '<a href="../../01/textbook/01-2.html"><span class="n">01-2</span><span>수업 열기</span></a>',
+    '<div class="toc-part"><span class="ko">2부 · Python과 데이터</span><span class="zh">第 2 部 · Python 与数据</span></div>',
+    '<a href="../../02/textbook/02-1.html"><span class="n">02-1</span><span>개발 도구 설치와 확인</span></a>',
+    '<a href="../../02/textbook/02-2.html"><span class="n">02-2</span><span>숫자와 변수로 계산하기</span></a>',
+    '<a href="../../02/textbook/02-3.html"><span class="n">02-3</span><span>웹과 프로그래밍 언어의 역사</span></a>',
+    '<a href="../../03/textbook/03-1.html"><span class="n">03-1</span><span>비교 결과로 판단하기</span></a>',
+    '<a href="../../03/textbook/03-2.html"><span class="n">03-2</span><span>프로젝트별 Python 환경과 자료구조</span></a>',
+    '<a href="../../04/textbook/04-1.html"><span class="n">04-1</span><span>Matplotlib으로 그래프 이해하기</span></a>',
+    '<a href="../../04/textbook/04-2.html"><span class="n">04-2</span><span>pandas로 표 데이터를 쉽게 사용하기</span></a>',
+    '<a href="../../05/textbook/05-1.html"><span class="n">05-1</span><span>수행평가 1 안내</span></a>',
+    '<a href="../../05/textbook/05-2.html"><span class="n">05-2</span><span>수행평가 1 · AI 활용 데이터 시각화</span></a>',
+    '<div class="toc-part"><span class="ko">3부 · 기획과 데이터 설계</span><span class="zh">第 3 部 · 规划与数据设计</span></div>',
+    '<a href="../../06/textbook/06-1.html"><span class="n">06-1</span><span>서비스 기획의 기초</span></a>',
+    '<a href="../../06/textbook/06-2.html"><span class="n">06-2</span><span>서비스 제작 계획서(PRD) 시작하기</span></a>',
+    '<a href="../../07/textbook/07-1.html"><span class="n">07-1</span><span>관계형 데이터베이스의 기초</span></a>',
+    '<a href="../../07/textbook/07-2.html"><span class="n">07-2</span><span>PRD에 데이터 목록 덧붙이기</span></a>',
+    '<a href="../../08/textbook/08-1.html"><span class="n">08-1</span><span>수행평가 2 안내</span></a>',
+    '<a href="../../08/textbook/08-2.html"><span class="n">08-2</span><span>수행평가 2 · PRD 완성·제출</span></a>',
+    '<div class="toc-part"><span class="ko">4부 · AI와 서비스 개발</span><span class="zh">第 4 部 · 与 AI 开发服务</span></div>',
+    '<a href="../../09/textbook/09-1.html"><span class="n">09-1</span><span>서비스 사용자 흐름(Flow) 설계</span></a>',
+    '<a href="../../09/textbook/09-2.html"><span class="n">09-2</span><span>AI와 사용자 흐름·개발 계획 확정</span></a>',
+    '<a href="../../10/textbook/10-1.html"><span class="n">10-1</span><span>API와 요청·응답 이해하기</span></a>',
+    '<a href="../../10/textbook/10-2.html"><span class="n">10-2</span><span>AI와 핵심 API 연결하기</span></a>',
+    '<a href="../../11/textbook/11-1.html"><span class="n">11-1</span><span>서비스가 데이터를 기억하는 과정</span></a>',
+    '<a href="../../11/textbook/11-2.html"><span class="n">11-2</span><span>SQLite 데이터 저장 연결하기</span></a>',
+    '<a href="../../12/textbook/12-1.html"><span class="n">12-1</span><span>사용자 흐름으로 서비스 테스트하기</span></a>',
+    '<a href="../../12/textbook/12-2.html"><span class="n">12-2</span><span>사용자 흐름 테스트와 시험 제출</span></a>',
+    '<a href="../../13/textbook/13-1.html"><span class="n">13-1</span><span>수행평가 3 · 결과 반영과 가다듬기</span></a>',
+    '<a href="../../13/textbook/13-2.html"><span class="n">13-2</span><span>수행평가 3 · 실행·설명·최종 제출</span></a>',
+    '<div class="toc-part"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>',
+    '<a href="../../09/textbook/09-0.html"><span class="n">09-0</span><span>AI 개발 조건</span></a>',
+    '<a href="../../appendix/textbook/glossary.html"><span class="n">부록</span><span>프로그램 뒤편의 이야기</span></a>'
+  ].join('');
+
   function structureToc() {
     var toc = $('#toc');
     if (!toc || toc.dataset.structured === '1') return;
@@ -140,32 +178,18 @@
     });
 
     var local = groups.find(function (g) {
-      return /이 차시|本课时/.test(g.heading.textContent);
+      return /이 차시|이 자료|本课时|本资料/.test(g.heading.textContent);
     });
-    var global = groups.find(function (g) {
-      return /전체 차시|全部课时/.test(g.heading.textContent);
-    });
-    var extras = groups.find(function (g) {
-      return /별도 자료|单独资料/.test(g.heading.textContent);
-    });
-    if (!local || !global) return;
+    if (!local) return;
 
     toc.innerHTML = '';
     var globalBlock = document.createElement('div');
     globalBlock.className = 'toc-block toc-global';
     globalBlock.innerHTML = '<div class="toc-block-title"><span class="ko">전체 교과서</span><span class="zh">全部教材</span><small>01–13</small></div>';
-    global.items.forEach(function (node) { globalBlock.appendChild(node); });
-    if (extras) {
-      extras.heading.classList.add('toc-subhead');
-      globalBlock.appendChild(extras.heading);
-      extras.items.forEach(function (node) { globalBlock.appendChild(node); });
-    }
-
-    var appendixLink = document.createElement('a');
-    appendixLink.href = '../../appendix/textbook/glossary.html';
-    appendixLink.className = /\/appendix\/textbook\/glossary\.html$/.test(location.pathname) ? 'here' : '';
-    appendixLink.innerHTML = '<span class="n">부록</span><span class="ko">프로그램 뒤편의 이야기</span><span class="zh">程序背后的故事</span>';
-    globalBlock.appendChild(appendixLink);
+    globalBlock.insertAdjacentHTML('beforeend', COURSE_TOC_HTML);
+    Array.prototype.forEach.call(globalBlock.querySelectorAll('a'), function (link) {
+      if (link.pathname === location.pathname) link.classList.add('here');
+    });
 
     var localBlock = document.createElement('div');
     localBlock.className = 'toc-block toc-local';
