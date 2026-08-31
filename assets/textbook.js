@@ -125,6 +125,7 @@
 
   /* 전체 교과서 목차는 각 HTML에 복사하지 않고 이 공통 스크립트에서만 관리한다. */
   var COURSE_TOC_HTML = [
+    '<a class="toc-home" href="../../index.html#cover"><span class="n">처음</span><span class="ko">교과서 첫 화면</span><span class="zh">教材首页</span></a>',
     '<div class="toc-part"><span class="ko">1부 · 오리엔테이션</span><span class="zh">第 1 部 · 导论</span></div>',
     '<a href="../../01/textbook/01-1.html"><span class="n">01-1</span><span>수업 소개</span></a>',
     '<a href="../../01/textbook/01-2.html"><span class="n">01-2</span><span>수업 열기</span></a>',
@@ -302,6 +303,8 @@
 
   /* ── 8. 시작 ─────────────────────────────────────────── */
   function init() {
+    // 다른 차시로 이동했을 때 이전 문서의 스크롤 위치를 이어받지 않는다.
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
     structureToc();
     collectPages();
 
@@ -325,7 +328,11 @@
 
     applyLangBtn();
     applyMode();
-    if (!slideMode && hs && pages[cur]) pages[cur].scrollIntoView({ block: 'start' });
+    if (!slideMode) {
+      if (hs && pages[cur]) pages[cur].scrollIntoView({ block: 'start' });
+      else window.scrollTo(0, 0);
+      updateScrollProgress();
+    }
 
     // 슬라이드 모드 이동 버튼
     var pv = $('#pprev'), nx = $('#pnext');
