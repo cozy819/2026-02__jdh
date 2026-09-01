@@ -30,6 +30,9 @@
   <a href="#s5"><span class="n">2-1</span> 설치 상태 먼저 확인</a>
   <a href="#s5b"><span class="n">2-2</span> Node.js가 없을 때</a>
   <a href="#s6"><span class="n">2-3</span> OpenCode 설치</a>
+  <a href="#s6a"><span class="n">2-4</span> 오류 문장 읽기</a>
+  <a href="#s6b"><span class="n">2-5</span> PATH 복구</a>
+  <a href="#s6c"><span class="n">2-6</span> 다른 오류 구분</a>
   <a href="#s7"><span class="n">3-1</span> VS Code 설치</a>
   <a href="#s7b"><span class="n">3-2</span> VS Code 화면</a>
   <a href="#s7c"><span class="n">3-3</span> Python 확장 설치</a>
@@ -37,6 +40,8 @@
   <a href="#s8b"><span class="n">4-2</span> API 키·모델 선택</a>
   <a href="#s9"><span class="n">5</span> 첫 대화</a>
   <a href="#s10"><span class="n">6</span> 준비 완료</a>
+  <a href="#s11"><span class="n">7-1</span> 실행 후 중복 점검</a>
+  <a href="#s11b"><span class="n">7-2</span> 결과 판단</a>
   <div class="h"><span class="ko">가까운 차시</span><span class="zh">相邻课时</span></div>
   <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
   <a href="../../01/textbook/01-2.html"><span class="n">01-2</span> 수업 열기</a>
@@ -206,13 +211,59 @@ npm --version</pre></div>
 npm --version
 opencode --version</pre></div>
     <div class="grow"></div>
-    <div class="note"><p><span class="ko"><code>npm</code>은 Node.js와 함께 설치된 도구입니다. 이번 차시는 이름과 역할만 알고, 사용법을 따로 외우지 않습니다. 세 줄에서 모두 버전 번호가 보이면 다음 VS Code 단계로 갑니다.</span><span class="zh"><code>npm</code> 是随 Node.js 一起安装的工具。本课时只需知道名称和作用，不必另外背使用方法。三行都显示版本号后，进入下一步 VS Code。</span></p></div>
+    <div class="note"><p><span class="ko"><code>npm</code>은 Node.js와 함께 설치된 도구입니다. 이번 차시는 이름과 역할만 알고, 사용법을 따로 외우지 않습니다. <code>opencode --version</code>에서 버전 번호가 보이면 VS Code 단계로 갑니다. <b><code>CommandNotFoundException</code>이 보이면 다음 쪽으로 갑니다.</b></span><span class="zh"><code>npm</code> 是随 Node.js 一起安装的工具。本课时只需知道名称和作用，不必另外背使用方法。如果 <code>opencode --version</code> 显示版本号，就进入 VS Code 步骤。<b>如果出现 <code>CommandNotFoundException</code>，请进入下一页。</b></span></p></div>
   </section>
 
-  <section class="page" id="s6_2">
-    <div class="kick"><span class="ko">2. OpenCode · 설치</span><span class="zh">2. OpenCode · 安装</span><b>02-1</b></div>
-    <h2 class="title"><span class="ko">AI와 대화할 OpenCode를 설치한다</span><span class="zh">安装用于和 AI 对话的 OpenCode</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-    <p class="lead"><span class="ko">앞쪽의 설치 명령이 정상적으로 끝났다면 이 페이지의 명령은 실행하지 않습니다. 아래와 같은 실행 차단 메시지가 실제로 나온 학생만 확인합니다.</span><span class="zh">如果前一页的安装命令正常完成，请不要执行本页命令。只有实际出现下面这类脚本阻止信息的学生才需要确认。</span></p>
+  <section class="page print-tight opencode-error-page" id="s6a">
+    <div class="kick"><span class="ko">2. OpenCode · 오류 읽기</span><span class="zh">2. OpenCode · 阅读错误</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">설치는 됐지만 PowerShell이 명령의 위치를 찾지 못했다</span><span class="zh">已经安装，但 PowerShell 没有找到命令的位置</span></h2>
+    <p class="lead"><span class="ko"><code>npm install -g opencode-ai</code>가 정상적으로 끝나도 아래 오류가 나올 수 있습니다. 빨간 글자 전체를 외우지 말고, 세 부분만 읽습니다.</span><span class="zh">即使 <code>npm install -g opencode-ai</code> 正常完成，也可能出现下面的错误。不用背下全部红字，只读三个部分。</span></p>
+    <div class="error-reading-grid">
+      <div class="code term error-terminal"><div class="chd"><span class="fn">PowerShell · <span class="ko">수업 중 나온 오류</span><span class="zh">课堂上出现的错误</span></span></div><pre><span class="terminal-command">PS&gt; opencode --version</span>
+<span class="terminal-error">opencode : 'opencode' 용어가 cmdlet, 함수, 스크립트 파일 또는
+실행할 수 있는 프로그램 이름으로 인식되지 않습니다.
+CategoryInfo : ObjectNotFound
+FullyQualifiedErrorId : CommandNotFoundException</span></pre></div>
+      <div class="error-parts">
+        <div><b>1. <code>opencode</code></b><span class="ko">무엇을 찾다가 실패했는지</span><span class="zh">找什么时失败</span></div>
+        <div><b>2. <span class="ko">인식되지 않습니다</span><span class="zh">无法识别</span></b><span class="ko">PowerShell이 명령의 위치를 모른다</span><span class="zh">PowerShell 不知道命令在哪里</span></div>
+        <div><b>3. <code>CommandNotFoundException</code></b><span class="ko">명령을 찾지 못했다는 오류 종류</span><span class="zh">找不到命令的错误类型</span></div>
+      </div>
+    </div>
+    <div class="grow"></div>
+    <div class="note warn compact-note"><div class="nt"><span class="ko">이 문장만으로는 설치 실패라고 단정하지 않는다</span><span class="zh">不能只根据这句话就断定安装失败</span></div><p><span class="ko">Windows의 <b>PATH</b>는 명령 프로그램을 찾을 때 보는 ‘주소록’입니다. OpenCode가 npm 폴더에 설치되었어도 그 폴더가 PATH에 없거나, 이미 열려 있던 PowerShell이 변경된 PATH를 아직 읽지 못하면 이 오류가 납니다.</span><span class="zh">Windows 的 <b>PATH</b> 是查找命令程序时使用的“地址簿”。即使 OpenCode 已安装到 npm 文件夹，如果该文件夹不在 PATH 中，或已打开的 PowerShell 还没有重新读取 PATH，就会出现此错误。</span></p></div>
+  </section>
+
+  <section class="page print-tight opencode-path-page" id="s6b">
+    <div class="kick"><span class="ko">2. OpenCode · PATH 복구</span><span class="zh">2. OpenCode · 修复 PATH</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">npm이 사용한 위치를 PATH에 한 번만 추가한다</span><span class="zh">将 npm 使用的位置只添加一次到 PATH</span></h2>
+    <p class="lead"><span class="ko">학생 이름이 들어간 경로를 직접 적지 않고, <code>npm config get prefix</code>로 <b>현재 컴퓨터의 실제 npm 설치 위치</b>를 읽습니다.</span><span class="zh">不手动输入带学生名称的路径，而是用 <code>npm config get prefix</code> 读取<b>当前电脑上 npm 的实际安装位置</b>。</span></p>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">먼저 설치 위치와 파일을 확인</span><span class="zh">先确认安装位置和文件</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>$npmPrefix = (npm config get prefix).Trim()
+$npmPrefix
+Test-Path (Join-Path $npmPrefix "opencode.cmd")</pre></div>
+    <div class="row compact-path-results"><div class="pane accent"><div class="pt"><code>True</code></div><p><span class="ko">OpenCode 명령 파일은 있습니다. 아래 명령으로 PATH만 복구합니다.</span><span class="zh">OpenCode 命令文件存在。只需用下面的命令修复 PATH。</span></p></div><div class="pane"><div class="pt"><code>False</code></div><p><span class="ko">명령 파일이 없습니다. <code>npm install -g opencode-ai</code>를 다시 확인합니다.</span><span class="zh">命令文件不存在。重新确认 <code>npm install -g opencode-ai</code>。</span></p></div></div>
+    <div class="code term path-fix-code"><div class="chd"><span class="fn">PowerShell · <span class="ko"><code>True</code>일 때 PATH에 중복 없이 추가</span><span class="zh">当结果为 <code>True</code> 时，不重复地添加到 PATH</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>$npmPrefix = (npm config get prefix).Trim()
+[string]$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+$pathItems = @(
+    ($userPath -split ";") |
+    ForEach-Object { $_.Trim() } |
+    Where-Object { $_ }
+)
+
+if ($pathItems -notcontains $npmPrefix) {
+    $newUserPath = (($pathItems + $npmPrefix) -join ";")
+    [Environment]::SetEnvironmentVariable("Path", $newUserPath, "User")
+}</pre></div>
+    <p class="path-reopen"><span class="ko">명령이 끝나면 <b>PowerShell과 VS Code를 완전히 닫고 새로 엽니다.</b> 새 PowerShell에서 두 줄을 실행합니다.</span><span class="zh">命令完成后，<b>完全关闭 PowerShell 和 VS Code，再重新打开。</b>在新的 PowerShell 中运行下面两行。</span></p>
+    <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">새 창에서 최종 확인</span><span class="zh">在新窗口中最终确认</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>where.exe opencode
+opencode --version</pre></div>
+    <div class="note ok compact-note"><div class="nt"><span class="ko">왜 이 방식을 쓰나?</span><span class="zh">为什么使用这种方式？</span></div><p><span class="ko"><code>C:\Users\student...</code>처럼 특정 학생의 경로를 고정하지 않습니다. 컴퓨터마다 실제 경로를 읽고, 이미 PATH에 있는 경로는 다시 추가하지 않습니다.</span><span class="zh">不会像 <code>C:\Users\student...</code> 那样固定某个学生的路径。它会读取每台电脑的实际路径，并且不会重复添加已在 PATH 中的路径。</span></p></div>
+  </section>
+
+  <section class="page" id="s6c">
+    <div class="kick"><span class="ko">2. OpenCode · 다른 오류 구분</span><span class="zh">2. OpenCode · 区分其他错误</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">오류 문장이 다르면 해결 명령도 다르다</span><span class="zh">错误信息不同，解决命令也不同</span></h2>
+    <p class="lead"><span class="ko"><code>CommandNotFoundException</code>을 해결하는 PATH 명령과 아래의 스크립트 실행 정책 명령은 서로 다릅니다. 아래와 같은 차단 문장이 실제로 나온 학생만 실행합니다.</span><span class="zh">用于解决 <code>CommandNotFoundException</code> 的 PATH 命令，与下面的脚本执行策略命令不同。只有实际出现下面拦截信息的学生才执行。</span></p>
     <div class="note warn"><div class="nt"><span class="ko">오류가 실제로 나타날 때만 실행한다</span><span class="zh">仅在实际出现错误时执行</span></div><p><span class="ko"><code>npm.ps1 cannot be loaded because running scripts is disabled</code>와 같은 차단 메시지가 나오면 아래 명령을 한 번 입력합니다.</span><span class="zh">若出现 <code>npm.ps1 cannot be loaded because running scripts is disabled</code> 等拦截信息，只需输入一次下面的命令。</span></p></div>
     <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">스크립트 실행이 차단된 경우에만</span><span class="zh">仅在脚本被阻止时</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</pre></div>
     <div class="steps compact-steps"><div class="st-h"><span class="ko">차단을 풀고 다시 확인하기</span><span class="zh">解除阻止后再次确认</span></div><ol>
@@ -337,13 +388,73 @@ opencode --version</pre></div>
       <li><span class="ko">VS Code 터미널에서 OpenCode의 첫 응답을 확인했다.</span><span class="zh">已在 VS Code 终端确认 OpenCode 的第一次回答。</span></li>
     </ul></div>
     <div class="bigq"><div class="qt"><span class="ko">이번 차시에서 기억할 문장</span><span class="zh">本课时要记住的一句话</span></div><p><span class="ko">CLI는 무서운 검은 화면이 아니라, 컴퓨터와 AI에게 짧은 문장으로 요청하고 응답을 읽는 창이다.</span><span class="zh">CLI 不是可怕的黑色画面，而是用短句向电脑和 AI 提出请求并阅读回应的窗口。</span></p></div>
-    <div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">도구 준비가 끝났습니다. 다음에는 준비된 Python 파일을 읽고 실행하면서 <b>숫자·글자·변수·계산</b>이 어떻게 정보가 되는지 살펴봅니다.</span><span class="zh">工具已经准备好。下一课将读取并运行准备好的 Python 文件，观察<b>数字、文字、变量与计算</b>如何表达信息。</span></p></div>
+    <div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">환경 점검이 끝났습니다. 다음에는 준비된 Python 파일을 읽고 실행하면서 <b>숫자·글자·변수·계산</b>이 어떻게 정보가 되는지 살펴봅니다.</span><span class="zh">环境检查完成。下一课将读取并运行准备好的 Python 文件，观察<b>数字、文字、变量与计算</b>如何表达信息。</span></p></div>
+  </section>
+
+  <section class="page print-tight" id="s11">
+    <div class="kick"><span class="ko">7. 교사용 사후 점검</span><span class="zh">7. 教师课后检查</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">OpenCode는 실행되지만 임시 PATH 등록의 중복을 확인한다</span><span class="zh">OpenCode 可以运行，但需检查临时 PATH 是否重复登记</span> <span class="badge ext"><span class="ko">교사용</span><span class="zh">教师用</span></span></h2>
+    <p class="lead"><span class="ko">이 절차는 <b><code>opencode --version</code>이 이미 정상 작동하는 PC</b>를 대상으로 합니다. 지난 수업의 임시 명령이 사용자 PATH에 같은 npm 경로를 여러 번 넣었는지만 확인하고, 중복이 있을 때만 하나로 정리합니다.</span><span class="zh">此步骤面向<b><code>opencode --version</code> 已能正常运行的电脑</b>。它只检查上节课的临时命令是否在用户 PATH 中重复添加了相同的 npm 路径，并仅在出现重复时整理为一项。</span></p>
+    <div class="note warn compact-note"><div class="nt"><span class="ko">앞쪽 오류 복구와 다른 절차</span><span class="zh">与前面的错误修复步骤不同</span></div><p><span class="ko">이 명령은 OpenCode를 설치하거나 누락된 PATH를 새로 추가하지 않습니다. <code>npm config get prefix</code>로 PC별 실제 경로를 자동으로 가져오므로 모든 PC에서 명령을 고치지 않고 그대로 실행합니다.</span><span class="zh">此命令不会安装 OpenCode，也不会新增缺失的 PATH。它会通过 <code>npm config get prefix</code> 自动取得每台电脑的实际路径，因此所有电脑都可直接运行，无需修改命令。</span></p></div>
+    <div class="code term path-fix-code"><div class="chd"><span class="fn">PowerShell · <span class="ko">실행 중인 모든 PC에서 같은 사후 점검 명령 사용</span><span class="zh">在所有已能运行的电脑上使用同一检查命令</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>$npmPrefix = (npm config get prefix).Trim()
+$normalized = $npmPrefix.TrimEnd([IO.Path]::DirectorySeparatorChar)
+[string]$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+
+$pathItems = @(
+    ($userPath -split ";") |
+    ForEach-Object { $_.Trim() } |
+    Where-Object { $_ }
+)
+
+$sameItems = @(
+    $pathItems |
+    Where-Object { $_.TrimEnd([IO.Path]::DirectorySeparatorChar) -ieq $normalized }
+)
+$beforeCount = $sameItems.Count
+
+if ($beforeCount -gt 1) {
+    $otherItems = @(
+        $pathItems |
+        Where-Object { $_.TrimEnd([IO.Path]::DirectorySeparatorChar) -ine $normalized }
+    )
+    $newUserPath = (($otherItems + $npmPrefix) -join ";")
+    [Environment]::SetEnvironmentVariable("Path", $newUserPath, "User")
+    $afterCount = 1
+    $result = "중복된 npm 경로를 하나로 정리했습니다."
+} else {
+    $afterCount = $beforeCount
+    $result = "중복이 없어 PATH를 변경하지 않았습니다."
+}
+
+Write-Host $result -ForegroundColor Green
+Write-Host "npm 경로: $npmPrefix"
+Write-Host "정리 전 사용자 PATH 등록 횟수: $beforeCount"
+Write-Host "정리 후 사용자 PATH 등록 횟수: $afterCount"
+where.exe opencode
+opencode --version</pre></div>
+  </section>
+
+  <section class="page print-tight" id="s11b">
+    <div class="kick"><span class="ko">7. 교사용 사후 점검</span><span class="zh">7. 教师课后检查</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">등록 횟수와 결과 문장만 확인한다</span><span class="zh">只需确认登记次数与结果信息</span> <span class="badge ext"><span class="ko">교사용</span><span class="zh">教师用</span></span></h2>
+    <div class="row">
+      <div class="pane accent"><div class="pt"><span class="ko">등록 횟수 2 이상</span><span class="zh">登记 2 次以上</span></div><p><span class="ko"><b>중복된 npm 경로를 하나로 정리했습니다.</b><br>사용자 PATH를 자동으로 하나만 남깁니다.</span><span class="zh"><b>已将重复的 npm 路径整理为一项。</b><br>自动在用户 PATH 中只保留一项。</span></p></div>
+      <div class="pane"><div class="pt"><span class="ko">등록 횟수 0 또는 1</span><span class="zh">登记 0 或 1 次</span></div><p><span class="ko"><b>중복이 없어 PATH를 변경하지 않았습니다.</b><br>정상 실행 중이므로 그대로 둡니다.</span><span class="zh"><b>没有重复，因此未修改 PATH。</b><br>目前运行正常，保持原状。</span></p></div>
+    </div>
+    <div class="note ok"><div class="nt"><span class="ko">0개여도 이 페이지에서는 추가하지 않는다</span><span class="zh">即使为 0，本页也不新增</span></div><p><span class="ko">OpenCode가 이미 실행된다면 시스템 PATH 등 다른 범위에서 경로를 찾고 있을 수 있습니다. 이 사후 점검에서는 사용자 PATH가 <code>0</code>이어도 새 경로를 추가하지 않습니다.</span><span class="zh">如果 OpenCode 已经能够运行，可能是通过系统 PATH 等其他范围找到路径。因此在本次课后检查中，即使用户 PATH 为 <code>0</code>，也不会新增路径。</span></p></div>
+    <div class="steps compact-steps"><div class="st-h"><span class="ko">마지막 확인</span><span class="zh">最终确认</span></div><ol>
+      <li><span class="ko">중복을 정리했다면 PowerShell과 VS Code를 완전히 종료하고 다시 엽니다.</span><span class="zh">若已整理重复项，请完全关闭 PowerShell 与 VS Code 后重新打开。</span></li>
+      <li><span class="ko"><code>where.exe opencode</code>에 실제 위치가 표시되는지 확인합니다.</span><span class="zh">确认 <code>where.exe opencode</code> 是否显示实际位置。</span></li>
+      <li><span class="ko"><code>opencode --version</code>에 버전 번호가 나오면 완료입니다.</span><span class="zh"><code>opencode --version</code> 显示版本号即表示完成。</span></li>
+    </ol></div>
+    <div class="note warn compact-note"><div class="nt"><span class="ko">실행되지 않는 PC는 앞쪽 절차로</span><span class="zh">无法运行的电脑请返回前面的步骤</span></div><p><span class="ko"><code>CommandNotFoundException</code>이 나타나는 PC는 이 사후 점검 대상이 아닙니다. 앞쪽의 <b>설치는 끝났지만 OpenCode가 실행되지 않는 경우</b>로 돌아갑니다.</span><span class="zh">出现 <code>CommandNotFoundException</code> 的电脑不属于本次课后检查对象。请返回前面的<b>安装完成但 OpenCode 无法运行</b>步骤。</span></p></div>
     <div class="lessonnav">
       <a href="../../01/textbook/01-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">1-2. 수업 열기</span></a>
       <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
       <a href="../../02/textbook/02-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">2-2. 숫자와 변수로 계산하기</span></a>
     </div>
   </section>
+
 </main>
 <div id="pager"><button id="pprev">‹</button><button id="pnext">›</button></div>
 <button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>

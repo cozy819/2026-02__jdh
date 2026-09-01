@@ -155,6 +155,7 @@ body.lang-zh p, body.lang-zh dd, body.lang-zh li, body.lang-zh td{line-height:1.
 main{padding:calc(var(--topH) + 26px) 16px 90px}
 .page{
   position:relative; width:100%; max-width:var(--pageW); min-height:var(--pageH);
+  scroll-margin-top:calc(var(--topH) + 14px);
   margin:0 auto 26px; background:var(--bg); border:1px solid var(--line);
   box-shadow:0 2px 10px rgba(24,24,40,.07); padding:var(--pagePad);
   display:flex; flex-direction:column;
@@ -1099,3 +1100,20 @@ body.lang-zh .zh{display:inline !important}
 .zh.blk{display:none !important}
 body.lang-zh .ko.blk{display:none !important}
 body.lang-zh .zh.blk{display:block !important}
+
+
+/* 02-1 OpenCode PATH recovery */
+.error-reading-grid{display:grid;grid-template-columns:1.28fr .72fr;gap:16px;align-items:stretch;margin-top:15px}
+.error-reading-grid .code{margin:0}
+.error-terminal pre{min-height:286px;white-space:pre-wrap;display:flex;flex-direction:column;justify-content:center;font-size:14px;line-height:1.55}
+.error-terminal .terminal-command{color:#f4f4f5}
+.error-terminal .terminal-error{color:#ff6b6b}
+.error-parts{display:grid;grid-template-rows:repeat(3,1fr);gap:10px}
+.error-parts>div{border:1px solid var(--line);background:var(--bg-soft);padding:14px 15px;display:flex;flex-direction:column;justify-content:center}
+.error-parts>div:nth-child(2){border-color:var(--orange);background:var(--orange-pale)}
+.error-parts b{font-size:16px;line-height:1.35}.error-parts span{margin-top:6px;font-size:14px;line-height:1.45;color:var(--ink2)}
+.compact-path-results{margin-top:10px;gap:10px}.compact-path-results .pane{padding:11px 14px}.compact-path-results .pt{font-size:15px}.compact-path-results p{font-size:14px;line-height:1.42;margin-top:4px}
+.path-fix-code{margin-top:10px}.path-fix-code pre{font-size:12.2px;line-height:1.38;padding-top:12px;padding-bottom:12px}
+.path-reopen{margin:9px 0 0;font-size:15px;line-height:1.48}
+@media(max-width:900px){.error-reading-grid{grid-template-columns:1fr}.error-terminal pre{min-height:0}.error-parts{grid-template-rows:none}.path-fix-code pre{font-size:11.8px}}
+@media print{.opencode-error-page .error-terminal pre{min-height:72mm;font-size:8.8pt}.opencode-error-page .error-parts>div{padding:8px 10px}.opencode-path-page .code{margin-top:7px}.opencode-path-page .code pre{padding:8px 11px}.opencode-path-page .path-fix-code pre{font-size:7.5pt;line-height:1.28}.opencode-path-page .compact-path-results{margin-top:6px}.opencode-path-page .compact-path-results .pane{padding:7px 10px}.opencode-path-page .compact-note{margin-top:7px!important}}
