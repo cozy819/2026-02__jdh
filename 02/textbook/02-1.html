@@ -22,33 +22,13 @@
 <div id="prog"></div>
 <nav id="toc">
   <div class="h"><span class="ko">이 차시 — 02-1</span><span class="zh">本课时 — 02-1</span></div>
-  <a href="#opener"><span class="n">·</span> 차시 표지</a>
-  <a href="#s1"><span class="n">1</span> 먼저 만나는 결과</a>
-  <a href="#s2"><span class="n">2</span> 세 가지 핵심 도구</a>
-  <a href="#s3"><span class="n">1-1</span> Python 설치</a>
-  <a href="#s4"><span class="n">1-2</span> Python 설치 확인</a>
-  <a href="#s5"><span class="n">2-1</span> 설치 상태 먼저 확인</a>
-  <a href="#s5b"><span class="n">2-2</span> Node.js가 없을 때</a>
-  <a href="#s6"><span class="n">2-3</span> OpenCode 설치</a>
-  <a href="#s6a"><span class="n">2-4</span> 오류 문장 읽기</a>
-  <a href="#s6b"><span class="n">2-5</span> PATH 복구</a>
-  <a href="#s6c"><span class="n">2-6</span> 다른 오류 구분</a>
-  <a href="#s7"><span class="n">3-1</span> VS Code 설치</a>
-  <a href="#s7b"><span class="n">3-2</span> VS Code 화면</a>
-  <a href="#s7c"><span class="n">3-3</span> Python 확장 설치</a>
-  <a href="#s8"><span class="n">4-1</span> OpenCode 실행·연결</a>
-  <a href="#s8b"><span class="n">4-2</span> API 키·모델 선택</a>
-  <a href="#s9"><span class="n">5</span> 첫 대화</a>
-  <a href="#s10"><span class="n">6</span> 준비 완료</a>
-  <a href="#s11"><span class="n">7-1</span> 실행 후 중복 점검</a>
-  <a href="#s11b"><span class="n">7-2</span> 결과 판단</a>
-  <div class="h"><span class="ko">가까운 차시</span><span class="zh">相邻课时</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a><a href="#s2"><span class="n">2</span> 준비물</a><a href="#s2b"><span class="n">2</span> 준비물 · 셋의 관계</a><a href="#s5b"><span class="n">2</span> OpenCode · Node.js 준비</a><a href="#s6"><span class="n">2</span> OpenCode · 설치</a><a href="#s6c"><span class="n">2</span> OpenCode · 다른 오류 구분</a><a href="#s7b"><span class="n">3</span> VS Code · 화면</a><a href="#s8"><span class="n">4</span> OpenCode · 실행과 연결</a><a href="#s9"><span class="n">5</span> 첫 대화</a><a href="#s10"><span class="n">6</span> 정리</a><div class="h"><span class="ko">가까운 차시</span><span class="zh">相邻课时</span></div>
   <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
   <a href="../../01/textbook/01-2.html"><span class="n">01-2</span> 수업 열기</a>
   <a href="../../02/textbook/02-1.html" class="here"><span class="n">02-1</span> 개발 도구 설치와 확인</a>
   <a href="../../02/textbook/02-2.html"><span class="n">02-2</span> 숫자와 변수로 계산하기</a>
   <a href="../../02/textbook/02-3.html"><span class="n">02-3</span> 웹과 프로그래밍 언어의 역사</a>
-  <a href="../../03/textbook/03-1.html"><span class="n">03-1</span> 비교 결과로 판단하기</a>
+  <a href="../../03/textbook/03-1.html"><span class="n">03-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
 </nav>
 <div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
@@ -90,15 +70,17 @@
   </section>
 
   <section class="page" id="s2">
-    <div class="kick"><span class="ko">2. 준비물</span><span class="zh">2. 准备工具</span><b>02-1</b></div>
-    <h2 class="title"><span class="ko">이번 차시는 세 가지 도구를 순서대로 준비한다</span><span class="zh">本课时按顺序准备三种工具</span></h2>
+<div class="kick"><span class="ko">2. 준비물</span><span class="zh">2. 准备物</span><b>02-1</b></div><h2 class="title"><span class="ko">이번 차시는 세 가지 도구를 순서대로 준비한다</span><span class="zh">本课时按顺序准备三样工具</span></h2>
     <p class="lead"><span class="ko">코딩은 특별한 한 프로그램 안에서만 하는 일이 아닙니다. 먼저 컴퓨터에 할 일을 설명할 <b>언어</b>를 준비하고, 코드 작성을 도울 <b>AI 도구</b>를 설치합니다. 마지막에는 파일과 코드를 편하게 볼 <b>글쓰기 도구</b>를 준비합니다.</span><span class="zh">编程并不只发生在某一个特殊程序里。先准备向电脑说明任务的<b>语言</b>，再安装帮助编写代码的 <b>AI 工具</b>。最后准备便于查看文件与代码的<b>书写工具</b>。</span></p>
     <div class="tool-cards">
       <div class="pane accent"><div class="pt">Python · <span class="ko">프로그래밍 언어</span><span class="zh">编程语言</span></div><p><span class="ko">1주차에 배운 것처럼, 컴퓨터에 어떤 일을 시킬지 코드로 설명하는 언어입니다. 이번 차시는 Python으로 적은 코드가 실행될 수 있도록 준비합니다.</span><span class="zh">正如第一周所学，它是用代码向电脑说明要做什么的语言。本课时要让用 Python 写的代码能够运行。</span></p></div>
       <div class="pane"><div class="pt">OpenCode · <span class="ko">에이전트</span><span class="zh">智能体</span></div><p><span class="ko">자연어 요청을 받아 AI 모델·파일·도구를 연결하고, 코드 작성이나 설명 같은 작업을 진행합니다.</span><span class="zh">接收自然语言请求，连接 AI 模型、文件与工具，并推进编写或说明代码等工作。</span></p></div>
       <div class="pane"><div class="pt">VS Code · <span class="ko">편리한 글쓰기 도구</span><span class="zh">便利的书写工具</span></div><p><span class="ko">코드는 글이므로 메모장에도 쓸 수 있고, VS Code만이 유일한 방법도 아닙니다. 다만 여러 파일과 코드, 실행 결과를 한 화면에서 보기 편해 이 수업의 작업 공간으로 사용합니다.</span><span class="zh">代码也是文字，记事本也能写，VS Code 也不是唯一的方法。但它便于在一个画面中查看多个文件、代码与运行结果，因此本课程把它作为工作空间。</span></p></div>
     </div>
-    <div class="agent-map" role="group" aria-label="학생, OpenCode 에이전트, Python, AI 모델의 관계">
+</section>
+
+<section class="page" id="s2b">
+<div class="kick"><span class="ko">2. 준비물 · 셋의 관계</span><span class="zh">2. 准备物 · 三者的关系</span><b>02-1</b></div><h2 class="title"><span class="ko">세 도구가 서로 어떻게 이어지는가</span><span class="zh">三样工具彼此如何连接</span></h2><div class="agent-map" role="group" aria-label="학생, OpenCode 에이전트, Python, AI 모델의 관계">
       <div class="agent-map-label">VS Code <span class="ko">작업 공간</span><span class="zh">工作空间</span></div>
       <div class="agent-map-row">
         <div class="agent-node">
@@ -122,7 +104,7 @@
     </div>
     <div class="grow"></div>
     <div class="note"><div class="nt"><span class="ko">준비 순서와 실제 작업 모습</span><span class="zh">准备顺序与实际工作方式</span></div><p><span class="ko">이번 차시는 <b>Python → OpenCode → VS Code</b> 순서로 준비합니다. 준비가 끝난 뒤에는 VS Code에서 파일을 보면서 OpenCode와 대화하고, Python으로 작성된 코드를 실행해 결과를 확인합니다.</span><span class="zh">本课时按 <b>Python → OpenCode → VS Code</b> 的顺序准备。准备完成后，会在 VS Code 中查看文件、与 OpenCode 对话，并执行 Python 代码来确认结果。</span></p></div>
-  </section>
+</section>
 
   <section class="page print-tight print-install" id="s3">
     <div class="kick"><span class="ko">1. Python · 설치</span><span class="zh">1. Python · 安装</span><b>02-1</b></div>

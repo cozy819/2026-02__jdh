@@ -1117,3 +1117,41 @@ body.lang-zh .zh.blk{display:block !important}
 .path-reopen{margin:9px 0 0;font-size:15px;line-height:1.48}
 @media(max-width:900px){.error-reading-grid{grid-template-columns:1fr}.error-terminal pre{min-height:0}.error-parts{grid-template-rows:none}.path-fix-code pre{font-size:11.8px}}
 @media print{.opencode-error-page .error-terminal pre{min-height:72mm;font-size:8.8pt}.opencode-error-page .error-parts>div{padding:8px 10px}.opencode-path-page .code{margin-top:7px}.opencode-path-page .code pre{padding:8px 11px}.opencode-path-page .path-fix-code pre{font-size:7.5pt;line-height:1.28}.opencode-path-page .compact-path-results{margin-top:6px}.opencode-path-page .compact-path-results .pane{padding:7px 10px}.opencode-path-page .compact-note{margin-top:7px!important}}
+
+
+/* ============================================================
+   워크시트 (WORKSHOP) — 19번 교재 템플릿 규격
+   학생이 손으로 채우는 표. 화면과 인쇄 모두에서 빈칸이 보여야 한다.
+   기존 규칙에 덧붙이기만 하며 다른 컴포넌트를 건드리지 않는다.
+   ============================================================ */
+.ws{margin:22px 0 0; background:var(--vcl-cool); border:1px solid var(--line); padding:22px 22px 18px}
+.ws .wshd{display:flex; align-items:baseline; gap:12px; margin-bottom:6px}
+.ws .wsno-b{font-family:var(--num); font-size:12px; font-weight:800; letter-spacing:.18em; color:var(--vcl-orange)}
+.ws .wst{font-size:19px; font-weight:700; color:var(--ink); letter-spacing:-.02em}
+.ws .wslead{margin:0 0 14px; font-size:16px; line-height:1.65; color:var(--ink-2)}
+.ws .tablewrap{margin:0}
+.ws table.wstab{background:#fff}
+.ws table.wstab th{white-space:nowrap}
+.ws table.wstab td{height:54px; vertical-align:middle}
+.ws table.wstab td.wsno{width:34px; text-align:center; font-family:var(--num); font-weight:800;
+  font-size:13px; color:var(--vcl-orange); background:#fff}
+/* 손으로 쓰는 칸 — 가로줄로 행을, 세로줄로 칸을 구분한다 */
+.ws table.wstab td.wsblank{background:#fff;
+  box-shadow:inset 0 -1px 0 var(--line), inset 1px 0 0 var(--line)}
+.ws table.wstab tr:last-child td.wsblank{box-shadow:inset 1px 0 0 var(--line)}
+.ws table.wstab th + th{box-shadow:inset 1px 0 0 var(--line)}
+.ws .wsck{margin-top:16px; border-top:2px solid var(--vcl-carbon); padding-top:12px}
+.ws .wsck-h{font-size:13px; font-weight:700; color:var(--muted); letter-spacing:.02em; margin-bottom:6px}
+.ws .wsck ul{margin:0; padding-left:0; list-style:none}
+.ws .wsck li{position:relative; padding-left:26px; margin:6px 0; font-size:15.5px; line-height:1.6; color:var(--ink-2)}
+.ws .wsck li::before{content:""; position:absolute; left:0; top:3px; width:15px; height:15px;
+  border:1.5px solid var(--vcl-steel); background:#fff}
+
+@media print{
+  .ws{background:var(--vcl-cool) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .ws table.wstab td{height:58px}
+}
+@media (max-width:700px){
+  .ws{padding:16px 14px}
+  .ws table.wstab td{height:46px}
+}

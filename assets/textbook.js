@@ -20,6 +20,29 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
+  /* ── 0. 스크롤 시작 위치 ─────────────────────────────────
+     다른 차시로 넘어갔을 때 이전 문서의 스크롤 위치를 이어받지 않는다.
+     이 설정은 init() 안이 아니라 스크립트를 읽는 시점에 걸려야 효과가 있다.
+     ───────────────────────────────────────────────────── */
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+
+  // 학생이 스스로 스크롤했다면 그 뒤로는 위치를 건드리지 않는다.
+  var userScrolled = false;
+  ['wheel', 'touchmove', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, function () { userScrolled = true; }, { passive: true, once: true });
+  });
+
+  // CSS 의 scroll-behavior:smooth 는 window.scrollTo 를 부드러운 애니메이션으로 바꾼다.
+  // 애니메이션은 도중에 브라우저의 위치 복원에 밀릴 수 있으므로 시작 위치는 즉시 이동시킨다.
+  function jumpTo(el) {
+    var root = document.documentElement;
+    var keep = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    if (el && el.scrollIntoView) el.scrollIntoView({ block: 'start' });
+    else window.scrollTo(0, 0);
+    root.style.scrollBehavior = keep;
+  }
+
   /* ── 1. 페이지 수집과 번호 ───────────────────────────── */
   function collectPages() {
     pages = $$('.page');
@@ -81,7 +104,7 @@
     var prev = $('#pprev'), next = $('#pnext');
     if (prev) prev.disabled = (cur === 0);
     if (next) next.disabled = (cur === pages.length - 1);
-    window.scrollTo(0, 0);
+    jumpTo(null);
   }
 
   function go(n) {
@@ -303,8 +326,6 @@
 
   /* ── 8. 시작 ─────────────────────────────────────────── */
   function init() {
-    // 다른 차시로 이동했을 때 이전 문서의 스크롤 위치를 이어받지 않는다.
-    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
     structureToc();
     collectPages();
 
@@ -329,8 +350,8 @@
     applyLangBtn();
     applyMode();
     if (!slideMode) {
-      if (hs && pages[cur]) pages[cur].scrollIntoView({ block: 'start' });
-      else window.scrollTo(0, 0);
+      if (hs && pages[cur]) jumpTo(pages[cur]);
+      else jumpTo(null);
       updateScrollProgress();
     }
 
@@ -347,6 +368,23 @@
     // 이벤트
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     window.addEventListener('resize', updateScrollProgress);
+
+    // 그림과 글꼴이 늦게 올라오면 문서 높이가 바뀌면서 시작 위치가 밀릴 수 있다.
+    // 학생이 아직 스크롤하지 않았다면 로딩이 끝난 뒤 한 번 더 맨 위로 보낸다.
+    window.addEventListener('load', function () {
+      if (userScrolled || slideMode) return;
+      var hs2 = (location.hash || '').replace('#', '');
+      var el = hs2 ? document.getElementById(hs2) : null;
+      jumpTo(el);
+      updateScrollProgress();
+    });
+
+    // 뒤로 가기로 되돌아온 화면(bfcache)도 같은 규칙을 따른다.
+    window.addEventListener('pageshow', function (e) {
+      if (!e.persisted || location.hash) return;
+      jumpTo(null);
+      updateScrollProgress();
+    });
 
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href^="#"]');

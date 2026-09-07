@@ -1,0 +1,4 @@
+.DS_Store
+.fuse_hidden*
+_stage*.tgz
+_out*.tgz

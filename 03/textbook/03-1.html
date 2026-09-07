@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>03-1. 비교 결과로 판단하기 · 정보와 디지털 문해력</title>
-<meta name="description" content="정보와 디지털 문해력 03-1 — 비교 결과로 판단하기">
+<title>03-1. 실습 환경 준비와 비교 결과로 판단하기 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 03-1 — 실습 환경 준비와 비교 결과로 판단하기">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 <button id="modeBtn" onclick="tbToggleMode()">한 장씩 보기</button>
 <button class="lng" onclick="tbToggleLang()">中文</button>
 <div class="brand">
-<em>03-1</em> <span class="lesson">비교 결과로 판단하기</span>
+<em>03-1</em> <span class="lesson">실습 환경 준비와 비교 결과로 판단하기</span>
 </div>
 <div class="spacer">
 </div>
@@ -27,24 +27,9 @@
 </div>
 <nav id="toc">
 <div class="h">
-<span class="ko">이 차시 — 03-1</span>
+<span class="ko">이 차시 — </span>
 <span class="zh">本课时 — 03-1</span>
-</div>
-<a href="#opener">
-<span class="n">·</span> 차시 표지</a>
-<a href="#s1">
-<span class="n">1</span> 계산과 비교</a>
-<a href="#s2">
-<span class="n">2</span> 비교연산자</a>
-<a href="#s3">
-<span class="n">3</span> True와 False</a>
-<a href="#s4">
-<span class="n">4</span> 기준과 다음 행동</a>
-<a href="#s5">
-<span class="n">5</span> AI와 기준 확인</a>
-<a href="#s6">
-<span class="n">6</span> 핵심 정리</a>
-<div class="h">
+</div><a href="#opener"><span class="n">·</span> 차시 표지</a><a href="#s1"><span class="n">1</span> 결과가 나오는 곳</a><a href="#s2"><span class="n">2</span> 도구 준비</a><a href="#s2c"><span class="n">3</span> 도구 준비 · 그림</a><a href="#s2b"><span class="n">4</span> uv 설치</a><a href="#s2d"><span class="n">5</span> uv 확인</a><a href="#s3"><span class="n">6</span> 확장</a><a href="#s3b"><span class="n">7</span> 폴더 받기</a><a href="#s3b2"><span class="n">8</span> 폴더 받기 · 확인</a><a href="#s3c"><span class="n">9</span> 자리 만들기</a><a href="#s3c2"><span class="n">10</span> 자리 만들기 · 확인</a><a href="#s4"><span class="n">11</span> 첫 실행</a><a href="#s4a"><span class="n">12</span> 커널 버튼 찾기</a><a href="#s4c"><span class="n">13</span> 커널 고르기</a><a href="#s4c2"><span class="n">14</span> 안 보일 때</a><a href="#s4d"><span class="n">15</span> 커널 확인</a><a href="#s4e"><span class="n">16</span> 첫 셀</a><a href="#s4f"><span class="n">17</span> Notebook 다루기</a><a href="#s4b"><span class="n">18</span> 준비 확인</a><a href="#s5"><span class="n">19</span> 결과의 종류</a><a href="#s6"><span class="n">20</span> 기호</a><a href="#s7"><span class="n">21</span> 경계값</a><a href="#s7b"><span class="n">22</span> 기호 하나 차이</a><a href="#s7c"><span class="n">23</span> 경계선 보기</a><a href="#s8"><span class="n">24</span> 문장 읽기</a><a href="#s8b"><span class="n">25</span> 말과 기호</a><a href="#s9"><span class="n">26</span> 워크시트</a><a href="#s10"><span class="n">27</span> 애매한 말</a><a href="#s10b"><span class="n">28</span> 다르게 읽힌다</a><a href="#s11"><span class="n">29</span> 정리</a><div class="h">
 <span class="ko">전체 차시</span>
 <span class="zh">全部课时</span>
 </div>
@@ -60,9 +45,9 @@
 <span class="n">02-2</span> 숫자와 변수로 계산하기</a>
   <a href="../../02/textbook/02-3.html"><span class="n">2-3</span> 웹과 프로그래밍 언어의 역사</a>
 <a href="../../03/textbook/03-1.html" class="here">
-<span class="n">03-1</span> 비교 결과로 판단하기</a>
+<span class="n">03-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
 <a href="../../03/textbook/03-2.html">
-<span class="n">03-2</span> 프로젝트별 Python 환경과 자료구조</a>
+<span class="n">03-2</span> 여러 값을 묶는 두 가지 방법</a>
 <a href="../../04/textbook/04-1.html">
 <span class="n">04-1</span> Matplotlib으로 그래프 이해하기</a>
 <a href="../../04/textbook/04-2.html">
@@ -113,380 +98,436 @@
 <div id="scrim" onclick="tbToggleToc(false)">
 </div>
 <main>
+
 <section class="page opener" id="opener">
-<div class="onum">
-<span class="ko">3회 · 첫째 차시</span>
-<span class="zh">第 3 次课 · 第 1 课时</span>
-</div>
-<h1>
-<span class="ko">비교 결과로 판단하기</span>
-<span class="zh">用比较结果进行判断</span>
-</h1>
-<div class="osub">
-<span class="ko">계산한 값을 기준과 비교해 True 또는 False가 만들어지는 과정을 확인합니다.</span>
-<span class="zh">把计算值与标准比较，观察 True 或 False 是如何产生的。</span>
-</div>
-<div class="abar">
-</div>
-<div class="ometa">
-<span class="ko">
-<b>이전 차시</b> · 2-3. 웹과 프로그래밍 언어의 역사<br>
-<b>다음 차시</b> · 3-2. 프로젝트별 Python 환경과 자료구조</span>
-<span class="zh">
-<b>上一课时</b> · 2-3. 网络与编程语言的历史<br>
-<b>下一课时</b> · 3-2. 프로젝트별 Python 환경과 자료구조</span>
-</div>
+<div class="onum"><span class="ko">3회 · 첫째 차시</span><span class="zh">第 3 次课 · 第 1 课时</span></div>
+<h1><span class="ko">실습 환경 준비와 비교 결과로 판단하기</span><span class="zh">准备实践环境并用比较结果进行判断</span></h1>
+<div class="osub"><span class="ko">코드 바로 아래에서 결과를 보는 환경을 만들고, 두 값을 비교해 판단을 만들어 봅니다.</span><span class="zh">先搭好能在代码正下方看到结果的环境，再比较两个值产生判断。</span></div>
+<div class="abar"></div>
+<div class="ometa"><span class="ko"><b>이전 차시</b> · 2-3. 웹과 프로그래밍 언어의 역사<br><b>다음 차시</b> · 3-2. 여러 값을 묶는 두 가지 방법</span><span class="zh"><b>上一课时</b> · 2-3. 网络与编程语言的历史<br><b>下一课时</b> · 3-2. 组合多个值的两种方法</span></div>
 </section>
+
 <section class="page" id="s1">
-<div class="kick">
-<span class="ko">1. 결과의 종류</span>
-<span class="zh">1. 结果类型</span>
-<b>03-1</b>
-</div>
-<h2 class="title">
-<span class="ko">산술연산은 값을, 비교연산은 판단을 만든다</span>
-<span class="zh">算术产生数值，比较产生判断</span>
-</h2>
-<div class="code ">
-<pre>score = 72
+<div class="kick"><span class="ko">1. 결과가 나오는 곳</span><span class="zh">1. 结果出现的地方</span><b>03-1</b></div><h2 class="title"><span class="ko">코드 바로 아래에서 결과를 본다</span><span class="zh">在代码正下方看结果</span></h2><p><span class="ko">지난 시간에는 <code>.py</code> 파일을 실행하면 결과가 <b>아래쪽 터미널</b>에 글자로 나왔습니다. 오늘은 <b>코드 바로 아래에 결과가 붙어 나오는</b> 방식을 준비합니다.</span><span class="zh">上次运行 <code>.py</code> 文件时，结果以文字形式出现在<b>下方终端</b>。今天要准备<b>结果直接出现在代码下方</b>的方式。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 03-1-01-result-location
+     · 영역   : 이 아래 <figure class="fig result-location">
+     · 규격   : 가로 16:9 · 좌우 2분할 · Windows 창 · assets/img/03-1-01-result-location.png
+     · 상태   : 완료 (2026-09-04, ChatGPT 생성 · 1672×941)
+     · 다시 만들 때 아래를 ChatGPT에 통째로 붙여 넣는다.
+     ───────────────────────────────────────────────────────────────────────
+
+장대현중고등학교 「정보와 디지털 문해력」 정규 교과의 3회차 첫째 차시(3-1)에 쓸
+그림이다. 차시 제목은 「코드 바로 아래에서 결과를 본다」.
+
+- 학생: 중3~고2, 코딩 수업이 처음이다. 컴퓨터는 전원 Windows.
+- 지난 차시(2-2)에서는 .py 파일을 실행하면 결과가 편집기 아래쪽 터미널 칸에만
+  글자로 나왔다.
+- 이번 차시에서 Jupyter Notebook을 준비해, 코드 한 줄 바로 밑에 결과가 붙어
+  나오게 만든다.
+- 이 그림은 그 차이를 차시 도입부에서 한 장으로 보여 주는 것이다. 설명 문장은
+  쓰지 않고, 그림만으로 "결과가 나오는 곳이 달라졌다"가 보여야 한다.
+- 파일명: 03-1-01-result-location · 교과서 HTML과 강의 PPT가 같은 파일을 쓴다.
+- 바이브코딩연구소 2026 브랜드를 따른다. 그라데이션·이모지·그림자를 쓰지 않고,
+  주황(#FF5C00)은 강조에만 아주 적게 쓴다.
+- 도해가 아니라 실제 화면을 그린 사실적인 그림으로 만든다.
+
+VS Code 창 두 개를 좌우로 놓고 비교하는 그림.
+
+왼쪽 창 — 2주차 모습.
+  · 탐색기 최상단 폴더: JDH_VibeCoding_학생A · 그 아래 02 / code / data /
+    notebooks / output / README.txt
+  · 열린 파일: 02/code/01_first_result.py
+  · 코드 세 줄: print(3 + 5) / print(8 - 2) / print(4 * 2)
+  · 아래쪽 TERMINAL 패널에 결과 8, 6, 8 이 코드와 멀리 떨어져 나온다.
+  · 코드에서 아래 터미널로 내려가는 주황색 곡선 화살표.
+
+오른쪽 창 — 3주차 모습.
+  · 탐색기 최상단 폴더: 03 · 그 아래 .venv / code / notebooks /
+    pyproject.toml / uv.lock / README.txt
+  · 열린 파일: notebooks/03-1_first_notebook.ipynb
+  · 오른쪽 위 커널 표시: .venv (Python 3.14)
+  · 셀 세 개. 각 셀에 print(3 + 5) / print(8 - 2) / print(4 * 2) 가 있고
+    결과 8 / 6 / 8 이 각 셀 바로 아래에 붙어 나온다.
+
+두 창 사이에 주황색 화살표 하나.
+창 제어 버튼은 오른쪽 위에 ─ □ ✕ 로 그린다. macOS 의 왼쪽 위 동그라미 세 개가
+나오면 안 된다.
+한 그림 안에서 서로 어긋나는 상태를 그리지 않는다.
+16:9.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig result-location">
+      <img class="figimg" src="../../assets/img/03-1-01-result-location.png" alt="같은 코드를 실행한 두 개의 Windows 편집기 창. 왼쪽 창은 결과가 아래쪽 터미널 칸에 따로 나오고, 오른쪽 창은 코드 한 줄마다 그 바로 밑에 결과가 붙어 나온다."
+           data-id="03-1-01-result-location" data-spec="가로 16:9 · 좌우 2분할 개념 도해 · Windows 창"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-1. 같은 코드인데 결과가 나오는 곳이 다르다. 왼쪽은 아래쪽 터미널, 오른쪽은 코드 바로 밑.</span><span class="zh">图 3-1-1. 同样的代码，结果出现的地方不同。左边在下方终端，右边就在代码正下方。</span></figcaption>
+    </figure><p><span class="ko">이런 파일을 <b>Notebook</b>이라고 부르고 파일 이름이 <code>.ipynb</code>로 끝납니다. 설명과 코드와 결과가 한 화면에 순서대로 쌓이기 때문에, 무엇을 했고 무엇이 나왔는지 나중에 다시 읽기 좋습니다.</span><span class="zh">这样的文件叫 <b>Notebook</b>，文件名以 <code>.ipynb</code> 结尾。说明、代码与结果按顺序堆叠在同一画面，方便日后回看做了什么、得到了什么。</span></p><div class="note"><p><span class="ko">오늘 바꾸는 것은 <b>결과가 나오는 곳</b>입니다. 새로운 문법을 배우는 시간이 아닙니다.</span><span class="zh">今天要改变的是<b>结果出现的地方</b>，不是学习新语法。</span></p></div>
+</section>
+
+<section class="page" id="s2">
+<div class="kick"><span class="ko">2. 도구 준비</span><span class="zh">2. 准备工具</span><b>03-1</b></div><h2 class="title"><span class="ko">Python은 이미 깔았는데 왜 또?</span><span class="zh">Python 已经装过了，为什么还要装？</span></h2><p><span class="ko">여기서 <code>uv</code>라는 도구를 하나 설치합니다. 그런데 <b>Python은 2-1에서 이미 설치했는데 왜 또 설치할까요?</b></span><span class="zh">这里要安装一个叫 <code>uv</code> 的工具。可是 <b>2-1 已经装过 Python 了，为什么还要再装？</b></span></p><div class="tablewrap"><table class="kv"><thead><tr><th></th><th><span class="ko">2-1에서 깐 것 — Python</span><span class="zh">2-1 装的 — Python</span></th><th><span class="ko">오늘 깔 것 — uv</span><span class="zh">今天要装的 — uv</span></th></tr></thead><tbody><tr><td><span class="ko">어디에</span><span class="zh">在哪里</span></td><td><span class="ko">컴퓨터에 하나 있습니다</span><span class="zh">整台电脑上有一个</span></td><td><span class="ko">폴더마다 필요한 것을 <b>그 폴더 안에</b> 챙겨 줍니다</span><span class="zh">把每个文件夹需要的东西<b>放进那个文件夹里</b></span></td></tr><tr><td><span class="ko">하는 일</span><span class="zh">作用</span></td><td><span class="ko">코드를 실행합니다</span><span class="zh">运行代码</span></td><td><span class="ko">그 폴더에서 무엇으로 실행할지 준비해 둡니다</span><span class="zh">准备好这个文件夹里用什么来运行</span></td></tr></tbody></table></div><p><span class="ko">그러니까 <b>Python을 또 까는 것이 아닙니다.</b> 앞으로 수업마다 폴더를 하나씩 만들 텐데, 폴더마다 필요한 것이 다릅니다. <code>uv</code>는 그 폴더에서 쓸 것을 그 안에 챙겨 주는 도구입니다.</span><span class="zh">所以<b>不是再装一次 Python</b>。以后每次上课都会建一个文件夹，每个文件夹需要的东西不一样。<code>uv</code> 就是把这个文件夹要用的东西准备在里面的工具。</span></p><p><span class="ko">뒤에서 Notebook을 열 때 <b>어떤 Python으로 실행할지</b> 골라 주게 되는데, 그때 고르는 것이 바로 이 폴더 안에 만들어진 것입니다.</span><span class="zh">后面打开 Notebook 时要选择<b>用哪个 Python 运行</b>，那时选的就是这个文件夹里做好的那个。</span></p><p><span class="ko">앞 그림의 오른쪽 화면까지 가려면 <b>세 가지</b>가 필요합니다. 오늘 이 순서대로 준비합니다.</span><span class="zh">要做到上图右边那样的画面，需要<b>三样东西</b>。今天按这个顺序准备。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">순서</span><span class="zh">顺序</span></th><th><span class="ko">무엇을</span><span class="zh">做什么</span></th><th><span class="ko">왜</span><span class="zh">为什么</span></th></tr></thead><tbody><tr><td>①</td><td><span class="ko"><code>uv</code> 설치</span><span class="zh">安装 <code>uv</code></span></td><td><span class="ko">이 폴더에서 쓸 것을 챙겨 준다</span><span class="zh">把这个文件夹要用的东西准备好</span></td></tr><tr><td>②</td><td><span class="ko">Jupyter 확장 설치</span><span class="zh">安装 Jupyter 扩展</span></td><td><span class="ko">코드 아래에 결과가 나오는 파일을 열 수 있게 한다</span><span class="zh">让结果出现在代码下方的文件能被打开</span></td></tr><tr><td>③</td><td><span class="ko">커널 연결</span><span class="zh">连接内核</span></td><td><span class="ko">어떤 Python으로 실행할지 고른다</span><span class="zh">选择用哪个 Python 运行</span></td></tr></tbody></table></div>
+</section>
+
+<section class="page" id="s2c">
+<div class="kick"><span class="ko">3. 도구 준비 · 그림</span><span class="zh">3. 准备工具 · 图</span><b>03-1</b></div><h2 class="title"><span class="ko">폴더마다 챙기는 것이 다르다</span><span class="zh">每个文件夹要带的东西不同</span></h2><p><span class="ko">사람마다 하는 일이 다르면 챙기는 도구도 다릅니다. 폴더도 마찬가지입니다.</span><span class="zh">做的事不同，要带的工具也不同。文件夹也是一样。</span></p>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+     [기존 자산] 03-2-03-project-toolboxes
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 16:9 · 기존 자산 재사용 · assets/img/03-2-03-project-toolboxes.png
+     ───────────────────────────────────────────────────────────────────────
+
+     이미 만들어 둔 그림을 그대로 쓴다. 새로 만들지 않는다.
+     원래 4주차용으로 만들었으나 쓰이지 않고 있었고, 이 절의 내용과 정확히 맞는다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-2-03-project-toolboxes.png" alt="두 학생이 각자의 책상에서 자기 도구함을 열어 보고 있다. 도구함 안에 든 물건이 서로 다르다."
+           data-id="03-2-03-project-toolboxes" data-spec="가로 16:9 · 폴더마다 다른 도구함"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-2. 사람마다 하는 일이 다르면 챙기는 도구도 다르다. 폴더도 마찬가지다.</span><span class="zh">图 3-1-2. 做的事不同，带的工具也不同。文件夹也是一样。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s2b">
+<div class="kick"><span class="ko">4. uv 설치</span><span class="zh">4. 安装 uv</span><b>03-1</b></div><h2 class="title"><span class="ko">① uv를 설치한다</span><span class="zh">① 安装 uv</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko"><b>① <code>uv</code>를 설치합니다.</b> 아래 한 줄을 PowerShell에 <b>복사해</b> 붙여 넣습니다. <code>uv</code> 공식 홈페이지가 안내하는 방법입니다. 직접 입력하지 말고 복사하세요. 설치가 끝나면 VS Code를 <b>완전히 닫고 다시 연 뒤</b> 확인합니다. 2-1에서 익힌 <b>프로그램 이름 + --version</b> 방식이 여기서도 그대로 쓰입니다.</span><span class="zh"><b>① 安装 <code>uv</code>。</b> 把下面这一行<b>复制</b>粘贴到 PowerShell。这是 <code>uv</code> 官方网站给出的方法。不要手动输入，请复制。安装完成后<b>完全关闭并重新打开</b> VS Code 再确认。2-1 学过的<b>程序名 + --version</b> 方式在这里同样适用。</span></p><div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</pre></div><div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>uv --version</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>uv 0.9.x</pre></div><div class="note"><p><span class="ko">터미널은 열릴 때 프로그램 목록을 한 번 읽습니다. 그 뒤에 설치된 것은 <b>새 창</b>에서만 보입니다. 2-1에서 PowerShell을 새로 열었던 것과 같은 이유입니다.</span><span class="zh">终端在打开时会读取一次程序列表。之后安装的程序只在<b>新窗口</b>中才能看到。这与 2-1 中重新打开 PowerShell 的原因相同。</span></p></div><div class="note stop"><p><span class="ko">버전 번호가 보이지 않으면 혼자 다른 방법을 찾지 말고 <b>화면을 선생님께 보여 주세요.</b></span><span class="zh">如果看不到版本号，不要自己尝试其他方法，请<b>把画面给老师看</b>。</span></p></div>
+</section>
+
+<section class="page" id="s2d">
+<div class="kick"><span class="ko">5. uv 확인</span><span class="zh">5. 确认 uv</span><b>03-1</b></div><h2 class="title"><span class="ko">설치가 끝났는지 확인한다</span><span class="zh">确认是否安装完成</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko">설치가 끝나면 VS Code를 <b>완전히 닫고 다시 연 뒤</b> 확인합니다. 터미널은 열릴 때 프로그램 목록을 한 번 읽기 때문에, 그 뒤에 설치된 것은 <b>새 창</b>에서만 보입니다.</span><span class="zh">安装完成后<b>完全关闭并重新打开</b> VS Code 再确认。终端在打开时会读取一次程序列表，之后安装的程序只在<b>新窗口</b>中才能看到。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-02-uv-version-ok
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 · 터미널 · 성공 화면 · assets/img/03-1-02-uv-version-ok.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍는다.
+     · uv 설치 뒤 **VS Code 를 완전히 닫고 다시 연** 상태의 터미널.
+     · `uv --version` 을 실행해 **버전 번호가 나온 줄**에 표시를 넣는다.
+     · 번호는 학생마다 다를 수 있다. 번호가 나온다는 사실이 보이면 된다.
+     · 프롬프트에 사용자 폴더 이름이 실명으로 찍히면 가린다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-02-uv-version-ok.png" alt="VS Code를 다시 연 뒤 uv --version을 실행해 버전 번호가 나온 화면"
+           data-id="03-1-02-uv-version-ok" data-spec="가로 · 터미널 · 성공 화면"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-3. 새로 연 창에서 번호가 나오면 설치가 끝난 것이다.</span><span class="zh">图 3-1-3. 在新打开的窗口里出现版本号，就说明安装完成了。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s3">
+<div class="kick"><span class="ko">6. 확장</span><span class="zh">6. 扩展</span><b>03-1</b></div><h2 class="title"><span class="ko">② Jupyter 확장을 설치한다</span><span class="zh">② 安装 Jupyter 扩展</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko">VS Code 왼쪽 <b>확장</b> 화면에서 <code>Jupyter</code>를 검색합니다. <b>게시자가 Microsoft인지 확인한 뒤</b> 설치합니다.</span><span class="zh">在 VS Code 左侧<b>扩展</b>界面搜索 <code>Jupyter</code>。<b>确认发布者是 Microsoft</b> 后再安装。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">확장</span><span class="zh">扩展</span></th><th><span class="ko">하는 일</span><span class="zh">作用</span></th><th><span class="ko">언제</span><span class="zh">何时</span></th></tr></thead><tbody><tr><td>Python</td><td><span class="ko"><code>.py</code> 파일 실행과 Python 선택을 돕는다</span><span class="zh">帮助运行 <code>.py</code> 并选择 Python</span></td><td>2-1</td></tr><tr><td>Jupyter</td><td><span class="ko"><code>.ipynb</code> Notebook을 열고 셀별로 실행하게 한다</span><span class="zh">打开 <code>.ipynb</code> 并逐个单元格运行</span></td><td><span class="ko">오늘</span><span class="zh">今天</span></td></tr></tbody></table></div><div class="note"><p><span class="ko">확장은 VS Code에 기능을 덧붙이는 작은 도구입니다. Python 자체와는 다릅니다.</span><span class="zh">扩展是给 VS Code 增加功能的小工具，与 Python 本身不同。</span></p></div>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-03-jupyter-extension
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 · VS Code 확장 화면 · assets/img/03-1-03-jupyter-extension.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍는다. 2-1 의 02-1-06-vscode-python-extension-search.png 와 같은 형식.
+     · 확장 화면에서 Jupyter 를 검색한 결과.
+     · **게시자 Microsoft 부분에 표시(테두리·화살표)를 넣어 찍는다.** 비슷한 이름이 여럿 나온다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-03-jupyter-extension.png" alt="VS Code 확장 화면에서 Jupyter를 검색한 결과. 게시자 Microsoft 부분이 표시되어 있다."
+           data-id="03-1-03-jupyter-extension" data-spec="가로 · VS Code 확장 · 게시자 강조"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-4. 이름이 비슷한 것이 여럿 나온다. 게시자가 Microsoft인지 확인하고 설치한다.</span><span class="zh">图 3-1-4. 会出现好几个名字相似的。确认发布者是 Microsoft 再安装。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s3b">
+<div class="kick"><span class="ko">7. 폴더 받기</span><span class="zh">7. 获取文件夹</span><b>03-1</b></div><h2 class="title"><span class="ko">자료를 내려받아 폴더를 연다</span><span class="zh">下载资料并打开文件夹</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+    <p class="lead"><span class="ko">아래 버튼으로 이번 차시의 자료를 내려받습니다. 압축을 풀면 <code>03</code> 폴더가 나옵니다. 2주차에 만든 <code>JDH_VibeCoding_자기이름</code> 폴더 안에 넣습니다.</span><span class="zh">用下方按钮下载本课资料。解压后会出现 <code>03</code> 文件夹，把它放进 2 周次建好的 <code>JDH_VibeCoding_自己的名字</code> 文件夹里。</span></p>
+    <div class="folder-download-row">
+      <a class="download-cta" href="../../downloads/03_student_files.zip" download>
+        <span class="download-icon" aria-hidden="true">↓</span>
+        <span><b class="ko">03 학생용 자료 내려받기</b><b class="zh">下载 03 学生资料</b><small>03_student_files.zip</small></span>
+      </a>
+      <div class="download-note"><b><span class="ko">03 폴더 안에 있는 것</span><span class="zh">03 文件夹里有什么</span></b><p><span class="ko"><code>notebooks</code>에 오늘 실행할 파일이, <code>pyproject.toml</code>과 <code>uv.lock</code>에 이 폴더가 쓸 도구 목록이 들어 있습니다. <code>.venv</code>는 아직 없습니다. 그것을 만드는 것이 이번 단계입니다.</span><span class="zh"><code>notebooks</code> 里是今天要运行的文件，<code>pyproject.toml</code> 和 <code>uv.lock</code> 里是这个文件夹要用的工具清单。<code>.venv</code> 还没有，本步骤就是把它做出来。</span></p></div>
+    </div><div class="steps"><div class="st-h"><span class="ko">폴더 열기</span><span class="zh">打开文件夹</span></div><ol><li><span class="ko">위 버튼으로 <code>03_student_files.zip</code>을 내려받는다.</span><span class="zh">用上方按钮下载 <code>03_student_files.zip</code>。</span></li><li><span class="ko"><b>마우스 오른쪽 버튼 → 압축 풀기</b>를 누른다. <code>03</code> 폴더가 나온다.</span><span class="zh">点击<b>鼠标右键 → 解压</b>，会出现 <code>03</code> 文件夹。</span></li><li><span class="ko">2주차에 만든 <code>JDH_VibeCoding_자기이름</code> 폴더 안에 넣는다.</span><span class="zh">把它放进 2 周次建好的 <code>JDH_VibeCoding_自己的名字</code> 文件夹里。</span></li><li><span class="ko">그 <code>03</code> 폴더를 <b>통째로</b> VS Code로 연다. 파일 하나만 열면 다음 단계가 되지 않는다.</span><span class="zh">把那个 <code>03</code> 文件夹<b>整个</b>用 VS Code 打开。只打开一个文件的话，下一步无法进行。</span></li></ol></div><div class="note"><p><span class="ko">왼쪽 탐색기 맨 위에 <code>03</code>이 보이면 제대로 연 것입니다.</span><span class="zh">左侧资源管理器最上方显示 <code>03</code> 就说明打开正确。</span></p></div>
+</section>
+
+<section class="page" id="s3b2">
+<div class="kick"><span class="ko">8. 폴더 받기 · 확인</span><span class="zh">8. 获取文件夹 · 确认</span><b>03-1</b></div><h2 class="title"><span class="ko">제대로 열렸는지 확인한다</span><span class="zh">确认是否正确打开</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-04-folder-opened
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 · VS Code 탐색기 · assets/img/03-1-04-folder-opened.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍는다. 2-2 의 02-2-00-course-folder-structure.png 와 같은 형식.
+     · 03 폴더를 통째로 연 VS Code. 왼쪽 탐색기 **맨 위가 03** 이어야 한다.
+     · 그 아래 code / notebooks / pyproject.toml / uv.lock / README.txt 가 보이게.
+     · .venv 는 아직 없는 상태로 찍는다. 다음 절에서 생기는 것이 대비되어야 한다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-04-folder-opened.png" alt="VS Code 왼쪽 탐색기 맨 위에 03 폴더가 있고 그 아래 code, notebooks, pyproject.toml, uv.lock이 보이는 화면"
+           data-id="03-1-04-folder-opened" data-spec="가로 · VS Code 탐색기 · .venv 없음"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-5. 왼쪽 맨 위가 03이면 제대로 연 것이다. 아직 .venv는 없다.</span><span class="zh">图 3-1-5. 左侧最上方是 03 就说明打开正确。此时还没有 .venv。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s3c">
+<div class="kick"><span class="ko">9. 자리 만들기</span><span class="zh">9. 创建位置</span><b>03-1</b></div><h2 class="title"><span class="ko">이 폴더에서 쓸 자리를 만든다</span><span class="zh">为这个文件夹创建要用的位置</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko">이제 앞에서 설치한 <code>uv</code>를 처음 써 봅니다. 이 폴더에서 쓸 것을 챙겨 이 폴더 안에 넣어 줍니다.</span><span class="zh">现在第一次使用前面装好的 <code>uv</code>。它会把这个文件夹要用的东西准备好并放进来。</span></p><div class="steps"><div class="st-h"><span class="ko">자리 만들기</span><span class="zh">创建位置</span></div><ol><li><span class="ko">실행하기 <b>전에</b> 왼쪽 탐색기를 한 번 본다.</span><span class="zh">运行<b>之前</b>先看一眼左侧资源管理器。</span></li><li><span class="ko">아래 명령을 실행한다.</span><span class="zh">执行下面的命令。</span></li><li><span class="ko">탐색기를 다시 본다. <code>.venv</code> 폴더가 새로 보이면 끝난 것이다.</span><span class="zh">再看一次资源管理器。出现新的 <code>.venv</code> 文件夹就完成了。</span></li></ol></div><div class="code term"><div class="chd"><span class="fn">Terminal</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>uv sync</pre></div><div class="note"><p><span class="ko"><code>.venv</code>는 이 프로젝트가 쓸 Python이 들어 있는 폴더입니다. 지금은 이만큼만 알면 됩니다.</span><span class="zh"><code>.venv</code> 是存放这个项目所用 Python 的文件夹。现在知道这些就够了。</span></p></div>
+</section>
+
+<section class="page" id="s3c2">
+<div class="kick"><span class="ko">10. 자리 만들기 · 확인</span><span class="zh">10. 创建位置 · 确认</span><b>03-1</b></div><h2 class="title"><span class="ko">무엇이 달라졌는지 찾는다</span><span class="zh">找出发生了什么变化</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-05-uv-sync-before-after
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 16:9 · 좌우 2분할 · assets/img/03-1-05-uv-sync-before-after.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍은 두 화면을 좌우로 붙인다.
+     · 왼쪽: uv sync 실행 전 탐색기 (.venv 없음)
+     · 오른쪽: 실행 뒤 탐색기 (.venv 가 생김)
+     · **.venv 항목에 표시를 넣는다.** 학생이 찾아야 하는 것이 그것이다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-05-uv-sync-before-after.png" alt="uv sync 실행 전과 후의 VS Code 탐색기를 좌우로 비교한 화면. 오른쪽에만 .venv 폴더가 있다."
+           data-id="03-1-05-uv-sync-before-after" data-spec="가로 16:9 · 좌우 2분할 · .venv 강조"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-6. 명령 하나로 이 폴더 안에 .venv가 생긴다.</span><span class="zh">图 3-1-6. 一条命令，这个文件夹里就出现了 .venv。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s4">
+<div class="kick"><span class="ko">11. 첫 실행</span><span class="zh">11. 第一次运行</span><b>03-1</b></div><h2 class="title"><span class="ko">③ 커널을 고르고 첫 셀을 실행한다</span><span class="zh">③ 选择内核并运行第一个单元格</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">이제 준비한 것을 실제로 씁니다. 하는 일은 셋입니다. 버튼을 찾고, 목록에서 고르고, 제대로 골랐는지 확인합니다.</span><span class="zh">现在真正来用准备好的东西。要做的有三件：找到按钮、在列表中选择、确认是否选对。</span></p><div class="steps"><div class="st-h"><span class="ko">Notebook 열고 실행하기</span><span class="zh">打开并运行 Notebook</span></div><ol><li><span class="ko">선생님이 준 <code>.ipynb</code> 파일을 연다.</span><span class="zh">打开老师给的 <code>.ipynb</code> 文件。</span></li><li><span class="ko">오른쪽 위 <b>커널 선택</b>을 누른다.</span><span class="zh">点击右上角的<b>选择内核</b>。</span></li><li><span class="ko">경로에 이 프로젝트 이름과 <code>.venv</code>가 보이는 것을 고른다.</span><span class="zh">选择路径中含有本项目名称和 <code>.venv</code> 的那一项。</span></li><li><span class="ko">첫 셀을 실행한다.</span><span class="zh">运行第一个单元格。</span></li></ol></div><div class="note"><p><span class="ko"><b>커널</b>은 이 Notebook의 코드를 실제로 실행해 줄 Python입니다. 어느 Python으로 실행할지 정하는 일이 커널 선택입니다. 앞에서 <code>uv sync</code>로 만든 <code>.venv</code> 안의 Python을 고르면 됩니다.</span><span class="zh"><b>内核</b>就是实际运行这个 Notebook 代码的 Python。选择用哪个 Python 运行，就是选择内核。选前面用 <code>uv sync</code> 生成的 <code>.venv</code> 里的 Python 即可。</span></p></div>
+</section>
+
+<section class="page" id="s4a">
+<div class="kick"><span class="ko">12. 커널 버튼 찾기</span><span class="zh">12. 找内核按钮</span><b>03-1</b></div><h2 class="title"><span class="ko">버튼은 오른쪽 위 구석에 있다</span><span class="zh">按钮在右上角</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">처음 여는 학생이 가장 많이 헤매는 자리입니다. 파일을 열면 버튼은 늘 같은 곳에 있습니다.</span><span class="zh">这是第一次打开时最容易找不到的地方。打开文件后，按钮总在同一个位置。</span></p>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-06-kernel-button
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 · Notebook 오른쪽 위 · assets/img/03-1-06-kernel-button.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍는다. **커널 목록 캡처와 같은 화면에서 두 번 자르면 된다.**
+     · Notebook 을 연 직후, 아직 커널을 고르지 않은 상태의 **전체 화면**.
+     · 오른쪽 위 「커널 선택」 버튼에 **빨간 동그라미와 화살표**를 얹는다.
+     · 화면 전체를 넣어야 학생이 「저 구석」 이라는 위치를 잡을 수 있다.
+     · 축소해도 동그라미가 보이도록 테두리를 굵게 한다.
+     · 파일 경로에 실명이 나오면 가린다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-06-kernel-button.png" alt="Notebook 화면 전체. 오른쪽 위 구석의 커널 선택 버튼에 빨간 동그라미가 표시되어 있다."
+           data-id="03-1-06-kernel-button" data-spec="가로 · Notebook 전체 화면 · 커널 선택 버튼 강조"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-7. 버튼은 화면 오른쪽 위 구석, 늘 같은 자리에 있다.</span><span class="zh">图 3-1-7. 按钮在画面右上角，位置始终不变。</span></figcaption>
+    </figure>
+    <div class="note"><p><span class="ko">버튼에 적힌 글자는 상황에 따라 다릅니다. 아직 안 골랐으면 <b>커널 선택</b> 또는 <b>Select Kernel</b>, 이미 골랐으면 <b>고른 커널의 이름</b>이 보입니다. <b>글자는 달라도 자리는 같습니다.</b></span><span class="zh">按钮上的文字会随情况变化。还没选时显示<b>选择内核</b>或 <b>Select Kernel</b>，已经选过时显示<b>所选内核的名称</b>。<b>文字不同，位置相同。</b></span></p></div>
+</section>
+
+<section class="page" id="s4c">
+<div class="kick"><span class="ko">13. 커널 고르기</span><span class="zh">13. 选择内核</span><b>03-1</b></div><h2 class="title"><span class="ko">목록에서 이 폴더의 .venv를 고른다</span><span class="zh">在列表中选择本文件夹的 .venv</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">버튼을 누르면 화면 위쪽에서 목록이 내려옵니다. 이름이 비슷한 것이 여러 개 나오므로 <b>무엇을 보고 고르는지</b>가 중요합니다.</span><span class="zh">点击按钮后，列表会从画面上方展开。会出现好几个名字相似的项目，所以<b>看什么来选</b>很重要。</span></p>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-07-kernel-picker
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 · Notebook 커널 목록 · assets/img/03-1-07-kernel-picker.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍는다. **이 차시에서 가장 중요한 캡처다.**
+     · Notebook 오른쪽 위 커널 선택 버튼과, 눌렀을 때 나오는 목록.
+     · **목록에서 이 폴더의 .venv 항목에 표시를 넣어 찍는다.**
+     · 비슷한 항목이 여럿 나오므로 어느 것을 고르는지가 분명해야 한다.
+     · 여기서 잘못 고르면 4주차에 ModuleNotFoundError 가 난다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-07-kernel-picker.png" alt="Notebook 오른쪽 위 커널 선택 버튼과 목록. 경로에 이 폴더 이름과 .venv가 들어간 항목이 표시되어 있다."
+           data-id="03-1-07-kernel-picker" data-spec="가로 · 커널 목록 · .venv 항목 강조"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-8. 경로에 이 폴더 이름과 .venv가 같이 보이는 것을 고른다.</span><span class="zh">图 3-1-8. 选择路径中同时含有本文件夹名称和 .venv 的那一项。</span></figcaption>
+    </figure>
+    <div class="note"><p><span class="ko"><b>고르는 기준은 하나입니다.</b> 경로에 <b>이 폴더 이름(<code>03</code>)</b>과 <b><code>.venv</code></b>가 <b>같이</b> 들어 있는 항목. <code>Python 3.13 (global)</code>처럼 <code>.venv</code>가 없는 것은 아닙니다. 목록에 「추천」이라고 붙어 있어도 기준은 그대로입니다.</span><span class="zh"><b>判断标准只有一个。</b>路径中<b>同时</b>含有<b>本文件夹名称（<code>03</code>）</b>和 <b><code>.venv</code></b> 的那一项。像 <code>Python 3.13 (global)</code> 这种没有 <code>.venv</code> 的不是。即使列表标着“推荐”，标准也不变。</span></p></div>
+</section>
+
+<section class="page" id="s4c2">
+<div class="kick"><span class="ko">14. 안 보일 때</span><span class="zh">14. 找不到时</span><b>03-1</b></div><h2 class="title"><span class="ko">목록에 .venv가 안 보이면</span><span class="zh">列表里没有 .venv 时</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">목록을 다 봤는데 <code>.venv</code>가 들어간 항목이 하나도 없다면, 거의 언제나 <b>폴더를 잘못 연 것</b>입니다.</span><span class="zh">如果把列表看完也找不到含 <code>.venv</code> 的项目，那几乎总是<b>打开的文件夹不对</b>。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">지금 화면</span><span class="zh">当前画面</span></th><th><span class="ko">무슨 뜻인가</span><span class="zh">这是什么意思</span></th></tr></thead><tbody><tr><td><span class="ko">탐색기 맨 위가 <code>03</code>이 아니다</span><span class="zh">资源管理器最上方不是 <code>03</code></span></td><td><span class="ko"><code>03</code>보다 위 폴더를 열었습니다. 목록에 <code>.venv</code>가 나오지 않습니다.</span><span class="zh">打开了比 <code>03</code> 更上层的文件夹。列表里不会出现 <code>.venv</code>。</span></td></tr><tr><td><span class="ko">탐색기 맨 위가 <code>03</code>이다</span><span class="zh">资源管理器最上方是 <code>03</code></span></td><td><span class="ko">제대로 열었습니다. 목록 아래쪽에 <code>.venv</code> 항목이 나옵니다.</span><span class="zh">打开正确。列表下方会出现 <code>.venv</code> 项目。</span></td></tr></tbody></table></div><div class="steps"><div class="st-h"><span class="ko">폴더를 다시 여는 순서</span><span class="zh">重新打开文件夹的步骤</span></div><ol><li><span class="ko">VS Code에서 <b>파일 → 폴더 열기</b>를 누른다.</span><span class="zh">在 VS Code 中点击<b>文件 → 打开文件夹</b>。</span></li><li><span class="ko"><code>JDH_VibeCoding_자기이름</code> 안의 <code>03</code> 폴더를 고른다. <b>03 안으로 들어가서 고르는 것이 아니라, 03 자체를 고른다.</b></span><span class="zh">选择 <code>JDH_VibeCoding_自己的名字</code> 里的 <code>03</code> 文件夹。<b>不是进入 03 里面再选，而是选 03 本身。</b></span></li><li><span class="ko">탐색기 맨 위에 <code>03</code>이 보이는지 확인한다.</span><span class="zh">确认资源管理器最上方显示 <code>03</code>。</span></li><li><span class="ko">Notebook을 다시 열고 커널을 다시 고른다.</span><span class="zh">重新打开 Notebook 并重新选择内核。</span></li></ol></div><div class="note stop"><p><span class="ko"><code>.venv</code>는 <b>연 폴더 바로 안에</b> 있어야 목록에 나옵니다. <code>03</code>보다 위 폴더를 열면 그 안쪽에 있는 <code>.venv</code>는 찾아 주지 않습니다.</span><span class="zh"><code>.venv</code> 必须<b>直接位于所打开的文件夹内</b>才会出现在列表里。如果打开了比 <code>03</code> 更上层的文件夹，就不会找到里面的 <code>.venv</code>。</span></p></div>
+</section>
+
+<section class="page" id="s4d">
+<div class="kick"><span class="ko">15. 커널 확인</span><span class="zh">15. 确认内核</span><b>03-1</b></div><h2 class="title"><span class="ko">제대로 골랐는지 확인한다</span><span class="zh">确认是否选对</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">고르고 나면 아까 버튼이 있던 그 자리에 고른 커널의 이름이 그대로 뜹니다. 거기에 <code>.venv</code>가 보이면 맞게 고른 것입니다.</span><span class="zh">选好后，刚才按钮所在的位置会显示所选内核的名称。那里能看到 <code>.venv</code> 就说明选对了。</span></p>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-08-kernel-selected
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 · Notebook 오른쪽 위 확대 · assets/img/03-1-08-kernel-selected.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍는다. 앞의 두 캡처와 같은 화면이다.
+     · 커널을 **제대로 고른 뒤**, 오른쪽 위에 커널 이름이 표시된 상태.
+     · 그 부분만 **크게 잘라** 넣는다. 글자가 읽혀야 한다.
+     · 이름 안의 `.venv` 에 표시를 넣는다.
+     · 가능하면 잘못 고른 경우(전역 Python) 도 같은 크기로 나란히 놓아
+       **맞는 것 / 아닌 것** 을 한눈에 대조할 수 있게 한다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-08-kernel-selected.png" alt="커널을 고른 뒤 Notebook 오른쪽 위에 표시된 커널 이름. 이름 안에 .venv가 보인다."
+           data-id="03-1-08-kernel-selected" data-spec="가로 · 커널 이름 확대 · .venv 표시"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-9. 고르고 나면 같은 자리에 고른 커널 이름이 뜬다. 여기에 .venv가 보이면 맞다.</span><span class="zh">图 3-1-9. 选好后同一位置会显示所选内核的名称。这里能看到 .venv 就对了。</span></figcaption>
+    </figure>
+    <div class="note stop"><p><span class="ko">여기서 다른 것을 고르면 나중에 셀이 실행되지 않거나 결과가 이상하게 나옵니다. <b>경로에 <code>.venv</code>가 있는지 눈으로 확인하세요.</b></span><span class="zh">这里如果选错，之后单元格可能无法运行或结果异常。<b>请用眼睛确认路径中是否有 <code>.venv</code>。</b></span></p></div>
+</section>
+
+<section class="page" id="s4e">
+<div class="kick"><span class="ko">16. 첫 셀</span><span class="zh">16. 第一个单元格</span><b>03-1</b></div><h2 class="title"><span class="ko">첫 셀을 실행한다</span><span class="zh">运行第一个单元格</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">커널까지 골랐으면 이제 실행합니다. 셀 왼쪽의 <b>▶</b> 버튼을 누르거나 <code>Shift</code>+<code>Enter</code>를 누릅니다.</span><span class="zh">选好内核后就可以运行了。点击单元格左侧的 <b>▶</b> 按钮，或按 <code>Shift</code>+<code>Enter</code>。</span></p><div class="code"><div class="chd"><span class="fn">03-1_first_notebook.ipynb</span></div><pre>import sys
+
+print(&quot;설정 확인 완료&quot;)
+print(&quot;지금 쓰는 Python 위치:&quot;)
+print(sys.executable)</pre></div>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 03-1-09-first-cell-output
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 · Notebook 셀 · assets/img/03-1-09-first-cell-output.png
+     ───────────────────────────────────────────────────────────────────────
+
+     학교 PC 에서 찍는다.
+     · 첫 셀을 실행해 코드 바로 아래에 「설정 확인 완료」가 나온 화면.
+     · 오른쪽 위 커널 이름에 .venv 가 보이는 상태로 찍는다.
+     · sys.executable 경로가 함께 나오는데 개인 경로가 보이면 가린다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-09-first-cell-output.png" alt="첫 셀을 실행해 코드 바로 아래에 설정 확인 완료가 나온 Notebook 화면"
+           data-id="03-1-09-first-cell-output" data-spec="가로 · Notebook · 첫 실행 성공"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-10. 코드 바로 아래에 결과가 나오면 오늘 앞부분은 끝난 것이다.</span><span class="zh">图 3-1-10. 结果出现在代码正下方，今天前半部分就完成了。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s4f">
+<div class="kick"><span class="ko">17. Notebook 다루기</span><span class="zh">17. 操作 Notebook</span><b>03-1</b></div><h2 class="title"><span class="ko">칸을 다루는 법과 단축키</span><span class="zh">操作格子的方法与快捷键</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">Notebook은 <b>칸</b> 단위로 움직입니다. 칸 하나를 실행하면 그 칸 아래에 결과가 붙습니다. 오늘 필요한 것은 이만큼입니다.</span><span class="zh">Notebook 以<b>格子</b>为单位运行。运行一个格子，结果就出现在那个格子下方。今天需要的就这些。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">하고 싶은 일</span><span class="zh">想做的事</span></th><th><span class="ko">버튼으로</span><span class="zh">用按钮</span></th><th><span class="ko">단축키</span><span class="zh">快捷键</span></th></tr></thead><tbody><tr><td><span class="ko">이 칸 실행하고 아래 칸으로</span><span class="zh">运行本格并移到下一格</span></td><td><span class="ko">칸 왼쪽 <b>▶</b></span><span class="zh">格子左侧 <b>▶</b></span></td><td><code>Shift + Enter</code></td></tr><tr><td><span class="ko">이 칸 실행하고 그대로 머무르기</span><span class="zh">运行本格并停在原处</span></td><td><span class="ko">—</span><span class="zh">—</span></td><td><code>Ctrl + Enter</code></td></tr><tr><td><span class="ko">위에서부터 전부 실행</span><span class="zh">从上到下全部运行</span></td><td><span class="ko">위쪽 <b>모두 실행</b></span><span class="zh">上方<b>全部运行</b></span></td><td><code>—</code></td></tr><tr><td><span class="ko">코드 칸 추가</span><span class="zh">添加代码格</span></td><td><span class="ko"><b>+ 코드</b></span><span class="zh"><b>+ 代码</b></span></td><td><code>Esc 다음 B</code></td></tr><tr><td><span class="ko">글 칸 추가</span><span class="zh">添加文字格</span></td><td><span class="ko"><b>+ Markdown</b></span><span class="zh"><b>+ Markdown</b></span></td><td><code>Esc 다음 M</code></td></tr><tr><td><span class="ko">칸 지우기</span><span class="zh">删除格子</span></td><td><span class="ko">칸 오른쪽 <b>휴지통</b></span><span class="zh">格子右侧<b>垃圾桶</b></span></td><td><code>Esc 다음 D, D</code></td></tr><tr><td><span class="ko">실행 멈추기</span><span class="zh">停止运行</span></td><td><span class="ko">위쪽 <b>중단</b></span><span class="zh">上方<b>中断</b></span></td><td><code>—</code></td></tr></tbody></table></div><div class="note"><p><span class="ko">칸 <b>안</b>을 눌러 글자를 쓰는 중에는 <code>B</code>·<code>M</code>·<code>D</code>가 그냥 글자로 들어갑니다. <code>Esc</code>를 한 번 눌러 칸 밖으로 나온 뒤에 눌러야 단축키로 듣습니다.</span><span class="zh">在格子<b>内</b>输入文字时，<code>B</code>·<code>M</code>·<code>D</code> 只会当作文字打进去。要先按一次 <code>Esc</code> 退出格子，快捷键才生效。</span></p></div><div class="note"><p><span class="ko">칸은 <b>위에서부터 차례로</b> 실행합니다. 위 칸을 건너뛰면 아래 칸에서 “이름이 없다”는 오류가 납니다. 결과가 꼬였다 싶으면 위쪽 <b>다시 시작</b>을 누르고 처음부터 다시 실행하면 됩니다.</span><span class="zh">格子要<b>从上往下依次</b>运行。跳过上面的格子，下面就会报“名称不存在”的错误。如果结果乱了，点上方的<b>重启</b>，再从头运行一遍即可。</span></p></div>
+</section>
+
+<section class="page" id="s4b">
+<div class="kick"><span class="ko">18. 준비 확인</span><span class="zh">18. 准备确认</span><b>03-1</b></div><h2 class="title"><span class="ko">여기까지 되면 준비 끝</span><span class="zh">做到这里就准备好了</span></h2><div class="recap"><div class="rt"><span class="ko">여기까지 되면 준비 끝</span><span class="zh">做到这里就准备完成</span></div><ul><li><span class="ko"><code>uv --version</code>에 번호가 보인다.</span><span class="zh"><code>uv --version</code> 显示版本号。</span></li><li><span class="ko">탐색기에 <code>.venv</code> 폴더가 있다.</span><span class="zh">资源管理器中有 <code>.venv</code> 文件夹。</span></li><li><span class="ko">커널 이름에 <code>.venv</code>가 들어 있다.</span><span class="zh">内核名称中含有 <code>.venv</code>。</span></li><li><span class="ko">코드 셀 아래에 결과가 나타났다.</span><span class="zh">代码单元格下方出现了结果。</span></li></ul></div>
+</section>
+
+<section class="page" id="s5">
+<div class="kick"><span class="ko">19. 결과의 종류</span><span class="zh">19. 结果类型</span><b>03-1</b></div><h2 class="title"><span class="ko">계산은 값을, 비교는 판단을 만든다</span><span class="zh">计算产生数值，比较产生判断</span></h2><div class="code"><div class="chd"><span class="fn">03-1_first_notebook.ipynb</span></div><pre>score = 72
 
 print(score + 10)
-print(score &gt;= 60)</pre>
-</div>
-<div class="tablewrap">
-<table class="kv">
-<thead>
-<tr>
-<th>
-<span class="ko">표현</span>
-<span class="zh">表达式</span>
-</th>
-<th>
-<span class="ko">결과</span>
-<span class="zh">结果</span>
-</th>
-<th>
-<span class="ko">종류</span>
-<span class="zh">类型</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>score + 10</code>
-</td>
-<td>82</td>
-<td>
-<span class="ko">숫자</span>
-<span class="zh">数字</span>
-</td>
-</tr>
-<tr>
-<td>
-<code>score >= 60</code>
-</td>
-<td>True</td>
-<td>
-<span class="ko">조건이 맞는지</span>
-<span class="zh">条件是否成立</span>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>
-<span class="ko">비교연산은 두 값을 비교해 조건이 맞는지 알려 줍니다.</span>
-<span class="zh">比较运算会比较两个值，告诉我们条件是否成立。</span>
-</p>
+print(score &gt;= 60)</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>82
+True</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">표현</span><span class="zh">表达式</span></th><th><span class="ko">결과</span><span class="zh">结果</span></th><th><span class="ko">종류</span><span class="zh">类型</span></th></tr></thead><tbody><tr><td><code>score + 10</code></td><td>82</td><td><span class="ko">숫자</span><span class="zh">数字</span></td></tr><tr><td><code>score &gt;= 60</code></td><td>True</td><td><span class="ko">조건이 맞는지</span><span class="zh">条件是否成立</span></td></tr></tbody></table></div><p><span class="ko">두 값을 견주어 조건이 맞는지 알려 주는 것을 <b>비교연산</b>이라고 합니다. 계산은 새로운 값을 만들고, 비교는 판단을 만듭니다.</span><span class="zh">比较两个值、告诉我们条件是否成立，这叫<b>比较运算</b>。计算产生新的值，比较产生判断。</span></p><div class="note"><p><span class="ko"><code>True</code>와 <code>False</code>는 정답과 오답이 아닙니다. <b>지금 정한 조건이 맞는지</b>를 나타내는 값입니다.</span><span class="zh"><code>True</code> 与 <code>False</code> 不是答对与答错，而是表示<b>当前设定的条件是否成立</b>的值。</span></p></div>
 </section>
-<section class="page" id="s2">
-<div class="kick">
-<span class="ko">2. 기호</span>
-<span class="zh">2. 符号</span>
-<b>03-1</b>
-</div>
-<h2 class="title">
-<span class="ko">여섯 비교연산자와 경계값</span>
-<span class="zh">六个比较运算符与边界值</span>
-</h2>
-<div class="tablewrap">
-<table class="kv">
-<thead>
-<tr>
-<th>
-<span class="ko">기호</span>
-<span class="zh">符号</span>
-</th>
-<th>
-<span class="ko">뜻</span>
-<span class="zh">含义</span>
-</th>
-<th>
-<span class="ko">예</span>
-<span class="zh">例</span>
-</th>
-<th>
-<span class="ko">결과</span>
-<span class="zh">结果</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>&gt;</code>
-</td>
-<td>
-<span class="ko">크다</span>
-<span class="zh">大于</span>
-</td>
-<td>
-<code>8 &gt; 5</code>
-</td>
-<td>True</td>
-</tr>
-<tr>
-<td>
-<code>&lt;</code>
-</td>
-<td>
-<span class="ko">작다</span>
-<span class="zh">小于</span>
-</td>
-<td>
-<code>8 &lt; 5</code>
-</td>
-<td>False</td>
-</tr>
-<tr>
-<td>
-<code>&gt;=</code>
-</td>
-<td>
-<span class="ko">크거나 같다</span>
-<span class="zh">大于等于</span>
-</td>
-<td>
-<code>8 &gt;= 8</code>
-</td>
-<td>True</td>
-</tr>
-<tr>
-<td>
-<code>&lt;=</code>
-</td>
-<td>
-<span class="ko">작거나 같다</span>
-<span class="zh">小于等于</span>
-</td>
-<td>
-<code>8 &lt;= 7</code>
-</td>
-<td>False</td>
-</tr>
-<tr>
-<td>
-<code>==</code>
-</td>
-<td>
-<span class="ko">같다</span>
-<span class="zh">等于</span>
-</td>
-<td>
-<code>8 == 8</code>
-</td>
-<td>True</td>
-</tr>
-<tr>
-<td>
-<code>!=</code>
-</td>
-<td>
-<span class="ko">같지 않다</span>
-<span class="zh">不等于</span>
-</td>
-<td>
-<code>8 != 5</code>
-</td>
-<td>True</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="note warn">
-<p>
-<span class="ko">=는 저장, ==는 비교입니다. ‘60점 이상’에서 정확히 60점이 포함되는지 경계값으로 확인합니다.</span>
-<span class="zh">= 是存储，== 是比较。用正好 60 分的边界值确认“60 分以上”是否包含 60。</span>
-</p>
-</div>
-</section>
-<section class="page" id="s3">
-<div class="kick">
-<span class="ko">3. 판단값</span>
-<span class="zh">3. 判断值</span>
-<b>03-1</b>
-</div>
-<h2 class="title">
-<span class="ko">True와 False는 정답·오답이 아니다</span>
-<span class="zh">True 与 False 不是答对与答错</span>
-</h2>
-<div class="code ">
-<pre>age = 16
-minimum_age = 14
 
-can_join = age &gt;= minimum_age
-print(can_join)</pre>
-</div>
-<p>
-<span class="ko">can_join에는 True가 저장됩니다. 이는 사람이 정한 조건이 지금 값에서 맞다는 뜻이지, 현실의 결정이 무조건 옳다는 뜻은 아닙니다.</span>
-<span class="zh">can_join 中会保存 True。它只表示在人设定的条件下当前值符合，并不保证现实中的决定一定正确。</span>
-</p>
-<div class="note ok">
-<p>
-<span class="ko">비교 결과를 사용하기 전에 무엇을 비교하는지, 단위가 같은지, 기준값은 누가 정했는지를 먼저 확인합니다.</span>
-<span class="zh">使用比较结果前，要确认比较对象、单位是否一致，以及标准由谁制定。</span>
-</p>
-</div>
-</section>
-<section class="page" id="s4">
-<div class="kick">
-<span class="ko">4. 흐름</span>
-<span class="zh">4. 流程</span>
-<b>03-1</b>
-</div>
-<h2 class="title">
-<span class="ko">비교 결과는 다음 행동의 기준이 된다</span>
-<span class="zh">比较结果成为下一步行动的依据</span>
-</h2>
-<div class="code ">
-<pre>score = 72
-
-if score &gt;= 60:
-    print("기준을 충족했습니다.")</pre>
-</div>
-<p>
-<span class="ko">이번 시간에는 if 문법을 자세히 쓰지 않습니다. score >= 60이 True일 때 아래 행동이 실행된다는 흐름만 봅니다.</span>
-<span class="zh">本课不详细学习 if 语法，只观察 score >= 60 为 True 时下面的动作会执行。</span>
-</p>
-<ul class="blist">
-<li>
-<span class="ko">이상과 초과를 구분했는가?</span>
-<span class="zh">是否区分“以上”和“超过”？</span>
-</li>
-<li>
-<span class="ko">이하와 미만을 구분했는가?</span>
-<span class="zh">是否区分“以下”和“未满”？</span>
-</li>
-<li>
-<span class="ko">비교하는 두 값의 단위가 같은가?</span>
-<span class="zh">比较的两个值单位是否一致？</span>
-</li>
-</ul>
-</section>
-<section class="page" id="s5">
-<div class="kick">
-<span class="ko">5. AI 활용</span>
-<span class="zh">5. 使用 AI</span>
-<b>03-1</b>
-</div>
-<h2 class="title">
-<span class="ko">AI가 만든 비교에서도 기준을 찾는다</span>
-<span class="zh">在 AI 生成的比较中也要找出标准</span> <span class="badge lab">
-<span class="ko">실습</span>
-<span class="zh">实践</span>
-</span>
-</h2>
-<div class="code ">
-<div class="chd"><span class="fn"><span class="ko">OpenCode 요청문</span><span class="zh">OpenCode 请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div>
-<pre>현재 온도가 27도이고 기준 온도가 25도일 때,
-현재 온도가 기준 이상인지 True 또는 False로 출력하는
-짧은 Python 파일을 만들어 줘.
-비교 결과를 변수에 저장하고 print로 보여 줘.</pre>
-</div>
-<ul class="steps">
-<li>
-<span class="ko">비교하는 두 숫자</span>
-<span class="zh">比较的两个数字</span>
-</li>
-<li>
-<span class="ko">각 숫자의 의미와 단위</span>
-<span class="zh">每个数字的含义与单位</span>
-</li>
-<li>
-<span class="ko">사용한 비교연산자</span>
-<span class="zh">使用的比较运算符</span>
-</li>
-<li>
-<span class="ko">예상되는 True 또는 False</span>
-<span class="zh">预测的 True 或 False</span>
-</li>
-</ul>
-<div class="note">
-<p><span class="ko"><code>sample → code</code>에서 <code>03-1_temperature_25.py</code>와 <code>03-1_temperature_30.py</code>를 차례로 엽니다. 코드를 고치지 말고 달라진 기준값을 찾은 뒤, 실행 결과를 먼저 예상합니다.</span><span class="zh">依次打开 <code>03-1_temperature_25.py</code> 与 <code>03-1_temperature_30.py</code>。无需修改代码，先找出不同的标准值并预测结果。</span></p>
-</div>
-</section>
 <section class="page" id="s6">
-<div class="kick">
-<span class="ko">6. 정리</span>
-<span class="zh">6. 小结</span>
-<b>03-1</b>
-</div>
-<h2 class="title">
-<span class="ko">코드가 정확해도 기준이 틀릴 수 있다</span>
-<span class="zh">代码正确，标准仍可能错误</span>
-</h2>
-<div class="recap">
-<div class="rt">
-<span class="ko">이번 차시에서 남길 것</span>
-<span class="zh">本课时要记住的</span>
-</div>
-<ul class="blist">
-<li>
-<span class="ko">비교연산은 True 또는 False를 만든다.</span>
-<span class="zh">比较运算产生 True 或 False。</span>
-</li>
-<li>
-<span class="ko">=는 저장, ==는 비교다.</span>
-<span class="zh">= 是存储，== 是比较。</span>
-</li>
-<li>
-<span class="ko">기준·단위·연산자가 틀리면 판단도 틀린다.</span>
-<span class="zh">标准、单位或运算符错误，判断也会错误。</span>
-</li>
-<li>
-<span class="ko">AI가 만든 비교도 사람이 기준을 확인한다.</span>
-<span class="zh">AI 生成的比较也要由人确认标准。</span>
-</li>
-</ul>
-</div>
-<div class="lessonnav">
-<a href="../../02/textbook/02-3.html">
-<span class="d">
-<span class="ko">← 이전</span>
-<span class="zh">← 上一课时</span>
-</span>
-<span class="t">2-3. 웹과 프로그래밍 언어의 역사</span>
-</a>
-<a href="../../index.html">
-<span class="d">
-<span class="ko">목차</span>
-<span class="zh">目录</span>
-</span>
-<span class="t">
-<span class="ko">전체 목차로</span>
-<span class="zh">回到总目录</span>
-</span>
-</a>
-<a href="../../03/textbook/03-2.html">
-<span class="d">
-<span class="ko">다음 →</span>
-<span class="zh">下一课时 →</span>
-</span>
-<span class="t">3-2. 프로젝트별 Python 환경과 자료구조</span>
-</a>
-</div>
+<div class="kick"><span class="ko">20. 기호</span><span class="zh">20. 符号</span><b>03-1</b></div><h2 class="title"><span class="ko">비교연산자 여섯 개</span><span class="zh">六个比较运算符</span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">기호</span><span class="zh">符号</span></th><th><span class="ko">뜻</span><span class="zh">含义</span></th><th><span class="ko">예</span><span class="zh">例</span></th><th><span class="ko">결과</span><span class="zh">结果</span></th></tr></thead><tbody><tr><td><code>&gt;</code></td><td><span class="ko">크다</span><span class="zh">大于</span></td><td><code>8 &gt; 5</code></td><td>True</td></tr><tr><td><code>&lt;</code></td><td><span class="ko">작다</span><span class="zh">小于</span></td><td><code>8 &lt; 5</code></td><td>False</td></tr><tr><td><code>&gt;=</code></td><td><span class="ko">크거나 같다</span><span class="zh">大于等于</span></td><td><code>8 &gt;= 8</code></td><td>True</td></tr><tr><td><code>&lt;=</code></td><td><span class="ko">작거나 같다</span><span class="zh">小于等于</span></td><td><code>8 &lt;= 7</code></td><td>False</td></tr><tr><td><code>==</code></td><td><span class="ko">같다</span><span class="zh">等于</span></td><td><code>8 == 8</code></td><td>True</td></tr><tr><td><code>!=</code></td><td><span class="ko">같지 않다</span><span class="zh">不等于</span></td><td><code>8 != 5</code></td><td>True</td></tr></tbody></table></div><p><span class="ko">가장 먼저 구분할 것은 <b>등호 하나</b>와 <b>등호 둘</b>입니다.</span><span class="zh">最先要分清的是<b>一个等号</b>和<b>两个等号</b>。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">표현</span><span class="zh">表达式</span></th><th><span class="ko">하는 일</span><span class="zh">作用</span></th></tr></thead><tbody><tr><td><code>score = 72</code></td><td><span class="ko">72라는 값을 <code>score</code>라는 이름에 <b>저장한다</b></span><span class="zh">把 72 这个值<b>存入</b>名为 <code>score</code> 的名称</span></td></tr><tr><td><code>score == 72</code></td><td><span class="ko"><code>score</code>에 들어 있는 값이 72와 <b>같은지 비교한다</b></span><span class="zh"><b>比较</b> <code>score</code> 中的值是否等于 72</span></td></tr></tbody></table></div><div class="note stop"><p><span class="ko"><b>등호는 뒤에 옵니다.</b> “크거나 같다”를 소리 나는 대로 <code>=&gt;</code>라고 쓰는 실수가 많습니다. Python은 <code>&gt;=</code>와 <code>&lt;=</code>만 압니다. <code>=&gt;</code>라고 쓰면 값이 아니라 <code>SyntaxError</code>가 나옵니다.</span><span class="zh"><b>等号在后面。</b>按读音把“大于等于”写成 <code>=&gt;</code> 是常见错误。Python 只认 <code>&gt;=</code> 和 <code>&lt;=</code>。写成 <code>=&gt;</code> 不会得到结果，而是出现 <code>SyntaxError</code>。</span></p></div><div class="note"><p><span class="ko">기호를 외우려 하지 말고 하나만 기억하세요. <b>등호가 붙어 있으면 같을 때도 참입니다.</b></span><span class="zh">不要死记符号，只记住一点：<b>带等号时，相等也成立。</b></span></p></div>
 </section>
+
+<section class="page" id="s7">
+<div class="kick"><span class="ko">21. 경계값</span><span class="zh">21. 边界值</span><b>03-1</b></div><h2 class="title"><span class="ko">정확히 기준에 걸린 사람</span><span class="zh">正好卡在标准上的人</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="bigq"><div class="qt"><span class="ko">생각해 보기</span><span class="zh">想一想</span></div><p><span class="ko"><b>60점 이상</b>이면 통과입니다. 정확히 60점을 받은 사람은 통과일까요?</span><span class="zh"><b>60 分以上</b>算通过。那么正好考 60 分的人算通过吗？</span></p></div><p><span class="ko">실행하기 <b>전에</b> 세 줄의 결과를 예상해 적어 보세요.</span><span class="zh">运行<b>之前</b>先预测三行的结果并写下来。</span></p><div class="code"><div class="chd"><span class="fn">03-1_first_notebook.ipynb</span></div><pre>print(59 &gt;= 60)
+print(60 &gt;= 60)
+print(61 &gt;= 60)</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>False
+True
+True</pre></div>
+</section>
+
+<section class="page" id="s7b">
+<div class="kick"><span class="ko">22. 기호 하나 차이</span><span class="zh">22. 一个符号之差</span><b>03-1</b></div><h2 class="title"><span class="ko">기호 하나가 한 사람을 가른다</span><span class="zh">一个符号分开了一个人</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p><span class="ko">가운데 줄이 오늘의 핵심입니다. <b>정확히 60점인 사람도 통과입니다.</b> 기호가 <code>&gt;</code>였다면 결과가 달라집니다.</span><span class="zh">中间那一行是今天的重点。<b>正好 60 分的人也通过。</b>如果符号是 <code>&gt;</code>，结果就会不同。</span></p><div class="code"><div class="chd"><span class="fn">03-1_first_notebook.ipynb</span></div><pre>print(60 &gt; 60)
+print(60 &gt;= 60)</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>False
+True</pre></div><div class="note"><p><span class="ko"><code>&gt;</code>와 <code>&gt;=</code>의 차이는 딱 한 사람에게서 갈립니다. <b>정확히 기준에 걸린 사람</b>입니다. 규칙을 만들 때 가장 많이 다투는 지점도 여기입니다.</span><span class="zh"><code>&gt;</code> 与 <code>&gt;=</code> 的差别只落在一个人身上：<b>正好卡在标准上的人</b>。制定规则时争议最多的也是这里。</span></p></div>
+</section>
+
+<section class="page" id="s7c">
+<div class="kick"><span class="ko">23. 경계선 보기</span><span class="zh">23. 看边界线</span><b>03-1</b></div><h2 class="title"><span class="ko">들어가는 자리와 빠지는 자리</span><span class="zh">算进去的位置和被排除的位置</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 03-1-10-boundary-number-line
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 16:9 · 수직선 두 줄 · assets/img/03-1-10-boundary-number-line.png
+     ───────────────────────────────────────────────────────────────────────
+
+장대현중고등학교 「정보와 디지털 문해력」 3회차 첫째 차시(3-1)에 쓸 그림이다.
+차시 제목은 「실습 환경 준비와 비교 결과로 판단하기」.
+
+- 학생: 중3~고2, 코딩 수업이 처음이다. 컴퓨터는 전원 Windows.
+- 바이브코딩연구소 2026 브랜드. 그라데이션·이모지·그림자 금지.
+  주황(#FF5C00)은 강조에만 아주 적게.
+- 도해가 아니라 실제 물건과 장면이 보이는 사실적인 그림으로 만든다.
+
+이 절은 「기호 하나가 한 사람을 가른다」이다. 60점 이상과 60점 초과의 차이를
+눈으로 보여 준다.
+
+가로로 뻗은 두 줄의 눈금선을 위아래로 나란히 놓는다.
+
+- 위 줄: 60점 이상. 60 자리에 **속이 꽉 찬 점**이 있고, 그 점부터 오른쪽이
+  주황색 굵은 선으로 칠해져 있다. 60 도 포함된다는 뜻이다.
+- 아래 줄: 60점 초과. 60 자리에 **속이 빈 동그라미**가 있고, 그 오른쪽만
+  주황색으로 칠해져 있다. 60 은 빠진다는 뜻이다.
+- 두 줄의 60 자리에 각각 사람 한 명이 서 있다. 위 줄의 사람은 주황색 구간
+  안에, 아래 줄의 같은 자리 사람은 밖에 서 있다.
+
+같은 자리에 선 사람이 한쪽에서는 들어가고 한쪽에서는 빠진다는 것이 보여야 한다.
+숫자와 글자는 넣지 않는다. 눈금과 점만 그린다.
+16:9.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-10-boundary-number-line.png" alt="두 개의 수직선. 위는 60 자리에 채운 점이 있어 그 자리에 선 사람이 색칠 구간 안에 있고, 아래는 빈 점이라 같은 자리 사람이 밖에 있다."
+           data-id="03-1-10-boundary-number-line" data-spec="가로 16:9 · 수직선 · 채운 점과 빈 점"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-11. 같은 자리에 선 사람이 한쪽에서는 들어가고 한쪽에서는 빠진다.</span><span class="zh">图 3-1-11. 站在同一位置的人，一边算进去，一边被排除在外。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s8">
+<div class="kick"><span class="ko">24. 문장 읽기</span><span class="zh">24. 阅读句子</span><b>03-1</b></div><h2 class="title"><span class="ko">문장 속의 기준을 찾아낸다</span><span class="zh">找出句子中的标准</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p><span class="ko">우리가 쓰는 규칙은 대부분 <b>문장</b>으로 되어 있습니다. 문장을 비교식으로 옮기려면 네 가지를 차례로 찾아야 합니다.</span><span class="zh">我们使用的规则大多是<b>句子</b>。要把句子转成比较式，需要依次找出四样东西。</span></p><div class="steps"><div class="st-h"><span class="ko">네 가지를 차례로 찾는다</span><span class="zh">依次找出四样</span></div><ol><li><span class="ko"><b>무엇을 비교하는가</b> — 사람마다 달라지는 값</span><span class="zh"><b>比较什么</b> — 因人而异的值</span></li><li><span class="ko"><b>기준값은 얼마인가</b> — 규칙이 정해 둔 값</span><span class="zh"><b>标准值是多少</b> — 规则设定的值</span></li><li><span class="ko"><b>기준값 자신은 포함되는가</b></span><span class="zh"><b>标准值本身是否包含在内</b></span></li><li><span class="ko"><b>어떤 기호를 쓰는가</b> — 위 셋이 정해지면 기호는 자동으로 결정된다</span><span class="zh"><b>用哪个符号</b> — 前三项确定后符号自动确定</span></li></ol></div><div class="code out"><pre>&quot;체온이 37.5도 이상이면 보건실에 간다.&quot;
+
+비교할 값   →  체온
+기준값      →  37.5
+경계 포함?  →  이상 → 37.5도도 포함
+비교식      →  체온 &gt;= 37.5</pre></div>
+</section>
+
+<section class="page" id="s8b">
+<div class="kick"><span class="ko">25. 말과 기호</span><span class="zh">25. 说法与符号</span><b>03-1</b></div><h2 class="title"><span class="ko">우리말과 기호를 짝지어 둔다</span><span class="zh">把说法和符号对应起来</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">우리말</span><span class="zh">韩语表达</span></th><th><span class="ko">기준값 포함</span><span class="zh">是否包含标准值</span></th><th><span class="ko">기호</span><span class="zh">符号</span></th></tr></thead><tbody><tr><td><span class="ko">이상</span><span class="zh">以上</span></td><td><span class="ko">포함한다</span><span class="zh">包含</span></td><td><code>&gt;=</code></td></tr><tr><td><span class="ko">초과</span><span class="zh">超过</span></td><td><span class="ko">포함하지 않는다</span><span class="zh">不包含</span></td><td><code>&gt;</code></td></tr><tr><td><span class="ko">이하</span><span class="zh">以下</span></td><td><span class="ko">포함한다</span><span class="zh">包含</span></td><td><code>&lt;=</code></td></tr><tr><td><span class="ko">미만</span><span class="zh">未满</span></td><td><span class="ko">포함하지 않는다</span><span class="zh">不包含</span></td><td><code>&lt;</code></td></tr></tbody></table></div>
+</section>
+
+<section class="page" id="s9">
+<div class="kick"><span class="ko">26. 워크시트</span><span class="zh">26. 练习纸</span><b>03-1</b></div><h2 class="title"><span class="ko">문장을 비교식으로 옮기기</span><span class="zh">把句子转成比较式</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ①</span><span class="wst"><span class="ko">문장을 비교식으로</span><span class="zh">把句子转成比较式</span></span></div><p class="wslead"><span class="ko">여섯 문장을 읽고 네 칸을 채웁니다. 코드를 실행하지 않습니다. <b>손으로 적습니다.</b></span><span class="zh">阅读六个句子并填写四栏。不运行代码，<b>用手写。</b></span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">문장</span><span class="zh">句子</span></th><th><span class="ko">비교할 값</span><span class="zh">比较的值</span></th><th><span class="ko">기준값</span><span class="zh">标准值</span></th><th><span class="ko">경계 포함?</span><span class="zh">含边界？</span></th><th><span class="ko">비교식</span><span class="zh">比较式</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">체온이 37.5도 <b>이상</b>이면 보건실에 간다.</span><span class="zh">体温 37.5 度<b>以上</b>去保健室。</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">지각은 8시 30분을 <b>넘겨</b> 교실에 들어오는 것이다.</span><span class="zh">迟到指<b>超过</b> 8 点 30 分进教室。</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">도서관에서 책은 한 번에 3권<b>까지</b> 빌릴 수 있다.</span><span class="zh">图书馆一次最多可借 3 本。</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko">18세 <b>미만</b>은 이 영화를 볼 수 없다.</span><span class="zh"><b>未满</b> 18 岁不能看这部电影。</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">5</td><td><span class="ko">수행평가는 60점 <b>이상</b>이어야 통과다.</span><span class="zh">实作评价需 60 分<b>以上</b>才通过。</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">6</td><td><span class="ko">국어 점수가 영어 점수와 <b>다르면</b> 표시한다.</span><span class="zh">国语分数与英语分数<b>不同</b>时做标记。</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">스스로 확인</span><span class="zh">自我确认</span></div><ul><li><span class="ko">여섯 칸을 모두 채웠다.</span><span class="zh">六行都填完了。</span></li><li><span class="ko"><b>이상·초과·이하·미만</b> 중 어느 말인지 문장에서 찾아 표시했다.</span><span class="zh">在句子中找出并标出是<b>以上·超过·以下·未满</b>中的哪一个。</span></li><li><span class="ko">기준값 자신이 포함되는지 아닌지 적었다.</span><span class="zh">写出了标准值本身是否包含在内。</span></li></ul></div></div>
+</section>
+
+<section class="page" id="s10">
+<div class="kick"><span class="ko">27. 애매한 말</span><span class="zh">27. 模糊的说法</span><b>03-1</b></div><h2 class="title"><span class="ko">정확한 말과 애매한 말</span><span class="zh">精确的说法与模糊的说法</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p><span class="ko"><b>이상·초과·이하·미만</b>은 경계값을 포함하는지가 분명합니다. 그런데 우리가 실제로 더 자주 쓰는 말은 <code>까지</code>, <code>안에</code>, <code>넘으면</code> 같은 표현입니다. 이런 말은 사람마다 다르게 읽힐 수 있습니다.</span><span class="zh"><b>以上·超过·以下·未满</b>是否含边界很清楚。但我们平时更常用的是<code>为止</code>、<code>之内</code>、<code>超过</code>这类说法，这些说法不同的人可能读法不同。</span></p><div class="bigq"><div class="qt"><span class="ko">생각해 보기</span><span class="zh">想一想</span></div><p><span class="ko">“과제는 9월 3일<b>까지</b> 제출하세요.” — 9월 3일 밤에 낸 사람은 늦은 걸까요?</span><span class="zh">“作业请在 9 月 3 日<b>之前</b>提交。” — 9 月 3 日晚上交的人算迟交吗？</span></p></div><p><span class="ko">규칙을 코드로 옮기려면 이런 것을 애매한 채로 둘 수 없습니다. 규칙을 만든 사람에게 묻거나, 물을 수 없으면 <b>내가 어떻게 읽었는지 밝혀 두어야</b> 합니다.</span><span class="zh">要把规则写成代码，就不能让这些含糊不清。要么问定规则的人，要么<b>写明自己是怎么理解的</b>。</span></p><div class="note"><p><span class="ko">여러분이 나중에 서비스를 만들 때 기획서를 쓰게 됩니다. 그때 “언제 성공이라고 볼 것인가”를 정하는데, 오늘 연습한 것이 그대로 쓰입니다.</span><span class="zh">以后做服务时要写策划书，那时要定“什么时候算成功”，今天练习的内容会直接用上。</span></p></div>
+</section>
+
+<section class="page" id="s10b">
+<div class="kick"><span class="ko">28. 다르게 읽힌다</span><span class="zh">28. 读法不同</span><b>03-1</b></div><h2 class="title"><span class="ko">같은 문장이 다르게 읽힌다</span><span class="zh">同一句话有不同读法</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 03-1-11-until-when
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 16:9 · 장면 · assets/img/03-1-11-until-when.png
+     ───────────────────────────────────────────────────────────────────────
+
+장대현중고등학교 「정보와 디지털 문해력」 3회차 첫째 차시(3-1)에 쓸 그림이다.
+차시 제목은 「실습 환경 준비와 비교 결과로 판단하기」.
+
+- 학생: 중3~고2, 코딩 수업이 처음이다. 컴퓨터는 전원 Windows.
+- 바이브코딩연구소 2026 브랜드. 그라데이션·이모지·그림자 금지.
+  주황(#FF5C00)은 강조에만 아주 적게.
+- 도해가 아니라 실제 물건과 장면이 보이는 사실적인 그림으로 만든다.
+
+이 절은 「정확한 말과 애매한 말」이다. "과제는 9월 3일까지 제출하세요"를
+두 사람이 서로 다르게 읽는 장면.
+
+한 장의 안내문을 가운데 두고 양쪽에 학생 한 명씩 서 있다.
+
+- 왼쪽 학생은 달력을 보며 3일 칸을 손가락으로 짚고 있다. 3일까지 포함이라고
+  읽은 쪽이다.
+- 오른쪽 학생은 2일 칸을 짚고 있다. 3일 되기 전까지라고 읽은 쪽이다.
+- 두 학생의 머리 위에 각각 생각 풍선이 있고, 그 안에 달력의 서로 다른 날짜
+  칸이 주황색으로 칠해져 있다.
+- 두 사람 다 진지하고 자신 있는 표정이다. 누가 틀린 것이 아니다.
+
+가운데 안내문에는 글자를 쓰지 않는다. 종이 모양만 그린다.
+16:9.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/03-1-11-until-when.png" alt="같은 안내문을 두고 두 학생이 달력의 서로 다른 날짜를 짚고 있다. 각자의 생각 풍선에 다른 날짜가 칠해져 있다."
+           data-id="03-1-11-until-when" data-spec="가로 16:9 · 같은 문장, 다른 해석"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 3-1-12. 같은 문장을 읽고도 두 사람이 다른 날을 떠올린다. 누가 틀린 것이 아니다.</span><span class="zh">图 3-1-12. 读同一句话，两个人想到的日期却不同。不是谁错了。</span></figcaption>
+    </figure>
+</section>
+
+<section class="page" id="s11">
+<div class="kick"><span class="ko">29. 정리</span><span class="zh">29. 小结</span><b>03-1</b></div><h2 class="title"><span class="ko">오늘 남길 것</span><span class="zh">今天要记住的</span></h2><div class="recap"><div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div><ul><li><span class="ko">Notebook은 코드 바로 아래에 결과가 붙어 나오는 파일이다.</span><span class="zh">Notebook 是结果直接出现在代码下方的文件。</span></li><li><span class="ko">Notebook을 실행하려면 이 프로젝트가 쓸 Python을 골라 줘야 한다.</span><span class="zh">运行 Notebook 需要选择这个项目要用的 Python。</span></li><li><span class="ko">계산은 값을 만들고 비교는 판단을 만든다.</span><span class="zh">计算产生值，比较产生判断。</span></li><li><span class="ko"><code>=</code>는 저장, <code>==</code>는 비교다.</span><span class="zh"><code>=</code> 是存入，<code>==</code> 是比较。</span></li><li><span class="ko"><b>이상·이하</b>는 기준값을 포함하고 <b>초과·미만</b>은 포함하지 않는다.</span><span class="zh"><b>以上·以下</b>包含标准值，<b>超过·未满</b>不包含。</span></li><li><span class="ko"><code>까지</code>, <code>안에</code> 같은 말은 사람마다 다르게 읽힐 수 있다.</span><span class="zh"><code>为止</code>、<code>之内</code>这类说法因人而异。</span></li></ul></div><div class="quiz"><div class="qztitle"><span class="ko">확인하기</span><span class="zh">确认一下</span></div><ol><li><span class="ko">계산의 결과와 비교의 결과는 무엇이 다른가?</span><span class="zh">计算的结果与比较的结果有什么不同？</span></li><li><span class="ko"><code>=</code>와 <code>==</code>는 각각 무엇을 하는가?</span><span class="zh"><code>=</code> 与 <code>==</code> 分别做什么？</span></li><li><span class="ko">“18세 미만은 볼 수 없다”에서 18세인 사람은 볼 수 있는가?</span><span class="zh">“未满 18 岁不能看”，那么 18 岁的人能看吗？</span></li></ol></div><div class="note"><p><span class="ko">오늘 채운 워크시트는 <code>JDH_VibeCoding_자기이름</code> 안 <code>03</code> 폴더에 남깁니다. 다음 시간 시작할 때 다시 엽니다.</span><span class="zh">今天填写的练习纸留在 <code>JDH_VibeCoding_自己的名字</code> 里的 <code>03</code> 文件夹。下次上课开始时再打开。</span></p></div><div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">다음에는 값이 여러 개일 때 <b>한 번에 묶는 방법</b> 두 가지를 봅니다. 순서로 묶는 방법과 이름으로 묶는 방법입니다.</span><span class="zh">下次将学习值有多个时<b>一次性组合</b>的两种方法：按顺序组合与按名称组合。</span></p></div><div class="lessonnav"><a href="../../02/textbook/02-3.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">2-3. 웹과 프로그래밍 언어의 역사</span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../03/textbook/03-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">3-2. 여러 값을 묶는 두 가지 방법</span></a></div>
+</section>
+
 </main>
 <div id="pager">
 <button id="pprev">‹</button>

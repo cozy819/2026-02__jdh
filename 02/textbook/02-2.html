@@ -22,24 +22,12 @@
 <div id="prog"></div>
 <nav id="toc">
   <div class="h"><span class="ko">이 차시 — 02-2</span><span class="zh">本课时 — 02-2</span></div>
-  <a href="#opener"><span class="n">·</span> 차시 표지</a>
-  <a href="#prep"><span class="n">준비</span> 수업 폴더와 자료</a>
-  <a href="#s1"><span class="n">1</span> 표 속 숫자</a>
-  <a href="#s2"><span class="n">2</span> 첫 실행</a>
-  <a href="#s3"><span class="n">3</span> 네 가지 계산</a>
-  <a href="#s4"><span class="n">4</span> 숫자와 글자</a>
-  <a href="#s5"><span class="n">5</span> 변수</a>
-  <a href="#s6"><span class="n">6</span> 성적표 계산</a>
-  <a href="#s7"><span class="n">7</span> 예상과 확인</a>
-  <a href="#s8"><span class="n">8</span> AI에게 요청</a>
-  <a href="#s9"><span class="n">9</span> 핵심 정리</a>
-  <a href="#s10"><span class="n">참고</span> Python 실행과 결과</a>
-  <div class="h"><span class="ko">가까운 차시</span><span class="zh">相邻课时</span></div>
+  <a href="#opener"><span class="n">·</span> 차시 표지</a><a href="#s1"><span class="n">1</span> 표에서 코드로</a><a href="#s2"><span class="n">2</span> 첫 실행</a><a href="#s3"><span class="n">3</span> 계산</a><a href="#s4"><span class="n">4</span> 값의 종류</a><a href="#s4c"><span class="n">4</span> 값의 종류 · 실행</a><a href="#s4b"><span class="n">4</span> 값의 종류 · 종류 이름</a><a href="#s5"><span class="n">5</span> 변수</a><a href="#s5b"><span class="n">5</span> 변수 · 코드 읽기</a><a href="#s6"><span class="n">6</span> 표를 계산으로</a><a href="#s6b"><span class="n">6</span> 표를 계산으로 · 대조</a><a href="#s7"><span class="n">7</span> 예상하고 실행</a><a href="#s7b"><span class="n">7</span> 예상하고 실행 · 대조</a><a href="#s8"><span class="n">8</span> AI와 함께 만들기</a><a href="#s9"><span class="n">9</span> 정리</a><a href="#s10"><span class="n">·</span> 더 알아보기</a><a href="#s10b"><span class="n">·</span> 더 알아보기 · 결과를 보는 곳</a><div class="h"><span class="ko">가까운 차시</span><span class="zh">相邻课时</span></div>
   <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
   <a href="../../02/textbook/02-1.html"><span class="n">02-1</span> 개발 도구 설치와 확인</a>
   <a href="../../02/textbook/02-2.html" class="here"><span class="n">02-2</span> 숫자와 변수로 계산하기</a>
   <a href="../../02/textbook/02-3.html"><span class="n">02-3</span> 웹과 프로그래밍 언어의 역사</a>
-  <a href="../../03/textbook/03-1.html"><span class="n">03-1</span> 비교 결과로 판단하기</a>
+  <a href="../../03/textbook/03-1.html"><span class="n">03-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
 </nav>
 <div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
@@ -135,11 +123,14 @@ print(8 / 2)</pre></div>
   </section>
 
   <section class="page" id="s4">
-    <div class="kick"><span class="ko">4. 값의 종류</span><span class="zh">4. 值的种类</span><b>02-2</b></div>
-    <h2 class="title"><span class="ko">숫자처럼 보여도 글자일 수 있다</span><span class="zh">看起来像数字，也可能是文字</span></h2>
+<div class="kick"><span class="ko">4. 값의 종류</span><span class="zh">4. 值的种类</span><b>02-2</b></div><h2 class="title"><span class="ko">숫자처럼 보여도 글자일 수 있다</span><span class="zh">看起来像数字也可能是文字</span></h2>
     <p class="lead"><span class="ko"><b>자료형(type)</b>은 값의 종류입니다. 따옴표가 있는지 없는지만 달라도 Python은 서로 다른 종류로 이해합니다.</span><span class="zh"><b>数据类型（type）</b>是值的种类。即使只差引号，Python 也会把它们理解为不同的种类。</span></p>
     <div class="row r3 type-compare">
-      <div class="pane accent"><div class="pt"><span class="ko">숫자</span><span class="zh">数字</span></div><div class="code"><pre>print(2 + 3)</pre></div><div class="answer"><span class="ko">결과</span><span class="zh">结果</span> <b>5</b></div><p><span class="ko">숫자끼리 더하면 계산한다.</span><span class="zh">数字相加会进行计算。</span></p></div>
+      <div class="pane accent"><div class="pt"><span class="ko">숫자</span><span class="zh">数字</span></div>
+</section>
+
+<section class="page" id="s4c">
+<div class="kick"><span class="ko">4. 값의 종류 · 실행</span><span class="zh">4. 值的种类 · 运行</span><b>02-2</b></div><h2 class="title"><span class="ko">세 줄을 실행하면 마지막에서 멈춘다</span><span class="zh">运行三行，最后一行会停下</span></h2><div class="code"><pre>print(2 + 3)</pre></div><div class="answer"><span class="ko">결과</span><span class="zh">结果</span> <b>5</b></div><p><span class="ko">숫자끼리 더하면 계산한다.</span><span class="zh">数字相加会进行计算。</span></p></div>
       <div class="pane"><div class="pt"><span class="ko">문자열</span><span class="zh">字符串</span></div><div class="code"><pre>print('2' + '3')</pre></div><div class="answer"><span class="ko">결과</span><span class="zh">结果</span> <b>23</b></div><p><span class="ko">글자끼리 더하면 앞뒤로 잇는다.</span><span class="zh">文字相加会前后连接。</span></p></div>
       <div class="pane mismatch"><div class="pt"><span class="ko">글자 + 숫자</span><span class="zh">文字 + 数字</span></div><div class="code"><pre>print('2' + 3)</pre></div><div class="answer"><span class="ko">결과</span><span class="zh">结果</span> <b><span class="ko">오류</span><span class="zh">错误</span></b></div><p><span class="ko">종류가 달라 그대로 더할 수 없다.</span><span class="zh">类型不同，不能直接相加。</span></p></div>
     </div>
@@ -147,17 +138,19 @@ print(8 / 2)</pre></div>
 print('2' + '3')
 print('2' + 3)</pre></div>
     <p><span class="ko">준비된 <code>03_number_text_cases.py</code>를 실행하면 앞의 두 줄은 정상적으로 실행되고, 마지막 줄에서 종류가 다른 값을 더하려 해 오류가 한 번 나타납니다.</span><span class="zh">运行准备好的 <code>03_number_text_cases.py</code> 时，前两行正常执行，最后一行因为相加的值类型不同而出现一次错误。</span></p>
-    <div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">모양</span><span class="zh">形式</span></th><th><span class="ko">종류 이름</span><span class="zh">类型名称</span></th><th><span class="ko">오늘 확인할 것</span><span class="zh">今天要确认</span></th></tr></thead><tbody>
+</section>
+
+<section class="page" id="s4b">
+<div class="kick"><span class="ko">4. 값의 종류 · 종류 이름</span><span class="zh">4. 值的种类 · 种类名称</span><b>02-2</b></div><h2 class="title"><span class="ko">종류에는 이름이 붙어 있다</span><span class="zh">每种类型都有名字</span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">모양</span><span class="zh">形式</span></th><th><span class="ko">종류 이름</span><span class="zh">类型名称</span></th><th><span class="ko">오늘 확인할 것</span><span class="zh">今天要确认</span></th></tr></thead><tbody>
       <tr><td><code>2</code>, <code>3</code></td><td>int</td><td><span class="ko">계산할 수 있는 정수</span><span class="zh">可以计算的整数</span></td></tr>
       <tr><td><code>'2'</code>, <code>'3'</code></td><td>str</td><td><span class="ko">따옴표 안에 있는 글자</span><span class="zh">引号中的文字</span></td></tr>
       <tr><td><code>'2' + 3</code></td><td>str + int</td><td><span class="ko">서로 다른 종류라 오류가 난다</span><span class="zh">类型不同，因此发生错误</span></td></tr>
     </tbody></table></div>
     <div class="note warn"><p><span class="ko">오류 문장을 외우지 않습니다. AI가 만든 코드에서 <b>따옴표의 유무에 따라 값의 종류와 결과가 달라질 수 있다</b>는 점을 확인합니다.</span><span class="zh">不需要背错误信息。只需确认 AI 生成的代码会因<b>是否有引号</b>而改变值的类型与结果。</span></p></div>
-  </section>
+</section>
 
   <section class="page" id="s5">
-    <div class="kick"><span class="ko">5. 변수</span><span class="zh">5. 变量</span><b>02-2</b></div>
-    <h2 class="title"><span class="ko">변수는 값의 뜻을 알려 주는 이름표다</span><span class="zh">变量是说明值含义的标签</span></h2>
+<div class="kick"><span class="ko">5. 변수</span><span class="zh">5. 变量</span><b>02-2</b></div><h2 class="title"><span class="ko">변수는 값의 뜻을 알려 주는 이름표다</span><span class="zh">变量是说明值的含义的名牌</span></h2>
     <div class="row label-visual">
       <div class="pane"><div class="pt"><span class="ko">이름이 없을 때</span><span class="zh">没有名称时</span></div><div class="loose-values"><b>82</b><b>91</b><b>76</b></div><p><span class="ko">어떤 과목의 점수인지 알기 어렵다.</span><span class="zh">很难知道是哪一科的分数。</span></p></div>
       <div class="pane accent"><div class="pt"><span class="ko">이름이 있을 때</span><span class="zh">有名称时</span></div><div class="named-values"><span><i>korean_score</i><b>82</b></span><span><i>english_score</i><b>91</b></span><span><i>math_score</i><b>76</b></span></div></div>
@@ -170,16 +163,18 @@ total = korean_score + english_score + math_score
 
 print(student_name)
 print(total)</pre></div>
-    <div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">코드 한 줄</span><span class="zh">一行代码</span></th><th><span class="ko">자연어로 읽기</span><span class="zh">用自然语言阅读</span></th></tr></thead><tbody>
+</section>
+
+<section class="page" id="s5b">
+<div class="kick"><span class="ko">5. 변수 · 코드 읽기</span><span class="zh">5. 变量 · 读代码</span><b>02-2</b></div><h2 class="title"><span class="ko">코드 한 줄을 우리말로 읽는다</span><span class="zh">把一行代码读成中文</span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">코드 한 줄</span><span class="zh">一行代码</span></th><th><span class="ko">자연어로 읽기</span><span class="zh">用自然语言阅读</span></th></tr></thead><tbody>
       <tr><td><code>student_name = '학생 A'</code></td><td><span class="ko">‘학생 A’라는 글자에 student_name이라는 이름을 붙인다.</span><span class="zh">给“学生 A”这段文字取名为 student_name。</span></td></tr>
       <tr><td><code>korean_score = 82</code></td><td><span class="ko">82라는 숫자에 korean_score라는 이름을 붙인다.</span><span class="zh">给数字 82 取名为 korean_score。</span></td></tr>
     </tbody></table></div>
     <div class="note"><div class="nt"><code>=</code><span class="ko">은 무엇을 뜻할까</span><span class="zh"> 表示什么</span></div><p><span class="ko">수학 문제의 “양쪽이 같다”보다, <b>오른쪽 값을 왼쪽 이름에 저장한다</b>고 읽는 편이 이해하기 쉽습니다.</span><span class="zh">与其理解为数学中的“两边相等”，不如读作<b>把右边的值存到左边的名称中</b>。</span></p></div>
-  </section>
+</section>
 
   <section class="page" id="s6">
-    <div class="kick"><span class="ko">6. 표를 계산으로</span><span class="zh">6. 把表格变成计算</span><b>02-2</b></div>
-    <h2 class="title"><span class="ko">학생 A의 합계와 평균을 구한다</span><span class="zh">计算学生 A 的总分与平均分</span></h2>
+<div class="kick"><span class="ko">6. 표를 계산으로</span><span class="zh">6. 把表变成计算</span><b>02-2</b></div><h2 class="title"><span class="ko">학생 A의 합계와 평균을 구한다</span><span class="zh">求学生 A 的总分与平均分</span></h2>
     <p><span class="ko">성적표에서 학생 A의 숫자 세 개를 찾고, 같은 숫자가 코드에 올바른 이름으로 들어갔는지 먼저 대조합니다.</span><span class="zh">先在成绩表中找到学生 A 的三个数字，再核对代码中是否以正确名称使用了相同数字。</span></p>
     <div class="code"><div class="chd"><span class="fn">05_numbers_and_variables.py</span></div><pre>korean_score = 82
 english_score = 91
@@ -190,7 +185,10 @@ average = total / 3
 
 print(total)
 print(average)</pre></div>
-    <div class="vflow code-reading">
+</section>
+
+<section class="page" id="s6b">
+<div class="kick"><span class="ko">6. 표를 계산으로 · 대조</span><span class="zh">6. 把表变成计算 · 对照</span><b>02-2</b></div><h2 class="title"><span class="ko">표의 숫자와 코드의 숫자를 맞춰 본다</span><span class="zh">核对表格与代码里的数字</span></h2><div class="vflow code-reading">
       <div class="vf"><b><span class="ko">값을 찾는다</span><span class="zh">找到数值</span></b><span>82 · 91 · 76</span></div>
       <div class="varr">↓</div>
       <div class="vf plain"><b><span class="ko">이름을 확인한다</span><span class="zh">确认名称</span></b><span>korean_score · english_score · math_score</span></div>
@@ -200,11 +198,10 @@ print(average)</pre></div>
       <div class="vf plain"><b><span class="ko">print할 값을 찾는다</span><span class="zh">找到要 print 的值</span></b><span>total · average</span></div>
     </div>
     <div class="note ok"><p><span class="ko">코드를 직접 바꾸기 전에, 표의 숫자와 코드의 숫자가 같은지 읽고 대조하는 것이 먼저입니다.</span><span class="zh">在修改代码之前，先阅读并核对表格数字与代码数字是否一致。</span></p></div>
-  </section>
+</section>
 
   <section class="page" id="s7">
-    <div class="kick"><span class="ko">7. 예상하고 실행</span><span class="zh">7. 预测并运行</span><b>02-2</b></div>
-    <h2 class="title"><span class="ko">실행되기 전에 결과를 생각한다</span><span class="zh">运行前先思考结果</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<div class="kick"><span class="ko">7. 예상하고 실행</span><span class="zh">7. 先预测再运行</span><b>02-2</b></div><h2 class="title"><span class="ko">실행되기 전에 결과를 생각한다</span><span class="zh">运行之前先想结果</span></h2>
     <p class="lead"><span class="ko">코드가 오류 없이 실행되는 것과 우리가 원한 계산을 하는 것은 다릅니다. 실행 버튼을 누르기 전에 어떤 결과가 나와야 하는지 먼저 예상합니다.</span><span class="zh">代码没有报错，与代码完成了我们想要的计算并不相同。点击运行前，先预测应该得到什么结果。</span></p>
     <div class="steps"><div class="st-h"><span class="ko">코드 읽기 순서</span><span class="zh">阅读代码的顺序</span></div><ol>
       <li><span class="ko">어떤 숫자와 글자가 있는지 찾는다.</span><span class="zh">找出有哪些数字与文字。</span></li>
@@ -213,12 +210,15 @@ print(average)</pre></div>
       <li><span class="ko">합계와 평균을 먼저 예상한다.</span><span class="zh">先预测总分与平均分。</span></li>
       <li><span class="ko">Run Python File을 누르고 실제 결과와 비교한다.</span><span class="zh">点击 Run Python File，与实际结果比较。</span></li>
     </ol></div>
-    <div class="row prediction">
+</section>
+
+<section class="page" id="s7b">
+<div class="kick"><span class="ko">7. 예상하고 실행 · 대조</span><span class="zh">7. 先预测再运行 · 对照</span><b>02-2</b></div><h2 class="title"><span class="ko">예상과 결과를 나란히 놓고 본다</span><span class="zh">把预测和结果并排看</span></h2><div class="row prediction">
       <div class="pane"><div class="pt"><span class="ko">실행 전 예상</span><span class="zh">运行前预测</span></div><p><code>82 + 91 + 76 = ?</code><br><code>합계 / 3 = ?</code></p></div>
       <div class="pane accent"><div class="pt"><span class="ko">실행 결과</span><span class="zh">运行结果</span></div><p><b>249</b><br><b>83.0</b></p></div>
     </div>
     <div class="note warn"><p><span class="ko">예상과 다르면 바로 AI에게 다시 맡기지 않습니다. 먼저 표의 숫자, 변수에 저장된 숫자, 계산식, 출력값을 순서대로 봅니다.</span><span class="zh">如果结果与预测不同，不要马上再次交给 AI。先依次检查表格数字、变量中的数字、计算式与输出值。</span></p></div>
-  </section>
+</section>
 
   <section class="page" id="s8">
     <div class="kick"><span class="ko">8. AI와 함께 만들기</span><span class="zh">8. 与 AI 一起制作</span><b>02-2</b></div>
@@ -258,8 +258,7 @@ print(average)</pre></div>
   </section>
 
   <section class="page" id="s10">
-    <div class="kick"><span class="ko">더 알아보기</span><span class="zh">进一步了解</span><b>02-2</b></div>
-    <h2 class="title"><span class="ko">Python은 CLI에서만 실행될까?</span><span class="zh">Python 只能在 CLI 中运行吗？</span></h2>
+<div class="kick"><span class="ko">더 알아보기</span><span class="zh">拓展阅读</span><b>02-2</b></div><h2 class="title"><span class="ko">Python은 CLI에서만 실행될까?</span><span class="zh">Python 只能在 CLI 里运行吗？</span></h2>
     <p class="lead"><span class="ko"><b>아닙니다.</b> Python은 프로그래밍 언어의 이름입니다. 우리가 컴퓨터에 설치한 것은 그 언어로 적힌 코드를 읽고 실행하는 <b>Python 실행기(인터프리터)</b>입니다. 실행기는 운영체제 위에서 작동하며, CLI는 실행기에게 일을 시키고 글자 결과를 확인하는 <b>여러 방법 중 하나</b>입니다.</span><span class="zh"><b>不是。</b>Python 是一种编程语言的名称。我们安装到计算机上的，是读取并运行这种语言代码的 <b>Python 运行器（解释器）</b>。运行器在操作系统上工作，而 CLI 只是向运行器下达任务并查看文字结果的<b>多种方式之一</b>。</span></p>
 
     <div class="steps"><div class="st-h"><span class="ko">Run 버튼을 누르면 뒤에서 일어나는 일</span><span class="zh">点击 Run 按钮后在后台发生的事情</span></div><ol>
@@ -273,8 +272,10 @@ print(average)</pre></div>
       <div class="pane"><div class="pt"><span class="ko">지금 만든 코드</span><span class="zh">现在编写的代码</span></div><p><code>print(total)</code></p><p><span class="ko">글자를 출력하도록 만들었기 때문에 <b>터미널</b>에서 결과를 본다.</span><span class="zh">因为程序被写成输出文字，所以在<b>终端</b>中查看结果。</span></p></div>
       <div class="pane accent"><div class="pt"><span class="ko">화면을 만드는 코드</span><span class="zh">创建画面的代码</span></div><p><span class="ko">창·버튼·그림을 만드는 기능을 사용하면 결과를 <b>GUI 화면</b>으로 볼 수 있다.</span><span class="zh">使用创建窗口、按钮和图像的功能，就能在 <b>GUI 画面</b>中查看结果。</span></p></div>
     </div>
+</section>
 
-    <div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">실행하거나 보는 곳</span><span class="zh">运行或查看的位置</span></th><th><span class="ko">결과가 나타나는 방식</span><span class="zh">结果显示方式</span></th></tr></thead><tbody>
+<section class="page" id="s10b">
+<div class="kick"><span class="ko">더 알아보기 · 결과를 보는 곳</span><span class="zh">拓展阅读 · 看结果的地方</span><b>02-2</b></div><h2 class="title"><span class="ko">결과를 보는 곳은 여러 가지다</span><span class="zh">看结果的地方有很多种</span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">실행하거나 보는 곳</span><span class="zh">运行或查看的位置</span></th><th><span class="ko">결과가 나타나는 방식</span><span class="zh">结果显示方式</span></th></tr></thead><tbody>
       <tr><td><b>터미널</b></td><td><span class="ko"><code>print()</code> 결과와 오류를 글자로 확인한다.</span><span class="zh">以文字查看 <code>print()</code> 的结果和错误。</span></td></tr>
       <tr><td><b>Jupyter Notebook</b></td><td><span class="ko">코드 바로 아래에 표와 그래프가 나타날 수 있다.</span><span class="zh">表格和图表可以显示在代码正下方。</span></td></tr>
       <tr><td><b>GUI 프로그램</b></td><td><span class="ko">별도의 창에서 버튼·글자·그림을 보여 줄 수 있다.</span><span class="zh">可以在独立窗口中显示按钮、文字和图像。</span></td></tr>
@@ -288,7 +289,7 @@ print(average)</pre></div>
       <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
       <a href="../../02/textbook/02-3.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">2-3. 웹과 프로그래밍 언어의 역사</span></a>
     </div>
-  </section>
+</section>
 </main>
 <div id="pager"><button id="pprev">‹</button><button id="pnext">›</button></div>
 <button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
