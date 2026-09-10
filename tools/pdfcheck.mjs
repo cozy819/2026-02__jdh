@@ -7,10 +7,14 @@ const srv=http.createServer((req,res)=>{const p=path.join(root,decodeURIComponen
  const e=path.extname(p);res.writeHead(200,{'Content-Type':e==='.js'?'text/javascript':e==='.css'?'text/css':e==='.png'?'image/png':'text/html; charset=utf-8'});
  res.end(fs.readFileSync(p));});
 await new Promise(r=>srv.listen(8903,r));
-const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome',args:['--no-sandbox','--disable-background-networking','--disable-component-update','--no-first-run']});
+const b=await chromium.launch({executablePath:process.env.CHROME_PATH||'/opt/pw-browsers/chromium-1194/chrome-linux/chrome',args:['--no-sandbox','--disable-background-networking','--disable-component-update','--no-first-run']});
 const ctx=await b.newContext();
 await ctx.route('**://**',r=>r.request().url().startsWith('http://localhost:8903')?r.continue():r.abort());
-for (const f of process.argv.slice(2)) {
+const args=process.argv.slice(2);
+const targets=args.length?args:fs.readdirSync(root)
+  .filter(d=>/^\d\d$/.test(d)&&fs.existsSync(path.join(root,d,'textbook')))
+  .flatMap(d=>fs.readdirSync(path.join(root,d,'textbook')).filter(f=>f.endsWith('.html')).map(f=>`${d}/textbook/${f}`));
+for (const f of targets) {
   const pg=await ctx.newPage();
   await pg.goto(`http://localhost:8903/${f}`,{waitUntil:'load'});
   await pg.waitForTimeout(900);

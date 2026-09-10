@@ -10,13 +10,20 @@
 
 ## 쓰는 법
 
-두 스크립트 모두 `playwright`가 설치된 디렉터리에서 실행한다. 검사 대상 파일은
-`교과서_배포` 루트 기준 상대경로로 넘긴다. 스크립트 안의 `root` 값을 그 루트로 맞춘다.
+두 스크립트 모두 **playwright 와 크로미움이 있어야 돈다.** 선생님 컴퓨터에는 없다 —
+이 검사는 Claude 세션에서 돌린다. 다른 기계에서 돌릴 일이 있으면 `CHROME_PATH` 로
+크롬 실행 파일을 가리키고, 교과서 루트가 현재 폴더가 아니면 `BOOK_ROOT` 로 지정한다.
 
 ```bash
-node pagemeasure.mjs 03/textbook/03-1.html      # 쪽별 높이와 넘치는 쪽
-node pdfcheck.mjs    03/textbook/03-1.html      # .page 수 = 인쇄 장수 인지
+cd 수업구성/교과서_배포
+
+node tools/pagemeasure.mjs                       # 교과서 전체. 쪽별 높이와 넘치는 쪽
+node tools/pdfcheck.mjs                          # 교과서 전체. .page 수 = 인쇄 장수 인지
+
+node tools/pdfcheck.mjs 04/textbook/04-1.html    # 한 파일만 볼 때
 ```
+
+인자를 안 주면 `NN/textbook/*.html` 을 전부 본다.
 
 ## 기준
 
