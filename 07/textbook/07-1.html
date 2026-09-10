@@ -31,18 +31,21 @@
   <a href="#s1"><span class="n">1</span> 데이터베이스가 하는 일</a>
   <a href="#s1b"><span class="n">·</span> 참고 — NoSQL도 있다</a>
   <a href="#s2"><span class="n">2</span> 표는 같은 종류를 모은다</a>
+  <a href="#s2w"><span class="n">·</span> 지금 적는다</a>
   <a href="#s3"><span class="n">3</span> 열에는 값의 종류가 있다</a>
   <a href="#s4"><span class="n">4</span> 기본키는 행을 구별한다</a>
+  <a href="#s4w"><span class="n">·</span> 워크시트 ①</a>
   <a href="#s5"><span class="n">5</span> 반복되면 표를 나눈다</a>
   <a href="#s6"><span class="n">6</span> 외래키는 다른 표를 가리킨다</a>
   <a href="#s7"><span class="n">7</span> 1:N 관계</a>
+  <a href="#s7w"><span class="n">·</span> 지금 적는다</a>
   <a href="#s8"><span class="n">8</span> JOIN</a>
+  <a href="#s8w"><span class="n">·</span> 워크시트 ②</a>
   <a href="#s9"><span class="n">9</span> 표가 하나여도 된다</a>
   <a href="#s10"><span class="n">10</span> 흔한 오해</a>
   <a href="#s11"><span class="n">11</span> 학습 범위</a>
   <a href="#s12"><span class="n">12</span> 확인 문제</a>
   <a href="#s13"><span class="n">13</span> 정리</a>
-
   <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
   <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
   <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
@@ -266,7 +269,9 @@ last_page : 7</code></pre>
     </div>
   </section>
 
-  <!-- ══════════ 3 ══════════ -->
+<section class="page" id="s2w">
+<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>7-1</b></div><h2 class="title"><span class="ko">내 서비스가 기억할 것 하나를 표로</span><span class="zh">把我的服务要记住的一样东西画成表</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">6-2에서 적은 내 계획서를 떠올립니다. 그 서비스가 <b>반드시 기억해야 하는 것</b> 하나를 표로 그려 봅니다. 앞의 독서 기록 표와 같은 모양입니다.</span><span class="zh">回想 6-2 写的自己的计划书。把那个服务<b>必须记住的一样东西</b>画成表格。和前面的读书记录表一样的样子。</span></p><div class="quote"><p><span class="ko">이 표의 한 행은 <b>____________________</b> 하나를 나타낸다.</span><span class="zh">这张表的一行代表一个 <b>____________________</b>。</span></p></div><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">열 이름</span><span class="zh">列名</span></th><th><span class="ko">무엇이 들어가는가</span><span class="zh">里面放什么</span></th></tr></thead><tbody><tr><td>id</td><td><span class="ko">자동으로 붙는 번호</span><span class="zh">自动生成的编号</span></td></tr><tr><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="warn"><p><span class="ko"><b>한 행이 무엇인지 먼저 정하고 열을 적습니다.</b> 순서를 바꾸면 서로 다른 종류가 한 표에 섞입니다.</span><span class="zh"><b>先定一行是什么，再写列。</b>顺序反了，不同种类就会混进同一张表。</span></p></div>
+</section>  <!-- ══════════ 3 ══════════ -->
   <section class="page" id="s3">
     <div class="kick"><span class="ko">3. 값의 종류</span><span class="zh">3. 值的种类</span><b>7-1</b></div>
     <h2 class="title"><span class="ko">열에는 이름과 값의 종류가 있다</span><span class="zh">列有名称，也有值的种类</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
@@ -347,7 +352,9 @@ last_page : 7</code></pre>
     </div>
   </section>
 
-  <!-- ══════════ 5 ══════════ -->
+<section class="page" id="s4w">
+<div class="kick"><span class="ko">워크시트 ①</span><span class="zh">工作表 ①</span><b>7-1</b></div><h2 class="title"><span class="ko">이 열은 기본키가 될 수 있는가</span><span class="zh">这一列能不能当主键</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ①</span><span class="wst"><span class="ko">기본키 고르기</span><span class="zh">选择主键</span></span></div><p class="wslead"><span class="ko">각 열이 기본키가 될 수 있는지 판정합니다. <b>겹치지 않고, 비어 있지 않고, 바뀌지 않아야</b> 합니다. 안 되면 그 이유를 적습니다.</span><span class="zh">判断每一列能不能当主键。要<b>不重复、不为空、不会变</b>。不行的话写出理由。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">열</span><span class="zh">列</span></th><th><span class="ko">될 수 있나</span><span class="zh">可以吗</span></th><th><span class="ko">안 되면 왜</span><span class="zh">不行的理由</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">학생 이름</span><span class="zh">学生姓名</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">학번</span><span class="zh">学号</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">휴대폰 번호</span><span class="zh">手机号</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko">← 내 표에서 기본키로 쓸 열</span><span class="zh">← 我的表里当主键的列</span></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">안 된다고 적은 줄에 <b>겹칠 수 있다 · 비어 있을 수 있다 · 바뀔 수 있다</b> 중 하나를 적었다.</span><span class="zh">写「不行」的行里，写了<b>可能重复·可能为空·可能改变</b>中的一个。</span></li><li><span class="ko">네 번째 줄에 <code>id</code> 라고 적었다면 그것도 맞다.</span><span class="zh">第四行写 <code>id</code> 也是对的。</span></li></ul></div></div>
+</section>  <!-- ══════════ 5 ══════════ -->
   <section class="page" id="s5">
     <div class="kick"><span class="ko">5. 표 나누기</span><span class="zh">5. 拆表</span><b>7-1</b></div>
     <h2 class="title"><span class="ko">반복되는 대상을 별도 표로 나눈다</span><span class="zh">把重复出现的对象拆成单独的表</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
@@ -433,6 +440,45 @@ id(PK), book_id(FK), read_date, rating, comment</code></pre>
         </div></details>
       </div>
     </div>
+  
+    <!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 07-1-01-points-to
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 16:9 · 개념 삽화 · assets/img/07-1-01-points-to.png
+     ───────────────────────────────────────────────────────────────────────
+
+     ── 맥락 (모델에게 그대로 넘겨도 된다) ────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 7회 첫째 차시(7-1)에 쓸 그림이다.
+     학생은 중3~고2 여덟 명, 데이터베이스를 이번 시간에 처음 배운다.
+     앞 절에서 표·행·열과 기본키를 배웠고, 이 절에서 외래키를 배운다.
+     이 그림은 "한 표의 어떤 칸이 다른 표의 한 줄을 가리킨다" 를
+     글이 아니라 한 장으로 잡아 주는 자리에 들어간다.
+     교과서 인쇄물과 교실 스크린 양쪽에 같은 파일이 들어간다.
+
+     ── 그릴 것 ────────────────────────────────────────────────────
+     책상 위에 인쇄된 종이 두 장이 나란히 놓여 있고, 두 장 모두 줄과 칸이 그어진
+     작은 표다. 왼쪽 표의 **어느 한 칸**에서 가느다란 실 한 가닥이 뻗어 나와
+     오른쪽 표의 **어느 한 줄**에 가서 닿아 있다.
+
+     · 표의 글자는 읽히지 않을 만큼 작게 그린다. 칸과 줄만 보이면 된다.
+     · 실은 주황(#FF5C00). 그림에서 주황은 이 실 하나뿐이다.
+     · 실이 닿는 곳은 오른쪽 표의 **줄 하나**다. 표 전체나 표의 제목이 아니다.
+     · 실은 한 가닥이다. 여러 가닥을 그리면 이 절의 요점이 흐려진다.
+     · 사람 손이 종이 옆에 놓여 있어도 좋다. 얼굴은 넣지 않는다.
+
+     ── 지킬 것 ────────────────────────────────────────────────────
+     · 공통 스타일 **A(사실적 삽화)** 를 앞에 붙인다. B(플랫 벡터)를 같이 붙이지 않는다.
+       → 이미지_제작_가이드 「2. 공통 스타일」
+     · 비율 16:9 가로. 배경은 거의 흰색(#ffffff). 인쇄물이라 어두운 배경은 쓰지 않는다.
+     · 받은 뒤 확인 — ① 실이 한 가닥인가 ② 실이 오른쪽 표의 한 줄에 닿았나
+       ③ 글자가 읽히지 않나 ④ 주황이 실에만 있나. 하나라도 어긋나면 다시 만든다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/07-1-01-points-to.png" alt="종이 두 장에 그려진 표. 왼쪽 표의 한 칸에서 실 한 가닥이 나와 오른쪽 표의 한 줄에 닿아 있다."
+           data-id="07-1-01-points-to" data-spec="가로 16:9 · 표 두 장 · 실 한 가닥 강조"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 7-1-1. 왼쪽 표의 한 칸이 오른쪽 표의 한 줄을 가리킨다. 외래키가 하는 일이 이것이다.</span><span class="zh">图 7-1-1. 左表的一个格子指向右表的某一行。外键做的就是这件事。</span></figcaption>
+    </figure>
   </section>
 
   <!-- ══════════ 7 ══════════ -->
@@ -468,7 +514,9 @@ id(PK), book_id(FK), read_date, rating, comment</code></pre>
     </div>
   </section>
 
-  <!-- ══════════ 8 ══════════ -->
+<section class="page" id="s7w">
+<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>7-1</b></div><h2 class="title"><span class="ko">내 표 두 개와 그 사이 관계</span><span class="zh">我的两张表和它们的关系</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">표가 둘 이상이면 그 사이를 한 문장으로 적습니다. 표가 하나뿐이어도 괜찮습니다. 그때는 <b>「표 하나로 충분하다」</b>고 적습니다.</span><span class="zh">如果有两张以上的表，用一句话写出它们之间的关系。只有一张表也没关系，那就写<b>「一张表就够了」</b>。</span></p><div class="quote"><p><span class="ko"><b>____________</b> 하나에 <b>____________</b> 여러 개가 붙는다.<br/>그래서 외래키는 <b>____________</b> 표에 둔다.</span><span class="zh">一个 <b>____________</b> 上挂着多个 <b>____________</b>。<br/>所以外键放在 <b>____________</b> 表里。</span></p></div><ul class="blist"><li><span class="ko">앞 예에서는 「책 하나에 독서 기록 여러 개가 붙는다」였습니다.</span><span class="zh">前面的例子是「一本书上挂着多条读书记录」。</span></li><li><span class="ko">외래키는 <b>여러 개가 있는 쪽</b>에 둡니다. 세 번째 칸의 답입니다.</span><span class="zh">外键放在<b>数量多的那一边</b>。这就是第三格的答案。</span></li></ul><div class="warn"><p><span class="ko">표가 하나여도 이 수업에서는 충분합니다. 억지로 나누지 않습니다.</span><span class="zh">在这门课里，只有一张表也完全够用。不要硬拆。</span></p></div>
+</section>  <!-- ══════════ 8 ══════════ -->
   <section class="page" id="s8">
     <div class="kick"><span class="ko">8. JOIN</span><span class="zh">8. JOIN</span><b>7-1</b></div>
     <h2 class="title"><span class="ko">JOIN은 연결된 표의 정보를 함께 보는 방법이다</span><span class="zh">JOIN 是把相连表的信息一起看的方法</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
@@ -525,7 +573,9 @@ id(PK), book_id(FK), read_date, rating, comment</code></pre>
     </div>
   </section>
 
-  <!-- ══════════ 9 ══════════ -->
+<section class="page" id="s8w">
+<div class="kick"><span class="ko">워크시트 ②</span><span class="zh">工作表 ②</span><b>7-1</b></div><h2 class="title"><span class="ko">이 질문에 답하려면 어느 표가 필요한가</span><span class="zh">回答这个问题需要哪张表</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ②</span><span class="wst"><span class="ko">필요한 표 찾기</span><span class="zh">找出需要的表</span></span></div><p class="wslead"><span class="ko">책 표와 독서 기록 표가 있습니다. 각 질문에 답하려면 <b>어느 표가 필요한지</b> 적습니다. 둘 다 필요하면 둘 다 적습니다.</span><span class="zh">有「书」表和「读书记录」表。写出回答每个问题<b>需要哪张表</b>。两张都需要就都写。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">답해야 하는 질문</span><span class="zh">要回答的问题</span></th><th><span class="ko">필요한 표</span><span class="zh">需要的表</span></th><th><span class="ko">왜</span><span class="zh">为什么</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">기록이 모두 몇 개인가</span><span class="zh">一共有多少条记录</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">가장 평점이 높은 책의 제목은</span><span class="zh">评分最高的书的书名是</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">← 내 서비스가 답해야 할 질문 하나</span><span class="zh">← 我的服务要回答的一个问题</span></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">두 번째 줄에 표 두 개를 적었다. 제목은 책 표에, 평점은 기록 표에 있다.</span><span class="zh">第二行写了两张表。书名在「书」表里，评分在「记录」表里。</span></li><li><span class="ko">세 번째 줄은 내 서비스로 적었다.</span><span class="zh">第三行是用自己的服务写的。</span></li></ul></div></div>
+</section>  <!-- ══════════ 9 ══════════ -->
   <section class="page" id="s9">
     <div class="kick"><span class="ko">9. 표의 수</span><span class="zh">9. 表的数量</span><b>7-1</b></div>
     <h2 class="title"><span class="ko">서비스마다 필요한 표의 수는 다르다</span><span class="zh">每个服务需要的表数各不相同</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
@@ -609,8 +659,13 @@ id(PK), book_id(FK), read_date, rating, comment</code></pre>
   <section class="page" id="s12">
     <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>7-1</b></div>
     <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+  </section>
 
-    <div class="quiz">
+  <!-- ══════════ 12. 확인 (이어서) ══════════ -->
+  <section class="page" id="s12_1a">
+    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+<div class="quiz">
       <div class="q">
         <div class="qq"><span class="ko">다음 표의 한 행은 무엇을 나타내는가? 그리고 이 표에 문제가 있다면 무엇인가?<br/><code>id, 학생이름, 학생학년, 대여한책제목, 대여일</code></span><span class="zh">下面这张表的一行代表什么？如果这张表有问题，问题是什么？<br/><code>id, 학생이름, 학생학년, 대여한책제목, 대여일</code></span></div>
         <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
@@ -619,6 +674,14 @@ id(PK), book_id(FK), read_date, rating, comment</code></pre>
           <p><span class="ko">나눈다면 <code>[학생] id(PK), 이름, 학년</code>과 <code>[대여 기록] id(PK), student_id(FK), 책제목, 대여일</code>이 됩니다. 다만 <b>학생 이름은 개인정보</b>이므로, 수업 프로젝트에서는 이런 정보를 저장하지 않는 편이 좋습니다.</span><span class="zh">要拆的话就成了 <code>[학생] id(PK), 이름, 학년</code> 和 <code>[대여 기록] id(PK), student_id(FK), 책제목, 대여일</code>。不过<b>学生姓名属于个人信息</b>，课堂项目里最好不要保存这类信息。</span></p>
         </div></details>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 12. 확인 (이어서) ══════════ -->
+  <section class="page" id="s12_1b">
+    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>7-1</b></div>
+    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+<div class="quiz">
       <div class="q">
         <div class="qq"><span class="ko">1:N 관계에서 외래키를 ‘N 쪽’ 표에 두는 이유는 무엇인가?</span><span class="zh">1:N 关系中，为什么把外键放在“N 那一边”的表里？</span></div>
         <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
@@ -635,9 +698,9 @@ id(PK), book_id(FK), read_date, rating, comment</code></pre>
         </div></details>
       </div>
     </div>
-  </section>
-
-  <section class="page" id="s12_2">
+  
+  
+  </section>  <section class="page" id="s12_2">
     <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>7-1</b></div>
     <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
 

@@ -31,9 +31,12 @@
   <a href="#s1"><span class="n">1</span> 테스트는 예상과 실제의 비교</a>
   <a href="#s2"><span class="n">2</span> 흐름에서 테스트를 만든다</a>
   <a href="#s3"><span class="n">3</span> 기본 사용자 시나리오 네 가지</a>
+  <a href="#s3w"><span class="n">·</span> 지금 적는다</a>
   <a href="#s4"><span class="n">4</span> 입력 경계는 필요한 곳만</a>
   <a href="#s5"><span class="n">5</span> 예상한 반응을 먼저 적는다</a>
+  <a href="#s5w"><span class="n">·</span> 워크시트 ①</a>
   <a href="#s6"><span class="n">6</span> 처음 달라진 단계를 찾는다</a>
+  <a href="#s6w"><span class="n">·</span> 워크시트 ②</a>
   <a href="#s7"><span class="n">7</span> 수정 뒤 같은 행동으로 다시</a>
   <a href="#s8"><span class="n">8</span> AI가 시나리오를 제안할 수 있다</a>
   <a href="#s9"><span class="n">9</span> 테스트 기록을 준비한다</a>
@@ -44,7 +47,6 @@
   <a href="#s11c"><span class="n">부록</span> 기록 양식 ⑤</a>
   <a href="#s12"><span class="n">10</span> 확인 문제</a>
   <a href="#s13"><span class="n">11</span> 정리</a>
-
   <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
   <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
   <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
@@ -147,8 +149,8 @@
     </div>
 
     <div class="note">
-      <div class="nt"><span class="ko">3-2에서 하던 것과 같습니다</span><span class="zh">和 3-2 做的一样</span></div>
-      <p><span class="ko">3-2에서 코드를 읽고 <b>결과를 먼저 예상한 뒤 실행해서 비교</b>했습니다. 지금은 대상이 코드에서 <b>사용자 경험</b>으로 바뀌었을 뿐, 순서는 같습니다.</span><span class="zh">3-2 里读代码时是<b>先预测结果再运行比对</b>。现在只是把对象从代码换成了<b>用户体验</b>，顺序一样。</span></p>
+      <div class="nt"><span class="ko">3-1에서 하던 것과 같습니다</span><span class="zh">和 3-1 做的一样</span></div>
+      <p><span class="ko">3-1에서 코드를 읽고 <b>결과를 먼저 예상한 뒤 실행해서 비교</b>했습니다. 지금은 대상이 코드에서 <b>사용자 경험</b>으로 바뀌었을 뿐, 순서는 같습니다.</span><span class="zh">3-1 里读代码时是<b>先预测结果再运行比对</b>。现在只是把对象从代码换成了<b>用户体验</b>，顺序一样。</span></p>
     </div>
   </section>
 
@@ -210,7 +212,9 @@
     </ul>
   </section>
 
-  <!-- ══════════ 4 ══════════ -->
+<section class="page" id="s3w">
+<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>12-1</b></div><h2 class="title"><span class="ko">내 서비스의 시나리오 네 줄</span><span class="zh">我的服务的四条场景</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">앞의 네 가지를 <b>내 서비스의 문장으로</b> 바꿔 적습니다. 9회 개발 계획을 옆에 펴 놓고 질문으로 바꾸기만 하면 됩니다.</span><span class="zh">把前面的四种<b>换成自己服务的句子</b>。把 9 次的开发计划摊在旁边，改成问句就行。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">시나리오</span><span class="zh">场景</span></th><th><span class="ko">내 서비스에서는 이렇게 묻는다</span><span class="zh">在我的服务里这样问</span></th></tr></thead><tbody><tr><td><span class="ko">① 처음 방문</span><span class="zh">① 首次访问</span></td><td class="wsblank"></td></tr><tr><td><span class="ko">② 대표 정상 흐름</span><span class="zh">② 主要正常流程</span></td><td class="wsblank"></td></tr><tr><td><span class="ko">③ 예외 뒤 다시 시도</span><span class="zh">③ 出错后再试</span></td><td class="wsblank"></td></tr><tr><td><span class="ko">④ 다시 방문</span><span class="zh">④ 再次访问</span></td><td class="wsblank"></td></tr></tbody></table></div><div class="note"><p><span class="ko">새로 만들 것이 없습니다. <b>9회에 적은 흐름을 질문으로 바꾸는 것</b>뿐입니다.</span><span class="zh">没有要新做的。只是<b>把 9 次写的流程改成问句</b>。</span></p></div>
+</section>  <!-- ══════════ 4 ══════════ -->
   <section class="page" id="s4">
     <div class="kick"><span class="ko">4. 경계값</span><span class="zh">4. 边界值</span><b>12-1</b></div>
     <h2 class="title"><span class="ko">입력의 경계는 필요한 서비스만 확인한다</span><span class="zh">输入的边界只在需要的服务上确认</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
@@ -253,7 +257,9 @@
     </div>
   </section>
 
-  <!-- ══════════ 6 ══════════ -->
+<section class="page" id="s5w">
+<div class="kick"><span class="ko">워크시트 ①</span><span class="zh">工作表 ①</span><b>12-1</b></div><h2 class="title"><span class="ko">실행하기 전에 예상을 적는다</span><span class="zh">运行之前先写下预期</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ①</span><span class="wst"><span class="ko">예상 먼저 적기</span><span class="zh">先写预期</span></span></div><p class="wslead"><span class="ko"><b>실행하기 전에</b> 왼쪽 두 칸을 채웁니다. 오른쪽 두 칸은 다음 시간에 실제로 해 보고 채웁니다. 실행한 뒤에 예상 칸을 고치면 아무것도 확인하지 못한 것이 됩니다.</span><span class="zh"><b>运行之前</b>先填左边两格。右边两格下节课实际操作后再填。运行之后再改预期栏，就等于什么都没验证。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">사용자 행동</span><span class="zh">用户动作</span></th><th><span class="ko">예상한 반응</span><span class="zh">预期的反应</span></th><th><span class="ko">실제 결과</span><span class="zh">实际结果</span></th><th><span class="ko">판정</span><span class="zh">判定</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">② 대표 정상 흐름</span><span class="zh">② 主要正常流程</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">③ 예외 뒤 다시 시도</span><span class="zh">③ 出错后再试</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">④ 다시 방문</span><span class="zh">④ 再次访问</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">실행하기 전에 예상 칸을 다 채웠다.</span><span class="zh">运行之前把预期栏都填满了。</span></li><li><span class="ko">예상 칸에 <b>화면에 보일 것</b>을 적었다. 「잘 된다」는 예상이 아니다.</span><span class="zh">预期栏写的是<b>画面上会出现什么</b>。「能用」不算预期。</span></li></ul></div></div>
+</section>  <!-- ══════════ 6 ══════════ -->
   <section class="page" id="s6">
     <div class="kick"><span class="ko">6. 문제 찾기</span><span class="zh">6. 找问题</span><b>12-1</b></div>
     <h2 class="title"><span class="ko">처음 달라진 단계를 찾는다</span><span class="zh">找出第一处不一样的步骤</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
@@ -290,7 +296,9 @@
     </div>
   </section>
 
-  <!-- ══════════ 7 ══════════ -->
+<section class="page" id="s6w">
+<div class="kick"><span class="ko">워크시트 ②</span><span class="zh">工作表 ②</span><b>12-1</b></div><h2 class="title"><span class="ko">처음 달라진 단계 찾기</span><span class="zh">找出第一个不一样的步骤</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ②</span><span class="wst"><span class="ko">문제를 네 줄로 옮기기</span><span class="zh">把问题写成四行</span></span></div><p class="wslead"><span class="ko">예상과 다른 것이 하나라도 있으면 <b>네 줄</b>로 옮겨 적습니다. 이 넷이면 코드를 읽지 않아도 AI에게 문제를 정확히 전할 수 있습니다.</span><span class="zh">只要有一处和预期不同，就写成<b>四行</b>。有这四行，不用读代码也能把问题准确告诉 AI。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">적을 것</span><span class="zh">要写的</span></th><th><span class="ko">내가 본 것</span><span class="zh">我看到的</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">마지막으로 예상대로 보인 단계</span><span class="zh">最后一个符合预期的步骤</span></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">처음 예상과 달라진 단계</span><span class="zh">第一个与预期不同的步骤</span></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">그때 사용자가 한 행동</span><span class="zh">那时用户做的动作</span></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko">화면에 실제로 보인 내용</span><span class="zh">画面上实际显示的内容</span></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">두 번째 줄이 <b>처음</b> 달라진 곳이다. 그 뒤로 이상한 것은 적지 않는다.</span><span class="zh">第二行是<b>第一个</b>不同的地方。之后的异常不用写。</span></li><li><span class="ko">네 번째 줄에 화면에 보인 글자를 그대로 옮겨 적었다.</span><span class="zh">第四行照抄了画面上出现的文字。</span></li></ul></div></div>
+</section>  <!-- ══════════ 7 ══════════ -->
   <section class="page" id="s7">
     <div class="kick"><span class="ko">7. 재확인</span><span class="zh">7. 再确认</span><b>12-1</b></div>
     <h2 class="title"><span class="ko">수정한 뒤 같은 행동으로 다시 확인한다</span><span class="zh">改完之后用同样的动作再确认</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
