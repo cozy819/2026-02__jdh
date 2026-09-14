@@ -1139,6 +1139,19 @@ body.lang-zh .zh.blk{display:block !important}
 .ws table.wstab td.wsblank{background:#fff;
   box-shadow:inset 0 -1px 0 var(--line), inset 1px 0 0 var(--line)}
 .ws table.wstab tr:last-child td.wsblank{box-shadow:inset 1px 0 0 var(--line)}
+
+/* 워크시트 빈칸 — 화면에서는 직접 적을 수 있다. 저장하지 않는다.
+   인쇄하면 input 이 사라지고 원래대로 빈칸이 나온다(칸 높이는 td 가 잡고 있다). */
+.ws table.wstab td.wsblank{padding:0}
+.ws table.wstab td.wsblank .wsin{
+  display:block; width:100%; height:54px;
+  border:0; outline:0; background:transparent;
+  font:inherit; color:inherit; padding:6px 11px;
+  box-sizing:border-box; border-radius:0}
+.ws table.wstab td.wsblank .wsin::placeholder{color:#C9CDD3}
+.ws table.wstab td.wsblank .wsin:focus{
+  background:#FFF6F1; box-shadow:inset 0 0 0 2px #FF5C00}
+@media print{ .ws table.wstab td.wsblank .wsin{display:none} }
 .ws table.wstab th + th{box-shadow:inset 1px 0 0 var(--line)}
 .ws .wsck{margin-top:16px; border-top:2px solid var(--vcl-carbon); padding-top:12px}
 .ws .wsck-h{font-size:13px; font-weight:700; color:var(--muted); letter-spacing:.02em; margin-bottom:6px}
