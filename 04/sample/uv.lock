@@ -240,7 +240,7 @@ wheels = [
 ]
 
 [[package]]
-name = "jdh-week04-sample"
+name = "04"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
