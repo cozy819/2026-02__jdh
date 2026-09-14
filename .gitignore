@@ -2,3 +2,10 @@
 .fuse_hidden*
 _stage*.tgz
 _out*.tgz
+
+# PowerPoint·Word 가 열어 둔 동안 만드는 잠금 파일
+~$*
+*/*/~$*
+# 손으로 만든 사본은 올리지 않는다
+*복사본*
+*복사본*

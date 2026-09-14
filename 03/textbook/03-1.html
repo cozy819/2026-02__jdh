@@ -170,28 +170,33 @@ VS Code 창 두 개를 좌우로 놓고 비교하는 그림.
 <section class="page" id="s2c">
 <div class="kick"><span class="ko">3. 도구 준비 · 그림</span><span class="zh">3. 准备工具 · 图</span><b>03-1</b></div><h2 class="title"><span class="ko">폴더마다 챙기는 것이 다르다</span><span class="zh">每个文件夹要带的东西不同</span></h2><p><span class="ko">사람마다 하는 일이 다르면 챙기는 도구도 다릅니다. 폴더도 마찬가지입니다.</span><span class="zh">做的事不同，要带的工具也不同。文件夹也是一样。</span></p>
     <!-- ═══════════════════════════════════════════════════════════════════════
-     [기존 자산] 03-2-03-project-toolboxes
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 16:9 · 기존 자산 재사용 · assets/img/03-2-03-project-toolboxes.png
+     [이미지 생성 요청] 03-1-12-different-work-different-tools
+     · 영역   : 이 주석 바로 아래 figure
+     · 규격   : 가로 16:9 · 1600×900 · assets/img/03-1-12-different-work-different-tools.png
      ───────────────────────────────────────────────────────────────────────
 
-     이미 만들어 둔 그림을 그대로 쓴다. 새로 만들지 않는다.
-     원래 4주차용으로 만들었으나 쓰이지 않고 있었고, 이 절의 내용과 정확히 맞는다.
+     앞서 쓰던 03-2-03-project-toolboxes 는 두 사람이 **둘 다 공부를 하고 있어**
+     「하는 일이 다르면」이 그림에 안 나왔다. 도구함 속 아이콘만 달랐다.
+     그래서 서로 다른 두 일(제빵 / 자전거 정비)을 **동작과 작업대로** 갈라 놓은
+     그림으로 바꿨다. 학교 교재라 「공부 vs 막일」 구도는 위아래로 읽혀서 피했다.
+
+     받은 뒤 확인 — ① 하는 일이 동작으로 갈리나 ② 양쪽 도구에 겹치는 물건이 없나
+     ③ 얼굴·끼어든 손이 없나 ④ 한쪽이 더 커 보이지 않나 ⑤ 주황이 한 군데뿐인가
      ═══════════════════════════════════════════════════════════════════════ -->
     <figure class="fig">
-      <img class="figimg" src="../../assets/img/03-2-03-project-toolboxes.png" alt="두 학생이 각자의 책상에서 자기 도구함을 열어 보고 있다. 도구함 안에 든 물건이 서로 다르다."
-           data-id="03-2-03-project-toolboxes" data-spec="가로 16:9 · 폴더마다 다른 도구함"
+      <img class="figimg" src="../../assets/img/03-1-12-different-work-different-tools.png" alt="왼쪽 작업대에서는 밀가루 반죽을 치대며 볼·저울·밀대·스크레이퍼·거품기를 쓰고, 오른쪽 작업대에서는 자전거 바퀴를 정비하며 스패너·타이어 레버·체인 공구·오일을 쓴다. 겹치는 도구가 하나도 없다."
+           data-id="03-1-12-different-work-different-tools" data-spec="가로 16:9 · 일이 다르면 도구가 다르다"
            onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 3-1-2. 사람마다 하는 일이 다르면 챙기는 도구도 다르다. 폴더도 마찬가지다.</span><span class="zh">图 3-1-2. 做的事不同，带的工具也不同。文件夹也是一样。</span></figcaption>
+      <figcaption><span class="ko">그림 3-1-2. 하는 일이 다르면 챙기는 도구가 다르다. 폴더도 마찬가지다.</span><span class="zh">图 3-1-2. 做的事不同，带的工具就不同。文件夹也是一样。</span></figcaption>
     </figure>
 </section>
 
 <section class="page" id="s2b">
-<div class="kick"><span class="ko">4. uv 설치</span><span class="zh">4. 安装 uv</span><b>03-1</b></div><h2 class="title"><span class="ko">① uv를 설치한다</span><span class="zh">① 安装 uv</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko"><b>① <code>uv</code>를 설치합니다.</b> 아래 한 줄을 PowerShell에 <b>복사해</b> 붙여 넣습니다. <code>uv</code> 공식 홈페이지가 안내하는 방법입니다. 직접 입력하지 말고 복사하세요. 설치가 끝나면 VS Code를 <b>완전히 닫고 다시 연 뒤</b> 확인합니다. 2-1에서 익힌 <b>프로그램 이름 + --version</b> 방식이 여기서도 그대로 쓰입니다.</span><span class="zh"><b>① 安装 <code>uv</code>。</b> 把下面这一行<b>复制</b>粘贴到 PowerShell。这是 <code>uv</code> 官方网站给出的方法。不要手动输入，请复制。安装完成后<b>完全关闭并重新打开</b> VS Code 再确认。2-1 学过的<b>程序名 + --version</b> 方式在这里同样适用。</span></p><div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</pre></div><div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>uv --version</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>uv 0.9.x</pre></div><div class="note"><p><span class="ko">터미널은 열릴 때 프로그램 목록을 한 번 읽습니다. 그 뒤에 설치된 것은 <b>새 창</b>에서만 보입니다. 2-1에서 PowerShell을 새로 열었던 것과 같은 이유입니다.</span><span class="zh">终端在打开时会读取一次程序列表。之后安装的程序只在<b>新窗口</b>中才能看到。这与 2-1 中重新打开 PowerShell 的原因相同。</span></p></div><div class="note stop"><p><span class="ko">버전 번호가 보이지 않으면 혼자 다른 방법을 찾지 말고 <b>화면을 선생님께 보여 주세요.</b></span><span class="zh">如果看不到版本号，不要自己尝试其他方法，请<b>把画面给老师看</b>。</span></p></div>
+<div class="kick"><span class="ko">4. uv 설치</span><span class="zh">4. 安装 uv</span><b>03-1</b></div><h2 class="title"><span class="ko">① uv를 설치한다</span><span class="zh">① 安装 uv</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko"><b>① <code>uv</code>를 설치합니다.</b> 아래 한 줄을 PowerShell에 <b>복사해</b> 붙여 넣습니다. <code>uv</code> 공식 홈페이지가 안내하는 방법입니다. 직접 입력하지 말고 복사하세요. 설치가 끝나면 PowerShell을 <b>완전히 닫고 새로 연 뒤</b> 확인합니다. 2-1에서 익힌 <b>프로그램 이름 + --version</b> 방식이 여기서도 그대로 쓰입니다.</span><span class="zh"><b>① 安装 <code>uv</code>。</b> 把下面这一行<b>复制</b>粘贴到 PowerShell。这是 <code>uv</code> 官方网站给出的方法。不要手动输入，请复制。安装完成后<b>完全关闭并重新打开</b> PowerShell 再确认。2-1 学过的<b>程序名 + --version</b> 方式在这里同样适用。</span></p><div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</pre></div><div class="code term"><div class="chd"><span class="fn">PowerShell</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>uv --version</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>uv 0.9.x</pre></div><div class="note"><p><span class="ko">터미널은 열릴 때 프로그램 목록을 한 번 읽습니다. 그 뒤에 설치된 것은 <b>새 창</b>에서만 보입니다. 2-1에서 PowerShell을 새로 열었던 것과 같은 이유입니다.</span><span class="zh">终端在打开时会读取一次程序列表。之后安装的程序只在<b>新窗口</b>中才能看到。这与 2-1 中重新打开 PowerShell 的原因相同。</span></p></div><div class="note stop"><p><span class="ko">버전 번호가 보이지 않으면 혼자 다른 방법을 찾지 말고 <b>화면을 선생님께 보여 주세요.</b></span><span class="zh">如果看不到版本号，不要自己尝试其他方法，请<b>把画面给老师看</b>。</span></p></div>
 </section>
 
 <section class="page" id="s2d">
-<div class="kick"><span class="ko">5. uv 확인</span><span class="zh">5. 确认 uv</span><b>03-1</b></div><h2 class="title"><span class="ko">설치가 끝났는지 확인한다</span><span class="zh">确认是否安装完成</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko">설치가 끝나면 VS Code를 <b>완전히 닫고 다시 연 뒤</b> 확인합니다. 터미널은 열릴 때 프로그램 목록을 한 번 읽기 때문에, 그 뒤에 설치된 것은 <b>새 창</b>에서만 보입니다.</span><span class="zh">安装完成后<b>完全关闭并重新打开</b> VS Code 再确认。终端在打开时会读取一次程序列表，之后安装的程序只在<b>新窗口</b>中才能看到。</span></p>
+<div class="kick"><span class="ko">5. uv 확인</span><span class="zh">5. 确认 uv</span><b>03-1</b></div><h2 class="title"><span class="ko">설치가 끝났는지 확인한다</span><span class="zh">确认是否安装完成</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p><span class="ko">uv는 방금 <b>PowerShell</b>에서 설치했습니다. 이제 <b>VS Code를 엽니다.</b> 앞으로 수업은 VS Code 안에서 하니까, VS Code의 터미널에서도 같은 명령이 되는지 한 번 더 확인합니다.</span><span class="zh">uv 刚才是在 <b>PowerShell</b> 里安装的。现在<b>打开 VS Code</b>。以后上课都在 VS Code 里进行，所以要在 VS Code 的终端里再确认一次同样的命令能不能用。</span></p><div class="code term"><div class="chd"><span class="fn"><span class="ko">VS Code 터미널</span><span class="zh">VS Code 终端</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>uv --version</pre></div><div class="note"><p><span class="ko">터미널은 열릴 때 프로그램 목록을 한 번 읽습니다. 그래서 <b>설치보다 먼저 열어 둔 창</b>에는 uv가 안 보입니다. VS Code가 이미 열려 있었다면 <b>완전히 닫고 다시</b> 여세요.</span><span class="zh">终端在打开时会读取一次程序列表。所以<b>在安装之前就已经打开的窗口</b>里看不到 uv。如果 VS Code 本来就开着，请<b>完全关闭后重新</b>打开。</span></p></div>
 <!-- ═══════════════════════════════════════════════════════════════════════
      [화면 캡처 안내] 03-1-02-uv-version-ok
      · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
