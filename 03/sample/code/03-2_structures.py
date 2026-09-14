@@ -14,7 +14,10 @@ print("scores[1]   :", scores[1])
 print("scores[2]   :", scores[2])
 print("scores[3]   :", scores[3])
 
-# 3. 없는 자리를 부르면 — 오류가 나는 것이 정상입니다.
+# 3. 값이 몇 개인지 세어 본다 — len 은 length(길이)
+print("len(scores) :", len(scores))
+
+# 4. 없는 자리를 부르면 — 오류가 나는 것이 정상입니다.
 #    값이 4개이므로 마지막 번호는 3입니다. 4번은 없는 자리입니다.
 try:
     print(scores[4])
@@ -22,7 +25,7 @@ except IndexError as e:
     print("scores[4]   : 오류 —", e)
     print("              (list index out of range = 범위를 벗어난 번호)")
 
-# 4. dict — 이름으로 찾기
+# 5. dict — 이름으로 찾기
 student = {
     "name": "민준",
     "score": 85,
@@ -32,7 +35,7 @@ print("student     :", student)
 print("이름        :", student["name"])
 print("점수        :", student["score"])
 
-# 5. 나를 이름표 묶음으로
+# 6. 나를 이름표 묶음으로
 me = {
     "name": "민준",
     "grade": 1,
@@ -41,7 +44,7 @@ me = {
 }
 print("동아리      :", me["club"])
 
-# 6. 여러 명 — 이름표 묶음이 여러 개 늘어서면 표가 된다
+# 7. 여러 명 — 이름표 묶음이 여러 개 늘어서면 표가 된다
 students = [
     {"name": "민준", "club": "밴드"},
     {"name": "서연", "club": "미술"},
