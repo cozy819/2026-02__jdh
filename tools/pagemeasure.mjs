@@ -1,5 +1,12 @@
-import { chromium } from 'playwright';
+import { createRequire } from 'module';
+import os from 'os';
 import http from 'http'; import fs from 'fs'; import path from 'path';
+let chromium;
+try { ({ chromium } = await import('playwright')); }
+catch {
+  const mods=process.env.CODEX_NODE_MODULES||path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
+  ({ chromium } = createRequire(path.join(mods,'package.json'))('playwright'));
+}
 const root=process.env.BOOK_ROOT || '.';   // 교과서_배포 루트
 const srv=http.createServer((req,res)=>{const p=path.join(root,decodeURIComponent(req.url.split('?')[0]));
  if(!fs.existsSync(p)||fs.statSync(p).isDirectory()){res.writeHead(404);return res.end();}

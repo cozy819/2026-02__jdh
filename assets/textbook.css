@@ -876,6 +876,7 @@ figure.fig.narrow img.figimg{max-width:560px; margin:0 auto}
   .grow{display:none}
   h2.title{font-size:19pt} h3.sub{font-size:14pt} h4.sub2{font-size:12pt}
   p.lead{font-size:11.5pt}
+  .row.r3{grid-template-columns:repeat(3,1fr)}
   .note,.code,figure.fig,.steps,.row,.pane,.kv,.recap,.deep,.term,.myth,.quiz .q,
   .stack,.vflow,.flow,.iot,.trouble,.record,.bigq,.scene,.recall,.mysay,.blist li{
     break-inside:avoid; page-break-inside:avoid;
