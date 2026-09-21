@@ -37,43 +37,31 @@
 <a href="#s2">
 <span class="n">2</span> 두 화면</a>
 <a href="#s3">
-<span class="n">3</span> 어느 쪽이 쉬운가</a>
+<span class="n">3</span> 대표 그래프</a>
 <a href="#s4">
-<span class="n">4</span> 멈춘다</a>
+<span class="n">4</span> 프로젝트 조건</a>
 <a href="#s5">
 <span class="n">5</span> 라이브러리</a>
 <a href="#s6">
-<span class="n">6</span> 가져온다</a>
+<span class="n">6</span> 오류를 AI에게</a>
 <a href="#s7">
-<span class="n">7</span> 다시 실행</a>
+<span class="n">7</span> 바뀐 목록</a>
 <a href="#s8">
 <span class="n">8</span> 화면</a>
 <a href="#s9">
-<span class="n">9</span> 종류</a>
+<span class="n">9</span> 실습 파일</a>
 <a href="#s10">
-<span class="n">10</span> 요청</a>
+<span class="n">10</span> 머리글 확인</a>
 <a href="#s11">
-<span class="n">11</span> 대조</a>
+<span class="n">11</span> 그릴 값</a>
 <a href="#s12">
-<span class="n">12</span> 두 그래프</a>
+<span class="n">12</span> AI에게 요청</a>
 <a href="#s13">
-<span class="n">13</span> 값 확인</a>
+<span class="n">13</span> 실행</a>
 <a href="#s14">
-<span class="n">14</span> 공개</a>
+<span class="n">14</span> 원본 대조</a>
 <a href="#s15">
-<span class="n">15</span> 왜 그런가</a>
-<a href="#s16">
-<span class="n">16</span> 워크시트 ①</a>
-<a href="#s17">
-<span class="n">17</span> 기간</a>
-<a href="#s18">
-<span class="n">18</span> 전체</a>
-<a href="#s19">
-<span class="n">19</span> 워크시트 ②</a>
-<a href="#s20">
-<span class="n">20</span> 확인 목록</a>
-<a href="#s21">
-<span class="n">21</span> 정리</a>
+<span class="n">15</span> 저장과 정리</a>
 <div class="h">
 <span class="ko">전체 차시</span>
 <span class="zh">全部课时</span>
@@ -153,8 +141,8 @@
 <span class="zh">用 Matplotlib 理解图表</span>
 </h1>
 <div class="osub">
-<span class="ko">그래프 함수를 외우기보다 데이터와 그래프의 대응, 교사가 지정한 조건, 원본과의 일치를 확인합니다.</span>
-<span class="zh">不背绘图函数，重点确认数据与图表的对应、教师指定条件以及与原始数据的一致。</span>
+<span class="ko">그래프 함수를 외우기보다, 데이터가 무엇을 말하는지 읽고 AI가 만든 결과를 확인해 봅니다.</span>
+<span class="zh">不用背绘图函数。我们先读懂数据表达的内容，再检查 AI 制作的结果。</span>
 </div>
 <div class="abar">
 </div>
@@ -163,17 +151,32 @@
 <b>이전 차시</b> · 3-2. 여러 값을 묶는 두 가지 방법<br>
 <b>다음 차시</b> · 4-2. pandas로 표 데이터를 쉽게 사용하기</span>
 <span class="zh">
-<b>上一课时</b> · 3-2. 여러 값을 묶는 두 가지 방법<br>
-<b>下一课时</b> · 4-2. pandas로 표 데이터를 쉽게 사용하기</span>
+<b>上一课时</b> · 3-2. 整理多个数值的两种方法<br>
+<b>下一课时</b> · 4-2. 用 pandas 轻松处理表格数据</span>
 </div>
 </section>
 
 <section class="page" id="s1">
-<div class="kick"><span class="ko">1. 자료 받기</span><span class="zh">1. 获取资料</span><b>04-1</b></div><h2 class="title"><span class="ko">이번 차시 폴더를 받아 연다</span><span class="zh">下载并打开本课时文件夹</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">3주차에 <code>03</code> 폴더를 만들었듯이, 이번에는 <code>04</code> 폴더를 씁니다. 아래 버튼으로 받습니다.</span><span class="zh">就像 3 周次建了 <code>03</code> 文件夹一样，这次用 <code>04</code> 文件夹。用下面的按钮下载。</span></p><div class="folder-download-row"><a class="download-cta" href="../../downloads/04_student_files.zip" download><span class="download-icon" aria-hidden="true">↓</span><span><b class="ko">04 학생용 자료 내려받기</b><b class="zh">下载 04 学生资料</b><small>04_student_files.zip</small></span></a><div class="download-note"><span class="ko">압축을 풀면 <code>04</code> 폴더가 나옵니다. <code>JDH_VibeCoding_자기이름</code> 안에 넣습니다.</span><span class="zh">解压后会出现 <code>04</code> 文件夹，把它放进 <code>JDH_VibeCoding_自己的名字</code> 里。</span></div></div><div class="steps"><div class="st-h"><span class="ko">폴더 열기</span><span class="zh">打开文件夹</span></div><ol><li><span class="ko">압축을 풀어 나온 <code>04</code> 폴더를 <code>JDH_VibeCoding_자기이름</code> 안에 넣는다.</span><span class="zh">把解压得到的 <code>04</code> 文件夹放进 <code>JDH_VibeCoding_自己的名字</code> 里。</span></li><li><span class="ko">그 <code>04</code> 폴더를 <b>통째로</b> VS Code로 연다. 파일 하나만 열지 않는다.</span><span class="zh">把这个 <code>04</code> 文件夹<b>整个</b>用 VS Code 打开。不要只打开一个文件。</span></li><li><span class="ko">터미널에 <code>uv sync</code>를 실행한다. <code>.venv</code>가 생긴다.</span><span class="zh">在终端运行 <code>uv sync</code>，会生成 <code>.venv</code>。</span></li><li><span class="ko">Notebook을 열고 오른쪽 위에서 이 폴더의 <code>.venv</code>를 커널로 고른다.</span><span class="zh">打开 Notebook，在右上角选择本文件夹的 <code>.venv</code> 作为内核。</span></li></ol></div><div class="note"><p><span class="ko">여기까지는 3주차에 한 것과 <b>똑같습니다.</b> 폴더 이름만 <code>03</code>에서 <code>04</code>로 바뀌었습니다. 커널 목록에 <code>.venv</code>가 안 보이면 교과서 03-1의 17쪽을 봅니다.</span><span class="zh">到这里为止和 3 周次<b>完全一样</b>，只是文件夹名从 <code>03</code> 变成 <code>04</code>。如果内核列表里没有 <code>.venv</code>，请看教材 03-1 第 17 页。</span></p><p><span class="ko">그래도 Notebook이 안 열리면 <code>code</code> 폴더의 파일을 대신 실행합니다. 배우는 것은 똑같고, 그래프가 별도 창으로 뜨는 것만 다릅니다.</span><span class="zh">如果 Notebook 仍然打不开，就改为运行 <code>code</code> 文件夹里的文件。学的内容完全一样，只是图表会另开一个窗口显示。</span></p></div>
+<div class="kick"><span class="ko">1. 자료 받기</span><span class="zh">1. 下载资料</span><b>04-1</b></div><h2 class="title"><span class="ko">이번 차시 폴더를 받아 연다</span><span class="zh">下载并打开本课时的文件夹</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">练习</span></span></h2><p class="lead"><span class="ko">3주차에 <code>03</code> 폴더를 만들었듯이, 이번에는 <code>04</code> 폴더를 씁니다. 아래 버튼으로 받습니다.</span><span class="zh">和第 3 次课创建 <code>03</code> 文件夹时一样，这次我们使用 <code>04</code> 文件夹。点击下面的按钮下载。</span></p><div class="folder-download-row"><a class="download-cta" href="../../downloads/04_student_files.zip" download><span class="download-icon" aria-hidden="true">↓</span><span><b class="ko">04 학생용 자료 내려받기</b><b class="zh">下载 04 学生用资料</b><small>04_student_files.zip</small></span></a><div class="download-note"><span class="ko">압축을 풀면 <code>04</code> 폴더가 나옵니다. <code>JDH_VibeCoding_자기이름</code> 안에 넣습니다.</span><span class="zh">解压后会看到 <code>04</code> 文件夹。请把它放进以自己姓名命名的 <code>JDH_VibeCoding_姓名</code> 文件夹中。</span></div></div><div class="steps"><div class="st-h"><span class="ko">폴더 열기</span><span class="zh">打开文件夹</span></div><ol><li><span class="ko">압축을 풀어 나온 <code>04</code> 폴더를 <code>JDH_VibeCoding_자기이름</code> 안에 넣는다.</span><span class="zh">把解压后的 <code>04</code> 文件夹放进 <code>JDH_VibeCoding_姓名</code> 文件夹中。</span></li><li><span class="ko">그 <code>04</code> 폴더를 <b>통째로</b> VS Code로 연다. 파일 하나만 열지 않는다.</span><span class="zh">用 VS Code 打开<b>整个</b> <code>04</code> 文件夹，不要只打开其中一个文件。</span></li><li><span class="ko">터미널에 <code>uv sync</code>를 실행한다. <code>.venv</code>가 생긴다.</span><span class="zh">在终端运行 <code>uv sync</code>，系统会创建 <code>.venv</code>。</span></li><li><span class="ko">Notebook을 열고 오른쪽 위에서 이 폴더의 <code>.venv</code>를 커널로 고른다.</span><span class="zh">打开 Notebook，在右上角选择这个文件夹中的 <code>.venv</code> 作为内核。</span></li></ol></div><!-- ══════════════════════════════════════════════════════════════════════
+     [화면 이미지] 04-1-00-kernel-picker
+     · 영역   : 이 주석 바로 아래 figure
+     · 규격   : 가로 16:9 · Windows VS Code 커널 목록 · assets/img/04-1-00-kernel-picker.png
+     ───────────────────────────────────────────────────────────────────────
+
+     04 폴더를 통째로 연 Windows용 VS Code에서 04-1_matplotlib_graph.ipynb를 연 화면이다.
+     커널 목록에서 경로에 04와 .venv가 함께 들어간 .venv (Python 3.14) 항목만
+     주황 테두리와 화살표로 표시한다. global Python 항목은 선택하지 않는다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/04-1-00-kernel-picker.png" alt="04 폴더의 Notebook 커널 목록에서 04 폴더 안의 .venv가 선택 대상으로 표시된 화면"
+           data-id="04-1-00-kernel-picker" data-spec="가로 16:9 · Windows VS Code · 04/.venv 커널 선택"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 4-1-1. 경로에 <code>04</code>와 <code>.venv</code>가 함께 보이는 항목을 고른다.</span><span class="zh">图 4-1-1. 选择路径中同时出现 <code>04</code> 和 <code>.venv</code> 的项目。</span></figcaption>
+    </figure><div class="note"><p><span class="ko">여기까지는 3주차에 한 것과 <b>똑같습니다.</b> 폴더 이름만 <code>03</code>에서 <code>04</code>로 바뀌었습니다. 커널 목록에 <code>.venv</code>가 안 보이면 교과서 03-1의 17쪽을 봅니다.</span><span class="zh">到这里和第 3 次课完全一样，只是文件夹名从 <code>03</code> 换成了 <code>04</code>。如果内核列表里看不到 <code>.venv</code>，请查看教材 03-1 的第 17 页。</span></p><p><span class="ko">그래도 Notebook이 안 열리면 <code>code</code> 폴더의 파일을 대신 실행합니다. 배우는 것은 똑같고, 그래프가 별도 창으로 뜨는 것만 다릅니다.</span><span class="zh">如果 Notebook 还是打不开，可以改为运行 <code>code</code> 文件夹里的文件。学习内容不变，只是图表会显示在单独的窗口中。</span></p></div>
 </section>
 
 <section class="page" id="s2">
-<div class="kick"><span class="ko">2. 두 화면</span><span class="zh">2. 两个画面</span><b>04-1</b></div><h2 class="title"><span class="ko">같은 자료를 두 가지로 본다</span><span class="zh">同一份资料的两种看法</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">아래 표와 그래프는 <b>같은 자료</b>입니다. 담긴 숫자가 하나도 다르지 않습니다.</span><span class="zh">下面的表格和图表是<b>同一份资料</b>，数字完全相同。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">요일</span><span class="zh">星期</span></th><th><span class="ko">이용 인원</span><span class="zh">使用人数</span></th></tr></thead><tbody><tr><td>Mon</td><td>18</td></tr><tr><td>Tue</td><td>25</td></tr><tr><td>Wed</td><td>21</td></tr><tr><td>Thu</td><td>32</td></tr><tr><td>Fri</td><td>29</td></tr></tbody></table></div><!-- ═══════════════════════════════════════════════════════════════════════
+<div class="kick"><span class="ko">2. 두 화면</span><span class="zh">2. 两个画面</span><b>04-1</b></div><h2 class="title"><span class="ko">두 가지 방법으로 본다</span><span class="zh">用两种方式来看</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">아래 표와 그래프는 <b>같은 자료</b>입니다. 담긴 숫자가 하나도 다르지 않습니다.</span><span class="zh">下面的表格和图表是<b>同一份资料</b>，数字完全相同。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">요일</span><span class="zh">星期</span></th><th><span class="ko">이용 인원</span><span class="zh">使用人数</span></th></tr></thead><tbody><tr><td>Mon</td><td>18</td></tr><tr><td>Tue</td><td>25</td></tr><tr><td>Wed</td><td>21</td></tr><tr><td>Thu</td><td>32</td></tr><tr><td>Fri</td><td>29</td></tr></tbody></table></div><!-- ═══════════════════════════════════════════════════════════════════════
      [기존 자산] 04-1-01-visitors-bar
      · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
      · 규격   : 가로 · 막대그래프 · assets/img/04-1-01-visitors-bar.png
@@ -186,20 +189,25 @@
       <img class="figimg" src="../../assets/img/04-1-01-visitors-bar.png" alt="요일별 이용 인원을 막대로 그린 그래프. 목요일이 가장 높다."
            data-id="04-1-01-visitors-bar" data-spec="가로 · 막대그래프 · 목요일 강조"
            onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-1-1. 위 표와 같은 자료를 막대로 그린 것이다.</span><span class="zh">图 4-1-1. 与上表相同的资料，用柱状图画出来。</span></figcaption>
+      <figcaption><span class="ko">그림 4-1-2. 위 표와 같은 자료를 막대로 그린 것이다.</span><span class="zh">图 4-1-2. 与上表相同的资料，用柱状图画出来。</span></figcaption>
     </figure>
 </section>
 
 <section class="page" id="s3">
-<div class="kick"><span class="ko">3. 어느 쪽이 쉬운가</span><span class="zh">3. 哪个更容易</span><b>04-1</b></div><h2 class="title"><span class="ko">질문에 따라 편한 쪽이 다르다</span><span class="zh">问题不同，方便的一方也不同</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">앞의 표와 그래프를 보고 두 질문에 답해 보세요. 어느 쪽을 보고 답했습니까?</span><span class="zh">看着前面的表格和图表回答两个问题。你是看哪一个回答的？</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">질문</span><span class="zh">问题</span></th><th><span class="ko">표</span><span class="zh">表格</span></th><th><span class="ko">그래프</span><span class="zh">图表</span></th></tr></thead><tbody><tr><td><span class="ko">수요일은 정확히 몇 명인가?</span><span class="zh">星期三正好是多少人？</span></td><td><span class="ko">21이라고 <b>바로</b> 읽힌다</span><span class="zh"><b>直接</b>读到 21</span></td><td><span class="ko">눈금을 재야 한다</span><span class="zh">要对着刻度看</span></td></tr><tr><td><span class="ko">가장 많은 날은 언제인가?</span><span class="zh">最多的是哪天？</span></td><td><span class="ko">다섯 줄을 비교해야 한다</span><span class="zh">要比较五行</span></td><td><span class="ko"><b>한눈에</b> 보인다</span><span class="zh"><b>一眼</b>就能看到</span></td></tr></tbody></table></div><div class="note"><p><span class="ko"><b>표는 정확한 값</b>에 강하고, <b>그래프는 크기와 변화의 모양</b>에 강합니다. 어느 쪽이 더 좋은 것이 아니라 <b>묻는 것이 다릅니다.</b></span><span class="zh"><b>表格</b>擅长精确的数值，<b>图表</b>擅长大小和变化的形状。不是哪一个更好，而是<b>所问的东西不同</b>。</span></p></div>
+<div class="kick"><span class="ko">3. 대표 그래프</span><span class="zh">3. 常见图表</span><b>04-1</b></div><h2 class="title"><span class="ko">보여 주려는 것에 따라 그래프의 모양이 달라진다</span><span class="zh">想呈现的内容不同，图表的样子也不同</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">종류를 외우기보다 각 그래프가 무엇을 눈에 띄게 하는지 살펴봅니다.</span><span class="zh">不用背诵种类，先观察每种图表突出显示什么。</span></p><div class="row r3"><div class="pane"><figure class="fig"><img class="figimg" src="../../assets/img/04-1-04-bar-line.png" alt="막대와 꺾은선이 함께 있는 그래프"></figure><p><span class="ko"><b>막대 + 꺾은선</b><br>양과 변화를 함께 보기</span><span class="zh"><b>柱形图 + 折线图</b><br>同时观察数量和变化</span></p></div><div class="pane"><figure class="fig"><img class="figimg" src="../../assets/img/04-1-05-pie.png" alt="여러 조각으로 나뉜 원형 그래프"></figure><p><span class="ko"><b>원형 그래프</b><br>전체에서 차지하는 비율 보기</span><span class="zh"><b>饼图</b><br>观察各部分所占比例</span></p></div><div class="pane"><figure class="fig"><img class="figimg" src="../../assets/img/04-1-06-trendline.png" alt="들쭉날쭉한 원자료 선 위에 부드러운 추세선이 겹쳐진 그래프"></figure><p><span class="ko"><b>추세선</b><br>들쭉날쭉한 값 속 전체 흐름 보기</span><span class="zh"><b>趋势线</b><br>从波动数值中观察整体走势</span></p></div></div><div class="note ok"><p><span class="ko">4-1에서는 기본 선그래프를 만들고, 4-2 마지막에는 같은 자료 위에 <b>5일 평균 추세선</b>을 추가합니다.</span><span class="zh">4-1 制作基本折线图，4-2 最后会在同一数据上添加<b>5 日平均趋势线</b>。</span></p></div>
 </section>
 
 <section class="page" id="s4">
-<div class="kick"><span class="ko">4. 멈춘다</span><span class="zh">4. 停下来</span><b>04-1</b></div><h2 class="title"><span class="ko">그래프를 그리려는데 멈춘다</span><span class="zh">想画图表却停下来</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">이제 그래프를 직접 그려 봅니다. Notebook의 그리기 셀을 실행하면 <b>오류가 납니다. 정상입니다.</b></span><span class="zh">现在自己来画图表。运行 Notebook 的绘图单元格会<b>报错，这是正常的</b>。</span></p><div class="code"><div class="chd"><span class="fn">04-1_matplotlib_graph.ipynb</span></div><pre>import matplotlib.pyplot as plt</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">마지막 줄</span><span class="zh">最后一行</span></span></div><pre>ModuleNotFoundError: No module named 'matplotlib'</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">보이는 말</span><span class="zh">看到的话</span></th><th><span class="ko">뜻</span><span class="zh">意思</span></th></tr></thead><tbody><tr><td><code>ModuleNotFoundError</code></td><td><span class="ko">도구를 찾지 못했다</span><span class="zh">找不到工具</span></td></tr><tr><td><code>No module named</code></td><td><span class="ko">그런 이름의 도구가 <b>이 폴더에 없다</b></span><span class="zh"><b>这个文件夹里没有</b>这个名字的工具</span></td></tr></tbody></table></div><div class="note"><p><span class="ko"><b>코드가 틀린 것이 아닙니다.</b> 쓸 도구를 아직 안 가져온 것입니다. 3-2에서 본 <code>IndexError</code>처럼, 오류 문장은 어디가 막혔는지 알려 줍니다.</span><span class="zh"><b>不是代码写错了</b>，而是还没把要用的工具拿过来。就像 3-2 看过的 <code>IndexError</code> 一样，错误信息告诉我们卡在哪里。</span></p></div>
+<div class="kick"><span class="ko">4. 프로젝트 조건</span><span class="zh">4. 项目条件</span><b>04-1</b></div><h2 class="title"><span class="ko">Python 버전과 라이브러리 목록을 함께 읽는다</span><span class="zh">一起读取 Python 版本和库清单</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">왼쪽 탐색기에서 <code>pyproject.toml</code>을 엽니다. 이 파일은 <b>프로젝트에 필요한 실행 조건</b>을 적어 둔 설계서입니다.</span><span class="zh">在左侧资源管理器中打开 <code>pyproject.toml</code>。这个文件记录了<b>项目所需的运行条件</b>。</span></p><div class="code"><div class="chd"><span class="fn">pyproject.toml</span></div><pre>[project]
+requires-python = &quot;&gt;=3.11&quot;
+dependencies = [
+    &quot;ipykernel&gt;=6.29&quot;,
+    &quot;openpyxl&gt;=3.1&quot;,
+]</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">보이는 것</span><span class="zh">看到的内容</span></th><th><span class="ko">뜻</span><span class="zh">意思</span></th></tr></thead><tbody><tr><td><code>requires-python</code></td><td><span class="ko">사용할 Python의 범위 · <code>&gt;=3.11</code>은 3.11 이상</span><span class="zh">可使用的 Python 版本范围；<code>&gt;=3.11</code> 表示 3.11 或更高版本</span></td></tr><tr><td><code>dependencies</code></td><td><span class="ko">이 프로젝트에 필요한 라이브러리 목록</span><span class="zh">这个项目需要的库清单</span></td></tr><tr><td><code>ipykernel</code></td><td><span class="ko">Notebook 코드를 실행하게 해 주는 도구</span><span class="zh">让 Notebook 可以运行代码的工具</span></td></tr><tr><td><code>openpyxl</code></td><td><span class="ko">Excel 파일을 읽게 해 주는 도구</span><span class="zh">用来读取 Excel 文件的工具</span></td></tr><tr><td><code>matplotlib</code></td><td><span class="ko"><b>아직 목록에 없다</b></span><span class="zh"><b>现在还不在清单里</b></span></td></tr></tbody></table></div><div class="note"><p><span class="ko"><code>uv sync</code>는 <code>pyproject.toml</code>에서 Python 범위와 필요한 라이브러리를 읽고, <code>uv.lock</code>에 기록된 정확한 버전을 확인합니다. 그런 다음 <code>.venv</code>를 만들거나 현재 조건에 맞게 고칩니다.</span><span class="zh"><code>uv sync</code> 会先从 <code>pyproject.toml</code> 读取 Python 版本范围和所需的库，再查看 <code>uv.lock</code> 中记录的准确版本。然后，它会创建 <code>.venv</code>，或把现有环境调整到符合项目条件。</span></p></div>
 </section>
 
 <section class="page" id="s5">
-<div class="kick"><span class="ko">5. 라이브러리</span><span class="zh">5. 库</span><b>04-1</b></div><h2 class="title"><span class="ko">라이브러리는 이미 만들어진 기능의 묶음이다</span><span class="zh">库是已经做好的功能的集合</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">그래프를 그리는 코드를 우리가 처음부터 쓸 수도 있습니다. 하지만 이미 잘 만들어 둔 것이 있습니다.</span><span class="zh">画图表的代码我们也可以从头写，但已经有人做得很好了。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
+<div class="kick"><span class="ko">5. 라이브러리</span><span class="zh">5. 库</span><b>04-1</b></div><h2 class="title"><span class="ko">라이브러리는 이미 만들어진 기능의 묶음이다</span><span class="zh">库是已经做好的功能的集合</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko"><b>라이브러리</b>는 다른 사람이 만들어 둔 여러 기능을 한데 모아, 내 코드에서 꺼내 쓸 수 있게 한 묶음입니다. <code>matplotlib</code>에는 표의 숫자를 그래프로 그리는 기능이 들어 있습니다.</span><span class="zh"><b>库</b>把别人已经做好的多种功能集中在一起，让我们可以在自己的代码中直接调用。<code>matplotlib</code> 中包含把表格数字画成图表的功能。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
      [이미지 생성 요청] 04-1-02-library-shelf
      · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
      · 규격   : 가로 16:9 · 개념 삽화 · assets/img/04-1-02-library-shelf.png
@@ -213,14 +221,15 @@
      교과서 인쇄물과 교실 스크린 양쪽에 같은 파일이 들어간다.
 
      ── 그릴 것 ────────────────────────────────────────────────────
-     필요한 도구를 처음부터 만들지 않고, 이미 만들어진 것을 가져다 쓰는 장면.
+     재료를 하나하나 처음부터 만들지 않고, 이미 만들어진 재료를 가져와 자기 요리를 완성하는 장면.
 
-     · 왼쪽: 공구 상자가 여러 개 놓인 선반. 상자마다 다른 도구가 들어 있는 것이 보인다.
-       (톱 상자, 붓 상자, 자와 각도기 상자처럼 용도가 달라 보이게)
-     · 오른쪽: 한 사람이 작업대 앞에 있고, 선반에서 상자 하나를 꺼내 작업대로 옮기는 중이다.
-     · 작업대 위에는 그 사람이 지금 하려는 일이 놓여 있다 — 종이에 그린 막대그래프 스케치.
-     · 사람 얼굴이 크게 나오지 않게 한다. 손과 상자, 작업대가 중심이다.
-     · 꺼내는 상자 하나에만 주황(#FF5C00) 이 살짝 들어간다. 나머지는 중성색이다.
+     · 밝은 조리대 왼쪽과 가운데에 시판 토마토소스, 포장된 건면, 포장된 간 치즈,
+       말린 허브 병을 서로 떨어뜨려 한 줄로 놓는다. 포장은 글자와 상표가 없는 투명 또는 중성색이다.
+     · 각 재료의 내용물이 가려지지 않고 하나씩 분명하게 보여야 한다.
+     · 그 옆에는 요리하는 사람이 자기 방식으로 더할 잘게 다진 양파 한 그릇이 있다.
+     · 오른쪽에는 거의 완성된 토마토 파스타 팬이 있고, 손 하나가 양파를 조금 더한다.
+     · 손이 재료를 가리지 않게 하고 얼굴은 나오지 않게 한다.
+     · 토마토소스 병뚜껑 한 곳에만 주황(#FF5C00)을 쓴다. 나머지는 중성색이다.
 
      ── 지킬 것 ────────────────────────────────────────────────────
      · 공통 스타일 **A(사실적 삽화)** 를 앞에 붙인다. B(플랫 벡터)를 같이 붙이지 않는다.
@@ -232,19 +241,56 @@
        ③ 플랫 벡터 도해로 나오지 않았나. 하나라도 어긋나면 다시 만든다.
      ═══════════════════════════════════════════════════════════════════════ -->
     <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-1-02-library-shelf.png" alt="선반에 놓인 여러 공구 상자 중 하나를 꺼내 작업대로 가져오는 장면"
+      <img class="figimg" src="../../assets/img/04-1-02-library-shelf.png" alt="시판 토마토소스, 건면, 치즈, 허브를 가져와 자기 재료를 더해 파스타를 완성하는 장면"
            data-id="04-1-02-library-shelf" data-spec="가로 16:9 · 개념 삽화 · 사실적"
            onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-1-2. 필요한 것을 처음부터 만들지 않고, 이미 만들어진 묶음을 가져와 쓴다.</span><span class="zh">图 4-1-2. 不从头制作，而是把已经做好的工具箱拿过来用。</span></figcaption>
+      <figcaption><span class="ko">그림 4-1-3. 재료를 하나하나 만들지 않고, 이미 만들어진 것을 가져와 내 요리에 쓴다.</span><span class="zh">图 4-1-3. 不从头制作每种材料，而是把现成的材料拿来完成自己的料理。</span></figcaption>
     </figure>
 </section>
 
-<section class="page" id="s6">
-<div class="kick"><span class="ko">6. 가져온다</span><span class="zh">6. 拿过来</span><b>04-1</b></div><h2 class="title"><span class="ko">필요한 것을 이 폴더로 가져온다</span><span class="zh">把需要的东西拿进这个文件夹</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">터미널에 아래 한 줄을 칩니다. 3-1에서 <code>uv sync</code>를 쳤던 그 자리입니다.</span><span class="zh">在终端输入下面一行。就是 3-1 输入 <code>uv sync</code> 的那个位置。</span></p><div class="code"><div class="chd"><span class="fn">Terminal</span></div><pre>uv add matplotlib</pre></div><div class="steps"><div class="st-h"><span class="ko">가져온 뒤에</span><span class="zh">拿过来之后</span></div><ol><li><span class="ko">Notebook 위쪽의 <b>다시 시작</b>을 누른다. 커널이 새 도구를 알아보게 하기 위해서다.</span><span class="zh">点击 Notebook 上方的<b>重启</b>，让内核认识新工具。</span></li><li><span class="ko">아까 오류가 났던 셀을 <b>다시</b> 실행한다.</span><span class="zh"><b>重新</b>运行刚才报错的单元格。</span></li><li><span class="ko">이번에는 오류 없이 지나간다.</span><span class="zh">这次不会报错。</span></li></ol></div><div class="note"><p><span class="ko"><code>uv add</code>는 <b>이 폴더에 도구를 챙겨 넣는</b> 명령이고, <code>import</code>는 <b>코드에서 그 도구를 불러오는</b> 것입니다. 서로 다른 일입니다. 챙겨 넣지 않고 부르면 아까처럼 멈춥니다.</span><span class="zh"><code>uv add</code> 是<b>把工具装进这个文件夹</b>的命令，<code>import</code> 是<b>在代码里调用</b>那个工具。是两件事。没装就调用，就会像刚才那样停下。</span></p></div>
+<section class="page print-tight" id="s6">
+<div class="kick"><span class="ko">6. 오류를 AI에게</span><span class="zh">6. 把错误交给 AI</span><b>04-1</b></div><h2 class="title"><span class="ko">없는 도구를 부르면 멈춘다</span><span class="zh">调用不存在的工具就会停下来</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">Notebook에서 아래 셀을 실행합니다. <b>오류가 나야 정상입니다.</b> 방금 읽은 목록에 <code>matplotlib</code>이 없었기 때문입니다.</span><span class="zh">在 Notebook 中运行下面的单元格。<b>报错才是正常的。</b>因为刚才读过的清单里没有 <code>matplotlib</code>。</span></p><div class="code"><div class="chd"><span class="fn">04-1_matplotlib_graph.ipynb</span></div><pre>import matplotlib.pyplot as plt</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">마지막 줄</span><span class="zh">最后一行</span></span></div><pre>ModuleNotFoundError: No module named 'matplotlib'</pre></div><!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 이미지] 04-1-03-matplotlib-error
+     · 영역   : 이 주석 바로 아래 figure
+     · 규격   : 가로 16:9 · Notebook 오류 화면 · assets/img/04-1-03-matplotlib-error.png
+     ───────────────────────────────────────────────────────────────────────
+
+     04 폴더를 연 Windows용 VS Code Notebook 화면이다.
+     import matplotlib.pyplot as plt 실행 직후의 ModuleNotFoundError를 보여 준다.
+     오른쪽 위 커널은 .venv (Python 3.14)로 선택돼 있어야 한다.
+     오류 마지막 줄과 복사 위치만 주황으로 표시한다.
+     ═══════════════════════════════════════════════════════════════════════ -->
+    <figure class="fig">
+      <img class="figimg" src="../../assets/img/04-1-03-matplotlib-error.png" alt="Notebook에서 matplotlib을 찾지 못했다는 오류가 나온 화면"
+           data-id="04-1-03-matplotlib-error" data-spec="가로 16:9 · Notebook · ModuleNotFoundError"
+           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
+      <figcaption><span class="ko">그림 4-1-4. 오류가 난 코드와 마지막 줄을 함께 AI에게 보낸다.</span><span class="zh">图 4-1-4. 把出错的代码和报错的最后一行一起发给 AI。</span></figcaption>
+    </figure><div class="steps"><div class="st-h"><span class="ko">두 번으로 나누어 AI에게 보내기</span><span class="zh">分两次发给 AI</span></div><ol><li><span class="ko">오류가 난 코드와 오류 마지막 줄을 함께 복사한다.</span><span class="zh">把出错的代码和报错的最后一行一起复制下来。</span></li><li><span class="ko">첫 번째로 <b>무엇이 문제인지</b> 묻는다.</span><span class="zh">第一次先问<b>问题出在哪里</b>。</span></li><li><span class="ko">AI의 답을 읽은 뒤, 두 번째로 <b>필요한 조치를 해 달라</b>고 요청한다.</span><span class="zh">看完 AI 的回答后，第二次请它<b>完成需要的处理</b>。</span></li></ol></div><div class="row"><div class="pane"><div class="code"><div class="chd"><span class="fn"><span class="ko">1번 · 문제 묻기</span><span class="zh">第 1 次 · 询问问题</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">아래 셀을 실행했더니 이런 오류가 떴어.
+무엇이 문제인지 설명해 줘.
+
+import matplotlib.pyplot as plt
+
+ModuleNotFoundError:
+No module named 'matplotlib'</pre><pre class="zh blk">运行下面的单元格后出现了这个错误。
+请告诉我问题出在哪里。
+
+import matplotlib.pyplot as plt
+
+ModuleNotFoundError:
+No module named 'matplotlib'</pre></div></div><div class="pane"><div class="code"><div class="chd"><span class="fn"><span class="ko">2번 · 조치 요청</span><span class="zh">第 2 次 · 请求处理</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">이 문제를 해결하는 데
+필요한 조치를 해 줘.</pre><pre class="zh blk">请帮我完成解决这个问题
+所需的处理。</pre></div></div></div><div class="note"><p><span class="ko">우리가 원인을 맞히는 것이 목표가 아닙니다. <b>AI가 판단할 수 있게 오류를 빠짐없이 전달</b>하는 연습입니다. AI가 작업을 마치면 다음 쪽에서 실제로 무엇이 바뀌었는지 확인합니다.</span><span class="zh">这里不是让我们自己猜出原因，而是练习<b>完整、准确地把错误信息发给 AI</b>。AI 完成操作后，我们会在下一页查看文件实际发生了什么变化。</span></p></div>
 </section>
 
 <section class="page" id="s7">
-<div class="kick"><span class="ko">7. 다시 실행</span><span class="zh">7. 重新运行</span><b>04-1</b></div><h2 class="title"><span class="ko">같은 코드가 이번에는 된다</span><span class="zh">同样的代码这次可以了</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">코드는 한 글자도 고치지 않았습니다. 달라진 것은 <b>도구가 이 폴더에 들어왔다</b>는 것뿐입니다.</span><span class="zh">代码一个字都没改。变的只是<b>工具进到了这个文件夹</b>。</span></p><div class="code"><div class="chd"><span class="fn">04-1_matplotlib_graph.ipynb</span></div><pre>import matplotlib.pyplot as plt
+<div class="kick"><span class="ko">7. 바뀐 목록</span><span class="zh">7. 查看变化</span><b>04-1</b></div><h2 class="title"><span class="ko">AI의 작업 내용과 실제 파일을 비교한다</span><span class="zh">对照 AI 的操作说明和实际文件</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">练习</span></span></h2><p class="lead"><span class="ko">AI가 무엇을 했다고 알려 주는지 먼저 읽습니다. 그런 다음 <code>pyproject.toml</code>을 다시 열어 <b>실제 파일도 같이 바뀌었는지</b> 확인합니다.</span><span class="zh">先读一遍 AI 说它完成了哪些操作。然后重新打开 <code>pyproject.toml</code>，确认<b>实际文件中是否也出现了相同的变化</b>。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">처음</span><span class="zh">开始时</span></span></div><pre>dependencies = [
+    &quot;ipykernel&gt;=6.29&quot;,
+    &quot;openpyxl&gt;=3.1&quot;,
+]</pre></div><div class="code"><div class="chd"><span class="fn"><span class="ko"><code>matplotlib</code> 추가 뒤</span><span class="zh">添加 <code>matplotlib</code> 后</span></span></div><pre>dependencies = [
+    &quot;ipykernel&gt;=6.29&quot;,
+    &quot;matplotlib&gt;=...&quot;,
+    &quot;openpyxl&gt;=3.1&quot;,
+]</pre></div><div class="note"><p><span class="ko"><code>matplotlib</code> 줄이 새로 생겼으면 AI가 필요한 라이브러리를 프로젝트에 추가한 것입니다. 뒤의 버전 번호는 컴퓨터와 날짜에 따라 달라도 됩니다.</span><span class="zh">出现新的 <code>matplotlib</code> 行，就说明 AI 已把所需库加入项目。后面的版本号可能因电脑和日期而不同。</span></p></div><div class="steps"><div class="st-h"><span class="ko">확인한 뒤 실행하기</span><span class="zh">确认后运行</span></div><ol><li><span class="ko"><code>pyproject.toml</code>에 <code>matplotlib</code> 줄이 생겼는지 본다.</span><span class="zh">确认 <code>pyproject.toml</code> 中出现了 <code>matplotlib</code> 行。</span></li><li><span class="ko">Notebook 위쪽의 <b>다시 시작</b>을 누른다.</span><span class="zh">点击 Notebook 上方的<b>重启</b>。</span></li><li><span class="ko">아까 멈췄던 셀과 아래 그리기 셀을 다시 실행한다.</span><span class="zh">重新运行刚才停止的单元格和下面的绘图单元格。</span></li></ol></div><div class="code"><div class="chd"><span class="fn">04-1_matplotlib_graph.ipynb</span></div><pre>import matplotlib.pyplot as plt
 
 plt.figure(figsize=(8, 4.5))
 bars = plt.bar(days, visitors, color=&quot;#72757d&quot;)
@@ -267,7 +313,7 @@ plt.show()</pre></div><div class="note stop"><p><span class="ko">그래프 안�
      학교 PC 에서 찍는다. Mac 화면은 쓰지 않는다 — 학생이 보는 창틀·글꼴·메뉴가 다르다.
 
      · 파일 : 04/notebooks/04-1_matplotlib_graph.ipynb
-     · 언제 : uv add matplotlib 을 하고 커널을 다시 시작한 뒤, 그래프를 그리는 셀(7번째 코드 셀)을
+     · 언제 : 오류를 AI에게 보내 필요한 라이브러리를 추가하고 커널을 다시 시작한 뒤, 그래프를 그리는 셀을
               실행해 **코드 바로 아래에 막대그래프가 나타난 상태**.
      · 담을 것 : 코드와 그래프가 한 화면에 같이 보이게. 그래프만 크게 잘라 내지 않는다.
                 3-1에서 배운 "코드 바로 아래에서 결과를 본다" 가 그래프에도 그대로 적용된다는 것이 요점이다.
@@ -279,123 +325,46 @@ plt.show()</pre></div><div class="note stop"><p><span class="ko">그래프 안�
       <img class="figimg" src="../../assets/img/04-1-03-graph-in-notebook.png" alt="Notebook에서 그리기 셀 아래에 막대그래프가 나타난 화면"
            data-id="04-1-03-graph-in-notebook" data-spec="가로 · Notebook · 코드와 그래프"
            onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-1-3. 3-1에서 본 것과 같다. 결과가 코드 바로 아래에 붙는다.</span><span class="zh">图 4-1-3. 和 3-1 看到的一样，结果就出现在代码正下方。</span></figcaption>
+      <figcaption><span class="ko">그림 4-1-5. 3-1에서 본 것과 같다. 결과가 코드 바로 아래에 붙는다.</span><span class="zh">图 4-1-5. 和 3-1 看到的一样，结果就出现在代码正下方。</span></figcaption>
     </figure>
 </section>
 
 <section class="page" id="s9">
-<div class="kick"><span class="ko">9. 종류</span><span class="zh">9. 种类</span><b>04-1</b></div><h2 class="title"><span class="ko">알고 싶은 것에 따라 모양이 달라진다</span><span class="zh">想知道什么，形状就不同</span></h2><p class="lead"><span class="ko">그래프에는 여러 모양이 있습니다. <b>외울 필요는 없습니다.</b> 무엇을 알고 싶은지가 모양을 정합니다.</span><span class="zh">图表有很多形状，<b>不用背</b>。想知道什么决定了用哪种形状。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">알고 싶은 것</span><span class="zh">想知道的</span></th><th><span class="ko">쓰는 모양</span><span class="zh">用的形状</span></th><th><span class="ko">예</span><span class="zh">例</span></th></tr></thead><tbody><tr><td><span class="ko">항목끼리 <b>크기</b> 비교</span><span class="zh">各项目之间比<b>大小</b></span></td><td><span class="ko">막대</span><span class="zh">柱状图</span></td><td><span class="ko">요일별 이용 인원</span><span class="zh">每天的使用人数</span></td></tr><tr><td><span class="ko">시간에 따른 <b>변화</b></span><span class="zh">随时间的<b>变化</b></span></td><td><span class="ko">선</span><span class="zh">折线图</span></td><td><span class="ko">월별 전기 사용량</span><span class="zh">每月用电量</span></td></tr><tr><td><span class="ko">두 값의 <b>관계</b></span><span class="zh">两个值的<b>关系</b></span></td><td><span class="ko">점</span><span class="zh">散点图</span></td><td><span class="ko">공부 시간과 점수</span><span class="zh">学习时间与分数</span></td></tr></tbody></table></div><div class="note"><p><span class="ko">오늘 수행평가 준비에서 쓰는 것은 <b>막대</b>입니다. 다음 주 수행평가에서도 모양은 선생님이 지정합니다. 학생이 고르지 않습니다.</span><span class="zh">今天为下周评价做准备时用的是<b>柱状图</b>。下周的评价中形状也由老师指定，学生不用选。</span></p></div>
+<div class="kick"><span class="ko">9. 실습 파일</span><span class="zh">9. 练习文件</span><b>04-1</b></div><h2 class="title"><span class="ko">이제 긴 자료로 직접 그린다</span><span class="zh">现在用较长的数据亲自绘图</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">지금까지는 다섯 개 값으로 방법을 익혔습니다. 이제 60줄짜리 Excel 자료를 사용합니다.</span><span class="zh">刚才用五个数值熟悉了方法。现在使用有 60 行的 Excel 数据。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">열 파일</span><span class="zh">要打开的文件</span></th><th><span class="ko">하는 일</span><span class="zh">要做的事</span></th></tr></thead><tbody><tr><td><code>data/04-library-data.xlsx</code></td><td><span class="ko">Excel에서 원본과 머리글을 확인한다</span><span class="zh">在 Excel 中确认原始数据和表头</span></td></tr><tr><td><code>notebooks/04-1_exercise.ipynb</code></td><td><span class="ko">AI가 만든 그래프 코드를 실행한다</span><span class="zh">运行 AI 编写的绘图代码</span></td></tr></tbody></table></div><div class="note stop"><p><span class="ko"><b>VS Code에서는 Excel 파일을 표로 열어 볼 수 없습니다.</b> Windows 파일 탐색기에서 <code>04 → data</code> 폴더로 들어가 <code>04-library-data.xlsx</code>를 두 번 눌러 Excel로 엽니다. Notebook만 VS Code에서 엽니다.</span><span class="zh"><b>VS Code 不能把 Excel 文件作为表格打开。</b>请在 Windows 文件资源管理器中进入 <code>04 → data</code> 文件夹，双击 <code>04-library-data.xlsx</code> 用 Excel 打开。Notebook 仍在 VS Code 中打开。</span></p></div><div class="note"><p><span class="ko">Excel은 <b>원본을 보는 창</b>, Notebook은 <b>코드를 실행하는 창</b>입니다. 두 창을 나란히 둡니다.</span><span class="zh">Excel 是<b>查看原始数据的窗口</b>，Notebook 是<b>运行代码的窗口</b>。把两个窗口并排放置。</span></p></div>
 </section>
-
 <section class="page" id="s10">
-<div class="kick"><span class="ko">10. 요청</span><span class="zh">10. 请求</span><b>04-1</b></div><h2 class="title"><span class="ko">요청에는 완료 조건까지 담는다</span><span class="zh">请求里要写清完成条件</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">AI에게 그래프를 부탁할 때 "그래프 그려 줘"라고만 하면 원하는 것이 안 나옵니다. <b>무엇을·어떻게·어디까지</b>를 적습니다.</span><span class="zh">让 AI 画图表时只说“画个图”是不行的。要写清<b>什么、怎么画、到什么程度</b>。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">요청문</span><span class="zh">请求文</span></span></div><pre>요일별 이용 인원을 막대그래프로 그려 줘.
-- 가로축은 요일, 세로축은 이용 인원(명)
-- 세로축은 0에서 시작
-- 제목과 축 이름을 넣고, 글자는 영문으로
-- 막대 위에 값을 표시</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">적은 것</span><span class="zh">写的内容</span></th><th><span class="ko">왜 적었나</span><span class="zh">为什么写</span></th></tr></thead><tbody><tr><td><span class="ko">가로축·세로축</span><span class="zh">横轴·纵轴</span></td><td><span class="ko">무엇을 어디에 둘지 정해 준다</span><span class="zh">指定什么放在哪里</span></td></tr><tr><td><span class="ko">세로축은 0에서 시작</span><span class="zh">纵轴从 0 开始</span></td><td><span class="ko">뒤에서 볼 <b>축 장난</b>을 막는다</span><span class="zh">防止后面要看的<b>坐标轴把戏</b></span></td></tr><tr><td><span class="ko">글자는 영문</span><span class="zh">文字用英文</span></td><td><span class="ko">한글이 네모로 나오는 것을 막는다</span><span class="zh">防止韩文变成方块</span></td></tr><tr><td><span class="ko">막대 위에 값</span><span class="zh">柱子上标数值</span></td><td><span class="ko">원본과 <b>대조하기 쉽게</b> 한다</span><span class="zh">方便和原始数据<b>核对</b></span></td></tr></tbody></table></div>
+<div class="kick"><span class="ko">10. 머리글 확인</span><span class="zh">10. 确认表头</span><b>04-1</b></div><h2 class="title"><span class="ko">첫 줄이 각 열의 뜻을 알려 준다</span><span class="zh">第一行说明每一列的含义</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">Excel 파일을 열고 첫 줄만 먼저 읽습니다. 첫 줄의 이름을 <b>머리글(header)</b>이라고 합니다.</span><span class="zh">打开 Excel 文件，先读第一行。第一行的名称叫作<b>表头（header）</b>。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><code>date</code></th><th><code>visitors</code></th><th><code>borrowed_books</code></th></tr></thead><tbody><tr><td>2026-03-02</td><td>24</td><td>8</td></tr><tr><td>2026-03-03</td><td>27</td><td>9</td></tr><tr><td>2026-03-04</td><td>26</td><td>10</td></tr></tbody></table></div><div class="steps"><div class="st-h"><span class="ko">Excel에서 확인</span><span class="zh">在 Excel 中确认</span></div><ol><li><span class="ko">첫 줄에 머리글 세 개가 있는지 본다.</span><span class="zh">确认第一行有三个表头。</span></li><li><span class="ko">머리글 아래에 데이터가 60줄 있는지 마지막 행까지 내려가 본다.</span><span class="zh">向下查看到最后一行，确认表头下面有 60 行数据。</span></li><li><span class="ko">파일은 고치지 않고 그대로 둔다.</span><span class="zh">不要修改文件，保持原样。</span></li></ol></div>
 </section>
-
 <section class="page" id="s11">
-<div class="kick"><span class="ko">11. 대조</span><span class="zh">11. 核对</span><b>04-1</b></div><h2 class="title"><span class="ko">그래프가 나왔다고 맞는 것은 아니다</span><span class="zh">出现图表不等于正确</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">AI가 만든 그래프는 <b>그럴듯하게</b> 나옵니다. 그럴듯한 것과 맞는 것은 다릅니다. <b>원본과 하나씩 맞춰 봅니다.</b></span><span class="zh">AI 做出来的图表看起来<b>像模像样</b>。像样和正确是两回事。<b>要和原始数据一项项核对</b>。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">확인할 것</span><span class="zh">要确认的</span></th><th><span class="ko">원본</span><span class="zh">原始数据</span></th></tr></thead><tbody><tr><td><span class="ko">막대 개수</span><span class="zh">柱子数量</span></td><td><span class="ko">5개</span><span class="zh">5 个</span></td></tr><tr><td><span class="ko">각 막대 값</span><span class="zh">每根柱子的值</span></td><td><span class="ko">18 · 25 · 21 · 32 · 29</span><span class="zh">18 · 25 · 21 · 32 · 29</span></td></tr><tr><td><span class="ko">가장 높은 날</span><span class="zh">最高的一天</span></td><td><span class="ko">Thu</span><span class="zh">Thu</span></td></tr><tr><td><span class="ko">세로축 시작</span><span class="zh">纵轴起点</span></td><td><span class="ko">0</span><span class="zh">0</span></td></tr><tr><td><span class="ko">제목 · 축 이름 · 단위</span><span class="zh">标题 · 轴名 · 单位</span></td><td><span class="ko">모두 있음</span><span class="zh">都有</span></td></tr></tbody></table></div><div class="note"><p><span class="ko">한 줄이라도 안 맞으면 <b>그래프가 아니라 요청문을 고칩니다.</b> 그림을 손으로 고치면 다음에 또 같은 일이 생깁니다.</span><span class="zh">只要有一项对不上，就<b>改请求文而不是改图</b>。用手改图的话，下次还会出同样的问题。</span></p></div>
+<div class="kick"><span class="ko">11. 그릴 값</span><span class="zh">11. 选择绘图数据</span><b>04-1</b></div><h2 class="title"><span class="ko">세 열에서 어떤 흐름을 찾을까</span><span class="zh">从三列中寻找什么变化</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">이 자료에는 12주 동안의 평일 기록이 있습니다. 정확한 값을 한 줄씩 읽기보다 반복되는 모습과 전체 변화를 찾아봅니다.</span><span class="zh">这份资料记录了 12 周的工作日。与其逐行读取数值，不如寻找重复模式和整体变化。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">열</span><span class="zh">列</span></th><th><span class="ko">담긴 내용</span><span class="zh">内容</span></th><th><span class="ko">물어볼 수 있는 것</span><span class="zh">可以提出的问题</span></th></tr></thead><tbody><tr><td><code>date</code></td><td><span class="ko">평일 날짜</span><span class="zh">工作日日期</span></td><td><span class="ko">언제의 기록인가</span><span class="zh">记录的是哪一天</span></td></tr><tr><td><code>visitors</code></td><td><span class="ko">도서관 방문자 수</span><span class="zh">图书馆访客人数</span></td><td><span class="ko">시간이 지나며 어떻게 달라졌나</span><span class="zh">随时间怎样变化</span></td></tr><tr><td><code>borrowed_books</code></td><td><span class="ko">대출한 책 수</span><span class="zh">借出图书数量</span></td><td><span class="ko">반복해서 많은 요일이 있나</span><span class="zh">是否有反复较多的星期</span></td></tr></tbody></table></div><div class="note ok"><p><span class="ko">그래프를 먼저 정하지 않습니다. 다음 쪽에서 AI에게 <b>자료의 의미와 알맞은 표현 방법</b>을 차례로 묻습니다.</span><span class="zh">先不要决定图表。下一页依次询问 AI <b>数据的含义和合适的表达方式</b>。</span></p></div>
 </section>
-
-<section class="page" id="s12">
-<div class="kick"><span class="ko">12. 두 그래프</span><span class="zh">12. 两个图表</span><b>04-1</b></div><h2 class="title"><span class="ko">어느 쪽이 더 크게 늘었을까?</span><span class="zh">哪边增长得更多？</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">아래 두 그래프를 봅니다. <b>앞에서 본 것과 다른 주의 자료</b>입니다. <b>먼저 답부터 생각해 보세요.</b> 목요일이 다른 날보다 얼마나 많아 보입니까?</span><span class="zh">看下面两个图表。这是<b>与前面不同的另一周</b>的数据。<b>先想想答案</b>。星期四看起来比别的日子多多少？</span></p><!-- ═══════════════════════════════════════════════════════════════════════
-     [기존 자산] 04-1-04-axis-ab
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 · 막대그래프 A·B 좌우 배치 · assets/img/04-1-04-axis-ab.png
-     ───────────────────────────────────────────────────────────────────────
-
-     teacher_tools/make_04_axis_comparison.py 로 만든 두 파일을 좌우로 붙인 것이다.
-     **제목이 "A" "B" 뿐이다.** 축이 어디서 시작하는지 일부러 적지 않았다 —
-     학생이 판정하기 전에 답을 보면 활동이 성립하지 않는다.
-     두 그래프는 **크기·색·글자 크기가 완전히 같다.** 한쪽이 더 예뻐 보이면 비교가 오염된다.
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-1-04-axis-ab.png" alt="같은 자료를 그린 두 막대그래프 A와 B가 좌우로 나란히 놓여 있다."
-           data-id="04-1-04-axis-ab" data-spec="가로 · 막대그래프 두 장 · 판정용"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-1-4. 그래프 A와 B. 어느 쪽이 더 극적으로 보이는가?</span><span class="zh">图 4-1-4. 图表 A 和 B。哪一个看起来更戏剧性？</span></figcaption>
-    </figure>
+<section class="page print-tight" id="s12">
+<div class="kick"><span class="ko">12. AI에게 요청</span><span class="zh">12. 向 AI 提问</span><b>04-1</b></div><h2 class="title"><span class="ko">AI에게 세 번으로 나누어 요청한다</span><span class="zh">分三次向 AI 提出请求</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">练习</span></span></h2><p class="lead"><span class="ko">그래프를 한번에 만들어 달라고 하지 않습니다. AI의 답을 한 번씩 확인하며 다음 요청으로 넘어갑니다.</span><span class="zh">不要一次就让 AI 完成全部图表。每次先确认 AI 的回答，再继续下一次请求。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">1번 · 데이터 읽기</span><span class="zh">第 1 次 · 读取数据</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">data/04-library-data.xlsx를 읽어 줘.
+머리글과 데이터 줄 수를 확인하고,
+각 열이 무엇을 뜻하는 자료인지 설명해 줘.</pre><pre class="zh blk">请读取 data/04-library-data.xlsx。
+请确认表头和数据行数，
+并说明每一列表示什么。</pre></div><div class="code"><div class="chd"><span class="fn"><span class="ko">2번 · 그래프 선택</span><span class="zh">第 2 次 · 选择图表</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">이 데이터의 시간에 따른 변화를 잘 표현하려면
+어떤 그래프가 알맞은지 한 가지 추천해 줘.
+어떤 열을 사용할지와 추천 이유도 설명해 줘.</pre><pre class="zh blk">如果想清楚地表现这份数据随时间的变化，
+请推荐一种合适的图表。
+请说明要使用哪些列，以及推荐的理由。</pre></div><div class="code"><div class="chd"><span class="fn"><span class="ko">3번 · 그래프 제작</span><span class="zh">第 3 次 · 制作图表</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">추천한 그래프를 notebooks/04-1_exercise.ipynb에 만들어 줘.
+Excel은 pandas가 아니라 openpyxl로 읽어 줘.
+데이터 총 행 수와 열 이름도 print()로 먼저 표시해 줘.
+60줄을 모두 사용하고, 제목과 축 이름은 영문으로 써 줘.
+날짜가 겹치지 않게 일부 눈금만 표시해 줘.</pre><pre class="zh blk">请把推荐的图表做到 notebooks/04-1_exercise.ipynb 中。
+请使用 openpyxl 而不是 pandas 读取 Excel。
+先用 print() 显示数据总行数和列名。
+请使用全部 60 行数据，标题和坐标轴名称用英文。
+只显示部分日期刻度，避免文字重叠。</pre></div><div class="note"><p><span class="ko">각 답에서 <b>머리글·60줄·추천 이유</b>가 원본과 맞는지 확인합니다. 마지막 실행 결과에는 그래프뿐 아니라 데이터의 총 행 수와 열 이름도 보여야 합니다.</span><span class="zh">每次都要确认<b>表头、60 行和推荐理由</b>是否与原始数据一致。最后的运行结果不仅要有图表，还要显示数据总行数和列名。</span></p></div>
 </section>
-
 <section class="page" id="s13">
-<div class="kick"><span class="ko">13. 값 확인</span><span class="zh">13. 确认数值</span><b>04-1</b></div><h2 class="title"><span class="ko">두 그래프의 값은 똑같다</span><span class="zh">两个图表的数值完全相同</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">놀랍게도 두 그래프에 담긴 숫자는 <b>하나도 다르지 않습니다.</b> 표로 확인해 보세요.</span><span class="zh">令人意外的是，两个图表里的数字<b>完全相同</b>。用表格确认一下。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">요일</span><span class="zh">星期</span></th><th><span class="ko">A</span><span class="zh">A</span></th><th><span class="ko">B</span><span class="zh">B</span></th></tr></thead><tbody><tr><td>Mon</td><td>28</td><td>28</td></tr><tr><td>Tue</td><td>30</td><td>30</td></tr><tr><td>Wed</td><td>29</td><td>29</td></tr><tr><td>Thu</td><td>33</td><td>33</td></tr><tr><td>Fri</td><td>31</td><td>31</td></tr></tbody></table></div><div class="note"><p><span class="ko">그런데 B가 훨씬 극적으로 보입니다. <b>무엇이 다른 걸까요?</b> 답을 말하기 전에 두 그래프를 한 번 더 보세요. 다른 곳은 딱 한 군데입니다.</span><span class="zh">但 B 看起来戏剧性得多。<b>到底哪里不一样？</b>说答案之前再看一次两个图表。不同的地方只有一处。</span></p></div>
+<div class="kick"><span class="ko">13. 실행</span><span class="zh">13. 运行</span><b>04-1</b></div><h2 class="title"><span class="ko">AI가 채운 셀을 직접 실행한다</span><span class="zh">自己运行 AI 填写的单元格</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">练习</span></span></h2><p class="lead"><span class="ko"><code>04-1_exercise.ipynb</code>로 돌아와 AI가 작성한 코드를 확인합니다. 다른 파일이 바뀌지 않았는지도 봅니다.</span><span class="zh">回到 <code>04-1_exercise.ipynb</code>，查看 AI 编写的代码，同时确认它没有误改其他文件。</span></p><div class="steps"><div class="st-h"><span class="ko">실행 순서</span><span class="zh">运行顺序</span></div><ol><li><span class="ko">오른쪽 위 커널이 <code>.venv (Python 3.14)</code>인지 확인한다.</span><span class="zh">确认右上角的内核是 <code>.venv (Python 3.14)</code>。</span></li><li><span class="ko">AI가 채운 코드 셀을 위에서 아래로 읽어 본다.</span><span class="zh">从上到下读一遍 AI 填写的代码单元格。</span></li><li><span class="ko">실행 버튼을 눌러 코드 바로 아래에 그래프를 띄운다.</span><span class="zh">点击运行按钮，让图表显示在代码正下方。</span></li><li><span class="ko">오류가 나면 오류가 난 셀과 마지막 줄을 함께 복사해 같은 AI 대화에 보낸다.</span><span class="zh">如果出错，把出错的单元格和报错的最后一行一起发到同一个 AI 对话中。</span></li></ol></div>
 </section>
-
 <section class="page" id="s14">
-<div class="kick"><span class="ko">14. 공개</span><span class="zh">14. 揭晓</span><b>04-1</b></div><h2 class="title"><span class="ko">다른 것은 세로축 시작점 하나뿐이다</span><span class="zh">不同的只有纵轴的起点</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">답을 밝힙니다. 두 그래프의 <b>다른 곳은 딱 한 군데</b>였습니다.</span><span class="zh">揭晓答案。两个图表<b>不同的地方只有一处</b>。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
-     [기존 자산] 04-1-05-axis-ab-reveal
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 · A·B 공개용 · assets/img/04-1-05-axis-ab-reveal.png
-     ───────────────────────────────────────────────────────────────────────
-
-     같은 스크립트의 공개용 두 파일을 좌우로 붙인 것이다.
-     각 그림 아래에 "세로축이 0부터 시작" / "세로축이 15부터 시작" 이 주황색으로 적혀 있다.
-     **워크시트 ① 을 끝낸 뒤에 보여 준다.**
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-1-05-axis-ab-reveal.png" alt="그래프 A는 세로축이 0부터, B는 15부터 시작한다고 각각 아래에 적혀 있다."
-           data-id="04-1-05-axis-ab-reveal" data-spec="가로 · 막대그래프 두 장 · 공개용"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-1-5. A는 0부터, B는 15부터. 아래를 잘라 낸 것이 B다.</span><span class="zh">图 4-1-5. A 从 0 开始，B 从 15 开始。B 是把下面切掉了。</span></figcaption>
-    </figure>
+<div class="kick"><span class="ko">14. 결과 검토</span><span class="zh">14. 检查结果</span><b>04-1</b></div><h2 class="title"><span class="ko">Excel과 함께 결과를 검토한다</span><span class="zh">对照 Excel 检查结果</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">练习</span></span></h2><p class="lead"><span class="ko">그래프가 그럴듯해 보여도 원본과 맞지 않을 수 있습니다. Excel과 Notebook을 나란히 놓고 확인합니다.</span><span class="zh">图表看起来合理，也可能与原始数据不符。请把 Excel 和 Notebook 并排打开，逐项对照检查。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">확인할 것</span><span class="zh">检查项目</span></th><th><span class="ko">기대 결과</span><span class="zh">预期结果</span></th></tr></thead><tbody><tr><td><span class="ko">데이터 총 행 수</span><span class="zh">数据总行数</span></td><td>60</td></tr><tr><td><span class="ko">열 이름</span><span class="zh">列名</span></td><td><code>date · visitors · borrowed_books</code></td></tr><tr><td><span class="ko">첫 행</span><span class="zh">第一行</span></td><td><code>2026-03-02 · 24 · 8</code></td></tr><tr><td><span class="ko">그래프에 사용한 열</span><span class="zh">图表使用的列</span></td><td><span class="ko">2번에서 추천한 열과 같음</span><span class="zh">与第 2 次推荐的列一致</span></td></tr><tr><td><span class="ko">날짜 표시</span><span class="zh">日期标签</span></td><td><span class="ko">겹치지 않음</span><span class="zh">没有重叠</span></td></tr></tbody></table></div><div class="note stop"><p><span class="ko">하나라도 다르면 그래프를 손으로 고치지 않습니다. <b>어긋난 항목을 AI에게 말하고 코드를 고치게</b> 합니다.</span><span class="zh">如果有任何一项不符，不要直接手动改图。请把不一致的项目告诉 AI，让它修改代码。</span></p></div>
 </section>
-
 <section class="page" id="s15">
-<div class="kick"><span class="ko">15. 왜 그런가</span><span class="zh">15. 为什么</span><b>04-1</b></div><h2 class="title"><span class="ko">아래를 자르면 차이가 커 보인다</span><span class="zh">切掉下面，差异就显得大</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">막대의 <b>높이 차이</b>가 눈에 들어옵니다. 아래를 잘라 내면 남은 부분에서 차이가 차지하는 비중이 커집니다.</span><span class="zh">人眼看的是柱子的<b>高度差</b>。切掉下面之后，差异在剩下部分里所占的比重变大了。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th></th><th><span class="ko">A · 0부터</span><span class="zh">A · 从 0</span></th><th><span class="ko">B · 15부터</span><span class="zh">B · 从 15</span></th></tr></thead><tbody><tr><td><span class="ko">Mon과 Thu의 실제 차이</span><span class="zh">Mon 与 Thu 的实际差</span></td><td>5명</td><td>5명</td></tr><tr><td><span class="ko">눈에 보이는 높이 차이</span><span class="zh">看到的高度差</span></td><td><span class="ko">조금</span><span class="zh">一点点</span></td><td><span class="ko">거의 두 배</span><span class="zh">几乎两倍</span></td></tr></tbody></table></div><div class="note"><p><span class="ko"><b>B가 거짓말을 한 것은 아닙니다.</b> 숫자는 정확합니다. 다만 <b>보는 사람이 다르게 받아들이게</b> 만들었습니다. 그래서 그래프를 볼 때는 축을 먼저 봅니다.</span><span class="zh"><b>B 并没有说谎</b>，数字是准确的。只是让<b>看的人产生了不同的感受</b>。所以看图表时要先看坐标轴。</span></p></div>
-</section>
-
-<section class="page" id="s16">
-<div class="kick"><span class="ko">16. 워크시트 ①</span><span class="zh">16. 练习纸 ①</span><b>04-1</b></div><h2 class="title"><span class="ko">두 그래프를 판정한다</span><span class="zh">判定两个图表</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ①</span><span class="wst"><span class="ko">두 그래프 판정하기</span><span class="zh">判定两个图表</span></span></div><p class="wslead"><span class="ko">앞의 두 그래프 A·B를 보고 여섯 칸을 채웁니다. <b>손으로 적습니다.</b></span><span class="zh">看着前面的两个图表 A·B 填写六栏。<b>用手写。</b></span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">묻는 것</span><span class="zh">问题</span></th><th>A</th><th>B</th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">Mon은 몇 명인가?</span><span class="zh">Mon 是多少人？</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">가장 많은 날은?</span><span class="zh">最多的是哪天？</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">세로축은 어디서 시작하나?</span><span class="zh">纵轴从哪里开始？</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko">Thu가 Mon보다 몇 명 많은가?</span><span class="zh">Thu 比 Mon 多几人？</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">5</td><td><span class="ko">Thu가 Mon보다 몇 배로 <b>보이나</b>?</span><span class="zh">Thu 看起来是 Mon 的几倍？</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">6</td><td><span class="ko">숫자를 정확히 전하려면 어느 쪽?</span><span class="zh">要准确传达数字用哪个？</span></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">네 번째 칸과 다섯 번째 칸의 답이 다른 이유를 한 줄로 적었다.</span><span class="zh">写下第四栏和第五栏答案不同的原因。</span></li><li><span class="ko">어느 쪽이 정확한지 <b>이유와 함께</b> 적었다.</span><span class="zh">写下哪个更准确<b>以及理由</b>。</span></li></ul></div></div>
-</section>
-
-<section class="page" id="s17">
-<div class="kick"><span class="ko">17. 기간</span><span class="zh">17. 时期</span><b>04-1</b></div><h2 class="title"><span class="ko">자른 것은 축만이 아니다</span><span class="zh">被切掉的不只是坐标轴</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">축 말고도 자를 수 있는 것이 있습니다. <b>기간</b>입니다. 아래 선그래프를 보세요.</span><span class="zh">除了坐标轴，还有可以切掉的东西 — <b>时期</b>。看下面的折线图。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
-     [기존 자산] 04-1-06-partial-months
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 · 선그래프 3개월 · assets/img/04-1-06-partial-months.png
-     ───────────────────────────────────────────────────────────────────────
-
-     teacher_tools/make_04_axis_comparison.py 로 만든 파일이다.
-     12개월 중 6~8월 세 달만 잘라 낸 선그래프. 계속 오르는 것처럼 보인다.
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-1-06-partial-months.png" alt="6월부터 8월까지 세 달만 그린 선그래프. 계속 올라간다."
-           data-id="04-1-06-partial-months" data-spec="가로 · 선그래프 · 3개월"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-1-6. 6~8월만 보면 계속 오르는 것처럼 보인다.</span><span class="zh">图 4-1-6. 只看 6~8 月，好像一直在上升。</span></figcaption>
-    </figure>
-</section>
-
-<section class="page" id="s18">
-<div class="kick"><span class="ko">18. 전체</span><span class="zh">18. 全部</span><b>04-1</b></div><h2 class="title"><span class="ko">전체를 보면 다른 이야기가 된다</span><span class="zh">看全部就是另一回事</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><!-- ═══════════════════════════════════════════════════════════════════════
-     [기존 자산] 04-1-07-full-months
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 · 선그래프 12개월 · assets/img/04-1-07-full-months.png
-     ───────────────────────────────────────────────────────────────────────
-
-     같은 자료의 12개월 전체. 앞 그림에서 잘라 쓴 6~8월 구간이 주황색으로 표시돼 있다.
-     여름에 잠깐 오르고 다시 내려가는 모양이라는 것이 여기서 보인다.
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-1-07-full-months.png" alt="12개월 전체 선그래프. 6~8월 구간이 주황색으로 표시되어 있다."
-           data-id="04-1-07-full-months" data-spec="가로 · 선그래프 · 12개월 · 앞 구간 강조"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-1-7. 같은 자료다. 여름에 잠깐 올랐다가 다시 내려간다.</span><span class="zh">图 4-1-7. 同一份资料。夏天短暂上升后又下降了。</span></figcaption>
-    </figure><div class="note"><p><span class="ko">앞 그림도 <b>거짓 숫자를 쓰지 않았습니다.</b> 그 세 달은 실제로 올랐습니다. 다만 <b>보여 주지 않은 아홉 달</b>이 있었습니다.</span><span class="zh">前一张图也<b>没有用假数字</b>。那三个月确实上升了。只是<b>有九个月没有给你看</b>。</span></p></div>
-</section>
-
-<section class="page" id="s19">
-<div class="kick"><span class="ko">19. 워크시트 ②</span><span class="zh">19. 练习纸 ②</span><b>04-1</b></div><h2 class="title"><span class="ko">자른 것은 축만이 아니다</span><span class="zh">被切掉的不只是坐标轴</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ②</span><span class="wst"><span class="ko">무엇이 빠졌는지 찾기</span><span class="zh">找出缺了什么</span></span></div><p class="wslead"><span class="ko">두 문항을 읽고 답을 <b>문장으로</b> 적습니다. 정답을 맞히는 것이 아니라 이유를 적는 활동입니다.</span><span class="zh">读两道题，用<b>句子</b>写下答案。这不是猜正确答案，而是写出理由的活动。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">묻는 것</span><span class="zh">问题</span></th><th><span class="ko">내가 적는 답</span><span class="zh">我写的答案</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">앞의 두 선그래프는 같은 자료다. 그런데 왜 다른 이야기로 읽히는가?</span><span class="zh">前面两个折线图是同一份资料，为什么读起来是不同的故事？</span></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">누군가 “여름에 전기를 점점 더 쓴다”며 3개월 그래프만 보여 준다면, 무엇을 물어봐야 하는가?</span><span class="zh">如果有人只给你看 3 个月的图并说“夏天用电越来越多”，你该问什么？</span></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">두 답에 <b>기간</b>이라는 말이 들어갔다.</span><span class="zh">两个答案里都出现了<b>时期</b>这个词。</span></li><li><span class="ko">그래프를 볼 때 확인할 것을 스스로 한 가지 더 적었다.</span><span class="zh">自己再写出一个看图表时要确认的项目。</span></li></ul></div></div>
-</section>
-
-<section class="page" id="s20">
-<div class="kick"><span class="ko">20. 확인 목록</span><span class="zh">20. 确认清单</span><b>04-1</b></div><h2 class="title"><span class="ko">그래프를 볼 때 먼저 보는 네 가지</span><span class="zh">看图表时先看的四件事</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">보는 것</span><span class="zh">看什么</span></th><th><span class="ko">왜</span><span class="zh">为什么</span></th></tr></thead><tbody><tr><td><span class="ko"><b>축</b>이 어디서 시작하나</span><span class="zh"><b>坐标轴</b>从哪里开始</span></td><td><span class="ko">아래를 자르면 차이가 커 보인다</span><span class="zh">切掉下面，差异会显得大</span></td></tr><tr><td><span class="ko"><b>기간</b>이 얼마나 되나</span><span class="zh"><b>时期</b>有多长</span></td><td><span class="ko">일부만 고르면 다른 이야기가 된다</span><span class="zh">只选一部分就成了另一个故事</span></td></tr><tr><td><span class="ko"><b>단위</b>가 무엇인가</span><span class="zh"><b>单位</b>是什么</span></td><td><span class="ko">명인지 %인지에 따라 뜻이 다르다</span><span class="zh">是人数还是百分比，意思完全不同</span></td></tr><tr><td><span class="ko"><b>출처</b>가 어디인가</span><span class="zh"><b>来源</b>是哪里</span></td><td><span class="ko">누가 언제 잰 값인지 알아야 한다</span><span class="zh">要知道是谁、什么时候测的</span></td></tr></tbody></table></div><div class="note ok"><p><span class="ko">이 과목은 수학·데이터 분석 과목이 아닙니다. 깊은 통계 해석보다 <b>요구한 그래프를 정확히 만들고 원본과 대조하는 것</b>이 먼저입니다.</span><span class="zh">本课不是数学或数据分析课。比起深入的统计解释，<b>按要求准确完成图表并与原始数据核对</b>更重要。</span></p></div>
-</section>
-
-<section class="page" id="s21">
-<div class="kick"><span class="ko">21. 정리</span><span class="zh">21. 整理</span><b>04-1</b></div><h2 class="title"><span class="ko">오늘 남길 것</span><span class="zh">今天要留下的</span></h2><div class="recap"><div class="rt"><span class="ko">오늘 남길 것</span><span class="zh">今天要留下的</span></div><ul><li><span class="ko"><b>라이브러리</b>는 이미 만들어진 기능의 묶음이다.</span><span class="zh"><b>库</b>是已经做好的功能的集合。</span></li><li><span class="ko"><code>uv add</code>는 이 폴더에 도구를 챙겨 넣고, <code>import</code>는 코드에서 그것을 부른다. <b>다른 일이다.</b></span><span class="zh"><code>uv add</code> 把工具装进这个文件夹，<code>import</code> 在代码里调用它。<b>是两件事。</b></span></li><li><span class="ko">그래프가 나왔다고 맞는 것이 아니다. <b>원본과 대조해야</b> 맞는 것이다.</span><span class="zh">出现图表不等于正确，<b>要和原始数据核对</b>才算正确。</span></li><li><span class="ko">같은 숫자도 <b>축과 기간</b>에 따라 다른 인상을 준다.</span><span class="zh">同样的数字，因<b>坐标轴和时期</b>不同会给人不同印象。</span></li></ul></div><div class="note"><p><span class="ko">오늘 채운 워크시트는 <code>JDH_VibeCoding_자기이름</code> 안 <code>04</code> 폴더에 남깁니다. 다음 시간 수행평가에서 같은 확인을 직접 하게 됩니다.</span><span class="zh">今天填写的练习纸留在 <code>JDH_VibeCoding_自己的名字</code> 里的 <code>04</code> 文件夹。下节课的评价中要自己做同样的确认。</span></p></div><div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">다음에는 표를 다루는 도구를 가져옵니다. 3-2에서 만든 이름표 묶음이 표로 펴지는 것을 봅니다.</span><span class="zh">下次要拿来处理表格的工具。会看到 3-2 做的名牌集合展开成表格。</span></p></div>
+<div class="kick"><span class="ko">15. 저장과 정리</span><span class="zh">15. 保存与整理</span><b>04-1</b></div><h2 class="title"><span class="ko">결과를 검토하고 작업을 저장한다</span><span class="zh">检查结果并保存作业</span></h2><p class="lead"><span class="ko">검토를 마친 <code>04-1_exercise.ipynb</code>를 저장합니다. 그래프가 나왔다는 것보다, 원본과 맞는지 확인한 과정이 오늘의 마무리입니다.</span><span class="zh">保存检查完成的 <code>04-1_exercise.ipynb</code>。今天最后要做的不是只看图表有没有出现，而是确认结果是否与原始数据一致。</span></p><div class="recap"><div class="rt"><span class="ko">오늘 한 일</span><span class="zh">今天做的事</span></div><ul><li><span class="ko"><code>pyproject.toml</code>에서 Python 범위와 라이브러리 목록을 확인했다.</span><span class="zh">在 <code>pyproject.toml</code> 中确认了 Python 范围和库清单。</span></li><li><span class="ko"><code>uv sync</code>가 설정 파일을 바탕으로 <code>.venv</code>를 맞추는 과정을 확인했다.</span><span class="zh">确认了 <code>uv sync</code> 会根据配置文件同步 <code>.venv</code>。</span></li><li><span class="ko">오류의 원인을 먼저 묻고 필요한 조치를 AI에게 요청했다.</span><span class="zh">先询问错误原因，再请 AI 采取必要措施。</span></li><li><span class="ko">데이터를 읽고 그래프를 추천받은 뒤, 총 행 수와 열 이름까지 출력해 원본과 대조했다.</span><span class="zh">读取数据并获得图表推荐后，输出总行数和列名，与原始数据对照。</span></li></ul></div><div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">같은 자료의 CSV 파일을 pandas로 읽습니다. 긴 표를 코드 안에 옮겨 적지 않고 파일에서 바로 불러오는 방법을 익힙니다.</span><span class="zh">下一课时用 pandas 读取同一份数据的 CSV 文件，学习不把长表抄进代码，而是直接从文件加载。</span></p></div>
 </section>
 <div class="lessonnav">
 <a href="../../03/textbook/03-2.html">
@@ -423,7 +392,6 @@ plt.show()</pre></div><div class="note stop"><p><span class="ko">그래프 안�
 <span class="t">4-2. pandas로 표 데이터를 쉽게 사용하기</span>
 </a>
 </div>
-</section>
 </main>
 <div id="pager">
 <button id="pprev">‹</button>

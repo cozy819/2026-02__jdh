@@ -9,6 +9,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/textbook.css">
+<style>
+.read-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(230px,.9fr);gap:14px;margin-top:16px;align-items:start}
+.read-grid .code{margin:0}
+.read-grid .code pre{font-size:13.5px;line-height:1.52;white-space:pre-wrap}
+.read-block{display:block;margin:2px -7px;padding:3px 7px 3px 11px;border-left:3px solid #FF5C00;background:#FFF7F2}
+.read-notes{display:flex;flex-direction:column;gap:10px}
+.read-note{padding:12px 14px;border:1px solid #E0E3E7;background:#F1F2F4}
+.read-note b{display:block;font-family:var(--mono);font-size:14px;color:#1B1D21}
+.read-note p{margin:5px 0 0;font-size:15.5px;line-height:1.48}
+@media(max-width:700px){.read-grid{grid-template-columns:1fr}}
+@media print{.read-grid{gap:8px;margin-top:8px}.read-grid .code pre{font-size:7.6pt;line-height:1.35;padding:7px 9px}.read-note{padding:7px 9px}.read-note b{font-size:8.3pt}.read-note p{font-size:8.3pt;line-height:1.35}.read-notes{gap:6px}.read-block{padding-top:2px;padding-bottom:2px}}
+</style>
 </head>
 <body class="lang-ko">
 <div id="top">
@@ -32,40 +44,26 @@
 </div>
 <a href="#opener">
 <span class="n">·</span> 차시 표지</a>
-<a href="#s1">
-<span class="n">1</span> 지난 시간</a>
-<a href="#s2">
-<span class="n">2</span> 한 줄로 길다</a>
-<a href="#s3">
-<span class="n">3</span> 또 멈춘다</a>
-<a href="#s4">
-<span class="n">4</span> 이름 두 개</a>
-<a href="#s5">
-<span class="n">5</span> 표가 된다</a>
-<a href="#s6">
-<span class="n">6</span> 먼저 보는 셋</a>
-<a href="#s7">
-<span class="n">7</span> 무엇이 달라졌나</a>
-<a href="#s8">
-<span class="n">8</span> 그래프까지</a>
-<a href="#s9">
-<span class="n">9</span> 대조</a>
-<a href="#s10">
-<span class="n">10</span> 새 표</a>
-<a href="#s11">
-<span class="n">11</span> 세 가지로</a>
-<a href="#s12">
-<span class="n">12</span> 워크시트 ①</a>
-<a href="#s13">
-<span class="n">13</span> 안 적힌 것</a>
-<a href="#s14">
-<span class="n">14</span> 무엇을 묻나</a>
-<a href="#s15">
-<span class="n">15</span> 워크시트 ②</a>
-<a href="#s16">
-<span class="n">16</span> 다음 시간</a>
-<a href="#s17">
-<span class="n">17</span> 정리</a>
+<a href="#s1"><span class="n">1</span> 같은 자료</a>
+<a href="#s2"><span class="n">2</span> pandas 준비</a>
+<a href="#s3"><span class="n">3</span> pandas와 DataFrame</a>
+<a href="#s4"><span class="n">4</span> 첫 번째 요청</a>
+<a href="#s5"><span class="n">5</span> 자료 이해</a>
+<a href="#s6"><span class="n">6</span> 두 번째 요청</a>
+<a href="#s7"><span class="n">7</span> 평균 확인</a>
+<a href="#s8"><span class="n">8</span> 추세선</a>
+<a href="#s9"><span class="n">9</span> 세 번째 요청</a>
+<a href="#s10"><span class="n">10</span> 축 선택</a>
+<a href="#s11"><span class="n">11</span> 네 번째 요청</a>
+<a href="#s12"><span class="n">12</span> 실행</a>
+<a href="#s13"><span class="n">13</span> 다섯 번째 요청</a>
+<a href="#s14"><span class="n">14</span> Notebook 1번</a>
+<a href="#s15"><span class="n">15</span> Notebook 2번</a>
+<a href="#s16"><span class="n">16</span> Notebook 3번</a>
+<a href="#s17"><span class="n">17</span> Notebook 4번</a>
+<a href="#s18"><span class="n">18</span> Notebook 5번</a>
+<a href="#s19"><span class="n">19</span> Notebook 6번</a>
+<a href="#s20"><span class="n">20</span> 수업 정리</a>
 <div class="h">
 <span class="ko">전체 차시</span>
 <span class="zh">全部课时</span>
@@ -145,8 +143,8 @@
 <span class="zh">用 pandas 更轻松地处理表格数据</span>
 </h1>
 <div class="osub">
-<span class="ko">dict에서 DataFrame으로 이어지는 관계를 보고, AI가 만든 표와 그래프를 원본과 비교합니다.</span>
-<span class="zh">理解从 dict 到 DataFrame 的连接，并把 AI 生成的表格与图表和原始数据核对。</span>
+<span class="ko">4-1의 Excel 자료와 내용이 같은 CSV를 pandas로 읽고, 열 이름으로 표와 그래프를 연결합니다.</span>
+<span class="zh">用 pandas 读取与 4-1 Excel 内容相同的 CSV，并用列名连接表格和图表。</span>
 </div>
 <div class="abar">
 </div>
@@ -161,169 +159,164 @@
 </section>
 
 <section class="page" id="s1">
-<div class="kick"><span class="ko">1. 지난 시간</span><span class="zh">1. 上次课</span><b>04-2</b></div><h2 class="title"><span class="ko">한 사람을 이름표 묶음으로 적었다</span><span class="zh">把一个人写成名牌集合</span></h2><p class="lead"><span class="ko">3-2에서 자기 자신을 이름표 묶음으로 적었습니다. 이름표 하나에 값 하나였습니다.</span><span class="zh">在 3-2 把自己写成了名牌集合。一个名牌对应一个值。</span></p><div class="code"><div class="chd"><span class="fn">03-2_structures.ipynb</span></div><pre>student = {
-    &quot;name&quot;: &quot;민준&quot;,
-    &quot;score&quot;: 85,
-}
-
-print(student[&quot;name&quot;])</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>민준</pre></div><p><span class="ko">그런데 한 사람이 아니라 <b>다섯 날</b>의 이용 인원을 담으려면 어떻게 할까요? 이름표는 그대로 두고 <b>값을 여러 개</b> 넣습니다.</span><span class="zh">但如果要装的不是一个人，而是<b>五天</b>的使用人数呢？名牌不变，<b>值放多个</b>。</span></p><div class="code"><div class="chd"><span class="fn">04-2_pandas_table.ipynb</span></div><pre>data = {
-    &quot;day&quot;: [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;],
-    &quot;visitors&quot;: [18, 25, 21, 32, 29],
-}
-
-print(data)</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>{'day': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], 'visitors': [18, 25, 21, 32, 29]}</pre></div>
+<div class="kick"><span class="ko">1. 같은 자료</span><span class="zh">1. 同一份数据</span><b>04-2</b></div><h2 class="title"><span class="ko">어제의 Excel이 오늘은 CSV다</span><span class="zh">昨天的 Excel 今天变成 CSV</span></h2><p class="lead"><span class="ko">4-1에서 사용한 60줄 자료를 다시 씁니다. 표현하는 방법이 다를 뿐, 머리글과 값은 같습니다.</span><span class="zh">继续使用 4-1 的 60 行数据。表达方式不同，但表头和数值完全相同。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">차시</span><span class="zh">课时</span></th><th><span class="ko">파일</span><span class="zh">文件</span></th><th><span class="ko">모양</span><span class="zh">样子</span></th></tr></thead><tbody><tr><td>4-1</td><td><code>04-library-data.xlsx</code></td><td><span class="ko">칸으로 보이는 표</span><span class="zh">按单元格显示的表格</span></td></tr><tr><td>4-2</td><td><code>04-library-data.csv</code></td><td><span class="ko">쉼표로 나뉜 글자 줄</span><span class="zh">用逗号分隔的文本行</span></td></tr></tbody></table></div><div class="note ok"><p><span class="ko">두 파일은 머리글 세 개와 데이터 60줄이 완전히 같습니다.</span><span class="zh">两个文件的三个表头和 60 行数据完全相同。</span></p></div>
 </section>
 
 <section class="page" id="s2">
-<div class="kick"><span class="ko">2. 한 줄로 길다</span><span class="zh">2. 一行太长</span><b>04-2</b></div><h2 class="title"><span class="ko">이걸 표 모양으로 보고 싶다</span><span class="zh">想把它看成表格的样子</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko"><code>print</code>로는 한 줄로 길게 나옵니다. 값이 다섯 개일 때도 읽기 힘든데, 서른 개면 못 읽습니다.</span><span class="zh">用 <code>print</code> 会挤成很长的一行。五个值就不好读了，三十个就读不了。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">이름표</span><span class="zh">名牌</span></th><th><span class="ko">들어 있는 값</span><span class="zh">里面的值</span></th></tr></thead><tbody><tr><td><code>day</code></td><td>Mon · Tue · Wed · Thu · Fri</td></tr><tr><td><code>visitors</code></td><td>18 · 25 · 21 · 32 · 29</td></tr></tbody></table></div><div class="note"><p><span class="ko">이름표를 <b>세로 줄</b>로 세우고 값을 <b>가로 줄</b>로 늘어놓으면 표가 됩니다. 그 일을 대신해 주는 도구가 있습니다.</span><span class="zh">把名牌立成<b>竖列</b>，值排成<b>横行</b>，就成了表格。有工具可以代做这件事。</span></p></div>
+<div class="kick"><span class="ko">2. pandas 준비</span><span class="zh">2. 准备 pandas</span><b>04-2</b></div><h2 class="title"><span class="ko">pandas를 프로젝트에 추가한다</span><span class="zh">把 pandas 添加到项目中</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">이번에는 오류를 일부러 만들지 않습니다. VS Code 터미널에서 아래 명령을 직접 실행합니다.</span><span class="zh">这次不用故意制造错误，直接在 VS Code 终端中运行下面的命令。</span></p><div class="code term"><div class="chd"><span class="fn">VS Code 터미널</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>uv add pandas</pre></div><div class="steps"><div class="st-h"><span class="ko">실행하고 확인하기</span><span class="zh">运行后检查</span></div><ol><li><span class="ko"><code>04</code> 폴더의 터미널에서 명령을 실행한다.</span><span class="zh">在 <code>04</code> 文件夹的终端中运行命令。</span></li><li><span class="ko"><code>pyproject.toml</code>에 <code>pandas</code> 줄이 생겼는지 확인한다.</span><span class="zh">确认 <code>pyproject.toml</code> 中出现了 <code>pandas</code> 一行。</span></li><li><span class="ko">Notebook의 커널을 다시 시작한다.</span><span class="zh">重新启动 Notebook 内核。</span></li></ol></div>
 </section>
 
 <section class="page" id="s3">
-<div class="kick"><span class="ko">3. 또 멈춘다</span><span class="zh">3. 又停下来</span><b>04-2</b></div><h2 class="title"><span class="ko">도구가 없으면 또 멈춘다</span><span class="zh">没有工具就又停下来</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">4-1에서 겪은 것과 <b>똑같은 일</b>이 한 번 더 일어납니다. 이번에도 오류가 나야 정상입니다.</span><span class="zh">会再发生一次和 4-1 <b>完全一样</b>的事。这次也是报错才正常。</span></p><div class="code"><div class="chd"><span class="fn">04-2_pandas_table.ipynb</span></div><pre>import pandas as pd</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">마지막 줄</span><span class="zh">最后一行</span></span></div><pre>ModuleNotFoundError: No module named 'pandas'</pre></div><div class="code"><div class="chd"><span class="fn">Terminal</span></div><pre>uv add pandas</pre></div><div class="note"><p><span class="ko"><code>uv add</code> 하고 <b>커널을 다시 시작</b>한 뒤 같은 셀을 다시 실행합니다. 4-1과 같은 순서입니다. <b>도구마다 한 번씩</b> 가져오면 됩니다.</span><span class="zh"><code>uv add</code> 之后<b>重启内核</b>，再运行同一个单元格。和 4-1 顺序一样。<b>每个工具拿一次</b>就行。</span></p></div>
+<div class="kick"><span class="ko">3. 이름 두 개</span><span class="zh">3. 两个名称</span><b>04-2</b></div><h2 class="title"><span class="ko">pandas는 도구, DataFrame은 표</span><span class="zh">pandas 是工具，DataFrame 是表</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">이름</span><span class="zh">名称</span></th><th><span class="ko">뜻</span><span class="zh">含义</span></th></tr></thead><tbody><tr><td><code>pandas</code></td><td><span class="ko">표 데이터를 읽고 다루는 데 널리 쓰이는 라이브러리</span><span class="zh">广泛用于读取和处理表格数据的库</span></td></tr><tr><td><code>DataFrame</code></td><td><span class="ko">pandas가 메모리에 만든 표</span><span class="zh">pandas 在内存中创建的表</span></td></tr><tr><td><code>pd</code></td><td><span class="ko">코드에서 pandas를 짧게 부르는 이름</span><span class="zh">代码中 pandas 的简称</span></td></tr></tbody></table></div><div class="note ok"><p><b><span class="ko">참고 · 누가, 왜 많이 쓸까?</span><span class="zh">参考 · 谁在使用，为什么常用？</span></b><br><span class="ko">데이터 분석가와 연구자, Python 개발자가 많이 씁니다. CSV·Excel·데이터베이스의 표를 같은 DataFrame으로 읽고, 필요한 행과 열을 고르거나 평균을 계산하는 일을 한 도구에서 이어서 할 수 있기 때문입니다.</span><span class="zh">数据分析师、研究人员和 Python 开发者经常使用它，因为 CSV、Excel 和数据库表都能读成同一种 DataFrame，并可在一个工具中继续筛选行列、计算平均值。</span></p></div>
 </section>
 
-<section class="page" id="s4">
-<div class="kick"><span class="ko">4. 이름 두 개</span><span class="zh">4. 两个名字</span><b>04-2</b></div><h2 class="title"><span class="ko">pandas는 도구, DataFrame은 표</span><span class="zh">pandas 是工具，DataFrame 是表</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">오늘 새 이름이 두 개 나옵니다. 헷갈리기 쉬우니 한 번에 갈라 둡니다.</span><span class="zh">今天出现两个新名字。容易混，先分清楚。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">이름</span><span class="zh">名字</span></th><th><span class="ko">무엇인가</span><span class="zh">是什么</span></th><th><span class="ko">견주면</span><span class="zh">打个比方</span></th></tr></thead><tbody><tr><td><code>pandas</code></td><td><span class="ko">표를 다루는 <b>도구</b></span><span class="zh">处理表格的<b>工具</b></span></td><td><span class="ko">Matplotlib 같은 라이브러리</span><span class="zh">像 Matplotlib 那样的库</span></td></tr><tr><td><code>DataFrame</code></td><td><span class="ko">그 도구가 만든 <b>표</b></span><span class="zh">那个工具做出的<b>表</b></span></td><td><span class="ko">도구로 만들어 낸 물건</span><span class="zh">用工具做出来的东西</span></td></tr></tbody></table></div><div class="note"><p><span class="ko"><code>import pandas as pd</code>에서 <code>as pd</code>는 <b>짧게 부르겠다</b>는 뜻입니다. 앞으로 <code>pandas</code> 대신 <code>pd</code>라고 씁니다.</span><span class="zh"><code>import pandas as pd</code> 里的 <code>as pd</code> 意思是<b>用短名字来叫它</b>。以后写 <code>pd</code> 代替 <code>pandas</code>。</span></p></div>
+<section class="page print-tight" id="s4">
+<div class="kick"><span class="ko">4. 첫 번째 요청</span><span class="zh">4. 第一次请求</span><b>04-2</b></div><h2 class="title"><span class="ko">먼저 자료가 무엇을 말하는지 묻는다</span><span class="zh">先询问这份数据表达什么</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko"><code>notebooks/04-2_exercise.ipynb</code>를 열고 AI에게 첫 번째 요청을 보냅니다.</span><span class="zh">打开 <code>notebooks/04-2_exercise.ipynb</code>，向 AI 发送第一次请求。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">1번 · 자료 이해</span><span class="zh">第 1 次 · 理解数据</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">data/04-library-data.csv를 읽어 줘.
+이 파일이 어떤 자료인지 설명해 줘.
+4-1에서 사용한 data/04-library-data.xlsx와
+내용이 다른지도 확인해 줘.
+아직 코드는 만들지 마.</pre><pre class="zh blk">请读取 data/04-library-data.csv。
+请说明这是什么数据，
+并确认它与 4-1 使用的 data/04-library-data.xlsx
+在内容上是否不同。
+暂时不要编写代码。</pre></div><div class="note"><p><span class="ko">그래프를 바로 부탁하지 않습니다. AI의 첫 답을 읽고 자료의 뜻부터 확인합니다.</span><span class="zh">不要马上要求画图。先阅读 AI 的第一次回答，确认数据的含义。</span></p></div>
 </section>
 
 <section class="page" id="s5">
-<div class="kick"><span class="ko">5. 표가 된다</span><span class="zh">5. 变成表</span><b>04-2</b></div><h2 class="title"><span class="ko">dict가 그대로 표가 된다</span><span class="zh">dict 直接变成表</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">같은 <code>data</code>입니다. <b>모양만</b> 바뀝니다.</span><span class="zh">还是同一个 <code>data</code>，只是<b>样子</b>变了。</span></p><div class="code"><div class="chd"><span class="fn">04-2_pandas_table.ipynb</span></div><pre>import pandas as pd
-
-df = pd.DataFrame(data)
-df</pre></div><!-- ═══════════════════════════════════════════════════════════════════════
-     [화면 캡처 안내] 04-2-01-dataframe-shown
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 · Notebook 화면 · assets/img/04-2-01-dataframe-shown.png
-     ───────────────────────────────────────────────────────────────────────
-
-     학교 PC 에서 찍는다. Mac 화면은 쓰지 않는다 — 학생이 보는 창틀·글꼴·메뉴가 다르다.
-
-     · 파일 : 04/notebooks/04-2_pandas_table.ipynb
-     · 언제 : uv add pandas 를 하고 커널을 다시 시작한 뒤, df 를 보여 주는 셀(4번째 코드 셀)을
-              실행해 **코드 아래에 표가 나타난 상태**.
-     · 담을 것 : 왼쪽 행 번호 열(0~4)과 열 이름(day, visitors)이 읽히게.
-                print 로 찍은 한 줄짜리와 대비되는 것이 요점이므로 표 모양이 분명해야 한다.
-     · 오른쪽 위 커널 이름에 .venv 가 보이는 상태여야 한다.
-     · 화면 1600×900 이상. 축소해서 봐도 열 이름이 읽혀야 한다.
-     · 개인 폴더 경로가 보이면 가린다.
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-2-01-dataframe-shown.png" alt="Notebook에서 df를 실행해 코드 아래에 표가 나타난 화면"
-           data-id="04-2-01-dataframe-shown" data-spec="가로 · Notebook · DataFrame 출력"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-2-1. 이름표가 열 이름이 되고, 값 하나하나가 행이 되었다.</span><span class="zh">图 4-2-1. 名牌变成列名，每个值变成一行。</span></figcaption>
-    </figure>
+<div class="kick"><span class="ko">5. 자료 이해</span><span class="zh">5. 理解数据</span><b>04-2</b></div><h2 class="title"><span class="ko">AI의 설명을 원본과 맞춰 본다</span><span class="zh">把 AI 的说明与原始数据对照</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">확인할 것</span><span class="zh">检查项目</span></th><th><span class="ko">원본에서 보이는 답</span><span class="zh">原始数据中的答案</span></th></tr></thead><tbody><tr><td><span class="ko">자료의 내용</span><span class="zh">数据内容</span></td><td><span class="ko">날짜별 도서관 방문자 수와 대출한 책 수</span><span class="zh">每天的图书馆访客人数和借出图书数量</span></td></tr><tr><td><span class="ko">머리글</span><span class="zh">表头</span></td><td><code>date · visitors · borrowed_books</code></td></tr><tr><td><span class="ko">데이터 줄 수</span><span class="zh">数据行数</span></td><td>60</td></tr><tr><td><span class="ko">Excel과 차이</span><span class="zh">与 Excel 的差别</span></td><td><span class="ko">표현 형식만 다르고 내용은 같음</span><span class="zh">只有表现形式不同，内容相同</span></td></tr></tbody></table></div><div class="note stop"><p><span class="ko">AI의 설명이 다르면 다음 요청으로 넘어가지 않고, 어떤 항목이 다른지 다시 알려 줍니다.</span><span class="zh">如果 AI 的说明不同，不要继续下一步，要指出哪一项不一致。</span></p></div>
 </section>
 
-<section class="page" id="s6">
-<div class="kick"><span class="ko">6. 먼저 보는 셋</span><span class="zh">6. 先看的三样</span><b>04-2</b></div><h2 class="title"><span class="ko">표를 받으면 먼저 보는 세 가지</span><span class="zh">拿到表格先看的三样</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">표를 받으면 값을 읽기 전에 <b>표의 모양</b>부터 봅니다. 세 가지면 됩니다.</span><span class="zh">拿到表格，先看<b>表的形状</b>再读值。三样就够了。</span></p><div class="code"><div class="chd"><span class="fn">04-2_pandas_table.ipynb</span></div><pre>print(&quot;행과 열:&quot;, df.shape)
-print(&quot;열 이름:&quot;, list(df.columns))
-print(&quot;가장 큰 값:&quot;, df[&quot;visitors&quot;].max())</pre></div><div class="code out"><div class="chd"><span class="fn"><span class="ko">실행 결과</span><span class="zh">运行结果</span></span></div><pre>행과 열: (5, 2)
-열 이름: ['day', 'visitors']
-가장 큰 값: 32</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">보는 것</span><span class="zh">看什么</span></th><th><span class="ko">알 수 있는 것</span><span class="zh">能知道什么</span></th></tr></thead><tbody><tr><td><code>df.shape</code></td><td><span class="ko">행이 몇 개, 열이 몇 개</span><span class="zh">有几行、几列</span></td></tr><tr><td><code>df.columns</code></td><td><span class="ko">열 이름이 무엇인가</span><span class="zh">列名是什么</span></td></tr><tr><td><code>.max()</code></td><td><span class="ko">그 열에서 가장 큰 값</span><span class="zh">那一列里最大的值</span></td></tr></tbody></table></div>
+<section class="page print-tight" id="s6">
+<div class="kick"><span class="ko">6. 두 번째 요청</span><span class="zh">6. 第二次请求</span><b>04-2</b></div><h2 class="title"><span class="ko">두 평균을 AI에게 계산해 달라고 한다</span><span class="zh">请 AI 计算两个平均值</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="code"><div class="chd"><span class="fn"><span class="ko">2번 · 평균 계산</span><span class="zh">第 2 次 · 计算平均值</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">같은 CSV에서 다음 두 값을 계산해 줘.
+
+1. 일별 방문자 수 visitors의 평균
+2. 일별 대출한 책 수 borrowed_books의 평균
+
+계산 결과를 notebooks/04-2_exercise.ipynb에
+print()로 표시하는 셀도 만들어 줘.</pre><pre class="zh blk">请在同一个 CSV 中计算下面两个数值。
+
+1. 每日访客人数 visitors 的平均值
+2. 每日借出图书数量 borrowed_books 的平均值
+
+请在 notebooks/04-2_exercise.ipynb 中
+添加一个用 print() 显示结果的单元格。</pre></div>
 </section>
 
 <section class="page" id="s7">
-<div class="kick"><span class="ko">7. 무엇이 달라졌나</span><span class="zh">7. 有什么不同</span><b>04-2</b></div><h2 class="title"><span class="ko">열 이름만 적으면 된다</span><span class="zh">只写列名就行</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">4-1에서는 목록 두 개를 따로 넘겼습니다. pandas는 <b>열 이름</b>만 적습니다.</span><span class="zh">在 4-1 要分别传两个列表。pandas 只写<b>列名</b>。</span></p><div class="code"><div class="chd"><span class="fn">4-1 <span class="ko">방식</span><span class="zh">的做法</span></span></div><pre>plt.bar(days, visitors)</pre></div><div class="code"><div class="chd"><span class="fn">4-2 <span class="ko">방식</span><span class="zh">的做法</span></span></div><pre>df.plot(x=&quot;day&quot;, y=&quot;visitors&quot;, kind=&quot;bar&quot;)</pre></div><div class="note"><p><span class="ko"><b>표 안에 이름이 이미 붙어 있기 때문</b>입니다. 값을 따로 챙겨 넘길 필요가 없습니다. 3-2에서 배운 「번호로 세지 않고 이름으로 찾는다」가 여기서도 그대로입니다.</span><span class="zh"><b>因为表里已经有名字了</b>，不用另外把值挑出来传。3-2 学的“不数号码，用名字找”在这里同样成立。</span></p></div>
+<div class="kick"><span class="ko">7. 평균 실행</span><span class="zh">7. 运行平均值单元格</span><b>04-2</b></div><h2 class="title"><span class="ko">두 평균을 계산한 셀을 실행한다</span><span class="zh">运行计算两个平均值的单元格</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="steps"><div class="st-h"><span class="ko">화면에서 확인할 것</span><span class="zh">在屏幕上确认</span></div><ol><li><span class="ko"><code>visitors</code> 평균을 출력하는 줄이 있는지 본다.</span><span class="zh">确认有一行输出 <code>visitors</code> 的平均值。</span></li><li><span class="ko"><code>borrowed_books</code> 평균을 출력하는 줄이 있는지 본다.</span><span class="zh">确认有一行输出 <code>borrowed_books</code> 的平均值。</span></li><li><span class="ko">셀을 실행해 두 결과가 코드 바로 아래에 나오는지 본다.</span><span class="zh">运行单元格，确认两个结果显示在代码正下方。</span></li></ol></div>
 </section>
 
 <section class="page" id="s8">
-<div class="kick"><span class="ko">8. 그래프까지</span><span class="zh">8. 连图表也是</span><b>04-2</b></div><h2 class="title"><span class="ko">표에서 그래프까지 이어진다</span><span class="zh">从表格直接连到图表</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="code"><div class="chd"><span class="fn">04-2_pandas_table.ipynb</span></div><pre>ax = df.plot(x=&quot;day&quot;, y=&quot;visitors&quot;, kind=&quot;bar&quot;, legend=False,
-             color=&quot;#72757d&quot;, figsize=(8, 4.5))
-ax.set_ylim(0, 36)
-ax.set_title(&quot;Visitors by Day&quot;)
-ax.set_xlabel(&quot;Day&quot;)
-ax.set_ylabel(&quot;Visitors (people)&quot;)
-labels = ax.bar_label(ax.containers[0])</pre></div><!-- ═══════════════════════════════════════════════════════════════════════
-     [기존 자산] 04-2-02-dataframe-bar
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 · 막대그래프 · assets/img/04-2-02-dataframe-bar.png
-     ───────────────────────────────────────────────────────────────────────
-
-     teacher_tools/make_04_charts.py 로 만든 파일이다. 새로 만들지 않는다.
-     4-1의 그래프와 **같은 자료·같은 모양**이다. 만드는 길만 달랐다는 것이 요점이다.
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-2-02-dataframe-bar.png" alt="DataFrame으로 그린 요일별 이용 인원 막대그래프"
-           data-id="04-2-02-dataframe-bar" data-spec="가로 · 막대그래프"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-2-2. 4-1에서 그린 것과 같은 그래프다. 가는 길만 달랐다.</span><span class="zh">图 4-2-2. 和 4-1 画的是同一个图，只是路径不同。</span></figcaption>
-    </figure><div class="note stop"><p><span class="ko">그래프 안의 글자는 4-1과 마찬가지로 <b>영문</b>으로 씁니다. 한글로 쓰면 네모로 나옵니다.</span><span class="zh">图表里的文字和 4-1 一样用<b>英文</b>。写韩文会变成方块。</span></p></div>
+<div class="kick"><span class="ko">8. 추세선</span><span class="zh">8. 趋势线</span><b>04-2</b></div><h2 class="title"><span class="ko">추세선은 전체 흐름을 보기 쉽게 만든다</span><span class="zh">趋势线让整体变化更容易看清</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">하루 값은 위아래로 흔들립니다. 추세선은 가까운 여러 날의 평균을 이어, 전체적으로 늘어나는지 줄어드는지 보기 쉽게 만든 선입니다.</span><span class="zh">每天的数值会上下波动。趋势线把相近几天的平均值连接起来，帮助我们看清整体上升还是下降。</span></p><div class="row"><div class="pane"><h3><span class="ko">원자료</span><span class="zh">原始数据</span></h3><p><span class="ko">날짜마다 실제로 기록된 값</span><span class="zh">每天实际记录的数值</span></p></div><div class="pane"><h3><span class="ko">5일 평균 추세선</span><span class="zh">5 日平均趋势线</span></h3><p><span class="ko">최근 5개 평일의 평균을 이어 만든 선</span><span class="zh">连接最近 5 个工作日平均值形成的线</span></p></div></div><div class="note stop"><p><span class="ko">추세선은 내일 값을 맞히는 예측선이 아닙니다.</span><span class="zh">趋势线不是预测明天数值的线。</span></p></div>
 </section>
 
-<section class="page" id="s9">
-<div class="kick"><span class="ko">9. 대조</span><span class="zh">9. 核对</span><b>04-2</b></div><h2 class="title"><span class="ko">쉽게 그렸어도 확인은 남는다</span><span class="zh">画得再容易，核对还是要做</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">코드가 짧아진 것이지 <b>확인할 일이 줄어든 것이 아닙니다.</b> 여섯 가지를 원본과 맞춰 봅니다.</span><span class="zh">只是代码变短了，<b>要确认的事并没有减少</b>。把六项和原始数据对一遍。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">확인할 것</span><span class="zh">要确认的</span></th><th><span class="ko">원본</span><span class="zh">原始数据</span></th></tr></thead><tbody><tr><td><span class="ko">행 수</span><span class="zh">行数</span></td><td>5</td></tr><tr><td><span class="ko">열 이름</span><span class="zh">列名</span></td><td>day · visitors</td></tr><tr><td><span class="ko">같은 행의 값</span><span class="zh">同一行的值</span></td><td><span class="ko">Thu는 32</span><span class="zh">Thu 是 32</span></td></tr><tr><td><span class="ko">가장 큰 값</span><span class="zh">最大值</span></td><td>32</td></tr><tr><td><span class="ko">막대 개수와 높이</span><span class="zh">柱子数量和高度</span></td><td><span class="ko">5개 · 표와 같음</span><span class="zh">5 个 · 与表相同</span></td></tr><tr><td><span class="ko">제목 · 축 이름 · 단위</span><span class="zh">标题 · 轴名 · 单位</span></td><td><span class="ko">모두 있음</span><span class="zh">都有</span></td></tr></tbody></table></div>
+<section class="page print-tight" id="s9">
+<div class="kick"><span class="ko">9. 세 번째 요청</span><span class="zh">9. 第三次请求</span><b>04-2</b></div><h2 class="title"><span class="ko">그래프를 만들기 전에 축을 고른다</span><span class="zh">画图前先选择坐标轴</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="code"><div class="chd"><span class="fn"><span class="ko">3번 · 축 후보 확인</span><span class="zh">第 3 次 · 确认坐标轴候选</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">이 데이터의 변화를 추세선으로 보고 싶어.
+x축과 y축에 어떤 열을 넣을 수 있는지 설명해 줘.
+각 선택으로 무엇을 알 수 있는지도 말해 줘.
+아직 그래프는 만들지 마.</pre><pre class="zh blk">我想用趋势线观察这份数据的变化。
+请说明 x 轴和 y 轴可以放哪些列，
+并说明每种选择能看出什么。
+暂时不要画图。</pre></div><div class="note"><p><span class="ko">AI의 추천을 그대로 따르기 전에, 우리가 보고 싶은 질문과 맞는지 먼저 고릅니다.</span><span class="zh">不要直接照搬 AI 的推荐，要先判断它是否符合我们想了解的问题。</span></p></div>
 </section>
 
 <section class="page" id="s10">
-<div class="kick"><span class="ko">10. 새 표</span><span class="zh">10. 新的表</span><b>04-2</b></div><h2 class="title"><span class="ko">설명 없이 표 하나만 놓는다</span><span class="zh">不加说明，只放一张表</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">이번에는 <b>처음 보는 표</b>입니다. 아무 설명 없이 표만 놓았습니다. 무엇을 담은 표인지 읽어 보세요.</span><span class="zh">这次是<b>第一次见的表</b>。没有任何说明，只放了表。读读看它装的是什么。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th>club</th><th>members</th></tr></thead><tbody><tr><td>밴드</td><td>12</td></tr><tr><td>미술</td><td>8</td></tr><tr><td>코딩</td><td>15</td></tr><tr><td>독서</td><td>6</td></tr></tbody></table></div><div class="note aside"><p><span class="ko">이 표는 <b>수업용 가상 자료</b>입니다. 실제 우리 학교 동아리 인원이 아닙니다.</span><span class="zh">这是<b>课堂用的虚拟资料</b>，不是本校社团的实际人数。</span></p></div><p><span class="ko">파일로도 들어 있습니다. <code>04</code> 폴더의 <code>data/04-2_clubs.csv</code>입니다.</span><span class="zh">文件也在里面 — <code>04</code> 文件夹的 <code>data/04-2_clubs.csv</code>。</span></p>
+<div class="kick"><span class="ko">10. 축 선택</span><span class="zh">10. 选择坐标轴</span><b>04-2</b></div><h2 class="title"><span class="ko">시간에 따른 방문자 수를 보기로 한다</span><span class="zh">选择观察访客人数随时间的变化</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">자리</span><span class="zh">位置</span></th><th><span class="ko">고른 열</span><span class="zh">选择的列</span></th><th><span class="ko">뜻</span><span class="zh">含义</span></th></tr></thead><tbody><tr><td>x축</td><td><code>date</code></td><td><span class="ko">시간의 순서</span><span class="zh">时间顺序</span></td></tr><tr><td>y축</td><td><code>visitors</code></td><td><span class="ko">날짜마다 달라지는 방문자 수</span><span class="zh">每天变化的访客人数</span></td></tr></tbody></table></div><div class="note"><p><span class="ko"><code>borrowed_books</code>를 y축에 고르면 대출 권수의 흐름을 볼 수 있습니다. 이번에는 4-1과 비교하기 위해 <code>visitors</code>를 고릅니다.</span><span class="zh">如果把 <code>borrowed_books</code> 放在 y 轴，就能观察借书数量的变化。这次为了与 4-1 比较，我们选择 <code>visitors</code>。</span></p></div>
 </section>
 
-<section class="page" id="s11">
-<div class="kick"><span class="ko">11. 세 가지로</span><span class="zh">11. 用三样</span><b>04-2</b></div><h2 class="title"><span class="ko">표를 말로 옮기는 세 가지</span><span class="zh">把表格转成语言的三样</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">표를 설명한다는 것은 <b>세 가지</b>를 말하는 것입니다. 앞의 요일 표로 연습해 봅니다.</span><span class="zh">说明一张表，就是说出<b>三样东西</b>。用前面的星期表练习一下。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">무엇을</span><span class="zh">说什么</span></th><th><span class="ko">요일 표라면</span><span class="zh">用星期表来说</span></th></tr></thead><tbody><tr><td><span class="ko"><b>대상</b> — 무엇에 대한 표인가</span><span class="zh"><b>对象</b> — 关于什么的表</span></td><td><span class="ko">어떤 곳의 요일별 이용 인원</span><span class="zh">某个地方每天的使用人数</span></td></tr><tr><td><span class="ko"><b>한 행</b> — 한 줄이 무엇 하나인가</span><span class="zh"><b>一行</b> — 一行代表一个什么</span></td><td><span class="ko">하루</span><span class="zh">一天</span></td></tr><tr><td><span class="ko"><b>열과 단위</b> — 각 열이 무엇이고 단위는</span><span class="zh"><b>列和单位</b> — 每列是什么、单位是什么</span></td><td><span class="ko">day는 요일, visitors는 사람 수(명)</span><span class="zh">day 是星期，visitors 是人数（人）</span></td></tr></tbody></table></div><div class="note"><p><span class="ko"><b>한 행이 무엇 하나인지</b>가 가장 자주 틀립니다. 요일 표의 한 행은 「하루」지 「한 사람」이 아닙니다.</span><span class="zh"><b>一行代表一个什么</b>是最常搞错的。星期表的一行是「一天」，不是「一个人」。</span></p></div>
+<section class="page print-tight" id="s11">
+<div class="kick"><span class="ko">11. 네 번째 요청</span><span class="zh">11. 第四次请求</span><b>04-2</b></div><h2 class="title"><span class="ko">고른 축으로 그래프를 만들어 달라고 한다</span><span class="zh">请 AI 按选好的坐标轴制作图表</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="code"><div class="chd"><span class="fn"><span class="ko">4번 · 그래프 제작</span><span class="zh">第 4 次 · 制作图表</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">notebooks/04-2_exercise.ipynb에 그래프를 만들어 줘.
+x축은 date, y축은 visitors로 해 줘.
+원자료는 회색 선으로 그리고,
+5일 평균 추세선은 주황 #FF5C00으로 겹쳐 줘.
+데이터 총 행 수, 열 이름, 두 평균도 print()로 표시해 줘.
+원본 CSV와 다른 Notebook은 수정하지 마.</pre><pre class="zh blk">请在 notebooks/04-2_exercise.ipynb 中制作图表。
+x 轴使用 date，y 轴使用 visitors。
+原始数据用灰色线表示，
+5 日平均趋势线用橙色 #FF5C00 叠加。
+同时用 print() 显示总行数、列名和两个平均值。
+不要修改原始 CSV 和其他 Notebook。</pre></div>
 </section>
 
 <section class="page" id="s12">
-<div class="kick"><span class="ko">12. 워크시트 ①</span><span class="zh">12. 练习纸 ①</span><b>04-2</b></div><h2 class="title"><span class="ko">이 표를 설명한다</span><span class="zh">说明这张表</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ①</span><span class="wst"><span class="ko">이 표를 설명하기</span><span class="zh">说明这张表</span></span></div><p class="wslead"><span class="ko">앞의 <b>동아리 표</b>를 보고 다섯 칸을 채웁니다. 표를 처음 보는 사람에게 말하듯 적습니다.</span><span class="zh">看着前面的<b>社团表</b>填写五栏。像对第一次看到这张表的人说话那样写。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">적을 것</span><span class="zh">要写的</span></th><th><span class="ko">내가 적는 답</span><span class="zh">我写的答案</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko"><b>대상</b> — 무엇에 대한 표인가</span><span class="zh"><b>对象</b> — 关于什么的表</span></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko"><b>한 행</b> — 한 줄은 무엇 하나인가</span><span class="zh"><b>一行</b> — 一行代表一个什么</span></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko"><code>club</code> 열은 무엇이고 단위는</span><span class="zh"><code>club</code> 列是什么，单位是什么</span></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko"><code>members</code> 열은 무엇이고 단위는</span><span class="zh"><code>members</code> 列是什么，单位是什么</span></td><td class="wsblank"></td></tr><tr><td class="wsno">5</td><td><span class="ko">이 표로 답할 수 있는 질문 하나</span><span class="zh">这张表能回答的一个问题</span></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">다섯 칸을 모두 <b>문장으로</b> 적었다. 단어만 적지 않았다.</span><span class="zh">五栏都用<b>句子</b>写了，不是只写词。</span></li><li><span class="ko">한 행이 「한 동아리」라고 적었다.</span><span class="zh">写了一行是「一个社团」。</span></li></ul></div></div>
+<div class="kick"><span class="ko">12. 실행</span><span class="zh">12. 运行</span><b>04-2</b></div><h2 class="title"><span class="ko">AI가 채운 셀을 읽고 직접 실행한다</span><span class="zh">阅读并运行 AI 填写的单元格</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="steps"><div class="st-h"><span class="ko">실행 순서</span><span class="zh">运行顺序</span></div><ol><li><span class="ko">AI가 채운 셀에서 파일 경로와 열 이름을 찾는다.</span><span class="zh">在 AI 填写的单元格中找到文件路径和列名。</span></li><li><span class="ko">셀을 위에서 아래로 실행한다.</span><span class="zh">从上到下运行单元格。</span></li><li><span class="ko">오류가 나면 오류가 난 셀과 마지막 줄을 같은 대화에 보낸다.</span><span class="zh">如果出错，把出错的单元格和最后一行错误信息发到同一个对话中。</span></li></ol></div>
 </section>
 
-<section class="page" id="s13">
-<div class="kick"><span class="ko">13. 안 적힌 것</span><span class="zh">13. 没写的东西</span><b>04-2</b></div><h2 class="title"><span class="ko">열 이름만으로는 모르는 것이 있다</span><span class="zh">光看列名有些事不知道</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><p class="lead"><span class="ko">표를 다 설명했다고 다 아는 것이 아닙니다. <b>표에 안 적힌 것</b>이 있습니다.</span><span class="zh">说明完表格不等于全都知道了。<b>有些东西表里没写</b>。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
-     [이미지 생성 요청] 04-2-03-hidden-questions
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 16:9 · 개념 삽화 · assets/img/04-2-03-hidden-questions.png
-     ───────────────────────────────────────────────────────────────────────
+<section class="page print-tight" id="s13">
+<div class="kick"><span class="ko">13. 다섯 번째 요청</span><span class="zh">13. 第五次请求</span><b>04-2</b></div><h2 class="title"><span class="ko">결과가 원본과 맞는지 검토하게 한다</span><span class="zh">请 AI 检查结果是否与原始数据一致</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="code"><div class="chd"><span class="fn"><span class="ko">5번 · 결과 검토</span><span class="zh">第 5 次 · 检查结果</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">방금 만든 Notebook 결과를 원본 CSV와 검토해 줘.
 
-     ── 맥락 (모델에게 그대로 넘겨도 된다) ────────────────────────────
-     장대현중고등학교 「정보와 디지털 문해력」 4회 둘째 차시(4-2)에 쓸 그림이다.
-     학생은 중3~고2 여덟 명, 프로그래밍을 이번 학기에 처음 배운다.
-     앞 차시까지 list·dict 를 배웠고, 오늘 표(DataFrame)를 처음 다룬다.
-     이 그림은 "표에 적힌 것보다 안 적힌 것이 더 많다" 를 눈으로 잡아 주는 자리에 들어간다.
-     교과서 인쇄물과 교실 스크린 양쪽에 같은 파일이 들어간다.
+- 데이터 60행, 열 3개가 맞는지
+- 열 이름이 date, visitors, borrowed_books인지
+- 두 평균이 원본 CSV를 다시 계산한 값과 같은지
+- 그래프가 date와 visitors를 사용했는지
+- 원자료와 5일 평균 추세선이 함께 보이는지
 
-     ── 그릴 것 ────────────────────────────────────────────────────
-     종이에 인쇄된 작은 표 하나가 책상 위에 놓여 있고,
-     그 표를 둘러싸고 **여백에 빈 말풍선 네 개**가 떠 있는 장면.
+다른 항목이 있으면 코드도 고쳐 줘.</pre><pre class="zh blk">请把刚完成的 Notebook 结果与原始 CSV 对照检查。
 
-     · 표는 두 칸짜리 아주 단순한 표로, 글자는 읽히지 않을 만큼 작게 그린다.
-       (칸과 줄만 보이면 된다. 무슨 글자인지 알아볼 필요가 없다)
-     · 말풍선 네 개가 표의 서로 다른 부분을 향해 가는 것이 보이게 한다
-       — 열 이름 쪽, 값 쪽, 그리고 표 바깥의 빈 여백 쪽.
-     · 사람 손이 표 옆에 놓여 있으면 좋다. 얼굴은 넣지 않는다.
-     · 말풍선 하나에만 주황(#FF5C00) 이 살짝 들어간다. 나머지는 중성색이다.
+- 是否为 60 行、3 列
+- 列名是否为 date、visitors、borrowed_books
+- 两个平均值是否与重新计算原始 CSV 得到的结果一致
+- 图表是否使用 date 和 visitors
+- 是否同时显示原始数据和 5 日平均趋势线
 
-     ── 지킬 것 ────────────────────────────────────────────────────
-     · 공통 스타일 **A(사실적 삽화)** 를 앞에 붙인다. B(플랫 벡터)를 같이 붙이지 않는다.
-       → 이미지_제작_가이드 「2. 공통 스타일」
-     · 비율 16:9 가로. 배경은 거의 흰색(#ffffff). 인쇄물에 들어가므로 어두운 배경은 쓰지 않는다.
-     · **말풍선 안은 비어 있어야 한다.** 모델이 여기에 글자를 채워 넣는 일이 잦다.
-       프롬프트 끝에: empty speech bubbles with nothing inside,
-       no text, no letters, no numbers, no labels, no watermark
-     · 받은 뒤 확인 — ① 말풍선이 비어 있나 ② 다른 곳에도 글자가 없나
-       ③ 주황이 한 군데뿐인가 ④ 플랫 벡터 도해로 나오지 않았나. 하나라도 어긋나면 다시 만든다.
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/04-2-03-hidden-questions.png" alt="책상 위 작은 표 하나와 그 둘레에 떠 있는 빈 말풍선 네 개"
-           data-id="04-2-03-hidden-questions" data-spec="가로 16:9 · 개념 삽화 · 사실적"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 4-2-3. 표를 보면 물어볼 것이 생긴다. 그게 정상이다.</span><span class="zh">图 4-2-3. 看到表格就会产生疑问，这是正常的。</span></figcaption>
-    </figure>
+如有不一致，也请修改代码。</pre></div><div class="note ok"><p><span class="ko">AI가 검토를 마쳤다고 바로 다음으로 넘어가지는 않습니다. AI가 고친 셀을 다시 실행하고, 출력된 수와 그래프가 원본 CSV에 맞는지 직접 확인합니다. 문제가 없으면 실습은 여기서 마칩니다.</span><span class="zh">AI 完成检查后，不要马上进入下一步。重新运行 AI 修改过的单元格，并亲自确认输出的数值和图表是否与原始 CSV 一致。确认没有问题后，本次实践才算结束。</span></p><p><span class="ko">지금까지는 AI에게 일을 맡기고 결과를 검토했습니다. 다음에는 모두 같은 설명용 Notebook을 열어, 방금 한 일이 코드 안에서 어떤 순서와 블록으로 적혀 있는지 읽어 봅니다.</span><span class="zh">到这里，我们把任务交给了 AI，并检查了结果。接下来打开全班共用的示例 Notebook，看看刚才完成的工作在代码中按什么顺序、分成哪些代码块。</span></p></div>
 </section>
 
-<section class="page" id="s14">
-<div class="kick"><span class="ko">14. 무엇을 묻나</span><span class="zh">14. 问什么</span><b>04-2</b></div><h2 class="title"><span class="ko">동아리 표에 안 적힌 것들</span><span class="zh">社团表里没写的东西</span> <span class="badge key"><span class="ko">핵심</span><span class="zh">核心</span></span></h2><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">안 적힌 것</span><span class="zh">没写的</span></th><th><span class="ko">모르면 생기는 일</span><span class="zh">不知道会怎样</span></th></tr></thead><tbody><tr><td><span class="ko"><b>언제</b> 센 인원인가</span><span class="zh"><b>什么时候</b>数的人数</span></td><td><span class="ko">작년 것이면 지금과 다르다</span><span class="zh">如果是去年的，和现在不一样</span></td></tr><tr><td><span class="ko"><b>정원</b>인가 <b>실제 인원</b>인가</span><span class="zh">是<b>名额</b>还是<b>实际人数</b></span></td><td><span class="ko">15명이 꽉 찬 것인지 알 수 없다</span><span class="zh">不知道 15 人是不是已经满了</span></td></tr><tr><td><span class="ko">한 사람이 <b>여러 동아리</b>에 들 수 있나</span><span class="zh">一个人能加入<b>多个社团</b>吗</span></td><td><span class="ko">전부 더해도 학생 수가 안 나온다</span><span class="zh">全加起来也不等于学生总数</span></td></tr><tr><td><span class="ko"><b>전체 동아리</b>가 이 넷뿐인가</span><span class="zh"><b>全部社团</b>就这四个吗</span></td><td><span class="ko">빠진 동아리가 있으면 비교가 틀린다</span><span class="zh">如果漏了社团，比较就不对</span></td></tr></tbody></table></div><div class="note"><p><span class="ko">이건 표가 <b>잘못 만들어진 것이 아닙니다.</b> 표는 원래 다 담지 못합니다. 그래서 <b>만든 사람에게 묻는 것</b>이 일의 일부입니다.</span><span class="zh">这不是表<b>做错了</b>。表本来就装不下全部。所以<b>去问做表的人</b>本身就是工作的一部分。</span></p></div>
+<section class="page print-tight" id="s14">
+<div class="kick"><span class="ko">14. 설명용 Notebook 1번</span><span class="zh">14. 示例 Notebook 第 1 部分</span><b>04-2</b></div><h2 class="title"><span class="ko">설명용 Notebook을 열고 1번부터 읽는다</span><span class="zh">打开示例 Notebook，从第 1 部分开始阅读</span> <span class="badge key"><span class="ko">코드 읽기</span><span class="zh">阅读代码</span></span></h2><p class="lead"><span class="ko">AI가 만든 실습용 Notebook은 요청을 받은 방식에 따라 코드 모양이 조금씩 다를 수 있습니다. 그래서 이제 모두 같은 <code>notebooks/04-2_pandas_table.ipynb</code>를 엽니다. 방금 실습한 일이 이 파일에서는 어떤 순서와 코드 블록으로 이어지는지 1번부터 함께 읽습니다.</span><span class="zh">AI 生成的实践 Notebook 会因请求方式不同而略有差异。因此现在全班打开同一个 <code>notebooks/04-2_pandas_table.ipynb</code>。从第 1 部分开始，依次阅读刚才的实践在这个文件中怎样连接成不同的代码块。</span></p><p><span class="ko">1번은 아직 코드를 실행하는 부분이 아닙니다. 뒤의 코드가 어느 파일을 읽는지, 그 파일의 첫 줄이 어떤 열 이름을 가지고 있는지 먼저 확인하는 안내입니다.</span><span class="zh">第 1 部分还不是运行代码的部分。它先说明后面的代码要读取哪个文件，以及该文件第一行包含哪些列名。</span></p><div class="read-grid"><div class="code"><div class="chd"><span class="fn">1. 같은 자료, 다른 파일 형식</span></div><pre><span class="read-block">파일: ../data/04-library-data.csv</span>
+<span class="read-block">첫 줄은 date,visitors,borrowed_books입니다.</span>
+CSV는 한 줄이 데이터 한 행이고,
+값 사이는 쉼표로 나뉩니다.</pre></div><div class="read-notes"><div class="read-note"><b>../data/04-library-data.csv</b><p><span class="ko">Notebook이 읽을 원본 파일입니다.</span><span class="zh">这是 Notebook 要读取的原始文件。</span></p></div><div class="read-note"><b>date, visitors, borrowed_books</b><p><span class="ko">첫 줄의 세 이름이 표의 열 이름이 됩니다.</span><span class="zh">第一行的三个名称会成为表格的列名。</span></p></div><div class="read-note"><b><span class="ko">한 줄 = 한 행</span><span class="zh">一行文字 = 一行数据</span></b><p><span class="ko">CSV에서는 쉼표가 Excel의 칸을 대신합니다.</span><span class="zh">在 CSV 中，逗号代替 Excel 的单元格边界。</span></p></div></div></div>
 </section>
 
-<section class="page" id="s15">
-<div class="kick"><span class="ko">15. 워크시트 ②</span><span class="zh">15. 练习纸 ②</span><b>04-2</b></div><h2 class="title"><span class="ko">만든 사람에게 물어볼 것</span><span class="zh">要问做表的人的问题</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ②</span><span class="wst"><span class="ko">물어볼 것 세 가지</span><span class="zh">要问的三件事</span></span></div><p class="wslead"><span class="ko">동아리 표를 받았다고 생각하고, <b>표를 만든 사람에게 물어볼 것</b> 세 가지와 그 이유를 적습니다.</span><span class="zh">假设你收到了社团表，写下<b>要问做表的人</b>的三个问题和理由。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">물어볼 것</span><span class="zh">要问的</span></th><th><span class="ko">왜 물어보나</span><span class="zh">为什么问</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">세 질문이 서로 <b>다른 것</b>을 묻고 있다.</span><span class="zh">三个问题问的是<b>不同的事</b>。</span></li><li><span class="ko">이유 칸에 「모르면 무엇이 틀어지는지」를 적었다.</span><span class="zh">理由栏写了「不知道会出什么问题」。</span></li><li><span class="ko">표에 <b>이미 적힌 것</b>은 묻지 않았다.</span><span class="zh">没有问表里<b>已经写了</b>的东西。</span></li></ul></div></div>
+<section class="page print-tight" id="s15">
+<div class="kick"><span class="ko">15. 설명용 Notebook 2번</span><span class="zh">15. 示例 Notebook 第 2 部分</span><b>04-2</b></div><h2 class="title"><span class="ko">pandas를 한 번만 가져온다</span><span class="zh">只导入一次 pandas</span> <span class="badge key"><span class="ko">코드 읽기</span><span class="zh">阅读代码</span></span></h2><div class="read-grid"><div class="code"><div class="chd"><span class="fn">2. 표를 다루는 도구를 가져옵니다</span></div><pre><span class="read-block">import pandas as pd</span></pre></div><div class="read-notes"><div class="read-note"><b>import pandas</b><p><span class="ko">설치해 둔 pandas를 이 Notebook에서 사용하겠다는 줄입니다.</span><span class="zh">这一行表示在当前 Notebook 中使用已经安装的 pandas。</span></p></div><div class="read-note"><b>as pd</b><p><span class="ko">뒤에서는 긴 이름 대신 <code>pd</code>라고 짧게 부릅니다.</span><span class="zh">后面的代码用较短的 <code>pd</code> 来称呼它。</span></p></div></div></div><div class="note warn"><p><span class="ko">이 줄은 2번에서 한 번만 실행합니다. 3번에서 다시 가져오지 않습니다.</span><span class="zh">这一行只在第 2 部分运行一次，第 3 部分不再重复导入。</span></p></div>
 </section>
 
-<section class="page" id="s16">
-<div class="kick"><span class="ko">16. 다음 시간</span><span class="zh">16. 下节课</span><b>04-2</b></div><h2 class="title"><span class="ko">다음 시간은 수행평가다</span><span class="zh">下节课是评价</span> <span class="badge assess"><span class="ko">평가</span><span class="zh">评价</span></span></h2><p class="lead"><span class="ko">다음 시간(5회)은 <b>수행평가 1</b>입니다. 새로 배우는 것은 없습니다. <b>오늘까지 한 것을 혼자 해내는</b> 시간입니다.</span><span class="zh">下节课（第 5 次）是<b>评价 1</b>。没有新内容，是<b>把今天为止学的自己做一遍</b>的时间。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">수행평가에서 하는 일</span><span class="zh">评价中要做的</span></th><th><span class="ko">오늘 어디서 했나</span><span class="zh">今天在哪里做过</span></th></tr></thead><tbody><tr><td><span class="ko">지정된 그래프를 완성한다</span><span class="zh">完成指定的图表</span></td><td><span class="ko">4-1 · AI 요청과 실행</span><span class="zh">4-1 · AI 请求与运行</span></td></tr><tr><td><span class="ko">원본 데이터와 대조한다</span><span class="zh">与原始数据核对</span></td><td><span class="ko">4-1 다섯 항목 · 4-2 여섯 항목</span><span class="zh">4-1 五项 · 4-2 六项</span></td></tr><tr><td><span class="ko">표를 설명해 적는다</span><span class="zh">写出对表格的说明</span></td><td><span class="ko">4-2 워크시트 ①</span><span class="zh">4-2 练习纸 ①</span></td></tr></tbody></table></div><div class="note"><p><span class="ko">오늘 채운 워크시트 두 개를 <code>04</code> 폴더에 남겨 두세요. 다음 시간에 <b>펴 놓고</b> 해도 됩니다.</span><span class="zh">把今天填的两张练习纸留在 <code>04</code> 文件夹。下节课可以<b>摊开来</b>参考。</span></p></div>
+<section class="page print-tight" id="s16">
+<div class="kick"><span class="ko">16. 설명용 Notebook 3번</span><span class="zh">16. 示例 Notebook 第 3 部分</span><b>04-2</b></div><h2 class="title"><span class="ko">CSV를 읽어 표로 확인한다</span><span class="zh">读取 CSV 并查看表格</span> <span class="badge key"><span class="ko">코드 읽기</span><span class="zh">阅读代码</span></span></h2><div class="read-grid"><div class="code"><div class="chd"><span class="fn">3. CSV를 DataFrame으로 읽습니다</span></div><pre><span class="read-block">df = pd.read_csv("../data/04-library-data.csv")</span>
+<span class="read-block">df.head()</span></pre></div><div class="read-notes"><div class="read-note"><b>pd.read_csv(...)</b><p><span class="ko">괄호 안의 CSV 파일을 읽습니다.</span><span class="zh">读取括号中指定的 CSV 文件。</span></p></div><div class="read-note"><b>df =</b><p><span class="ko">읽어 온 표를 뒤에서 <code>df</code>라는 이름으로 사용합니다.</span><span class="zh">把读入的表格命名为 <code>df</code>，供后面使用。</span></p></div><div class="read-note"><b>df.head()</b><p><span class="ko">표의 위쪽 다섯 행을 보여 줍니다.</span><span class="zh">显示表格最上面的五行。</span></p></div></div></div>
 </section>
 
-<section class="page" id="s17">
-<div class="kick"><span class="ko">17. 정리</span><span class="zh">17. 整理</span><b>04-2</b></div><h2 class="title"><span class="ko">오늘 남길 것</span><span class="zh">今天要留下的</span></h2><div class="recap"><div class="rt"><span class="ko">오늘 남길 것</span><span class="zh">今天要留下的</span></div><ul><li><span class="ko"><b>pandas는 도구, DataFrame은 그 도구가 만든 표</b>다.</span><span class="zh"><b>pandas 是工具，DataFrame 是它做出的表</b>。</span></li><li><span class="ko">dict의 이름표가 표의 <b>열 이름</b>이 된다.</span><span class="zh">dict 的名牌变成表的<b>列名</b>。</span></li><li><span class="ko">열 이름으로 표와 그래프를 짧게 이을 수 있다.</span><span class="zh">可以用列名把表格和图表简短地连起来。</span></li><li><span class="ko">표를 설명하는 것은 <b>대상 · 한 행 · 열과 단위</b>를 말하는 것이다.</span><span class="zh">说明一张表就是说出<b>对象 · 一行 · 列和单位</b>。</span></li><li><span class="ko">표에 <b>안 적힌 것</b>은 만든 사람에게 묻는다.</span><span class="zh">表里<b>没写的</b>就去问做表的人。</span></li></ul></div><div class="note"><p><span class="ko">오늘 채운 워크시트는 <code>JDH_VibeCoding_자기이름</code> 안 <code>04</code> 폴더에 남깁니다. 6주차에 「내 서비스는 무엇을 기억해야 하는가」를 정할 때도 다시 씁니다.</span><span class="zh">今天填写的练习纸留在 <code>JDH_VibeCoding_自己的名字</code> 里的 <code>04</code> 文件夹。第 6 周决定「我的服务要记住什么」时会再用。</span></p></div><div class="bridge"><div class="bt"><span class="ko">다음 차시</span><span class="zh">下一课时</span></div><p><span class="ko">다음 시간은 수행평가 1입니다. 지정된 그래프를 완성하고 원본과 대조해 적습니다.</span><span class="zh">下节课是评价 1。要完成指定的图表并与原始数据核对后写下来。</span></p></div>
+<section class="page print-tight" id="s17">
+<div class="kick"><span class="ko">17. 설명용 Notebook 4번</span><span class="zh">17. 示例 Notebook 第 4 部分</span><b>04-2</b></div><h2 class="title"><span class="ko">표의 상태와 두 평균을 출력한다</span><span class="zh">输出表格状态和两个平均值</span> <span class="badge key"><span class="ko">코드 읽기</span><span class="zh">阅读代码</span></span></h2><div class="read-grid"><div class="code"><div class="chd"><span class="fn">4. 표의 기본 상태와 평균을 확인합니다</span></div><pre><span class="read-block">print("행과 열:", df.shape)
+print("열 이름:", list(df.columns))
+print("첫 날짜:", df.loc[0, "date"])</span>
+<span class="read-block">print("방문자 평균:", round(df["visitors"].mean(), 2))
+print("대출 권수 평균:", round(df["borrowed_books"].mean(), 2))</span></pre></div><div class="read-notes"><div class="read-note"><b>shape · columns · loc</b><p><span class="ko">표의 크기, 열 이름, 첫 날짜를 원본과 맞춰 보는 블록입니다.</span><span class="zh">这一块用来核对表格大小、列名和第一个日期。</span></p></div><div class="read-note"><b>mean() · round(..., 2)</b><p><span class="ko">두 열의 평균을 계산하고 소수 둘째 자리까지 보여 주는 블록입니다.</span><span class="zh">这一块计算两列的平均值，并显示到小数点后两位。</span></p></div><div class="read-note"><b>print(...)</b><p><span class="ko">계산한 내용을 코드 바로 아래에 글자로 보여 줍니다.</span><span class="zh">把计算结果以文字显示在代码正下方。</span></p></div></div></div>
+</section>
+
+<section class="page print-tight" id="s18">
+<div class="kick"><span class="ko">18. 설명용 Notebook 5번</span><span class="zh">18. 示例 Notebook 第 5 部分</span><b>04-2</b></div><h2 class="title"><span class="ko">열 이름을 축에 연결해 그래프를 그린다</span><span class="zh">把列名连接到坐标轴并绘图</span> <span class="badge key"><span class="ko">코드 읽기</span><span class="zh">阅读代码</span></span></h2><div class="read-grid"><div class="code"><div class="chd"><span class="fn">5. 열 이름으로 그래프를 그립니다</span></div><pre><span class="read-block">ax = df.plot(x="date", y="visitors", kind="line",
+             legend=False, color="#FF5C00",
+             figsize=(10, 4.5))</span>
+<span class="read-block">ax.set_title("Library Visitors")
+ax.set_xlabel("Date")
+ax.set_ylabel("Visitors")</span>
+<span class="read-block">positions = list(range(0, len(df), 5))
+ax.set_xticks(positions)
+ax.set_xticklabels(df["date"].iloc[positions],
+                   rotation=45, ha="right")</span></pre></div><div class="read-notes"><div class="read-note"><b>x="date" · y="visitors"</b><p><span class="ko">고른 두 열을 x축과 y축에 연결합니다.</span><span class="zh">把选好的两列连接到 x 轴和 y 轴。</span></p></div><div class="read-note"><b>set_title · set_xlabel · set_ylabel</b><p><span class="ko">그래프 제목과 두 축의 이름을 정합니다.</span><span class="zh">设置图表标题和两个坐标轴名称。</span></p></div><div class="read-note"><b>range(..., 5) · rotation=45</b><p><span class="ko">날짜를 다 적지 않고 다섯 칸마다 기울여 표시합니다.</span><span class="zh">日期不全部显示，而是每隔五格倾斜显示一次。</span></p></div></div></div>
+</section>
+
+<section class="page print-tight" id="s19">
+<div class="kick"><span class="ko">19. 설명용 Notebook 6번</span><span class="zh">19. 示例 Notebook 第 6 部分</span><b>04-2</b></div><h2 class="title"><span class="ko">원자료 위에 5일 평균 추세선을 겹친다</span><span class="zh">在原始数据上叠加 5 日平均趋势线</span> <span class="badge key"><span class="ko">코드 읽기</span><span class="zh">阅读代码</span></span></h2><div class="read-grid"><div class="code"><div class="chd"><span class="fn">6. 5일 평균 추세선을 추가합니다</span></div><pre><span class="read-block">df["visitor_trend"] = df["visitors"].rolling(
+    window=5, min_periods=1).mean()</span>
+<span class="read-block">ax = df.plot(x="date", y="visitors", color="#8B9098",
+             figsize=(10, 4.5), label="Daily visitors")</span>
+<span class="read-block">df.plot(x="date", y="visitor_trend", color="#FF5C00",
+        linewidth=3, ax=ax, label="5-day average")</span>
+ax.set_title("Library Visitors and Trend")
+ax.set_xlabel("Date")
+ax.set_ylabel("Visitors")
+positions = list(range(0, len(df), 5))
+ax.set_xticks(positions)
+ax.set_xticklabels(df["date"].iloc[positions],
+                   rotation=45, ha="right")</pre></div><div class="read-notes"><div class="read-note"><b>rolling(window=5).mean()</b><p><span class="ko">최근 다섯 평일의 평균을 새 열에 만듭니다.</span><span class="zh">把最近五个工作日的平均值存入新列。</span></p></div><div class="read-note"><b>color="#8B9098"</b><p><span class="ko">실제 방문자 수를 회색 선으로 먼저 그립니다.</span><span class="zh">先用灰色线画出实际访客人数。</span></p></div><div class="read-note"><b>ax=ax · color="#FF5C00"</b><p><span class="ko">같은 그래프 위에 주황 추세선을 겹칩니다.</span><span class="zh">在同一张图上叠加橙色趋势线。</span></p></div></div></div>
+</section>
+
+<section class="page" id="s20">
+<div class="kick"><span class="ko">20. 수업 정리</span><span class="zh">20. 课堂小结</span><b>04-2</b></div><h2 class="title"><span class="ko">번호를 따라가면 코드의 흐름이 보인다</span><span class="zh">按编号阅读，就能看见代码的流程</span></h2><div class="vflow"><div class="vf plain"><b>1 · 파일 확인</b><span>CSV 경로와 머리글</span></div><div class="varr">↓</div><div class="vf plain"><b>2 · 도구 가져오기</b><span>pandas를 pd라는 이름으로 한 번만 불러오기</span></div><div class="varr">↓</div><div class="vf"><b>3–4 · 읽고 확인하기</b><span>CSV를 DataFrame으로 읽고 크기·열·평균 출력</span></div><div class="varr">↓</div><div class="vf"><b>5–6 · 그래프로 보기</b><span>열 이름을 축에 연결하고 원자료 위에 추세선 겹치기</span></div></div><div class="note ok"><p><span class="ko">모든 문법을 외울 필요는 없습니다. 번호마다 화면에서 어떤 일이 일어나는지 읽을 수 있으면 됩니다.</span><span class="zh">不需要记住所有语法。能读出每个编号在屏幕上完成什么工作就可以。</span></p></div>
 </section>
 <div class="lessonnav">
 <a href="../../04/textbook/04-1.html">
@@ -351,7 +344,6 @@ labels = ax.bar_label(ax.containers[0])</pre></div><!-- ════════
 <span class="t">5-1. 수행평가 1 안내</span>
 </a>
 </div>
-</section>
 </main>
 <div id="pager">
 <button id="pprev">‹</button>

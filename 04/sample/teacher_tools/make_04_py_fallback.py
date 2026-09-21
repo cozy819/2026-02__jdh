@@ -53,6 +53,17 @@ except ModuleNotFoundError as e:
     raise SystemExit(0)
 '''
 
+GUARD_AI = '''# 이 도구를 아직 안 가져왔다면 여기서 멈춥니다. **오류가 나는 것이 정상입니다.**
+try:
+{body}
+except ModuleNotFoundError as e:
+    print("오류 —", e)
+    print("      1번: 이런 오류가 떴어. 무엇이 문제인지 설명해 줘.")
+    print("      2번: 이 문제를 해결하는 데 필요한 조치를 취해 줘.")
+    print("      AI가 끝나면 pyproject.toml에 {lib}이 추가됐는지 확인하고 다시 실행합니다.")
+    raise SystemExit(0)
+'''
+
 
 def cells(path):
     nb = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -71,6 +82,10 @@ def build(src, out, title, diff, plan):
             parts.append(GUARD.format(lib=edit,
                                       body="\n".join("    " + l for l in body.split("\n"))))
             continue
+        if kind == "guard_ai":
+            parts.append(GUARD_AI.format(lib=edit,
+                                         body="\n".join("    " + l for l in body.split("\n"))))
+            continue
         if edit:
             lines = body.split("\n")
             for how, text in edit:
@@ -81,6 +96,9 @@ def build(src, out, title, diff, plan):
                     lines = text.split("\n") + [""] + lines
                 elif how == "append":
                     lines = lines + [text]
+                elif how == "replace":
+                    old, new = text
+                    lines = [line.replace(old, new) for line in lines]
             body = "\n".join(lines)
         parts.append(body + "\n")
     (OUT / out).write_text("".join(parts).rstrip() + "\n", encoding="utf-8")
@@ -92,20 +110,23 @@ build(
     "  · 그래프가 코드 아래가 아니라 **별도 창**으로 뜹니다. 창을 닫으면 다음 그래프가 나옵니다.\n"
     "  · 커널을 다시 시작할 필요가 없습니다. 파일을 다시 실행하면 됩니다.",
     [(0, "오늘 그릴 자료", "plain"),
-     (1, "그래프를 그려 봅니다 — 여기서 멈춥니다", "guard", "matplotlib"),
+     (1, "그래프를 그려 봅니다 — 여기서 멈춥니다", "guard_ai", "matplotlib"),
      # import 가 한 번 더 나오는 것은 Notebook·교과서와 같게 두려는 것이다.
-     (2, "다시 그려 봅니다. 코드는 한 글자도 안 고쳤습니다", "plain"),
-     (3, "같은 숫자, 다른 인상 — A", "plain"),
-     (4, "같은 숫자, 다른 인상 — B", "plain")])
+     (2, "다시 그려 봅니다. 코드는 한 글자도 안 고쳤습니다", "plain")])
 
 build(
     "04-2_pandas_table.ipynb", "04-2_table.py", "4-2",
     "  · 표가 예쁜 칸 대신 **글자 표**로 나옵니다. 값과 열 이름은 똑같습니다.\n"
     "  · 그래프는 **별도 창**으로 뜹니다. 커널을 다시 시작할 필요가 없습니다.",
-    [(0, "3-2에서 만든 이름표 묶음", "plain"),
-     (1, "표를 다루는 도구를 가져옵니다 — 여기서 멈춥니다", "guard", "pandas"),
-     (2, "dict 가 표가 됩니다", "plain", [("replace_last", "print(df)")]),
-     (3, "표의 기본 상태를 확인합니다", "plain"),
-     (4, "열 이름으로 그래프까지 잇습니다", "plain",
+    [(0, "표를 다루는 도구를 가져옵니다 — 여기서 멈춥니다", "guard_ai", "pandas"),
+     (1, "CSV가 표가 됩니다", "plain", [
+         ("replace", ("../data/04-library-data.csv", "data/04-library-data.csv")),
+         ("replace_last", "print(df.head())"),
+     ]),
+     (2, "표의 기본 상태를 확인합니다", "plain"),
+     (3, "열 이름으로 그래프까지 잇습니다", "plain",
+      [("prepend", "import matplotlib.pyplot as plt"),
+       ("append", "plt.show()")]),
+     (4, "원자료 위에 5일 평균 추세선을 겹칩니다", "plain",
       [("prepend", "import matplotlib.pyplot as plt"),
        ("append", "plt.show()")])])

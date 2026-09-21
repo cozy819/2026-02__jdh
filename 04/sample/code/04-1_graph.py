@@ -25,8 +25,9 @@ try:
     import matplotlib.pyplot as plt
 except ModuleNotFoundError as e:
     print("오류 —", e)
-    print("      터미널에 아래 한 줄을 치고 이 파일을 다시 실행합니다.")
-    print("      uv add matplotlib")
+    print("      1번: 이런 오류가 떴어. 무엇이 문제인지 설명해 줘.")
+    print("      2번: 이 문제를 해결하는 데 필요한 조치를 취해 줘.")
+    print("      AI가 끝나면 pyproject.toml에 matplotlib이 추가됐는지 확인하고 다시 실행합니다.")
     raise SystemExit(0)
 
 # ── 3. 다시 그려 봅니다. 코드는 한 글자도 안 고쳤습니다 ─────────────────────────────
@@ -37,25 +38,7 @@ bars = plt.bar(days, visitors, color="#72757d")
 plt.ylim(0, 36)
 plt.title("Visitors by Day")
 plt.xlabel("Day")
-plt.ylabel("Visitors (people)")
+plt.ylabel("Visitors")
 plt.bar_label(bars)
-plt.tight_layout()
-plt.show()
-
-# ── 4. 같은 숫자, 다른 인상 — A ─────────────────────────────────────────
-next_week = [28, 30, 29, 33, 31]
-
-plt.figure(figsize=(6, 4))
-plt.bar(days, next_week, color="#72757d")
-plt.ylim(0, 35)
-plt.title("A")
-plt.tight_layout()
-plt.show()
-
-# ── 5. 같은 숫자, 다른 인상 — B ─────────────────────────────────────────
-plt.figure(figsize=(6, 4))
-plt.bar(days, next_week, color="#72757d")
-plt.ylim(15, 35)
-plt.title("B")
 plt.tight_layout()
 plt.show()

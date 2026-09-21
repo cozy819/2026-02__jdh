@@ -249,7 +249,8 @@
   /* ── 5. 코드 복사 ────────────────────────────────────── */
   function copyCode(btn) {
     var card = btn.closest('.code');
-    var pre = card ? card.querySelector('pre') : null;
+    var lang = document.documentElement.classList.contains('lang-zh') ? 'zh' : 'ko';
+    var pre = card ? (card.querySelector('pre.' + lang) || card.querySelector('pre')) : null;
     if (!pre) return;
     var text = pre.innerText;
     var done = function () {

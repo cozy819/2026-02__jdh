@@ -7,43 +7,45 @@
 
 ## 이 폴더의 핵심 — 라이브러리가 일부러 빠져 있다
 
-**`pyproject.toml` 에는 `ipykernel` 만 들어 있다. matplotlib 과 pandas 를 넣지 않는다.**
+**`pyproject.toml` 에는 `ipykernel`과 Excel을 읽는 `openpyxl`만 들어 있다. matplotlib과 pandas는 넣지 않는다.**
 
-4-1의 주요 장면이 「그래프를 그려야 하는데 도구가 없어서 멈춘다 → `uv add` 로 가져온다 → 같은 코드가 돌아간다」이기 때문이다.
+4-1의 주요 장면이 「`pyproject.toml`의 도구 목록을 읽는다 → 그래프를 그리다 멈춘다 → 오류를 AI에게 보낸다 → AI가 바꾼 목록을 확인한다 → 같은 코드가 돌아간다」이기 때문이다.
 미리 넣어 두면 이 장면이 통째로 사라진다. → [[02 13회 교육과정]] · [[07 VS Code Python Jupyter 실습환경 설정]]
 
-수업 중 학생이 직접 치는 명령은 두 줄이다.
+4-1에서는 학생이 설치 명령을 직접 치지 않는다. 오류와 요청문을 AI에게 보내고, AI가 프로젝트에 필요한 라이브러리를 추가하게 한다. 학생은 `pyproject.toml`에서 실제 변경을 확인한다.
 
-```
-uv add matplotlib     # 4-1
-uv add pandas         # 4-2
-```
+4-2에서는 학생이 `uv add pandas`를 직접 실행하고 `pyproject.toml`의 변화를 확인한다. 그다음 AI에게 자료 이해, 평균 계산, 축 선택, 그래프 제작, 결과 검토를 한 단계씩 나누어 요청한다.
 
-`uv add` 는 이 폴더에 도구를 챙겨 넣는 명령이고, `import` 는 코드에서 그 도구를 불러오는 것이다. **다른 일이다.**
+`pyproject.toml`의 `requires-python`은 사용할 Python의 범위이고, `dependencies`는 이 프로젝트가 쓰는 라이브러리 목록이다. `uv sync`는 이 조건과 `uv.lock`의 정확한 버전을 확인해 `.venv`를 만들거나 현재 조건에 맞게 고친다. AI가 라이브러리를 추가했다고 말해도 `pyproject.toml`을 다시 열어 실제로 바뀌었는지 확인한다.
 
 ## 4-1 자료
 
 | 파일 | 역할 | 학생이 하는 일 |
 |---|---|---|
-| `notebooks/04-1_matplotlib_graph.ipynb` | 값 확인 → 멈춤 → `uv add` → 그래프 → 원본 대조 → 축 비교 | 셀을 위에서 아래로 실행 |
+| `notebooks/04-1_matplotlib_graph.ipynb` | 값 확인 → 도구 목록 읽기 → 멈춤 → 오류를 AI에게 전달 → 변경 확인 → 첫 그래프 | 셀을 위에서 아래로 실행 |
+| `notebooks/04-1_exercise.ipynb` | Excel 원본을 읽고 그래프 추천을 받은 뒤 60줄 자료 시각화하기 | AI가 채운 확인용 출력과 그래프 코드를 실행하고 원본과 대조 |
 | `code/04-1_graph.py` | 같은 내용의 대체 실행 파일 | Notebook이 안 열릴 때만 |
+| `data/04-library-data.xlsx` | 4-1 실습용 Excel 원본 | 머리글과 전체 데이터를 확인 |
 
-`import matplotlib.pyplot as plt` 셀은 **오류가 나는 것이 정상**이다. `ModuleNotFoundError` 마지막 줄만 보게 한다.
+`import matplotlib.pyplot as plt` 셀은 **오류가 나는 것이 정상**이다. `ModuleNotFoundError` 마지막 줄을 복사해 AI에게 보내고, AI가 작업한 뒤 `pyproject.toml`에 `matplotlib`이 추가됐는지 확인한다.
 
 ## 4-2 자료
 
 | 파일 | 역할 | 학생이 하는 일 |
 |---|---|---|
-| `notebooks/04-2_pandas_table.ipynb` | dict → 멈춤 → `uv add` → DataFrame → 기본 확인 → 그래프 | 셀을 위에서 아래로 실행 |
+| `notebooks/04-2_pandas_table.ipynb` | 1번부터 6번까지 실제 코드와 실행 흐름을 읽는 설명용 파일 | 실습을 마친 뒤 번호 순서대로 읽음 |
+| `notebooks/04-2_exercise.ipynb` | 자료 이해 → 평균 계산 → 축 선택 → 그래프 제작 → 결과 검토 | AI가 채운 코드를 실행하고 원본과 대조 |
 | `code/04-2_table.py` | 같은 내용의 대체 실행 파일 | Notebook이 안 열릴 때만 |
-| `data/04-2_clubs.csv` | 워크시트 ①에 쓸 동아리 표 | 표만 읽는다 |
+| `data/04-library-data.csv` | 4-1 Excel과 내용이 같은 CSV 원본 | pandas로 바로 읽는다 |
+
+`04-library-data.xlsx`와 `04-library-data.csv`는 머리글 세 개와 데이터 60줄이 완전히 같다. 12주 동안의 평일 자료이며, 방문자 수는 전체적으로 늘고 금요일의 방문·대출이 반복해서 높아지도록 구성했다. 4-1에서는 Excel로 원본을 확인하고, 4-2에서는 CSV를 pandas로 읽는다.
 
 ### 대체 실행 파일 (`code/`)
 
 학교 PC에서 Jupyter 확장이 안 깔리거나 커널이 끝내 안 잡히는 학생이 나온다. 그 학생도 같은 장면을 겪게 하려는 파일이다.
 
 - 그래프가 코드 아래가 아니라 **별도 창**으로 뜬다. 창을 닫으면 다음 그래프가 나온다.
-- **커널을 다시 시작할 필요가 없다.** `uv add` 뒤에 파일을 다시 실행하면 된다.
+- **커널을 다시 시작할 필요가 없다.** AI가 라이브러리를 추가한 뒤 파일을 다시 실행하면 된다.
 - 4-2의 표는 예쁜 칸 대신 글자 표로 나온다. 값과 열 이름은 같다.
 
 **손으로 고치지 않는다.** 노트북이 원본이고, `code/` 는 거기서 만들어 낸 것이다.
@@ -54,9 +56,7 @@ uv add pandas         # 4-2
 
 | 파일 | 만드는 것 |
 |---|---|
-| `make_04_axis_comparison.py` | 축 0/15 비교 두 장, 3개월/12개월 선그래프 두 장 |
-| `make_04_clubs.py` | 동아리 표 CSV (`data/04-2_clubs.csv`) |
-| `make_04_charts.py` | 4-1 §1 막대그래프, 4-2 §8 `df.plot` 그래프 |
+| `make_04_charts.py` | 4-1 도입 막대그래프 |
 | `make_04_py_fallback.py` | `code/` 의 대체 실행 파일 두 개. **노트북을 고치면 이걸 다시 돌린다** |
 
 ## 배포 규칙
@@ -68,6 +68,6 @@ uv add pandas         # 4-2
 
 ## 사용 범위
 
-3주차까지의 것 + 라이브러리 가져오기 + `plt.bar` · `df.plot` · `df.shape` · `df.columns` · `max()`.
+3주차까지의 것 + 라이브러리 가져오기 + `plt.plot` · `pd.read_csv` · `df.plot` · `df.shape` · `df.columns`.
 
 **사용하지 않는 것**: 조건문 · 반복문 · 함수 정의 · `groupby` · 정렬 · 필터 · 결측치 처리.
