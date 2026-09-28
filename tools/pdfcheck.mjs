@@ -24,6 +24,12 @@ const targets=args.length?args:fs.readdirSync(root)
 for (const f of targets) {
   const pg=await ctx.newPage();
   await pg.goto(`http://localhost:8903/${f}`,{waitUntil:'load'});
+  if(process.env.BOOK_LANG==='zh') await pg.evaluate(()=>{
+    document.documentElement.classList.remove('lang-ko');
+    document.documentElement.classList.add('lang-zh');
+    document.body.classList.remove('lang-ko');
+    document.body.classList.add('lang-zh');
+  });
   await pg.waitForTimeout(900);
   const info=await pg.evaluate(()=>{
     const ps=[...document.querySelectorAll('.page')];

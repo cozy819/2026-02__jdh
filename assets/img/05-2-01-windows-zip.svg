@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="686" viewBox="0 0 1600 686">
+  <rect width="1600" height="686" fill="#FFFFFF"/>
+  <style>
+    .ui{font-family:"IBM Plex Sans KR","Malgun Gothic",sans-serif;fill:#1B1D21}
+    .num{font-family:Archivo,"Arial",sans-serif;font-weight:800;fill:#FFFFFF}
+    .small{font-size:20px;fill:#6C7078}
+    .label{font-size:23px;font-weight:700}
+    .item{font-size:19px}
+    .line{stroke:#C7C9CE;stroke-width:2;fill:none}
+    .frame{fill:#FFFFFF;stroke:#1B1D21;stroke-width:2}
+    .panel{fill:#F1F2F4;stroke:#C7C9CE;stroke-width:2}
+    .accent{fill:#FF5C00}
+  </style>
+
+  <!-- panel 1: copy -->
+  <g transform="translate(35 56)">
+    <rect class="frame" width="350" height="550"/>
+    <rect class="panel" x="0" y="0" width="350" height="48"/>
+    <text class="ui small" x="18" y="31">파일 탐색기</text>
+    <rect class="accent" x="16" y="68" width="34" height="34"/>
+    <text class="num" x="33" y="93" text-anchor="middle" font-size="22">1</text>
+    <text class="ui label" x="64" y="94">05 폴더 복사</text>
+    <rect class="panel" x="22" y="132" width="306" height="54"/>
+    <text class="ui small" x="40" y="166">내 프로젝트</text>
+    <path d="M54 234h72v52H42v-62h34l10 10z" fill="#F1F2F4" stroke="#1B1D21" stroke-width="2"/>
+    <text class="ui label" x="146" y="265">05</text>
+    <rect x="35" y="211" width="280" height="98" fill="none" stroke="#FF5C00" stroke-width="4"/>
+    <rect class="panel" x="64" y="354" width="222" height="74"/>
+    <text class="ui label" x="175" y="385" text-anchor="middle">복사</text>
+    <text class="ui small" x="175" y="413" text-anchor="middle">Ctrl+C → Ctrl+V</text>
+    <path d="M175 438v46" stroke="#FF5C00" stroke-width="4"/>
+    <path d="M165 473l10 14 10-14" fill="none" stroke="#FF5C00" stroke-width="4"/>
+  </g>
+
+  <!-- panel 2: clean the copy -->
+  <g transform="translate(428 56)">
+    <rect class="frame" width="350" height="550"/>
+    <rect class="panel" x="0" y="0" width="350" height="48"/>
+    <text class="ui small" x="18" y="31">제출용 사본</text>
+    <rect class="accent" x="16" y="68" width="34" height="34"/>
+    <text class="num" x="33" y="93" text-anchor="middle" font-size="22">2</text>
+    <text class="ui label" x="64" y="94">사본만 정리</text>
+    <text class="ui item" x="30" y="150">05_assessment1_이름</text>
+    <line class="line" x1="24" y1="170" x2="326" y2="170"/>
+    <text class="ui item" x="42" y="210">README.md</text>
+    <text class="ui item" x="42" y="248">pyproject.toml</text>
+    <text class="ui item" x="42" y="286">uv.lock</text>
+    <text class="ui item" x="42" y="324">notebooks</text>
+    <text class="ui item" x="42" y="362">data</text>
+    <text class="ui item" x="42" y="400">evidence</text>
+    <rect x="24" y="424" width="302" height="88" fill="#FFFFFF" stroke="#FF5C00" stroke-width="3"/>
+    <text class="ui item" x="42" y="458">.venv</text>
+    <text class="ui item" x="42" y="493">__pycache__</text>
+    <path d="M258 445l38 48M296 445l-38 48" stroke="#FF5C00" stroke-width="5"/>
+  </g>
+
+  <!-- panel 3: right click -->
+  <g transform="translate(821 56)">
+    <rect class="frame" width="350" height="550"/>
+    <rect class="panel" x="0" y="0" width="350" height="48"/>
+    <text class="ui small" x="18" y="31">파일 탐색기</text>
+    <rect class="accent" x="16" y="68" width="34" height="34"/>
+    <text class="num" x="33" y="93" text-anchor="middle" font-size="22">3</text>
+    <text class="ui label" x="64" y="94">폴더에서 우클릭</text>
+    <path d="M58 150h74v54H46v-64h34l10 10z" fill="#F1F2F4" stroke="#1B1D21" stroke-width="2"/>
+    <text class="ui item" x="148" y="181">05_assessment1_이름</text>
+    <rect x="28" y="124" width="298" height="104" fill="none" stroke="#FF5C00" stroke-width="4"/>
+    <rect class="frame" x="70" y="266" width="236" height="214"/>
+    <text class="ui item" x="92" y="304">열기</text>
+    <text class="ui item" x="92" y="342">복사</text>
+    <text class="ui item" x="92" y="380">이름 바꾸기</text>
+    <line class="line" x1="84" y1="398" x2="292" y2="398"/>
+    <rect x="82" y="413" width="212" height="48" fill="#F1F2F4" stroke="#FF5C00" stroke-width="3"/>
+    <text class="ui item" x="95" y="444">더 많은 옵션 표시</text>
+  </g>
+
+  <!-- panel 4: zip -->
+  <g transform="translate(1214 56)">
+    <rect class="frame" width="350" height="550"/>
+    <rect class="panel" x="0" y="0" width="350" height="48"/>
+    <text class="ui small" x="18" y="31">더 많은 옵션</text>
+    <rect class="accent" x="16" y="68" width="34" height="34"/>
+    <text class="num" x="33" y="93" text-anchor="middle" font-size="22">4</text>
+    <text class="ui label" x="64" y="94">ZIP으로 압축</text>
+    <rect class="frame" x="40" y="132" width="270" height="214"/>
+    <text class="ui item" x="62" y="174">잘라내기</text>
+    <text class="ui item" x="62" y="212">복사</text>
+    <rect x="52" y="232" width="246" height="48" fill="#F1F2F4" stroke="#FF5C00" stroke-width="3"/>
+    <text class="ui item" x="66" y="264">보내기  ›</text>
+    <rect class="frame" x="72" y="296" width="250" height="86"/>
+    <text class="ui item" x="88" y="330">압축(ZIP) 폴더</text>
+    <path d="M175 396v45" stroke="#FF5C00" stroke-width="4"/>
+    <path d="M165 430l10 14 10-14" fill="none" stroke="#FF5C00" stroke-width="4"/>
+    <path d="M62 476h72v52H50v-62h34l10 10z" fill="#F1F2F4" stroke="#1B1D21" stroke-width="2"/>
+    <path d="M89 472v60M99 472v60" stroke="#FF5C00" stroke-width="3" stroke-dasharray="6 5"/>
+    <text class="ui small" x="150" y="500">05_assessment1_이름.zip</text>
+  </g>
+
+  <path d="M390 331h28M783 331h28M1176 331h28" stroke="#6C7078" stroke-width="4"/>
+  <path d="M408 321l10 10-10 10M801 321l10 10-10 10M1194 321l10 10-10 10" fill="none" stroke="#6C7078" stroke-width="4"/>
+</svg>

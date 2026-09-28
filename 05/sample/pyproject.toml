@@ -1,0 +1,11 @@
+[project]
+name = "jangdaehyun-assessment1"
+version = "0.1.0"
+description = "정보와 디지털 문해력 수행평가 1"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "ipykernel>=6.30.1",
+  "matplotlib>=3.10.6",
+  "pandas>=2.3.2",
+]

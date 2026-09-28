@@ -396,6 +396,16 @@ ol.nlist li{font-size:18px; line-height:1.6; color:var(--ink-2); margin:7px 0 0}
 .pane.warnp .pt{color:var(--warn)}
 .pane.okp{border-color:var(--ok-line); background:var(--ok-bg)}
 .pane.okp .pt{color:var(--ok)}
+.file-groups{align-items:start}
+.file-stack{display:flex; flex-direction:column; gap:7px; margin-top:10px}
+.file-card{padding:8px 10px; background:#fff}
+.file-card>b{font-family:var(--num); font-size:14.5px; color:var(--ink)}
+.file-card p{margin-top:3px; font-size:13.5px; line-height:1.38}
+#a9 .file-groups>.okp .file-stack{display:grid; grid-template-columns:1fr 1fr}
+#a9 .file-groups{margin-top:14px}
+#a9 .file-card{padding:7px 9px}
+#b5 .fig{max-width:520px; margin:14px auto 0}
+#b5 .figcaption{margin-top:5px}
 @media (max-width:700px){ .row,.row.r3{grid-template-columns:1fr} }
 
 /* 콜아웃 */
@@ -909,6 +919,7 @@ figure.fig.narrow img.figimg{max-width:560px; margin:0 auto}
   .page.print-tight figure.fig{margin-top:10px}
   .page.print-tight figure.fig figcaption{margin-top:4px; font-size:8.6pt; line-height:1.35}
   .page.print-tight .pnum{padding-top:8px; font-size:8.5pt}
+  .page.print-kernel-page figure.fig img.figimg{max-height:58mm}
   .page.print-install .site-shot img.figimg,
   .page.print-vscode-install .site-shot img.figimg{height:auto; max-height:46mm}
   .page.print-result-page .result-showcase{gap:7px; margin-top:9px}
