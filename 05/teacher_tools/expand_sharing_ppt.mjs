@@ -17,9 +17,10 @@ const { FileBlob, PresentationFile } = await importRuntimeModule("@oai/artifact-
 
 const sourcePath = path.join(workspaceDir, "05/ppt/05-1_수행평가_1_안내.pptx");
 const stagingDir = path.join(workspaceDir, ".codex-finalizer/week05-ppt-final");
-const candidatePath = path.join(stagingDir, "05-1-candidate23.pptx");
-const checkedPath = path.join(stagingDir, "output/05-1-checked23.pptx");
-const receiptPath = path.join(stagingDir, "receipts/05-1-23.validation.json");
+const buildTag = `05-1-${Date.now()}`;
+const candidatePath = path.join(stagingDir, `${buildTag}-candidate.pptx`);
+const checkedPath = path.join(stagingDir, `output/${buildTag}-checked.pptx`);
+const receiptPath = path.join(stagingDir, `receipts/${buildTag}.validation.json`);
 await fs.mkdir(path.dirname(checkedPath), { recursive: true });
 await fs.mkdir(path.dirname(receiptPath), { recursive: true });
 
@@ -334,10 +335,11 @@ addStepCard(setupSlide, { number: 3, title: "환경 만들기", body: "uv sync�
 addStepCard(setupSlide, { number: 4, title: "Notebook 열기", body: "notebooks 폴더에서\n평가 Notebook을 엽니다.", left: 769, top: 215, width: 218, height: 310, bodyFontSize: 18 });
 addStepCard(setupSlide, { number: 5, title: "커널 선택", body: "오른쪽 위에서\n.venv (Python 3)를\n선택합니다.", left: 1007, top: 215, width: 218, height: 310, accent: true, bodyFontSize: 18 });
 
+const textbookPageRefs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12–13", "14", "15", "16", "17", "18"];
 for (let index = 5; index < presentation.slides.items.length; index++) {
   const slide = presentation.slides.getItem(index);
   textAt(slide, 1070.4, 82.56, String(index).padStart(2, "0"));
-  textAt(slide, 55.68, 664.32, `교과서 05-1 · ${index + 1}쪽`);
+  textAt(slide, 55.68, 664.32, `교과서 05-1 · ${textbookPageRefs[index]}쪽`);
   textAt(slide, 1176, 664.32, String(index + 1).padStart(2, "0"));
 }
 
@@ -359,7 +361,7 @@ replaceAnyMatching(evidenceSlide, ["AI와 나눈 대화도 함께 제출한다",
 replaceAnyMatching(evidenceSlide, ["OpenCode JSON · 평가용", "OpenCode JSON"], "OpenCode JSON · 평가용");
 replaceAnyMatching(evidenceSlide, ["추출 방법은 5-2에서 확인", "이번 평가에서만 추가"], "이번 평가에서만 추가");
 replaceAnyMatching(evidenceSlide, ["지금은 두 기록을 함께 제출한다는 점만 확인합니다.", "일반 프로젝트 공유에는 보통 포함하지 않습니다.", "일반 공유에는 보통 넣지 않으며"], "일반 공유에는 보통 넣지 않으며, 추출 방법은 5-2에서 확인합니다.");
-replaceAnyMatching(evidenceSlide, ["코드·요약표·그래프와 검토·해석 내용", "코드·그래프와 검토·해석 내용", "코드·그래프와 검토·해석 내용"], "코드·그래프·검토 내용");
+replaceAnyMatching(evidenceSlide, ["코드·요약표·그래프와 검토·해석 내용", "코드·그래프와 검토·해석 내용", "코드·그래프·검토 내용"], "코드·그래프·검토 내용");
 evidenceSlide.speakerNotes.textFrame.setText("[42–44분] 평가용 AI 대화 기록\n\nOpenCode 대화 JSON은 일반 프로젝트 공유 파일이 아니다. 이번 수행평가에서 AI 활용 과정을 확인하기 위해서만 추가로 제출하며, 추출 방법은 5-2에서 안내한다.");
 
 const finalCheckSlide = presentation.slides.getItem(16);

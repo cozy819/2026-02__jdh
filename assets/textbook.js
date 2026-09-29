@@ -19,6 +19,9 @@
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  function langPair(ko, zh) {
+    return '<span class="ko">' + ko + '</span><span class="zh">' + zh + '</span>';
+  }
 
   /* ── 0. 스크롤 시작 위치 ─────────────────────────────────
      다른 차시로 넘어갔을 때 이전 문서의 스크롤 위치를 이어받지 않는다.
@@ -65,16 +68,16 @@
     var btn = $('#modeBtn');
     if (btn) {
       btn.setAttribute('aria-pressed', slideMode ? 'true' : 'false');
-      btn.innerHTML = slideMode ? '스크롤로 보기' : '한 장씩 보기';
-      btn.title = slideMode
-        ? '위아래로 이어 읽는 스크롤 모드로 바꿉니다'
-        : '한 화면에 한 페이지씩 보는 슬라이드 모드로 바꿉니다 (← → 로 이동)';
+      btn.innerHTML = slideMode
+        ? langPair('스크롤로 보기', '滚动查看')
+        : langPair('한 장씩 보기', '逐页查看');
     }
     if (slideMode) renderSlide();
     else {
       pages.forEach(function (p) { p.classList.remove('is-off'); });
       updateScrollProgress();
     }
+    applyLangBtn();
     try { localStorage.setItem('jdh_tb_mode', slideMode ? 'slide' : 'scroll'); } catch (e) {}
   }
 
@@ -147,42 +150,46 @@
   }
 
   /* 전체 교과서 목차는 각 HTML에 복사하지 않고 이 공통 스크립트에서만 관리한다. */
+  function courseLink(href, number, ko, zh) {
+    return '<a href="' + href + '"><span class="n">' + number + '</span>' + langPair(ko, zh) + '</a>';
+  }
+
   var COURSE_TOC_HTML = [
-    '<a class="toc-home" href="../../index.html#cover"><span class="n">처음</span><span class="ko">교과서 첫 화면</span><span class="zh">教材首页</span></a>',
+    '<a class="toc-home" href="../../index.html#cover"><span class="n">' + langPair('처음', '首页') + '</span>' + langPair('교과서 첫 화면', '教材首页') + '</a>',
     '<div class="toc-part"><span class="ko">1부 · 오리엔테이션</span><span class="zh">第 1 部 · 导论</span></div>',
-    '<a href="../../01/textbook/01-1.html"><span class="n">01-1</span><span>수업 소개</span></a>',
-    '<a href="../../01/textbook/01-2.html"><span class="n">01-2</span><span>수업 열기</span></a>',
+    courseLink('../../01/textbook/01-1.html', '01-1', '수업 소개', '课程介绍'),
+    courseLink('../../01/textbook/01-2.html', '01-2', '수업 열기', '开始课程'),
     '<div class="toc-part"><span class="ko">2부 · Python과 데이터</span><span class="zh">第 2 部 · Python 与数据</span></div>',
-    '<a href="../../02/textbook/02-1.html"><span class="n">02-1</span><span>개발 도구 설치와 확인</span></a>',
-    '<a href="../../02/textbook/02-2.html"><span class="n">02-2</span><span>숫자와 변수로 계산하기</span></a>',
-    '<a href="../../02/textbook/02-3.html"><span class="n">02-3</span><span>웹과 프로그래밍 언어의 역사</span></a>',
-    '<a href="../../03/textbook/03-1.html"><span class="n">03-1</span><span>비교 결과로 판단하기</span></a>',
-    '<a href="../../03/textbook/03-2.html"><span class="n">03-2</span><span>프로젝트별 Python 환경과 자료구조</span></a>',
-    '<a href="../../04/textbook/04-1.html"><span class="n">04-1</span><span>Matplotlib으로 그래프 이해하기</span></a>',
-    '<a href="../../04/textbook/04-2.html"><span class="n">04-2</span><span>pandas로 표 데이터를 쉽게 사용하기</span></a>',
-    '<a href="../../05/textbook/05-1.html"><span class="n">05-1</span><span>수행평가 1 안내</span></a>',
-    '<a href="../../05/textbook/05-2.html"><span class="n">05-2</span><span>수행평가 1 · AI 활용 데이터 시각화</span></a>',
+    courseLink('../../02/textbook/02-1.html', '02-1', '개발 도구 설치와 확인', '安装并检查开发工具'),
+    courseLink('../../02/textbook/02-2.html', '02-2', '숫자와 변수로 계산하기', '用数字和变量进行计算'),
+    courseLink('../../02/textbook/02-3.html', '02-3', '웹과 프로그래밍 언어의 역사', 'Web 与编程语言的历史'),
+    courseLink('../../03/textbook/03-1.html', '03-1', '비교 결과로 판단하기', '根据比较结果做出判断'),
+    courseLink('../../03/textbook/03-2.html', '03-2', '프로젝트별 Python 환경과 자료구조', '各项目的 Python 环境与数据结构'),
+    courseLink('../../04/textbook/04-1.html', '04-1', 'Matplotlib으로 그래프 이해하기', '用 Matplotlib 理解图表'),
+    courseLink('../../04/textbook/04-2.html', '04-2', 'pandas로 표 데이터를 쉽게 사용하기', '用 pandas 轻松处理表格数据'),
+    courseLink('../../05/textbook/05-1.html', '05-1', '수행평가 1 안내', '实践考核 1 说明'),
+    courseLink('../../05/textbook/05-2.html', '05-2', '수행평가 1 · AI 활용 데이터 시각화', '实践考核 1 · AI 应用数据可视化'),
     '<div class="toc-part"><span class="ko">3부 · 기획과 데이터 설계</span><span class="zh">第 3 部 · 规划与数据设计</span></div>',
-    '<a href="../../06/textbook/06-1.html"><span class="n">06-1</span><span>서비스 기획의 기초</span></a>',
-    '<a href="../../06/textbook/06-2.html"><span class="n">06-2</span><span>서비스 제작 계획서(PRD) 시작하기</span></a>',
-    '<a href="../../07/textbook/07-1.html"><span class="n">07-1</span><span>관계형 데이터베이스의 기초</span></a>',
-    '<a href="../../07/textbook/07-2.html"><span class="n">07-2</span><span>PRD에 데이터 목록 덧붙이기</span></a>',
-    '<a href="../../08/textbook/08-1.html"><span class="n">08-1</span><span>수행평가 2 안내</span></a>',
-    '<a href="../../08/textbook/08-2.html"><span class="n">08-2</span><span>수행평가 2 · PRD 완성·제출</span></a>',
+    courseLink('../../06/textbook/06-1.html', '06-1', '서비스 기획의 기초', '服务策划基础'),
+    courseLink('../../06/textbook/06-2.html', '06-2', '서비스 제작 계획서(PRD) 시작하기', '开始编写服务开发计划书（PRD）'),
+    courseLink('../../07/textbook/07-1.html', '07-1', '관계형 데이터베이스의 기초', '关系型数据库基础'),
+    courseLink('../../07/textbook/07-2.html', '07-2', 'PRD에 데이터 목록 덧붙이기', '在 PRD 中补充数据清单'),
+    courseLink('../../08/textbook/08-1.html', '08-1', '수행평가 2 안내', '实践考核 2 说明'),
+    courseLink('../../08/textbook/08-2.html', '08-2', '수행평가 2 · PRD 완성·제출', '实践考核 2 · 完成并提交 PRD'),
     '<div class="toc-part"><span class="ko">4부 · AI와 서비스 개발</span><span class="zh">第 4 部 · 与 AI 开发服务</span></div>',
-    '<a href="../../09/textbook/09-1.html"><span class="n">09-1</span><span>서비스 사용자 흐름(Flow) 설계</span></a>',
-    '<a href="../../09/textbook/09-2.html"><span class="n">09-2</span><span>AI와 사용자 흐름·개발 계획 확정</span></a>',
-    '<a href="../../10/textbook/10-1.html"><span class="n">10-1</span><span>API와 요청·응답 이해하기</span></a>',
-    '<a href="../../10/textbook/10-2.html"><span class="n">10-2</span><span>AI와 핵심 API 연결하기</span></a>',
-    '<a href="../../11/textbook/11-1.html"><span class="n">11-1</span><span>서비스가 데이터를 기억하는 과정</span></a>',
-    '<a href="../../11/textbook/11-2.html"><span class="n">11-2</span><span>SQLite 데이터 저장 연결하기</span></a>',
-    '<a href="../../12/textbook/12-1.html"><span class="n">12-1</span><span>사용자 흐름으로 서비스 테스트하기</span></a>',
-    '<a href="../../12/textbook/12-2.html"><span class="n">12-2</span><span>사용자 흐름 테스트와 시험 제출</span></a>',
-    '<a href="../../13/textbook/13-1.html"><span class="n">13-1</span><span>수행평가 3 · 결과 반영과 가다듬기</span></a>',
-    '<a href="../../13/textbook/13-2.html"><span class="n">13-2</span><span>수행평가 3 · 실행·설명·최종 제출</span></a>',
+    courseLink('../../09/textbook/09-1.html', '09-1', '서비스 사용자 흐름(Flow) 설계', '设计服务用户流程（Flow）'),
+    courseLink('../../09/textbook/09-2.html', '09-2', 'AI와 사용자 흐름·개발 계획 확정', '与 AI 确定用户流程和开发计划'),
+    courseLink('../../10/textbook/10-1.html', '10-1', 'API와 요청·응답 이해하기', '理解 API 与请求、响应'),
+    courseLink('../../10/textbook/10-2.html', '10-2', 'AI와 핵심 API 연결하기', '与 AI 连接核心 API'),
+    courseLink('../../11/textbook/11-1.html', '11-1', '서비스가 데이터를 기억하는 과정', '服务记住数据的过程'),
+    courseLink('../../11/textbook/11-2.html', '11-2', 'SQLite 데이터 저장 연결하기', '连接 SQLite 数据存储'),
+    courseLink('../../12/textbook/12-1.html', '12-1', '사용자 흐름으로 서비스 테스트하기', '按用户流程测试服务'),
+    courseLink('../../12/textbook/12-2.html', '12-2', '사용자 흐름 테스트와 시험 제출', '用户流程测试与考试提交'),
+    courseLink('../../13/textbook/13-1.html', '13-1', '수행평가 3 · 결과 반영과 가다듬기', '实践考核 3 · 根据结果完善作品'),
+    courseLink('../../13/textbook/13-2.html', '13-2', '수행평가 3 · 실행·설명·최종 제출', '实践考核 3 · 运行、说明与最终提交'),
     '<div class="toc-part"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>',
-    '<a href="../../09/textbook/09-0.html"><span class="n">09-0</span><span>AI 개발 조건</span></a>',
-    '<a href="../../appendix/textbook/glossary.html"><span class="n">부록</span><span>프로그램 뒤편의 이야기</span></a>'
+    courseLink('../../09/textbook/09-0.html', '09-0', 'AI 개발 조건', 'AI 开发条件'),
+    '<a href="../../appendix/textbook/glossary.html"><span class="n">' + langPair('부록', '附录') + '</span>' + langPair('프로그램 뒤편의 이야기', '程序背后的故事') + '</a>'
   ].join('');
 
   function structureToc() {
@@ -310,8 +317,19 @@
     var b = $('.lng');
     if (b) {
       b.textContent = zh ? '한국어' : '中文';
-      b.title = zh ? '한국어로 봅니다' : '中文으로 봅니다 (본문만 바뀝니다)';
+      b.title = zh ? '切换为韩语' : '中文으로 봅니다';
       b.setAttribute('aria-pressed', zh ? 'true' : 'false');
+    }
+    var mode = $('#modeBtn');
+    if (mode) {
+      mode.title = zh
+        ? (slideMode ? '切换为上下连续阅读的滚动模式' : '切换为每次显示一页的逐页模式（用 ← → 移动）')
+        : (slideMode ? '위아래로 이어 읽는 스크롤 모드로 바꿉니다' : '한 화면에 한 페이지씩 보는 슬라이드 모드로 바꿉니다 (← → 로 이동)');
+    }
+    var lessonId = $('.brand em');
+    var lessonTitle = $('.brand .lesson .' + (zh ? 'zh' : 'ko'));
+    if (lessonId && lessonTitle) {
+      document.title = lessonId.textContent + '. ' + lessonTitle.textContent + (zh ? ' · 信息与数字素养' : ' · 정보와 디지털 문해력');
     }
   }
 

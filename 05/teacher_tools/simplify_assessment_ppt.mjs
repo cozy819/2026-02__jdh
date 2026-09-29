@@ -19,9 +19,10 @@ const sharp = sharpModule.default ?? sharpModule;
 
 const sourcePath = path.join(workspaceDir, "05/ppt/05-2_수행평가_1_실시와_제출.pptx");
 const stagingDir = path.join(workspaceDir, ".codex-finalizer/week05-ppt-final");
-const candidatePath = path.join(stagingDir, "05-2-candidate12.pptx");
-const checkedPath = path.join(stagingDir, "output/05-2-checked12.pptx");
-const receiptPath = path.join(stagingDir, "receipts/05-2-12.validation.json");
+const buildTag = `05-2-${Date.now()}`;
+const candidatePath = path.join(stagingDir, `${buildTag}-candidate.pptx`);
+const checkedPath = path.join(stagingDir, `output/${buildTag}-checked.pptx`);
+const receiptPath = path.join(stagingDir, `receipts/${buildTag}.validation.json`);
 await fs.mkdir(path.dirname(checkedPath), { recursive: true });
 await fs.mkdir(path.dirname(receiptPath), { recursive: true });
 
@@ -175,12 +176,14 @@ const chartSubtitles = [
   "요일마다 반복되는 이용 차이를 비교한다",
   "두 기준을 겹쳐 보면 붐비는 때가 더 구체적으로 보인다",
 ];
+const chartTitleFontSizes = [34, 34, 34, 30];
+const chartTitleLefts = [55, 55, 55, 70];
 const chartCropTops = [205, 205, 205, 230];
 const chartExplanations = [
-  "\uc2dc\uac04\ub300\ubcc4 \ud3c9\uade0 \uc774\uc6a9 \uc778\uc6d0\uc744 \uacc4\uc0b0\ud588\uc2b5\ub2c8\ub2e4.\n\n\uc2dc\uac04\uc758 \ud750\ub984\uc5d0 \ub530\ub77c \uac12\uc774 \uc5b4\ub5bb\uac8c \ub2ec\ub77c\uc9c0\ub294\uc9c0 \ubcf4\ub824\uace0 \uc120\uc73c\ub85c \uc5f0\uacb0\ud588\uc2b5\ub2c8\ub2e4.",
-  "\uc7a5\uc18c\ub9c8\ub2e4 \uc774\uc6a9 \uc778\uc6d0\uc744 \ubaa8\ub450 \ub354\ud588\uc2b5\ub2c8\ub2e4.\n\n\uc804\uccb4\uc5d0\uc11c \uac01 \uc7a5\uc18c\uac00 \ucc28\uc9c0\ud558\ub294 \ube44\uc728\uc744 \ube44\uad50\ud558\ub824\uace0 \uc6d0\uc73c\ub85c \ub098\ub204\uc5c8\uc2b5\ub2c8\ub2e4.",
-  "\uc694\uc77c\ub9c8\ub2e4 \ud3c9\uade0 \uc774\uc6a9 \uc778\uc6d0\uc744 \uacc4\uc0b0\ud588\uc2b5\ub2c8\ub2e4.\n\n\uc694\uc77c \uc0ac\uc774\uc758 \ud06c\uae30 \ucc28\uc774\ub97c \ubcf4\ub824\uace0 \ub9c9\ub300 \ub192\uc774\ub85c \ube44\uad50\ud588\uc2b5\ub2c8\ub2e4.",
-  "\uc694\uc77c\uacfc \uc2dc\uac04\ub300\ub97c \ubb36\uc5b4 \ud3c9\uade0 \uc774\uc6a9 \uc778\uc6d0\uc744 \uacc4\uc0b0\ud588\uc2b5\ub2c8\ub2e4.\n\n\uac12\uc774 \ud074\uc218\ub85d \uc9c4\ud55c \uc0c9\uc73c\ub85c \ud45c\uc2dc\ud574 \ubd90\ube44\ub294 \ub54c\ub97c \ucc3e\uc558\uc2b5\ub2c8\ub2e4.",
+  "시간대별 평균 이용 인원을\n계산했습니다.\n\n시간의 흐름에 따라 값이\n어떻게 달라지는지 보려고\n선으로 연결했습니다.",
+  "장소마다 이용 인원을\n모두 더했습니다.\n\n전체에서 각 장소가 차지하는\n비율을 비교하려고\n원으로 나누었습니다.",
+  "요일마다 평균 이용 인원을\n계산했습니다.\n\n요일 사이의 크기 차이를 보려고\n막대 높이로 비교했습니다.",
+  "요일과 시간대를 묶어\n평균 이용 인원을 계산했습니다.\n\n값이 클수록 진한 색으로 표시해\n붐비는 때를 찾았습니다.",
 ];
 for (let i = 0; i < chartNames.length; i += 1) {
   const slide = presentation.slides.getItem(2 + i);
@@ -199,8 +202,8 @@ for (let i = 0; i < chartNames.length; i += 1) {
     fill: "#FFFFFF",
     line: { fill: "none", width: 0 },
   });
-  addText(slide, chartTitles[i], { left: 55, top: 56, width: 930, height: 50 }, {
-    fontSize: 34, bold: true, color: "#1B1D21",
+  addText(slide, chartTitles[i], { left: chartTitleLefts[i], top: 56, width: 915, height: 50 }, {
+    fontSize: chartTitleFontSizes[i], bold: true, color: "#1B1D21",
   });
   addText(slide, chartSubtitles[i], { left: 56, top: 112, width: 930, height: 32 }, {
     fontSize: 20, color: "#69707A",
@@ -230,8 +233,8 @@ for (let i = 0; i < chartNames.length; i += 1) {
   addText(slide, chartTypes[i], { left: 958, top: 265, width: 250, height: 40 }, {
     fontSize: 25, bold: true, color: "#FF5C00",
   });
-  addText(slide, chartExplanations[i], { left: 958, top: 322, width: 250, height: 250 }, {
-    fontSize: 20, color: "#1B1D21",
+  addText(slide, chartExplanations[i], { left: 950, top: 322, width: 270, height: 250 }, {
+    fontSize: 18, color: "#1B1D21",
   });
   slide.shapes.add({
     geometry: "roundRect",

@@ -12,20 +12,31 @@ const srv=http.createServer((req,res)=>{const p=path.join(root,decodeURIComponen
  if(!fs.existsSync(p)||fs.statSync(p).isDirectory()){res.writeHead(404);return res.end();}
  const e=path.extname(p);res.writeHead(200,{'Content-Type':e==='.js'?'text/javascript':e==='.css'?'text/css':e==='.png'?'image/png':'text/html; charset=utf-8'});
  res.end(fs.readFileSync(p));});
-await new Promise(r=>srv.listen(8904,r));
-const b=await chromium.launch({executablePath:process.env.CHROME_PATH||'/opt/pw-browsers/chromium-1194/chrome-linux/chrome',args:['--no-sandbox','--disable-background-networking','--disable-component-update','--no-first-run']});
+await new Promise((resolve,reject)=>{srv.once('error',reject);srv.listen(0,'127.0.0.1',resolve);});
+const port=srv.address().port;
+const chromeCandidates=[
+  process.env.CHROME_PATH,
+  chromium.executablePath?.(),
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
+].filter(Boolean);
+const chromePath=chromeCandidates.find(p=>fs.existsSync(p));
+if(!chromePath) throw new Error('Chrome/Chromium을 찾지 못했습니다. CHROME_PATH에 실행 파일 경로를 지정하세요.');
+const b=await chromium.launch({executablePath:chromePath,args:['--no-sandbox','--disable-background-networking','--disable-component-update','--no-first-run']});
 // A4 인쇄 영역: 210-30=180mm 폭, 297-32=265mm 높이
 const MM=96/25.4, Wpx=Math.round(180*MM), Hpx=Math.round(265*MM);
 const ctx=await b.newContext({viewport:{width:Wpx,height:Hpx}});
-await ctx.route('**://**',r=>r.request().url().startsWith('http://localhost:8904')?r.continue():r.abort());
+const origin=`http://127.0.0.1:${port}`;
+await ctx.route('**://**',r=>r.request().url().startsWith(origin)?r.continue():r.abort());
 console.log(`A4 인쇄 영역 ${Wpx} × ${Hpx} px\n`);
 const args=process.argv.slice(2);
 const targets=args.length?args:fs.readdirSync(root)
   .filter(d=>/^\d\d$/.test(d)&&fs.existsSync(path.join(root,d,'textbook')))
   .flatMap(d=>fs.readdirSync(path.join(root,d,'textbook')).filter(f=>f.endsWith('.html')).map(f=>`${d}/textbook/${f}`));
+let failed=false;
 for (const f of targets) {
   const pg=await ctx.newPage();
-  await pg.goto(`http://localhost:8904/${f}`,{waitUntil:'load'});
+  await pg.goto(`${origin}/${f}`,{waitUntil:'load'});
   if(process.env.BOOK_LANG==='zh') await pg.evaluate(()=>{
     document.documentElement.classList.remove('lang-ko');
     document.documentElement.classList.add('lang-zh');
@@ -37,11 +48,16 @@ for (const f of targets) {
   const rows=await pg.evaluate((H)=>[...document.querySelectorAll('.page')].map((p,i)=>{
     const kick=p.querySelector('.kick .ko')?.textContent||'';
     const t=p.querySelector('h2.title .ko')?.textContent||p.querySelector('.ctitle')?.textContent||'(표지)';
-    return {i:i+1, id:p.id||'-', h:Math.round(p.scrollHeight), over:p.scrollHeight>H, kick, t:t.slice(0,28)};
+    return {i:i+1, id:p.id||'-', h:Math.round(p.scrollHeight), over:p.scrollHeight>H, tight:p.scrollHeight>950, kick, t:t.slice(0,28)};
   }), Hpx);
   console.log(`── ${f}`);
-  for(const r of rows) console.log(`  ${String(r.i).padStart(2)} ${r.id.padEnd(5)} ${String(r.h).padStart(5)}px ${r.over?'❌ 넘침':'  '} ${r.kick} ${r.t}`);
+  for(const r of rows) {
+    if(r.over) failed=true;
+    const state=r.over?'❌ 넘침':r.tight?'⚠️ 여유 적음':'  ';
+    console.log(`  ${String(r.i).padStart(2)} ${r.id.padEnd(5)} ${String(r.h).padStart(5)}px ${state} ${r.kick} ${r.t}`);
+  }
   console.log('');
   await pg.close();
 }
 await b.close(); srv.close();
+if(failed) process.exitCode=1;
