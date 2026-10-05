@@ -5,780 +5,434 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
 <title>6-1. 서비스 기획의 기초 · 정보와 디지털 문해력</title>
-<meta name="description" content="정보와 디지털 문해력 교과서 6-1 — 서비스 기획의 기초. 사용자, 목적 한 문장, 대표 사용 흐름, 핵심 기능 하나와 완성 기준" />
+<meta name="description" content="정보와 디지털 문해력 교과서 6-1 — 서비스 기획의 기초. 기획의 뼈대 여섯 칸을 기획 메모에 적고 AI와 함께 다듬는다" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/textbook.css" />
 </head>
 <body class="lang-ko">
-
 <div id="top">
-  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
-  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="menu" onclick="tbToggleToc()">☰ <span class="ko">목차</span><span class="zh">目录</span></button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false"><span class="ko">한 장씩 보기</span><span class="zh">逐页查看</span></button>
   <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
-  <div class="brand"><em>6-1</em> <span class="lesson">서비스 기획의 기초</span></div>
+  <div class="brand"><em>6-1</em> <span class="lesson"><span class="ko">서비스 기획의 기초</span><span class="zh">服务策划基础</span></span></div>
   <div class="spacer"></div>
   <div class="pct" id="count">1 / 1</div>
-  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+  <button class="pbtn" onclick="window.print()"><span class="ko">인쇄</span><span class="zh">打印</span></button>
 </div>
 <div id="prog"></div>
-
-<nav id="toc">
-  <div class="h"><span class="ko">이 차시 — 6-1</span><span class="zh">本课时 — 6-1</span></div>
-  <a href="#opener"><span class="n">·</span> 차시 표지</a>
-  <a href="#s0"><span class="n">·</span> 기능이 스무 개인 계획</a>
-  <a href="#sp"><span class="n">·</span> PRD란 무엇인가</a>
-  <a href="#s1"><span class="n">1</span> 익숙한 불편에서 시작한다</a>
-  <a href="#s1w"><span class="n">·</span> 지금 적는다</a>
-  <a href="#s2"><span class="n">2</span> 사용자는 상황과 함께</a>
-  <a href="#s2w"><span class="n">·</span> 워크시트 ①</a>
-  <a href="#s3"><span class="n">3</span> 목적을 한 문장으로</a>
-  <a href="#s3w"><span class="n">·</span> 지금 적는다</a>
-  <a href="#s4"><span class="n">4</span> 대표 사용 흐름은 하나</a>
-  <a href="#s4w"><span class="n">·</span> 지금 적는다</a>
-  <a href="#s5"><span class="n">5</span> 핵심 기능 하나로 줄이기</a>
-  <a href="#s5w"><span class="n">·</span> 지금 적는다</a>
-  <a href="#s6"><span class="n">6</span> 입력과 결과를 정한다</a>
-  <a href="#s7"><span class="n">7</span> 화면은 글로 설명한다</a>
-  <a href="#s8"><span class="n">8</span> 완성 기준 2~3개</a>
-  <a href="#s8w"><span class="n">·</span> 워크시트 ②</a>
-  <a href="#s9"><span class="n">9</span> AI는 생각을 정리하는 도구</a>
-  <a href="#s10"><span class="n">10</span> 흔한 오해</a>
-  <a href="#s11"><span class="n">11</span> 누가 무엇을 정하는가</a>
-  <a href="#s12"><span class="n">12</span> 확인 문제</a>
-  <a href="#s13"><span class="n">13</span> 정리</a>
-
-  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
-  <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
-  <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
-  <a href="../../01/textbook/01-2.html"><span class="n">1-2</span> 수업 열기</a>
-  <a href="../../02/textbook/02-1.html"><span class="n">2-1</span> 개발 도구 설치와 확인</a>
-  <a href="../../02/textbook/02-2.html"><span class="n">2-2</span> 숫자와 변수로 계산하기</a>
-  <a href="../../02/textbook/02-3.html"><span class="n">2-3</span> 웹과 프로그래밍 언어의 역사</a>
-  <a href="../../03/textbook/03-1.html"><span class="n">3-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
-  <a href="../../03/textbook/03-2.html"><span class="n">3-2</span> 여러 값을 묶는 두 가지 방법</a>
-  <a href="../../04/textbook/04-1.html"><span class="n">4-1</span> Matplotlib으로 그래프 이해하기</a>
-  <a href="../../04/textbook/04-2.html"><span class="n">4-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
-  <a href="../../05/textbook/05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
-  <a href="../../05/textbook/05-2.html"><span class="n">5-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
-  <a href="../../06/textbook/06-1.html" class="here"><span class="n">6-1</span> 서비스 기획의 기초</a>
-  <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
-  <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
-  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
-  <a href="../../08/textbook/08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
-  <a href="../../08/textbook/08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
-  <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
-  <a href="../../09/textbook/09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
-  <a href="../../10/textbook/10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
-  <a href="../../10/textbook/10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
-  <a href="../../11/textbook/11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
-  <a href="../../11/textbook/11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
-  <a href="../../12/textbook/12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
-  <a href="../../12/textbook/12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
-  <a href="../../13/textbook/13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
-  <a href="../../13/textbook/13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
-
-  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
-  <a href="../../09/textbook/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
-</nav>
-<div id="scrim" onclick="tbToggleToc(false)"></div>
-
+<nav id="toc"><div class="h"><span class="ko">이 차시 — 6-1</span><span class="zh">本课时 — 6-1</span></div><a href="#opener"><span class="n">·</span><span class="ko">차시 표지</span><span class="zh">课时首页</span></a><a href="#s0"><span class="n">·</span><span class="ko">기능이 스무 개인 계획</span><span class="zh">有二十个功能的计划</span></a><a href="#s0a"><span class="n">1</span><span class="ko">code 명령 확인과 등록</span><span class="zh">确认并注册 code 命令</span></a><a href="#s0b"><span class="n">·</span><span class="ko">06 폴더와 메모 파일 준비</span><span class="zh">准备 06 文件夹和备忘文件</span></a><a href="#s1b"><span class="n">2</span><span class="ko">skill이란</span><span class="zh">什么是 skill</span></a><a href="#s1c"><span class="n">·</span><span class="ko">skills.sh에서 spartan 찾기</span><span class="zh">在 skills.sh 找 spartan</span></a><a href="#s1d"><span class="n">·</span><span class="ko">방법 1 · npx로 설치</span><span class="zh">方法 1 · 用 npx 安装</span></a><a href="#s1e"><span class="n">·</span><span class="ko">방법 2 · OpenCode에 맡기기</span><span class="zh">方法 2 · 交给 OpenCode</span></a><a href="#s1f"><span class="n">·</span><span class="ko">기본값으로 만들기</span><span class="zh">设为默认</span></a><a href="#s1g"><span class="n">·</span><span class="ko">달라진 답 확인하기</span><span class="zh">确认回答的变化</span></a><a href="#sp"><span class="n">3</span><span class="ko">기획의 뼈대 여섯 칸</span><span class="zh">策划骨架六栏</span></a><a href="#sw"><span class="n">4</span><span class="ko">① 내가 먼저 쓴다</span><span class="zh">① 自己先写</span></a><a href="#sa"><span class="n">·</span><span class="ko">② AI에게 질문을 받는다</span><span class="zh">② 让 AI 提问</span></a><a href="#sa_2"><span class="n">·</span><span class="ko">③ 내가 정하고 다시 묻는다</span><span class="zh">③ 自己定，再问</span></a><a href="#s12"><span class="n">5</span><span class="ko">저장과 다음 차시</span><span class="zh">保存与下一课时</span></a><div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div><a href="../../index.html"><span class="n"><span class="ko">표지</span><span class="zh">首页</span></span><span class="ko">전체 목차</span><span class="zh">全部目录</span></a></nav><div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
+<section class="page opener" id="opener"><div class="onum"><span class="ko">6회 · 첫째 차시</span><span class="zh">第 6 次课 · 第 1 课时</span></div>
+<h1><span class="ko">서비스 기획의 기초</span><span class="zh">服务策划基础</span></h1>
+<div class="osub"><span class="ko">누구를 위해, 어떤 상황에서, 무엇을 할 수 있는<br/>작은 서비스를 만들지 정합니다.</span><span class="zh">为谁、在什么情况下、能做什么，<br/>先定下要做的这个小服务。</span></div>
+<div class="abar"></div>
+<div class="ometa"><span class="ko"><b>이전 차시</b> · 5-2. 수행평가 1 · AI 활용 데이터 시각화<br/><b>다음 차시</b> · 6-2. 서비스 제작 계획서(PRD) 시작하기<br/><b>오늘 적는 파일</b> · <code>06/기획_메모.md</code></span><span class="zh"><b>上一课时</b> · 5-2. 实践考核 1 · AI 应用数据可视化<br/><b>下一课时</b> · 6-2. 开始编写服务制作计划书（PRD）<br/><b>今天要写的文件</b> · <code class="keep-ko">06/기획_메모.md</code>（规划备忘）</span></div></section>
+<section class="page" id="s0">
+<div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">기능이 스무 개인 계획</span><span class="zh">有二十个功能的计划</span></h2>
+<p class="lead"><span class="ko">처음 계획을 세우면 「로그인, 채팅, 사진, 랭킹…」처럼 기능부터 늘어놓기 쉽습니다. 그런데 <b>누가 언제</b> 쓰는지 정하지 않으면 무엇이 완성인지 아무도 모릅니다. 오늘은 내 서비스의 뼈대를 메모 여섯 칸에 적고, <b>AI와 함께</b> 다듬습니다.</span><span class="zh">第一次做计划时，很容易先列一堆功能，像「登录、聊天、照片、排行榜……」。可是没定下<b>谁、什么时候</b>用，就没人知道做到哪儿算完成。今天把自己服务的骨架写进备忘的六栏，再<b>和 AI 一起</b>修改。</span></p>
+<!-- [기존 자산] 06-1-01-endless-list
+     · 규격 : 가로 16:9 · 개념 삽화 · assets/img/06-1-01-endless-list.png (2026-09-11 받음)
+     · 쓰는 곳 : 6-1 도입 쪽과 PPT 6-1 「기능이 스무 개인 계획」 장. 같은 파일을 쓴다.
+     · 확인한 것 : 목록이 종이를 넘어 이어진다 · 글자로 읽히는 것이 없다 · 체크 칸이 비어 있다 · 주황은 맨 위 칸 하나.
+     · 다시 만들 때의 요청 : 책상 위 종이 한 장에 짧은 가로선 항목이 빼곡하고, 목록이 책상 밖으로 흘러내려 끝이 보이지 않는다.
+       항목 왼쪽 체크 칸은 하나도 채우지 않는다. 주황(#FF5C00)은 맨 위 칸 하나에만. 얼굴 없음. 흰 배경. no text, no letters, no numbers, no labels, no watermark. -->
+<figure class="fig"><img class="figimg" src="../../assets/img/06-1-01-endless-list.png" alt="책상 위 종이에 짧은 항목이 빼곡히 적혀 있고 목록이 종이 끝을 넘어 아래로 흘러내려 이어진다. 항목 왼쪽 체크 칸은 하나도 채워져 있지 않다." data-id="06-1-01-endless-list" data-spec="가로 16:9 · 끝이 보이지 않는 목록 · 체크 칸 비어 있음" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-1. 항목은 끝없이 늘어나는데 체크한 칸은 하나도 없다. 무엇이 완성인지 정하지 않은 계획이다.</span><span class="zh">图 6-1-1. 条目没完没了地增加，打勾的格子却一个也没有。这是没定下“什么算完成”的计划。</span></figcaption></figure>
+<div class="bigq"><div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div><p><span class="ko">누구를 위해, 어떤 상황에서,<br/>무엇을 할 수 있는 작은 서비스를 만들 것인가?</span><span class="zh">为谁、在什么情况下，<br/>要做一个能做什么的小服务？</span></p></div>
+</section>
 
-  <!-- ══════════ 차시 표지 ══════════ -->
-  <section class="page opener" id="opener">
-    <div class="onum"><span class="ko">6회 · 첫째 차시</span><span class="zh">第 6 次课 · 第 1 课时</span></div>
-    <h1><span class="ko">서비스 기획의 기초</span><span class="zh">服务规划基础</span></h1>
-    <div class="osub"><span class="ko">누구를 위해, 어떤 상황에서, 무엇을 할 수 있는<br/>작은 서비스를 만들지 정합니다.</span><span class="zh">为谁、在什么情况下、能做什么，<br/>先定下要做的这个小服务。</span></div>
-    <div class="abar"></div>
-    <div class="ometa"><span class="ko"><b>이전 차시</b> · 5-2. 수행평가 1 · AI 활용 데이터 시각화<br/>
-      <b>다음 차시</b> · 6-2. 서비스 제작 계획서(PRD) 시작하기</span><span class="zh"><b>上一课时</b> · 5-2. 实作评价 1 · AI 应用数据可视化<br/> <b>下一课时</b> · 6-2. 服务制作计划书（PRD）起步</span></div>
-  </section>
+<section class="page" id="s0a">
+<div class="kick"><span class="ko">준비</span><span class="zh">准备</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">VS Code의 code 명령이 등록되어 있는지 본다</span><span class="zh">看看 VS Code 的 code 命令有没有注册</span></h2>
+<p class="lead"><span class="ko">먼저 VS Code를 열고 터미널에서 <code>code</code> 명령이 되는지 확인합니다. 이 명령이 등록되어 있으면 Windows 탐색기에서 폴더를 마우스 오른쪽 단추로 눌러 <b>Code(으)로 열기</b>로 바로 열 수 있습니다.</span><span class="zh">先打开 VS Code，在终端里确认 <code>code</code> 命令能不能用。注册好了的话，在 Windows 资源管理器里右键单击文件夹，用 <b class="keep-ko">Code(으)로 열기</b>（通过 Code 打开）就能直接打开。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">확인하기</span><span class="zh">确认</span></div><ol><li><span class="ko">VS Code에서 <b>터미널 → 새 터미널</b>을 연다.</span><span class="zh">在 VS Code 中打开 <b class="keep-ko">터미널 → 새 터미널</b>（终端 → 新建终端）。</span></li><li><span class="ko">아래 명령을 붙여 넣고 Enter를 누른다.</span><span class="zh">粘贴下面的命令，按 Enter。</span></li><li><span class="ko"><code>1.</code>로 시작하는 버전 번호가 나오면 끝이다. 다음 쪽은 건너뛴다. 「code」 용어가 인식되지 않는다고 나오면 다음 쪽으로 간다.</span><span class="zh">出现以 <code>1.</code> 开头的版本号就好了，跳过下一页。提示无法识别「code」时，翻到下一页。</span></li></ol></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">터미널</span><span class="zh">终端</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="blk">code --version</pre></div>
+</section>
 
-  <!-- ══════════ 들어가며 ══════════ -->
-  <section class="page" id="s0">
-    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">기능이 스무 개인 계획</span><span class="zh">有二十个功能的计划</span></h2>
+<section class="page" id="s0a_2">
+<div class="kick"><span class="ko">준비</span><span class="zh">准备</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">code 명령을 PowerShell로 등록한다</span><span class="zh">用 PowerShell 注册 code 命令</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">아래 명령을 복사해 VS Code 터미널(PowerShell)에 붙여 넣고 Enter를 누릅니다. code 명령과 탐색기 오른쪽 클릭 메뉴 <b>Code(으)로 열기</b>가 함께 등록됩니다.</span><span class="zh">复制下面的命令，粘贴到 VS Code 终端（PowerShell）里，按 Enter。code 命令和资源管理器右键菜单 <b class="keep-ko">Code(으)로 열기</b>（通过 Code 打开）会一起注册。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">PowerShell · code 명령과 오른쪽 클릭 메뉴 등록</span><span class="zh">PowerShell · 注册 code 命令和右键菜单</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">$dir = @("$env:LOCALAPPDATA\Programs\Microsoft VS Code", "$env:ProgramFiles\Microsoft VS Code") | Where-Object { Test-Path "$_\Code.exe" } | Select-Object -First 1
+if (-not $dir) { Write-Host "VS Code 설치 위치를 찾지 못했습니다. 선생님께 알려 주세요." } else {
+    $p = [Environment]::GetEnvironmentVariable("Path", "User")
+    if (("$p" -split ";") -notcontains "$dir\bin") {
+        [Environment]::SetEnvironmentVariable("Path", ("$p;$dir\bin").Trim(";"), "User")
+    }
+    foreach ($k in @("Directory\shell\VSCode|%1", "Directory\Background\shell\VSCode|%V")) {
+        $key, $arg = $k -split "\|"
+        $key = "HKCU:\Software\Classes\$key"
+        New-Item -Path "$key\command" -Force | Out-Null
+        Set-ItemProperty -Path $key -Name "(default)" -Value "Code(으)로 열기"
+        Set-ItemProperty -Path "$key\command" -Name "(default)" -Value "`"$dir\Code.exe`" `"$arg`""
+    }
+    Write-Host "완료: code 명령과 탐색기 오른쪽 클릭 메뉴를 등록했습니다. VS Code를 닫았다가 다시 여세요."
+}</pre><pre class="zh blk">$dir = @("$env:LOCALAPPDATA\Programs\Microsoft VS Code", "$env:ProgramFiles\Microsoft VS Code") | Where-Object { Test-Path "$_\Code.exe" } | Select-Object -First 1
+if (-not $dir) { Write-Host "找不到 VS Code 的安装位置。请告诉老师。" } else {
+    $p = [Environment]::GetEnvironmentVariable("Path", "User")
+    if (("$p" -split ";") -notcontains "$dir\bin") {
+        [Environment]::SetEnvironmentVariable("Path", ("$p;$dir\bin").Trim(";"), "User")
+    }
+    foreach ($k in @("Directory\shell\VSCode|%1", "Directory\Background\shell\VSCode|%V")) {
+        $key, $arg = $k -split "\|"
+        $key = "HKCU:\Software\Classes\$key"
+        New-Item -Path "$key\command" -Force | Out-Null
+        Set-ItemProperty -Path $key -Name "(default)" -Value "<span class="keep-ko">Code(으)로 열기</span>"
+        Set-ItemProperty -Path "$key\command" -Name "(default)" -Value "`"$dir\Code.exe`" `"$arg`""
+    }
+    Write-Host "完成：已注册 code 命令和资源管理器右键菜单。请关掉 VS Code 再重新打开。"
+}</pre></div>
+</section>
 
-    <div class="scene">
-      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
-      <p><span class="ko">친구가 들뜬 얼굴로 말합니다. “우리 앱 하나 만들자. 로그인 되고, 친구 추가되고, 채팅도 되고, 사진도 올리고, 랭킹도 나오고, 알림도 오고….”</span><span class="zh">朋友一脸兴奋地说：“我们做个 App 吧。能登录、能加好友、能聊天、能传照片、还有排行榜、还有推送……”</span></p>
-      <p><span class="ko">듣기에는 근사합니다. 그런데 “그래서 <b>누가</b> 그걸 <b>언제</b> 쓰는데?”라고 물으면 대답이 잘 나오지 않습니다. “그냥… 다들 쓰겠지.”</span><span class="zh">听着挺像样。可你一问“那到底<b>谁</b>会在<b>什么时候</b>用它？”，就答不太上来了。“就……大家都会用吧。”</span></p>
-      <p><span class="ko">이런 계획은 만들기 시작하면 곧 멈춥니다. 기능이 많아서가 아니라, <b>무엇이 완성인지 아무도 모르기 때문</b>입니다. 스무 개 중 열다섯 개를 만들어도 “다 됐다”라고 말할 수 없습니다.</span><span class="zh">这样的计划一动手就会停下。不是因为功能多，而是<b>没人知道做到哪儿算做完</b>。二十个里做出十五个，也说不出一句“做完了”。</span></p>
-    </div>
-
-    <div class="bigq">
-      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
-      <p><span class="ko">누구를 위해, 어떤 상황에서,<br/>무엇을 할 수 있는 작은 서비스를 만들 것인가?</span><span class="zh">为谁、在什么情况下，<br/>要做一个能做什么的小服务？</span></p>
-    </div>
-
-    <div class="recall">
-      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
-      <ul class="blist">
-        <li><span class="ko">1-1에서 <b>아이디어 씨앗</b>을 메모해 두었습니다. 오늘 그 메모를 다시 꺼냅니다.</span><span class="zh">1-1 里你记下过<b>创意的种子</b>。今天把那张便条再翻出来。</span></li>
-        <li><span class="ko">5회 수행평가에서는 <b>주어진 데이터</b>를 읽고 판단했습니다. 6회부터는 <b>무엇을 만들지 스스로 정합니다.</b></span><span class="zh">第 5 次课的实作评价里，我们读的、判断的是<b>别人给的数据</b>。从第 6 次课起，<b>做什么由自己定</b>。</span></li>
-        <li><span class="ko">1-2에서 소프트웨어 개발은 코딩만이 아니라 <b>무엇을 만들지 정하는 일</b>부터라고 했습니다. 오늘이 그 앞부분입니다.</span><span class="zh">1-2 说过，软件开发不只是编码，而是从<b>决定要做什么</b>开始。今天做的就是那前半段。</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="page" id="s0_2">
-    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">기능이 스무 개인 계획</span><span class="zh">有二十个功能的计划</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <p><span class="ko">6~8회 세 번의 수업으로 <b>서비스 제작 계획서(PRD)</b> 한 편을 완성합니다. 오늘은 그 문서에 들어갈 내용을 이해하고, 다음 차시에 직접 적습니다.</span><span class="zh">第 6~8 次课，用三节课完成一份<b>服务制作计划书（PRD）</b>。今天先理解这份文档要装什么，下一课时亲手写。</span></p>
-
-    <div class="note">
-      <div class="nt"><span class="ko">전문 기획서를 배우는 시간이 아닙니다</span><span class="zh">这不是学专业策划书的时间</span></div>
-      <p><span class="ko">회사에서 쓰는 사업 계획서나 사용자 조사 보고서를 만드는 것이 아닙니다. <b>처음 개발하는 학생이 AI에게 무엇을 만들지 설명하고, 만들어진 결과가 맞는지 확인할 수 있을 만큼</b>만 정리합니다.</span><span class="zh">我们不是要写公司里的商业计划书或用户调研报告。只整理到<b>让第一次做开发的学生能向 AI 说清要做什么，并能确认做出来的结果对不对</b>为止。</span></p>
-    </div>
-  
-    <!-- ═══════════════════════════════════════════════════════════════════════
-     [이미지 생성 요청] 06-1-01-endless-list
-     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
-     · 규격   : 가로 16:9 · 개념 삽화 · assets/img/06-1-01-endless-list.png
+<section class="page" id="s0a_3">
+<div class="kick"><span class="ko">준비</span><span class="zh">准备</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">code 명령을 PowerShell로 등록한다</span><span class="zh">用 PowerShell 注册 code 命令</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">붙여 넣고 Enter를 누르면 아래 그림처럼 마지막 줄에 <b>완료</b>가 나옵니다. 빨간 글자가 나오거나 「VS Code 설치 위치를 찾지 못했습니다」가 나오면 화면을 그대로 두고 손을 듭니다.</span><span class="zh">粘贴后按 Enter，会像下图那样在最后一行出现<b>完成</b>。如果出现红字，或出现「找不到 VS Code 的安装位置」，就保持画面不动，举手。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 06-1-08-powershell-code
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 16:9 · 1600×900 · 화면 그림 · assets/img/06-1-08-powershell-code.png
+     · 갈래 : ① 화면. 학교 Windows PC에서 실제로 붙여 넣고 캡처하는 것이 가장 정확하다. ChatGPT로 그려도 된다.
      ───────────────────────────────────────────────────────────────────────
-
-     ── 맥락 (모델에게 그대로 넘겨도 된다) ────────────────────────────
-     장대현중고등학교 「정보와 디지털 문해력」 6회 첫째 차시(6-1) 도입에 쓸 그림이다.
-     학생은 중3~고2 여덟 명. 오늘부터 자기가 만들 서비스를 문서로 계획한다.
-     교과서 도입은 이런 장면이다 — 친구가 「로그인 되고 채팅도 되고 사진도 올리고
-     랭킹도 나오고…」 하며 기능을 스무 개 늘어놓는다. 듣기엔 근사한데 만들기
-     시작하면 곧 멈춘다. 기능이 많아서가 아니라 **무엇이 완성인지 아무도 모르기**
-     때문이다. 스무 개 중 열다섯을 만들어도 「다 됐다」라고 말할 수 없다.
-     교과서 인쇄물과 교실 스크린 양쪽에 같은 파일이 들어간다.
+     ── 맥락 (ChatGPT에 그대로 붙여 넣는다) ─────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 6회 첫째 차시(6-1)에 쓸 그림이다.
+     학생은 중3~고2 여덟 명이고 코딩이 처음이다. 학교 컴퓨터는 모두 Windows이며 VS Code는 한국어 화면이다.
+     몇몇 학생의 컴퓨터에 VS Code의 code 명령이 등록되어 있지 않아, 교과서에 있는 PowerShell 명령을 복사해
+     VS Code 터미널에 붙여 넣는다. 이 명령은 code 명령을 PATH에 넣고 탐색기 오른쪽 클릭 메뉴 「Code(으)로 열기」를 만든다.
+     이 그림은 「붙여 넣고 Enter를 누르면 이렇게 끝난다」를 보여 준다. 학생은 마지막 줄이 같은지 비교한다.
 
      ── 그릴 것 ────────────────────────────────────────────────────
-     책상 위에 놓인 종이 한 장에 짧은 항목이 위에서부터 빼곡히 적혀 있고,
-     그 목록이 종이 아래 끝을 넘어 **책상 밖으로 흘러내려** 화면 아래로 이어지는 장면.
-     끝이 보이지 않는다.
-
-     · 항목은 짧은 가로선으로만 그린다. 어느 나라 글자인지도 알아볼 수 없어야 한다.
-     · 항목 왼쪽에 작은 네모(체크 칸)가 있고 **하나도 채워져 있지 않다.**
-     · 주황(#FF5C00)은 맨 위 항목의 네모 하나에만 아주 조금 쓴다.
-     · 사람 손이 종이 위쪽에 놓여 있어도 좋다. 얼굴은 넣지 않는다.
-     · 어지럽거나 불안하게 만들지 않는다. 조용한 책상 장면이다.
+     Windows 11 위의 VS Code 창(밝은 테마). 아래쪽 패널에 터미널이 열려 있고 탭 이름은 「powershell」.
+     · 터미널 첫 줄: PS C:\Users\student\JDH_VibeCoding_홍길동>
+     · 그 뒤에 붙여 넣은 여러 줄 명령이 보인다. 첫 두 줄만 또렷하면 된다:
+         $dir = @("$env:LOCALAPPDATA\Programs\Microsoft VS Code", ...
+         if (-not $dir) { Write-Host ... } else {
+       나머지 줄은 흐리게, 줄 수만 느껴지게.
+     · 마지막 출력 줄(흰 글자):
+         완료: code 명령과 탐색기 오른쪽 클릭 메뉴를 등록했습니다. VS Code를 닫았다가 다시 여세요.
+     · 그 아래 새 프롬프트 PS C:\Users\student\JDH_VibeCoding_홍길동>
+     · 「완료」 줄 둘레에 주황(#FF5C00) 둥근 테두리 하나.
+     · 위쪽 편집기 영역은 비어 있거나 흐리게.
 
      ── 지킬 것 ────────────────────────────────────────────────────
-     · 공통 스타일 **A(사실적 삽화)** 를 앞에 붙인다. B(플랫 벡터)를 같이 붙이지 않는다.
-     · 비율 16:9 가로. 배경은 거의 흰색(#ffffff). 어두운 배경을 쓰지 않는다.
-     · 받은 뒤 확인 — ① 목록이 종이를 넘어 이어지나 ② 글자로 읽히는 것이 없나
-       ③ 체크 칸이 하나도 안 채워졌나 ④ 주황이 한 군데뿐인가.
+     · 빨간 오류 글자를 넣지 않는다. 「완료」 줄의 한글을 정확히.
+     · Windows 창 모양. macOS 단추를 쓰지 않는다. 마우스 커서·손은 그리지 않는다. 16:9 가로.
+
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 마지막 출력이 「완료: …」 한 줄인가  ② 빨간 글자가 없는가
+     ③ 터미널이 VS Code 안 아래쪽 패널인가  ④ 주황 테두리가 한 군데인가
      ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/06-1-01-endless-list.png" alt="책상 위 종이에 짧은 항목이 빼곡히 적혀 있고 목록이 종이 끝을 넘어 아래로 흘러내려 이어진다. 항목 왼쪽 체크 칸은 하나도 채워져 있지 않다."
-           data-id="06-1-01-endless-list" data-spec="가로 16:9 · 끝이 보이지 않는 목록 · 체크 칸 비어 있음"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 6-1-1. 기능이 많아서 멈추는 것이 아니다. 무엇이 완성인지 모르기 때문이다.</span><span class="zh">图 6-1-1. 不是因为功能多才停下，而是因为不知道做到哪儿算做完。</span></figcaption>
-    </figure>
-  </section>
-
-  <!-- ══════════ PRD ══════════ -->
-  <section class="page" id="sp">
-    <div class="kick"><span class="ko">용어</span><span class="zh">术语</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">서비스 제작 계획서(PRD)란</span><span class="zh">什么是服务制作计划书（PRD）</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <div class="term">
-      <div class="term-h"><span class="w">PRD</span><span class="en">Product Requirements Document</span></div>
-      <dl>
-        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
-        <dd><span class="ko">조별 과제를 시작하며 “각자 알아서 하자”라고 흩어졌습니다. 나중에 모아 보니 두 사람이 같은 부분을 했고, 정작 결론은 아무도 쓰지 않았습니다. 무엇을 누가 어디까지 할지 <b>먼저 한 장에 적어 두었다면</b> 생기지 않았을 일입니다.</span><span class="zh">小组作业一开始就说“各自看着办”，然后就散了。后来一凑，发现两个人做了同一部分，偏偏结论没人写。要是<b>一开始就在一张纸上写清谁做到哪儿</b>，这事就不会发生。</span></dd>
-        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
-        <dd><span class="ko">만들 서비스가 <b>무엇인지 미리 적어 둔 문서</b>입니다.</span><span class="zh">它是<b>预先写下“要做的服务是什么”的文档</b>。</span></dd>
-        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
-        <dd class="def"><span class="ko">만들 서비스의 사용자, 목적, 핵심 기능, 사용 흐름, 필요한 데이터와 완성 기준을 정리한 문서. 개발을 시작할 때 무엇을 만들어야 하는지 설명하고, 완성된 결과가 처음 계획과 맞는지 확인하는 기준이 된다.</span><span class="zh">把要做的服务的用户、目的、核心功能、使用流程、所需数据与完成标准整理起来的文档。开发开始时用它说明该做什么，完成后用它确认结果是否与最初的计划相符。</span></dd>
-        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
-        <dd><span class="ko">PRD는 <b>무엇을 왜 만드는가</b>를 담습니다. <b>어떻게 만드는가</b>—코드, 폴더 구조, 화면 디자인, 데이터베이스 설정—는 담지 않습니다. 그것들은 개발 단계에서 AI와 함께 정합니다.</span><span class="zh">PRD 装的是<b>做什么、为什么做</b>。<b>怎么做</b>——代码、文件夹结构、画面设计、数据库设置——它不装。那些在开发阶段与 AI 一起定。</span></dd>
-        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
-        <dd><span class="ko">“PRD에 적은 완성 기준으로 AI가 만든 결과를 확인했다.”</span><span class="zh">“我按 PRD 里写的完成标准，核对了 AI 做出来的结果。”</span></dd>
-      </dl>
-    </div>
-  </section>
-
-  <section class="page" id="sp_2">
-    <div class="kick"><span class="ko">용어</span><span class="zh">术语</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">서비스 제작 계획서(PRD)란</span><span class="zh">什么是服务制作计划书（PRD）</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">회사에서 쓰는 PRD를 그대로 쓰지 않습니다</span><span class="zh">不照搬公司用的 PRD</span></div>
-      <p><span class="ko">실제 회사의 PRD에는 시장 조사, 경쟁 서비스 분석, 일정과 인력 계획까지 들어갑니다. 이 수업에서는 <b>그 모든 항목을 작성하지 않습니다.</b></span><span class="zh">真实公司的 PRD 里连市场调查、竞品分析、日程与人力计划都有。这门课<b>不写那全部项目</b>。</span></p>
-      <p><span class="ko">처음 서비스를 만드는 학생이 자신의 생각을 AI에게 설명하고 결과를 검토할 수 있도록, 꼭 필요한 항목만 담은 <b>수업용 간소화 PRD</b>를 작성합니다.</span><span class="zh">为了让第一次做服务的学生能向 AI 说明自己的想法并检查结果，我们只写装了必要项目的<b>课堂用简化 PRD</b>。</span></p>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">평가에서 보는 것</span><span class="zh">评价看的是什么</span></div>
-      <p><span class="ko">수행평가 2에서는 <b>전문 용어를 많이 사용했는지</b>를 보지 않습니다. <b>각 항목이 서로 맞게 연결되는지</b>를 확인합니다.</span><span class="zh">实作评价 2 不看<b>你用了多少专业术语</b>，而是确认<b>各个项目之间是否彼此吻合</b>。</span></p>
-      <p><span class="ko">사용자가 “시험 전날 외울 것을 고르기 어려운 학생”인데 핵심 기능이 “친구와 사진 공유하기”라면, 용어를 아무리 잘 써도 어긋난 문서입니다.</span><span class="zh">用户写的是“考试前一天难以决定先背什么的学生”，核心功能却是“和朋友分享照片”——术语用得再好，这份文档也是错位的。</span></p>
-    </div>
-
-    <p><span class="ko">오늘 배우는 1~9절의 항목이 그대로 PRD의 항목이 됩니다. 다음 차시에 그 항목을 하나씩 문서에 옮겨 적습니다.</span><span class="zh">今天学的第 1~9 节，各项就是 PRD 的各项。下一课时把它们一项项抄进文档。</span></p>
-  </section>
-
-  <!-- ══════════ 1 ══════════ -->
-  <section class="page" id="s1">
-    <div class="kick"><span class="ko">1. 출발점</span><span class="zh">1. 出发点</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">익숙한 불편이나 관심사에서 시작한다</span><span class="zh">从熟悉的不便或兴趣出发</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">처음부터 새로운 사업이나 거대한 문제를 찾을 필요는 없습니다. 자신이 자주 하는 일, 기록하고 싶은 것, 비교하고 싶은 것과 <b>반복되는 작은 불편</b>에서 시작합니다.</span><span class="zh">不必一上来就找新事业或宏大问题。从自己常做的事、想记录的事、想比较的事，以及<b>反复出现的小不便</b>出发。</span></p>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:46%"><span class="ko">이런 데서 나온다</span><span class="zh">它从这里来</span></th><th><span class="ko">서비스가 될 수 있는 모습</span><span class="zh">可能长成的服务</span></th></tr>
-      <tr><td><span class="ko">매일 할 일을 자꾸 잊는다</span><span class="zh">每天要做的事老是忘</span></td><td><span class="ko">오늘 할 일을 짧게 적고 완료 여부를 확인한다</span><span class="zh">把今天要做的事简短记下，并确认有没有完成</span></td></tr>
-      <tr><td><span class="ko">읽은 책이 기억나지 않는다</span><span class="zh">读过的书记不住</span></td><td><span class="ko">읽은 책과 감상을 남기고 다시 찾아본다</span><span class="zh">留下读过的书和感想，之后还能找回来</span></td></tr>
-      <tr><td><span class="ko">글의 첫 문장이 떠오르지 않는다</span><span class="zh">作文的第一句想不出来</span></td><td><span class="ko">입력한 단어를 이용해 이야기 소재를 얻는다</span><span class="zh">用输入的词得到故事的素材</span></td></tr>
-      <tr><td><span class="ko">무엇부터 외울지 정하기 어렵다</span><span class="zh">不知道该先背什么</span></td><td><span class="ko">공부할 항목을 정리하고 무작위로 하나를 골라 연습한다</span><span class="zh">把要学的项目整理好，随机抽一个来练</span></td></tr>
-    </table>
-    </div>
-
-    <p><span class="ko">이미 있는 서비스와 비슷해도 괜찮습니다. 이 수업에서는 아이디어의 새로움보다 <b>만들 범위를 이해하고 설명할 수 있는지</b>가 더 중요합니다.</span><span class="zh">和已有的服务相似也没关系。这门课看重的不是创意有多新，而是<b>你是否理解并说得清要做的范围</b>。</span></p>
+<figure class="fig"><img class="figimg" src="../../assets/img/06-1-08-powershell-code.png" alt="Windows의 VS Code 아래쪽 터미널(PowerShell)에 code 등록 명령을 붙여 넣어 실행한 화면. 마지막 줄에 「완료: code 명령과 탐색기 오른쪽 클릭 메뉴를 등록했습니다. VS Code를 닫았다가 다시 여세요.」가 보인다." data-id="06-1-08-powershell-code" data-spec="가로 16:9 · VS Code 터미널 · 명령 붙여 넣기와 완료 줄" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-2. 붙여 넣은 명령이 실행되고 마지막 줄에 「완료」가 나온다.</span><span class="zh">图 6-1-2. 粘贴的命令运行完毕，最后一行出现「完成」。</span></figcaption></figure>
+<p><span class="ko"><b>완료</b>가 나오면 VS Code를 모두 닫았다가 다시 열고 <code>code --version</code>을 다시 확인합니다. 탐색기의 <b>Code(으)로 열기</b>는 Windows 11에서 오른쪽 클릭 메뉴의 <b>추가 옵션 표시</b> 안에 있습니다.</span><span class="zh">出现<b>完成</b>后，关掉所有 VS Code 窗口再重新打开，再确认一次 <code>code --version</code>。在 Windows 11 里，资源管理器的 <b class="keep-ko">Code(으)로 열기</b> 在右键菜单的 <b class="keep-ko">추가 옵션 표시</b>（显示更多选项）里。</span></p>
 </section>
 
-<section class="page" id="s1_2">
-<div class="kick"><span class="ko">1. 출발점</span><span class="zh">1. 出发点</span><b>6-1</b></div><h2 class="title"><span class="ko">익숙한 불편이나 관심사에서 시작한다</span><span class="zh">从熟悉的不便或兴趣出发</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-<div class="note ok">
-      <div class="nt"><span class="ko">“이미 있는 건데요?”</span><span class="zh">“这不是已经有了吗？”</span></div>
-      <p><span class="ko">할 일 목록 앱은 세상에 수천 개가 있습니다. 그래도 괜찮습니다. 평가하는 것은 <b>세상에 없던 것을 생각해 냈는가</b>가 아니라 <b>내가 만들 것을 내가 설명할 수 있는가</b>입니다.</span><span class="zh">待办清单 App 世上有好几千个。也没关系。评价的不是<b>你想出了世上没有的东西</b>，而是<b>你能不能说明自己要做的东西</b>。</span></p>
-      <p><span class="ko">오히려 흔한 주제가 유리합니다. 무엇이 필요한지 이미 알고 있으므로 사용자와 흐름을 적기 쉽습니다.</span><span class="zh">反倒是常见的题目更有利。你已经知道需要什么，用户和流程都好写。</span></p>
-    </div>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">피하는 것이 좋은 출발점</span><span class="zh">最好避开的出发点</span></div>
-      <ul class="blist">
-        <li><span class="ko">친구나 가족의 <b>실제 개인정보</b>를 모아야 하는 아이디어</span><span class="zh">需要收集朋友或家人<b>真实个人信息</b>的点子</span></li>
-        <li><span class="ko">돈을 주고받거나 <b>결제</b>가 필요한 아이디어</span><span class="zh">要收付钱、需要<b>支付</b>的点子</span></li>
-        <li><span class="ko">여러 사람이 동시에 접속해 <b>실시간으로 주고받아야</b> 하는 아이디어</span><span class="zh">多人同时连线、要<b>实时来回传递</b>的点子</span></li>
-      </ul>
-      <p><span class="ko">재미없어서가 아니라, 한 학기 안에 안전하게 완성하기 어렵기 때문입니다.</span><span class="zh">不是因为不好玩，而是一个学期内很难安全地做完。</span></p>
-    </div>
-  
-</section><section class="page" id="s1w">
-<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>6-1</b></div><h2 class="title"><span class="ko">내가 자주 겪는 불편 세 가지</span><span class="zh">我常遇到的三个不便</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">앞 표처럼 자기 것으로 세 줄 적습니다. 새로운 것을 찾지 말고 <b>이번 주에 실제로 겪은 것</b>에서 고릅니다.</span><span class="zh">像前面的表格那样，写下自己的三行。不用去找新点子，从<b>这周实际遇到的事</b>里挑。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th>#</th><th><span class="ko">자주 겪는 불편·관심</span><span class="zh">常遇到的不便·关心的事</span></th><th><span class="ko">서비스가 된다면 어떤 모습</span><span class="zh">做成服务会是什么样</span></th></tr></thead><tbody><tr><td>1</td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td>2</td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td>3</td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="note"><p><span class="ko">셋 중 하나에 동그라미를 칩니다. <b>그 하나로 오늘 끝까지 갑니다.</b> 마음에 안 들면 다음 시간 시작에 바꿔도 됩니다.</span><span class="zh">在三个里圈出一个。<b>今天就用这一个走到最后。</b>如果不满意，下节课开始时还可以换。</span></p></div>
-</section>  <!-- ══════════ 2 ══════════ -->
-  <section class="page" id="s2">
-    <div class="kick"><span class="ko">2. 사용자</span><span class="zh">2. 用户</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">사용자는 상황과 함께 표현한다</span><span class="zh">用户要连同情境一起写</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <div class="term">
-      <div class="term-h"><span class="ko"><span class="w">사용자</span><span class="en">user</span></span><span class="zh"><span class="w">用户</span><span class="en">user</span></span></div>
-      <dl>
-        <dt><span class="ko">현상</span><span class="zh">现象</span></dt>
-        <dd><span class="ko">같은 지도 앱이라도 배달하는 사람과 여행 온 사람은 서로 다른 화면을 원합니다. 한쪽은 도착 시간이, 다른 쪽은 주변 볼거리가 먼저 보이기를 바랍니다.</span><span class="zh">同样一个地图 App，送外卖的人和来旅游的人想看的画面并不一样。一边希望先看到到达时间，另一边希望先看到周边景点。</span></dd>
-        <dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt>
-        <dd><span class="ko">서비스를 <b>실제로 열어서 쓰는 사람</b>입니다. 만든 사람이 아니라 쓰는 사람 쪽입니다.</span><span class="zh">就是<b>真的打开来用这个服务的人</b>。不是做的人，是用的人这一边。</span></dd>
-        <dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt>
-        <dd class="def"><span class="ko">특정한 목적을 가지고 특정한 상황에서 서비스를 이용하는 사람. 서비스의 기능과 화면은 이 사람의 목적과 상황을 기준으로 정해진다.</span><span class="zh">带着特定目的、在特定情境下使用服务的人。服务的功能与画面，以这个人的目的和情境为准来决定。</span></dd>
-        <dt><span class="ko">경계</span><span class="zh">边界</span></dt>
-        <dd><span class="ko"><b>고객</b>은 돈을 내는 사람이고 <b>사용자</b>는 쓰는 사람입니다. 둘이 다를 때도 많습니다. 이 수업에서는 돈을 다루지 않으므로 <b>사용자</b>만 생각합니다.</span><span class="zh"><b>顾客</b>是付钱的人，<b>用户</b>是使用的人，两者常常不是同一个人。这门课不涉及钱，所以只考虑<b>用户</b>。</span></dd>
-        <dt><span class="ko">문장 속 사용</span><span class="zh">例句</span></dt>
-        <dd><span class="ko">“이 서비스의 사용자는 시험 전날 외울 것을 고르기 어려운 학생이다.”</span><span class="zh">“这个服务的用户，是考试前一天难以决定先背什么的学生。”</span></dd>
-      </dl>
-    </div>
-
-    <p><span class="ko">“모든 사람”이나 “학생”처럼 넓게 적으면 필요한 기능을 고를 수 없습니다. <b>누가 언제 사용하는지</b>를 함께 적어야 무엇을 만들지 정해집니다. 전문적인 사용자 조사나 페르소나 문서는 만들지 않습니다.</span><span class="zh">写成“所有人”或“学生”这样宽泛的说法，就挑不出该做哪些功能。要把<b>谁在什么时候用</b>一起写上，要做什么才定得下来。我们不做专业的用户调研，也不写人物角色文档。</span></p>
-  </section>
-
-  <section class="page" id="s2_2">
-    <div class="kick"><span class="ko">2. 사용자</span><span class="zh">2. 用户</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">사용자는 상황과 함께 표현한다</span><span class="zh">用户要连同情境一起写</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="row">
-      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
-        <div class="pt" style="color:var(--danger)"><span class="ko">이렇게 적으면 정해지는 것이 없다</span><span class="zh">这样写，什么都定不下来</span></div>
-        <ul class="blist">
-          <li><span class="ko">모든 사람</span><span class="zh">所有人</span></li>
-          <li><span class="ko">학생</span><span class="zh">学生</span></li>
-          <li><span class="ko">바쁜 현대인</span><span class="zh">忙碌的现代人</span></li>
-        </ul>
-      </div>
-      <div class="pane okp">
-        <div class="pt"><span class="ko">상황이 함께 있다</span><span class="zh">情境也在里面</span></div>
-        <ul class="blist">
-          <li><span class="ko">이야기의 첫 문장을 떠올리기 어려울 때 소재가 필요한 학생</span><span class="zh">想不出故事第一句、需要素材的学生</span></li>
-          <li><span class="ko">오늘 해야 할 일을 잊지 않도록 한곳에 적고 싶은 학생</span><span class="zh">想把今天要做的事记在一处、别忘掉的学生</span></li>
-          <li><span class="ko">수업에서 배운 단어를 짧게 확인하고 싶은 학생</span><span class="zh">想快速确认课上学过的单词的学生</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <p><span class="ko">오른쪽 문장에는 모두 <b>언제</b>가 들어 있습니다. “이야기의 첫 문장을 떠올리기 어려울 때”, “오늘 해야 할 일을 잊지 않도록”. 이 부분이 있어야 다음 단계에서 화면에 무엇을 놓을지 정할 수 있습니다.</span><span class="zh">右边这些句子里都有<b>什么时候</b>。“想不出故事第一句时”“为了别忘掉今天要做的事”。有这一部分，下一步才定得了画面上该放什么。</span></p>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">친구를 조사하지 않습니다</span><span class="zh">不去调查朋友</span></div>
-      <p><span class="ko">사용자를 정한다고 해서 친구의 개인정보를 묻거나 설문을 돌릴 필요는 없습니다. <b>가상의 사용자</b>나 <b>자신이 잘 아는 일반적인 상황</b>을 사용합니다.</span><span class="zh">定用户，并不需要打听朋友的个人信息或发问卷。用<b>虚拟的用户</b>，或<b>自己很熟悉的一般情境</b>。</span></p>
-    </div>
-  </section>
-
-<section class="page" id="s2w">
-<div class="kick"><span class="ko">워크시트 ①</span><span class="zh">工作表 ①</span><b>6-1</b></div><h2 class="title"><span class="ko">넓은 문장을 상황이 든 문장으로</span><span class="zh">把宽泛的句子改成带情境的句子</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ①</span><span class="wst"><span class="ko">사용자 문장 고치기</span><span class="zh">修改用户句子</span></span></div><p class="wslead"><span class="ko">왼쪽은 앞에서 본 넓은 문장입니다. <b>언제</b>가 들어가도록 고쳐 씁니다. 네 번째 줄은 내 서비스의 사용자로 적습니다.</span><span class="zh">左边是前面看过的宽泛句子。改写成含有<b>什么时候</b>的句子。第四行写自己服务的用户。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">넓은 문장</span><span class="zh">宽泛的句子</span></th><th><span class="ko">상황을 넣어 고쳐 쓴 문장</span><span class="zh">加入情境后改写的句子</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">모든 사람</span><span class="zh">所有人</span></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">학생</span><span class="zh">学生</span></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">바쁜 현대인</span><span class="zh">忙碌的现代人</span></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko">← 여기는 내 서비스의 사용자</span><span class="zh">← 这一行写自己服务的用户</span></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">고친 문장 셋에 모두 「언제」가 들어 있다.</span><span class="zh">改写的三句里都有「什么时候」。</span></li><li><span class="ko">네 번째 줄을 내 서비스의 사용자로 적었다.</span><span class="zh">第四行写的是自己服务的用户。</span></li></ul></div></div>
-</section>  <!-- ══════════ 3 ══════════ -->
-  <section class="page" id="s3">
-    <div class="kick"><span class="ko">3. 목적</span><span class="zh">3. 目的</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">서비스 목적을 한 문장으로 정한다</span><span class="zh">把服务目的定成一句话</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">사용자를 정했으면 <b>그 사용자가 무엇을 할 수 있게 되는지</b>를 한 문장으로 적습니다. 다음 틀을 그대로 사용합니다.</span><span class="zh">定好用户之后，把<b>那位用户将能做到什么</b>写成一句话。直接套用下面的模板。</span></p>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">한 문장 정의 틀</span></span><span class="zh"><span class="fn">一句话定义模板</span></span></div>
-      <pre><code>나는 ___한 사용자가 ___할 수 있도록 돕는 ___을 만든다.</code></pre>
-    </div>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">채워 넣은 예</span></span><span class="zh"><span class="fn">填好的例子</span></span></div>
-      <pre><code>나는 이야기 시작이 어려운 학생이
-단어를 조합해 이야기 소재를 얻도록 돕는
-웹 도구를 만든다.</code></pre>
-    </div>
-
-    <p><span class="ko">이 한 문장만 읽어도 <b>사용자</b>, <b>하는 일</b>과 <b>결과</b>를 알 수 있어야 합니다. 세 칸이 각각 그 셋에 해당합니다.</span><span class="zh">光读这一句，就该知道<b>用户</b>、<b>做的事</b>和<b>结果</b>。三个空格正好对应这三样。</span></p>
-
-    <div class="vflow">
-      <div class="vf"><span class="ko"><b>첫째 칸 — 사용자</b><span>이야기 시작이 어려운 학생</span></span><span class="zh"><b>第一格 — 用户</b><span>难以开始写故事的学生</span></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>둘째 칸 — 사용자가 하는 일과 얻는 것</b><span>단어를 조합해 이야기 소재를 얻는다</span></span><span class="zh"><b>第二格 — 用户做的事与得到的东西</b><span>组合词语，得到故事素材</span></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>셋째 칸 — 내가 만드는 것</b><span>웹 도구</span></span><span class="zh"><b>第三格 — 我要做的东西</b><span>网页小工具</span></span></div>
-    </div>
-  </section>
-
-  <section class="page" id="s3_2">
-    <div class="kick"><span class="ko">3. 목적</span><span class="zh">3. 目的</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">서비스 목적을 한 문장으로 정한다</span><span class="zh">把服务目的定成一句话</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">확인할 수 없는 말로 채우지 않습니다</span><span class="zh">不要用无法确认的词来填</span></div>
-      <p><span class="ko">“편리한 앱”, “재미있는 서비스”, “혁신적인 플랫폼” 같은 표현은 <b>다 만든 뒤에 맞는지 확인할 방법이 없습니다.</b> 편리한지 아닌지는 사람마다 다르기 때문입니다.</span><span class="zh">“方便的 App”“有趣的服务”“创新的平台”这类说法，<b>做完之后没办法确认对不对</b>。方便不方便，因人而异。</span></p>
-      <p><span class="ko">반대로 “단어를 조합해 이야기 소재를 얻는다”는 실행해 보면 됩니다. 소재가 나오면 맞고, 안 나오면 아직 안 된 것입니다.</span><span class="zh">反过来，“组合词语，得到故事素材”跑一下就知道了。出得来素材就对了，出不来就是还没做到。</span></p>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">이 문장을 왜 이렇게 공들여 쓰는가</span><span class="zh">为什么要这么费心写这一句</span></div>
-      <p><span class="ko">10회부터 AI에게 서비스를 만들어 달라고 요청할 때, <b>이 문장이 요청문의 첫 줄</b>이 됩니다. 그리고 결과물을 받았을 때 “이게 맞나?”를 판단하는 기준도 이 문장입니다.</span><span class="zh">从第 10 次课起向 AI 请求做服务时，<b>这句话就是请求文的第一行</b>。拿到成果时，判断“这对吗？”的标准也是这一句。</span></p>
-      <p><span class="ko">5-1에서 AI 요청문에 조건을 갖춰 적었던 것과 같은 이유입니다. 조건이 흐릿하면 결과도 흐릿합니다.</span><span class="zh">这和 5-1 里给 AI 请求文配齐条件是同一个道理。条件模糊，结果也模糊。</span></p>
-    </div>
-  </section>
-
-<section class="page" id="s3w">
-<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>6-1</b></div><h2 class="title"><span class="ko">내 서비스의 목적 한 문장</span><span class="zh">我的服务目的一句话</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">앞의 틀을 그대로 씁니다. 세 칸을 채우면 오늘 가장 중요한 한 줄이 나옵니다.</span><span class="zh">直接用前面的模板。填满三格，就写出了今天最重要的一行。</span></p><div class="quote"><p><span class="ko">나는 <b>__________________</b>한 사용자가<br/><b>__________________</b>할 수 있도록 돕는<br/><b>__________________</b>을 만든다.</span><span class="zh">我要做一个 <b>__________________</b>，<br/>帮助 <b>__________________</b> 的用户<br/>能够 <b>__________________</b>。</span></p></div><ul class="blist"><li><span class="ko">첫째 칸은 <b>사용자</b>. 「언제」가 들어 있어야 합니다.</span><span class="zh">第一格是<b>用户</b>，要含有「什么时候」。</span></li><li><span class="ko">둘째 칸은 <b>사용자가 하는 일과 얻는 것</b>.</span><span class="zh">第二格是<b>用户做什么、得到什么</b>。</span></li><li><span class="ko">셋째 칸은 <b>내가 만드는 것</b>.</span><span class="zh">第三格是<b>我要做的东西</b>。</span></li></ul><div class="warn"><p><span class="ko">「편리한」·「재미있는」·「혁신적인」이 들어갔다면 지웁니다. 다 만든 뒤에 맞는지 확인할 방법이 없는 말입니다.</span><span class="zh">如果写进了「方便的」「有趣的」「创新的」，就删掉。这些词做完之后没办法验证。</span></p></div>
-</section>  <!-- ══════════ 4 ══════════ -->
-  <section class="page" id="s4">
-    <div class="kick"><span class="ko">4. 사용 흐름</span><span class="zh">4. 使用流程</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">대표 사용 흐름은 하나만 정한다</span><span class="zh">代表性使用流程只定一条</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">사용자가 <b>가장 중요하게 이용할 상황 하나</b>를 골라 3~4단계로 적습니다. 모든 화면과 예외 상황을 미리 정할 필요는 없습니다.</span><span class="zh">挑出用户<b>最看重的那一种情境</b>，写成 3~4 步。不必事先把所有画面和例外情况都定下来。</span></p>
-
-    <div class="vflow">
-      <div class="vf plain"><span class="ko"><b>① 서비스를 연다</b></span><span class="zh"><b>① 打开服务</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>② 값을 입력하거나 선택한다</b></span><span class="zh"><b>② 输入或选择值</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>③ 핵심 기능을 실행한다</b></span><span class="zh"><b>③ 执行核心功能</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>④ 결과를 확인한다</b></span><span class="zh"><b>④ 确认结果</b></span></div>
-    </div>
-
-    <h3 class="sub"><span class="ko">이야기 소재 도구의 경우</span><span class="zh">以故事素材工具为例</span></h3>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th class="c" style="width:56px"><span class="ko">단계</span><span class="zh">步骤</span></th><th style="width:44%"><span class="ko">사용자가 하는 일</span><span class="zh">用户做的事</span></th><th><span class="ko">화면에서 확인하는 결과</span><span class="zh">在画面上确认到的结果</span></th></tr>
-      <tr><td class="c">1</td><td><span class="ko">서비스를 연다.</span><span class="zh">打开服务。</span></td><td><span class="ko">무엇을 하는 곳인지 한 줄 안내가 보인다.</span><span class="zh">看到一行说明，知道这是做什么的地方。</span></td></tr>
-      <tr><td class="c">2</td><td><span class="ko">단어 세 개를 입력한다.</span><span class="zh">输入三个词。</span></td><td><span class="ko">입력한 단어가 칸에 보인다.</span><span class="zh">输入的词显示在框里。</span></td></tr>
-      <tr><td class="c">3</td><td><span class="ko">‘만들기’ 버튼을 누른다.</span><span class="zh">按下“生成”按钮。</span></td><td>—</td></tr>
-      <tr><td class="c">4</td><td><span class="ko">결과를 읽는다.</span><span class="zh">读结果。</span></td><td><span class="ko">단어를 이용한 이야기 소재 한 개가 나타난다.</span><span class="zh">出现一条用这些词写成的故事素材。</span></td></tr>
-    </table>
-    </div>
-  </section>
-
-  <section class="page" id="s4_2">
-    <div class="kick"><span class="ko">4. 사용 흐름</span><span class="zh">4. 使用流程</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">대표 사용 흐름은 하나만 정한다</span><span class="zh">代表性使用流程只定一条</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="note">
-      <div class="nt"><span class="ko">흐름을 쓰면 빠진 것이 보입니다</span><span class="zh">一写流程，缺的东西就露出来了</span></div>
-      <p><span class="ko">위 표를 쓰다 보면 “입력한 단어를 지우려면?”, “한 번 더 만들려면?” 같은 질문이 떠오릅니다. 그런 것들이 바로 <b>보조 기능 후보</b>입니다. 다음 절에서 다룹니다.</span><span class="zh">写上面这张表时，“想删掉输入的词怎么办？”“想再生成一次怎么办？”之类的问题会冒出来。那些正是<b>辅助功能的候选</b>。下一节会讲。</span></p>
-      <p><span class="ko">반대로 흐름을 쓰지 않으면 이런 질문 자체가 떠오르지 않습니다. 그래서 만들다가 멈춥니다.</span><span class="zh">反过来，不写流程，这些问题根本不会冒出来。于是做到一半就卡住。</span></p>
-    </div>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">흐름을 여러 개 적지 않습니다</span><span class="zh">不要写好几条流程</span></div>
-      <p><span class="ko">“관리자가 들어오면”, “처음 온 사람이면”, “로그인한 사람이면” 같은 갈래를 늘리지 않습니다. <b>가장 중요한 흐름 하나</b>만 정확하게 적습니다. 그 하나가 작동해야 나머지도 의미가 있습니다.</span><span class="zh">不要去增加“管理员进来时”“第一次来的人”“已登录的人”这些分支。只把<b>最重要的那一条流程</b>写准确。那一条能跑起来，其余才有意义。</span></p>
-    </div>
-  </section>
-
-<section class="page" id="s4w">
-<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>6-1</b></div><h2 class="title"><span class="ko">내 서비스의 흐름 네 단계</span><span class="zh">我的服务流程四步</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">앞의 이야기 소재 도구 표와 같은 모양으로 적습니다. <b>가장 중요한 흐름 하나만</b> 적습니다.</span><span class="zh">按前面故事素材工具那张表的样子写。<b>只写最重要的那一条流程</b>。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">단계</span><span class="zh">步骤</span></th><th><span class="ko">사용자가 하는 일</span><span class="zh">用户做什么</span></th><th><span class="ko">화면에서 확인하는 결과</span><span class="zh">在画面上看到的结果</span></th></tr></thead><tbody><tr><td>1</td><td><span class="ko">서비스를 연다.</span><span class="zh">打开服务。</span></td><td class="wsblank"></td></tr><tr><td>2</td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td>3</td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td>4</td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="note"><p><span class="ko">적다가 「이건 어떻게 하지?」 하는 질문이 떠오르면 표 옆에 적어 둡니다. 그게 다음 절에서 다룰 <b>보조 기능 후보</b>입니다.</span><span class="zh">写的时候如果冒出「这个该怎么办」的疑问，就记在表旁边。那就是下一节要讲的<b>辅助功能候选</b>。</span></p></div>
-</section>  <!-- ══════════ 5 ══════════ -->
-  <section class="page" id="s5">
-    <div class="kick"><span class="ko">5. 범위</span><span class="zh">5. 范围</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">핵심 기능 하나를 중심으로 범위를 줄인다</span><span class="zh">以一个核心功能为中心，把范围缩小</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">이 수업 프로젝트의 기본 범위는 다음과 같습니다. 이보다 크게 잡지 않습니다.</span><span class="zh">这门课项目的基本范围如下。不要比它更大。</span></p>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:46%"><span class="ko">항목</span><span class="zh">项目</span></th><th class="c"><span class="ko">개수</span><span class="zh">个数</span></th></tr>
-      <tr><td><span class="ko"><b>핵심 기능</b> — 반드시 작동해야 하는 기능</span><span class="zh"><b>核心功能</b> — 必须能运行的功能</span></td><td class="c"><span class="ko"><b>1개</b></span><span class="zh"><b>1 个</b></span></td></tr>
-      <tr><td><span class="ko"><b>보조 기능</b> — 핵심 기능을 돕는 기능</span><span class="zh"><b>辅助功能</b> — 帮助核心功能的功能</span></td><td class="c"><span class="ko">최대 2개</span><span class="zh">最多 2 个</span></td></tr>
-      <tr><td><span class="ko"><b>대표 사용 흐름</b></span><span class="zh"><b>代表性使用流程</b></span></td><td class="c"><span class="ko">1개</span><span class="zh">1 条</span></td></tr>
-      <tr><td><span class="ko"><b>화면 구성 설명</b> — 핵심 기능이 이루어지는 화면</span><span class="zh"><b>画面构成说明</b> — 核心功能发生的那个画面</span></td><td class="c"><span class="ko">1개</span><span class="zh">1 个</span></td></tr>
-    </table>
-    </div>
-
-    <h3 class="sub"><span class="ko">할 일 기록 서비스의 예</span><span class="zh">以待办记录服务为例</span></h3>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:110px"><span class="ko">구분</span><span class="zh">类别</span></th><th style="width:44%"><span class="ko">기능</span><span class="zh">功能</span></th><th><span class="ko">사용자가 얻는 결과</span><span class="zh">用户得到的结果</span></th></tr>
-      <tr><td><span class="ko"><b>핵심</b></span><span class="zh"><b>核心</b></span></td><td><span class="ko">할 일을 적고 목록에서 확인한다</span><span class="zh">写下要做的事，并在列表里确认</span></td><td><span class="ko">적은 것이 목록에 남아 다시 보인다</span><span class="zh">写下的内容留在列表里，还能再看到</span></td></tr>
-      <tr><td><span class="ko">보조 1</span><span class="zh">辅助 1</span></td><td><span class="ko">완료 표시를 한다</span><span class="zh">做完成标记</span></td><td><span class="ko">끝낸 것과 남은 것이 구분된다</span><span class="zh">做完的和没做的区分开</span></td></tr>
-      <tr><td><span class="ko">보조 2</span><span class="zh">辅助 2</span></td><td><span class="ko">분류를 붙인다</span><span class="zh">加上分类</span></td><td><span class="ko">학교·집처럼 나눠서 볼 수 있다</span><span class="zh">可以按学校、家里这样分开看</span></td></tr>
-    </table>
-    </div>
-  </section>
-
-  <section class="page" id="s5_2">
-    <div class="kick"><span class="ko">5. 범위</span><span class="zh">5. 范围</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">핵심 기능 하나를 중심으로 범위를 줄인다</span><span class="zh">以一个核心功能为中心，把范围缩小</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">기본 범위에서 제외하는 것</span><span class="zh">基本范围里排除的东西</span></div>
-      <p><span class="ko"><b>로그인, 결제, 실시간 채팅, 외부 생성형 AI API 연결, 복잡한 관리자 기능</b>은 이번 수업에서 만들지 않습니다.</span><span class="zh"><b>登录、支付、实时聊天、连接外部生成式 AI API、复杂的管理员功能</b>，这门课都不做。</span></p>
-      <p><span class="ko">어렵기만 해서가 아닙니다. 로그인은 남의 비밀번호를 <b>안전하게 보관할 책임</b>을 지는 일이고, 결제는 <b>돈</b>을 다루는 일입니다. 한 학기 수업에서 책임질 수 있는 범위를 넘어섭니다.</span><span class="zh">不只是因为难。登录意味着要担起<b>安全保管别人密码</b>的责任，支付则是在动<b>钱</b>。这超出一个学期的课能承担的范围。</span></p>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">기능이 많다고 좋은 기획이 아닙니다</span><span class="zh">功能多不等于策划好</span></div>
-      <p><span class="ko">기능 하나가 <b>끝까지 작동하는</b> 서비스가, 기능 다섯 개가 <b>절반씩 작동하는</b> 서비스보다 낫습니다. 13회에 제출할 창작물도 같은 기준으로 봅니다.</span><span class="zh">一个功能<b>从头跑到尾</b>的服务，胜过五个功能<b>各跑一半</b>的服务。第 13 次课要交的作品也按同一标准看。</span></p>
-      <p><span class="ko">5-1에서 “정확한 그래프 한 개가 여러 개보다 낫다”라고 했던 것과 같은 원칙입니다.</span><span class="zh">这和 5-1 说过的“准确的一张图胜过很多张”是同一条原则。</span></p>
-    </div>
-
-    <div class="mysay">
-      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
-      <p><span class="ko">내 아이디어에서 <b>이것 하나가 안 되면 서비스라고 할 수 없는</b> 기능은 무엇인가요? 한 문장으로 적어 보세요.</span><span class="zh">在我的点子里，<b>少了它就不能叫这个服务</b>的功能是哪一个？请用一句话写下来。</span></p>
-    </div>
-  </section>
-
-<section class="page" id="s5w">
-<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>6-1</b></div><h2 class="title"><span class="ko">내 서비스의 핵심 기능 하나</span><span class="zh">我的服务的一个核心功能</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko"><b>핵심 줄만 반드시 채웁니다.</b> 보조는 비워 둬도 됩니다. 이번 시간에 못 정하면 다음 시간에 정해도 됩니다.</span><span class="zh"><b>只有核心那一行必须填。</b>辅助可以空着。这节课定不下来，下节课再定也行。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">구분</span><span class="zh">分类</span></th><th><span class="ko">기능</span><span class="zh">功能</span></th><th><span class="ko">사용자가 얻는 결과</span><span class="zh">用户得到的结果</span></th></tr></thead><tbody><tr><td><span class="ko">핵심</span><span class="zh">核心</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td><span class="ko">보조 1</span><span class="zh">辅助 1</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td><span class="ko">보조 2</span><span class="zh">辅助 2</span></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="warn"><p><span class="ko"><b>이것 하나가 안 되면 서비스라고 할 수 없는 기능</b>이 핵심입니다. 핵심 줄에 두 가지가 적혀 있으면 하나를 보조로 내립니다.</span><span class="zh"><b>少了它就称不上服务的那个功能</b>就是核心。如果核心那行写了两件事，把其中一件降为辅助。</span></p></div>
-</section>  <!-- ══════════ 6 ══════════ -->
-  <section class="page" id="s6">
-    <div class="kick"><span class="ko">6. 입력과 결과</span><span class="zh">6. 输入与结果</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">사용자가 무엇을 주고 무엇을 받는지 정한다</span><span class="zh">先定用户给什么、得到什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">기술이나 코드를 정하기 전에 <b>입력</b>과 <b>결과</b>를 먼저 적습니다. 코드를 읽을 때 입력·처리·출력을 짚는 것과 같은 방식입니다.</span><span class="zh">在定技术或代码之前，先写<b>输入</b>和<b>结果</b>。这和读代码时点出输入、处理、输出是同一种做法。</span></p>
-
-    <div class="iot">
-      <div class="b"><div class="h"><span class="ko">입력</span><span class="zh">输入</span></div><p><span class="ko">단어 세 개</span><span class="zh">三个词</span></p></div>
-      <div class="b"><div class="h"><span class="ko">처리</span><span class="zh">处理</span></div><p><span class="ko">단어를 이용해 이야기 소재 문장을 만든다</span><span class="zh">用这些词造出一句故事素材</span></p></div>
-      <div class="b"><div class="h"><span class="ko">출력</span><span class="zh">输出</span></div><p><span class="ko">이야기 소재 한 개</span><span class="zh">一条故事素材</span></p></div>
-    </div>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:46%"><span class="ko">질문</span><span class="zh">问题</span></th><th><span class="ko">예</span><span class="zh">例</span></th></tr>
-      <tr><td><span class="ko">사용자가 입력하거나 선택하는 것은 무엇인가?</span><span class="zh">用户输入或选择的是什么？</span></td><td><span class="ko">단어 세 개</span><span class="zh">三个词</span></td></tr>
-      <tr><td><span class="ko">어떤 동작을 하는가?</span><span class="zh">做什么动作？</span></td><td><span class="ko">‘만들기’ 버튼을 누른다</span><span class="zh">按下“生成”按钮</span></td></tr>
-      <tr><td><span class="ko">서비스가 보여 주는 결과는 무엇인가?</span><span class="zh">服务展示的结果是什么？</span></td><td><span class="ko">단어를 이용한 이야기 소재 한 개</span><span class="zh">一条用这些词写成的故事素材</span></td></tr>
-      <tr><td><span class="ko">입력이 비어 있으면 무엇을 알려 주는가?</span><span class="zh">输入为空时，告诉用户什么？</span></td><td><span class="ko">단어를 입력하라는 안내</span><span class="zh">提示请输入词语</span></td></tr>
-    </table>
-    </div>
-
-    <div class="note">
-      <div class="nt"><span class="ko">네 번째 줄을 빠뜨리지 마세요</span><span class="zh">不要漏掉第四行</span></div>
-      <p><span class="ko">“입력이 비어 있으면”은 <b>잘못된 입력에 대한 안내</b>입니다. 12회 테스트 차시에서 정상·경계·잘못된 입력을 넣어 볼 때, 이 줄이 있어야 무엇을 확인할지 정할 수 있습니다.</span><span class="zh">“输入为空时”指的是<b>对错误输入的提示</b>。第 12 次课测试时要试正常值、边界值和错误值，有这一行才知道该确认什么。</span></p>
-      <p><span class="ko">이 줄이 없으면 사용자는 버튼을 눌렀는데 아무 일도 일어나지 않는 화면을 보게 됩니다. 고장인지 아닌지도 알 수 없습니다.</span><span class="zh">没有这一行，用户按了按钮却看到什么都没发生的画面，连是不是坏了都不知道。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 7 ══════════ -->
-  <section class="page" id="s7">
-    <div class="kick"><span class="ko">7. 화면</span><span class="zh">7. 画面</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">화면은 그림 대신 글로 설명한다</span><span class="zh">画面不画图，用文字说明</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">이미지를 만들거나 화면을 그리지 않습니다. 핵심 기능이 이루어지는 <b>화면 하나</b>를 다음 여섯 질문에 따라 글로 설명합니다.</span><span class="zh">不做图片，也不画画面。把核心功能发生的<b>那一个画面</b>，按下面六个问题用文字说明。</span></p>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">화면 구성 설명 — 여섯 항목</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">画面构成说明 — 六个项目</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>화면 이름:
-화면을 처음 열면 보이는 내용:
-사용자가 입력하거나 선택하는 것:
-사용자가 누르는 것:
-동작한 뒤 나타나는 결과:
-입력이 없거나 잘못되었을 때 나타나는 안내:</code></pre>
-    </div>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">채워 넣은 예</span></span><span class="zh"><span class="fn">填好的例子</span></span></div>
-      <pre><code>화면 이름: 이야기 소재 만들기 화면
-화면을 처음 열면 보이는 내용:
-  제목 한 줄과 "단어 세 개를 넣어 보세요"라는 안내, 빈 입력칸 세 개
-사용자가 입력하거나 선택하는 것: 단어 세 개
-사용자가 누르는 것: 만들기 버튼
-동작한 뒤 나타나는 결과:
-  버튼 아래에 이야기 소재 한 문장이 나타난다
-입력이 없거나 잘못되었을 때 나타나는 안내:
-  "단어를 세 개 모두 입력해 주세요"라는 문장이 입력칸 아래에 나타난다</code></pre>
-    </div>
-  </section>
-
-  <section class="page" id="s7_2">
-    <div class="kick"><span class="ko">7. 화면</span><span class="zh">7. 画面</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">화면은 그림 대신 글로 설명한다</span><span class="zh">画面不画图，用文字说明</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">왜 그림을 그리지 않는가</span><span class="zh">为什么不画图</span></div>
-      <p><span class="ko">색과 글꼴, 버튼의 정확한 위치는 <b>개발 단계에서 AI가 만들고 사람이 확인</b>합니다. 지금 그림을 그리면 시간은 많이 쓰는데 정작 <b>무엇이 있어야 하는지</b>는 빠지기 쉽습니다.</span><span class="zh">颜色、字体、按钮的确切位置，都是<b>开发阶段由 AI 做、由人确认</b>的。现在画图，花不少时间，偏偏<b>该有什么</b>容易漏掉。</span></p>
-      <p><span class="ko">위의 여섯 줄은 AI에게 화면을 요청하는 <b>재료</b>이자, 만들어진 화면에 필요한 것이 다 들어갔는지 확인하는 <b>기준</b>입니다. 그림은 이 두 가지를 하지 못합니다.</span><span class="zh">上面那六行，既是向 AI 请求画面的<b>材料</b>，也是确认做出来的画面有没有装齐所需内容的<b>标准</b>。图做不到这两件事。</span></p>
-    </div>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">화면을 여러 개 설명하지 않습니다</span><span class="zh">不要说明好几个画面</span></div>
-      <p><span class="ko">설정 화면, 도움말 화면, 시작 화면을 각각 설명할 필요 없습니다. <b>핵심 기능이 일어나는 화면 하나</b>면 충분합니다.</span><span class="zh">设置画面、帮助画面、启动画面不必逐个说明。<b>核心功能发生的那一个画面</b>就够。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 8 ══════════ -->
-  <section class="page" id="s8">
-    <div class="kick"><span class="ko">8. 완성 기준</span><span class="zh">8. 完成标准</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">무엇을 보면 다 됐다고 할 수 있는가</span><span class="zh">看到什么才能说“做完了”</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">“잘 작동한다” 대신 <b>눈으로 확인할 수 있는 문장</b>을 2~3개 적습니다.</span><span class="zh">不写“运行良好”，而写 2~3 句<b>用眼睛就能确认的话</b>。</span></p>
-
-    <div class="row">
-      <div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)">
-        <div class="pt" style="color:var(--danger)"><span class="ko">확인할 수 없는 기준</span><span class="zh">无法确认的标准</span></div>
-        <ul class="blist">
-          <li><span class="ko">잘 작동한다</span><span class="zh">运行良好</span></li>
-          <li><span class="ko">사용하기 편하다</span><span class="zh">用起来方便</span></li>
-          <li><span class="ko">디자인이 깔끔하다</span><span class="zh">设计干净</span></li>
-          <li><span class="ko">속도가 빠르다</span><span class="zh">速度快</span></li>
-        </ul>
-      </div>
-      <div class="pane okp">
-        <div class="pt"><span class="ko">확인할 수 있는 기준</span><span class="zh">能够确认的标准</span></div>
-        <ul class="blist">
-          <li><span class="ko">단어를 입력하고 버튼을 누르면 결과가 나타난다</span><span class="zh">输入词语并按下按钮后，结果就出现</span></li>
-          <li><span class="ko">입력이 비어 있으면 입력 안내가 나타난다</span><span class="zh">输入为空时，出现输入提示</span></li>
-          <li><span class="ko">처음 화면을 보고 무엇을 해야 하는지 알 수 있다</span><span class="zh">看第一眼的画面就知道该做什么</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <p><span class="ko">오른쪽 문장들은 모두 <b>해 보면 판정이 나옵니다.</b> 버튼을 눌러 보면 결과가 나오거나 안 나오거나 둘 중 하나입니다. 왼쪽 문장들은 열 사람이 열 가지로 답합니다.</span><span class="zh">右边这些句子<b>做一下就有判定</b>。按一下按钮，结果要么出来要么不出来。左边那些，十个人会有十种答案。</span></p>
+<section class="page" id="s0b">
+<div class="kick"><span class="ko">준비</span><span class="zh">准备</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">06 폴더를 열고 메모 파일을 준비한다</span><span class="zh">打开 06 文件夹，准备好备忘文件</span></h2>
+<p class="lead"><span class="ko">오늘 쓰는 글은 모두 <code>06</code> 폴더의 <code>기획_메모.md</code> 파일에 적습니다. 자료를 내려받아 VS Code로 폴더를 엽니다.</span><span class="zh">今天写的内容，都写在 <code>06</code> 文件夹的 <code class="keep-ko">기획_메모.md</code>（规划备忘）文件里。下载资料，用 VS Code 打开文件夹。</span></p>
+<div class="folder-download-row"><a class="download-cta" href="../../downloads/06_student_files.zip" download><span class="download-icon" aria-hidden="true">↓</span><span><b class="ko">06 학생용 자료 내려받기</b><b class="zh">下载 06 学生资料</b><small>06_student_files.zip</small></span></a><div class="download-note"><span class="ko">압축을 풀면 <code>06</code> 폴더가 나옵니다. <code>JDH_VibeCoding_자기이름</code> 안에 넣습니다. 6-2에서도 같은 폴더를 씁니다.</span><span class="zh">解压后会出现 <code>06</code> 文件夹。把它放进 <code class="keep-ko">JDH_VibeCoding_자기이름</code> 文件夹（将“<b class="keep-ko">자기이름</b>”换成自己的姓名）。6-2 也用这个文件夹。</span></div></div>
+<div class="steps"><div class="st-h"><span class="ko">지금 하세요</span><span class="zh">现在就做</span></div><ol><li><span class="ko">압축을 풀어 나온 <code>06</code> 폴더를 <code>JDH_VibeCoding_자기이름</code> 안에 넣는다.</span><span class="zh">把解压出来的 <code>06</code> 文件夹放进 <code class="keep-ko">JDH_VibeCoding_자기이름</code> 里。</span></li><li><span class="ko"><code>06</code> 폴더를 마우스 오른쪽 단추로 누르고 <b>Code(으)로 열기</b>를 고른다. 메뉴가 없으면 VS Code에서 <b>파일 → 폴더 열기</b>로 <code>06</code> 폴더 자체를 고른다.</span><span class="zh">右键单击 <code>06</code> 文件夹，选择 <b class="keep-ko">Code(으)로 열기</b>（通过 Code 打开）。没有这个菜单的话，在 VS Code 中用 <b class="keep-ko">파일 → 폴더 열기</b>（文件 → 打开文件夹）选中 <code>06</code> 文件夹本身。</span></li><li><span class="ko">왼쪽 탐색기 맨 위에 <code>06</code>이 보이는지 확인한다. 한 단계 위 폴더가 보이면 다시 연다.</span><span class="zh">确认左侧资源管理器最上方显示的是 <code>06</code>。显示的是上一层文件夹就重新打开。</span></li><li><span class="ko">탐색기에서 <code>기획_메모.md</code>를 눌러 연다.</span><span class="zh">在资源管理器中点击 <code class="keep-ko">기획_메모.md</code> 打开它。</span></li></ol></div>
 </section>
 
-<section class="page" id="s8_2">
-<div class="kick"><span class="ko">8. 완성 기준</span><span class="zh">8. 完成标准</span><b>6-1</b></div><h2 class="title"><span class="ko">무엇을 보면 다 됐다고 할 수 있는가</span><span class="zh">看到什么才算做完了</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-<div class="note">
-      <div class="nt"><span class="ko">이 기준이 나중에 어디에 쓰이는가</span><span class="zh">这些标准以后用在哪里</span></div>
-      <p><span class="ko">10~13회에 AI가 만든 결과를 받았을 때, <b>이 문장들을 하나씩 실행해 보고 표시</b>합니다. 세 개가 모두 확인되면 핵심 기능이 완성된 것입니다.</span><span class="zh">第 10~13 次课拿到 AI 做出的结果时，<b>把这些句子一句句执行一遍并做标记</b>。三条都确认到了，核心功能就算完成。</span></p>
-      <p><span class="ko">12회 테스트 차시의 기록 양식도 이 기준을 그대로 가져다 씁니다. 그래서 지금 <b>확인할 수 있는 문장</b>으로 적어 두는 것이 중요합니다.</span><span class="zh">第 12 次课测试的记录表也直接沿用这些标准。所以现在就写成<b>能确认的句子</b>很重要。</span></p>
-    </div>
+<section class="page" id="s0b_2">
+<div class="kick"><span class="ko">준비</span><span class="zh">准备</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">06 폴더를 열고 메모 파일을 준비한다</span><span class="zh">打开 06 文件夹，准备好备忘文件</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">그림처럼 탐색기 맨 위에 <code>06</code>이 보이고 메모 파일이 열리면 준비가 끝난 것입니다. 메모에는 번호가 붙은 칸 여섯 개가 있습니다.</span><span class="zh">像图中那样，资源管理器最上方显示 <code>06</code>，备忘文件打开了，就准备好了。备忘里有六个带编号的栏目。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 06-1-02-memo-file
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 16:9 · 1600×900 · 화면 그림 · assets/img/06-1-02-memo-file.png
+     · 갈래 : ① 화면. 학교 Windows PC에서 같은 화면을 캡처해 덮어써도 된다. ChatGPT로 그려도 된다.
+     ───────────────────────────────────────────────────────────────────────
+     ── 맥락 (ChatGPT에 그대로 붙여 넣는다) ─────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 6회 첫째 차시(6-1) 「서비스 기획의 기초」에 쓸 그림이다.
+     학생은 중3~고2 여덟 명이고 코딩이 처음이다. 학교 컴퓨터는 모두 Windows이며 VS Code는 한국어 화면이다.
+     3~5주차에 수업 폴더를 VS Code의 「파일 → 폴더 열기」로 열어 Notebook을 실행했다.
+     오늘은 06 폴더를 열고, 자기가 만들 서비스의 메모를 기획_메모.md라는 Markdown 파일에 적는다.
+     이 그림은 「폴더를 제대로 열었다면 이렇게 보인다」를 확인하는 그림이다. 교과서와 PPT에 같은 파일을 쓴다.
 
-    <div class="quiz">
-      <div class="q">
-        <div class="qq"><span class="ko">“사용자가 만족한다”는 완성 기준으로 쓸 수 있을까?</span><span class="zh">“用户很满意”能当完成标准吗？</span></div>
-        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
-          <p><span class="ko">쓸 수 없습니다. <b>무엇을 보면 만족했다고 판정할지</b>가 없기 때문입니다. 다 만든 뒤 화면을 열어도 “만족했는지” 확인할 방법이 없습니다.</span><span class="zh">不能。因为<b>没有说看到什么才算满意</b>。做完之后打开画面，也没办法确认“满不满意”。</span></p>
-          <p><span class="ko">바꾸려면 만족을 <b>눈에 보이는 행동이나 화면</b>으로 옮겨야 합니다. 예를 들어 “결과가 마음에 들지 않으면 다시 만들기 버튼을 눌러 새 결과를 받을 수 있다”처럼 적으면 확인할 수 있습니다.</span><span class="zh">要改的话，得把“满意”换成<b>看得见的行为或画面</b>。比如写成“结果不合心意时，可以按重新生成按钮拿到新结果”，就能确认了。</span></p>
-        </div></details>
-      </div>
-    </div>
-  
-</section><section class="page" id="s8w">
-<div class="kick"><span class="ko">워크시트 ②</span><span class="zh">工作表 ②</span><b>6-1</b></div><h2 class="title"><span class="ko">이 기준으로 판정할 수 있는가</span><span class="zh">用这条标准能判定吗</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ②</span><span class="wst"><span class="ko">완성 기준 판정하기</span><span class="zh">判定完成标准</span></span></div><p class="wslead"><span class="ko">각 문장을 읽고 <b>해 보면 판정이 나는지</b> 표시합니다. 판정할 수 없으면 어떻게 고칠지 적습니다. 마지막 줄은 내 기준으로 적습니다.</span><span class="zh">读每个句子，标出<b>做一遍能不能判定</b>。不能判定就写怎么改。最后一行写自己的标准。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">기준 문장</span><span class="zh">标准句子</span></th><th><span class="ko">판정할 수 있나</span><span class="zh">能判定吗</span></th><th><span class="ko">못 하면 어떻게 고칠까</span><span class="zh">不能的话怎么改</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">잘 작동한다</span><span class="zh">运行良好</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">버튼을 누르면 결과가 나타난다</span><span class="zh">按下按钮就出现结果</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">사용자가 만족한다</span><span class="zh">用户会满意</span></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko">← 여기는 내 서비스의 기준</span><span class="zh">← 这一行写自己服务的标准</span></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">판정할 수 있다고 적은 문장은 모두 <b>해 보면</b> 답이 나온다.</span><span class="zh">标为能判定的句子，都是<b>做一遍</b>就有答案的。</span></li><li><span class="ko">고친 문장에 눈으로 볼 수 있는 화면이나 행동이 들어 있다.</span><span class="zh">改写的句子里有能用眼睛看到的画面或动作。</span></li></ul></div></div>
-</section>  <!-- ══════════ 9 ══════════ -->
-  <section class="page" id="s9">
-    <div class="kick"><span class="ko">9. AI 사용</span><span class="zh">9. AI 的使用</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">AI는 생각을 정리하는 도구로 쓴다</span><span class="zh">把 AI 当作整理思路的工具</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+     ── 그릴 것 ────────────────────────────────────────────────────
+     Windows 11 위에서 실행 중인 VS Code 창 하나. 밝은 테마(Light).
+     · 왼쪽 탐색기(EXPLORER) 맨 위에 폴더 이름 「06」. 그 아래 파일 세 개가 이 순서로 보인다:
+         PRD.md
+         README.txt
+         기획_메모.md      ← 이 줄이 선택되어 있다(옅은 파란 배경)
+     · 오른쪽 편집기 탭 이름 「기획_메모.md」. 편집기 안에는 Markdown 글이 보인다:
+         # 6-1 기획 메모
+         ## 1. 자주 겪는 불편이나 관심 세 가지
+         -
+         -
+         -
+         ## 2. 내 서비스의 사용자
+       아래로 더 이어지는 느낌만 주고 잘려도 된다.
+     · 탐색기 맨 위 「06」 글자 둘레에 주황(#FF5C00) 둥근 테두리 하나.
 
-    <p class="lead"><span class="ko">기획 단계에서도 AI를 쓸 수 있습니다. 다만 <b>순서가 중요합니다.</b> 학생이 사용자·목적·핵심 기능을 <b>먼저 정한 뒤</b>, AI에게 문장을 정리하거나 빠진 연결을 질문하게 합니다.</span><span class="zh">策划阶段也能用 AI。只是<b>顺序很重要</b>。要由学生<b>先定下</b>用户、目的与核心功能，再让 AI 帮忙理顺句子或就缺失的衔接提问。</span></p>
+     ── 지킬 것 ────────────────────────────────────────────────────
+     · 화면 안 글자는 위에 적은 것만 쓴다. 철자와 한글을 정확히. 다른 파일·폴더를 추가하지 않는다.
+     · 탐색기 맨 위가 「JDH_VibeCoding_…」처럼 다른 폴더로 보이면 안 된다. 06이어야 한다.
+     · macOS 창 모양(왼쪽 위 빨강·노랑·초록 단추)을 쓰지 않는다. Windows 창이다.
+     · 터미널 패널은 닫혀 있다. 사람 손이나 마우스 커서는 그리지 않는다.
+     · 비율 16:9 가로, 흰 배경 계열.
 
-    <div class="vflow">
-      <div class="vf plain"><span class="ko"><b>① 학생이 먼저 정한다</b><span>사용자 · 목적 · 핵심 기능 · 흐름</span></span><span class="zh"><b>① 先由学生定</b><span>用户 · 目的 · 核心功能 · 流程</span></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>② AI에게 질문을 요청한다</b><span>새 기능 추가가 아니라 어긋난 곳 찾기</span></span><span class="zh"><b>② 请 AI 提问</b><span>不是加新功能，而是找出错位的地方</span></span></div>
-      <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>③ 학생이 결정한다</b><span>무엇을 유지하고 무엇을 바꿀지</span></span><span class="zh"><b>③ 由学生决定</b><span>保留什么、改什么</span></span></div>
-    </div>
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 탐색기 맨 위가 06인가  ② 파일이 세 개뿐이고 이름이 정확한가
+     ③ 열린 탭이 기획_메모.md인가  ④ Windows 창인가  ⑤ 주황 테두리가 06 한 군데뿐인가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig"><img class="figimg" src="../../assets/img/06-1-02-memo-file.png" alt="Windows의 VS Code 화면. 왼쪽 탐색기 맨 위에 06 폴더가 있고 그 아래 PRD.md, README.txt, 기획_메모.md가 보인다. 오른쪽 편집기에는 기획_메모.md가 열려 있다." data-id="06-1-02-memo-file" data-spec="가로 16:9 · Windows VS Code · 06 폴더를 연 탐색기와 기획_메모.md 편집 화면" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-3. 탐색기 맨 위가 06이고, 오른쪽에 기획_메모.md가 열려 있다.</span><span class="zh">图 6-1-3. 资源管理器最上方是 06，右侧打开的是 <code class="keep-ko">기획_메모.md</code>。</span></figcaption></figure>
+</section>
 
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">AI에게 보낼 요청문 — 그대로 써도 됩니다</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">发给 AI 的请求文 — 照抄也可以</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>내가 만들 작은 서비스의 아이디어를 적었어.
-새 기능을 추가하지 말고 사용자, 목적, 핵심 기능과 결과가
-서로 맞지 않거나 불분명한 부분만 질문해 줘.
-전문 개발 용어는 사용하지 말아 줘.</code></pre>
-    </div>
+<section class="page" id="s1b">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">AI에게 일하는 방식을 미리 알려 주는 skill</span><span class="zh">预先告诉 AI 做事方式的 skill</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">5주차에 AI의 답이 너무 길어서 「짧게 줄여 줘」를 몇 번씩 보낸 사람이 많았습니다. 매번 하던 그 부탁을 파일 하나에 적어 두는 방법이 있습니다. 그 파일이 <b>skill</b>입니다.</span><span class="zh">第 5 周时，很多同学因为 AI 的回答太长，一次次发「请缩短一点」。有一种办法，能把每次都要说的请求写进一个文件。这个文件就是 <b>skill</b>。</span></p>
+<ul class="blist"><li><span class="ko">skill은 AI에게 <b>어떤 방식으로 일할지</b>를 적어 둔 파일(<code>SKILL.md</code>)입니다. 오늘 설치할 spartan은 「결론부터, 짧게」 답하게 합니다.</span><span class="zh">skill 是写好 AI <b>按什么方式做事</b>的文件（<code>SKILL.md</code>）。今天要装的 spartan 会让 AI「先说结论，说短一点」。</span></li><li><span class="ko">skill은 AI의 말투만 바꿉니다. 무엇을 만들지는 내가 정합니다.</span><span class="zh">skill 只改变 AI 的说话方式。要做什么由自己定。</span></li></ul>
+</section>
 
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:44%"><span class="ko">이 줄이 없으면</span><span class="zh">少了这一句</span></th><th><span class="ko">이런 일이 생길 수 있다</span><span class="zh">可能发生的事</span></th></tr>
-      <tr><td><span class="ko">“새 기능을 추가하지 마”가 없으면</span><span class="zh">不写“不要加新功能”</span></td><td><span class="ko">AI가 로그인·알림·공유 기능을 덧붙여 범위가 커진다</span><span class="zh">AI 会补上登录、推送、分享，范围就变大了</span></td></tr>
-      <tr><td><span class="ko">“질문해 줘”가 없으면</span><span class="zh">不写“请提问”</span></td><td><span class="ko">AI가 대신 다 고쳐서, 내 계획이 아닌 문서가 된다</span><span class="zh">AI 会替你全改一遍，文档就不是你的计划了</span></td></tr>
-      <tr><td><span class="ko">“전문 용어 쓰지 마”가 없으면</span><span class="zh">不写“不要用专业术语”</span></td><td><span class="ko">읽어도 무슨 말인지 몰라 판단할 수 없다</span><span class="zh">读了也不知道在说什么，没法判断</span></td></tr>
-    </table>
-    </div>
-  </section>
+<section class="page" id="s1c">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">skills.sh에서 spartan을 찾는다</span><span class="zh">在 skills.sh 上找到 spartan</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">오늘 쓸 skill은 <b>spartan</b>입니다. 답의 첫 줄에 결론을 쓰고 꼭 필요한 줄만 남기게 하는 skill입니다. 다른 사람이 만들어 공개한 skill은 <b>skills.sh</b>라는 사이트에 모여 있습니다. 먼저 사이트에서 spartan을 찾아, 설치하기 전에 믿고 써도 되는지 확인합니다.</span><span class="zh">今天用的 skill 叫 <b>spartan</b>，它让回答第一行写结论，只留下必要的内容。别人做好并公开的 skill，都集中在一个叫 <b>skills.sh</b> 的网站上。先在网站上找到 spartan，安装之前确认它能不能放心使用。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">skills.sh에서 찾기</span><span class="zh">在 skills.sh 上查找</span></div><ol><li><span class="ko">브라우저에서 <a href="https://skills.sh/" target="_blank" rel="noopener"><code>https://skills.sh</code></a>에 들어간다.</span><span class="zh">在浏览器中打开 <a href="https://skills.sh/" target="_blank" rel="noopener"><code>https://skills.sh</code></a>。</span></li><li><span class="ko"><b>Search skills...</b> 칸에 <code>spartan</code>을 입력한다.</span><span class="zh">在 <b>Search skills...</b> 框里输入 <code>spartan</code>。</span></li><li><span class="ko">결과에서 만든 곳이 <b>alexgreensh/attention-span</b>인 <b>spartan</b>을 누른다. 찾기 어려우면 <a href="https://skills.sh/alexgreensh/attention-span/spartan" target="_blank" rel="noopener"><b>spartan 페이지 바로 가기</b></a>를 누른다.</span><span class="zh">在结果中点击来源是 <b>alexgreensh/attention-span</b> 的 <b>spartan</b>。找不到的话，点 <a href="https://skills.sh/alexgreensh/attention-span/spartan" target="_blank" rel="noopener"><b>直接打开 spartan 页面</b></a>。</span></li><li><span class="ko">페이지에서 설명, 설치 수, <b>Security Audits</b>(보안 검사) 결과를 읽는다.</span><span class="zh">在页面上阅读说明、安装次数和 <b>Security Audits</b>（安全检查）结果。</span></li></ol></div>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 06-1-03-skills-sh
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 16:9 · 1600×900 · assets/img/06-1-03-skills-sh.png
+     · 갈래 : ① 화면. 공개 웹페이지라 학교 Windows PC의 Chrome·Edge에서 그대로 캡처하는 것이 가장 정확하다.
+     · 찍을 곳 : https://skills.sh/alexgreensh/attention-span/spartan
+       - 위쪽의 저장소 이름(alexgreensh/attention-span)과 skill 이름(spartan)
+       - 설치 명령 줄 「npx skills add https://github.com/alexgreensh/attention-span --skill spartan」과 복사 단추
+       - Security Audits 결과(세 줄)
+       세 가지가 한 화면에 들어오게 브라우저 폭을 맞춘다. 설치 명령 줄에만 주황(#FF5C00) 둥근 테두리를 덧그린다.
+     ── ChatGPT로 그릴 때 (캡처가 어려우면) ─────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 6-1에 쓸 그림이다. 중3~고2 코딩 입문 학생이 skill 공유 사이트 skills.sh에서
+     spartan이라는 skill을 찾아 설치 명령을 복사하는 장면이다. Windows 11의 Chrome 창, 밝은 화면.
+     주소창 skills.sh/alexgreensh/attention-span/spartan. 본문 위쪽에 「alexgreensh/attention-span」, 큰 제목 「spartan」.
+     그 아래 회색 상자 안에 한 줄 「$ npx skills add https://github.com/alexgreensh/attention-span --skill spartan」과 오른쪽 복사 아이콘,
+     이 상자 둘레에만 주황(#FF5C00) 둥근 테두리. 오른쪽 옆에 「Security Audits」 아래 세 줄 「Gen Agent Trust Hub · Pass」 「Socket · Pass」 「Snyk · Pass」.
+     그 밖의 글자는 넣지 않는다. 철자를 정확히. macOS 창 모양 금지. 16:9 가로.
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 설치 명령의 철자가 위와 같은가  ② 저장소 이름이 alexgreensh/attention-span인가
+     ③ 보안 검사 칸이 보이는가  ④ 주황 테두리가 명령 줄 하나뿐인가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig narrow"><img class="figimg" src="../../assets/img/06-1-03-skills-sh.png" alt="브라우저에 열린 skills.sh의 spartan 페이지. 위쪽에 alexgreensh/attention-span과 spartan 이름, 가운데에 npx skills add로 시작하는 설치 명령과 복사 단추, 오른쪽에 보안 검사 결과가 보인다." data-id="06-1-03-skills-sh" data-spec="가로 16:9 · 브라우저 화면 · skills.sh의 spartan 페이지" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-4. skills.sh의 spartan 페이지. 설치 명령과 보안 검사 결과를 함께 본다.</span><span class="zh">图 6-1-4. skills.sh 上的 spartan 页面。安装命令和安全检查结果要一起看。</span></figcaption></figure>
+</section>
 
-  <section class="page" id="s9_2">
-    <div class="kick"><span class="ko">9. AI 사용</span><span class="zh">9. AI 的使用</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">AI는 생각을 정리하는 도구로 쓴다</span><span class="zh">把 AI 当作整理思路的工具</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<section class="page" id="s1d">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">방법 1 · 명령을 복사해 직접 설치한다</span><span class="zh">方法 1 · 复制命令，自己安装</span></h2>
+<p class="lead"><span class="ko">첫 번째 방법은 skills.sh 페이지의 설치 명령을 복사해 터미널에서 직접 실행하는 것입니다. 명령을 실행하면 설치 도구가 질문을 네 번 합니다. 질문마다 무엇을 고르는지에 따라 어디에 설치되는지가 달라지므로, 하나씩 읽고 고릅니다.</span><span class="zh">第一种方法，是复制 skills.sh 页面上的安装命令，在终端里直接运行。运行后，安装工具会提问四次。每次选什么，决定了装到哪里，所以要逐个读懂再选。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">명령 실행</span><span class="zh">运行命令</span></div><ol><li><span class="ko">VS Code에서 <b>터미널 → 새 터미널</b>을 열고, 줄 끝이 <code>…\06&gt;</code>인지 본다.</span><span class="zh">在 VS Code 中打开 <b class="keep-ko">터미널 → 새 터미널</b>（终端 → 新建终端），确认提示符结尾是 <code>…\06&gt;</code>。</span></li><li><span class="ko">skills.sh에서 복사한 명령을 붙여 넣고 Enter를 누른다. 처음이면 <code>Need to install the following packages</code>가 나오는데, <code>y</code>를 누른다.</span><span class="zh">粘贴从 skills.sh 复制的命令，按 Enter。第一次运行会出现 <code>Need to install the following packages</code>，按 <code>y</code>。</span></li></ol></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">skills.sh에서 복사한 명령</span><span class="zh">从 skills.sh 复制的命令</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="blk">npx skills add https://github.com/alexgreensh/attention-span --skill spartan</pre></div>
+<div class="note warn"><div class="nt"><span class="ko">npx가 스크립트를 실행할 수 없다고 하면</span><span class="zh">npx 提示无法运行脚本时</span></div><p><span class="ko">2-1에서 <code>npm</code>이 막혔을 때와 같은 증상입니다. 2-1에서 쓴 <code>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</code>를 한 번 실행하고 새 터미널에서 다시 해 봅니다. 그래도 안 되면 방법 2로 설치합니다.</span><span class="zh">和 2-1 里 <code>npm</code> 被拦住时是同样的症状。运行一次 2-1 用过的 <code>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</code>，在新终端里再试。还不行就用方法 2 安装。</span></p></div>
+</section>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">AI가 제안한 기능을 모두 추가하지 않습니다</span><span class="zh">不要把 AI 提议的功能全加进来</span></div>
-      <p><span class="ko">AI에게 물으면 대개 기능을 <b>늘리는</b> 방향으로 답합니다. 그것이 더 그럴듯해 보이기 때문입니다. 그러나 만드는 사람은 여러분이고, 시간도 여러분의 것입니다.</span><span class="zh">问 AI，它大多会往<b>增加</b>功能的方向答，因为那看起来更像样。可动手做的是你们，时间也是你们的。</span></p>
-      <p><span class="ko">AI의 답을 읽고 <b>무엇을 유지하거나 바꿀지는 학생이 결정</b>합니다. 그리고 그 결정을 PRD에 기록합니다. 8회 수행평가에서 <b>AI의 의견과 학생의 판단을 구분해 적었는지</b>를 확인합니다.</span><span class="zh">读完 AI 的回答，<b>保留什么、改什么由学生决定</b>。然后把这个决定记进 PRD。第 8 次课的实作评价会确认<b>你是否把 AI 的意见和自己的判断分开写了</b>。</span></p>
-    </div>
-  </section>
+<section class="page" id="s1d_1">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">첫 질문 · 어느 AI 도구에 설치할까</span><span class="zh">第一个问题 · 装到哪个 AI 工具</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">첫 질문은 <b>어느 AI 도구에 설치할지</b>입니다. 위쪽 <b>Universal</b> 목록은 늘 함께 설치되는 도구이고, 그 안에 <b>OpenCode</b>가 이미 들어 있습니다. 아래쪽 목록에서는 아무것도 더 고르지 않고 <b>Enter</b>를 누릅니다.</span><span class="zh">第一个问题是<b>装到哪个 AI 工具</b>。上面的 <b>Universal</b> 列表是一定会一起安装的工具，<b>OpenCode</b> 已经在里面了。下面的列表什么都不用再选，直接按 <b>Enter</b>。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 06-1-04-npx-agents
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 16:9 · 1600×900 · assets/img/06-1-04-npx-agents.png
+     · 갈래 : ① 화면. 학교 Windows PC에서 실제로 실행하며 캡처하는 것이 가장 정확하다.
+     · 찍을 것 : npx 명령을 실행한 뒤 처음 멈추는 화면. 「◆ Which agents do you want to install to?」 질문, 그 아래 「── Universal (.agents/skills) ── always included」 목록에 OpenCode가 보이는 부분, 「── Additional agents」 목록과 「↑↓ move, space select, enter confirm」 안내까지 한 화면에.
+     ── ChatGPT로 그릴 때 (캡처가 어려우면 아래를 그대로 붙여 넣는다) ──────
+     장대현중고등학교 「정보와 디지털 문해력」 6회 첫째 차시(6-1)에 쓸 그림이다. 학생은 중3~고2 코딩 입문자이고
+     학교 컴퓨터는 Windows, VS Code는 한국어 화면이다. 학생은 06 폴더를 VS Code로 열고, skill 공유 사이트 skills.sh에서 찾은
+     spartan이라는 skill을 설치하고 있다. 이 그림은 학생이 자기 화면과 비교하며 「지금 어느 단계이고 무엇을 고르는지」를 확인하는 데 쓴다.
+     VS Code 아래쪽 터미널 패널(검은 배경, 밝은 글자)을 크게 확대한 장면. 프롬프트 줄은 「PS C:\Users\student\Documents\JDH_VibeCoding_홍길동\06>」. 그 아래 글자 그대로:
+       「◆  Which agents do you want to install to?」
+       「── Universal (.agents/skills) ── always included」 아래에 「• Codex」「• Cursor」「• Gemini CLI」「• GitHub Copilot」「• OpenCode」 다섯 줄
+       「── Additional agents」 아래에 「○ AiderDesk」「○ Augment」 두 줄(동그라미가 비어 있다), 「↑↓ move, space select, enter confirm」
+       「• OpenCode」 줄 둘레에만 주황(#FF5C00) 둥근 테두리.
+     · 화면 안 글자는 위에 적은 것만 쓰고 철자를 정확히 지킨다. macOS 창 모양을 쓰지 않는다. 손은 그리지 않는다. 비율 16:9 가로.
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 질문 문장이 Which agents do you want to install to?인가  ② Universal 목록에 OpenCode가 있는가  ③ 아래 목록의 동그라미가 모두 비어 있는가  ④ 주황 테두리가 OpenCode 하나인가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig narrow"><img class="figimg" src="../../assets/img/06-1-04-npx-agents.png" alt="터미널에 Which agents do you want to install to? 질문이 보이고, Universal 목록 안에 OpenCode가 있다. 아래쪽 Additional agents 목록은 아무것도 선택되지 않았다." data-id="06-1-04-npx-agents" data-spec="가로 16:9 · 터미널 · 설치할 AI 도구 고르기" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-5. Universal 목록에 OpenCode가 있는지 보고, 아래 목록은 그대로 둔 채 Enter를 누른다.</span><span class="zh">图 6-1-5. 确认 Universal 列表里有 OpenCode，下面的列表保持不动，按 Enter。</span></figcaption></figure>
+</section>
 
-  <!-- ══════════ 10 ══════════ -->
-  <section class="page" id="s10">
-    <div class="kick"><span class="ko">10. 오해</span><span class="zh">10. 误解</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">흔한 오해와 사실</span><span class="zh">常见的误解与事实</span></h2>
+<section class="page" id="s1d_2">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">설치 범위 · Project와 Global</span><span class="zh">安装范围 · Project 与 Global</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">두 번째 질문은 <b>설치 범위</b>입니다. <b>Project</b>는 지금 연 <code>06</code> 폴더 안에만, <b>Global</b>은 이 컴퓨터 전체에 설치합니다. 우리는 <b>Project</b>를 고릅니다. 06 폴더 안에 생겨서 설치되었는지 눈으로 확인할 수 있습니다.</span><span class="zh">第二个问题是<b>安装范围</b>。<b>Project</b> 只装在现在打开的 <code>06</code> 文件夹里，<b>Global</b> 装到整台电脑。我们选 <b>Project</b>。它出现在 06 文件夹里，能亲眼确认有没有装好。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 06-1-05-npx-scope
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 16:9 · 1600×900 · assets/img/06-1-05-npx-scope.png
+     · 갈래 : ① 화면. 학교 Windows PC에서 실제로 실행하며 캡처하는 것이 가장 정확하다.
+     · 찍을 것 : 첫 질문에서 Enter를 누른 다음 화면. 「◆ Installation scope」, 「● Project (Install in current directory (committed with your project))」, 「○ Global」, 「↑/↓ to navigate • Enter: confirm」이 보이게.
+     ── ChatGPT로 그릴 때 (캡처가 어려우면 아래를 그대로 붙여 넣는다) ──────
+     장대현중고등학교 「정보와 디지털 문해력」 6회 첫째 차시(6-1)에 쓸 그림이다. 학생은 중3~고2 코딩 입문자이고
+     학교 컴퓨터는 Windows, VS Code는 한국어 화면이다. 학생은 06 폴더를 VS Code로 열고, skill 공유 사이트 skills.sh에서 찾은
+     spartan이라는 skill을 설치하고 있다. 이 그림은 학생이 자기 화면과 비교하며 「지금 어느 단계이고 무엇을 고르는지」를 확인하는 데 쓴다.
+     VS Code 아래쪽 터미널 패널(검은 배경, 밝은 글자)을 크게 확대한 장면. 프롬프트 줄은 「PS C:\Users\student\Documents\JDH_VibeCoding_홍길동\06>」. 그 아래 글자 그대로:
+       「◇  Which agents do you want to install to?」 다음 줄에 「│  Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode」
+       「◆  Installation scope」
+       「│  ● Project (Install in current directory (committed with your project))」
+       「│  ○ Global」
+       「│  ↑/↓ to navigate • Enter: confirm」
+       「● Project」 줄 둘레에만 주황(#FF5C00) 둥근 테두리.
+     · 화면 안 글자는 위에 적은 것만 쓰고 철자를 정확히 지킨다. macOS 창 모양을 쓰지 않는다. 손은 그리지 않는다. 비율 16:9 가로.
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① Installation scope 질문인가  ② Project 앞의 동그라미가 채워져 있는가  ③ Global이 그 아래에 있는가  ④ 주황 테두리가 Project 줄 하나인가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig narrow"><img class="figimg" src="../../assets/img/06-1-05-npx-scope.png" alt="터미널에 Installation scope 질문이 보이고, Project가 선택되어 있으며 그 아래에 Global이 있다." data-id="06-1-05-npx-scope" data-spec="가로 16:9 · 터미널 · 설치 범위 Project 선택" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-6. Project가 선택된 상태에서 Enter를 누른다. 화살표 키로 위아래를 바꿀 수 있다.</span><span class="zh">图 6-1-6. 在选中 Project 的状态下按 Enter。用方向键可以上下切换。</span></figcaption></figure>
+</section>
 
-    <div class="myth">
-      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“PRD를 잘 쓰면 좋은 평가를 받으니까 길게, 전문 용어를 써서 써야 한다.”</span><span class="zh">“PRD 写得好就能拿好评价，所以要写长、要用专业术语。”</span></div></div>
-      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">분량도 용어 수도 기준이 아닙니다. 짧더라도 <b>사용자·목적·기능·흐름·화면·데이터가 서로 맞고</b>, 학생이 그 뜻을 설명할 수 있으면 됩니다. 길게 쓰다 보면 오히려 앞뒤가 어긋나기 쉽습니다.</span><span class="zh">篇幅和术语数量都不是标准。哪怕短，只要<b>用户、目的、功能、流程、画面、数据彼此吻合</b>，并且学生能讲清它的意思，就可以。写长了反而容易前后错位。</span></div></div>
-      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“기능을 많이 넣어야 열심히 한 것처럼 보인다.”</span><span class="zh">“功能多才显得用心。”</span></div></div>
-      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">기능 수는 평가 항목이 아닙니다. 핵심 기능이 <b>1개</b>이고 보조 기능이 <b>2개 이하</b>인지를 확인합니다. 범위를 줄이는 것도 판단력입니다.</span><span class="zh">功能数量不是评价项目。要确认的是核心功能是不是 <b>1 个</b>、辅助功能是不是 <b>2 个以内</b>。把范围收小，也是判断力。</span></div></div>
-      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“어차피 AI가 만들어 주니까 PRD는 대충 적어도 된다.”</span><span class="zh">“反正 AI 会做出来，PRD 随便写写就行。”</span></div></div>
-      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">AI는 <b>적힌 대로</b> 만듭니다. PRD가 흐릿하면 AI는 빈 곳을 스스로 채워 넣고, 그 결과가 내가 원한 것인지 판단할 기준이 없어집니다. PRD는 AI를 위한 문서이자 <b>내가 결과를 검사할 자</b>입니다.</span><span class="zh">AI 是<b>照写的内容</b>做的。PRD 一模糊，AI 就自己把空处填满，而你也失去了判断结果是不是自己想要的标准。PRD 既是给 AI 的文档，也是<b>我用来检查结果的尺子</b>。</span></div></div>
-      <div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“화면 디자인을 예쁘게 정해 놓아야 개발이 쉬워진다.”</span><span class="zh">“先把画面设计定得漂漂亮亮，开发才容易。”</span></div></div>
-      <div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">이 단계에서 정할 것은 <b>무엇이 화면에 있어야 하는가</b>이지 색과 위치가 아닙니다. 디자인을 먼저 정해 두면 오히려 개발 중에 바꾸기 어려워집니다.</span><span class="zh">这个阶段要定的是<b>画面上该有什么</b>，不是颜色和位置。先把设计定死，开发中反而不好改。</span></div></div>
-    </div>
-  </section>
+<section class="page" id="s1d_3">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">설치 방식을 고르고 설치를 마친다</span><span class="zh">选择安装方式，完成安装</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">세 번째 질문은 <b>설치 방식</b>이고, 네 번째는 <b>정말 설치할지</b>입니다. 컴퓨터에 따라 세 번째 질문이 나오지 않을 수도 있습니다. 나온다면 <b>Copy to all agents</b>를 고릅니다. Windows에서는 Symlink(바로 가기 방식)가 권한 문제로 실패할 수 있기 때문입니다.</span><span class="zh">第三个问题是<b>安装方式</b>，第四个是<b>确定要安装吗</b>。有的电脑可能不会出现第三个问题。如果出现，就选 <b>Copy to all agents</b>。因为在 Windows 上，Symlink（快捷方式）可能会因为权限问题而失败。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 06-1-06-npx-done
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 21:9 · 1600×686 · assets/img/06-1-06-npx-done.png
+     · 갈래 : ① 화면. 학교 Windows PC에서 실제로 실행하며 캡처하는 것이 가장 정확하다.
+     · 찍을 것 : Installation method 질문부터 설치 완료까지. 실제 화면은 한 번에 다 보이지 않으므로, 「Copy to all agents」를 고른 순간과 「Installed 1 skill」이 나온 순간 두 장을 찍어 위아래로 붙여도 된다.
+     ── ChatGPT로 그릴 때 (캡처가 어려우면 아래를 그대로 붙여 넣는다) ──────
+     장대현중고등학교 「정보와 디지털 문해력」 6회 첫째 차시(6-1)에 쓸 그림이다. 학생은 중3~고2 코딩 입문자이고
+     학교 컴퓨터는 Windows, VS Code는 한국어 화면이다. 학생은 06 폴더를 VS Code로 열고, skill 공유 사이트 skills.sh에서 찾은
+     spartan이라는 skill을 설치하고 있다. 이 그림은 학생이 자기 화면과 비교하며 「지금 어느 단계이고 무엇을 고르는지」를 확인하는 데 쓴다.
+     VS Code 아래쪽 터미널 패널(검은 배경, 밝은 글자)을 크게 확대한 장면. 프롬프트 줄은 「PS C:\Users\student\Documents\JDH_VibeCoding_홍길동\06>」. 그 아래 글자 그대로:
+       「◇  Installation scope」 「│  Project」
+       「◇  Installation method」 「│  Copy to all agents」
+       「◇  Security Risk Assessments」 아래 한 줄 「spartan   Safe   0 alerts   Low Risk」
+       「◇  Proceed with installation?」 「│  Yes」
+       「◇  Installed 1 skill」 아래 「✓ ./.agents/skills/spartan」
+       「└  Done!」
+       「Copy to all agents」와 「✓ ./.agents/skills/spartan」 두 줄 둘레에 주황(#FF5C00) 둥근 테두리.
+     · 화면 안 글자는 위에 적은 것만 쓰고 철자를 정확히 지킨다. macOS 창 모양을 쓰지 않는다. 손은 그리지 않는다. 비율 21:9 가로.
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① Installation method가 Copy to all agents인가  ② Proceed가 Yes인가  ③ ./.agents/skills/spartan이 보이는가  ④ 주황 테두리가 두 군데인가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig"><img class="figimg" src="../../assets/img/06-1-06-npx-done.png" alt="터미널에 Installation method에서 Copy to all agents가 선택되어 있고, 아래에 Security Risk Assessments 표와 Proceed with installation? Yes, 마지막에 Installed 1 skill과 ./.agents/skills/spartan이 보인다." data-id="06-1-06-npx-done" data-spec="가로 21:9 · 터미널 · 설치 방식 Copy · 설치 확인 · 설치 완료" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-7. Copy to all agents를 고르고, 보안 검사 결과를 본 뒤 Yes를 고른다. Installed 1 skill이 나오면 끝이다.</span><span class="zh">图 6-1-7. 选 Copy to all agents，看完安全检查结果后选 Yes。出现 Installed 1 skill 就完成了。</span></figcaption></figure>
+<p><span class="ko"><b>Installed 1 skill</b>이 나오면 탐색기에서 <code>.agents\skills\spartan\SKILL.md</code>를 열어 봅니다. 이 글이 바로 AI가 읽게 될 지시문입니다.</span><span class="zh">出现 <b>Installed 1 skill</b> 后，在资源管理器里打开 <code>.agents\skills\spartan\SKILL.md</code> 看一看。这段文字就是 AI 将要读的指示。</span></p>
+</section>
 
-  <!-- ══════════ 11 ══════════ -->
-  <section class="page" id="s11">
-    <div class="kick"><span class="ko">11. 역할 구분</span><span class="zh">11. 角色划分</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">누가 무엇을 정하는가</span><span class="zh">谁来定什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<section class="page" id="s1e">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">방법 2 · OpenCode에게 링크를 주고 설치를 맡긴다</span><span class="zh">方法 2 · 把链接交给 OpenCode，让它安装</span></h2>
+<p class="lead"><span class="ko">두 번째 방법은 skills.sh 페이지의 주소를 OpenCode에게 주고 설치를 맡기는 것입니다. 명령을 몰라도 되지만, 그만큼 AI가 무엇을 했는지 내가 직접 확인해야 합니다. 시험해 보니 AI가 「파일을 만들었다」고 말해 놓고 실제로는 만들지 않은 일이 있었습니다.</span><span class="zh">第二种方法，是把 skills.sh 页面的地址交给 OpenCode，让它来安装。不用懂命令，但相应地，AI 做了什么要自己亲眼确认。试的时候，出现过 AI 说「文件做好了」，实际上却没做的情况。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">OpenCode에 맡기기</span><span class="zh">交给 OpenCode</span></div><ol><li><span class="ko">skills.sh의 spartan 페이지에서 브라우저 주소창의 주소를 복사한다.</span><span class="zh">在 skills.sh 的 spartan 页面，复制浏览器地址栏里的地址。</span></li><li><span class="ko">VS Code 터미널에서 줄 끝이 <code>…\06&gt;</code>인지 보고 <code>opencode</code>를 입력해 연다.</span><span class="zh">在 VS Code 终端里确认提示符结尾是 <code>…\06&gt;</code>，输入 <code>opencode</code> 打开。</span></li><li><span class="ko">아래 요청문을 보내고, 첫 줄에 복사한 주소를 붙인다.</span><span class="zh">发送下面的请求，第一行粘上复制的地址。</span></li><li><span class="ko">OpenCode가 명령을 실행해도 되는지 물으면 내용을 읽고 허락한다.</span><span class="zh">OpenCode 询问能否运行命令时，读过内容后再允许。</span></li></ol></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — skill 설치</span><span class="zh">发给 OpenCode 的请求 — 安装 skill</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">https://skills.sh/alexgreensh/attention-span/spartan
+이 페이지의 spartan skill을 지금 06 폴더에 OpenCode용으로 설치해 줘. 설치 범위는 Project로 해 줘.
+다른 파일은 고치지 마. 끝나면 설치된 폴더 이름을 알려 줘.</pre><pre class="zh blk">https://skills.sh/alexgreensh/attention-span/spartan
+请把这个页面上的 spartan skill 安装到现在的 06 文件夹里，给 OpenCode 用。安装范围选 Project。
+不要修改其他文件。完成后告诉我安装到的文件夹名。</pre></div>
+</section>
 
-    <p class="lead"><span class="ko">지금 정할 것과 나중에 정할 것을 구분해 두면 불필요한 고민을 줄일 수 있습니다.</span><span class="zh">把现在要定的和以后再定的分清楚，能少走不少弯路。</span></p>
+<section class="page" id="s1e_2">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">AI의 답을 믿지 말고 직접 확인한다</span><span class="zh">不要只信 AI 的回答，要亲眼确认</span></h2>
+<p class="lead"><span class="ko">OpenCode가 설치를 마쳤다고 답하면, 그 말을 믿기 전에 탐색기에서 결과를 직접 봅니다. <code>06</code> 아래에 <code>.agents\skills\spartan\SKILL.md</code>가 있어야 설치된 것입니다. 없다면 AI의 답과 실제가 다른 것이므로, 무엇을 했는지 다시 물어봅니다.</span><span class="zh">OpenCode 回答说安装好了时，先别急着相信，要在资源管理器里亲眼看结果。<code>06</code> 下面要有 <code>.agents\skills\spartan\SKILL.md</code> 才算装好。没有的话，说明 AI 的回答和实际不一样，要再问它到底做了什么。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [화면 캡처 안내] 06-1-07-opencode-install
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 16:9 · 1600×900 · assets/img/06-1-07-opencode-install.png
+     · 갈래 : ① 화면. 학교 Windows PC에서 실제로 실행하며 캡처하는 것이 가장 정확하다.
+     · 찍을 것 : VS Code 터미널 안에서 열린 OpenCode 대화 화면. 위 요청문을 보낸 뒤, OpenCode가 npx skills add 명령을 실행한 기록과 설치를 마쳤다는 답이 한 화면에 보이게. 왼쪽 탐색기에 .agents 폴더가 새로 생긴 모습까지 보이면 더 좋다.
+     ── ChatGPT로 그릴 때 (캡처가 어려우면 아래를 그대로 붙여 넣는다) ──────
+     장대현중고등학교 「정보와 디지털 문해력」 6회 첫째 차시(6-1)에 쓸 그림이다. 학생은 중3~고2 코딩 입문자이고
+     학교 컴퓨터는 Windows, VS Code는 한국어 화면이다. 학생은 06 폴더를 VS Code로 열고, skill 공유 사이트 skills.sh에서 찾은
+     spartan이라는 skill을 설치하고 있다. 이 그림은 학생이 자기 화면과 비교하며 「지금 어느 단계이고 무엇을 고르는지」를 확인하는 데 쓴다.
+     VS Code 창. 아래쪽 터미널에서 OpenCode가 열려 있다(검은 배경). 위쪽에 사용자 입력 「https://skills.sh/alexgreensh/attention-span/spartan」과 「이 페이지의 spartan skill을 지금 06 폴더에 OpenCode용으로 설치해 줘.」, 그 아래 OpenCode의 기록 「$ npx skills add https://github.com/alexgreensh/attention-span --skill spartan」, 마지막 답 「./.agents/skills/spartan 에 설치했습니다」. 왼쪽 탐색기 맨 위 「06」, 그 아래 「.agents」 폴더가 펼쳐져 「skills」「spartan」「SKILL.md」. 탐색기의 「SKILL.md」 줄 둘레에만 주황(#FF5C00) 둥근 테두리.
+     · 화면 안 글자는 위에 적은 것만 쓰고 철자를 정확히 지킨다. macOS 창 모양을 쓰지 않는다. 손은 그리지 않는다. 비율 16:9 가로.
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 요청에 skills.sh 주소가 있는가  ② npx skills add 실행 기록이 보이는가  ③ 탐색기에 .agents/skills/spartan/SKILL.md가 보이는가  ④ 주황 테두리가 SKILL.md 하나인가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig narrow"><img class="figimg" src="../../assets/img/06-1-07-opencode-install.png" alt="OpenCode 화면에 skills.sh 주소와 설치 요청이 보이고, 아래에 npx skills add 명령을 실행했다는 표시와 .agents/skills/spartan에 설치했다는 답이 보인다." data-id="06-1-07-opencode-install" data-spec="가로 16:9 · OpenCode · 링크로 설치를 맡긴 대화" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 6-1-8. OpenCode가 명령을 실행해 설치한다. 답을 믿지 말고 탐색기에서 폴더가 생겼는지 직접 본다.</span><span class="zh">图 6-1-8. OpenCode 运行命令完成安装。不要只信它的回答，要在资源管理器里亲眼确认文件夹已经出现。</span></figcaption></figure>
+</section>
 
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:33%"><span class="ko">6회에 학생이 정한다</span><span class="zh">第 6 次课由学生定</span></th><th style="width:33%"><span class="ko">7회에 배우고 덧붙인다</span><span class="zh">第 7 次课学了再补上</span></th><th><span class="ko">개발 과정에서 AI와 정한다</span><span class="zh">开发过程中与 AI 一起定</span></th></tr>
-      <tr><td><span class="ko">사용자와 사용 상황</span><span class="zh">用户与使用情境</span></td><td><span class="ko">서비스가 기억할 기록과 이유</span><span class="zh">服务要记住的记录及其理由</span></td><td><span class="ko">실제 화면 디자인</span><span class="zh">实际的画面设计</span></td></tr>
-      <tr><td><span class="ko">서비스 목적</span><span class="zh">服务目的</span></td><td><span class="ko">기억해야 할 정보</span><span class="zh">需要记住的信息</span></td><td><span class="ko">파일과 폴더 구조</span><span class="zh">文件与文件夹结构</span></td></tr>
-      <tr><td><span class="ko">핵심 기능 1개와 보조 기능</span><span class="zh">核心功能 1 个与辅助功能</span></td><td><span class="ko">필요한 테이블 후보와 역할</span><span class="zh">需要的候选数据表及其作用</span></td><td><span class="ko">테이블의 열과 자료형</span><span class="zh">表的列与数据类型</span></td></tr>
-      <tr><td><span class="ko">대표 사용 흐름</span><span class="zh">代表性使用流程</span></td><td><span class="ko">둘 이상의 표가 필요한 경우 관계 설명</span><span class="zh">需要两张以上表时的关系说明</span></td><td><span class="ko">PK·FK의 실제 위치와 DB 설정</span><span class="zh">主键、外键的实际位置与数据库设置</span></td></tr>
-      <tr><td><span class="ko">입력·결과와 화면 구성 설명</span><span class="zh">输入、结果与画面构成说明</span></td><td><span class="ko">저장하지 않을 정보</span><span class="zh">不保存的信息</span></td><td><span class="ko">프레임워크와 코드</span><span class="zh">框架与代码</span></td></tr>
-      <tr><td><span class="ko">완성 기준 2~3개</span><span class="zh">完成标准 2~3 条</span></td><td><span class="ko">개인정보 점검</span><span class="zh">个人信息检查</span></td><td><span class="ko">실행·수정·배포 방법</span><span class="zh">运行、修改与发布方式</span></td></tr>
-    </table>
-    </div>
+<section class="page" id="s1f">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">spartan이 늘 적용되도록 기본값으로 만든다</span><span class="zh">把 spartan 设为默认，让它一直生效</span></h2>
+<p class="lead"><span class="ko">어느 방법으로 설치했든, 지금 상태로는 대화마다 <code>/spartan</code>을 입력해야 적용됩니다. 매번 부르지 않아도 되도록 06 폴더에 OpenCode 설정 파일 <code>opencode.json</code>을 만들고, 그 안에 「이 skill 파일을 늘 읽어라」라고 적어 둡니다. 이 파일은 AI에게 맡기지 않고 직접 만듭니다.</span><span class="zh">不管用哪种方法安装，现在这样每次对话都得输入 <code>/spartan</code> 才生效。为了不用每次调用，在 06 文件夹里建一个 OpenCode 设置文件 <code>opencode.json</code>，在里面写上「一直读这个 skill 文件」。这个文件不交给 AI，自己来建。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">opencode.json 만들기</span><span class="zh">建立 opencode.json</span></div><ol><li><span class="ko">탐색기에서 <code>06</code> 폴더의 빈 곳을 마우스 오른쪽 단추로 누르고 <b>새 파일</b>을 고른 뒤 이름을 <code>opencode.json</code>으로 한다.</span><span class="zh">在资源管理器中右键单击 <code>06</code> 文件夹的空白处，选择 <b class="keep-ko">새 파일</b>（新建文件），命名为 <code>opencode.json</code>。</span></li><li><span class="ko">아래 내용을 복사해 붙여 넣고 <code>Ctrl+S</code>로 저장한다.</span><span class="zh">复制下面的内容粘贴进去，按 <code>Ctrl+S</code> 保存。</span></li><li><span class="ko">OpenCode 입력칸에 <code>/exit</code>를 입력해 닫고, 다시 <code>opencode</code>로 연다. 설정은 OpenCode를 열 때 한 번 읽기 때문이다.</span><span class="zh">在 OpenCode 输入框里输入 <code>/exit</code> 关掉它，再用 <code>opencode</code> 重新打开。因为设置只在打开 OpenCode 时读一次。</span></li></ol></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">06 폴더 · opencode.json</span><span class="zh">06 文件夹 · opencode.json</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="blk">{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [".agents/skills/spartan/SKILL.md"]
+}</pre></div>
+<div class="note warn"><div class="nt"><span class="ko">OpenCode가 열리지 않는다면</span><span class="zh">OpenCode 打不开时</span></div><p><span class="ko"><code>opencode.json</code>에 쉼표나 따옴표가 하나만 틀려도 OpenCode가 시작되지 않습니다. 직접 치지 말고 복사해 붙입니다. 열리지 않으면 이 파일을 지우고 다시 만듭니다.</span><span class="zh"><code>opencode.json</code> 里只要错一个逗号或引号，OpenCode 就启动不了。不要手打，要复制粘贴。打不开的话，删掉这个文件重新建。</span></p></div>
+</section>
 
-    <div class="note ok">
-      <div class="nt"><span class="ko">오른쪽 칸을 지금 고민하지 마세요</span><span class="zh">现在不要去纠结右边那一栏</span></div>
-      <p><span class="ko">“무슨 프레임워크를 쓰지?”, “데이터베이스는 어떻게 만들지?” 같은 질문은 <b>지금 답할 필요가 없습니다.</b> 10회부터 표준 프로젝트와 함께 다룹니다.</span><span class="zh">“该用什么框架？”“数据库怎么建？”这类问题<b>现在不必回答</b>。从第 10 次课起会连同标准项目一起讲。</span></p>
-      <p><span class="ko">지금 그 고민에 시간을 쓰면, 정작 <b>무엇을 만들지</b>가 비어 있는 계획서가 됩니다.</span><span class="zh">现在把时间花在那上面，反而会写出一份<b>没写清要做什么</b>的计划书。</span></p>
-    </div>
+<section class="page" id="s1g">
+<div class="kick"><span class="ko">준비 · skill</span><span class="zh">准备 · skill</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">무엇이 달라졌는지 직접 물어본다</span><span class="zh">亲自问一问，有什么不一样了</span></h2>
+<p class="lead"><span class="ko">설치가 끝났으면 spartan이 정말 적용되었는지 OpenCode에게 직접 물어봅니다. 아래 두 질문을 차례로 보내고, 5주차에 받았던 긴 답과 무엇이 다른지 봅니다.</span><span class="zh">装好以后，直接问 OpenCode，看看 spartan 是不是真的生效了。依次发送下面两个问题，看看和第 5 周收到的长回答有什么不同。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 질문 ① — spartan이 무엇인지</span><span class="zh">发给 OpenCode 的问题 ① — spartan 是什么</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">spartan이 어떤 기능인지 알려 줘.</pre><pre class="zh blk">告诉我 spartan 是什么功能。</pre></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 질문 ② — 5주차에 했던 질문 다시 해 보기</span><span class="zh">发给 OpenCode 的问题 ② — 再问一次第 5 周问过的问题</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">CSV 파일을 읽어서 그래프로 그리는 방법을 알려 줘.</pre><pre class="zh blk">告诉我读取 CSV 文件并画成图表的方法。</pre></div>
+<div class="row"><div class="pane"><div class="pt"><span class="ko">5주차의 답</span><span class="zh">第 5 周的回答</span></div><p><span class="ko">인사와 설명으로 시작한다 · 주의할 점과 다른 방법까지 길게 이어진다</span><span class="zh">以问候和说明开头 · 注意事项和其他方法一直写下去</span></p></div><div class="pane ok"><div class="pt"><span class="ko">spartan을 켠 뒤의 답</span><span class="zh">开启 spartan 后的回答</span></div><p><span class="ko">첫 줄에 결론이 나온다 · 꼭 필요한 줄만 남는다</span><span class="zh">第一行就是结论 · 只留下必要的几行</span></p></div></div>
+<div class="note"><div class="nt"><span class="ko">답이 여전히 길다면</span><span class="zh">回答还是很长时</span></div><p><span class="ko"><code>opencode.json</code>을 저장했는지 보고, OpenCode를 <code>/exit</code>로 닫았다가 다시 엽니다. 설정은 OpenCode를 열 때 읽습니다.</span><span class="zh">看看 <code>opencode.json</code> 有没有保存，用 <code>/exit</code> 关掉 OpenCode 再重新打开。设置是在打开 OpenCode 时读取的。</span></p></div>
+</section>
 
-    <div class="note warn">
-      <div class="nt"><span class="ko">가운데 칸도 아직입니다</span><span class="zh">中间那栏也还没到时候</span></div>
-      <p><span class="ko">“어떤 기록을 남기지?”는 다음 주(7회)에 배우고 나서 적습니다. 오늘은 <b>왼쪽 칸</b>만 정하면 충분합니다.</span><span class="zh">“要留下哪些记录？”下周（第 7 次课）学了之后再写。今天定好<b>左边那一栏</b>就够了。</span></p>
-    </div>
-  </section>
+<section class="page" id="sp">
+<div class="kick"><span class="ko">기획</span><span class="zh">策划</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">기획의 뼈대는 여섯 칸이다</span><span class="zh">策划的骨架就是六栏</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">기획은 <b>누가, 언제, 무엇을 하려고</b> 쓰는 서비스인지 글로 정하는 일입니다. 뼈대는 아래 여섯 칸이면 충분합니다. 이 메모가 다음 시간에 PRD가 되고, 8회 수행평가 2로 제출됩니다.</span><span class="zh">策划，就是用文字定下这是<b>谁、在什么时候、为了做什么</b>而用的服务。骨架有下面六栏就够了。这份备忘下一课时会变成 PRD，第 8 次课作为实践考核 2 提交。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:26%"><span class="ko">메모 칸</span><span class="zh">备忘栏目</span></th><th><span class="ko">한 줄로 답할 질문</span><span class="zh">用一行回答的问题</span></th></tr></thead><tbody><tr><td><span class="ko">1. 불편</span><span class="zh">1. 不便</span></td><td><span class="ko">요즘 실제로 겪은 불편은? 그중 하나를 고른다</span><span class="zh">最近真实遇到的不便是什么？从中选一个</span></td></tr><tr><td><span class="ko">2. 사용자</span><span class="zh">2. 用户</span></td><td><span class="ko">누가 <b>언제</b> 쓰는가?</span><span class="zh">谁<b>在什么时候</b>用？</span></td></tr><tr><td><span class="ko">3. 목적 한 문장</span><span class="zh">3. 目的一句话</span></td><td><span class="ko">나는 ___한 사용자가 ___할 수 있도록 돕는 ___을 만든다</span><span class="zh">我要做一个 ___，帮助 ___ 的用户能够 ___</span></td></tr><tr><td><span class="ko">4. 대표 사용 흐름</span><span class="zh">4. 代表性使用流程</span></td><td><span class="ko">열고 → 넣고 → 누르고 → 결과를 보는 3~4단계는?</span><span class="zh">打开 → 输入 → 按下 → 看结果，3~4 步是什么？</span></td></tr><tr><td><span class="ko">5. 핵심 기능</span><span class="zh">5. 核心功能</span></td><td><span class="ko">이것 하나가 안 되면 서비스가 아닌 기능은?</span><span class="zh">少了它就不成服务的那个功能是什么？</span></td></tr><tr><td><span class="ko">6. 완성 기준</span><span class="zh">6. 完成标准</span></td><td><span class="ko">해 보면 맞는지 알 수 있는 문장 2개는?</span><span class="zh">一试就知道对不对的 2 句话是什么？</span></td></tr></tbody></table></div>
+<p><span class="ko">칸마다 완벽하지 않아도 됩니다. 한 줄씩 적고 AI와 함께 고쳐 나갑니다.</span><span class="zh">每栏不必完美。各写一行，再和 AI 一起改。</span></p>
+</section>
 
-  <!-- ══════════ 12 ══════════ -->
-  <section class="page" id="s12">
-    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
+<section class="page" id="sw">
+<div class="kick"><span class="ko">AI와 함께 쓰기</span><span class="zh">和 AI 一起写</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">① 먼저 내 생각대로 여섯 칸을 적는다</span><span class="zh">① 先按自己的想法写好六栏</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">AI에게 맡기기 전에 내가 먼저 씁니다. 처음부터 「기획해 줘」라고 하면 내 서비스를 내가 설명할 수 없게 됩니다. <code>기획_메모.md</code>의 여섯 칸에 한 줄씩 적고 <code>Ctrl+S</code>로 저장합니다.</span><span class="zh">交给 AI 之前，先自己写。一开始就说「帮我策划」，自己的服务自己就说不清了。在 <code class="keep-ko">기획_메모.md</code> 的六栏里各写一行，按 <code>Ctrl+S</code> 保存。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">기획_메모.md · 한 줄씩 적은 예</span><span class="zh"><code class="keep-ko">기획_메모.md</code> · 每栏写一行的示例</span></span></div><pre class="ko blk">## 1. 자주 겪는 불편이나 관심 세 가지
+- 이 가운데 고른 것: 시험 전날 무엇부터 외울지 모르겠다
+## 2. 내 서비스의 사용자
+- 시험 전날 무엇부터 외울지 정하기 어려운 학생
+## 3. 목적 한 문장
+- 나는 시험 전날 무엇부터 외울지 정하기 어려운 학생이 외울 항목 하나를 무작위로 받아 연습하도록 돕는 웹 도구를 만든다.
+## 5. 핵심 기능과 보조 기능
+- 핵심 기능: 적어 둔 항목 가운데 하나를 무작위로 뽑는다
+## 6. 완성 기준
+1. 항목을 적고 '하나 뽑기'를 누르면 항목 하나가 나타난다.
+2. 항목 없이 누르면 "먼저 항목을 적어 주세요"가 나타난다.</pre><pre class="zh blk keep-ko">## 1. 자주 겪는 불편이나 관심 세 가지　（三个不便）
+- 이 가운데 고른 것（选中的）: 考试前一天不知道先背什么
+## 2. 내 서비스의 사용자　（用户）
+- 考试前一天定不下先背什么的学生
+## 3. 목적 한 문장　（目的一句话）
+- 我要做一个网页小工具，帮助考试前一天定不下先背什么的学生，从要背的项目里随机抽一个来练习。
+## 5. 핵심 기능과 보조 기능　（核心功能）
+- 핵심 기능: 从写好的项目里随机抽一个
+## 6. 완성 기준　（完成标准）
+1. 写好项目后按“抽一个”，会出现一个项目。
+2. 没写项目就按，会出现“请先写下项目”。</pre></div>
+<div class="steps"><div class="st-h"><span class="ko">다 적었으면 미리 보기로 읽어 본다</span><span class="zh">写完后用预览读一读</span></div><ol><li><span class="ko">탐색기에서 <code>기획_메모.md</code>를 마우스 오른쪽 단추로 누르고 <b>미리 보기 열기</b>(Open Preview)를 고른다. <code>Ctrl+Shift+V</code>를 눌러도 된다.</span><span class="zh">在资源管理器中右键单击 <code class="keep-ko">기획_메모.md</code>，选择 <b class="keep-ko">미리 보기 열기</b>（Open Preview，打开预览）。也可以按 <code>Ctrl+Shift+V</code>。</span></li><li><span class="ko"><code>#</code>은 제목, <code>-</code>는 목록으로 보인다. 남이 읽는 모습으로 한 번 읽어 본다.</span><span class="zh"><code>#</code> 显示成标题，<code>-</code> 显示成列表。用别人读到的样子读一遍。</span></li></ol></div>
+<div class="note"><div class="nt"><span class="ko">아이디어가 떠오르지 않으면</span><span class="zh">想不出点子时</span></div><p><span class="ko">「할 일 기록」, 「읽은 책 기록」, 「이야기 소재 만들기」, 「외울 것 하나 뽑기」 가운데 하나를 골라도 됩니다.</span><span class="zh">从「待办记录」「读书记录」「故事素材生成」「随机抽一个要背的」里挑一个也可以。</span></p></div>
+</section>
 
-    <div class="quiz">
-      <div class="q">
-        <div class="qq"><span class="ko">처음 만드는 서비스에서 핵심 기능을 하나로 제한하는 이유는 무엇인가?</span><span class="zh">第一次做服务时，为什么要把核心功能限定为一个？</span></div>
-        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
-          <p><span class="ko"><b>완성 여부를 판단할 수 있게 하기 위해서</b>입니다. 기능이 하나면 “그 기능이 작동하는가”로 완성을 판정할 수 있습니다. 기능이 다섯 개면 세 개만 되었을 때 완성인지 아닌지 말할 수 없습니다.</span><span class="zh"><b>为了能判断有没有做完</b>。功能只有一个时，用“这个功能能不能跑”就能判定完成。功能有五个时，做出三个，你说不清算不算完成。</span></p>
-          <p><span class="ko">또 한 가지 이유는 시간입니다. 9회에 흐름을 설계하고 10~13회 네 번의 수업 안에 만들고, 시험하고, 고치고, 설명까지 해야 합니다. 기능 하나도 그 과정을 다 거치면 시간이 빠듯합니다.</span><span class="zh">还有一个理由是时间。第 9 次课设计流程，再用第 10~13 次课这四节做出来、测试、修改，还要说明。就算只有一个功能，把这一整套走完也很紧张。</span></p>
-        </div></details>
-      </div>
-      <div class="q">
-        <div class="qq"><span class="ko">화면을 그림이 아니라 입력·동작·결과를 설명하는 글로 작성하는 이유는 무엇인가?</span><span class="zh">画面为什么不用图，而要写成说明输入、动作与结果的文字？</span></div>
-        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
-          <p><span class="ko">그 글이 <b>AI에게 화면을 요청하는 재료</b>이자 <b>만들어진 화면을 확인하는 기준</b>이 되기 때문입니다. 그림은 색과 위치를 보여 주지만, “입력이 잘못되면 무엇이 나와야 하는가” 같은 것은 담지 못합니다.</span><span class="zh">因为那段文字既是<b>向 AI 请求画面的材料</b>，也是<b>确认做出来的画面的标准</b>。图能显示颜色和位置，却装不下“输入错了该出现什么”这类内容。</span></p>
-          <p><span class="ko">그리고 색·글꼴·위치는 개발 단계에서 AI가 만들고 사람이 확인합니다. 지금 정해 두면 시간만 쓰고 다시 바꾸게 됩니다.</span><span class="zh">而且颜色、字体、位置在开发阶段由 AI 做、由人确认。现在定下来，只会白花时间，之后还要改。</span></p>
-        </div></details>
-      </div>
-      <div class="q">
-        <div class="qq"><span class="ko">AI가 “알림 기능과 공유 기능도 넣으면 좋겠다”라고 제안했다. 학생이 확인해야 할 것은 무엇인가?</span><span class="zh">AI 提议说“加上推送功能和分享功能会更好”。学生该确认什么？</span></div>
-        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
-          <p><span class="ko">먼저 <b>그 기능이 한 문장 정의와 핵심 기능에 실제로 필요한지</b>를 확인합니다. 정의에 없는 일을 하는 기능이면 넣지 않습니다.</span><span class="zh">首先确认<b>这个功能对那句一句话定义和核心功能是否真的必要</b>。做的是定义里没有的事，就不加。</span></p>
-          <p><span class="ko">다음으로 <b>수업 범위 안에 있는지</b>를 봅니다. 알림과 공유는 대체로 로그인이나 외부 연결이 필요해 기본 범위 밖입니다.</span><span class="zh">其次看<b>是否在课程范围之内</b>。推送和分享大多需要登录或外部连接，在基本范围之外。</span></p>
-          <p><span class="ko">넣지 않기로 했다면 그것도 기록합니다. PRD의 <b>‘만들지 않을 기능과 이유’</b>와 <b>‘AI 사용과 학생의 판단’</b> 항목에 적습니다. <b>거절한 것도 판단</b>이며, 8회 평가에서 확인하는 항목입니다.</span><span class="zh">如果决定不加，这件事也要记下来。写进 PRD 的<b>“不做的功能与理由”</b>和<b>“AI 的使用与学生的判断”</b>两项。<b>拒绝也是一种判断</b>，是第 8 次课评价要确认的项目。</span></p>
-        </div></details>
-      </div>
-    </div>
-  </section>
+<section class="page" id="sa">
+<div class="kick"><span class="ko">AI와 함께 쓰기</span><span class="zh">和 AI 一起写</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">② AI에게 메모를 읽히고 질문을 받는다</span><span class="zh">② 让 AI 读备忘，向我提问</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">여섯 칸을 적었다면 AI에게 메모를 읽히고, 흐릿한 곳을 <b>질문</b>하고 제안하게 합니다. AI가 메모를 직접 고쳐도 괜찮습니다. 중요한 것은 AI가 묻고 고친 것을 <b>내가 끝까지 읽는 것</b>입니다. 아래 요청문을 복사해 OpenCode에 보냅니다.</span><span class="zh">写好六栏后，让 AI 读备忘，对模糊的地方<b>提问</b>并提出建议。AI 直接修改备忘也没关系。重要的是，AI 问的、改的内容，<b>自己要读到最后</b>。复制下面的请求发给 OpenCode。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 메모 다듬기</span><span class="zh">发给 OpenCode 的请求 — 修改备忘</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">기획_메모.md 파일을 읽어 줘.
+칸마다 흐릿하거나 서로 맞지 않는 곳을 쉬운 질문으로 하나씩 물어봐 줘.
+고치면 좋을 점이 있으면 제안해 줘.</pre><pre class="zh blk">请读 <span class="keep-ko">기획_메모.md</span> 文件。
+逐栏用浅显的问题，把模糊或彼此对不上的地方一个一个问我。
+有值得修改的地方就提出建议。</pre></div>
+</section>
 
-  <section class="page" id="s12_2">
-    <div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<section class="page" id="sa_2">
+<div class="kick"><span class="ko">AI와 함께 쓰기</span><span class="zh">和 AI 一起写</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">③ 고칠지는 내가 정하고, 다시 묻는다</span><span class="zh">③ 改不改由自己定，再问一次</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">AI의 질문과 예시 문장을 읽고, 맞다고 생각하는 것만 내 말로 고쳐 메모에 적습니다. 고친 뒤에는 같은 요청을 한 번 더 보내 봅니다. 이렇게 <b>쓰고, 묻고, 고치기</b>를 두세 번 되풀이하면 메모가 또렷해집니다.</span><span class="zh">读 AI 的提问和示例句，只把自己认为对的部分用自己的话改进备忘。改完后再发一次同样的请求。像这样<b>写、问、改</b>重复两三次，备忘就会变清楚。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:44%"><span class="ko">AI가 이렇게 말하면</span><span class="zh">AI 这样说时</span></th><th><span class="ko">이렇게 한다</span><span class="zh">这样做</span></th></tr></thead><tbody><tr><td><span class="ko">「사용자가 언제 쓰는지 불분명합니다」</span><span class="zh">「不清楚用户什么时候用」</span></td><td><span class="ko">2번 칸에 「~할 때」를 넣어 고친다</span><span class="zh">在第 2 栏补上「……的时候」</span></td></tr><tr><td><span class="ko">「로그인·공유 기능을 넣으면 좋겠습니다」</span><span class="zh">「加上登录、分享功能会更好」</span></td><td><span class="ko">넣지 않는다. 로그인·결제·채팅은 이 수업에서 만들지 않는다</span><span class="zh">不加。登录、支付、聊天这门课都不做</span></td></tr></tbody></table></div>
+<div class="row"><div class="pane ok"><div class="pt"><span class="ko">이렇게 쓴다</span><span class="zh">这样用</span></div><p><span class="ko">AI의 질문을 읽고 <b>내 말로</b> 고친다</span><span class="zh">读 AI 的提问，<b>用自己的话</b>改</span></p></div><div class="pane" style="border-color:var(--danger-line); background:var(--danger-bg)"><div class="pt" style="color:var(--danger)"><span class="ko">이렇게 쓰지 않는다</span><span class="zh">不要这样用</span></div><p><span class="ko">AI가 써 준 문장을 그대로 붙인다</span><span class="zh">把 AI 写的句子直接粘贴</span></p></div></div>
+</section>
 
-    <div class="mysay">
-      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
-      <p><span class="ko">“나는 ______한 사용자가 ______할 수 있도록 돕는 ______을 만든다.” 오늘 배운 틀로 내 아이디어를 한 문장으로 적어 보세요. 다음 차시에 이 문장부터 문서에 옮깁니다.</span><span class="zh">“我要做的是帮助 ______ 的用户能够 ______ 的 ______。”用今天学的模板，把自己的点子写成一句话。下一课时就从这句话开始抄进文档。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 13 ══════════ -->
-  <section class="page" id="s13">
-    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
-
-    <div class="recap">
-      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
-      <ul>
-        <li><span class="ko">전문적인 서비스 기획 방법을 모두 배우는 것이 목표가 아니다. <b>AI에게 설명하고 결과를 확인할 수 있을 만큼</b> 정리한다.</span><span class="zh">目标不是把专业的服务策划方法全学一遍。整理到<b>能向 AI 说明、能确认结果</b>的程度即可。</span></li>
-        <li><span class="ko"><b>서비스 제작 계획서(PRD)</b>는 AI에게 무엇을 만들지 설명하고 결과를 확인하는 <b>기준 문서</b>다. 이 수업에서는 <b>수업용 간소화 PRD</b>를 쓴다.</span><span class="zh"><b>服务制作计划书（PRD）</b>是向 AI 说明要做什么、并据以确认结果的<b>标准文档</b>。这门课写的是<b>课堂用简化 PRD</b>。</span></li>
-        <li><span class="ko">아이디어는 <b>익숙한 불편이나 관심사</b>에서 시작한다. 이미 있는 서비스와 비슷해도 된다.</span><span class="zh">点子从<b>熟悉的不便或兴趣</b>出发。和已有的服务相似也可以。</span></li>
-        <li><span class="ko">사용자는 <b>상황과 함께</b> 적는다. “모든 사람”이 아니라 “___할 때 ___이 필요한 학생”.</span><span class="zh">用户要<b>连同情境</b>一起写。不是“所有人”，而是“在___时需要___的学生”。</span></li>
-        <li><span class="ko">목적은 <b>“나는 ___한 사용자가 ___할 수 있도록 돕는 ___을 만든다”</b> 한 문장으로 적는다.</span><span class="zh">目的写成<b>“我要做的是帮助 ___ 的用户能够 ___ 的 ___”</b>这一句话。</span></li>
-        <li><span class="ko">대표 사용 흐름은 <b>하나만</b> 3~4단계로 적는다.</span><span class="zh">代表性使用流程<b>只写一条</b>，分 3~4 步。</span></li>
-        <li><span class="ko">핵심 기능 <b>1개</b>, 보조 기능 <b>최대 2개</b>. 로그인·결제·실시간 채팅·외부 AI API는 제외한다.</span><span class="zh">核心功能 <b>1 个</b>，辅助功能 <b>最多 2 个</b>。登录、支付、实时聊天、外部 AI API 都排除。</span></li>
-        <li><span class="ko">기술을 정하기 전에 <b>입력·처리·출력</b>과 잘못된 입력에 대한 안내를 정한다.</span><span class="zh">定技术之前，先定<b>输入、处理、输出</b>和对错误输入的提示。</span></li>
-        <li><span class="ko">화면은 그리지 않고 <b>여섯 항목</b>으로 글로 설명한다.</span><span class="zh">画面不画，用<b>六个项目</b>写成文字说明。</span></li>
-        <li><span class="ko">완성 기준은 <b>눈으로 확인할 수 있는 문장</b> 2~3개로 적는다.</span><span class="zh">完成标准写成<b>用眼睛能确认的句子</b> 2~3 条。</span></li>
-        <li><span class="ko">AI는 <b>학생이 먼저 정한 뒤</b> 질문을 요청하는 데 쓴다. 최종 범위는 학생이 결정하고, 그 판단을 기록한다.</span><span class="zh">AI 要在<b>学生先定好之后</b>，用来请它提问。最终范围由学生决定，并把这个判断记下来。</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="page" id="s13_2">
-    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="note">
-      <div class="nt"><span class="ko">다음 주에 정할 네 가지</span><span class="zh">下周要定的四件事</span></div>
-      <p><span class="ko">이 수업의 모든 서비스는 <b>사용자가 만든 의미 있는 기록을 최소 한 종류 저장</b>합니다. 7회에는 그 기록을 다음 순서로 정합니다.</span><span class="zh">这门课的每个服务都要<b>至少保存一种由用户产生的、有意义的记录</b>。第 7 次课按下面的顺序来定这份记录。</span></p>
-      <ul class="blist">
-        <li><span class="ko">서비스가 <b>기억해야 할 기록</b>을 정한다.</span><span class="zh">定下服务<b>要记住的记录</b>。</span></li>
-        <li><span class="ko">그 기록이 생기는 <b>사용자 행동</b>을 생각한다.</span><span class="zh">想清楚这条记录是由哪个<b>用户行为</b>产生的。</span></li>
-        <li><span class="ko">사용자가 저장된 기록을 <b>다시 확인하는 순간</b>을 생각한다.</span><span class="zh">想清楚用户<b>再次查看</b>这条记录的时刻。</span></li>
-        <li><span class="ko">기록을 담을 <b>후보 테이블과 역할</b>을 정한다.</span><span class="zh">定下承载记录的<b>候选数据表及其作用</b>。</span></li>
-      </ul>
-      <p><span class="ko">오늘은 여기까지 생각하지 않아도 됩니다. 다만 핵심 기능을 정할 때 <b>사용자가 나중에 다시 볼 만한 것이 생기는지</b>만 한 번 떠올려 보세요.</span><span class="zh">今天还不必想到这一步。只是在定核心功能时，顺便想一想<b>会不会产生用户日后还想再看的东西</b>。</span></p>
-    </div>
-  </section>
-
-  <section class="page" id="s13_3">
-    <div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>6-1</b></div>
-    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-    <div class="bridge">
-      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
-      <p><span class="ko">다음 차시에는 오늘 배운 항목을 <b>실제 문서에 옮겨 적습니다.</b> 교사가 제공한 <b>PRD 양식</b>을 복사해 <code>08_assessment2_학생ID_이름.md</code>로 이름을 바꾸고, 사용자·목적·흐름·기능·화면·완성 기준을 채웁니다.</span><span class="zh">下一课时把今天学的各项<b>抄进真正的文档</b>。复制老师提供的 <b>PRD 样式</b>，改名为 <code>08_assessment2_학생ID_이름.md</code>，填上用户、目的、流程、功能、画面与完成标准。</span></p>
-      <p><span class="ko">이 문서 하나가 7회에 데이터 항목을 더해 자라고, 8회에 <b>수행평가 2</b>로 제출됩니다. 새 문서를 여러 개 만들지 않습니다.</span><span class="zh">这一份文档会在第 7 次课加上数据项而长大，到第 8 次课作为<b>实作评价 2</b> 提交。不要另建好几份文档。</span></p>
-      <a class="next" href="../../06/textbook/06-2.html">6-2. 서비스 제작 계획서(PRD) 시작하기 →</a>
-    </div>
-
-    <div class="lessonnav">
-      <a href="../../05/textbook/05-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">5-2. 수행평가 1 · AI 활용 데이터 시각화</span></a>
-      <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
-      <a href="../../06/textbook/06-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">6-2. 서비스 제작 계획서(PRD) 시작하기</span></a>
-    </div>
-  </section>
+<section class="page" id="s12">
+<div class="kick"><span class="ko">정리</span><span class="zh">小结</span><b>6-1</b></div>
+<h2 class="title"><span class="ko">메모를 저장하고 다음 차시를 준비한다</span><span class="zh">保存备忘，准备下一课时</span></h2>
+<p class="lead"><span class="ko">오늘은 skill을 설치하고, AI와 함께 메모를 다듬었습니다. 다음 차시에는 이 메모로 PRD를 씁니다.</span><span class="zh">今天装好了 skill，并和 AI 一起修改了备忘。下一课时用这份备忘写 PRD。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">닫기 전에</span><span class="zh">关闭之前</span></div><ol><li><span class="ko">VS Code 탭의 <code>기획_메모.md</code> 이름 옆에 동그라미(●)가 없는지 본다. 있으면 <code>Ctrl+S</code>를 누른다.</span><span class="zh">看 VS Code 标签页上 <code class="keep-ko">기획_메모.md</code> 名称旁边有没有圆点（●）。有的话按 <code>Ctrl+S</code>。</span></li><li><span class="ko">탐색기에 <code>.agents</code> 폴더와 <code>opencode.json</code>이 있는지 본다. 다음 시간에도 spartan이 그대로 적용된다.</span><span class="zh">确认资源管理器里有 <code>.agents</code> 文件夹和 <code>opencode.json</code>。下一课时 spartan 也会照样生效。</span></li></ol></div>
+<div class="recap"><div class="rt"><span class="ko">오늘 남길 것</span><span class="zh">今天要记住的</span></div><ul class="blist"><li><span class="ko">skill은 AI가 일하는 방식을 적어 둔 파일이다.</span><span class="zh">skill 是写好 AI 做事方式的文件。</span></li><li><span class="ko">내가 먼저 쓰고, AI에게 질문을 받고, 고칠지는 내가 정한다.</span><span class="zh">自己先写，让 AI 提问，改不改由自己定。</span></li></ul></div>
+<div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><a class="next" href="../../06/textbook/06-2.html"><span class="ko">6-2. 서비스 제작 계획서(PRD) 시작하기 →</span><span class="zh">6-2. 开始编写服务制作计划书（PRD）→</span></a></div>
+<div class="lessonnav"><a href="../../05/textbook/05-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t"><span class="ko">5-2. 수행평가 1 · AI 활용 데이터 시각화</span><span class="zh">5-2. 实践考核 1 · AI 应用数据可视化</span></span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../06/textbook/06-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t"><span class="ko">6-2. 서비스 제작 계획서(PRD) 시작하기</span><span class="zh">6-2. 开始编写服务制作计划书（PRD）</span></span></a></div>
+</section>
 
 </main>
 

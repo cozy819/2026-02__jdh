@@ -10,9 +10,10 @@
 
 ## 쓰는 법
 
-두 스크립트 모두 **playwright 와 크로미움이 있어야 돈다.** 선생님 컴퓨터에는 없다 —
-이 검사는 Claude 세션에서 돌린다. 다른 기계에서 돌릴 일이 있으면 `CHROME_PATH` 로
-크롬 실행 파일을 가리키고, 교과서 루트가 현재 폴더가 아니면 `BOOK_ROOT` 로 지정한다.
+두 스크립트 모두 **Playwright와 Chrome 또는 Chromium이 있어야 돈다.** Claude Code와
+Codex는 프로젝트 루트에서 `python3 harness/tools/doctor.py`를 먼저 실행한다. 빠진 패키지는
+`harness/README.md`의 준비 절차로 설치한다. 다른 기계에서 브라우저를 자동으로 찾지 못하면
+`CHROME_PATH`로 실행 파일을 가리키고, 교과서 루트가 현재 폴더가 아니면 `BOOK_ROOT`로 지정한다.
 
 ```bash
 cd 수업구성/교과서_배포

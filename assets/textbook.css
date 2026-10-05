@@ -1180,3 +1180,31 @@ body.lang-zh .zh.blk{display:block !important}
   .ws{padding:16px 14px}
   .ws table.wstab td{height:46px}
 }
+
+/* ── 화면 목업 (2026-10-05 · 6주차) ─────────────────────────
+   학생이 글로 쓴 화면 설명이 어떤 화면이 되는지 보여 주는 CSS 도식.
+   그림 파일이 아니라 글자로 그리므로 한·중 병기와 글자 수정이 그대로 된다. */
+.mock{border:1px solid var(--line); border-radius:8px; background:#fff; overflow:hidden; margin:16px 0 0; box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.mock-bar{display:flex; align-items:center; gap:6px; padding:7px 10px; background:var(--vcl-cool,#F1F2F4); border-bottom:1px solid var(--line); font:500 12px var(--mono,monospace); color:var(--muted)}
+.mock-bar i{width:9px; height:9px; border-radius:50%; background:#D5D8DC; display:inline-block}
+.mock-bar span{margin-left:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:1px 10px}
+.mock-body{padding:16px 20px 18px; position:relative}
+.mock .mk-title{font-weight:800; font-size:18px; margin:0 0 4px}
+.mock .mk-hint{font-size:13.5px; color:var(--muted); margin:0 0 10px}
+.mock .mk-row{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:6px 0}
+.mock .mk-input{flex:1 1 90px; min-height:30px; border:1px solid #C9CDD2; border-radius:5px; padding:5px 9px; font-size:13.5px; color:#9AA0A6; background:#fff}
+.mock .mk-btn{display:inline-block; background:var(--vcl-orange,#FF5C00); color:#fff; font-weight:700; font-size:13.5px; border-radius:5px; padding:6px 14px}
+.mock .mk-result{margin-top:10px; border:1px dashed #9BD3A8; background:#EEF8F0; border-radius:6px; padding:9px 12px; font-size:14px}
+.mock .mk-err{margin-top:8px; color:#C0392B; font-size:13px}
+.mock .mk-n{display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:var(--vcl-carbon,#1B1D21); color:#fff; font:700 11.5px var(--num,sans-serif); margin-right:6px; vertical-align:middle; flex:0 0 auto}
+.mock-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:16px 0 0}
+.mock-strip .mock{margin:0; display:flex; flex-direction:column}
+.mock-strip .mock-body{flex:1}
+.mock-strip .mock-body{padding:9px 10px 11px; min-height:118px}
+.mock-strip .mk-title{font-size:13px}
+.mock-strip .mk-hint,.mock-strip .mk-input,.mock-strip .mk-btn,.mock-strip .mk-result{font-size:11px}
+.mock-strip .mk-input{min-height:22px; padding:3px 6px}
+.mock-strip .mk-btn{padding:3px 8px}
+.mock-strip .mk-cap{font-size:12px; font-weight:700; padding:6px 10px; border-top:1px solid var(--line); background:var(--vcl-cool,#F1F2F4)}
+.mock-strip .mk-on{outline:2px solid var(--vcl-orange,#FF5C00); outline-offset:2px}
+@media print{.mock,.mock-strip{break-inside:avoid}}

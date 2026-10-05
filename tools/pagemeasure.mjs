@@ -1,10 +1,19 @@
 import { createRequire } from 'module';
 import os from 'os';
+import { fileURLToPath } from 'url';
 import http from 'http'; import fs from 'fs'; import path from 'path';
 let chromium;
 try { ({ chromium } = await import('playwright')); }
-catch {
-  const mods=process.env.CODEX_NODE_MODULES||path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
+catch (firstError) {
+  const scriptDir=path.dirname(fileURLToPath(import.meta.url));
+  const candidates=[
+    process.env.HARNESS_NODE_MODULES,
+    process.env.CODEX_NODE_MODULES,
+    path.resolve(scriptDir,'../../../harness/node_modules'),
+    path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'),
+  ].filter(Boolean);
+  const mods=candidates.find(p=>fs.existsSync(path.join(p,'playwright','package.json')));
+  if(!mods) throw new Error('Playwright를 찾지 못했습니다. 프로젝트 루트에서 npm install --prefix harness 를 실행하세요.',{cause:firstError});
   ({ chromium } = createRequire(path.join(mods,'package.json'))('playwright'));
 }
 const root=process.env.BOOK_ROOT || '.';   // 교과서_배포 루트

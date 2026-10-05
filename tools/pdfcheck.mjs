@@ -1,10 +1,19 @@
 import { createRequire } from 'module';
 import os from 'os';
+import { fileURLToPath } from 'url';
 import http from 'http'; import fs from 'fs'; import path from 'path';
 let chromium;
 try { ({ chromium } = await import('playwright')); }
-catch {
-  const mods=process.env.CODEX_NODE_MODULES||path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
+catch (firstError) {
+  const scriptDir=path.dirname(fileURLToPath(import.meta.url));
+  const candidates=[
+    process.env.HARNESS_NODE_MODULES,
+    process.env.CODEX_NODE_MODULES,
+    path.resolve(scriptDir,'../../../harness/node_modules'),
+    path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'),
+  ].filter(Boolean);
+  const mods=candidates.find(p=>fs.existsSync(path.join(p,'playwright','package.json')));
+  if(!mods) throw new Error('Playwright를 찾지 못했습니다. 프로젝트 루트에서 npm install --prefix harness 를 실행하세요.',{cause:firstError});
   ({ chromium } = createRequire(path.join(mods,'package.json'))('playwright'));
 }
 import { execSync } from 'child_process';
@@ -48,7 +57,10 @@ for (const f of targets) {
   });
   const out=`/tmp/${f.replace(/[\/]/g,'_')}.pdf`;
   await pg.pdf({path:out, format:'A4', printBackground:true, margin:{top:'16mm',bottom:'16mm',left:'15mm',right:'15mm'}});
-  const pdfPages=parseInt(execSync(`pdfinfo ${out} | awk '/^Pages/{print $2}'`).toString().trim());
+  // pdfinfo(poppler)가 없는 기기에서는 PDF 안의 /Type /Page 객체 수를 센다(2026-10-05).
+  let pdfPages;
+  try { pdfPages=parseInt(execSync(`pdfinfo ${out} 2>/dev/null | awk '/^Pages/{print $2}'`).toString().trim()); } catch(e) {}
+  if(!Number.isFinite(pdfPages)) pdfPages=(fs.readFileSync(out,'latin1').match(/\/Type\s*\/Page(?![s\w])/g)||[]).length;
   if(info.n!==pdfPages) failed=true;
   console.log(`${f}  .page=${info.n}  인쇄장수=${pdfPages}  ${info.n===pdfPages?'✅ 일치':'❌ '+(pdfPages-info.n)+'장 초과'}`);
   await pg.close();

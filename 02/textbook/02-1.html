@@ -346,7 +346,7 @@ opencode --version</pre></div>
     <div class="kick"><span class="ko">5. 첫 대화</span><span class="zh">5. 第一次对话</span><b>02-1</b></div>
     <h2 class="title"><span class="ko">첫 대화로 연결을 확인한다</span><span class="zh">用第一次对话确认连接</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
     <p class="lead"><span class="ko">모델 연결이 끝나면 짧은 첫 요청을 보내고 OpenCode가 응답하는지 확인합니다.</span><span class="zh">模型连接完成后发送简短的第一次请求，确认 OpenCode 能否回答。</span></p>
-    <div class="code"><div class="chd"><span class="fn"><span class="ko">첫 요청</span><span class="zh">第一次请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>이 수업에서 OpenCode가 도울 수 있는 일을 세 가지만 알려 줘.</pre></div>
+    <div class="code"><div class="chd"><span class="fn"><span class="ko">첫 요청</span><span class="zh">第一次请求</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">이 수업에서 OpenCode가 도울 수 있는 일을 세 가지만 알려 줘.</pre><pre class="zh blk">告诉我在这门课上 OpenCode 能帮忙做的三件事。</pre></div>
     <div class="vflow">
       <div class="vf plain"><b><span class="ko">내 요청</span><span class="zh">我的请求</span></b><span class="ko">도울 수 있는 일 세 가지만 질문</span><span class="zh">只询问三项可提供的帮助</span></div>
       <div class="varr">↓</div>
@@ -378,7 +378,7 @@ opencode --version</pre></div>
     <h2 class="title"><span class="ko">OpenCode는 실행되지만 임시 PATH 등록의 중복을 확인한다</span><span class="zh">OpenCode 可以运行，但需检查临时 PATH 是否重复登记</span> <span class="badge ext"><span class="ko">교사용</span><span class="zh">教师用</span></span></h2>
     <p class="lead"><span class="ko">이 절차는 <b><code>opencode --version</code>이 이미 정상 작동하는 PC</b>를 대상으로 합니다. 지난 수업의 임시 명령이 사용자 PATH에 같은 npm 경로를 여러 번 넣었는지만 확인하고, 중복이 있을 때만 하나로 정리합니다.</span><span class="zh">此步骤面向<b><code>opencode --version</code> 已能正常运行的电脑</b>。它只检查上节课的临时命令是否在用户 PATH 中重复添加了相同的 npm 路径，并仅在出现重复时整理为一项。</span></p>
     <div class="note warn compact-note"><div class="nt"><span class="ko">앞쪽 오류 복구와 다른 절차</span><span class="zh">与前面的错误修复步骤不同</span></div><p><span class="ko">이 명령은 OpenCode를 설치하거나 누락된 PATH를 새로 추가하지 않습니다. <code>npm config get prefix</code>로 PC별 실제 경로를 자동으로 가져오므로 모든 PC에서 명령을 고치지 않고 그대로 실행합니다.</span><span class="zh">此命令不会安装 OpenCode，也不会新增缺失的 PATH。它会通过 <code>npm config get prefix</code> 自动取得每台电脑的实际路径，因此所有电脑都可直接运行，无需修改命令。</span></p></div>
-    <div class="code term path-fix-code"><div class="chd"><span class="fn">PowerShell · <span class="ko">실행 중인 모든 PC에서 같은 사후 점검 명령 사용</span><span class="zh">在所有已能运行的电脑上使用同一检查命令</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>$npmPrefix = (npm config get prefix).Trim()
+    <div class="code term path-fix-code"><div class="chd"><span class="fn">PowerShell · <span class="ko">실행 중인 모든 PC에서 같은 사후 점검 명령 사용</span><span class="zh">在所有已能运行的电脑上使用同一检查命令</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">$npmPrefix = (npm config get prefix).Trim()
 $normalized = $npmPrefix.TrimEnd([IO.Path]::DirectorySeparatorChar)
 [string]$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
 
@@ -412,6 +412,41 @@ Write-Host $result -ForegroundColor Green
 Write-Host "npm 경로: $npmPrefix"
 Write-Host "정리 전 사용자 PATH 등록 횟수: $beforeCount"
 Write-Host "정리 후 사용자 PATH 등록 횟수: $afterCount"
+where.exe opencode
+opencode --version</pre><pre class="zh blk">$npmPrefix = (npm config get prefix).Trim()
+$normalized = $npmPrefix.TrimEnd([IO.Path]::DirectorySeparatorChar)
+[string]$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+
+$pathItems = @(
+    ($userPath -split ";") |
+    ForEach-Object { $_.Trim() } |
+    Where-Object { $_ }
+)
+
+$sameItems = @(
+    $pathItems |
+    Where-Object { $_.TrimEnd([IO.Path]::DirectorySeparatorChar) -ieq $normalized }
+)
+$beforeCount = $sameItems.Count
+
+if ($beforeCount -gt 1) {
+    $otherItems = @(
+        $pathItems |
+        Where-Object { $_.TrimEnd([IO.Path]::DirectorySeparatorChar) -ine $normalized }
+    )
+    $newUserPath = (($otherItems + $npmPrefix) -join ";")
+    [Environment]::SetEnvironmentVariable("Path", $newUserPath, "User")
+    $afterCount = 1
+    $result = "已将重复的 npm 路径整理为一项。"
+} else {
+    $afterCount = $beforeCount
+    $result = "没有重复，因此未修改 PATH。"
+}
+
+Write-Host $result -ForegroundColor Green
+Write-Host "npm 路径：$npmPrefix"
+Write-Host "整理前用户 PATH 登记次数：$beforeCount"
+Write-Host "整理后用户 PATH 登记次数：$afterCount"
 where.exe opencode
 opencode --version</pre></div>
   </section>
