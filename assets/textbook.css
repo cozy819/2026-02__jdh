@@ -1212,3 +1212,37 @@ body.lang-zh .zh.blk{display:block !important}
 .mock-strip .mk-cap{font-size:12px; font-weight:700; padding:6px 10px; border-top:1px solid var(--line); background:var(--vcl-cool,#F1F2F4)}
 .mock-strip .mk-on{outline:2px solid var(--vcl-orange,#FF5C00); outline-offset:2px}
 @media print{.mock,.mock-strip{break-inside:avoid}}
+
+/* ── 7주차 (2026-10-11) · 데이터베이스 표 · 목업 짝 · 지난 기록 목록 · 연습 칸 ─────────── */
+.dbwrap{margin:16px 0 0; min-width:0}
+.dbn{font-weight:700; font-size:15px; color:var(--vcl-carbon); margin:0 0 6px}
+.dbn code{font-size:13px; margin-left:4px}
+.dbt{width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); font-size:15.5px}
+.dbt th{background:var(--vcl-carbon); color:#fff; font-family:var(--mono); font-weight:600; font-size:14px; text-align:left; padding:7px 10px; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+.dbt th.hc{background:#2F6FD0}
+.dbt td{padding:7px 10px; border-top:1px solid var(--vcl-rowline); color:var(--ink-2); vertical-align:top; line-height:1.5}
+.dbt td.n{font-family:var(--mono)}
+.dbt tr.hl td{background:#FFE7D6; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+.dbt td.hc{background:#EAF2FD; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+.dbt tr.hl td.hc{background:#F5D9C8}
+.dbt em.key{font-style:normal; font-family:var(--num); font-size:10.5px; font-weight:700; border-radius:3px; padding:1px 5px; margin-left:5px; vertical-align:1px}
+.dbt em.pk{background:var(--vcl-orange); color:#fff}
+.dbt em.fk{background:#0E7C86; color:#fff}
+.row.dbrow{margin-top:4px; align-items:start}
+.dblegend{margin:8px 2px 0; font-size:14.5px; color:var(--muted); line-height:1.6}
+.dblegend i.sw{display:inline-block; width:14px; height:14px; vertical-align:-2px; border:1px solid var(--line); margin-right:4px}
+.dblegend i.sw.hl{background:#FFE7D6}
+.dblegend i.sw.hc{background:#EAF2FD}
+.dblink{margin:12px 0 0; text-align:center; font-family:var(--mono); font-size:16px; font-weight:700; color:var(--vcl-orange)}
+.mock-pair{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 0}
+.mock-pair .mock{margin:0}
+.mock .mk-cap{font-size:13px; font-weight:700; padding:6px 12px; border-top:1px solid var(--line); background:var(--vcl-cool,#F1F2F4)}
+.mock .mk-empty{margin-top:10px; font-size:13.5px; color:var(--muted-2,#9AA0A6); text-align:center; padding:9px 0; border:1px dashed var(--line); border-radius:6px}
+.mock .mk-sub{font-weight:700; font-size:14px; margin:14px 0 0; color:var(--vcl-carbon)}
+.mock .mk-list{list-style:none; margin:8px 0 0; padding:0; border-top:1px solid var(--line); min-height:30px}
+.mock .mk-list li{font-size:14px; padding:7px 4px; border-bottom:1px dashed var(--line); color:var(--ink-2)}
+.mock .mk-list li small{float:right; color:var(--muted); font-family:var(--mono); font-size:12px}
+.mock input.mk-input{color:var(--ink); font-family:inherit; outline:none}
+.mock input.mk-input:focus{border-color:var(--vcl-orange,#FF5C00)}
+.mock button.mk-btn{border:0; cursor:pointer; font-family:inherit}
+.mock.demo{max-width:520px; margin-left:auto; margin-right:auto}
