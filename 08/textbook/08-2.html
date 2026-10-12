@@ -56,7 +56,7 @@
   <a href="../../06/textbook/06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
   <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
   <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
-  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> 개인정보와 암호화</a>
   <a href="../../08/textbook/08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
   <a href="../../08/textbook/08-2.html" class="here"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
   <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
@@ -216,8 +216,8 @@
     </ul>
 
     <div class="note warn">
-      <div class="nt"><span class="ko">열·자료형·PK·FK·ERD와 SQL은 작성하지 않습니다</span><span class="zh">列、数据类型、主键外键、ERD 与 SQL 都不写</span></div>
-      <p><span class="ko">7-2에서 AI가 붙여 준 표에 이런 것이 섞여 들어갔다면 <b>지우세요.</b> 있다고 좋은 것이 아니라 수업 범위를 벗어난 것입니다.</span><span class="zh">如果 7-2 里 AI 贴给你的表混进了这些，<b>请删掉</b>。有它不是好事，而是超出了课程范围。</span></p>
+      <div class="nt"><span class="ko">표는 두어도 되고, SQL은 쓰지 않습니다</span><span class="zh">表可以留着，SQL 不写</span></div>
+      <p><span class="ko">7-2에서 5항에 넣은 표는 그대로 두어도 됩니다. 다만 <b>표 아래에 해설</b>이 있는지 보고, AI가 SQL이나 코드, ERD를 넣었다면 <b>지우세요.</b> 평가는 표가 아니라 해설을 봅니다.</span><span class="zh">7-2 放进第 5 项的表可以留着。不过要看<b>表下面有没有说明</b>；AI 要是放进了 SQL、代码或 ERD，就<b>删掉</b>。评价看的是说明，而不是表。</span></p>
     </div>
   </section>
 
@@ -425,7 +425,7 @@
         <tr><td><span class="ko">기록은 정했는데 다시 보는 순간이 없다</span><span class="zh">定了记录，却没有再看的时刻</span></td><td><span class="ko">대표 사용 흐름 마지막에 <b>“지난 기록을 확인한다”</b> 한 단계를 넣으세요. 기능을 늘리지 않고도 흐름이 이어집니다.</span><span class="zh">在代表性使用流程的最后加一步<b>“查看以往的记录”</b>。不增加功能也能把流程接上。</span></td></tr>
         <tr><td><span class="ko">AI가 기능을 잔뜩 추가하라고 한다</span><span class="zh">AI 让我加一大堆功能</span></td><td><span class="ko">반영하지 않고, <b>반영하지 않은 이유</b>를 7항에 적으세요. 그것도 평가 항목입니다.</span><span class="zh">不要采纳，并把<b>未采纳的理由</b>写进第 7 项。那也是评价项目。</span></td></tr>
         <tr><td><span class="ko">완성 기준이 “잘 작동한다”뿐이다</span><span class="zh">完成标准只有“运行良好”</span></td><td><span class="ko">대표 사용 흐름의 마지막 단계를 문장으로 옮기세요. “버튼을 누르면 ___이 나타난다”가 됩니다.</span><span class="zh">把代表性使用流程的最后一步改写成句子，就成了“按下按钮后 ___ 就出现”。</span></td></tr>
-        <tr><td><span class="ko">PRD에 열 이름과 SQL이 들어가 있다</span><span class="zh">PRD 里混进了列名和 SQL</span></td><td><span class="ko">지우세요. 수업 범위 밖이며 채점 대상이 아닙니다. 테이블 <b>이름·역할·연결 기능</b>만 남깁니다.</span><span class="zh">删掉。那在课程范围之外，也不是评分对象。只留下数据表的<b>名称、作用、关联功能</b>。</span></td></tr>
+        <tr><td><span class="ko">PRD에 SQL이나 코드가 들어가 있다</span><span class="zh">PRD 里混进了 SQL 或代码</span></td><td><span class="ko">지우세요. 수업 범위 밖이며 채점 대상이 아닙니다. 표는 남겨도 되지만, 표 아래에 테이블 <b>이름·역할·연결 기능</b> 해설이 있어야 합니다.</span><span class="zh">删掉。那在课程范围之外，也不是评分对象。表可以留着，但表下面要有数据表<b>名称、作用、关联功能</b>的说明。</span></td></tr>
         <tr><td><span class="ko">미리보기에서 한글이 깨진다</span><span class="zh">预览里韩文乱码</span></td><td><span class="ko">UTF-8로 저장되지 않은 것입니다. 파일을 고치려 하지 말고 교사에게 알리세요.</span><span class="zh">说明没有以 UTF-8 保存。不要试图自己修文件，请告诉老师。</span></td></tr>
         <tr><td><span class="ko">시간이 부족하다</span><span class="zh">时间不够</span></td><td><span class="ko">1절(파일 확인)과 3절(한 흐름 확인)을 먼저 끝내고 제출하세요. 재제출 기간에 보완할 수 있습니다.</span><span class="zh">先完成第 1 节（检查文件）和第 3 节（确认连贯）再提交。可以在重新提交期间补充。</span></td></tr>
       </table>
@@ -478,7 +478,7 @@
         <li><span class="ko">어긋나면 <b>기능을 늘리기보다 범위를 줄이는 방향</b>으로 고친다.</span><span class="zh">错位时，<b>往收窄范围的方向改，而不是增加功能</b>。</span></li>
         <li><span class="ko">AI에게는 <b>모순만 질문</b>하게 하고, 지적을 모두 반영하지 않는다.</span><span class="zh">只让 AI <b>就矛盾提问</b>，不把它指出的都照单全收。</span></li>
         <li><span class="ko">반영·미반영과 <b>그 이유</b>를 7항에 기록한다. 거절한 것도 판단이다.</span><span class="zh">把采纳与不采纳<b>及其理由</b>记进第 7 项。拒绝也是一种判断。</span></li>
-        <li><span class="ko">열·자료형·PK·FK·ERD·SQL이 섞여 있으면 <b>지운다.</b></span><span class="zh">若混进了列、数据类型、主键外键、ERD、SQL，就<b>删掉</b>。</span></li>
+        <li><span class="ko">SQL·코드·ERD가 섞여 있으면 <b>지운다.</b> 표를 남겼다면 아래에 해설을 붙인다.</span><span class="zh">若混进了 SQL、代码、ERD，就<b>删掉</b>。留着表的话，就在下面加上说明。</span></li>
         <li><span class="ko">완성 기준 가운데 하나는 <b>다시 열어도 기록이 남아 있는지</b> 보는 것이다.</span><span class="zh">完成标准里要有一条是看<b>重新打开后记录是否还在</b>。</span></li>
         <li><span class="ko">제출 전에 <b>자기 말로</b> 다섯 질문에 답해 본다.</span><span class="zh">提交前<b>用自己的话</b>回答那五个问题。</span></li>
       </ul>

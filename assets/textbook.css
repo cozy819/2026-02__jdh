@@ -437,8 +437,10 @@ ol.nlist li{font-size:18px; line-height:1.6; color:var(--ink-2); margin:7px 0 0}
 .note.aside p{margin:5px 0 0; font-size:16px; line-height:1.6; color:var(--ink-2)}
 .note.aside .blist li{font-size:16px}
 .note.aside:last-child{margin-bottom:6px}
-/* 쪽 꼬리말과 붙지 않게 — .pnum 은 JS가 마지막에 붙인다 */
-.note.aside + .pnum{margin-top:22px}
+/* 쪽 꼬리말과 붙지 않게 — .pnum 은 JS가 마지막에 붙인다.
+   간격은 앞 상자의 아래 여백으로 두고, 꼬리말은 늘 쪽 맨 아래(margin-top:auto)에 둔다(2026-10-12: margin-top:22px가 auto를 덮어 짧은 쪽에서 꼬리말이 가운데 떴다). */
+.note.aside + .pnum{margin-top:auto}
+.note.aside:has(+ .pnum){margin-bottom:22px}
 
 /* 핵심 질문 */
 .bigq{margin:22px 0 0; border-left:5px solid var(--vcl-orange); background:var(--vcl-cool); padding:18px 22px}
@@ -1036,7 +1038,7 @@ figure.web-evolution-figure img.figimg{display:block; width:100%; height:350px; 
 .web-evolution-labels span{display:block; margin-top:7px; font-size:11px; line-height:1.45; color:var(--muted)}
 .web-evolution-page .note.aside{margin-top:auto}
 .www-page .note.aside{margin-top:auto}
-.www-page .note.aside + .pnum,.web-evolution-page .note.aside + .pnum{margin-top:22px}
+.www-page .note.aside + .pnum,.web-evolution-page .note.aside + .pnum{margin-top:auto}
 .network-evolution{display:grid; grid-template-columns:1fr .72fr 1fr; gap:12px; align-items:center; margin-top:14px}
 .arpanet-box,.internet-box{min-height:190px; padding:13px; border:1px solid var(--line); background:var(--bg-soft); text-align:center}
 .arpanet-box>b,.internet-box>b{display:block; font:800 18px/1.2 var(--num); color:var(--indigo-d)}
@@ -1083,7 +1085,7 @@ figure.web-evolution-figure img.figimg{display:block; width:100%; height:350px; 
 .one-pair-rule>div{min-height:108px; padding:13px 9px; border:1px solid var(--line); background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center}
 .one-pair-rule b{font:900 28px/1 var(--num); color:var(--indigo-d)}.one-pair-rule span{margin-top:8px; font-size:12px; color:var(--muted)}.one-pair-rule i{font-style:normal; font-size:22px; color:var(--vcl-orange); text-align:center}
 #s4 .note.aside{margin-top:auto}
-#s4 .note.aside + .pnum{margin-top:22px}
+#s4 .note.aside + .pnum{margin-top:auto}
 .big-steps{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; list-style:none; padding:0; margin:12px 0 16px; counter-reset:steps}
 .big-steps li{counter-increment:steps; border-top:3px solid var(--ink); padding:10px 7px; font-size:13px; line-height:1.4}
 .big-steps li::before{content:counter(steps); display:block; font:900 22px var(--num); color:var(--indigo-d)}
@@ -1098,7 +1100,8 @@ figure.web-evolution-figure img.figimg{display:block; width:100%; height:350px; 
 .language-grid.expanded .lang-card b{margin-top:7px; font-size:12px}
 .language-grid.expanded .lang-card p{margin-top:5px; font-size:10.5px; line-height:1.35}
 #s6 .compact-note{margin-top:auto !important}
-#s6 .compact-note + .pnum{margin-top:22px}
+#s6 .compact-note + .pnum{margin-top:auto}
+#s6 .compact-note:has(+ .pnum){margin-bottom:22px}
 .code-ladder{display:grid; gap:9px; margin-top:18px}.code-ladder>div{display:grid; grid-template-columns:150px 1fr; align-items:center; min-height:72px; border:1px solid var(--line); background:var(--bg-soft)}.code-ladder>div>span{padding:13px; font:800 14px var(--num)}.code-ladder code{display:block; padding:13px 18px; border-left:1px solid var(--line); font-size:15px; white-space:normal}.code-ladder .current{border:2px solid var(--vcl-orange); background:#fff}.code-ladder .natural{background:var(--ink); color:#fff}.code-ladder .natural code{color:#fff;border-color:#4A4D53}.low-high{margin-top:16px}.low-high .pane{padding:16px}.low-high p{font-size:14px}
 .ai-code-flow{display:grid; grid-template-columns:1.25fr 34px .8fr 34px 1.25fr 34px .8fr; gap:8px; align-items:stretch; margin:42px 0}.ai-code-flow>div:not(.flow-arrow){padding:19px 13px; border:2px solid var(--ink); display:flex; flex-direction:column; justify-content:center; text-align:center; min-height:150px}.ai-code-flow p{margin:8px 0 0; font-size:13px; line-height:1.45}.ai-code-flow code{margin-top:10px; font-size:13px}.ai-code-flow strong{font:900 34px var(--num); color:var(--indigo-d)}.ai-code-flow .ai-bridge{border-color:var(--vcl-orange); background:#FFF1E8}.flow-arrow{display:flex; align-items:center; justify-content:center; font-size:25px; color:var(--indigo-d)}
 
@@ -1246,3 +1249,50 @@ body.lang-zh .zh.blk{display:block !important}
 .mock input.mk-input:focus{border-color:var(--vcl-orange,#FF5C00)}
 .mock button.mk-btn{border:0; cursor:pointer; font-family:inherit}
 .mock.demo{max-width:520px; margin-left:auto; margin-right:auto}
+/* 7-1 데이터베이스 두 갈래 · 엑셀 성적표 (2026-10-12) */
+.row.dbkinds{align-items:stretch}
+.dbt.mini{margin-top:12px; font-size:14px}
+.dbt.mini th,.dbt.mini td{padding:5px 8px}
+.pane pre.kvbox{margin:12px 0 0; padding:10px 12px; background:var(--vcl-cool); border:1px solid var(--line); font-family:var(--mono); font-size:14px; line-height:1.6; white-space:pre}
+.dbt.xl th{background:#F1F2F4; color:var(--muted); font-family:var(--num); font-weight:600; text-align:center; border:1px solid var(--line)}
+.dbt.xl th.rn,.dbt.xl td.rn{width:40px; background:#F1F2F4; color:var(--muted); font-family:var(--num); text-align:center; border:1px solid var(--line)}
+.dbt.xl td{border:1px solid var(--line)}
+.dbt.xl tr.hd td{font-weight:700; color:var(--ink)}
+/* 7-2 단방향·양방향 암호화 흐름 (2026-10-12) */
+.row.encrow{align-items:stretch}
+.encflow{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:12px 0 0; font-family:var(--mono); font-size:13.5px}
+.encflow .ef-in,.encflow .ef-out{background:#fff; border:1px solid var(--line); padding:3px 8px; border-radius:4px}
+.encflow .ef-out{background:var(--vcl-carbon); color:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+.encflow .ef-ar{color:var(--vcl-orange); font-family:var(--sans)}
+.encflow .ef-ar b{font-size:13px}
+.encflow .ef-x{font-family:var(--sans); font-size:12.5px; color:var(--danger,#C0392B); font-weight:700}
+/* 7-1 들어가며 · 보도 정리 상자 (2026-10-12) */
+.newscard{margin:18px 0 0; border:1px solid var(--line); border-left:4px solid var(--vcl-carbon); background:#fff; padding:12px 18px 14px}
+.newscard .nc-h{font-family:var(--num); font-size:13px; font-weight:700; letter-spacing:.04em; color:var(--muted)}
+.newscard .blist{margin-top:8px}
+.newscard .blist li{font-size:16.5px}
+/* 7-1 들어가며 · 기사 제목 띠 모음 (2026-10-12 · 캡처 대신 헤드라인만) */
+.headlines{margin:20px 0 4px; padding:18px 14px 14px; background:#ECEDEF; border:1px solid var(--line); display:flex; flex-direction:column; gap:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+.hl-strip{background:#fff; border:1px solid #D5D8DC; box-shadow:0 2px 3px rgba(0,0,0,.12); padding:8px 14px; width:88%; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+.hl-strip:nth-child(even){margin-left:auto}
+.hl-strip .hl-src{display:block; font-family:var(--num); font-size:11.5px; font-weight:700; color:var(--muted); letter-spacing:.03em}
+.hl-strip b{display:block; font-size:16.5px; line-height:1.4; color:var(--ink)}
+.hl-strip.big{width:96%; border-left:4px solid var(--vcl-orange)}
+.hl-strip.big b{font-size:19px}
+/* 7-1 연습 칸 두 개 · 저장 안 함 / 브라우저에 저장 (2026-10-12) */
+.mock-pair .mock.demo{max-width:none; margin:0}
+.mock-pair .mock .mk-row{flex-wrap:nowrap}
+.mock-pair .mock input.mk-input{min-width:0}
+.mock button.mk-clear{margin-top:8px; border:1px solid var(--line); background:#fff; color:var(--muted); font-family:inherit; font-size:12.5px; border-radius:4px; padding:3px 10px; cursor:pointer}
+.mock-pair .mock{display:flex; flex-direction:column}
+.mock-pair .mock .mock-body{flex:1}
+/* 7-2 암호화 이야기 순서: 잠근다 → 다시 열 수 있다면? → 단방향 (2026-10-12) */
+.encsteps{display:grid; gap:12px; margin-top:18px}
+.encsteps .pane{padding:13px 18px}
+.encsteps .pane p{margin-top:6px; font-size:16.5px; line-height:1.5}
+.encsteps .encflow{margin:8px 0 0}
+.encflow .ef-x.ok{color:var(--ok,#1E7F4F)}
+#s2b_3 .encsteps,#s2b_3 .row.encrow{margin-top:12px}
+#s2b_3 .pane{padding:12px 14px}
+#s2b_3 .pane p{font-size:15.5px; line-height:1.45; margin-top:6px}
+#s2b_3 .encflow{margin-top:6px}

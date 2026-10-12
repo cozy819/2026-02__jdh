@@ -55,7 +55,7 @@
   <a href="../../06/textbook/06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
   <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
   <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
-  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> PRD에 데이터 목록 덧붙이기</a>
+  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> 개인정보와 암호화</a>
   <a href="../../08/textbook/08-1.html" class="here"><span class="n">8-1</span> 수행평가 2 안내</a>
   <a href="../../08/textbook/08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
   <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
@@ -82,9 +82,9 @@
     <h1><span class="ko">수행평가 2 안내<br/><span style="font-size:.62em; color:var(--muted); font-weight:700">서비스 제작 계획서(PRD)</span></span><span class="zh">实作评价 2 说明<br/><span style="font-size:.62em; color:var(--muted); font-weight:700">服务制作计划书（PRD）</span></span></h1>
     <div class="osub"><span class="ko">코드를 내지 않습니다. 6~7회에 써 온 PRD 한 편을<br/>처음 보는 사람과 AI가 이해할 수 있도록 다듬어 제출합니다.</span><span class="zh">不交代码。把第 6~7 次课写下来的那一份 PRD，<br/>打磨到第一次看的人和 AI 都能看懂，然后提交。</span></div>
     <div class="abar"></div>
-    <div class="ometa"><span class="ko"><b>이전 차시</b> · 7-2. PRD에 데이터 목록 덧붙이기<br/>
+    <div class="ometa"><span class="ko"><b>이전 차시</b> · 7-2. 개인정보와 암호화<br/>
       <b>다음 차시</b> · 8-2. 수행평가 2 · PRD 완성·제출 <b>(바로 실시)</b><br/>
-      <b>제출물</b> · <code>08_assessment2_학생ID_이름.md</code> 한 개</span><span class="zh"><b>上一课时</b> · 7-2. 给 PRD 补上数据清单<br/> <b>下一课时</b> · 8-2. 实作评价 2 · 完成并提交 PRD <b>（紧接着进行）</b><br/> <b>提交物</b> · <code>08_assessment2_학생ID_이름.md</code> 一个</span></div>
+      <b>제출물</b> · <code>08_assessment2_학생ID_이름.md</code> 한 개</span><span class="zh"><b>上一课时</b> · 7-2. 个人信息与加密<br/> <b>下一课时</b> · 8-2. 实作评价 2 · 完成并提交 PRD <b>（紧接着进行）</b><br/> <b>提交物</b> · <code>08_assessment2_학생ID_이름.md</code> 一个</span></div>
   </section>
 
   <!-- ══════════ 무엇을 평가하는가 ══════════ -->
@@ -265,15 +265,15 @@
       <li><span class="ko">필요한 경우 테이블 관계를 표현한 <b>쉬운 문장 1개</b></span><span class="zh">必要时表达表间关系的<b>简单句子 1 句</b></span></li>
     </ul>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">여기에 설계를 적지 않습니다</span><span class="zh">这里不写设计</span></div>
-      <p><span class="ko">열 이름, 자료형, PK·FK의 위치, ERD와 SQL은 <b>적지 않습니다.</b> 적었다고 좋은 평가를 받지 않으며, 오히려 수업 범위를 벗어난 것입니다.</span><span class="zh">列名、数据类型、主键外键的位置、ERD 与 SQL <b>都不写</b>。写了不会得到更好的评价，反而是超出了课程范围。</span></p>
-      <p><span class="ko">PK·FK·1:N과 JOIN은 <b>7-1의 제공된 예시에서 뜻을 알아보는 학습 내용</b>입니다. 자신의 서비스 구조를 직접 설계하는 것은 수행평가 범위가 아닙니다.</span><span class="zh">主键、外键、1:N 与 JOIN，是<b>在 7-1 所给示例中弄懂含义的学习内容</b>。亲自设计自己服务的结构，不在实作评价范围内。</span></p>
+    <div class="note warn">
+      <div class="nt"><span class="ko">표는 붙여도, 평가는 해설로 합니다</span><span class="zh">可以贴表，但评价看说明</span></div>
+      <p><span class="ko">7-2에서 다듬은 표는 5항에 붙여 둘 수 있습니다. 다만 열 이름·PK·FK는 <b>평가하지 않고</b>, 표 아래의 <b>해설</b>(무엇을 기억하는지, 언제 생기고 언제 다시 보는지)을 봅니다. ERD와 SQL은 적지 않습니다.</span><span class="zh">7-2 整理好的表可以贴在第 5 项里。不过列名、主键外键<b>不评价</b>，看的是表下面的<b>说明</b>（记住什么、什么时候产生、什么时候再看）。ERD 与 SQL 不写。</span></p>
+      <p><span class="ko">PK·FK·1:N과 JOIN은 <b>7-1의 제공된 예시에서 뜻을 알아보는 학습 내용</b>입니다. 자신의 서비스 구조를 정교하게 설계하는 것은 수행평가 범위가 아닙니다.</span><span class="zh">主键、外键、1:N 与 JOIN，是<b>在 7-1 所给示例中弄懂含义的学习内容</b>。把自己服务的结构设计得很精细，不在实作评价范围内。</span></p>
     </div>
 
     <div class="note ok">
       <div class="nt"><span class="ko">테이블은 한 개로 충분할 수 있습니다</span><span class="zh">一张表可能就够</span></div>
-      <p><span class="ko">모든 서비스가 <b>의미 있는 기록을 하나 이상</b> 남깁니다. 결과만 보여 주는 도구도 <b>사용한 값과 결과</b>를 남기면 됩니다. 7-2의 3절 표를 참고하세요.</span><span class="zh">每个服务都要留下<b>至少一种有意义的记录</b>。只展示结果的工具，留下<b>用过的值与结果</b>即可。可参考 7-2 第 3 节的表。</span></p>
+      <p><span class="ko">모든 서비스가 <b>의미 있는 기록을 하나 이상</b> 남깁니다. 결과만 보여 주는 도구도 <b>사용한 값과 결과</b>를 남기면 됩니다. 7-1의 「표의 수」 쪽 표를 참고하세요.</span><span class="zh">每个服务都要留下<b>至少一种有意义的记录</b>。只展示结果的工具，留下<b>用过的值与结果</b>即可。可参考 7-1“表的数量”那一页的表。</span></p>
     </div>
 
     <div class="note warn">
@@ -457,7 +457,7 @@
         <li><span class="ko">파일 이름은 <code>08_assessment2_학생ID_이름.md</code> 형식이다.</span><span class="zh">文件名为 <code>08_assessment2_학생ID_이름.md</code> 格式。</span></li>
         <li><span class="ko">양식의 <b>제목과 항목 순서를 바꾸지 않는다.</b> 내용이 없으면 <code>없음</code>이라고 적는다.</span><span class="zh"><b>不改样式的标题与项目顺序</b>。没有内容就写 <code>없음</code>（无）。</span></li>
         <li><span class="ko">서비스 목적, 핵심 흐름, 기능, 화면 구성 설명과 데이터 판단이 <b>서로 맞아야</b> 한다.</span><span class="zh">服务目的、核心流程、功能、画面构成说明与数据判断必须<b>彼此吻合</b>。</span></li>
-        <li><span class="ko">모든 서비스는 <b>의미 있는 기록을 하나 이상</b> 남기며, 학생은 <b>테이블의 후보와 역할까지만</b> 설명한다. 열·자료형·PK·FK·ERD·SQL은 쓰지 않는다.</span><span class="zh">每个服务都要留下<b>至少一种有意义的记录</b>；学生只说明<b>数据表的候选与作用</b>。列、数据类型、主键外键、ERD、SQL 都不写。</span></li>
+        <li><span class="ko">모든 서비스는 <b>의미 있는 기록을 하나 이상</b> 남기며, 학생은 <b>테이블의 후보와 역할</b>을 해설한다. 표를 붙여도 되지만 열·PK·FK는 평가하지 않고, ERD·SQL은 쓰지 않는다.</span><span class="zh">每个服务都要留下<b>至少一种有意义的记录</b>；学生说明<b>数据表的候选与作用</b>。可以贴表，但列、主键外键不评价；ERD、SQL 不写。</span></li>
         <li><span class="ko">완성 기준은 <b>눈으로 확인할 수 있는 문장</b> 2~3개이며, 그중 하나는 <b>다시 열어도 기록이 있는지</b> 보는 기준이다.</span><span class="zh">完成标准是<b>用眼睛能确认的句子</b> 2~3 条，其中一条是看<b>重新打开后记录是否还在</b>的标准。</span></li>
         <li><span class="ko">AI의 의견과 학생의 판단을 <b>구분해 기록</b>한다. 거절한 것도 판단이다.</span><span class="zh">把 AI 的意见与学生的判断<b>分开记录</b>。拒绝也是一种判断。</span></li>
         <li><span class="ko">분량·용어 수·기능 개수는 <b>이수 기준이 아니다.</b></span><span class="zh">篇幅、术语数量、功能个数<b>都不是通过标准</b>。</span></li>
@@ -475,7 +475,7 @@
     </div>
 
     <div class="lessonnav">
-      <a href="../../07/textbook/07-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">7-2. PRD에 데이터 목록 덧붙이기</span></a>
+      <a href="../../07/textbook/07-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">7-2. 개인정보와 암호화</span></a>
       <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
       <a href="../../08/textbook/08-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">8-2. 수행평가 2 · PRD 완성·제출</span></a>
     </div>

@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
-<title>7-2. PRD에 데이터 목록 덧붙이기 · 정보와 디지털 문해력</title>
-<meta name="description" content="정보와 디지털 문해력 교과서 7-2 — 내 서비스가 기억할 기록을 AI와 함께 PRD 5항에 쓰고, 목업에 지난 기록을 붙여 본다" />
+<title>7-2. 개인정보와 암호화 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 7-2 — 개인정보와 암호화를 짧게 보고, 내 서비스가 기억할 기록을 AI와 함께 PRD 5항에 쓰고 6항 3번·7항까지 이어 쓴다" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,141 +16,160 @@
   <button class="menu" onclick="tbToggleToc()">☰ <span class="ko">목차</span><span class="zh">目录</span></button>
   <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false"><span class="ko">한 장씩 보기</span><span class="zh">逐页查看</span></button>
   <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
-  <div class="brand"><em>7-2</em> <span class="lesson"><span class="ko">PRD에 데이터 목록 덧붙이기</span><span class="zh">在 PRD 中补充数据清单</span></span></div>
+  <div class="brand"><em>7-2</em> <span class="lesson"><span class="ko">개인정보와 암호화</span><span class="zh">个人信息与加密</span></span></div>
   <div class="spacer"></div>
   <div class="pct" id="count">1 / 1</div>
   <button class="pbtn" onclick="window.print()"><span class="ko">인쇄</span><span class="zh">打印</span></button>
 </div>
 <div id="prog"></div>
-<nav id="toc"><div class="h"><span class="ko">이 차시 — 7-2</span><span class="zh">本课时 — 7-2</span></div><a href="#opener"><span class="n">·</span><span class="ko">차시 표지</span><span class="zh">课时首页</span></a><a href="#s0"><span class="n">·</span><span class="ko">오늘 할 일</span><span class="zh">今天要做的事</span></a><a href="#s1"><span class="n">1</span><span class="ko">파일 열기</span><span class="zh">打开文件</span></a><a href="#s2"><span class="n">2</span><span class="ko">5항 알기</span><span class="zh">认识第 5 项</span></a><a href="#s3"><span class="n">3</span><span class="ko">기록이 없어 보일 때</span><span class="zh">好像没有记录时</span></a><a href="#s4"><span class="n">4</span><span class="ko">AI와 초안</span><span class="zh">和 AI 起草</span></a><a href="#s5"><span class="n">5</span><span class="ko">AI와 다듬기 · 6항 3번</span><span class="zh">和 AI 一起改 · 第 6 项第 3 条</span></a><a href="#s6"><span class="n">6</span><span class="ko">7항 기록</span><span class="zh">第 7 项记录</span></a><a href="#s7"><span class="n">7</span><span class="ko">목업에 다시 보기</span><span class="zh">给模型加上回看</span></a><a href="#s8"><span class="n">8</span><span class="ko">막힐 때</span><span class="zh">卡住时</span></a><a href="#s9"><span class="n">9</span><span class="ko">정리와 다음 차시</span><span class="zh">小结与下一课时</span></a><div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div><a href="../../index.html"><span class="n"><span class="ko">표지</span><span class="zh">首页</span></span><span class="ko">전체 목차</span><span class="zh">全部目录</span></a></nav><div id="scrim" onclick="tbToggleToc(false)"></div>
+<nav id="toc"><div class="h"><span class="ko">이 차시 — 7-2</span><span class="zh">本课时 — 7-2</span></div><a href="#opener"><span class="n">·</span><span class="ko">차시 표지</span><span class="zh">课时首页</span></a><a href="#s2b"><span class="n">1</span><span class="ko">개인정보와 암호화</span><span class="zh">个人信息与加密</span></a><a href="#s4"><span class="n">2</span><span class="ko">데이터베이스 표</span><span class="zh">数据库表</span></a><a href="#s5"><span class="n">3</span><span class="ko">5항 쓰기</span><span class="zh">写第 5 项</span></a><a href="#s8"><span class="n">4</span><span class="ko">막힐 때</span><span class="zh">卡住时</span></a><a href="#s9"><span class="n">5</span><span class="ko">정리와 다음 차시</span><span class="zh">小结与下一课时</span></a><div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div><a href="../../index.html"><span class="n"><span class="ko">표지</span><span class="zh">首页</span></span><span class="ko">전체 목차</span><span class="zh">全部目录</span></a></nav><div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
 <section class="page opener" id="opener"><div class="onum"><span class="ko">7회 · 둘째 차시</span><span class="zh">第 7 次课 · 第 2 课时</span></div>
-<h1><span class="ko">PRD에 데이터 목록<br/>덧붙이기</span><span class="zh">在 PRD 中<br/>补充数据清单</span></h1>
-<div class="osub"><span class="ko">내 서비스가 기억할 기록을 AI와 함께 PRD 5항에 쓰고,<br/>목업에 지난 기록을 다시 보는 자리를 붙여 봅니다.</span><span class="zh">和 AI 一起把自己的服务要记住的记录写进 PRD 第 5 项，<br/>再给模型加上回看以前记录的地方。</span></div>
+<h1><span class="ko">개인정보와<br/>암호화</span><span class="zh">个人信息<br/>与加密</span></h1>
+<div class="osub"><span class="ko">개인정보를 지키는 암호화를 짧게 보고,<br/>내 서비스가 기억할 기록을 AI와 함께 PRD 5항에 씁니다.</span><span class="zh">先简单看看保护个人信息的加密，<br/>再和 AI 一起把自己的服务要记住的记录写进 PRD 第 5 项。</span></div>
 <div class="abar"></div>
-<div class="ometa"><span class="ko"><b>이전 차시</b> · 7-1. 관계형 데이터베이스의 기초<br/><b>다음 차시</b> · 8-1. 수행평가 2 안내<br/><b>오늘 만드는 것</b> · <code>PRD.md</code>의 5항, 6항 3번, 7항 이어 쓰기</span><span class="zh"><b>上一课时</b> · 7-1. 关系型数据库基础<br/><b>下一课时</b> · 8-1. 实践考核 2 说明<br/><b>今天要做的</b> · <code class="keep-ko">PRD.md</code> 的第 5 项、第 6 项第 3 条，接着写第 7 项</span></div></section>
+<div class="ometa"><span class="ko"><b>이전 차시</b> · 7-1. 관계형 데이터베이스의 기초<br/><b>다음 차시</b> · 8-1. 수행평가 2 안내<br/><b>오늘 만드는 것</b> · <code>데이터_예시.md</code>의 데이터베이스 표, <code>PRD.md</code>의 5항과 6항 3번</span><span class="zh"><b>上一课时</b> · 7-1. 关系型数据库基础<br/><b>下一课时</b> · 8-1. 实践考核 2 说明<br/><b>今天要做的</b> · <code class="keep-ko">데이터_예시.md</code> 的数据库表，<code class="keep-ko">PRD.md</code> 的第 5 项和第 6 项第 3 条</span></div></section>
 
-<section class="page" id="s0">
-<div class="kick"><span class="ko">시작하기 전에</span><span class="zh">开始之前</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">오늘 할 일</span><span class="zh">今天要做的事</span></h2>
-<p class="lead"><span class="ko">6-2에서 「다음 주에 쓴다」고 비워 둔 PRD의 <b>5. 데이터</b>를 오늘 채웁니다. 7-1에서 AI와 그린 <code>데이터_예시.md</code>를 재료로 AI가 5항 초안을 쓰고, 나는 그것을 읽고 고칩니다. 마지막에 목업에 지난 기록을 다시 보는 자리를 붙여 봅니다.</span><span class="zh">今天要填 6-2 里说好“下周再写”、一直空着的 PRD 第 5 项<b>「数据」</b>。用 7-1 和 AI 一起画的 <code class="keep-ko">데이터_예시.md</code> 当材料，让 AI 写第 5 项草稿，自己读过再修改。最后给模型加上回看以前记录的地方。</span></p><div class="flow"><div class="f"><b><span class="ko">① 5항 알기</span><span class="zh">① 认识第 5 项</span></b><span><span class="ko">무엇을 묻는 칸인가</span><span class="zh">这一项问的是什么</span></span></div><div class="farrow">→</div><div class="f"><b><span class="ko">② AI와 초안</span><span class="zh">② 和 AI 起草</span></b><span><span class="ko">AI가 옮기고, 내가 고친다</span><span class="zh">AI 搬写，自己修改</span></span></div><div class="farrow">→</div><div class="f"><b><span class="ko">③ AI와 다듬기</span><span class="zh">③ 和 AI 一起改</span></b><span><span class="ko">다른 항목과 맞추고 6항 3번</span><span class="zh">和其他项目对齐，写第 6 项第 3 条</span></span></div><div class="farrow">→</div><div class="f"><b><span class="ko">④ 목업에 다시 보기</span><span class="zh">④ 给模型加上回看</span></b><span><span class="ko">Live Server로 본다</span><span class="zh">用 Live Server 看</span></span></div></div><div class="note ok"><div class="nt"><span class="ko">오늘 꼭 끝낼 것</span><span class="zh">今天一定要完成的</span></div><p><span class="ko"><code>PRD.md</code>의 5항을 채우고, 6항 3번과 7항까지 써서 처음부터 끝까지 읽어 보는 것입니다. 이것으로 8회에 다듬어 제출할 PRD의 모든 칸이 찹니다.</span><span class="zh">填好 <code class="keep-ko">PRD.md</code> 的第 5 项，写完第 6 项第 3 条和第 7 项，再从头读到尾。这样第 8 次课要打磨提交的 PRD，所有栏目就都填满了。</span></p></div>
+<section class="page" id="s2b">
+<div class="kick"><span class="ko">1. 개인정보와 암호화</span><span class="zh">1. 个人信息与加密</span><b>7-2</b></div>
+<h2 class="title"><span class="ko">암호화하지 않으면 생기는 일</span><span class="zh">不加密会发生什么</span></h2>
+<p class="lead"><span class="ko">7-1 처음에 본 은행 해킹에서 새어 나간 고객 정보는 은행의 데이터베이스에 있었습니다. 이런 정보를 아무 보호 없이 저장하면 어떻게 될까요? 2019년 페이스북은 수억 명의 비밀번호를 암호화하지 않은 그대로(평문) 내부 기록에 저장해 온 사실을 스스로 밝혔습니다. 회사 직원 수만 명이 찾아볼 수 있는 곳이었습니다. 몇 년 뒤 유럽의 개인정보 보호 기관은 이 일로 9,100만 유로의 과징금을 매겼습니다.</span><span class="zh">7-1 一开始看到的银行黑客事件里，泄露的客户信息原本存在银行的数据库里。这类信息不加任何保护就保存，会怎样呢？2019 年，Facebook 自己公开：它多年来把数亿用户的密码不加密、原样（明文）存在内部记录里，公司里数万名员工都查得到。几年后，欧洲的个人信息保护机构为此开出了 9,100 万欧元的罚款。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 07-2-01-plaintext-password
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 21:9 · 1600×686 · 개념 삽화(사실적) · assets/img/07-2-01-plaintext-password.png
+     · 갈래 : ② 개념 삽화. ChatGPT로 만든다. 글자 없이 장면만으로 뜻이 서는 그림이다.
+     ───────────────────────────────────────────────────────────────────────
+     ── 맥락 (ChatGPT에 그대로 붙여 넣는다) ─────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 7회 둘째 차시(7-2)에 쓸 그림이다.
+     학생은 중3~고2 여덟 명이고 코딩이 처음이다. 이번 차시에 서비스가 기억할 데이터를 계획서에 적으면서,
+     비밀번호 같은 개인정보는 암호화해서 저장해야 한다는 것을 짧게 배운다.
+     이 그림은 「비밀번호를 암호화하지 않고 그대로(평문) 저장하면, 안을 들여다보는 누구에게나 다 보인다」를
+     한 장면으로 보여 주는 자리다. 2019년 큰 소셜미디어 회사가 사용자 비밀번호를 내부 기록에 평문으로 저장해 온 사고를 소개하는 쪽에 들어간다.
+
+     ── 그릴 것 ────────────────────────────────────────────────────
+     사무실 서버실 안의 커다란 서류 보관 캐비닛 하나. 서랍 하나가 활짝 열려 있고,
+     그 안에 열쇠도 봉투도 없이 종이 카드가 줄지어 꽂혀 있다. 카드마다 굵은 글씨가 있는 것처럼 보이지만 읽히지는 않는다.
+     열린 서랍 옆으로 사원증을 목에 건 직원 여러 명이 지나가며 무심하게 서랍 안을 내려다본다(얼굴은 흐리게 또는 뒷모습).
+     옆 칸의 다른 서랍은 굳게 잠겨 있고 자물쇠가 달려 있다 — 대비가 되게.
+     · 열린 서랍 안 카드 쪽만 따뜻한 주황(#FF5C00) 빛으로 살짝 강조한다. 주황은 그곳뿐이다.
+
+     ── 지킬 것 ────────────────────────────────────────────────────
+     · no text, no letters, no numbers, no labels, no logos, no watermark. 회사 로고·이름을 넣지 않는다.
+     · 컴퓨터 화면·코드·해커 복면 같은 상투적인 그림을 넣지 않는다.
+     · 열린 서랍은 하나, 잠긴 서랍은 하나 이상. 밝은 사무실 조명, 사실적인 삽화. 비율 21:9 가로.
+
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 글자·로고가 없는가  ② 열린 서랍 하나와 잠긴 서랍이 함께 보이는가
+     ③ 주황이 열린 서랍의 카드에만 있는가  ④ 인물 얼굴이 또렷하지 않은가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig"><img class="figimg" src="../../assets/img/07-2-01-plaintext-password.png" alt="서버실 캐비닛의 서랍 하나가 활짝 열려 카드가 그대로 보이고, 지나가는 직원들이 들여다본다. 옆 서랍은 자물쇠로 잠겨 있다." data-id="07-2-01-plaintext-password" data-spec="가로 21:9 · 개념 삽화 · 열린 서랍과 잠긴 서랍" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 7-2-1. 평문으로 저장하면 안을 들여다보는 누구에게나 보인다.</span><span class="zh">图 7-2-1. 用明文保存，谁往里看都能看到。</span></figcaption></figure><div class="note"><div class="nt"><span class="ko">파일도 암호를 걸 수 있다</span><span class="zh">文件也能加密码</span></div><p><span class="ko">엑셀은 <b>파일 → 정보 → 통합 문서 보호 → 암호 설정</b>으로 문서에 암호를 걸 수 있고, 반디집·7-Zip 같은 압축 프로그램으로 압축 파일에도 암호를 걸 수 있습니다. 개인정보가 든 파일을 보낼 때 씁니다.</span><span class="zh">Excel 可以用 <b class="keep-ko">파일 → 정보 → 통합 문서 보호 → 암호 설정</b>（文件 → 信息 → 保护工作簿 → 用密码进行加密）给文档加密码；用 Bandizip、7-Zip 这类压缩软件，也能给压缩文件加密码。发送含有个人信息的文件时会用到。</span></p></div>
 </section>
-<section class="page" id="s1">
-<div class="kick"><span class="ko">1. 파일 열기</span><span class="zh">1. 打开文件</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">06 폴더에서 PRD.md의 5항을 찾는다</span><span class="zh">在 06 文件夹里找到 PRD.md 的第 5 项</span></h2>
-<p class="lead"><span class="ko">7회도 6회의 <code>06</code> 폴더에서 이어서 합니다. 오늘 쓰는 파일은 <code>PRD.md</code> 하나이고, 7-1에서 만든 <code>데이터_예시.md</code>를 옆에 두고 봅니다. 새로 내려받거나 새 파일을 만들지 않습니다.</span><span class="zh">第 7 次课也在第 6 次课的 <code>06</code> 文件夹里接着做。今天要写的文件只有 <code class="keep-ko">PRD.md</code> 一个，7-1 做的 <code class="keep-ko">데이터_예시.md</code> 放在旁边对照着看。不用重新下载，也不新建文件。</span></p><div class="steps"><div class="st-h"><span class="ko">지금 하세요</span><span class="zh">现在就做</span></div><ol><li><span class="ko">탐색기에서 <code>06</code> 폴더를 오른쪽 클릭하고 <b>Code(으)로 열기</b>를 고른다. 이미 열려 있으면 그대로 쓴다.</span><span class="zh">在资源管理器中右键单击 <code>06</code> 文件夹，选择 <b class="keep-ko">Code(으)로 열기</b>（通过 Code 打开）。已经打开的话就直接用。</span></li><li><span class="ko">탐색기 맨 위에 <code>06</code>이 보이고, 그 아래 <code>mockup</code> · <code>데이터_예시.md</code> · <code>PRD.md</code>가 있는지 본다.</span><span class="zh">确认资源管理器最上方是 <code>06</code>，下面有 <code class="keep-ko">mockup</code>、<code class="keep-ko">데이터_예시.md</code>、<code class="keep-ko">PRD.md</code>。</span></li><li><span class="ko"><code>PRD.md</code>를 열고 <code>Ctrl+F</code>로 <code>## 5. 데이터</code>를 찾아 둔다. 오늘 쓸 칸이다.</span><span class="zh">打开 <code class="keep-ko">PRD.md</code>，用 <code>Ctrl+F</code> 找到 <code class="keep-ko">## 5. 데이터</code>（数据）。这就是今天要写的栏目。</span></li><li><span class="ko"><b>터미널 → 새 터미널</b>을 열고 줄 끝이 <code>…\06&gt;</code>인지 본 뒤 <code>opencode</code>를 입력해 둔다.</span><span class="zh">打开 <b class="keep-ko">터미널 → 새 터미널</b>（终端 → 新建终端），确认提示符结尾是 <code>…\06&gt;</code>，先输入 <code>opencode</code> 打开。</span></li></ol></div><div class="note warn"><div class="nt"><span class="ko">파일이 없다면</span><span class="zh">没有文件的话</span></div><p><span class="ko"><code>데이터_예시.md</code>가 없으면 7-1의 <a href="../../07/textbook/07-1.html">「AI에게 내 서비스의 표를 그려 달라고 한다」</a> 쪽 요청문을 먼저 보냅니다. <code>PRD.md</code>를 잃어버렸다면 6-1의 내려받기 버튼으로 06 자료를 다시 받고 손을 듭니다.</span><span class="zh">没有 <code class="keep-ko">데이터_예시.md</code> 的话，先发 7-1 <a href="../../07/textbook/07-1.html">“请 AI 画出自己服务的表”</a>那一页的请求。<code class="keep-ko">PRD.md</code> 丢了的话，用 6-1 的下载按钮重新下载 06 资料，再举手。</span></p></div>
+<section class="page" id="s2b_2">
+<div class="kick"><span class="ko">1. 개인정보와 암호화</span><span class="zh">1. 个人信息与加密</span><b>7-2</b></div>
+<h2 class="title"><span class="ko">암호화에는 열쇠가 필요하다</span><span class="zh">加密需要钥匙</span></h2>
+<p class="lead"><span class="ko">데이터베이스에 저장한 정보를 지키는 대표적인 방법이 <b>암호화</b>입니다. 암호화는 자물쇠로 잠그는 일과 같습니다. 잠그려면 <b>열쇠(key)</b>가 있어야 하고, 같은 열쇠가 있으면 다시 열 수 있습니다.</span><span class="zh">保护数据库里信息的代表性方法，就是<b>加密</b>。加密就像用锁把东西锁上。要锁上，就得有<b>钥匙（key）</b>；有同一把钥匙，就能再打开。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 07-2-02-lock-and-key
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 21:9 · 1600×686 · 개념 삽화 · assets/img/07-2-02-lock-and-key.png
+     · 갈래 : ② 개념 삽화. ChatGPT로 만든다. 글자 없이 장면만으로 뜻이 서는 그림이다.
+     ───────────────────────────────────────────────────────────────────────
+     ── 맥락 (ChatGPT에 그대로 붙여 넣는다) ─────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 7회 둘째 차시(7-2)에 쓸 그림이다.
+     학생은 중3~고2 여덟 명이고 코딩이 처음이다. 이 쪽에서 「암호화에는 열쇠(key)가 필요하다」를 처음 배운다.
+     암호화를 자물쇠로 잠그는 일에 빗대어, 잠그려면 열쇠가 필요하고 같은 열쇠가 있으면 다시 열 수 있다는 것을
+     세 칸짜리 한 장면으로 보여 주는 자리다.
+
+     ── 그릴 것 ────────────────────────────────────────────────────
+     왼쪽에서 오른쪽으로 이어지는 세 장면, 사이에 굵은 화살표.
+     ① 펼쳐진 작은 쪽지 한 장과 열린 자물쇠가 달린 작은 금속 상자. 옆에 열쇠 하나.
+     ② 쪽지가 상자 안에 들어가고, 열쇠로 자물쇠를 잠근 상자. 상자는 단단히 닫혀 있다.
+     ③ 같은 열쇠로 자물쇠를 열자 상자 뚜껑이 열리고 쪽지가 다시 보인다.
+     · 세 장면 모두 똑같은 열쇠 하나만 쓴다. 열쇠만 따뜻한 주황(#FF5C00)으로 칠하고 나머지는 차분한 회색·남색.
+
+     ── 지킬 것 ────────────────────────────────────────────────────
+     · no text, no letters, no numbers, no labels, no logos, no watermark. 쪽지에도 글자를 쓰지 않는다(줄만 몇 개).
+     · 컴퓨터·해커·코드 같은 상투적인 그림을 넣지 않는다. 사람 손은 그려도 되지만 얼굴은 넣지 않는다.
+     · 흰 배경, 깔끔한 평면 삽화(flat illustration). 비율 21:9 가로.
+
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 글자가 없는가  ② 세 장면(열림 → 잠김 → 다시 열림)이 차례로 읽히는가
+     ③ 세 장면의 열쇠가 같은 모양·같은 주황인가  ④ 주황이 열쇠에만 있는가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig"><img class="figimg" src="../../assets/img/07-2-02-lock-and-key.png" alt="쪽지를 상자에 넣고 주황 열쇠로 잠갔다가, 같은 열쇠로 다시 열어 쪽지를 꺼낸다." data-id="07-2-02-lock-and-key" data-spec="가로 21:9 · 개념 삽화 · 자물쇠와 열쇠 세 장면" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 7-2-2. 열쇠로 잠그고, 같은 열쇠로 다시 연다.</span><span class="zh">图 7-2-2. 用钥匙锁上，再用同一把钥匙打开。</span></figcaption></figure><div class="encsteps"><div class="pane"><div class="pt"><span class="ko">양방향 암호화 · 잠그고, 다시 연다</span><span class="zh">双向加密 · 锁上，再打开</span></div><div class="encflow"><span class="ef-in">mypw123</span><span class="ef-ar">→ <b><span class="ko">🔑 열쇠로 잠금</span><span class="zh">🔑 用钥匙上锁</span></b> →</span><span class="ef-out">x8#Qk…</span></div><div class="encflow"><span class="ef-in">x8#Qk…</span><span class="ef-ar">→ <b><span class="ko">🔑 같은 열쇠로 열기</span><span class="zh">🔑 用同一把钥匙打开</span></b> →</span><span class="ef-out">mypw123</span></div><p><span class="ko">잠근 것을 같은 열쇠로 다시 여는 방식을 <b>양방향 암호화</b>라고 합니다.</span><span class="zh">锁上的东西能用同一把钥匙再打开，这种方式叫<b>双向加密</b>。</span></p></div><div class="pane warnp"><div class="pt"><span class="ko">비밀번호를 이렇게 저장하면?</span><span class="zh">密码要是这样保存呢？</span></div><p><span class="ko">열쇠를 가진 직원은 누구의 비밀번호든 열어 볼 수 있습니다. 해커가 데이터와 열쇠를 함께 훔치면 비밀번호가 모두 드러납니다. 이 비밀번호는 제대로 지켜진 걸까요?</span><span class="zh">拿着钥匙的员工，谁的密码都能打开来看。黑客要是把数据和钥匙一起偷走，密码就全部暴露了。这样的密码，真的算保护好了吗？</span></p></div></div>
 </section>
-<section class="page" id="s2">
-<div class="kick"><span class="ko">2. 5항 알기</span><span class="zh">2. 认识第 5 项</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">5항은 「무엇을 기억하나」를 묻는다</span><span class="zh">第 5 项问的是“记住什么”</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-<p class="lead"><span class="ko"><b>5. 데이터</b>는 서비스가 사용자의 어떤 기록을 기억하고, 그 기록이 언제 생기고, 언제 다시 보이는지를 적는 칸입니다. 7-1에서 본 표를 사람의 말로 옮긴다고 생각하면 됩니다. 열 이름이나 기본키는 적지 않습니다.</span><span class="zh">第 5 项<b>「数据」</b>这一栏，写服务要记住用户的哪种记录，这条记录什么时候产生，什么时候再被看到。可以理解为把 7-1 看过的表换成人话写出来。不写列名，也不写主键。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th style="width:44%"><span class="ko">5항의 줄</span><span class="zh">第 5 项的各行</span></th><th><span class="ko">답하는 질문</span><span class="zh">回答的问题</span></th></tr></thead><tbody><tr><td><span class="ko">서비스가 반드시 기억해야 할 기록</span><span class="zh">服务一定要记住的记录</span></td><td><span class="ko">다시 열었을 때 남아 있어야 하는 것은?</span><span class="zh">再次打开时一定要留着的是什么？</span></td></tr><tr><td><span class="ko">이 기록이 생기는 사용자 행동</span><span class="zh">产生这条记录的用户动作</span></td><td><span class="ko">무엇을 하면 기록이 생기나?</span><span class="zh">做了什么才会产生记录？</span></td></tr><tr><td><span class="ko">사용자가 이 기록을 다시 확인하는 순간</span><span class="zh">用户再次查看这条记录的时候</span></td><td><span class="ko">언제 그 기록을 다시 보나?</span><span class="zh">什么时候会再看那条记录？</span></td></tr><tr><td><span class="ko">저장해야 할 정보 · 저장하지 않을 정보</span><span class="zh">要保存的信息 · 不保存的信息</span></td><td><span class="ko">꼭 필요한 것은 무엇이고, 버릴 것은 무엇인가?</span><span class="zh">必需的是什么，要舍弃的是什么？</span></td></tr><tr><td><span class="ko">실제 개인정보를 사용하지 않는 방법</span><span class="zh">不用真实个人信息的方法</span></td><td><span class="ko">이름·연락처 없이 어떻게 쓰게 하나?</span><span class="zh">不要姓名和联系方式，怎么让人用？</span></td></tr><tr><td><span class="ko">후보 테이블 — 1~3개</span><span class="zh">候选数据表 — 1~3 张</span></td><td><span class="ko">표마다 이름, 기억하는 내용, 연결되는 기능은?</span><span class="zh">每张表的名称、记住的内容、关联的功能是什么？</span></td></tr><tr><td><span class="ko">관계를 설명하는 쉬운 문장</span><span class="zh">说明关系的简单句子</span></td><td><span class="ko">표가 둘 이상일 때만, 한 문장으로</span><span class="zh">只有两张表以上才写，用一句话</span></td></tr></tbody></table></div>
-</section>
-<section class="page" id="s2_2">
-<div class="kick"><span class="ko">2. 5항 알기</span><span class="zh">2. 认识第 5 项</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">6-2의 「하나 뽑기」라면 이렇게 쓴다</span><span class="zh">6-2 的“抽一个”可以这样写</span></h2>
-<p class="lead"><span class="ko">6-2에서 본 「하나 뽑기」 서비스로 5항을 채운 예입니다. 기억할 기록이 「한 번 뽑은 결과」 한 종류라서 후보 테이블도 하나입니다. 표가 하나면 관계 문장은 「없음」이라고 적습니다.</span><span class="zh">这是用 6-2 看过的“抽一个”服务填写第 5 项的例子。要记住的只有“抽一次的结果”这一种，所以候选数据表也只有一张。只有一张表时，关系那一句写 <code class="keep-ko">없음</code>（无）。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">PRD 5항에 적은 예</span><span class="zh">PRD 第 5 项的写法示例</span></span></div><pre class="ko blk">## 5. 데이터
+<section class="page" id="s2b_3">
+<div class="kick"><span class="ko">1. 개인정보와 암호화</span><span class="zh">1. 个人信息与加密</span><b>7-2</b></div>
+<h2 class="title"><span class="ko">그래서 비밀번호는 단방향 암호화</span><span class="zh">所以密码用单向加密</span></h2>
+<p class="lead"><span class="ko">비밀번호는 아무도 다시 열 수 없게 바꿔서 저장합니다. 이것을 <b>단방향 암호화</b>라고 합니다. 과일을 믹서기에 갈면 주스를 다시 과일로 되돌릴 수 없지만, 같은 과일을 넣으면 늘 같은 주스가 나오는 것과 같습니다.</span><span class="zh">密码要变成谁都打不开的样子再保存，这叫<b>单向加密</b>。就像把水果放进搅拌机打成果汁，果汁变不回水果；可放同样的水果，出来的总是同样的果汁。</span></p><!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 07-2-03-one-way-juicer
+     · 영역 : 이 주석 바로 아래 figure — 지금은 회색 자리 PNG가 들어 있다.
+     · 규격 : 가로 21:9 · 1600×686 · 개념 삽화 · assets/img/07-2-03-one-way-juicer.png
+     · 갈래 : ② 개념 삽화. ChatGPT로 만든다. 글자 없이 장면만으로 뜻이 서는 그림이다.
+     ───────────────────────────────────────────────────────────────────────
+     ── 맥락 (ChatGPT에 그대로 붙여 넣는다) ─────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 7회 둘째 차시(7-2)에 쓸 그림이다.
+     학생은 중3~고2 여덟 명이고 코딩이 처음이다. 이 쪽에서 비밀번호를 저장하는 「단방향 암호화」를 배운다.
+     단방향 암호화는 ① 한 번 바꾸면 되돌릴 수 없고 ② 같은 것을 넣으면 몇 번을 해도 똑같은 결과가 나온다.
+     이것을 믹서기(주서기)에 빗대어 한 장면으로 보여 주는 자리다.
 
-- 서비스가 반드시 기억해야 할 기록: 뽑기 결과
-- 이 기록이 생기는 사용자 행동: 하나 뽑기 버튼을 누를 때
-- 사용자가 이 기록을 다시 확인하는 순간: 다음에 열어 지난번에 뽑힌 항목을 볼 때
-- 저장해야 할 정보: 적은 항목들, 뽑힌 항목, 뽑은 시각
-- 저장하지 않을 정보: 이름, 학번, 연락처
-- 실제 개인정보를 사용하지 않는 방법: 로그인 없이 쓰고, 항목에 개인정보를 적지 말라고 안내한다
+     ── 그릴 것 ────────────────────────────────────────────────────
+     가운데 투명한 믹서기 하나. 왼쪽에서 딸기 두 알과 바나나 한 개가 들어가고, 오른쪽에 같은 분홍빛 주스가 담긴 컵이 세 잔 나란히 있다.
+     세 잔의 색과 양이 완전히 똑같아 「같은 재료 → 늘 같은 주스」로 읽힌다.
+     오른쪽 컵에서 왼쪽 과일 쪽으로 향하는 흐린 점선 화살표 하나를 그리고, 그 화살표 위에 굵은 X 표시를 둔다(주스를 과일로 되돌릴 수 없다).
+     · 믹서기 쪽에서 컵으로 가는 화살표만 따뜻한 주황(#FF5C00). X 표시는 진한 회색.
 
-### 후보 테이블 — 1~3개
+     ── 지킬 것 ────────────────────────────────────────────────────
+     · no text, no letters, no numbers, no labels, no logos, no watermark.
+     · 사람은 그리지 않는다. 흰 배경, 깔끔한 평면 삽화(flat illustration). 비율 21:9 가로.
 
-#### 후보 테이블 1
-
-- 이름: 뽑기 기록
-- 기억하는 내용: 적은 항목들, 뽑힌 항목, 뽑은 시각
-- 연결되는 기능: 하나 뽑기, 지난 결과 다시 보기
-
-(후보 테이블 2·3은 칸을 그대로 두고 「없음」이라고 적는다)
-- 테이블이 여러 개라면 관계를 설명하는 쉬운 문장: 없음</pre><pre class="zh blk keep-ko">## 5. 데이터　（数据）
-
-- 서비스가 반드시 기억해야 할 기록（一定要记住的记录）: 抽取结果
-- 이 기록이 생기는 사용자 행동（产生记录的动作）: 按下“抽一个”按钮时
-- 사용자가 이 기록을 다시 확인하는 순간（再次查看的时候）: 下次打开，看上次抽到的项目时
-- 저장해야 할 정보（要保存的信息）: 写下的项目、抽到的项目、抽取时间
-- 저장하지 않을 정보（不保存的信息）: 姓名、学号、联系方式
-- 실제 개인정보를 사용하지 않는 방법（不用真实个人信息的方法）: 不用登录，并提示不要在项目里写个人信息
-
-### 후보 테이블 — 1~3개　（候选数据表）
-
-#### 후보 테이블 1　（候选数据表 1）
-
-- 이름（名称）: 抽取记录
-- 기억하는 내용（记住的内容）: 写下的项目、抽到的项目、抽取时间
-- 연결되는 기능（关联的功能）: 抽一个、回看以前的结果
-
-（候选数据表 2、3 的栏目保留，写上 없음）
-- 테이블이 여러 개라면 관계를 설명하는 쉬운 문장（关系说明）: 없음</pre></div>
+     ── 받은 뒤 확인 ───────────────────────────────────────────────
+     ① 글자가 없는가  ② 주스 세 잔이 똑같아 보이는가
+     ③ 되돌아가는 화살표에 X가 있는가  ④ 주황이 앞으로 가는 화살표에만 있는가
+     ═══════════════════════════════════════════════════════════════════════ -->
+<figure class="fig narrow"><img class="figimg" src="../../assets/img/07-2-03-one-way-juicer.png" alt="딸기와 바나나를 믹서기에 넣으면 똑같은 주스 세 잔이 나오고, 주스를 과일로 되돌리는 화살표에는 X가 있다." data-id="07-2-03-one-way-juicer" data-spec="가로 21:9 · 개념 삽화 · 믹서기와 같은 주스 세 잔" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 7-2-3. 되돌릴 수 없지만, 같은 것을 넣으면 늘 같은 결과가 나온다.</span><span class="zh">图 7-2-3. 还原不回去，但放进同样的东西，结果总是一样。</span></figcaption></figure><div class="row encrow"><div class="pane"><div class="pt"><span class="ko">몇 번을 바꿔도 결과가 같다</span><span class="zh">转换几次，结果都一样</span></div><div class="encflow"><span class="ef-in">mypw123</span><span class="ef-ar">→ <b><span class="ko">1번째 바꾸기</span><span class="zh">第 1 次转换</span></b> →</span><span class="ef-out">ef92b7…</span></div><div class="encflow"><span class="ef-in">mypw123</span><span class="ef-ar">→ <b><span class="ko">2번째 바꾸기</span><span class="zh">第 2 次转换</span></b> →</span><span class="ef-out">ef92b7…</span></div><div class="encflow"><span class="ef-in">mypw123</span><span class="ef-ar">→ <b><span class="ko">3번째 바꾸기</span><span class="zh">第 3 次转换</span></b> →</span><span class="ef-out">ef92b7…</span></div><p><span class="ko">거꾸로 <code>ef92b7…</code>에서 <code>mypw123</code>로는 되돌릴 수 없습니다.</span><span class="zh">反过来，从 <code>ef92b7…</code> 还原不回 <code>mypw123</code>。</span></p></div><div class="pane okp"><div class="pt"><span class="ko">로그인은 바꾼 결과끼리 비교한다</span><span class="zh">登录时比较的是转换后的结果</span></div><p><span class="ko">저장된 값</span><span class="zh">保存的值</span> <code>ef92b7…</code></p><div class="encflow"><span class="ef-in">mypw123</span><span class="ef-ar">→ <b><span class="ko">바꾸기</span><span class="zh">转换</span></b> →</span><span class="ef-out">ef92b7…</span><span class="ef-x ok"><span class="ko">같다 → 로그인</span><span class="zh">相同 → 登录</span></span></div><div class="encflow"><span class="ef-in">mypw124</span><span class="ef-ar">→ <b><span class="ko">바꾸기</span><span class="zh">转换</span></b> →</span><span class="ef-out">3b1c0a…</span><span class="ef-x"><span class="ko">다르다 → 거절</span><span class="zh">不同 → 拒绝</span></span></div><p><span class="ko">그래서 직원도 내 비밀번호를 모르고, 잊으면 「찾기」가 아니라 「재설정」을 합니다.</span><span class="zh">所以员工也不知道你的密码，忘了只能“重新设置”，而不是“找回”。</span></p></div></div>
 </section>
 <section class="page" id="s3">
-<div class="kick"><span class="ko">3. 기록이 없어 보일 때</span><span class="zh">3. 好像没有记录时</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">결과만 보여 주는 서비스도 남길 기록이 있다</span><span class="zh">只显示结果的服务，也有可以留下的记录</span></h2>
-<p class="lead"><span class="ko">계산기나 추천 도구처럼 결과를 보여 주고 끝나는 서비스는 기억할 것이 없어 보입니다. 그래도 사용한 값과 결과를 남기면 사용자가 다음에 다시 볼 수 있습니다. 내 서비스와 비슷한 줄을 찾아 봅니다.</span><span class="zh">计算器、推荐工具这类显示完结果就结束的服务，看起来好像没什么要记住的。可是只要把用过的值和结果留下来，用户下次就能再看到。找一找和自己服务相近的那一行。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th style="width:26%"><span class="ko">서비스 종류</span><span class="zh">服务类型</span></th><th style="width:38%"><span class="ko">남길 수 있는 기록</span><span class="zh">可以留下的记录</span></th><th><span class="ko">다시 확인하는 순간</span><span class="zh">再次查看的时候</span></th></tr></thead><tbody><tr><td><span class="ko">계산·변환 도구</span><span class="zh">计算·换算工具</span></td><td><span class="ko">사용한 값과 결과</span><span class="zh">用过的值和结果</span></td><td><span class="ko">최근 계산 기록을 볼 때</span><span class="zh">查看最近的计算记录时</span></td></tr><tr><td><span class="ko">추천 도구</span><span class="zh">推荐工具</span></td><td><span class="ko">고른 조건과 추천 결과</span><span class="zh">选的条件和推荐结果</span></td><td><span class="ko">이전 추천을 다시 볼 때</span><span class="zh">回看以前的推荐时</span></td></tr><tr><td><span class="ko">문제·퀴즈</span><span class="zh">题目·测验</span></td><td><span class="ko">문제, 내 답, 맞았는지</span><span class="zh">题目、自己的答案、对不对</span></td><td><span class="ko">풀이 기록을 확인할 때</span><span class="zh">查看做题记录时</span></td></tr><tr><td><span class="ko">만들어 주는 도구</span><span class="zh">生成工具</span></td><td><span class="ko">넣은 조건과 만들어진 결과</span><span class="zh">输入的条件和生成的结果</span></td><td><span class="ko">지난 결과를 다시 쓸 때</span><span class="zh">再次使用以前的结果时</span></td></tr><tr><td><span class="ko">정보 안내</span><span class="zh">信息指南</span></td><td><span class="ko">내가 표시한 항목</span><span class="zh">自己标记的项目</span></td><td><span class="ko">즐겨찾기를 볼 때</span><span class="zh">查看收藏时</span></td></tr></tbody></table></div><div class="note stop"><div class="nt"><span class="ko">기록을 만들려고 늘리지 않는다</span><span class="zh">不要为了有记录而加东西</span></div><p><span class="ko">기록을 남기려고 로그인이나 회원 정보를 넣지 않습니다. 누가 썼는지가 아니라 무엇을 했는지를 남깁니다. 저장했다는 표시만 내려고 방문 횟수처럼 서비스와 상관없는 값을 만들지도 않습니다.</span><span class="zh">不要为了留记录就加上登录或会员信息。要留的是“做了什么”，而不是“谁做的”。也不要为了显得“有保存”，去编造访问次数这类和服务无关的值。</span></p></div>
+<div class="kick"><span class="ko">1. 개인정보와 암호화</span><span class="zh">1. 个人信息与加密</span><b>7-2</b></div>
+<h2 class="title"><span class="ko">어떤 정보를 암호화하나</span><span class="zh">哪些信息要加密</span></h2>
+<p class="lead"><span class="ko">비밀번호처럼 되돌릴 필요가 없는 정보는 단방향으로 바꿉니다. 주민등록번호나 카드번호처럼 나중에 원래 내용을 다시 읽어야 하는 정보는, 열쇠로 다시 열 수 있는 <b>양방향 암호화</b>로 잠그고 열쇠는 따로 지킵니다. 비밀번호·주민등록번호·지문 같은 정보는 법으로 암호화하게 정해져 있습니다.</span><span class="zh">像密码这样不需要还原的信息，用单向的方法转换。像身份证号、银行卡号这样以后还要读出原来内容的信息，就用能拿钥匙再打开的<b>双向加密</b>锁上，钥匙另外保管好。密码、身份证号、指纹这类信息，法律规定必须加密。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th style="width:24%"><span class="ko">정보</span><span class="zh">信息</span></th><th style="width:38%"><span class="ko">예</span><span class="zh">例子</span></th><th><span class="ko">어떻게 지키나</span><span class="zh">怎样保护</span></th></tr></thead><tbody><tr><td><span class="ko">비밀번호</span><span class="zh">密码</span></td><td><span class="ko">로그인 비밀번호</span><span class="zh">登录密码</span></td><td><span class="ko">단방향 · 아무도 되돌리지 못한다</span><span class="zh">单向 · 谁都还原不了</span></td></tr><tr><td><span class="ko">나를 가리키는 번호</span><span class="zh">能认出本人的号码</span></td><td><span class="ko">주민등록번호 · 여권번호 · 운전면허번호</span><span class="zh">身份证号 · 护照号 · 驾照号</span></td><td><span class="ko">양방향 · 열쇠는 따로 보관</span><span class="zh">双向 · 钥匙另外保管</span></td></tr><tr><td><span class="ko">몸의 정보</span><span class="zh">身体信息</span></td><td><span class="ko">지문 · 얼굴</span><span class="zh">指纹 · 面孔</span></td><td><span class="ko">양방향 · 열쇠는 따로 보관</span><span class="zh">双向 · 钥匙另外保管</span></td></tr><tr><td><span class="ko">돈과 이어진 정보</span><span class="zh">和钱有关的信息</span></td><td><span class="ko">카드번호 · 계좌번호</span><span class="zh">银行卡号 · 账户号</span></td><td><span class="ko">양방향 · 화면에는 일부만 보여 준다</span><span class="zh">双向 · 画面上只显示一部分</span></td></tr><tr><td><span class="ko">주고받는 모든 내용</span><span class="zh">传来传去的所有内容</span></td><td><span class="ko">로그인할 때 보내는 비밀번호</span><span class="zh">登录时发送的密码</span></td><td><span class="ko">주소창의 <code>https</code> · 🔒 보내는 길을 암호화</span><span class="zh">地址栏的 <code>https</code> · 🔒 给传送的路加密</span></td></tr></tbody></table></div><div class="note ok"><div class="nt"><span class="ko">우리 PRD에서는</span><span class="zh">在我们的 PRD 里</span></div><p><span class="ko">가장 안전한 개인정보는 <b>처음부터 저장하지 않은 정보</b>입니다. 이 수업의 서비스는 로그인과 실제 개인정보를 쓰지 않고, 5항의 「실제 개인정보를 사용하지 않는 방법」에 그 약속을 적습니다. 나중에 개인정보를 다루게 되면 이 표부터 떠올립니다.</span><span class="zh">最安全的个人信息，是<b>一开始就不保存的信息</b>。这门课的服务不用登录，也不用真实个人信息，并把这个约定写进第 5 项的“不用真实个人信息的方法”。以后要处理个人信息时，先想到这张表。</span></p></div>
 </section>
 <section class="page" id="s4">
-<div class="kick"><span class="ko">4. AI와 초안</span><span class="zh">4. 和 AI 起草</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">AI가 5항에 옮기고, 내가 읽고 고친다</span><span class="zh">AI 写进第 5 项，自己读过再修改</span></h2>
-<p class="lead"><span class="ko">6-2에서 메모를 PRD로 옮긴 것처럼, 이번에는 <code>데이터_예시.md</code>와 PRD를 AI에게 읽혀 5항 초안을 쓰게 합니다. 모르는 내용은 지어내지 말고 비워 두게 합니다. AI가 끝나면 <code>PRD.md</code>의 5항을 처음부터 읽고 아래 표대로 고칩니다.</span><span class="zh">就像 6-2 把备忘搬进 PRD 那样，这次让 AI 读 <code class="keep-ko">데이터_예시.md</code> 和 PRD，写出第 5 项草稿。不知道的内容不让它编，先空着。AI 写完后，把 <code class="keep-ko">PRD.md</code> 的第 5 项从头读一遍，照下表修改。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 5항 초안</span><span class="zh">发给 OpenCode 的请求 — 第 5 项草稿</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">데이터_예시.md와 PRD.md를 읽고, PRD.md의 5. 데이터를 채워 줘.
-모르는 내용은 지어내지 말고 「(확인 필요)」라고 적어 줘.
-PRD.md 파일에 직접 저장하고, 무엇을 적었는지 세 줄로 알려 줘.</pre><pre class="zh blk">请读 <span class="keep-ko">데이터_예시.md</span> 和 <span class="keep-ko">PRD.md</span>，填好 <span class="keep-ko">PRD.md</span> 的第 5 项「数据」。
-不知道的内容不要编，写「(需要确认)」。
-直接保存到 <span class="keep-ko">PRD.md</span> 文件里，并用三行告诉我写了什么。</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th style="width:30%"><span class="ko">옮긴 뒤 내가 확인할 것</span><span class="zh">写完后自己要确认的</span></th><th><span class="ko">이렇게 고친다</span><span class="zh">这样改</span></th></tr></thead><tbody><tr><td><span class="ko">기록</span><span class="zh">记录</span></td><td><span class="ko">핵심 기능을 쓰면 저절로 생기는 기록인가. 아니면 2항 핵심 기능에 맞게 고친다</span><span class="zh">是不是用核心功能时自然产生的记录。不是的话，按第 2 项的核心功能来改</span></td></tr><tr><td><span class="ko">기억하는 내용</span><span class="zh">记住的内容</span></td><td><span class="ko"><code>id</code>·<code>book_id</code> 같은 열 이름 대신 사람의 말로 적는다</span><span class="zh">不写 <code>id</code>、<code>book_id</code> 这样的列名，改成人话</span></td></tr><tr><td><span class="ko">저장하지 않을 정보</span><span class="zh">不保存的信息</span></td><td><span class="ko">이름·연락처가 저장할 쪽에 있으면 이쪽으로 옮긴다</span><span class="zh">姓名、联系方式如果在“要保存”那边，就挪到这边</span></td></tr><tr><td><span class="ko">후보 테이블</span><span class="zh">候选数据表</span></td><td><span class="ko">1~3개인가. 쓰지 않는 칸은 지우지 말고 「없음」</span><span class="zh">是不是 1~3 张。用不到的栏目不要删，写 <code class="keep-ko">없음</code>（无）</span></td></tr><tr><td><span class="ko">「(확인 필요)」</span><span class="zh">「(需要确认)」</span></td><td><span class="ko">내 말로 채운다</span><span class="zh">用自己的话补上</span></td></tr></tbody></table></div>
+<div class="kick"><span class="ko">2. 데이터베이스 표</span><span class="zh">2. 数据库表</span><b>7-2</b></div>
+<h2 class="title"><span class="ko">데이터_예시.md를 데이터베이스 표로 다듬는다</span><span class="zh">把数据示例文件整理成数据库表</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">3교시에는 암호화를 빼고 기억할 것만 표로 정리했습니다. 이제 암호화까지 알았으니, 그 표를 <b>실제 데이터베이스 표</b> 모양으로 다듬습니다. 열 이름과 기본키·외래키를 붙이고, 암호화가 필요한 열이 있는지 표시합니다. 이 파일은 제출물이 아니라 5항을 쓰는 재료입니다.</span><span class="zh">第 3 节课先不管加密，只把要记住的整理成了表。现在连加密也学了，就把那张表整理成<b>真正的数据库表</b>的样子：加上列名、主键和外键，再标出有没有需要加密的列。这个文件不是提交物，而是写第 5 项的材料。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 데이터베이스 표로 다듬기</span><span class="zh">发给 OpenCode 的请求 — 整理成数据库表</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">데이터_예시.md의 표를 실제 데이터베이스 표로 다듬어 줘.
+표는 3개 이하로 하고, 표마다 열 이름과 기본키(PK), 외래키(FK)를 표시해 줘.
+암호화가 필요한 열이 있으면 표시하고, 없으면 「없음」이라고 적어 줘.
+로그인·회원 표와 실제 개인정보 열은 만들지 말고, SQL이나 코드는 쓰지 마.
+데이터_예시.md 파일 아래에 이어서 저장해 줘.</pre><pre class="zh blk">请把 <span class="keep-ko">데이터_예시.md</span> 里的表整理成真正的数据库表。
+表最多 3 张，每张表都标出列名、主键（PK）和外键（FK）。
+有需要加密的列就标出来，没有就写「无」。
+不要建登录·会员表和真实个人信息的列，也不要写 SQL 或代码。
+接着保存在 <span class="keep-ko">데이터_예시.md</span> 文件的下面。</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th style="width:44%"><span class="ko">미리 보기로 읽고 확인할 것</span><span class="zh">用预览读一读，确认这些</span></th><th><span class="ko">다르면 이렇게 말한다</span><span class="zh">不对就这样说</span></th></tr></thead><tbody><tr><td><span class="ko">표마다 한 행은 무엇인가</span><span class="zh">每张表的一行是什么</span></td><td><span class="ko">「표마다 한 행이 무엇인지 한 문장으로 적어 줘.」</span><span class="zh">「请用一句话写出每张表的一行是什么。」</span></td></tr><tr><td><span class="ko">표마다 기본키가 있나</span><span class="zh">每张表都有主键吗</span></td><td><span class="ko">「표마다 기본키를 정하고 이유를 알려 줘.」</span><span class="zh">「请给每张表定好主键，并告诉我理由。」</span></td></tr><tr><td><span class="ko">표가 둘이면 외래키가 여러 개 쪽에 있나</span><span class="zh">有两张表时，外键在“多”的那边吗</span></td><td><span class="ko">「외래키가 1:N의 N 쪽에 있는지 확인해 줘.」</span><span class="zh">「请确认外键是否在 1:N 的 N 那边。」</span></td></tr><tr><td><span class="ko">암호화 표시 — 개인정보를 안 쓰면 대개 「없음」</span><span class="zh">加密标记 — 不用个人信息的话，一般是「<code class="keep-ko">없음</code>」（无）</span></td><td><span class="ko">「개인정보 열을 빼고, 암호화 표시를 다시 해 줘.」</span><span class="zh">「请去掉个人信息的列，再重新标一次加密。」</span></td></tr><tr><td><span class="ko">로그인·회원 표나 SQL이 있나</span><span class="zh">有没有登录·会员表或 SQL</span></td><td><span class="ko">「로그인 표와 SQL은 빼 줘.」</span><span class="zh">「请去掉登录表和 SQL。」</span></td></tr></tbody></table></div>
 </section>
 <section class="page" id="s5">
-<div class="kick"><span class="ko">5. AI와 다듬기</span><span class="zh">5. 和 AI 一起改</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">5항이 다른 항목과 맞는지 묻고, 6항 3번을 쓴다</span><span class="zh">问问第 5 项和其他项目对不对得上，再写第 6 项第 3 条</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-<p class="lead"><span class="ko">5항을 고쳤으면 AI에게 PRD 전체를 읽혀, 5항이 2항 기능·3항 흐름·4항 화면과 맞는지 질문을 받습니다. AI가 문서를 고쳐도 괜찮지만, 고친 곳은 내가 끝까지 읽고 받아들일지 정합니다. 그다음 6항 3번을 씁니다.</span><span class="zh">改好第 5 项后，让 AI 读整份 PRD，问问第 5 项和第 2 项功能、第 3 项流程、第 4 项画面对不对得上。AI 改文件也没关系，但改过的地方要自己读到最后，再决定接不接受。然后写第 6 项第 3 条。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 5항 다듬기</span><span class="zh">发给 OpenCode 的请求 — 修改第 5 项</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">PRD.md를 읽고, 5. 데이터가 다른 항목과 맞지 않는 곳을 하나씩 물어봐 줘.
-고치면 좋을 점이 있으면 제안해 줘.</pre><pre class="zh blk">请读 <span class="keep-ko">PRD.md</span>，把第 5 项「数据」和其他项目对不上的地方一个一个问我。
-有值得修改的地方就提出建议。</pre></div><div class="code"><div class="chd"><span class="fn"><span class="ko">PRD 6항 3번에 적은 예</span><span class="zh">PRD 第 6 项第 3 条的写法示例</span></span></div><pre class="ko blk">## 6. 완성 기준 — 2~3개
-
-3. 페이지를 다시 열어도 지난번에 뽑힌 항목 기록을 확인할 수 있다.</pre><pre class="zh blk keep-ko">## 6. 완성 기준 — 2~3개　（完成标准）
-
-3. 页面重新打开后，也能看到上次抽到的项目记录。</pre></div><p><span class="ko">6-2에서는 1·2번만 썼습니다. 3번 빈칸에는 5항에서 정한 기록을 넣습니다. 7-1 처음에 목업에서 <code>F5</code>를 눌러 사라졌던 바로 그것을, 완성된 서비스에서는 다시 볼 수 있어야 한다는 약속입니다.</span><span class="zh">6-2 只写了第 1、2 条。第 3 条的空白处，填第 5 项定下的记录。7-1 一开始在模型里按 <code>F5</code> 就消失的那个东西，完成的服务要能再看到——这是一个约定。</span></p>
-</section>
-<section class="page" id="s6">
-<div class="kick"><span class="ko">6. 7항 기록</span><span class="zh">6. 第 7 项记录</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">오늘 AI와 정한 것을 7항에 이어 적는다</span><span class="zh">把今天和 AI 定下的事接着写进第 7 项</span></h2>
-<p class="lead"><span class="ko">6-2에서 쓴 <b>7. AI 사용과 학생의 판단</b>에 오늘의 판단을 이어 적습니다. 6-2에 쓴 문장은 지우지 않고 각 줄 끝에 덧붙입니다. AI가 제안한 표나 정보 가운데 무엇을 받아들이고 무엇을 뺐는지가 8회 평가에서 내가 설명할 내용입니다.</span><span class="zh">在 6-2 写过的<b>7. AI 的使用与学生的判断</b>里，接着写今天的判断。6-2 写的句子不删，在每行末尾补上。AI 提议的表和信息里接受了什么、去掉了什么，就是第 8 次课评价时自己要讲清楚的内容。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">PRD 7항에 이어 적은 예 — 「…」는 6-2에 쓴 내용</span><span class="zh">PRD 第 7 项接着写的示例 —「…」是 6-2 写过的内容</span></span></div><pre class="ko blk">## 7. AI 사용과 학생의 판단
-
-- AI에게 확인을 요청한 내용: … / 7-1에서 기억할 기록을 표로 그려 달라고 했고, 5항 초안과 질문을 요청했다
-- AI가 제안하거나 질문한 내용: … / 표를 두 개(뽑기 기록, 사용자)로 나누자고 했다
-- 반영한 내용과 이유: … / 뽑은 시각을 저장할 정보에 넣었다. 지난 결과를 순서대로 보여 주려면 필요하다
-- 반영하지 않은 내용과 이유: … / 사용자 표는 뺐다. 로그인이 없어 사용자 이름을 저장할 이유가 없다
-- 학생이 직접 결정한 부분: … / 후보 테이블을 뽑기 기록 하나로 정했다</pre><pre class="zh blk keep-ko">## 7. AI 사용과 학생의 판단　（AI 的使用与学生的判断）
-
-- AI에게 확인을 요청한 내용（请 AI 做的）: … / 7-1 请它把要记住的记录画成表，又请它写第 5 项草稿并提问
-- AI가 제안하거나 질문한 내용（AI 的提议）: … / 建议拆成两张表（抽取记录、用户）
-- 반영한 내용과 이유（采纳的与理由）: … / 把抽取时间放进要保存的信息。要按顺序显示以前的结果就需要它
-- 반영하지 않은 내용과 이유（没采纳的与理由）: … / 去掉了用户表。没有登录，没有理由保存用户姓名
-- 학생이 직접 결정한 부분（自己决定的）: … / 候选数据表定为“抽取记录”一张</pre></div><div class="note stop"><div class="nt"><span class="ko">AI의 문장을 그대로 붙여 넣지 않는다</span><span class="zh">不要原样粘贴 AI 的句子</span></div><p><span class="ko">7항은 내 판단의 기록이라 내 말로 씁니다. 받아들이지 않은 제안과 그 이유도 좋은 기록입니다.</span><span class="zh">第 7 项是自己判断的记录，要用自己的话写。没有接受的建议和理由，也是很好的记录。</span></p></div>
-</section>
-<section class="page" id="s7">
-<div class="kick"><span class="ko">7. 목업에 다시 보기</span><span class="zh">7. 给模型加上回看</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">목업에 지난 기록을 다시 보는 자리를 붙인다</span><span class="zh">给模型加上回看以前记录的地方</span></h2>
-<p class="lead"><span class="ko">마지막으로 5항에서 정한 기록이 화면에서 어떻게 보일지 목업에 붙여 봅니다. 6-2에서 만든 <code>mockup</code> 폴더의 <code>index.html</code>에 지난 기록 목록을 넣어 달라고 합니다. 목업은 제출물이 아니라 내 PRD를 눈으로 확인하는 도구입니다.</span><span class="zh">最后把第 5 项定下的记录在画面上会怎样显示，加到模型上看看。请 AI 在 6-2 做的 <code class="keep-ko">mockup</code> 文件夹的 <code class="keep-ko">index.html</code> 里放进以前记录的列表。模型不是提交物，而是用眼睛检查自己 PRD 的工具。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 목업에 다시 보기</span><span class="zh">发给 OpenCode 的请求 — 给模型加上回看</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">PRD.md의 5. 데이터를 보고, mockup/index.html에 지난 기록을 다시 보는 부분을 넣어 줘.
-예시 기록 3개를 보여 주고, 디자인은 지금 화면과 어울리게 맞춰 줘.
-mockup/index.html 파일에 저장해 줘. 코드는 대화창에 보여 주지 마.</pre><pre class="zh blk">请看 <span class="keep-ko">PRD.md</span> 的第 5 项「数据」，在 <span class="keep-ko">mockup/index.html</span> 里加上回看以前记录的部分。
-显示 3 条示例记录，设计要和现在的画面协调。
-保存到 <span class="keep-ko">mockup/index.html</span> 文件里。不要把代码显示在对话框里。</pre></div><div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>127.0.0.1:5500/mockup/index.html</span></div><div class="mock-body"><div class="mk-title"><span class="ko">하나 뽑기</span><span class="zh">抽一个</span></div><div class="mk-row"><div class="mk-input"><span class="ko">외울 항목을 적어 주세요</span><span class="zh">请写下要背的项目</span></div><div class="mk-btn"><span class="ko">하나 뽑기</span><span class="zh">抽一个</span></div></div><div class="mk-sub"><span class="ko">지난 기록</span><span class="zh">以前的记录</span></div><ul class="mk-list"><li>banana <small>10-08 18:40</small></li><li>log <small>10-08 09:15</small></li><li>cherry <small>10-07 21:02</small></li></ul></div><div class="mk-cap"><span class="ko">5항의 기록이 화면 아래에 목록으로 보인다</span><span class="zh">第 5 项的记录在画面下方显示成列表</span></div></div>
-</section>
-<section class="page" id="s7_2">
-<div class="kick"><span class="ko">7. 목업에 다시 보기</span><span class="zh">7. 给模型加上回看</span><b>7-2</b></div>
-<h2 class="title"><span class="ko">Live Server로 보고, F5로 무엇이 남는지 본다</span><span class="zh">用 Live Server 看，再按 F5 看看留下了什么</span></h2>
-<p class="lead"><span class="ko">AI가 저장했다고 하면 목업을 Live Server로 열어 지난 기록 목록을 봅니다. 목록이 5항과 맞는지 본 뒤, 새 항목을 넣고 <code>F5</code>를 눌러 무엇이 남는지도 봅니다. 예시로 넣은 기록 세 개는 파일에 적혀 있어 그대로 남고, 방금 뽑은 결과는 대개 사라집니다.</span><span class="zh">AI 说保存好了，就用 Live Server 打开模型，看看以前记录的列表。先看列表和第 5 项对不对得上，再放进新项目、按 <code>F5</code>，看看留下了什么。作为示例放进去的三条记录写在文件里，所以会留着；刚抽到的结果一般会消失。</span></p><div class="steps"><div class="st-h"><span class="ko">Live Server로 보기</span><span class="zh">用 Live Server 看</span></div><ol><li><span class="ko"><code>mockup</code> 폴더의 <code>index.html</code>을 오른쪽 클릭하고 <b>Open with Live Server</b>를 고른다. 이미 열려 있으면 저절로 바뀐다.</span><span class="zh">右键单击 <code class="keep-ko">mockup</code> 文件夹里的 <code class="keep-ko">index.html</code>，选择 <b>Open with Live Server</b>。已经打开的话会自动更新。</span></li><li><span class="ko">목록이 5항의 「저장해야 할 정보」를 보여 주는지 본다. 다르면 <b>PRD를 먼저 고치고</b> 같은 요청을 다시 보낸다.</span><span class="zh">看列表显示的是不是第 5 项的“要保存的信息”。不一样就<b>先改 PRD</b>，再发一次同样的请求。</span></li><li><span class="ko">새 항목을 넣고 버튼을 누른 뒤 <code>F5</code>를 누른다. 방금 결과가 남아 있다면 내 브라우저 안에만 잠깐 저장된 것이라 다른 컴퓨터에서는 보이지 않는다.</span><span class="zh">放进新项目，按下按钮，再按 <code>F5</code>。如果刚才的结果还在，那只是暂时存在自己的浏览器里，换台电脑就看不到。</span></li></ol></div><div class="note"><div class="nt"><span class="ko">진짜로 기억하게 하는 것은 11회</span><span class="zh">真正让它记住，在第 11 次课</span></div><p><span class="ko">목업은 화면 모양을 보여 줄 뿐 아직 데이터베이스에 저장하지 않습니다. 11회에 SQLite를 연결해 진짜로 기억하게 만들고, 그때 오늘 쓴 5항과 6항 3번이 AI가 저장 기능을 만드는 기준이 됩니다.</span><span class="zh">模型只展示画面的样子，还没有存进数据库。第 11 次课会连上 SQLite，让它真正记住。到那时，今天写的第 5 项和第 6 项第 3 条，就是 AI 做保存功能的依据。</span></p></div>
+<div class="kick"><span class="ko">3. 5항 쓰기</span><span class="zh">3. 写第 5 项</span><b>7-2</b></div>
+<h2 class="title"><span class="ko">5항에 표를 넣고 해설을 붙인다</span><span class="zh">在第 5 项放进表，再加上说明</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">PRD의 <b>5. 데이터</b>에는 <code>데이터_예시.md</code>에서 다듬은 <b>표</b>를 후보 테이블마다 넣고, 그 아래에 이 표가 무엇을 기억하는지 사람의 말로 <b>해설</b>을 붙입니다. 수행평가 2는 표보다 해설을 봅니다. AI가 옮기면 내가 처음부터 읽고 고칩니다. 6-2에서 비워 둔 6항 3번(다시 열어도 기록이 보인다)도 함께 채웁니다.</span><span class="zh">PRD 的<b>第 5 项「数据」</b>里，每张候选数据表都放进在 <code class="keep-ko">데이터_예시.md</code> 整理好的<b>表</b>，再在下面用人话写<b>说明</b>：这张表记住什么。实践考核 2 看的是说明，而不是表。AI 写完后，自己从头读一遍再修改。6-2 空着的第 6 项第 3 条（重新打开也能看到记录）也一起填上。</span></p><div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 5항 채우기</span><span class="zh">发给 OpenCode 的请求 — 填写第 5 项</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">데이터_예시.md와 PRD.md를 읽고, PRD.md의 5. 데이터를 양식대로 채워 줘.
+후보 테이블마다 데이터_예시.md에서 다듬은 표를 넣고, 표 아래에 이 표가 무엇을 기억하는지 사람의 말로 해설을 붙여 줘.
+SQL이나 코드는 쓰지 마.
+6. 완성 기준의 3번 빈칸에는 「다시 열어도 저장된 기록을 확인할 수 있다」는 문장을 내 서비스에 맞게 적어 줘.
+모르는 내용은 지어내지 말고 「(확인 필요)」라고 적어 줘.
+PRD.md 파일에 직접 저장하고, 무엇을 적었는지 세 줄로 알려 줘.</pre><pre class="zh blk">请读 <span class="keep-ko">데이터_예시.md</span> 和 <span class="keep-ko">PRD.md</span>，按格式填好 <span class="keep-ko">PRD.md</span> 的第 5 项「数据」。
+每张候选数据表都放进在 <span class="keep-ko">데이터_예시.md</span> 整理好的表，并在表下面用人话说明这张表记住什么。
+不要写 SQL 或代码。
+第 6 项「完成标准」第 3 条的空白处，按我的服务写上“重新打开也能看到保存的记录”这句话。
+不知道的内容不要编，写「(需要确认)」。
+直接保存到 <span class="keep-ko">PRD.md</span> 文件里，并用三行告诉我写了什么。</pre></div><div class="tablewrap"><table class="kv"><thead><tr><th style="width:30%"><span class="ko">옮긴 뒤 내가 확인할 것</span><span class="zh">写完后自己要确认的</span></th><th><span class="ko">이렇게 고친다</span><span class="zh">这样改</span></th></tr></thead><tbody><tr><td><span class="ko">기록</span><span class="zh">记录</span></td><td><span class="ko">핵심 기능을 쓰면 저절로 생기는 기록인가. 아니면 2항에 맞게 고친다</span><span class="zh">是不是用核心功能时自然产生的记录。不是的话，按第 2 项来改</span></td></tr><tr><td><span class="ko">저장하지 않을 정보</span><span class="zh">不保存的信息</span></td><td><span class="ko">이름·연락처가 저장할 쪽에 있으면 이쪽으로 옮긴다</span><span class="zh">姓名、联系方式如果在“要保存”那边，就挪到这边</span></td></tr><tr><td><span class="ko">후보 테이블</span><span class="zh">候选数据表</span></td><td><span class="ko">1~3개인가. 표마다 아래에 해설이 있나. 쓰지 않는 칸은 지우지 말고 「없음」</span><span class="zh">是不是 1~3 张。每张表下面有说明吗。用不到的栏目不要删，写 <code class="keep-ko">없음</code>（无）</span></td></tr><tr><td><span class="ko">6항 3번</span><span class="zh">第 6 项第 3 条</span></td><td><span class="ko">다시 열어 확인할 수 있는 기록이 5항의 기록과 같은가</span><span class="zh">重新打开能看到的记录，和第 5 项的记录一样吗</span></td></tr></tbody></table></div>
 </section>
 <section class="page" id="s8">
-<div class="kick"><span class="ko">8. 막힐 때</span><span class="zh">8. 卡住时</span><b>7-2</b></div>
+<div class="kick"><span class="ko">4. 막힐 때</span><span class="zh">4. 卡住时</span><b>7-2</b></div>
 <h2 class="title"><span class="ko">이럴 때는 이렇게 한다</span><span class="zh">遇到这些情况这样做</span> <span class="badge ext"><span class="ko">필요할 때</span><span class="zh">需要时</span></span></h2>
-<p class="lead"><span class="ko">PRD에 5항을 쓰고 목업을 고치다 보면 막히는 자리가 비슷합니다. 내 상황과 같은 줄을 찾아 오른쪽대로 해 봅니다. 그래도 안 되면 손을 듭니다.</span><span class="zh">写 PRD 第 5 项、改模型时，卡住的地方都差不多。找到和自己情况一样的那一行，照右边做。还不行就举手。</span></p><div class="trouble"><div class="th"><span class="ko">이런 상황이라면</span><span class="zh">如果是这些情况</span></div><table><tr><td><span class="ko">AI가 5항이 아닌 다른 항목까지 크게 바꿨다</span><span class="zh">AI 把第 5 项以外的项目也大改了</span></td><td><span class="ko">「무엇을 어떻게 고쳤는지 줄마다 알려 줘」를 보내고 하나씩 읽습니다. 마음에 안 들면 내 문장으로 되돌립니다.</span><span class="zh">发「请逐行告诉我改了什么、怎么改的」，再逐处阅读。不满意就改回自己的句子。</span></td></tr><tr><td><span class="ko">5항에 <code>id</code>·자료형 같은 말이 잔뜩 들어왔다</span><span class="zh">第 5 项里塞满了 <code>id</code>、数据类型这类词</span></td><td><span class="ko">「5항의 열 이름과 자료형은 빼고 사람의 말로 고쳐 줘」를 보냅니다.</span><span class="zh">发「请去掉第 5 项里的列名和数据类型，改成人话」。</span></td></tr><tr><td><span class="ko">AI가 표를 네 개 이상 만들었다</span><span class="zh">AI 建了四张以上的表</span></td><td><span class="ko">「후보 테이블을 3개 이하로 줄여 줘. 하나로 충분한지도 알려 줘」를 보냅니다.</span><span class="zh">发「请把候选数据表减到 3 张以内，也告诉我一张够不够」。</span></td></tr><tr><td><span class="ko"><code>mockup</code> 폴더가 없다</span><span class="zh">没有 <code class="keep-ko">mockup</code> 文件夹</span></td><td><span class="ko">6-2의 목업 요청문을 먼저 보내 목업을 만든 뒤, 오늘의 요청을 보냅니다.</span><span class="zh">先发 6-2 的模型请求做出模型，再发今天的请求。</span></td></tr><tr><td><span class="ko">목업 화면이 바뀌지 않는다</span><span class="zh">模型画面没有变</span></td><td><span class="ko">AI가 저장했는지 대화창에서 봅니다. 저장했는데도 그대로라면 브라우저 탭을 닫고 <b>Open with Live Server</b>로 다시 엽니다.</span><span class="zh">在对话框里看 AI 有没有保存。保存了还是没变，就关掉浏览器标签页，再用 <b>Open with Live Server</b> 重新打开。</span></td></tr><tr><td><span class="ko"><code>FreeUsageLimitError</code>나 <code>429</code>가 나오고 답이 멈춘다</span><span class="zh">出现 <code>FreeUsageLimitError</code> 或 <code>429</code>，回答停住</span></td><td><span class="ko">무료 모델의 사용량이 잠깐 찬 것입니다. 1~2분 기다렸다가 같은 요청을 다시 보냅니다. 계속되면 손을 듭니다.</span><span class="zh">是免费模型的用量暂时满了。等 1~2 分钟再发一次同样的请求。一直这样就举手。</span></td></tr></table></div>
+<p class="lead"><span class="ko">PRD에 5항을 쓰다 보면 막히는 자리가 비슷합니다. 내 상황과 같은 줄을 찾아 오른쪽대로 해 봅니다. 그래도 안 되면 손을 듭니다.</span><span class="zh">写 PRD 第 5 项时，卡住的地方都差不多。找到和自己情况一样的那一行，照右边做。还不行就举手。</span></p><div class="trouble"><div class="th"><span class="ko">이런 상황이라면</span><span class="zh">如果是这些情况</span></div><table><tr><td><span class="ko">AI가 5항이 아닌 다른 항목까지 크게 바꿨다</span><span class="zh">AI 把第 5 项以外的项目也大改了</span></td><td><span class="ko">「무엇을 어떻게 고쳤는지 줄마다 알려 줘」를 보내고 하나씩 읽습니다. 마음에 안 들면 내 문장으로 되돌립니다.</span><span class="zh">发「请逐行告诉我改了什么、怎么改的」，再逐处阅读。不满意就改回自己的句子。</span></td></tr><tr><td><span class="ko">5항에 표만 있고 해설이 없다</span><span class="zh">第 5 项只有表，没有说明</span></td><td><span class="ko">「표마다 아래에 이 표가 무엇을 기억하는지 사람의 말로 해설을 붙여 줘」를 보냅니다.</span><span class="zh">发「请在每张表下面，用人话说明这张表记住什么」。</span></td></tr><tr><td><span class="ko">AI가 SQL 코드나 로그인·회원 표를 만들었다</span><span class="zh">AI 写了 SQL 代码，或建了登录·会员表</span></td><td><span class="ko">「SQL과 로그인·회원 표는 빼 줘. 이 서비스는 로그인이 없어」를 보냅니다.</span><span class="zh">发「请去掉 SQL 和登录·会员表。这个服务没有登录」。</span></td></tr><tr><td><span class="ko">AI가 표를 네 개 이상 만들었다</span><span class="zh">AI 建了四张以上的表</span></td><td><span class="ko">「후보 테이블을 3개 이하로 줄여 줘. 하나로 충분한지도 알려 줘」를 보냅니다.</span><span class="zh">发「请把候选数据表减到 3 张以内，也告诉我一张够不够」。</span></td></tr><tr><td><span class="ko"><code>FreeUsageLimitError</code>나 <code>429</code>가 나오고 답이 멈춘다</span><span class="zh">出现 <code>FreeUsageLimitError</code> 或 <code>429</code>，回答停住</span></td><td><span class="ko">무료 모델의 사용량이 잠깐 찬 것입니다. 1~2분 기다렸다가 같은 요청을 다시 보냅니다. 계속되면 손을 듭니다.</span><span class="zh">是免费模型的用量暂时满了。等 1~2 分钟再发一次同样的请求。一直这样就举手。</span></td></tr></table></div>
 </section>
 <section class="page" id="s9">
-<div class="kick"><span class="ko">9. 정리</span><span class="zh">9. 小结</span><b>7-2</b></div>
+<div class="kick"><span class="ko">5. 정리</span><span class="zh">5. 小结</span><b>7-2</b></div>
 <h2 class="title"><span class="ko">저장하고 8회를 준비한다</span><span class="zh">保存，准备第 8 次课</span></h2>
-<p class="lead"><span class="ko">오늘은 내 서비스가 기억할 기록을 PRD 5항에 쓰고, 6항 3번과 7항까지 이어 적었습니다. 이제 PRD의 모든 칸이 찼습니다. 8회에는 새로 쓰지 않고, 이 PRD를 처음부터 끝까지 읽으며 서로 맞지 않는 곳을 고쳐 제출합니다.</span><span class="zh">今天把自己的服务要记住的记录写进 PRD 第 5 项，又接着写了第 6 项第 3 条和第 7 项。现在 PRD 的所有栏目都填满了。第 8 次课不再新写，而是把这份 PRD 从头读到尾，改掉彼此对不上的地方再提交。</span></p><div class="recap"><div class="rt"><span class="ko">오늘 06 폴더에 남은 것</span><span class="zh">今天留在 06 文件夹里的</span></div><ul class="blist"><li><span class="ko"><code>PRD.md</code> — 1~7항이 모두 찬 PRD. 8회에 제출할 때 <code>08_assessment2_학생ID_이름.md</code>로 이름을 바꾼다. 탭 옆 ●가 없어질 때까지 <code>Ctrl+S</code>.</span><span class="zh"><code class="keep-ko">PRD.md</code> — 第 1~7 项都已填好的 PRD。第 8 次课提交时改名为 <code class="keep-ko">08_assessment2_학생ID_이름.md</code>。按 <code>Ctrl+S</code>，直到标签页旁的 ● 消失。</span></li><li><span class="ko"><code>mockup</code> 폴더 — 지난 기록을 붙인 목업. 제출물은 아니다.</span><span class="zh"><code class="keep-ko">mockup</code> 文件夹 — 加上了以前记录的模型，不是提交物。</span></li><li><span class="ko"><code>데이터_예시.md</code> · <code>기획_메모.md</code> · <code>.agents</code> · <code>opencode.json</code> — 지우지 않는다.</span><span class="zh"><code class="keep-ko">데이터_예시.md</code> · <code class="keep-ko">기획_메모.md</code> · <code>.agents</code> · <code>opencode.json</code> — 都不要删。</span></li></ul></div><div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><p><span class="ko">8회는 수행평가 2입니다. 8-1에서 무엇을 보는지 안내를 듣고, 8-2에서 PRD를 다듬어 제출합니다.</span><span class="zh">第 8 次课是实践考核 2。8-1 听评价看什么，8-2 打磨 PRD 并提交。</span></p><a class="next" href="../../08/textbook/08-1.html"><span class="ko">8-1. 수행평가 2 안내 →</span><span class="zh">8-1. 实践考核 2 说明 →</span></a></div><div class="lessonnav"><a href="../../07/textbook/07-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t"><span class="ko">7-1. 관계형 데이터베이스의 기초</span><span class="zh">7-1. 关系型数据库基础</span></span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../08/textbook/08-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t"><span class="ko">8-1. 수행평가 2 안내</span><span class="zh">8-1. 实践考核 2 说明</span></span></a></div>
+<p class="lead"><span class="ko">오늘은 기억할 것을 데이터베이스 표로 다듬고, 그 표와 해설을 PRD 5항에 넣고 6항 3번까지 채웠습니다. 이제 PRD의 모든 칸이 찼습니다. AI의 제안 가운데 받아들이지 않은 것이 있으면 7항에 한 줄 덧붙여 둡니다. 8회에는 새로 쓰지 않고, 이 PRD를 처음부터 끝까지 읽으며 서로 맞지 않는 곳을 고쳐 제출합니다.</span><span class="zh">今天把要记住的整理成数据库表，再把表和说明写进 PRD 第 5 项，又写了第 6 项第 3 条。现在 PRD 的所有栏目都填满了。AI 的提议里有没接受的，就在第 7 项补上一行。第 8 次课不再新写，而是把这份 PRD 从头读到尾，改掉彼此对不上的地方再提交。</span></p><div class="recap"><div class="rt"><span class="ko">오늘 06 폴더에 남은 것</span><span class="zh">今天留在 06 文件夹里的</span></div><ul class="blist"><li><span class="ko"><code>PRD.md</code> — 1~7항이 모두 찬 PRD. 8회에 제출할 때 <code>08_assessment2_학생ID_이름.md</code>로 이름을 바꾼다. 탭 옆 ●가 없어질 때까지 <code>Ctrl+S</code>.</span><span class="zh"><code class="keep-ko">PRD.md</code> — 第 1~7 项都已填好的 PRD。第 8 次课提交时改名为 <code class="keep-ko">08_assessment2_학생ID_이름.md</code>。按 <code>Ctrl+S</code>，直到标签页旁的 ● 消失。</span></li><li><span class="ko"><code>데이터_예시.md</code> · <code>기획_메모.md</code> · <code>.agents</code> · <code>opencode.json</code> — 지우지 않는다.</span><span class="zh"><code class="keep-ko">데이터_예시.md</code> · <code class="keep-ko">기획_메모.md</code> · <code>.agents</code> · <code>opencode.json</code> — 都不要删。</span></li></ul></div><div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><p><span class="ko">8회는 수행평가 2입니다. 8-1에서 무엇을 보는지 안내를 듣고, 8-2에서 PRD를 다듬어 제출합니다.</span><span class="zh">第 8 次课是实践考核 2。8-1 听评价看什么，8-2 打磨 PRD 并提交。</span></p><a class="next" href="../../08/textbook/08-1.html"><span class="ko">8-1. 수행평가 2 안내 →</span><span class="zh">8-1. 实践考核 2 说明 →</span></a></div><div class="lessonnav"><a href="../../07/textbook/07-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t"><span class="ko">7-1. 관계형 데이터베이스의 기초</span><span class="zh">7-1. 关系型数据库基础</span></span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../08/textbook/08-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t"><span class="ko">8-1. 수행평가 2 안내</span><span class="zh">8-1. 实践考核 2 说明</span></span></a></div>
 </section>
 
 </main>

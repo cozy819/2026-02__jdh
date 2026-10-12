@@ -162,6 +162,12 @@ opencode --version</pre></div>
       <div class="varr">↓</div>
       <div class="vf plain"><b><span class="ko">node와 npm은 있지만 opencode만 없다</span><span class="zh">有 node 与 npm，但没有 opencode</span></b><span class="ko">Node.js 설치 쪽을 건너뛰고 OpenCode 설치 쪽으로 간다.</span><span class="zh">跳过 Node.js 安装页，直接进入 OpenCode 安装页。</span></div>
     </div>
+</section>
+
+<section class="page print-tight print-check-page" id="s5_2">
+    <div class="kick"><span class="ko">2. OpenCode · 먼저 확인</span><span class="zh">2. OpenCode · 先确认</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">Node.js와 OpenCode가 있는지 먼저 확인한다</span><span class="zh">先确认是否已有 Node.js 与 OpenCode</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+    <p class="lead"><span class="ko">세 줄의 결과를 보았다면 왜 설치하기 전에 먼저 확인하는지 짚고 넘어갑니다. 그다음 결과에 따라 갈 쪽을 고릅니다.</span><span class="zh">看完三行的结果后，先弄清为什么要在安装前确认。然后按结果选择要去的页面。</span></p>
     <div class="note ok"><div class="nt"><span class="ko">설치 전에 확인하는 이유</span><span class="zh">为什么安装前先确认</span></div><p><span class="ko">이미 있는 프로그램을 다시 설치하면 시간이 걸리고, 서로 다른 버전이 섞여 문제가 생길 수도 있습니다. 그래서 개발 도구는 항상 <b>확인 → 필요한 것만 설치 → 다시 확인</b>의 순서로 준비합니다.</span><span class="zh">重复安装已有程序会浪费时间，也可能混入不同版本造成问题。因此开发工具始终按<b>确认 → 只安装需要的项目 → 再次确认</b>的顺序准备。</span></p></div>
     <div class="bridge"><div class="bt"><span class="ko">확인 결과에 따라 이동</span><span class="zh">根据确认结果移动</span></div><p><span class="ko"><b>node 또는 npm이 없다면</b> 다음 쪽에서 Node.js를 설치합니다. 둘은 있고 <b>opencode만 없다면</b> Node.js 설치 쪽을 건너뛰고 OpenCode 설치로 갑니다.</span><span class="zh"><b>没有 node 或 npm</b> 时，在下一页安装 Node.js。两者都有而<b>只有 opencode 没有</b>时，跳过 Node.js 安装，直接进入 OpenCode 安装。</span></p></div>
   </section>
@@ -176,6 +182,12 @@ opencode --version</pre></div>
       <li><span class="ko">기본 선택을 유지하며 <b>Next → Install → Finish</b> 순서로 설치한다.</span><span class="zh">保持默认选项，按 <b>Next → Install → Finish</b> 顺序安装。</span></li>
       <li><span class="ko"><b>PowerShell 창을 완전히 닫고 새로 연다.</b> Node.js와 npm의 버전을 다시 확인한다.</span><span class="zh"><b>完全关闭 PowerShell 窗口并重新打开。</b>再次确认 Node.js 与 npm 的版本。</span></li>
     </ol></div>
+</section>
+
+<section class="page" id="s5b_2">
+    <div class="kick"><span class="ko">2. OpenCode · Node.js 준비</span><span class="zh">2. OpenCode · 准备 Node.js</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">Node.js가 없을 때만 설치한다</span><span class="zh">仅在没有 Node.js 时安装</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+    <p class="lead"><span class="ko">설치 파일을 끝까지 실행했다면 제대로 설치되었는지 확인합니다. PowerShell 창을 새로 열고 아래 두 줄을 입력합니다.</span><span class="zh">安装程序运行完后，确认是否装好了。新打开一个 PowerShell 窗口，输入下面两行。</span></p>
     <div class="code term"><div class="chd"><span class="fn">PowerShell · <span class="ko">새 창에서 다시 확인</span><span class="zh">在新窗口中再次确认</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>node --version
 npm --version</pre></div>
     <div class="grow"></div>
@@ -301,6 +313,12 @@ opencode --version</pre></div>
       <li><span class="ko">다시 <b>Python</b>을 검색하고, 이름이 <b>Python</b>이며 게시자가 <b>Microsoft</b>인 항목을 설치한다.</span><span class="zh">再次搜索 <b>Python</b>，安装名称为 <b>Python</b>、发布者为 <b>Microsoft</b> 的项目。</span></li>
       <li><span class="ko">한국어 적용을 위해 <b>Restart</b> 또는 <b>Change Language and Restart</b>가 보이면 누른다. 이미 한국어라면 그대로 다음 단계로 간다.</span><span class="zh">若出现 <b>Restart</b> 或 <b>Change Language and Restart</b>，请点击以应用韩语。若已经是韩语，直接进入下一步。</span></li>
     </ol></div>
+</section>
+
+<section class="page print-tight" id="s7c_2">
+    <div class="kick"><span class="ko">3. VS Code · 확장</span><span class="zh">3. VS Code · 扩展</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">Microsoft가 만든 확장 두 개만 설치한다</span><span class="zh">只安装两个由 Microsoft 制作的扩展</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+    <p class="lead"><span class="ko">아래 그림처럼 두 확장의 이름과 게시자를 확인한 뒤 설치합니다. 게시자가 Microsoft가 아니면 설치하지 않습니다.</span><span class="zh">像下图那样，确认两个扩展的名称和发布者后再安装。发布者不是 Microsoft 就不要安装。</span></p>
     <div class="auth-shots">
       <figure class="fig"><img class="figimg" src="../../assets/img/02-1-06-vscode-korean-language-pack-selected.jpg" alt="Microsoft의 Korean Language Pack 상세 화면과 Install 버튼"><figcaption>Korean Language Pack → Microsoft → Install</figcaption></figure>
       <figure class="fig"><img class="figimg" src="../../assets/img/02-1-06-vscode-python-extension-search.png" alt="Microsoft의 Python 확장 상세 화면과 Install 버튼"><figcaption>Python → Microsoft → Install</figcaption></figure>
@@ -320,6 +338,12 @@ opencode --version</pre></div>
     </ol></div>
     <div class="code term"><div class="chd"><span class="fn">VS Code · Terminal</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>opencode</pre></div>
     <div class="code term"><div class="chd"><span class="fn">OpenCode</span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre>/connect</pre></div>
+</section>
+
+<section class="page" id="s8_2">
+    <div class="kick"><span class="ko">4. OpenCode · 실행과 연결</span><span class="zh">4. OpenCode · 运行与连接</span><b>02-1</b></div>
+    <h2 class="title"><span class="ko">VS Code 안에서 OpenCode와 AI 모델을 연결한다</span><span class="zh">在 VS Code 中连接 OpenCode 与 AI 模型</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+    <p class="lead"><span class="ko">/connect를 입력하면 아래 그림 같은 화면이 나옵니다. 그림 속 순서대로 수업용 AI 제공자를 고릅니다.</span><span class="zh">输入 /connect 后，会出现下图那样的画面。按图中的顺序选择课堂用的 AI 提供方。</span></p>
     <figure class="fig site-shot compact"><img class="figimg" src="../../assets/img/02-1-07-opencode-connect.png" alt="VS Code 터미널의 OpenCode에서 connect 명령을 입력하고 수업용 제공자를 선택하는 실제 화면" data-id="02-1-07-opencode-connect" data-spec="실제 VS Code 터미널 캡처 · 개인정보와 API 키 없음"><figcaption><span class="ko">실제 VS Code 화면에서 수업용 AI 제공자 연결 시작하기</span><span class="zh">在真实 VS Code 画面中开始连接课程使用的 AI 提供方</span></figcaption></figure>
   </section>
 

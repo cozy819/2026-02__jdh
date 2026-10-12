@@ -173,7 +173,7 @@
     courseLink('../../06/textbook/06-1.html', '06-1', '서비스 기획의 기초', '服务策划基础'),
     courseLink('../../06/textbook/06-2.html', '06-2', '서비스 제작 계획서(PRD) 시작하기', '开始编写服务制作计划书（PRD）'),
     courseLink('../../07/textbook/07-1.html', '07-1', '관계형 데이터베이스의 기초', '关系型数据库基础'),
-    courseLink('../../07/textbook/07-2.html', '07-2', 'PRD에 데이터 목록 덧붙이기', '在 PRD 中补充数据清单'),
+    courseLink('../../07/textbook/07-2.html', '07-2', '개인정보와 암호화', '个人信息与加密'),
     courseLink('../../08/textbook/08-1.html', '08-1', '수행평가 2 안내', '实践考核 2 说明'),
     courseLink('../../08/textbook/08-2.html', '08-2', '수행평가 2 · PRD 완성·제출', '实践考核 2 · 完成并提交 PRD'),
     '<div class="toc-part"><span class="ko">4부 · AI와 서비스 개발</span><span class="zh">第 4 部 · 与 AI 开发服务</span></div>',
