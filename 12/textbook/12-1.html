@@ -5,107 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
 <title>12-1. 사용자 흐름으로 서비스 테스트하기 · 정보와 디지털 문해력</title>
-<meta name="description" content="정보와 디지털 문해력 교과서 12-1 — 사용자 흐름으로 서비스 테스트하기. 시나리오 4종, 예상 먼저 적기, 처음 달라진 단계 찾기, 테스트 기록 양식" />
+<meta name="description" content="정보와 디지털 문해력 교과서 12-1 — 9회에 정한 사용자 흐름을 다섯 가지 시나리오로 나누고, 예상한 서비스 반응을 실행 전에 docs/12_test_record.md 1~3항에 적는다. 판정 기준과 화면·SQLite Viewer 비교를 익히고 처음 방문 시나리오를 짝과 시험한다." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/textbook.css" />
 </head>
 <body class="lang-ko">
-
 <div id="top">
-  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
-  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="menu" onclick="tbToggleToc()">☰ <span class="ko">목차</span><span class="zh">目录</span></button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false"><span class="ko">한 장씩 보기</span><span class="zh">逐页查看</span></button>
   <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
-  <div class="brand"><em>12-1</em> <span class="lesson">사용자 흐름으로 서비스 테스트하기</span></div>
+  <div class="brand"><em>12-1</em> <span class="lesson"><span class="ko">사용자 흐름으로 서비스 테스트하기</span><span class="zh">用用户流程测试服务</span></span></div>
   <div class="spacer"></div>
   <div class="pct" id="count">1 / 1</div>
-  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+  <button class="pbtn" onclick="window.print()"><span class="ko">인쇄</span><span class="zh">打印</span></button>
 </div>
 <div id="prog"></div>
-
-<nav id="toc">
-  <div class="h"><span class="ko">이 차시 — 12-1</span><span class="zh">本课时 — 12-1</span></div>
-  <a href="#opener"><span class="n">·</span> 차시 표지</a>
-  <a href="#s0"><span class="n">·</span> 설명서를 읽어야 쓸 수 있다면</a>
-  <a href="#s1"><span class="n">1</span> 테스트는 예상과 실제의 비교</a>
-  <a href="#s2"><span class="n">2</span> 흐름에서 테스트를 만든다</a>
-  <a href="#s3"><span class="n">3</span> 기본 사용자 시나리오 네 가지</a>
-  <a href="#s3w"><span class="n">·</span> 지금 적는다</a>
-  <a href="#s4"><span class="n">4</span> 입력 경계는 필요한 곳만</a>
-  <a href="#s5"><span class="n">5</span> 예상한 반응을 먼저 적는다</a>
-  <a href="#s5w"><span class="n">·</span> 워크시트 ①</a>
-  <a href="#s6"><span class="n">6</span> 처음 달라진 단계를 찾는다</a>
-  <a href="#s6w"><span class="n">·</span> 워크시트 ②</a>
-  <a href="#s7"><span class="n">7</span> 수정 뒤 같은 행동으로 다시</a>
-  <a href="#s8"><span class="n">8</span> AI가 시나리오를 제안할 수 있다</a>
-  <a href="#s9"><span class="n">9</span> 테스트 기록을 준비한다</a>
-  <a href="#s10"><span class="n">부록</span> 기록 양식 ①</a>
-  <a href="#s10b"><span class="n">부록</span> 기록 양식 ②</a>
-  <a href="#s11"><span class="n">부록</span> 기록 양식 ③</a>
-  <a href="#s11b"><span class="n">부록</span> 기록 양식 ④</a>
-  <a href="#s11c"><span class="n">부록</span> 기록 양식 ⑤</a>
-  <a href="#s12"><span class="n">10</span> 확인 문제</a>
-  <a href="#s13"><span class="n">11</span> 정리</a>
-  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
-  <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
-  <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
-  <a href="../../01/textbook/01-2.html"><span class="n">1-2</span> 수업 열기</a>
-  <a href="../../02/textbook/02-1.html"><span class="n">2-1</span> 개발 도구 설치와 확인</a>
-  <a href="../../02/textbook/02-2.html"><span class="n">2-2</span> 숫자와 변수로 계산하기</a>
-  <a href="../../02/textbook/02-3.html"><span class="n">2-3</span> 웹과 프로그래밍 언어의 역사</a>
-  <a href="../../03/textbook/03-1.html"><span class="n">3-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
-  <a href="../../03/textbook/03-2.html"><span class="n">3-2</span> 여러 값을 묶는 두 가지 방법</a>
-  <a href="../../04/textbook/04-1.html"><span class="n">4-1</span> Matplotlib으로 그래프 이해하기</a>
-  <a href="../../04/textbook/04-2.html"><span class="n">4-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
-  <a href="../../05/textbook/05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
-  <a href="../../05/textbook/05-2.html"><span class="n">5-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
-  <a href="../../06/textbook/06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
-  <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
-  <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
-  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> 개인정보와 암호화</a>
-  <a href="../../08/textbook/08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
-  <a href="../../08/textbook/08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
-  <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
-  <a href="../../09/textbook/09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
-  <a href="../../10/textbook/10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
-  <a href="../../10/textbook/10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
-  <a href="../../11/textbook/11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
-  <a href="../../11/textbook/11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
-  <a href="../../12/textbook/12-1.html" class="here"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
-  <a href="../../12/textbook/12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
-  <a href="../../13/textbook/13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
-  <a href="../../13/textbook/13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
-
-  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
-  <a href="../../09/textbook/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
-</nav>
-<div id="scrim" onclick="tbToggleToc(false)"></div>
-
+<nav id="toc"><div class="h"><span class="ko">이 차시 — 12-1</span><span class="zh">本课时 — 12-1</span></div><a href="#opener"><span class="n">·</span><span class="ko">차시 표지</span><span class="zh">课时首页</span></a><a href="#s0"><span class="n">0</span><span class="ko">들어가며</span><span class="zh">开始之前</span></a><a href="#s1"><span class="n">1</span><span class="ko">테스트란</span><span class="zh">什么是测试</span></a><a href="#s2"><span class="n">·</span><span class="ko">예상 먼저</span><span class="zh">先写预想</span></a><a href="#s3"><span class="n">2</span><span class="ko">다섯 시나리오</span><span class="zh">五个场景</span></a><a href="#s4"><span class="n">3</span><span class="ko">준비</span><span class="zh">准备</span></a><a href="#s5"><span class="n">4</span><span class="ko">1항 채우기</span><span class="zh">填写第 1 项</span></a><a href="#s6"><span class="n">5</span><span class="ko">AI에게 묻기</span><span class="zh">问 AI</span></a><a href="#s7"><span class="n">6</span><span class="ko">2항 쓰기</span><span class="zh">写第 2 项</span></a><a href="#s8"><span class="n">7</span><span class="ko">3항 쓰기</span><span class="zh">写第 3 项</span></a><a href="#s9"><span class="n">8</span><span class="ko">판정</span><span class="zh">判定</span></a><a href="#s10"><span class="n">9</span><span class="ko">화면과 SQLite Viewer</span><span class="zh">画面与 SQLite Viewer</span></a><a href="#s11"><span class="n">10</span><span class="ko">처음 방문 시험</span><span class="zh">测试首次访问</span></a><a href="#s12"><span class="n">11</span><span class="ko">오해와 사실</span><span class="zh">误解与事实</span></a><a href="#s13"><span class="n">12</span><span class="ko">확인 문제</span><span class="zh">确认题</span></a><a href="#s14"><span class="n">13</span><span class="ko">정리와 다음 차시</span><span class="zh">小结与下一课时</span></a><a href="#s15"><span class="n">+</span><span class="ko">막힐 때</span><span class="zh">卡住时</span></a><div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div><a href="../../index.html"><span class="n"><span class="ko">표지</span><span class="zh">首页</span></span><span class="ko">전체 목차</span><span class="zh">全部目录</span></a></nav><div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
+<section class="page opener" id="opener"><div class="onum"><span class="ko">12회 · 첫째 차시</span><span class="zh">第 12 次课 · 第 1 课时</span></div>
+<h1><span class="ko">사용자 흐름으로<br/>서비스 테스트하기</span><span class="zh">用用户流程<br/>测试服务</span></h1>
+<div class="osub"><span class="ko">새 기능을 만들지 않습니다. 처음 쓰는 사람처럼 써 보기 전에<br/>서비스가 <b>어떻게 반응해야 하는지</b>부터 적습니다.</span><span class="zh">不做新功能。在像第一次使用的人那样试用之前，<br/>先写下服务<b>应该怎样回应</b>。</span></div>
+<div class="abar"></div>
+<div class="ometa"><span class="ko"><b>이전 차시</b> · 11-2. SQLite 데이터 저장 연결하기<br/><b>다음 차시</b> · 12-2. 사용자 흐름 테스트와 제출 ZIP 연습<br/><b>오늘 쓰는 파일</b> · <code>10</code> 폴더의 <code>docs/12_test_record.md</code></span><span class="zh"><b>上一课时</b> · 11-2. 连接 SQLite 数据保存<br/><b>下一课时</b> · 12-2. 用户流程测试与提交 ZIP 练习<br/><b>今天写的文件</b> · <code>10</code> 文件夹里的 <code>docs/12_test_record.md</code></span></div></section>
 
-  <!-- ══════════ 차시 표지 ══════════ -->
-  <section class="page opener" id="opener">
-    <div class="onum"><span class="ko">12회 · 첫째 차시</span><span class="zh">第 12 次课 · 第 1 课时</span></div>
-    <h1><span class="ko">사용자 흐름으로<br/>서비스 테스트하기</span><span class="zh">用用户流程<br/>测试服务</span></h1>
-    <div class="abar"></div>
-    <div class="osub"><span class="ko">기능을 더 늘리지 않습니다.<br/><b>실제 사용자처럼</b> 처음부터 끝까지 써 보고 예상과 비교합니다.</span><span class="zh">不再增加功能。<br/><b>像真实用户那样</b>从头到尾用一遍，再与预期比对。</span></div>
-    <div class="ometa"><span class="ko"><b>이전 차시</b> · 11-2. SQLite 데이터 저장 연결하기<br/>
-      <b>다음 차시</b> · 12-2. 사용자 흐름 테스트와 시험 제출<br/>
-      <b>오늘 만드는 것</b> · <code>12_test_record_학생ID_이름.md</code></span><span class="zh"><b>上一课时</b> · 11-2. 接上 SQLite 数据保存<br/> <b>下一课时</b> · 12-2. 用户流程测试与试提交<br/> <b>今天要做的</b> · <code>12_test_record_학생ID_이름.md</code></span></div>
-  </section>
-
-  <!-- ══════════ 들어가며 ══════════ -->
-  <section class="page" id="s0">
-    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">설명서를 읽어야 쓸 수 있다면</span><span class="zh">要看说明书才会用的话</span></h2>
-
-    <div class="scene">
-      <div class="st"><span class="ko">이런 장면</span><span class="zh">这样的场景</span></div>
-      <p><span class="ko">친구에게 내가 만든 서비스를 보여 줍니다. 친구가 화면을 봅니다. 그리고 묻습니다. <b>“이거 뭐부터 눌러야 돼?”</b></span><span class="zh">你把自己做的服务给朋友看。朋友盯着画面，然后问：<b>“这个先点哪儿？”</b></span></p>
-      <p><span class="ko">내가 “거기 칸에 단어를 넣고 아래 버튼을 누르면 돼”라고 말해 주면 그제야 씁니다. 그런데 내가 옆에 없다면 어떨까요? 만든 사람은 <b>어디를 눌러야 하는지 이미 알고 있어서</b> 그것이 어렵다는 사실을 알아차리지 못합니다. 오늘은 <b>모르는 사람인 척</b> 내 서비스를 써 봅니다.</span><span class="zh">你说一句“在那个框里输入词，再点下面的按钮就行”，朋友这才用起来。可要是我不在旁边呢？做的人<b>本来就知道该点哪里</b>，所以察觉不到那有多难。今天要<b>装作不知情的人</b>来用一遍自己的服务。</span></p>
-    </div>
-    <!-- ═══════════════════════════════════════════════════════════════════════
+<section class="page" id="s0">
+<div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">이거 뭐부터 눌러야 돼?</span><span class="zh">这个先按哪里？</span></h2>
+<p class="lead"><span class="ko">11회까지 내 서비스는 기록을 SQLite에 저장하고, 다시 켜도 그 기록을 불러오게 되었습니다. 이제 친구에게 보여 준다고 해 봅시다. 친구는 화면을 한참 보다가 「이거 뭐부터 눌러야 돼?」라고 묻습니다. 만든 사람은 어디를 눌러야 하는지 이미 알고 있어서, 그게 어렵다는 사실을 잘 알아차리지 못합니다.</span><span class="zh">到第 11 次课为止，我的服务已经能把记录存进 SQLite，重新打开后也能把记录调出来。现在假设拿给朋友看。朋友盯着画面看了半天，问：“这个先按哪里？”做的人早就知道该按哪里，所以很难发现这件事其实不容易。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
      [이미지 생성 요청] 12-1-01-where-do-i-press
      · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
      · 규격   : 가로 16:9 · 개념 삽화 · assets/img/12-1-01-where-do-i-press.png
@@ -137,545 +66,162 @@
      · 비율 16:9 가로. 밝은 실내. 인쇄물이라 어두운 배경은 쓰지 않는다.
      · 받은 뒤 확인 — ① 화면 안에 창·버튼·글자가 하나도 없나 ② 손이 닿지 않고
        멈춰 있나 ③ 얼굴이 없나 ④ 주황이 한 군데뿐인가.
-     ═══════════════════════════════════════════════════════════════════════ -->
-    <figure class="fig">
-      <img class="figimg" src="../../assets/img/12-1-01-where-do-i-press.png" alt="책상 위 열린 노트북 앞에서 손 하나가 자판에 닿지 않은 채 허공에 멈춰 있다. 화면은 밝은 빛으로만 보인다."
-           data-id="12-1-01-where-do-i-press" data-spec="가로 16:9 · 멈춘 손 · 화면 내용 없음"
-           onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)">
-      <figcaption><span class="ko">그림 12-1-1. 만든 사람은 이미 알고 있어서, 그것이 어렵다는 것을 알아차리지 못한다.</span><span class="zh">图 12-1-1. 做的人本来就知道，所以察觉不到那有多难。</span></figcaption>
-    </figure>
-  </section>
-
-  <!-- ══════════ 들어가며 (이어서) ══════════ -->
-  <section class="page" id="s0_2">
-    <div class="kick"><span class="ko">들어가며</span><span class="zh">开篇</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">설명서를 읽어야 쓸 수 있다면</span><span class="zh">如果得先读说明书才会用</span><span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
-
-<div class="bigq">
-      <div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div>
-      <p><span class="ko">사용자가 <b>설명 없이도</b> 서비스를 시작하고, 결과를 얻고,<br/>문제가 생기면 다시 시도할 수 있을까?</span><span class="zh">用户能<b>不用别人解释</b>就开始使用、拿到结果，<br/>出了问题还能重试吗？</span></p>
-    </div>
-
-    <div class="recall">
-      <div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从上一课时带过来的</span></div>
-      <ul class="blist">
-        <li><span class="ko">10~11회에 <b>대표 사용자 흐름</b>과 <b>SQLite 데이터 기억 기능</b>을 만들었습니다.</span><span class="zh">第 10~11 次课做出了<b>代表性用户流程</b>与 <b>SQLite 数据记忆功能</b>。</span></li>
-        <li><span class="ko">9회의 <code>09_development_plan_학생ID_이름.md</code>이 <b>테스트 시나리오의 재료</b>가 됩니다.</span><span class="zh">第 9 次课的 <code>09_development_plan_학생ID_이름.md</code> 就是<b>测试场景的材料</b>。</span></li>
-        <li><span class="ko">10~11회의 <b>화면 → 요청 → API → 응답 → SQLite → 화면</b> 연결이 문제를 나누는 데 쓰입니다.</span><span class="zh">第 10~11 次课的<b>画面 → 请求 → API → 响应 → SQLite → 画面</b>连接可用来分类问题。</span></li>
-      </ul>
-    </div>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">새 기능을 추가하지 않습니다</span><span class="zh">不添加新功能</span></div>
-      <p><span class="ko">12회에는 <b>새 기능도, 자동 테스트 코드도 만들지 않습니다.</b> 9회에 설계한 사용자 흐름을 <b>테스트 시나리오로 바꾸어 직접 실행</b>하며 계획한 경험과 실제 결과를 비교합니다.</span><span class="zh">第 12 次课<b>既不加新功能，也不写自动化测试代码</b>。把第 9 次课设计的用户流程<b>改成测试场景，亲手跑一遍</b>，再把计划中的体验与实际结果作比较。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 1 ══════════ -->
-  <section class="page" id="s1">
-    <div class="kick"><span class="ko">1. 테스트란</span><span class="zh">1. 何谓测试</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">테스트는 예상과 실제를 비교하는 일이다</span><span class="zh">测试就是拿预期与实际作比较</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <div class="vflow">
-      <div class="vf plain"><span class="ko"><b>① 사용자의 시작 상황을 정한다</b></span><span class="zh"><b>① 定下用户的起始情形</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>② 사용자가 할 행동을 정한다</b></span><span class="zh"><b>② 定下用户要做的行动</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>③ 서비스가 보여야 할 반응을 먼저 적는다</b></span><span class="zh"><b>③ 先写下服务该给出的反应</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>④ 실제 사용자처럼 실행한다</b></span><span class="zh"><b>④ 像真实用户那样跑一遍</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>⑤ 예상과 실제를 비교한다</b></span><span class="zh"><b>⑤ 比对预期与实际</b></span></div>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">한 번 작동한 것과 다릅니다</span><span class="zh">和“成功过一次”不同</span></div>
-      <p><span class="ko"><b>기능 하나가 한 번 작동했다는 사실</b>보다 <b>사용자가 흐름 전체를 끝낼 수 있는지</b>가 중요합니다. 부분마다 잘 되는데 이어지지 않는 서비스는 흔합니다.</span><span class="zh">比起<b>某个功能成功跑过一次</b>，更重要的是<b>用户能不能把整条流程走完</b>。各部分都好用却接不上的服务很常见。</span></p>
-    </div>
-
-    <div class="note">
-      <div class="nt"><span class="ko">3-1에서 하던 것과 같습니다</span><span class="zh">和 3-1 做的一样</span></div>
-      <p><span class="ko">3-1에서 코드를 읽고 <b>결과를 먼저 예상한 뒤 실행해서 비교</b>했습니다. 지금은 대상이 코드에서 <b>사용자 경험</b>으로 바뀌었을 뿐, 순서는 같습니다.</span><span class="zh">3-1 里读代码时是<b>先预测结果再运行比对</b>。现在只是把对象从代码换成了<b>用户体验</b>，顺序一样。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 2 ══════════ -->
-  <section class="page" id="s2">
-    <div class="kick"><span class="ko">2. 시나리오 만들기</span><span class="zh">2. 造场景</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">9회의 사용자 흐름에서 테스트를 만든다</span><span class="zh">从第 9 次课的用户流程里造出测试</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko"><code>09_development_plan_학생ID_이름.md</code>의 <b>각 단계를 질문으로 바꾸면</b> 테스트가 됩니다. 새로 만들 것이 없습니다.</span><span class="zh">把 <code>09_development_plan_학생ID_이름.md</code> 里的<b>每一步改写成问句</b>，就成了测试。不用另造。</span></p>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:40%"><span class="ko">개발 계획의 흐름</span><span class="zh">开发计划里的流程</span></th><th><span class="ko">테스트 시나리오</span><span class="zh">测试场景</span></th></tr>
-      <tr><td><span class="ko">처음 화면에서 안내를 본다</span><span class="zh">在第一个画面看提示</span></td><td><span class="ko">처음 방문한 사용자가 <b>무엇을 해야 할지 이해하는가</b>?</span><span class="zh">第一次来的用户<b>明白该做什么吗</b>？</span></td></tr>
-      <tr><td><span class="ko">값을 입력하고 핵심 행동을 한다</span><span class="zh">输入值并做出核心行动</span></td><td><span class="ko">대표적인 값으로 <b>결과까지 도달하는가</b>?</span><span class="zh">用有代表性的值<b>能走到结果吗</b>？</span></td></tr>
-      <tr><td><span class="ko">잘못된 값을 입력한다</span><span class="zh">输入错误的值</span></td><td><span class="ko">이유와 고칠 방법을 알고 <b>다시 시도할 수 있는가</b>?</span><span class="zh">知道原因与改法，<b>能重试吗</b>？</span></td></tr>
-      <tr><td><span class="ko">저장한 기록을 다시 본다</span><span class="zh">再看已保存的记录</span></td><td><span class="ko">새로고침 · 재실행 뒤에도 <b>필요한 기록이 보이는가</b>?</span><span class="zh">刷新、重启之后<b>需要的记录还看得到吗</b>？</span></td></tr>
-    </table>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">계획을 잘 써 둔 값이 여기서 나옵니다</span><span class="zh">当初把计划写好，回报在这里</span></div>
-      <p><span class="ko">9회에 흐름을 <b>보는 것 · 행동 · 반응</b>으로 적어 두었기 때문에, 오늘은 그것을 <b>질문으로 바꾸기만</b> 하면 됩니다. 계획이 없었다면 무엇을 시험해야 할지부터 정해야 했을 것입니다.</span><span class="zh">因为第 9 次课把流程写成了<b>看到的 · 行动 · 反应</b>，今天<b>只要把它改成问句</b>就行。要是当初没有计划，就得先决定该测什么。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 3 ══════════ -->
-  <section class="page" id="s3">
-    <div class="kick"><span class="ko">3. 시나리오</span><span class="zh">3. 场景</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">기본 사용자 시나리오 네 가지</span><span class="zh">四种基本用户场景</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <h3 class="sub"><span class="ko">① 처음 방문</span><span class="zh">① 第一次访问</span></h3>
-    <ul class="blist checks">
-      <li><span class="ko">서비스의 <b>목적</b>을 알 수 있는가?</span><span class="zh">能看出服务的<b>目的</b>吗？</span></li>
-      <li><span class="ko">처음 해야 할 <b>행동</b>을 알 수 있는가?</span><span class="zh">能看出最先该做的<b>行动</b>吗？</span></li>
-      <li><span class="ko">작동하지 않는 <b>예시 버튼이나 빈 화면</b>이 보이지 않는가?</span><span class="zh">有没有出现不能用的<b>示例按钮或空白画面</b>？</span></li>
-    </ul>
-
-    <h3 class="sub"><span class="ko">② 대표 정상 흐름</span><span class="zh">② 代表性正常流程</span></h3>
-    <ul class="blist checks">
-      <li><span class="ko">9회에 정한 <b>순서대로 행동</b>할 수 있는가?</span><span class="zh">能按第 9 次课定的<b>顺序行动</b>吗？</span></li>
-      <li><span class="ko">행동 뒤 <b>서비스 반응을 알아볼 수 있는가</b>?</span><span class="zh">行动之后<b>看得出服务的反应</b>吗？</span></li>
-      <li><span class="ko">사용자가 <b>핵심 결과에 도달</b>하는가?</span><span class="zh">用户<b>能到达核心结果</b>吗？</span></li>
-    </ul>
-
-    <h3 class="sub"><span class="ko">③ 예외 뒤 다시 시도</span><span class="zh">③ 遇到例外后重试</span></h3>
-    <ul class="blist checks">
-      <li><span class="ko">잘못된 입력이나 상황을 <b>알아볼 수 있는가</b>?</span><span class="zh"><b>看得出</b>输入或情况有误吗？</span></li>
-      <li><span class="ko">무엇을 <b>고쳐야 하는지 안내</b>하는가?</span><span class="zh">会<b>提示该改什么</b>吗？</span></li>
-      <li><span class="ko">안내를 따른 뒤 <b>정상 흐름으로 돌아갈 수 있는가</b>?</span><span class="zh">照提示做完，<b>能回到正常流程吗</b>？</span></li>
-    </ul>
-
-    <h3 class="sub"><span class="ko">④ 다시 방문하거나 반복 사용</span><span class="zh">④ 再次访问或反复使用</span></h3>
-    <ul class="blist checks">
-      <li><span class="ko">같은 행동을 <b>다시 할 수 있는가</b>?</span><span class="zh">同样的行动<b>能再做一次吗</b>？</span></li>
-      <li><span class="ko">핵심 기능의 기록이 <b>새로고침 뒤에도 남는가</b>?</span><span class="zh">核心功能的记录<b>刷新后还在吗</b>？</span></li>
-      <li><span class="ko">프로젝트를 다시 실행한 뒤 <b>저장된 기록을 다시 볼 수 있는가</b>?</span><span class="zh">项目重启之后<b>还能再看到已保存的记录吗</b>？</span></li>
-      <li><span class="ko">화면의 기록과 <b>SQLite Viewer의 값이 같은가</b>?</span><span class="zh">画面上的记录与 <b>SQLite Viewer 里的值一致吗</b>？</span></li>
-    </ul>
-  </section>
-
-<section class="page" id="s3w">
-<div class="kick"><span class="ko">지금 적는다</span><span class="zh">现在写下来</span><b>12-1</b></div><h2 class="title"><span class="ko">내 서비스의 시나리오 네 줄</span><span class="zh">我的服务的四条场景</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">앞의 네 가지를 <b>내 서비스의 문장으로</b> 바꿔 적습니다. 9회 개발 계획을 옆에 펴 놓고 질문으로 바꾸기만 하면 됩니다.</span><span class="zh">把前面的四种<b>换成自己服务的句子</b>。把 9 次的开发计划摊在旁边，改成问句就行。</span></p><div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">시나리오</span><span class="zh">场景</span></th><th><span class="ko">내 서비스에서는 이렇게 묻는다</span><span class="zh">在我的服务里这样问</span></th></tr></thead><tbody><tr><td><span class="ko">① 처음 방문</span><span class="zh">① 首次访问</span></td><td class="wsblank"></td></tr><tr><td><span class="ko">② 대표 정상 흐름</span><span class="zh">② 主要正常流程</span></td><td class="wsblank"></td></tr><tr><td><span class="ko">③ 예외 뒤 다시 시도</span><span class="zh">③ 出错后再试</span></td><td class="wsblank"></td></tr><tr><td><span class="ko">④ 다시 방문</span><span class="zh">④ 再次访问</span></td><td class="wsblank"></td></tr></tbody></table></div><div class="note"><p><span class="ko">새로 만들 것이 없습니다. <b>9회에 적은 흐름을 질문으로 바꾸는 것</b>뿐입니다.</span><span class="zh">没有要新做的。只是<b>把 9 次写的流程改成问句</b>。</span></p></div>
-</section>  <!-- ══════════ 4 ══════════ -->
-  <section class="page" id="s4">
-    <div class="kick"><span class="ko">4. 경계값</span><span class="zh">4. 边界值</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">입력의 경계는 필요한 서비스만 확인한다</span><span class="zh">输入的边界只在需要的服务上确认</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
-
-    <p class="lead"><span class="ko">숫자 범위, 글자 길이와 파일 크기처럼 <b>분명한 제한이 있는 프로젝트만</b> 가장 작거나 큰 값과 허용하지 않는 값을 추가로 시험합니다.</span><span class="zh">只有像数值范围、文字长度、文件大小这样<b>有明确限制的项目</b>，才额外测最小值、最大值与不允许的值。</span></p>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">모두에게 요구하지 않습니다</span><span class="zh">不对所有人要求</span></div>
-      <p><span class="ko">모든 학생에게 <b>같은 경계값 테스트를 억지로 요구하지 않습니다.</b> 내 서비스에 그런 제한이 없다면 이 절은 건너뜁니다.</span><span class="zh"><b>不强求所有学生做同样的边界值测试。</b>自己的服务没有这类限制，就跳过这一节。</span></p>
-    </div>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">순서가 있습니다</span><span class="zh">有先后</span></div>
-      <p><span class="ko"><b>경계값보다 대표 흐름과 예외 뒤 회복 흐름을 먼저 통과</b>시킵니다. 대표 흐름이 막혀 있는데 경계값을 시험하는 것은 순서가 뒤바뀐 것입니다.</span><span class="zh"><b>先让代表流程与例外后的恢复流程通过，再谈边界值。</b>代表流程还卡着就去测边界值，是本末倒置。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 5 ══════════ -->
-  <section class="page" id="s5">
-    <div class="kick"><span class="ko">5. 예상 먼저</span><span class="zh">5. 先写预期</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">예상한 반응을 먼저 적는다</span><span class="zh">先把预期的反应写下来</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p><span class="ko">시나리오마다 다음 네 가지를 적습니다. 앞의 두 가지는 <b>실행 전에</b> 씁니다.</span><span class="zh">每个场景都写下面四项。前两项要在<b>运行之前</b>写。</span></p>
-
-    <ul class="blist">
-      <li><span class="ko"><b>사용자 행동</b></span><span class="zh"><b>用户行动</b></span></li>
-      <li><span class="ko"><b>예상한 서비스 반응</b></span><span class="zh"><b>预期的服务反应</b></span></li>
-      <li><span class="ko"><b>실제 결과</b></span><span class="zh"><b>实际结果</b></span></li>
-      <li><span class="ko"><b>판정</b> — 통과 / 실패 / 확인 필요</span><span class="zh"><b>判定</b> —— 通过 / 失败 / 待确认</span></li>
-    </ul>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">실행한 뒤 예상을 고치지 않습니다</span><span class="zh">跑完之后不要改预期</span></div>
-      <p><span class="ko">실행해 본 뒤 예상 결과를 바꾸면 <b>계획과 실제를 비교할 수 없습니다.</b> 화면에 나온 것을 예상 칸에 적어 넣으면 모든 항목이 “통과”가 되지만, 아무것도 확인하지 못한 것입니다.</span><span class="zh">跑完再改预期，就<b>没法比较计划与实际了</b>。把画面上出现的东西填进预期栏，所有项目都会变成“通过”，可你什么也没确认到。</span></p>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">실패도 결과입니다</span><span class="zh">失败也是结果</span></div>
-      <p><span class="ko"><b>실패도 숨기지 않고 13회 수정 근거로 사용</b>합니다. 실패가 하나도 없는 테스트 기록은 대개 <b>제대로 시험하지 않은</b> 기록입니다.</span><span class="zh"><b>失败也不遮掩，把它当作第 13 次课修改的依据。</b>一条失败都没有的测试记录，多半是<b>没有认真测</b>的记录。</span></p>
-    </div>
-  </section>
-
-<section class="page" id="s5w">
-<div class="kick"><span class="ko">워크시트 ①</span><span class="zh">工作表 ①</span><b>12-1</b></div><h2 class="title"><span class="ko">실행하기 전에 예상을 적는다</span><span class="zh">运行之前先写下预期</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ①</span><span class="wst"><span class="ko">예상 먼저 적기</span><span class="zh">先写预期</span></span></div><p class="wslead"><span class="ko"><b>실행하기 전에</b> 왼쪽 두 칸을 채웁니다. 오른쪽 두 칸은 다음 시간에 실제로 해 보고 채웁니다. 실행한 뒤에 예상 칸을 고치면 아무것도 확인하지 못한 것이 됩니다.</span><span class="zh"><b>运行之前</b>先填左边两格。右边两格下节课实际操作后再填。运行之后再改预期栏，就等于什么都没验证。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">사용자 행동</span><span class="zh">用户动作</span></th><th><span class="ko">예상한 반응</span><span class="zh">预期的反应</span></th><th><span class="ko">실제 결과</span><span class="zh">实际结果</span></th><th><span class="ko">판정</span><span class="zh">判定</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">② 대표 정상 흐름</span><span class="zh">② 主要正常流程</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">③ 예외 뒤 다시 시도</span><span class="zh">③ 出错后再试</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">④ 다시 방문</span><span class="zh">④ 再次访问</span></td><td class="wsblank"></td><td class="wsblank"></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">실행하기 전에 예상 칸을 다 채웠다.</span><span class="zh">运行之前把预期栏都填满了。</span></li><li><span class="ko">예상 칸에 <b>화면에 보일 것</b>을 적었다. 「잘 된다」는 예상이 아니다.</span><span class="zh">预期栏写的是<b>画面上会出现什么</b>。「能用」不算预期。</span></li></ul></div></div>
-</section>  <!-- ══════════ 6 ══════════ -->
-  <section class="page" id="s6">
-    <div class="kick"><span class="ko">6. 문제 찾기</span><span class="zh">6. 找问题</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">처음 달라진 단계를 찾는다</span><span class="zh">找出第一处不一样的步骤</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">위에서부터 한 단계씩</span></span><span class="zh"><span class="fn">从上往下一步一步</span></span></div>
-      <pre><code>처음 화면은 예상대로 보이는가?
-→ 사용자가 행동할 수 있는가?
-→ 행동 직후 반응이 나타나는가?
-→ 원하는 결과가 보이는가?
-→ 예외 뒤 다시 시도할 수 있는가?
-→ 저장된 기록이 다시 방문했을 때 남는가?</code></pre>
-    </div>
-
-    <ul class="blist">
-      <li><span class="ko">마지막으로 예상대로 보인 단계</span><span class="zh">最后一次符合预期的步骤</span></li>
-      <li><span class="ko">처음 예상과 달라진 단계</span><span class="zh">第一处与预期不同的步骤</span></li>
-      <li><span class="ko">그때 사용자가 한 행동</span><span class="zh">当时用户做的行动</span></li>
-      <li><span class="ko">화면에 실제로 보인 내용</span><span class="zh">画面上实际显示的内容</span></li>
-    </ul>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">이 네 가지면 충분합니다</span><span class="zh">这四样就够</span></div>
-      <p><span class="ko">이 네 가지를 찾으면 학생이 <b>세부 코드를 해석하지 않아도</b> AI에게 문제를 구체적으로 전달할 수 있습니다.</span><span class="zh">找齐这四样，学生<b>不用去解读细节代码</b>，也能把问题具体地讲给 AI 听。</span></p>
-    </div>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:52%"><span class="ko">필요한 경우 이렇게 나눕니다</span><span class="zh">需要时这样分类</span></th><th><span class="ko">관련될 가능성이 있는 곳</span><span class="zh">可能相关的部分</span></th></tr>
-      <tr><td><span class="ko">필요한 입력란·버튼·결과가 <b>보이지 않음</b></span><span class="zh">输入框、按钮或结果<b>看不见</b></span></td><td><span class="ko">화면 표시</span><span class="zh">画面显示</span></td></tr>
-      <tr><td><span class="ko">행동 뒤 <b>반응이 다름</b></span><span class="zh">行动之后<b>反应不对</b></span></td><td><span class="ko">요청 데이터 → API 처리 → 응답 → 화면 반영</span><span class="zh">请求数据 → API 处理 → 响应 → 画面更新</span></td></tr>
-      <tr><td><span class="ko"><b>이전 기록이 사라짐</b></span><span class="zh"><b>之前的记录不见了</b></span></td><td><span class="ko">SQLite 저장·조회</span><span class="zh">SQLite 保存·查询</span></td></tr>
-    </table>
-    </div>
-  </section>
-
-<section class="page" id="s6w">
-<div class="kick"><span class="ko">워크시트 ②</span><span class="zh">工作表 ②</span><b>12-1</b></div><h2 class="title"><span class="ko">처음 달라진 단계 찾기</span><span class="zh">找出第一个不一样的步骤</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="ws"><div class="wshd"><span class="wsno-b">WORKSHOP ②</span><span class="wst"><span class="ko">문제를 네 줄로 옮기기</span><span class="zh">把问题写成四行</span></span></div><p class="wslead"><span class="ko">예상과 다른 것이 하나라도 있으면 <b>네 줄</b>로 옮겨 적습니다. 이 넷이면 코드를 읽지 않아도 AI에게 문제를 정확히 전할 수 있습니다.</span><span class="zh">只要有一处和预期不同，就写成<b>四行</b>。有这四行，不用读代码也能把问题准确告诉 AI。</span></p><div class="tablewrap"><table class="kv wstab"><thead><tr><th>#</th><th><span class="ko">적을 것</span><span class="zh">要写的</span></th><th><span class="ko">내가 본 것</span><span class="zh">我看到的</span></th></tr></thead><tbody><tr><td class="wsno">1</td><td><span class="ko">마지막으로 예상대로 보인 단계</span><span class="zh">最后一个符合预期的步骤</span></td><td class="wsblank"></td></tr><tr><td class="wsno">2</td><td><span class="ko">처음 예상과 달라진 단계</span><span class="zh">第一个与预期不同的步骤</span></td><td class="wsblank"></td></tr><tr><td class="wsno">3</td><td><span class="ko">그때 사용자가 한 행동</span><span class="zh">那时用户做的动作</span></td><td class="wsblank"></td></tr><tr><td class="wsno">4</td><td><span class="ko">화면에 실제로 보인 내용</span><span class="zh">画面上实际显示的内容</span></td><td class="wsblank"></td></tr></tbody></table></div><div class="wsck"><div class="wsck-h"><span class="ko">확인</span><span class="zh">确认</span></div><ul><li><span class="ko">두 번째 줄이 <b>처음</b> 달라진 곳이다. 그 뒤로 이상한 것은 적지 않는다.</span><span class="zh">第二行是<b>第一个</b>不同的地方。之后的异常不用写。</span></li><li><span class="ko">네 번째 줄에 화면에 보인 글자를 그대로 옮겨 적었다.</span><span class="zh">第四行照抄了画面上出现的文字。</span></li></ul></div></div>
-</section>  <!-- ══════════ 7 ══════════ -->
-  <section class="page" id="s7">
-    <div class="kick"><span class="ko">7. 재확인</span><span class="zh">7. 再确认</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">수정한 뒤 같은 행동으로 다시 확인한다</span><span class="zh">改完之后用同样的动作再确认</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <p class="lead"><span class="ko">문제를 고친 뒤에는 <b>같은 시작 상태와 같은 행동</b>으로 다시 시험합니다. 다른 값으로 바꾸면 <b>수정 전후를 비교하기 어렵습니다.</b></span><span class="zh">改完问题之后，用<b>同样的起始状态、同样的行动</b>再测一次。换了别的值，就<b>难以比较改前改后</b>。</span></p>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">정상 흐름이 깨지지 않았는지도 봅니다</span><span class="zh">还要看正常流程有没有被弄坏</span></div>
-      <p><span class="ko">수정 때문에 <b>대표 정상 흐름이 깨지지 않았는지</b> 처음부터 다시 한 번 확인합니다. 예외를 고치다가 정상 흐름을 막는 일이 흔합니다.</span><span class="zh">还要从头再确认一遍，<b>修改有没有把代表性正常流程弄坏</b>。改例外时把正常流程堵住，是常有的事。</span></p>
-    </div>
-
-    <div class="note">
-      <div class="nt"><span class="ko">한 번에 하나만 고칩니다</span><span class="zh">一次只改一个</span></div>
-      <p><span class="ko">여러 문제를 한꺼번에 고치면 <b>무엇 때문에 달라졌는지</b> 알 수 없습니다. 10-2와 11-2에서 “가장 작은 수정 하나”를 요청했던 이유가 이것입니다.</span><span class="zh">一次改好几个问题，就<b>说不清是什么带来了变化</b>。10-2 与 11-2 之所以要求“只提一个最小的修改”，就是这个原因。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 8 ══════════ -->
-  <section class="page" id="s8">
-    <div class="kick"><span class="ko">8. AI 활용</span><span class="zh">8. 用 AI</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">AI는 사용자 시나리오를 제안할 수 있다</span><span class="zh">AI 可以提议用户场景</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">AI 요청문</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>PRD와 09_development_plan_학생ID_이름.md를 읽고
-사용자 관점의 테스트 시나리오를 제안해 줘.
-
-- 처음 방문 1개
-- 대표 정상 흐름 1개
-- 예외 뒤 다시 시도하는 흐름 1개
-- 저장된 기록을 확인하는 다시 방문 흐름 1개
-
-각 시나리오에는 시작 상태, 사용자 행동과 예상한 서비스 반응을 적어 줘.
-자동 테스트 코드, 공격 방법과 전문 보안 테스트는 만들지 마.</code></pre>
-    </div>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">모두 사용할 필요는 없습니다</span><span class="zh">不必全部采用</span></div>
-      <p><span class="ko">AI의 제안을 <b>모두 사용할 필요는 없습니다.</b> 학생은 자신의 <b>서비스 목적과 사용자 흐름에 맞는지</b> 판단합니다. 내 서비스에 없는 기능을 시험하라는 제안은 빼면 됩니다.</span><span class="zh">AI 的提议<b>不必全用</b>。学生要判断它<b>是否符合自己服务的目的与用户流程</b>。要你去测自己服务里没有的功能，删掉就是。</span></p>
-    </div>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">공격 방법을 만들게 하지 않습니다</span><span class="zh">不要让它造攻击手法</span></div>
-      <p><span class="ko">요청문 마지막 줄에 있는 대로 <b>공격 방법과 전문 보안 테스트는 만들지 않습니다.</b> 이 수업의 테스트는 <b>사용자가 서비스를 쓸 수 있는지</b> 확인하는 것입니다.</span><span class="zh">照请求文最后一行所写，<b>不造攻击手法与专业安全测试</b>。这门课的测试，是确认<b>用户能不能用这个服务</b>。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 9 ══════════ -->
-  <section class="page" id="s9">
-    <div class="kick"><span class="ko">9. 기록 준비</span><span class="zh">9. 准备记录</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">테스트 기록을 준비한다</span><span class="zh">准备测试记录</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <p class="lead"><span class="ko">교사가 제공한 <b>테스트 기록 양식</b>을 복사하여 프로젝트 <code>docs/</code> 폴더에 저장합니다. 양식 전문은 이 차시 <b>부록</b>에 있습니다.</span><span class="zh">复制老师提供的<b>测试记录样式</b>，保存到项目的 <code>docs/</code> 文件夹。样式全文在本课时的<b>附录</b>里。</span></p>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">파일 이름 형식</span></span><span class="zh"><span class="fn">文件名格式</span></span></div>
-      <pre><code>12_test_record_학생ID_이름.md
-
-12_test_record_260701_홍길동.md</code></pre>
-    </div>
-
-    <div class="steps">
-      <div class="st-h"><span class="ko">쓰는 순서</span><span class="zh">写的顺序</span></div>
-      <ol>
-        <li><span class="ko"><b>예상한 서비스 반응</b>은 <b>실행 전</b>에 작성한다.</span><span class="zh"><b>预期的服务反应</b>要在<b>运行之前</b>写。</span></li>
-        <li><span class="ko"><b>실제 결과와 판정</b>은 <b>실행 뒤</b> 기록한다.</span><span class="zh"><b>实际结果与判定</b>在<b>运行之后</b>记。</span></li>
-        <li><span class="ko">발견한 문제는 <b>사용자에게 미치는 영향</b>으로 분류한다.</span><span class="zh">发现的问题按<b>对用户的影响</b>分类。</span></li>
-      </ol>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">세 번째 항목이 13회의 순서를 정합니다</span><span class="zh">第三项决定第 13 次课的顺序</span></div>
-      <p><span class="ko">양식 7절에서 문제를 <b>핵심 결과에 도달 못 함 → 이해·재시도 어려움 → 표현 개선 → 남겨 둘 한계</b> 네 단계로 나눕니다. 13회에는 <b>위에서부터</b> 고칩니다.</span><span class="zh">样式第 7 节把问题分成四级：<b>到不了核心结果 → 难以理解或重试 → 表达可改进 → 留作局限</b>。第 13 次课<b>从上往下</b>改。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 부록 ① ══════════ -->
-  <section class="page" id="s10">
-    <div class="kick"><span class="ko">부록 · 양식 전문 ①</span><span class="zh">附录 · 样式全文 ①</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">테스트 기록 양식 — 머리말과 1~2항</span><span class="zh">测试记录样式 — 抬头与第 1~2 项</span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">12_test_record_학생ID_이름.md — (1/5)</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">12_test_record_학생ID_이름.md — (1/5)</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code># 사용자 흐름 테스트 기록
-
-- 학생 ID:
-- 이름:
-- 서비스 이름:
-- 테스트한 날짜:
-- 테스트한 프로젝트 버전:
-- PRD 파일:
-- 개발 계획 파일:
-
-## 1. 테스트할 사용자 흐름
-
-- 흐름의 시작:
-- 사용자의 핵심 행동:
-- 사용자가 확인할 핵심 결과:
-- 핵심 예외 상황:
-- 저장할 핵심 기록:
-- 기록이 생기는 행동:
-- 저장된 기록을 다시 보는 순간:
-
-## 2. 사용자 시나리오별 결과
-
-| 시나리오 | 시작 상태 | 사용자가 한 행동 | 예상한 서비스 반응 | 실제 결과 | 판정 |
-|---|---|---|---|---|---|
-| 처음 방문 |  |  |  |  | 통과 / 실패 / 확인 필요 |
-| 대표 정상 흐름 |  |  |  |  | 통과 / 실패 / 확인 필요 |
-| 예외 뒤 다시 시도 |  |  |  |  | 통과 / 실패 / 확인 필요 |
-| 같은 행동 반복 |  |  |  |  | 통과 / 실패 / 확인 필요 |
-| 새로고침·다시 방문 |  |  |  |  | 통과 / 실패 / 확인 필요 |</code></pre>
-    </div>
-  </section>
-
-  <!-- ══════════ 부록 ② ══════════ -->
-  <section class="page" id="s10b">
-    <div class="kick"><span class="ko">부록 · 양식 전문 ②</span><span class="zh">附录 · 样式全文 ②</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">테스트 기록 양식 — 3~4항</span><span class="zh">测试记录样式 — 第 3~4 项</span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">12_test_record_학생ID_이름.md — (2/5)</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">12_test_record_학생ID_이름.md — (2/5)</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>## 3. 대표 정상 흐름 단계별 확인
-
-| 단계 | 사용자가 보는 것 | 사용자의 행동 | 예상한 서비스 반응 | 실제 결과 | 판정 |
-|---:|---|---|---|---|---|
-| 1 |  |  |  |  |  |
-| 2 |  |  |  |  |  |
-| 3 |  |  |  |  |  |
-| 4 |  |  |  |  |  |
-
-## 4. 선택 테스트
-
-서비스에 해당하는 경우만 작성한다.
-
-### 입력 범위
-
-| 상황 | 사용한 값 | 예상 결과 | 실제 결과 | 판정 |
-|---|---|---|---|---|
-| 가장 짧거나 작은 값 |  |  |  |  |
-| 가장 길거나 큰 값 |  |  |  |  |
-| 허용하지 않는 값 |  |  |  |  |
-
-### 파일 업로드
-
-| 상황 | 사용한 파일 | 예상 결과 | 실제 결과 | 판정 |
-|---|---|---|---|---|
-| 교사가 허용한 파일 |  |  |  |  |
-| 허용하지 않은 형식 |  |  |  |  |
-| 크기 제한 초과 |  |  |  |  |</code></pre>
-    </div>
-
-    <div class="note">
-      <div class="nt"><span class="ko">해당 없으면 “해당 없음”</span><span class="zh">不适用就写“不适用”</span></div>
-      <p><span class="ko">4절은 <b>입력 범위 제한이나 파일 업로드가 있는 서비스만</b> 작성합니다.</span><span class="zh">第 4 节只有<b>带输入范围限制或文件上传的服务</b>才写。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 부록 ③ ══════════ -->
-  <section class="page" id="s11">
-    <div class="kick"><span class="ko">부록 · 양식 전문 ③</span><span class="zh">附录 · 样式全文 ③</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">테스트 기록 양식 — 5~7항</span><span class="zh">测试记录样式 — 第 5~7 项</span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">12_test_record_학생ID_이름.md — (3/5)</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">12_test_record_학생ID_이름.md — (3/5)</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>## 5. 처음 달라진 단계
-
-- 마지막으로 예상대로 작동한 단계:
-- 처음 예상과 달라진 단계:
-- 사용자가 한 행동:
-- 화면에 실제로 보인 내용:
-- 화면 표시·요청 데이터·API 처리·응답·SQLite 저장·조회 중 관련될 가능성이 있는 단계:
-
-## 6. 계획과 실제 결과 비교
-
-- PRD와 일치하는 부분:
-- 9회 사용자 흐름과 일치하는 부분:
-- 줄이거나 바꾼 부분:
-- 바꾼 이유:
-- 핵심 목적이 유지되는가? 예 / 아니요
-
-## 7. 발견한 문제와 우선순위
-
-### 사용자가 핵심 결과에 도달하지 못하게 하는 문제
-1.
-2.
-
-### 사용자가 이해하거나 다시 시도하기 어렵게 하는 문제
-1.
-2.
-
-### 시간이 있으면 개선할 표현·화면
-1.
-2.
-
-### 이번 수업에서는 남겨 둘 한계
-1.</code></pre>
-    </div>
-  </section>
-
-  <!-- ══════════ 부록 ④ ══════════ -->
-  <section class="page" id="s11b">
-    <div class="kick"><span class="ko">부록 · 양식 전문 ④</span><span class="zh">附录 · 样式全文 ④</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">테스트 기록 양식 — 8~9항과 완료 확인</span><span class="zh">测试记录样式 — 第 8~9 项与完成确认</span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">12_test_record_학생ID_이름.md — (4/5)</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">12_test_record_학생ID_이름.md — (4/5)</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>## 8. 시험 제출 확인
-
-### 플랫폼을 사용할 수 있는 경우
-- 업로드한 파일명:
-- 파일 검증 결과:
-- 실행 결과:
-- 미리보기에서 확인한 사용자 흐름:
-- 로컬과 플랫폼에서 다른 점:
-
-### 플랫폼을 사용할 수 없는 경우
-- ZIP 제출 위치:
-- 로컬 실행 확인 방법:
-- 교사에게 전달할 내용:
-
-## 9. AI 사용과 학생 판단
-
-- AI에게 전달한 사용자 행동과 실제 결과:
-- AI가 제안한 원인이나 수정:
-- 학생이 직접 다시 확인한 결과:
-- 반영한 내용과 이유:
-- 반영하지 않은 내용과 이유:
-
-</code></pre>
-    </div>
-
-    <div class="note">
-      <div class="nt"><span class="ko">8절은 다음 차시에 채웁니다</span><span class="zh">第 8 节在下一课时填</span></div>
-      <p><span class="ko"><b>8. 시험 제출 확인</b>은 12-2에서 ZIP을 만들고 플랫폼에 올린 뒤 작성합니다. 오늘은 비워 두세요.</span><span class="zh"><b>8. 试提交确认</b>要在 12-2 做好 ZIP 并上传平台之后写。今天先留空。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 부록 ⑤ ══════════ -->
-  <section class="page" id="s11c">
-    <div class="kick"><span class="ko">부록 · 양식 전문 ⑤</span><span class="zh">附录 · 样式全文 ⑤</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">테스트 기록 양식 — 완료 확인</span><span class="zh">测试记录样式 — 完成确认</span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">12_test_record_학생ID_이름.md — (5/5)</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">12_test_record_학생ID_이름.md — (5/5)</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>## 테스트 완료 확인
-
-- [ ] 9회의 대표 정상 흐름을 처음부터 끝까지 시험했다.
-- [ ] 핵심 예외 상황 뒤 다시 시도할 수 있는지 시험했다.
-- [ ] 예상한 서비스 반응을 실행 전에 작성했다.
-- [ ] 새로고침·다시 방문 뒤 저장된 기록을 시험했다.
-- [ ] 화면의 기록과 SQLite Viewer의 값을 비교했다.
-- [ ] 예상과 처음 달라진 단계를 찾았다.
-- [ ] 수정한 뒤 같은 사용자 행동을 다시 시험했다.
-- [ ] 계획과 실제 결과의 차이를 기록했다.
-- [ ] 13회에 고칠 문제를 사용자 영향에 따라 정리했다.</code></pre>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">양식은 여기까지입니다</span><span class="zh">样式到此为止</span></div>
-      <p><span class="ko">이 다섯 쪽을 이어 붙이면 <code>12_test_record_학생ID_이름.md</code> 한 파일이 됩니다. 프로젝트의 <code>docs/</code> 폴더에 저장하세요.</span><span class="zh">把这五页接起来，就是 <code>12_test_record_학생ID_이름.md</code> 一个文件。请存到项目的 <code>docs/</code> 文件夹里。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 10 ══════════ -->
-  <section class="page" id="s12">
-    <div class="kick"><span class="ko">10. 확인</span><span class="zh">10. 确认</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">확인 문제</span><span class="zh">检查题</span></h2>
-
-    <div class="quiz">
-      <div class="q">
-        <div class="qq"><span class="ko">입력값 목록보다 사용자 흐름을 먼저 테스트하는 이유는 무엇인가?</span><span class="zh">为什么先测用户流程，而不是先测输入值清单？</span></div>
-        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
-          <p><span class="ko">서비스의 목적은 <b>사용자가 결과에 도달하는 것</b>이기 때문입니다. 입력값 하나하나가 잘 처리돼도 <b>흐름이 이어지지 않으면</b> 사용자는 목적을 이루지 못합니다.</span><span class="zh">因为服务的目的是<b>让用户到达结果</b>。每一个输入值都处理得好，但<b>流程接不上</b>，用户还是达不成目的。</span></p>
-          <p><span class="ko">또 시간이 한정되어 있습니다. 대표 흐름이 막혀 있는데 경계값을 시험하는 것은 순서가 뒤바뀐 것입니다.</span><span class="zh">再说时间有限。代表流程还卡着就去测边界值，是本末倒置。</span></p>
-        </div></details>
-      </div>
-      <div class="q">
-        <div class="qq"><span class="ko">예외 안내만 확인하지 않고 다시 시도하는 과정까지 봐야 하는 이유는 무엇인가?</span><span class="zh">为什么不能只看例外提示，还要看重试的过程？</span></div>
-        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
-          <p><span class="ko">안내가 나타나도 <b>사용자가 정상 흐름으로 돌아가지 못하면</b> 서비스는 거기서 끝나기 때문입니다. 안내는 <b>목적지가 아니라 돌아가는 길의 표지판</b>입니다.</span><span class="zh">因为即使提示出现了，<b>用户回不到正常流程</b>，服务就在那里断了。提示<b>不是终点，而是回去那条路上的指路牌</b>。</span></p>
-          <p><span class="ko">예를 들어 “값을 입력해 주세요”가 뜨는데 입력칸이 사라져 있다면, 안내는 있어도 다시 시도할 수 없습니다.</span><span class="zh">比如弹出“请输入内容”，输入框却不见了，那就是有提示也无法重试。</span></p>
-        </div></details>
-      </div>
-      <div class="q">
-        <div class="qq"><span class="ko">처음 예상과 달라진 단계를 찾으면 AI에게 어떤 도움을 줄 수 있는가?</span><span class="zh">找出第一处与预期不同的步骤，对 AI 有什么帮助？</span></div>
-        <details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a">
-          <p><span class="ko"><b>찾아야 할 범위를 좁혀 줍니다.</b> “안 돼요”라고만 하면 AI는 전체를 뒤져야 하고, 엉뚱한 곳을 고치거나 프로젝트를 다시 만들자고 할 수도 있습니다.</span><span class="zh"><b>它把要找的范围收窄了。</b>只说“不行”，AI 就得翻遍全部，可能改错地方，甚至提议把项目重做。</span></p>
-          <p><span class="ko">“3단계까지는 예상대로였고 4단계에서 이것 대신 저것이 보였다”라고 하면, <b>3단계와 4단계 사이</b>만 보면 됩니다. 학생은 코드를 해석하지 않고도 이 정보를 줄 수 있습니다.</span><span class="zh">说“到第 3 步都符合预期，第 4 步出现的是这个而不是那个”，就只需看<b>第 3 步与第 4 步之间</b>。学生不用解读代码也能提供这个信息。</span></p>
-        </div></details>
-      </div>
-    </div>
-
-    <div class="mysay">
-      <div class="mt"><span class="ko">자기 말로 설명하기</span><span class="zh">用自己的话说</span></div>
-      <p><span class="ko">내 서비스를 <b>처음 보는 사람</b>이 설명 없이 쓸 수 있을까요? 막힐 것 같은 지점을 한 곳 적어 보세요.</span><span class="zh"><b>第一次看到</b>我服务的人，不用别人解释就能用吗？写下一个你觉得他会卡住的地方。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 11 ══════════ -->
-  <section class="page" id="s13">
-    <div class="kick"><span class="ko">11. 정리</span><span class="zh">11. 小结</span><b>12-1</b></div>
-    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
-
-    <div class="recap">
-      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
-      <ul>
-        <li><span class="ko">테스트는 <b>실제 사용자처럼</b> 서비스를 처음부터 끝까지 이용해 보는 활동이다.</span><span class="zh">测试是<b>像真实用户那样</b>把服务从头用到尾的活动。</span></li>
-        <li><span class="ko">9회의 사용자 흐름을 <b>질문으로 바꾸면</b> 그대로 테스트가 된다.</span><span class="zh">把第 9 次课的用户流程<b>改成问句</b>，就成了测试。</span></li>
-        <li><span class="ko"><b>대표 정상 흐름</b>과 <b>예외 뒤 회복 흐름</b>을 우선한다.</span><span class="zh">优先<b>代表性正常流程</b>与<b>例外后的恢复流程</b>。</span></li>
-        <li><span class="ko">모든 프로젝트에서 <b>저장된 기록을 다시 보는 흐름</b>을 확인한다.</span><span class="zh">每个项目都要确认<b>再次查看已保存记录的流程</b>。</span></li>
-        <li><span class="ko">입력 경계 테스트는 <b>서비스에 필요한 경우에만</b> 추가한다.</span><span class="zh">输入边界测试<b>只在服务需要时</b>才加。</span></li>
-        <li><span class="ko"><b>예상을 먼저 적는다.</b> 실행한 뒤 예상을 고치면 비교할 것이 없어진다.</span><span class="zh"><b>先写预期。</b>跑完再改预期，就没什么可比的了。</span></li>
-        <li><span class="ko"><b>마지막 정상 단계</b>와 <b>처음 달라진 단계</b>를 찾으면 코드 없이도 문제를 설명할 수 있다.</span><span class="zh">找出<b>最后一次正常的步骤</b>与<b>第一处不同的步骤</b>，不用代码也能说明问题。</span></li>
-        <li><span class="ko">12회의 테스트 결과는 <b>13회의 수정 우선순위</b>를 정하는 근거다.</span><span class="zh">第 12 次课的测试结果，是定<b>第 13 次课修改优先级</b>的依据。</span></li>
-      </ul>
-    </div>
-
-    <div class="grow"></div>
-
-    <div class="bridge">
-      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
-      <p><span class="ko">다음 차시에는 오늘 만든 시나리오를 <b>실제로 실행</b>하고 결과를 기록합니다. 그다음 문제에 <b>우선순위를 매기고</b>, 프로젝트를 <b>ZIP으로 만들어 시험 제출</b>합니다.</span><span class="zh">下一课时把今天做的场景<b>真正跑一遍</b>并记录结果。然后给问题<b>排优先级</b>，把项目<b>打成 ZIP 试提交</b>。</span></p>
-      <a class="next" href="../../12/textbook/12-2.html">12-2. 사용자 흐름 테스트와 시험 제출 →</a>
-    </div>
-
-    <div class="lessonnav">
-      <a href="../../11/textbook/11-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">11-2. SQLite 데이터 저장 연결하기</span></a>
-      <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
-      <a href="../../12/textbook/12-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">12-2. 사용자 흐름 테스트와 시험 제출</span></a>
-    </div>
-  </section>
+     ═══════════════════════════════════════════════════════════════════════
+-->
+<figure class="fig"><img class="figimg" src="../../assets/img/12-1-01-where-do-i-press.png" alt="노트북 앞에서 자판에 닿지 않은 채 허공에 멈춘 손. 화면은 밝은 빛으로만 보인다." data-id="12-1-01-where-do-i-press" data-spec="가로 16:9 · 개념 삽화 · 망설이는 손" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 12-1-1. 만든 사람은 이미 알고 있어서, 그것이 어렵다는 것을 알아차리지 못한다.</span><span class="zh">图 12-1-1. 做的人早就知道，所以察觉不到这件事有多难。</span></figcaption></figure>
+<div class="bigq"><div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div><p><span class="ko">사용자가 설명 없이도 서비스를 시작하고, 결과를 얻고,<br/>문제가 생기면 <b>다시 시도</b>할 수 있을까?</span><span class="zh">用户能不能在没人讲解的情况下开始使用服务、拿到结果，<br/>出了问题还能<b>再试一次</b>？</span></p></div>
+</section>
+
+<section class="page" id="s0_2">
+<div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">이거 뭐부터 눌러야 돼?</span><span class="zh">这个先按哪里？</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">오늘은 이 질문을 <b>직접 시험해 볼 수 있는 문장</b>으로 바꿉니다. 9회에 정한 사용자 흐름을 다섯 가지 상황으로 나누고, 상황마다 서비스가 어떻게 반응해야 하는지를 실행하기 전에 적습니다. 모든 상황을 끝까지 실행하는 것은 다음 차시에 하고, 오늘은 마지막에 한 가지 상황만 짝과 시험해 봅니다.</span><span class="zh">今天把这个问题变成<b>可以亲手测试的句子</b>。把第 9 次课定下的用户流程分成五种情况，在运行之前写下每种情况里服务应该怎样回应。把所有情况从头到尾跑一遍是下一课时的事，今天最后只和同桌试一种情况。</span></p>
+<div class="recall"><div class="rt"><span class="ko">앞 차시에서 가져올 것</span><span class="zh">从前面课时带过来的</span></div><ul class="blist"><li><span class="ko"><code>docs/09_development_plan.md</code>의 3항에 대표 정상 흐름이, 4항에 핵심 예외 흐름이 있습니다. 오늘 테스트의 재료입니다.</span><span class="zh"><code>docs/09_development_plan.md</code> 第 3 项是代表性正常流程，第 4 项是核心例外流程。它们是今天测试的材料。</span></li><li><span class="ko">11-2에서 기록을 <code>data/app.db</code>에 저장하고, 서비스를 다시 켠 뒤에도 보이게 했습니다. SQLite Viewer로 표의 줄도 확인했습니다.</span><span class="zh">11-2 把记录存进了 <code>data/app.db</code>，服务重新打开后也能看到。还用 SQLite Viewer 确认了表里的行。</span></li><li><span class="ko"><code>10</code> 폴더는 13회까지 쓰는 내 서비스 프로젝트입니다. 오늘도 새 폴더 없이 같은 폴더를 엽니다.</span><span class="zh"><code>10</code> 文件夹是一直用到第 13 次课的自己的服务项目。今天也不建新文件夹，打开同一个文件夹。</span></li></ul></div>
+<div class="note ok"><div class="nt"><span class="ko">테스트 코드를 만들지 않습니다</span><span class="zh">不写测试代码</span></div><p><span class="ko">테스트라고 하면 프로그램을 검사하는 프로그램을 떠올리기 쉽습니다. 이 수업의 테스트는 사람이 직접 화면을 보고 누르며 확인합니다. 필요한 것은 브라우저와 <code>docs/12_test_record.md</code> 하나입니다.</span><span class="zh">说到测试，很容易想到用程序去检查程序。这门课的测试是人亲自看画面、亲手点来确认。需要的只有浏览器和 <code>docs/12_test_record.md</code> 一个文件。</span></p></div>
+</section>
+
+<section class="page" id="s1">
+<div class="kick"><span class="ko">1. 테스트란</span><span class="zh">1. 什么是测试</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">한 번 작동한 것과 끝까지 쓸 수 있는 것은 다르다</span><span class="zh">跑通一次和能用到底不是一回事</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">11-2에서 기록이 저장되는 것을 한 번 확인했습니다. 그런데 기능 하나가 <b>한 번 작동한 것</b>과 사용자가 <b>흐름을 끝까지 마칠 수 있는 것</b>은 다릅니다. 저장은 잘 되는데 안내가 없어 처음 온 사람이 버튼을 못 찾는다면, 그 사람에게 이 서비스는 작동하지 않는 서비스입니다.</span><span class="zh">11-2 已经确认过一次记录能保存。可是一个功能<b>跑通一次</b>，和用户<b>能把流程走完</b>，不是一回事。如果保存没问题，却因为没有说明，第一次来的人找不到按钮，那对这个人来说，这个服务就是不能用的。</span></p>
+<div class="term"><div class="term-h"><span class="ko"><span class="w">사용자 흐름 테스트</span><span class="en">user flow test</span></span><span class="zh"><span class="w">用户流程测试</span><span class="en">user flow test</span></span></div><dl><dt><span class="ko">현상</span><span class="zh">现象</span></dt><dd><span class="ko">새로 문을 여는 분식집 사장님이 개업 전날 가족을 손님처럼 앉혀 놓고 주문부터 계산까지 해 보게 합니다. 메뉴판이 안 보이는 자리, 계산대가 어디인지 헷갈리는 곳이 그때 드러납니다.</span><span class="zh">新开小吃店的老板，在开业前一天让家人像客人一样坐下，从点餐一直走到结账。看不到菜单的座位、找不到收银台的地方，这时候就暴露出来了。</span></dd><dt><span class="ko">쉬운 설명</span><span class="zh">通俗说法</span></dt><dd><span class="ko">만든 사람이 <b>처음 온 사용자인 척</b> 서비스를 처음부터 끝까지 써 보며, 미리 적어 둔 예상과 실제 화면을 맞춰 보는 것입니다.</span><span class="zh">做的人<b>假装是第一次来的用户</b>，把服务从头用到尾，拿事先写好的预想和实际画面对照。</span></dd><dt><span class="ko">정확한 정의</span><span class="zh">准确定义</span></dt><dd class="def"><span class="ko">사용자 흐름의 상황마다 <b>시작 상태 · 사용자의 행동 · 예상한 서비스 반응</b>을 실행 전에 적고, 실제로 해 본 결과와 비교해 통과 · 실패 · 확인 필요로 판정하는 활동.</span><span class="zh">针对用户流程里的每种情况，在运行前写下<b>起始状态 · 用户的动作 · 预想的服务回应</b>，再和实际试出来的结果比较，判定为通过 · 失败 · 需确认。</span></dd><dt><span class="ko">경계</span><span class="zh">边界</span></dt><dd><span class="ko">코드를 읽고 맞는지 따지는 것, 기능이 한 번 되는지만 보는 것은 사용자 흐름 테스트가 아닙니다. 기준은 언제나 <b>사용자가 화면에서 겪는 일</b>입니다.</span><span class="zh">读代码判断对不对、只看功能能不能跑一次，都不算用户流程测试。标准始终是<b>用户在画面上经历的事</b>。</span></dd><dt><span class="ko">문장 속 사용</span><span class="zh">句中用法</span></dt><dd><span class="ko">“대표 정상 흐름은 통과했는데, 다시 방문 시나리오에서 기록이 사라져 실패로 판정했다.”</span><span class="zh">“代表性正常流程通过了，但再次访问的场景里记录不见了，所以判定为失败。”</span></dd></dl></div>
+</section>
+
+<section class="page" id="s2">
+<div class="kick"><span class="ko">1. 테스트란</span><span class="zh">1. 什么是测试</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">예상한 반응은 실행하기 전에 적는다</span><span class="zh">预想的回应要在运行之前写</span></h2>
+<p class="lead"><span class="ko">사용자 흐름 테스트는 아래 다섯 단계로 진행합니다. 가장 중요한 곳은 세 번째, <b>서비스가 보여야 할 반응을 먼저 적는 것</b>입니다. 실행해 본 뒤에 예상을 적으면 화면에 나온 것을 그대로 옮겨 적게 되고, 그러면 모든 줄이 「통과」가 되어 아무것도 확인하지 못한 기록이 됩니다.</span><span class="zh">用户流程测试按下面五步进行。最关键的是第三步：<b>先写下服务应该显示的回应</b>。如果试完才写预想，就会把画面上出现的东西照抄下来，结果每一行都是“通过”，成了什么都没确认的记录。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">테스트의 순서</span><span class="zh">测试的顺序</span></div><ol><li><span class="ko"><b>시작 상태</b>를 정한다. 어느 화면에서, 기록이 몇 개 있는 상태에서 시작하는가.</span><span class="zh">定好<b>起始状态</b>：从哪个画面、在已有几条记录的状态下开始。</span></li><li><span class="ko"><b>사용자가 할 행동</b>을 정한다. 무엇을 쓰고 무엇을 누르는가.</span><span class="zh">定好<b>用户要做的动作</b>：写什么、按什么。</span></li><li><span class="ko"><b>예상한 서비스 반응</b>을 적는다. 화면에 무엇이 보여야 하는가.</span><span class="zh">写下<b>预想的服务回应</b>：画面上应该出现什么。</span></li><li><span class="ko">처음 쓰는 사용자처럼 <b>실행</b>한다.</span><span class="zh">像第一次使用的用户那样<b>运行</b>。</span></li><li><span class="ko">예상과 실제를 <b>비교</b>해 판정한다.</span><span class="zh"><b>比较</b>预想和实际，做出判定。</span></li></ol></div>
+<div class="note"><div class="nt"><span class="ko">3-1에서 하던 순서와 같습니다</span><span class="zh">和 3-1 的顺序一样</span></div><p><span class="ko">3-1에서 코드를 실행하기 전에 결과를 먼저 예상하고, 실행한 뒤 비교했습니다. 대상이 코드에서 <b>사용자가 겪는 화면</b>으로 바뀌었을 뿐 순서는 같습니다.</span><span class="zh">3-1 时，先预想代码的结果再运行，运行后再比较。现在对象从代码换成了<b>用户经历的画面</b>，顺序是一样的。</span></p></div>
+<div class="note warn"><div class="nt"><span class="ko">실패도 결과입니다</span><span class="zh">失败也是结果</span></div><p><span class="ko">예상과 다르게 나온 줄은 지우거나 고쳐 쓰지 않습니다. 실패한 줄이 13회에 무엇부터 고칠지 알려 주는 근거가 됩니다. 실패가 하나도 없는 기록은 대개 제대로 시험하지 않은 기록입니다.</span><span class="zh">和预想不一样的行，不要删掉或改写。失败的行就是第 13 次课决定先改什么的依据。一行失败都没有的记录，往往是没认真测试的记录。</span></p></div>
+</section>
+
+<section class="page" id="s3">
+<div class="kick"><span class="ko">2. 다섯 시나리오</span><span class="zh">2. 五个场景</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">흐름을 다섯 가지 상황으로 나누어 시험한다</span><span class="zh">把流程分成五种情况来测试</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">9회에 정한 흐름을 그대로 한 번 해 보는 것만으로는 부족합니다. 처음 온 사람, 실수한 사람, 같은 일을 여러 번 하는 사람, 다음 날 다시 온 사람은 같은 서비스에서 서로 다른 일을 겪기 때문입니다. 이렇게 나눈 상황 하나하나를 <b>시나리오</b>라고 부릅니다. <code>docs/12_test_record.md</code>의 2항 표에는 다섯 시나리오의 이름이 미리 적혀 있습니다.</span><span class="zh">只把第 9 次课定的流程照着走一遍是不够的。第一次来的人、操作失误的人、同一件事做好几次的人、第二天又来的人，在同一个服务里经历的事各不相同。这样分出来的每种情况叫作<b>场景</b>。<code>docs/12_test_record.md</code> 第 2 项的表里，已经写好了五个场景的名字。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:27%"><span class="ko">시나리오</span><span class="zh">场景</span></th><th><span class="ko">확인할 질문</span><span class="zh">要确认的问题</span></th><th style="width:21%"><span class="ko">9회 계획에서</span><span class="zh">在第 9 次课计划里</span></th></tr></thead><tbody><tr><td><span class="ko">처음 방문</span><span class="zh"><b class="keep-ko">처음 방문</b>（首次访问）</span></td><td><span class="ko">설명 없이도 무엇을 하는 서비스인지, 무엇부터 할지 아는가?</span><span class="zh">没人讲解，也知道这是做什么的服务、先做什么吗？</span></td><td><span class="ko">2항 시작</span><span class="zh">第 2 项 开始</span></td></tr><tr><td><span class="ko">대표 정상 흐름</span><span class="zh"><b class="keep-ko">대표 정상 흐름</b>（代表性正常流程）</span></td><td><span class="ko">정한 순서대로 해서 핵심 결과에 도달하는가?</span><span class="zh">按定好的顺序做，能到达核心结果吗？</span></td><td><span class="ko">3항</span><span class="zh">第 3 项</span></td></tr><tr><td><span class="ko">예외 뒤 다시 시도</span><span class="zh"><b class="keep-ko">예외 뒤 다시 시도</b>（例外后重试）</span></td><td><span class="ko">잘못했을 때 이유를 알고, 고쳐서 정상 결과까지 가는가?</span><span class="zh">出错时知道原因，改正后能走到正常结果吗？</span></td><td><span class="ko">4항</span><span class="zh">第 4 项</span></td></tr><tr><td><span class="ko">같은 행동 반복</span><span class="zh"><b class="keep-ko">같은 행동 반복</b>（重复同一动作）</span></td><td><span class="ko">두 번, 세 번 해도 앞의 기록이 사라지거나 엉키지 않는가?</span><span class="zh">做两次、三次，前面的记录会不会消失或乱掉？</span></td><td><span class="ko">3항의 기록 단계</span><span class="zh">第 3 项的记录步骤</span></td></tr><tr><td><span class="ko">새로고침·다시 방문</span><span class="zh"><b class="keep-ko">새로고침·다시 방문</b>（刷新·再次访问）</span></td><td><span class="ko">새로고침하거나 서비스를 다시 켜도 기록이 남아 있는가?</span><span class="zh">刷新或重新打开服务后，记录还在吗？</span></td><td><span class="ko">3항의 다시 보는 단계</span><span class="zh">第 3 项的再次查看步骤</span></td></tr></tbody></table></div>
+<div class="note ok"><div class="nt"><span class="ko">새로 만들 것이 없습니다</span><span class="zh">不用新编内容</span></div><p><span class="ko">9회에 흐름을 <b>보는 것 · 행동 · 반응</b>으로 적어 두었기 때문에, 오늘은 그것을 상황별 질문으로 바꾸기만 하면 됩니다.</span><span class="zh">第 9 次课已经按<b>看到的 · 动作 · 回应</b>写好了流程，今天只要把它们改成按情况提问就行。</span></p></div>
+</section>
+
+<section class="page" id="s3_2">
+<div class="kick"><span class="ko">2. 다섯 시나리오</span><span class="zh">2. 五个场景</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">새로고침과 다시 방문은 다르다</span><span class="zh">刷新和再次访问不一样</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">마지막 시나리오에는 두 가지 행동이 들어 있습니다. <b>새로고침</b>은 브라우저가 화면을 다시 받아 오는 것이고, <b>다시 방문</b>은 서비스를 껐다가 다시 켠 뒤 새 탭에서 여는 것입니다. 11-2에서 본 것처럼, 기록이 SQLite 파일에 저장되어 있어야 서비스를 다시 켠 뒤에도 남습니다.</span><span class="zh">最后一个场景里有两个动作。<b>刷新</b>是浏览器重新取一次画面；<b>再次访问</b>是把服务关掉再打开，然后在新标签页里打开。就像 11-2 看到的，记录要存进 SQLite 文件，服务重新打开后才会还在。</span></p>
+<div class="row"><div class="pane"><div class="pt"><span class="ko">새로고침</span><span class="zh">刷新</span></div><ul class="blist"><li><span class="ko">브라우저에서 <code>F5</code>를 누른다</span><span class="zh">在浏览器里按 <code>F5</code></span></li><li><span class="ko">서비스는 켜진 채로 있다</span><span class="zh">服务一直开着</span></li><li><span class="ko">화면만 처음부터 다시 그린다</span><span class="zh">只是画面从头重新显示</span></li></ul></div><div class="pane accent"><div class="pt"><span class="ko">다시 방문</span><span class="zh">再次访问</span></div><ul class="blist"><li><span class="ko"><code>npm run dev</code> 터미널에서 <code>Ctrl+C</code>로 멈춘다</span><span class="zh">在 <code>npm run dev</code> 的终端里按 <code>Ctrl+C</code> 停止</span></li><li><span class="ko"><code>npm run dev</code>로 다시 켠다</span><span class="zh">用 <code>npm run dev</code> 重新启动</span></li><li><span class="ko">브라우저 새 탭에서 <code>localhost:3000</code>을 연다</span><span class="zh">在浏览器新标签页打开 <code>localhost:3000</code></span></li></ul></div></div>
+<div class="note"><div class="nt"><span class="ko">입력 범위가 있는 서비스만 4항을 씁니다</span><span class="zh">只有输入有范围的服务才写第 4 项</span></div><p><span class="ko">「1부터 100까지」처럼 숫자 범위나 글자 수 제한이 분명한 서비스는 <code>12_test_record.md</code>의 <b>4. 선택 테스트</b>에서 가장 작은 값 · 가장 큰 값 · 허용하지 않는 값을 더 시험합니다. 그런 제한이 없으면 「해당 없음」이라고 적습니다. 다섯 시나리오가 먼저입니다.</span><span class="zh">像“1 到 100”这样有明确数字范围或字数限制的服务，在 <code>12_test_record.md</code> 的 <b>4. <b class="keep-ko">선택 테스트</b></b>（选做测试）里再测最小值 · 最大值 · 不允许的值。没有这类限制就写“不适用”。五个场景优先。</span></p></div>
+</section>
+
+<section class="page" id="s4">
+<div class="kick"><span class="ko">3. 준비</span><span class="zh">3. 准备</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">10 폴더를 열고 서비스를 켠다</span><span class="zh">打开 10 文件夹，启动服务</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">이제 내 서비스로 준비합니다. 10~11회와 같은 <code>10</code> 폴더를 열고, 터미널을 두 개 씁니다. 하나는 서비스를 켜 두는 <code>npm run dev</code> 터미널, 다른 하나는 OpenCode 터미널입니다. 테스트 기록 양식은 처음 받은 프로젝트에 이미 <code>docs/12_test_record.md</code>로 들어 있으니 새로 만들지 않습니다.</span><span class="zh">现在用自己的服务来准备。打开和第 10~11 次课同一个 <code>10</code> 文件夹，用两个终端：一个是让服务一直开着的 <code>npm run dev</code> 终端，另一个是 OpenCode 终端。测试记录表格在一开始拿到的项目里就已经是 <code>docs/12_test_record.md</code>，不用另建。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">지금 하세요</span><span class="zh">现在就做</span></div><ol><li><span class="ko">VS Code에서 <b>파일 → 폴더 열기</b>로 <code>10</code> 폴더 자체를 연다. 탐색기 맨 위에 <code>10</code>이 보이면 된다.</span><span class="zh">在 VS Code 里用 <b class="keep-ko">파일 → 폴더 열기</b>（文件 → 打开文件夹）打开 <code>10</code> 文件夹本身。资源管理器最上面显示 <code>10</code> 就对了。</span></li><li><span class="ko">터미널 → 새 터미널을 열고 줄 끝이 <code>…\10&gt;</code>인지 본 뒤 <code>npm run dev</code>를 입력한다. <code>Ready</code>가 보이면 브라우저에서 <code>http://localhost:3000</code>을 연다.</span><span class="zh">点 终端 → 新建终端，确认行末是 <code>…\10&gt;</code>，输入 <code>npm run dev</code>。看到 <code>Ready</code> 后，在浏览器打开 <code>http://localhost:3000</code>。</span></li><li><span class="ko">터미널 오른쪽 위의 <b>+</b>로 터미널을 하나 더 열고 <code>opencode</code>를 켠다.</span><span class="zh">用终端右上角的 <b>+</b> 再开一个终端，启动 <code>opencode</code>。</span></li><li><span class="ko">탐색기에서 <code>docs</code> 폴더를 펼쳐 <code>12_test_record.md</code>를 연다.</span><span class="zh">在资源管理器里展开 <code>docs</code> 文件夹，打开 <code>12_test_record.md</code>。</span></li></ol></div>
+<div class="note warn"><div class="nt"><span class="ko">시험할 때는 실제 개인정보를 쓰지 않습니다</span><span class="zh">测试时不要用真实个人信息</span></div><p><span class="ko">테스트하며 입력한 값은 <code>data/app.db</code>에 저장되고, 이 파일은 다음 차시에 만드는 제출 ZIP에도 들어갑니다. 내 이름이나 친구의 전화번호 대신 「테스트1」 「수학 숙제」처럼 꾸며 낸 값을 씁니다.</span><span class="zh">测试时输入的值会存进 <code>data/app.db</code>，这个文件也会放进下一课时做的提交 ZIP 里。不要用自己的名字或朋友的电话号码，用“测试1”“数学作业”这样编出来的值。</span></p></div>
+</section>
+
+<section class="page" id="s5">
+<div class="kick"><span class="ko">4. 무엇을 시험하나</span><span class="zh">4. 测试什么</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">09_development_plan.md에서 1항을 옮겨 온다</span><span class="zh">从 09_development_plan.md 搬来第 1 项</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">먼저 이번 테스트가 무엇을 시험하는지 한곳에 모읍니다. <code>12_test_record.md</code> 맨 위에 학생 ID · 이름 · 서비스 이름 · 날짜를 적고, <b>1. 테스트할 사용자 흐름</b>의 일곱 줄을 채웁니다. 새로 생각해 낼 필요는 없습니다. 9회에 확정한 개발 계획에 이미 적혀 있으니 나란히 열어 옮깁니다.</span><span class="zh">先把这次要测什么集中写在一处。在 <code>12_test_record.md</code> 最上面写学生 ID · 姓名 · 服务名称 · 日期，再填好 <b>1. <b class="keep-ko">테스트할 사용자 흐름</b></b>（要测试的用户流程）的七行。不用重新想，第 9 次课确定的开发计划里都写着，并排打开搬过来就行。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:38%"><span class="ko">1항의 줄</span><span class="zh">第 1 项的行</span></th><th><span class="ko"><code>09_development_plan.md</code>에서 찾는 곳</span><span class="zh">在 <code>09_development_plan.md</code> 里找的位置</span></th></tr></thead><tbody><tr><td><span class="ko">흐름의 시작</span><span class="zh"><b class="keep-ko">흐름의 시작</b>（流程的开始）</span></td><td><span class="ko">2항의 「시작」, 3항 표의 1단계</span><span class="zh">第 2 项的“开始”，第 3 项表格的第 1 步</span></td></tr><tr><td><span class="ko">사용자의 핵심 행동</span><span class="zh"><b class="keep-ko">사용자의 핵심 행동</b>（用户的核心动作）</span></td><td><span class="ko">3항 표의 「사용자의 행동」 가운데 결과를 만드는 것</span><span class="zh">第 3 项表格“用户的动作”里产生结果的那一个</span></td></tr><tr><td><span class="ko">사용자가 확인할 핵심 결과</span><span class="zh"><b class="keep-ko">사용자가 확인할 핵심 결과</b>（用户要确认的核心结果）</span></td><td><span class="ko">3항 표의 「서비스의 반응」</span><span class="zh">第 3 项表格的“服务的回应”</span></td></tr><tr><td><span class="ko">핵심 예외 상황</span><span class="zh"><b class="keep-ko">핵심 예외 상황</b>（核心例外情况）</span></td><td><span class="ko">4항의 「입력 또는 상황」</span><span class="zh">第 4 项的“输入或情况”</span></td></tr><tr><td><span class="ko">저장할 핵심 기록 · 기록이 생기는 행동</span><span class="zh"><b class="keep-ko">저장할 핵심 기록 · 기록이 생기는 행동</b>（要保存的核心记录 · 产生记录的动作）</span></td><td><span class="ko">3항 표의 「이어지거나 저장되는 정보」와 그 단계의 행동</span><span class="zh">第 3 项表格的“接下去或被保存的信息”和那一步的动作</span></td></tr><tr><td><span class="ko">저장된 기록을 다시 보는 순간</span><span class="zh"><b class="keep-ko">저장된 기록을 다시 보는 순간</b>（再次查看已保存记录的时刻）</span></td><td><span class="ko">3항 표의 마지막 단계, 2항의 「완료」</span><span class="zh">第 3 项表格的最后一步，第 2 项的“完成”</span></td></tr></tbody></table></div>
+<div class="note ok"><div class="nt"><span class="ko">두 파일을 나란히 엽니다</span><span class="zh">把两个文件并排打开</span></div><p><span class="ko">탐색기에서 <code>docs/09_development_plan.md</code>를 마우스 오른쪽 단추로 눌러 <b>측면에서 열기</b>를 고르면 두 파일이 나란히 보입니다. 11회에 SQLite에 실제로 저장하게 된 기록이 계획과 다르면, 계획이 아니라 <b>지금 서비스가 저장하는 것</b>을 적습니다.</span><span class="zh">在资源管理器里右键单击 <code>docs/09_development_plan.md</code>，选 <b class="keep-ko">측면에서 열기</b>（在侧边打开），两个文件就会并排显示。如果第 11 次课实际存进 SQLite 的记录和计划不同，写<b>现在服务实际保存的东西</b>，而不是计划。</span></p></div>
+</section>
+
+<section class="page" id="s6">
+<div class="kick"><span class="ko">5. AI에게 묻기</span><span class="zh">5. 问 AI</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">AI에게 시나리오 초안을 대화창에 받는다</span><span class="zh">让 AI 在对话框里给出场景草稿</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">2항의 다섯 줄을 채우기 전에 OpenCode에게 초안을 받아 봅니다. AI는 PRD와 개발 계획을 읽고 빠뜨리기 쉬운 상황을 짚어 줄 수 있습니다. 다만 <code>docs</code> 안의 문서는 내가 쓰는 파일이므로, 결과는 <b>대화창에만</b> 받고 파일에는 내가 고른 것을 직접 적습니다.</span><span class="zh">在填第 2 项的五行之前，先让 OpenCode 给个草稿。AI 读了 PRD 和开发计划，能指出容易漏掉的情况。不过 <code>docs</code> 里的文件是我自己写的，所以结果<b>只在对话框里</b>接收，文件里由我亲手写下自己挑选的内容。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 대화창에만 제안</span><span class="zh">发给 OpenCode 的请求 — 只在对话框里提议</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">docs/PRD.md와 docs/09_development_plan.md를 읽어 줘.
+내 서비스를 시험할 사용자 시나리오를 다섯 개 제안해 줘.
+처음 방문, 대표 정상 흐름, 예외 뒤 다시 시도, 같은 행동 반복, 새로고침·다시 방문을 하나씩.
+시나리오마다 시작 상태, 사용자가 할 행동, 화면에 보여야 할 서비스 반응을 한 줄씩 대화창에 적어 줘.
+파일은 만들거나 고치지 말고, 코드와 자동 테스트, 공격 방법은 만들지 마.</pre><pre class="zh blk">请读 docs/PRD.md 和 docs/09_development_plan.md。
+请提出五个用来测试我这个服务的用户场景。
+首次访问、代表性正常流程、例外后重试、重复同一动作、刷新·再次访问，各一个。
+每个场景用一行写出起始状态、用户要做的动作、画面上应该出现的服务回应，写在对话框里。
+不要新建或修改文件，也不要写代码、自动测试和攻击方法。</pre></div>
+<div class="note ok"><div class="nt"><span class="ko">고르는 것은 내가 합니다</span><span class="zh">由我来挑选</span></div><p><span class="ko">AI의 제안을 모두 쓸 필요는 없습니다. 내 서비스에 없는 기능을 시험하라는 줄, 「로그인한다」처럼 계획에 없는 행동이 들어간 줄은 버립니다. 쓸 만한 줄도 내 서비스의 실제 버튼 이름과 문구로 바꿔 적습니다.</span><span class="zh">AI 的提议不必全用。让你测试服务里没有的功能的行、混进“登录”这类计划里没有的动作的行，都扔掉。可用的行，也要改成自己服务里真实的按钮名称和文字再写。</span></p></div>
+</section>
+
+<section class="page" id="s7">
+<div class="kick"><span class="ko">6. 2항 쓰기</span><span class="zh">6. 写第 2 项</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">2항의 앞 세 칸을 실행하기 전에 채운다</span><span class="zh">运行之前填好第 2 项的前三格</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">이제 <b>2. 사용자 시나리오별 결과</b> 표를 채웁니다. 오늘 채우는 것은 시작 상태 · 사용자가 한 행동 · 예상한 서비스 반응의 <b>앞 세 칸</b>입니다. 실제 결과와 판정 칸은 실행한 뒤에 채우므로 지금은 비워 둡니다. 예상 칸에서 가장 흔한 실수는 「잘 된다」처럼 화면에 무엇이 보이는지 알 수 없게 쓰는 것입니다.</span><span class="zh">现在来填 <b>2. <b class="keep-ko">사용자 시나리오별 결과</b></b>（各用户场景的结果）这张表。今天填的是起始状态 · 用户做的动作 · 预想的服务回应这<b>前三格</b>。实际结果和判定两格要运行后才填，现在先空着。预想那格最常见的错误，是写成“能正常运行”这种看不出画面上会出现什么的话。</span></p>
+<div class="row"><div class="pane"><div class="pt"><span class="ko">이렇게 쓰면 비교할 수 없다</span><span class="zh">这样写就没法比较</span></div><ul class="blist"><li><span class="ko">잘 된다</span><span class="zh">能正常运行</span></li><li><span class="ko">저장된다</span><span class="zh">会被保存</span></li><li><span class="ko">오류가 안 난다</span><span class="zh">不会出错</span></li><li><span class="ko">결과가 나온다</span><span class="zh">会出结果</span></li></ul></div><div class="pane accent"><div class="pt"><span class="ko">화면에 보일 것을 쓴다</span><span class="zh">写画面上会出现的东西</span></div><ul class="blist"><li><span class="ko">목록 맨 위에 「수학 숙제」가 생기고 입력칸이 비워진다</span><span class="zh">列表最上面出现“数学作业”，输入框被清空</span></li><li><span class="ko">「할 일을 입력하세요」가 입력칸 아래에 빨간 글자로 보인다</span><span class="zh">输入框下方出现红字“请输入待办事项”</span></li><li><span class="ko">다시 켜도 목록에 세 줄이 그대로 있다</span><span class="zh">重新打开后列表里三行都还在</span></li></ul></div></div>
+<div class="note"><div class="nt"><span class="ko">시작 상태도 구체적으로 씁니다</span><span class="zh">起始状态也要写具体</span></div><p><span class="ko">「첫 화면」보다 「서비스를 새로 켜고 첫 화면, 목록에 할 일 2개」처럼 기록이 몇 개 있는지까지 적습니다. 다음 차시에 같은 상태에서 다시 시험해야 할 때 이 칸을 보고 똑같이 맞춥니다.</span><span class="zh">比起“首页”，要写成“刚启动服务的首页，列表里有 2 条待办”，连有几条记录都写上。下一课时需要在同样状态下再测一次时，就照着这一格把状态对齐。</span></p></div>
+</section>
+
+<section class="page" id="s7_2">
+<div class="kick"><span class="ko">6. 2항 쓰기</span><span class="zh">6. 写第 2 项</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">예 — 할 일 정리 서비스의 2항</span><span class="zh">例子 — 待办整理服务的第 2 项</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">9회에 본 할 일 정리 서비스로 2항의 앞 세 칸을 채우면 아래와 같습니다. 행동에는 <b>실제로 입력할 값</b>까지 적고, 예상에는 <b>화면에 보일 글자와 변화</b>를 적은 것을 봅니다. 내 서비스로 다섯 줄을 쓸 때 이 표를 옆에 두고 칸마다 이만큼 구체적인지 비교합니다.</span><span class="zh">用第 9 次课看过的待办整理服务来填第 2 项的前三格，就是下面这样。注意动作里连<b>实际要输入的值</b>都写了，预想里写的是<b>画面上会出现的文字和变化</b>。用自己的服务写五行时，把这张表放在旁边，逐格比一比是不是写得这么具体。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:17%"><span class="ko">시나리오</span><span class="zh">场景</span></th><th style="width:21%"><span class="ko">시작 상태</span><span class="zh">起始状态</span></th><th style="width:27%"><span class="ko">사용자가 한 행동</span><span class="zh">用户做的动作</span></th><th><span class="ko">예상한 서비스 반응</span><span class="zh">预想的服务回应</span></th></tr></thead><tbody><tr><td><span class="ko">처음 방문</span><span class="zh">首次访问</span></td><td><span class="ko">서비스를 새로 켜고 새 탭에서 연다</span><span class="zh">刚启动服务，在新标签页打开</span></td><td><span class="ko">아무것도 누르지 않고 첫 화면을 읽는다</span><span class="zh">什么都不按，先读首页</span></td><td><span class="ko">제목과 설명으로 할 일을 적는 서비스임을 안다. 입력칸과 「추가」 버튼이 보인다</span><span class="zh">从标题和说明看出这是记待办的服务。能看到输入框和“添加”按钮</span></td></tr><tr><td><span class="ko">대표 정상 흐름</span><span class="zh">代表性正常流程</span></td><td><span class="ko">첫 화면, 목록에 할 일 2개</span><span class="zh">首页，列表里有 2 条待办</span></td><td><span class="ko">「수학 숙제」를 쓰고 「추가」를 누른다</span><span class="zh">写“数学作业”，按“添加”</span></td><td><span class="ko">목록 맨 위에 「수학 숙제」가 생기고 입력칸이 비워진다</span><span class="zh">列表最上面出现“数学作业”，输入框被清空</span></td></tr><tr><td><span class="ko">예외 뒤 다시 시도</span><span class="zh">例外后重试</span></td><td><span class="ko">첫 화면, 입력칸이 비어 있다</span><span class="zh">首页，输入框是空的</span></td><td><span class="ko">빈칸으로 「추가」를 누른 뒤 「영어 단어」를 쓰고 다시 누른다</span><span class="zh">空着按“添加”，然后写“英语单词”再按一次</span></td><td><span class="ko">「할 일을 입력하세요」가 보이고 저장되지 않는다. 다시 누르면 목록에 생긴다</span><span class="zh">出现“请输入待办事项”，没有保存。再按一次就出现在列表里</span></td></tr><tr><td><span class="ko">같은 행동 반복</span><span class="zh">重复同一动作</span></td><td><span class="ko">목록에 할 일 4개</span><span class="zh">列表里有 4 条待办</span></td><td><span class="ko">「과학 보고서」를 추가하고, 이어서 「국어 독서」를 추가한다</span><span class="zh">添加“科学报告”，接着再添加“语文阅读”</span></td><td><span class="ko">목록이 6개가 되고 순서가 맞다. 앞의 기록이 사라지거나 두 번 생기지 않는다</span><span class="zh">列表变成 6 条，顺序正确。前面的记录没有消失，也没有重复出现</span></td></tr><tr><td><span class="ko">새로고침·다시 방문</span><span class="zh">刷新·再次访问</span></td><td><span class="ko">목록에 할 일 6개</span><span class="zh">列表里有 6 条待办</span></td><td><span class="ko"><code>F5</code>를 누른 뒤, 서비스를 다시 켜고 새 탭에서 연다</span><span class="zh">按 <code>F5</code>，然后重启服务，在新标签页打开</span></td><td><span class="ko">두 번 모두 6개가 그대로 있다. SQLite Viewer의 표에도 같은 6줄이 있다</span><span class="zh">两次都还是 6 条。SQLite Viewer 的表里也有同样的 6 行</span></td></tr></tbody></table></div>
+</section>
+
+<section class="page" id="s8">
+<div class="kick"><span class="ko">7. 3항 쓰기</span><span class="zh">7. 写第 3 项</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">대표 정상 흐름은 단계별로 한 번 더 쪼갠다</span><span class="zh">把代表性正常流程再按步骤拆开</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">2항의 대표 정상 흐름은 한 줄이라, 중간 어디에서 어긋났는지 알기 어렵습니다. 그래서 <b>3. 대표 정상 흐름 단계별 확인</b>에서 같은 흐름을 단계로 나누어 다시 적습니다. <code>09_development_plan.md</code> 3항 표와 칸이 거의 같아서, 앞의 세 칸과 「서비스의 반응」을 옮기면 됩니다.</span><span class="zh">第 2 项里的代表性正常流程只有一行，很难看出是中间哪里出了偏差。所以在 <b>3. <b class="keep-ko">대표 정상 흐름 단계별 확인</b></b>（代表性正常流程分步确认）里，把同一个流程拆成步骤重新写。它和 <code>09_development_plan.md</code> 第 3 项的表格几乎一样，把前三格和“服务的回应”搬过来就行。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:40%"><span class="ko"><code>09_development_plan.md</code> 3항</span><span class="zh"><code>09_development_plan.md</code> 第 3 项</span></th><th style="width:8%"><span class="ko">→</span><span class="zh">→</span></th><th><span class="ko"><code>12_test_record.md</code> 3항</span><span class="zh"><code>12_test_record.md</code> 第 3 项</span></th></tr></thead><tbody><tr><td><span class="ko">단계</span><span class="zh"><b class="keep-ko">단계</b>（步骤）</span></td><td><span class="ko">→</span><span class="zh">→</span></td><td><span class="ko">단계</span><span class="zh"><b class="keep-ko">단계</b>（步骤）</span></td></tr><tr><td><span class="ko">사용자가 보는 것</span><span class="zh"><b class="keep-ko">사용자가 보는 것</b>（用户看到的）</span></td><td><span class="ko">→</span><span class="zh">→</span></td><td><span class="ko">사용자가 보는 것</span><span class="zh"><b class="keep-ko">사용자가 보는 것</b>（用户看到的）</span></td></tr><tr><td><span class="ko">사용자의 행동</span><span class="zh"><b class="keep-ko">사용자의 행동</b>（用户的动作）</span></td><td><span class="ko">→</span><span class="zh">→</span></td><td><span class="ko">사용자의 행동</span><span class="zh"><b class="keep-ko">사용자의 행동</b>（用户的动作）</span></td></tr><tr><td><span class="ko">서비스의 반응</span><span class="zh"><b class="keep-ko">서비스의 반응</b>（服务的回应）</span></td><td><span class="ko">→</span><span class="zh">→</span></td><td><span class="ko">예상한 서비스 반응 — 화면에 보일 글자로 다듬는다</span><span class="zh"><b class="keep-ko">예상한 서비스 반응</b>（预想的服务回应）— 改写成画面上会出现的文字</span></td></tr><tr><td><span class="ko">이어지거나 저장되는 정보</span><span class="zh"><b class="keep-ko">이어지거나 저장되는 정보</b>（接下去或被保存的信息）</span></td><td><span class="ko">→</span><span class="zh">→</span></td><td><span class="ko">옮기지 않는다. 1항에 이미 적었다</span><span class="zh">不搬。第 1 项里已经写了</span></td></tr></tbody></table></div>
+<div class="note"><div class="nt"><span class="ko">단계가 다섯 개 이상이면</span><span class="zh">如果步骤有五个以上</span></div><p><span class="ko">양식에는 1~4단계 줄만 있습니다. 단계가 더 있으면 4단계 줄을 복사해 아래에 붙이고 번호를 5로 바꿉니다. 단계는 계획과 같은 순서로 둡니다.</span><span class="zh">表格里只有第 1~4 步的行。步骤更多的话，复制第 4 步那行贴在下面，把编号改成 5。步骤顺序和计划保持一致。</span></p></div>
+<div class="note ok"><div class="nt"><span class="ko">저장 단계의 예상에는 SQLite Viewer도 적습니다</span><span class="zh">保存那一步的预想里也写上 SQLite Viewer</span></div><p><span class="ko">기록이 생기는 단계라면 「목록에 생긴다」에 더해 「SQLite Viewer의 표에 같은 값의 줄이 하나 늘어난다」까지 예상에 적습니다. 그래야 실행할 때 화면과 표를 함께 봅니다.</span><span class="zh">如果是产生记录的步骤，除了“出现在列表里”，还要在预想里写上“SQLite Viewer 的表里多出一行同样的值”。这样运行时才会把画面和表一起看。</span></p></div>
+</section>
+
+<section class="page" id="s9">
+<div class="kick"><span class="ko">8. 판정</span><span class="zh">8. 判定</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">판정은 세 가지 중 하나로 적는다</span><span class="zh">判定写成三种中的一种</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">실행한 뒤에는 실제 결과 칸에 화면에 보인 것을 적고, 판정 칸에 셋 중 하나를 남깁니다. 양식의 판정 칸에는 「통과 / 실패 / 확인 필요」가 미리 적혀 있으니 해당하지 않는 둘을 지웁니다. 셋 가운데 가장 많이 헷갈리는 것은 「확인 필요」입니다.</span><span class="zh">运行后，在实际结果那格写下画面上出现的东西，在判定那格留下三种中的一种。表格的判定格里已经写好“<b class="keep-ko">통과 / 실패 / 확인 필요</b>”（通过 / 失败 / 需确认），把不符合的两个删掉。三种里最容易搞混的是“需确认”。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:17%"><span class="ko">판정</span><span class="zh">判定</span></th><th style="width:36%"><span class="ko">이럴 때</span><span class="zh">什么时候</span></th><th><span class="ko">예</span><span class="zh">例子</span></th></tr></thead><tbody><tr><td><span class="ko">통과</span><span class="zh"><b class="keep-ko">통과</b>（通过）</span></td><td><span class="ko">예상한 반응이 실제로 그대로 보였다</span><span class="zh">预想的回应实际照样出现了</span></td><td><span class="ko">목록 맨 위에 「수학 숙제」가 생기고 입력칸이 비워졌다</span><span class="zh">列表最上面出现了“数学作业”，输入框被清空</span></td></tr><tr><td><span class="ko">실패</span><span class="zh"><b class="keep-ko">실패</b>（失败）</span></td><td><span class="ko">예상과 다르게 나왔거나, 아무 반응이 없었다</span><span class="zh">结果和预想不一样，或者毫无反应</span></td><td><span class="ko">「추가」를 눌러도 목록이 그대로다</span><span class="zh">按了“添加”，列表还是老样子</span></td></tr><tr><td><span class="ko">확인 필요</span><span class="zh"><b class="keep-ko">확인 필요</b>（需确认）</span></td><td><span class="ko">통과인지 실패인지 지금 판단할 수 없다</span><span class="zh">现在判断不了是通过还是失败</span></td><td><span class="ko">화면에는 보였지만 SQLite Viewer를 아직 못 봤다 · 두 번 중 한 번만 됐다</span><span class="zh">画面上出现了，但还没看 SQLite Viewer · 两次里只成功一次</span></td></tr></tbody></table></div>
+<div class="note warn"><div class="nt"><span class="ko">「거의 통과」는 없습니다</span><span class="zh">没有“差不多通过”</span></div><p><span class="ko">예상의 절반만 맞았다면 실패입니다. 「목록에는 생겼는데 입력칸이 안 비워졌다」는 실패로 적고, 실제 결과 칸에 어디까지 맞고 어디가 달랐는지 씁니다. 「확인 필요」로 남긴 줄은 다음 차시에 무엇을 더 보면 판정할 수 있는지 한 마디 적어 둡니다.</span><span class="zh">预想只对了一半，就是失败。“出现在列表里了，但输入框没清空”要记成失败，在实际结果那格写清楚哪里对、哪里不一样。留成“需确认”的行，要补一句：下一课时再看什么就能判定。</span></p></div>
+</section>
+
+<section class="page" id="s10">
+<div class="kick"><span class="ko">9. 화면과 표</span><span class="zh">9. 画面与表</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">화면의 기록과 SQLite Viewer의 줄을 맞춰 본다</span><span class="zh">把画面上的记录和 SQLite Viewer 里的行对一对</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">기록과 관련된 시나리오는 화면만 보고 통과를 줄 수 없습니다. 화면에 보이는 목록이 정말 <code>data/app.db</code>에서 불러온 것인지, 잠깐 화면에만 남은 것인지는 화면만으로 구별되지 않기 때문입니다. 11-2에서 한 것처럼 SQLite Viewer로 표를 열어 화면과 한 줄씩 맞춰 봅니다.</span><span class="zh">和记录有关的场景，不能只看画面就给通过。因为画面上的列表到底是从 <code>data/app.db</code> 调出来的，还是只暂时留在画面上，光看画面分不出来。像 11-2 那样，用 SQLite Viewer 打开表，和画面一行一行对照。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">맞춰 보는 순서</span><span class="zh">对照的顺序</span></div><ol><li><span class="ko">탐색기에서 <code>data/app.db</code>를 누른다. SQLite Viewer가 열리고 왼쪽에 표 이름이 보인다.</span><span class="zh">在资源管理器里点 <code>data/app.db</code>。SQLite Viewer 会打开，左边能看到表名。</span></li><li><span class="ko">내 서비스의 기록이 들어 있는 표를 누른다.</span><span class="zh">点存着自己服务记录的那张表。</span></li><li><span class="ko">화면의 기록 수와 표의 줄 수가 같은지 센다.</span><span class="zh">数一数画面上的记录数和表里的行数是否一样。</span></li><li><span class="ko">화면에서 가장 최근 기록의 글자와 표의 마지막 줄 값이 같은지 본다.</span><span class="zh">看画面上最新那条记录的文字，和表里最后一行的值是否一样。</span></li></ol></div>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:22%"><span class="ko">화면</span><span class="zh">画面</span></th><th style="width:30%"><span class="ko">SQLite Viewer</span><span class="zh">SQLite Viewer</span></th><th><span class="ko">판정에 쓰는 법</span><span class="zh">怎样用于判定</span></th></tr></thead><tbody><tr><td><span class="ko">보인다</span><span class="zh">看得到</span></td><td><span class="ko">같은 값의 줄이 있다</span><span class="zh">有同样值的行</span></td><td><span class="ko">통과</span><span class="zh">通过</span></td></tr><tr><td><span class="ko">보인다</span><span class="zh">看得到</span></td><td><span class="ko">줄이 없다</span><span class="zh">没有那一行</span></td><td><span class="ko">실패 — 저장되지 않았다</span><span class="zh">失败 — 没有保存</span></td></tr><tr><td><span class="ko">안 보인다</span><span class="zh">看不到</span></td><td><span class="ko">줄이 있다</span><span class="zh">有那一行</span></td><td><span class="ko">실패 — 저장은 됐지만 다시 불러오지 못한다</span><span class="zh">失败 — 保存了，但没能调出来</span></td></tr></tbody></table></div>
+<div class="note"><div class="nt"><span class="ko">표에서 값을 고치거나 지우지 않습니다</span><span class="zh">不要在表里修改或删除值</span></div><p><span class="ko">SQLite Viewer는 확인만 하는 창입니다. 새 기록이 안 보이면 SQLite Viewer 탭을 닫고 <code>data/app.db</code>를 다시 엽니다.</span><span class="zh">SQLite Viewer 只是用来查看的窗口。看不到新记录时，关掉 SQLite Viewer 标签页，再重新打开 <code>data/app.db</code>。</span></p></div>
+</section>
+
+<section class="page" id="s11">
+<div class="kick"><span class="ko">10. 첫 시험</span><span class="zh">10. 第一次测试</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">처음 방문 시나리오를 짝과 시험한다</span><span class="zh">和同桌测试首次访问场景</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">오늘 시험해 볼 것은 처음 방문 하나입니다. 만든 사람은 어디를 눌러야 하는지 이미 알기 때문에, 이 시나리오는 <b>내 서비스를 처음 보는 사람</b>이 해 볼 때 가장 정확합니다. 짝과 자리를 바꿔 서로의 서비스를 열어 주고, 만든 사람은 말없이 지켜보기만 합니다.</span><span class="zh">今天要测的只有首次访问一个。做的人早就知道该按哪里，所以这个场景由<b>第一次看到这个服务的人</b>来试最准确。和同桌换座位，互相打开对方的服务，做的人只在旁边默默看着。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">순서 — 한 사람에 2분</span><span class="zh">顺序 — 每人 2 分钟</span></div><ol><li><span class="ko">2항 처음 방문 줄의 앞 세 칸이 채워져 있는지 확인한다. 비어 있으면 지금 채우고 시작한다.</span><span class="zh">确认第 2 项首次访问那行的前三格已经填好。空着就现在填好再开始。</span></li><li><span class="ko">브라우저 새 탭에 <code>localhost:3000</code>을 열어 둔 채로 짝과 자리를 바꾼다.</span><span class="zh">在浏览器新标签页打开 <code>localhost:3000</code>，然后和同桌换座位。</span></li><li><span class="ko">짝은 화면을 읽고 처음 하려는 행동을 <b>소리 내어</b> 말한다. 만든 사람은 설명하거나 가리키지 않는다.</span><span class="zh">同桌读画面，把第一个想做的动作<b>说出来</b>。做的人不讲解，也不用手指。</span></li><li><span class="ko">짝이 머뭇거린 곳, 처음 누르려던 곳을 처음 방문 줄의 실제 결과 칸에 적고 판정한다.</span><span class="zh">把同桌犹豫的地方、第一个想按的地方写进首次访问那行的实际结果格，并做出判定。</span></li></ol></div>
+<div class="note ok"><div class="nt"><span class="ko">짝이 헤맨 곳이 오늘의 수확입니다</span><span class="zh">同桌卡住的地方就是今天的收获</span></div><p><span class="ko">짝이 버튼을 바로 찾지 못했다면 서비스가 잘못된 것이 아니라 <b>안내가 부족한 곳</b>을 찾은 것입니다. 실패로 적고, 짝이 처음에 무엇을 하려고 했는지 그대로 옮겨 둡니다. 13회에 안내 문구를 고칠 때 이 줄을 근거로 씁니다.</span><span class="zh">如果同桌没能马上找到按钮，不是服务坏了，而是找到了<b>说明不够的地方</b>。记成失败，把同桌一开始想做什么原样写下。第 13 次课改说明文字时，就以这一行为依据。</span></p></div>
+</section>
+
+<section class="page" id="s12">
+<div class="kick"><span class="ko">11. 오해</span><span class="zh">11. 误解</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">흔한 오해와 사실</span><span class="zh">常见误解与事实</span></h2>
+<p class="lead"><span class="ko">사용자 흐름 테스트를 처음 할 때 자주 하는 생각이 세 가지 있습니다. 오늘 쓴 2항과 3항을 다시 보면서 같은 생각으로 쓴 줄이 없는지 확인합니다. 특히 첫 번째 오해는 다음 차시에 실행할 때 기록 전체를 쓸모없게 만듭니다.</span><span class="zh">第一次做用户流程测试时，常有三种想法。回头看看今天写的第 2 项和第 3 项，确认有没有按这种想法写的行。尤其是第一个误解，下一课时运行时会让整份记录都失去作用。</span></p>
+<div class="myth"><div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“예상은 실행해 보고 나서 맞춰 적으면 된다.”</span><span class="zh">“预想等运行完再照着写就行。”</span></div></div><div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">그러면 모든 줄이 통과가 되고 <b>아무것도 비교하지 못합니다.</b> 예상은 반드시 실행 전에 적고, 실행 뒤에는 고치지 않습니다.</span><span class="zh">那样每一行都会通过，<b>什么都比较不了。</b>预想必须在运行前写，运行后不改。</span></div></div><div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“내가 만든 서비스니까 처음 방문은 볼 것도 없다.”</span><span class="zh">“自己做的服务，首次访问没什么可看的。”</span></div></div><div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">만든 사람은 이미 알아서 막히는 곳을 못 봅니다. 처음 방문은 <b>처음 보는 사람</b>이 해 봐야 드러납니다.</span><span class="zh">做的人因为早就知道，看不到卡住的地方。首次访问要让<b>第一次看到的人</b>试，问题才会暴露。</span></div></div><div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“화면에 기록이 보이면 저장된 것이다.”</span><span class="zh">“画面上能看到记录，就说明保存了。”</span></div></div><div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">화면에만 잠깐 남은 것일 수 있습니다. <b>SQLite Viewer의 줄</b>과 맞춰 보고, 서비스를 다시 켠 뒤에도 보여야 저장된 것입니다.</span><span class="zh">也可能只是暂时留在画面上。要和 <b>SQLite Viewer 里的行</b>对照，服务重新打开后也能看到，才算保存了。</span></div></div></div>
+</section>
+
+<section class="page" id="s13">
+<div class="kick"><span class="ko">12. 확인</span><span class="zh">12. 确认</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">확인 문제</span><span class="zh">确认题</span> <span class="badge core"><span class="ko">확인</span><span class="zh">确认</span></span></h2>
+<p class="lead"><span class="ko">오늘 배운 것을 세 문제로 확인합니다. 답을 먼저 말해 보고 해설을 엽니다. 답이 막히는 문제가 있으면 그 절로 돌아가 다시 읽습니다. 해설은 인쇄하면 펼쳐진 채로 나옵니다.</span><span class="zh">用三道题确认今天学的内容。先说出答案，再打开解析。答不上来的题，就回到那一节再读一遍。打印时解析会是展开的。</span></p>
+<div class="quiz"><div class="q"><div class="qq"><span class="ko">예상한 서비스 반응을 실행하기 전에 적어야 하는 이유는?</span><span class="zh">为什么预想的服务回应要在运行之前写？</span></div><details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">실행한 뒤에 적으면 화면에 나온 것을 옮겨 적게 되어 <b>모든 줄이 통과</b>가 됩니다. 그러면 계획과 실제를 비교할 수 없고, 고칠 곳도 찾지 못합니다.</span><span class="zh">运行后再写，就会照抄画面上出现的东西，<b>每一行都成了通过</b>。那样就没法比较计划和实际，也找不到要改的地方。</span></p></div></details></div><div class="q"><div class="qq"><span class="ko">예외 안내가 화면에 나타났는데도 「예외 뒤 다시 시도」가 실패일 수 있는 경우는?</span><span class="zh">例外提示已经出现在画面上，“例外后重试”还可能失败，是什么情况？</span></div><details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">안내를 따라 고친 뒤 <b>정상 결과까지 가지 못하는</b> 경우입니다. 예를 들어 안내가 나온 뒤 입력칸이 사라지거나, 다시 눌러도 저장되지 않으면 사용자는 거기서 멈춥니다.</span><span class="zh">是按提示改正后<b>走不到正常结果</b>的情况。比如提示出现后输入框不见了，或者再按也保存不了，用户就卡在那里了。</span></p></div></details></div><div class="q"><div class="qq"><span class="ko">화면에는 기록이 없는데 SQLite Viewer에는 그 줄이 있다면, 어느 쪽이 문제일 가능성이 큰가?</span><span class="zh">画面上没有记录，SQLite Viewer 里却有那一行，问题更可能在哪一边？</span></div><details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">저장은 되었으니 <b>다시 불러와 화면에 보여 주는 쪽</b>입니다. 이 사실을 알면 AI에게 「저장은 되는데 다시 열면 화면에 안 나온다」처럼 범위를 좁혀 말할 수 있습니다.</span><span class="zh">已经保存了，所以问题在<b>重新调出来显示到画面上的那一边</b>。知道这一点，就能像“保存是成功的，但重新打开后画面上不显示”这样，缩小范围告诉 AI。</span></p></div></details></div></div>
+</section>
+
+<section class="page" id="s14">
+<div class="kick"><span class="ko">13. 정리</span><span class="zh">13. 小结</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">시험할 준비가 끝났다</span><span class="zh">测试准备好了</span></h2>
+<p class="lead"><span class="ko">오늘은 9회의 사용자 흐름을 다섯 시나리오로 나누고, 실행하기 전에 예상한 서비스 반응을 <code>docs/12_test_record.md</code>의 1~3항에 적었습니다. 판정하는 법과 화면을 SQLite Viewer와 맞춰 보는 법을 익혔고, 처음 방문은 짝과 직접 시험했습니다. 나머지 시나리오는 다음 차시에 같은 기록 파일을 들고 실행합니다.</span><span class="zh">今天把第 9 次课的用户流程分成五个场景，在运行之前把预想的服务回应写进了 <code>docs/12_test_record.md</code> 第 1~3 项。学会了怎样判定、怎样把画面和 SQLite Viewer 对照，还和同桌亲手测试了首次访问。其余场景下一课时拿着同一份记录文件来运行。</span></p>
+<div class="recap"><div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div><ul class="blist"><li><span class="ko">사용자 흐름 테스트는 <b>처음 쓰는 사람처럼</b> 끝까지 써 보며 예상과 실제를 비교하는 일이다.</span><span class="zh">用户流程测试就是<b>像第一次使用的人那样</b>用到底，比较预想和实际。</span></li><li><span class="ko">시나리오는 다섯 가지 — 처음 방문 · 대표 정상 흐름 · 예외 뒤 다시 시도 · 같은 행동 반복 · 새로고침·다시 방문.</span><span class="zh">场景有五种 — 首次访问 · 代表性正常流程 · 例外后重试 · 重复同一动作 · 刷新·再次访问。</span></li><li><span class="ko">예상한 서비스 반응은 <b>실행 전에</b>, 화면에 보일 글자로 적는다. 실행 뒤에는 고치지 않는다.</span><span class="zh">预想的服务回应要<b>在运行前</b>，用画面上会出现的文字来写。运行后不改。</span></li><li><span class="ko">기록이 걸린 시나리오는 화면과 <b>SQLite Viewer의 줄</b>을 함께 보고 판정한다.</span><span class="zh">和记录有关的场景，要同时看画面和 <b>SQLite Viewer 里的行</b>再判定。</span></li></ul></div>
+<div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><p><span class="ko">다음 차시에는 남은 네 시나리오를 실제로 실행해 실제 결과와 판정을 채웁니다. 처음 예상과 달라진 단계를 찾아 AI에게 가장 작은 수정을 부탁하고, 13회에 고칠 문제의 순서를 정한 뒤 제출 ZIP을 한 번 만들어 연습합니다.</span><span class="zh">下一课时把剩下的四个场景真正运行一遍，填好实际结果和判定。找出第一次和预想不一样的步骤，请 AI 做最小的修改，定好第 13 次课要改的问题的顺序，再试着做一次提交 ZIP。</span></p><a class="next" href="../../12/textbook/12-2.html"><span class="ko">12-2. 사용자 흐름 테스트와 제출 ZIP 연습 →</span><span class="zh">12-2. 用户流程测试与提交 ZIP 练习 →</span></a></div>
+<div class="lessonnav"><a href="../../11/textbook/11-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t"><span class="ko">11-2. SQLite 데이터 저장 연결하기</span><span class="zh">11-2. 连接 SQLite 数据保存</span></span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../12/textbook/12-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t"><span class="ko">12-2. 사용자 흐름 테스트와 제출 ZIP 연습</span><span class="zh">12-2. 用户流程测试与提交 ZIP 练习</span></span></a></div>
+</section>
+
+<section class="page" id="s15">
+<div class="kick"><span class="ko">부록 · 막힐 때</span><span class="zh">附录 · 卡住时</span><b>12-1</b></div>
+<h2 class="title"><span class="ko">이럴 때는 이렇게 한다</span><span class="zh">遇到这些情况就这样做</span> <span class="badge ext"><span class="ko">필요할 때</span><span class="zh">需要时</span></span></h2>
+<p class="lead"><span class="ko">오늘 막히는 자리는 대개 서비스를 켜는 곳과 양식을 채우는 곳입니다. 내 상황과 같은 줄을 찾아 오른쪽대로 해 봅니다. 그래도 안 되면 손을 듭니다. 다음 차시에도 같은 폴더와 같은 파일을 쓰니 여기서 정리해 두면 편합니다.</span><span class="zh">今天卡住的地方，大多在启动服务和填写表格这两处。找到和自己情况一样的那行，照右边做。还不行就举手。下一课时还用同一个文件夹和同一个文件，这里理顺了会轻松很多。</span></p>
+<div class="trouble"><div class="th"><span class="ko">이런 상황이라면</span><span class="zh">如果是这些情况</span></div><table><tr><td><span class="ko"><code>docs</code>에 <code>12_test_record.md</code>가 없다</span><span class="zh"><code>docs</code> 里没有 <code>12_test_record.md</code></span></td><td><span class="ko">10-2 교과서에서 <code>10_student_files.zip</code>을 다시 내려받아, 압축 안의 <code>10/docs/12_test_record.md</code> 하나만 내 <code>docs</code> 폴더에 복사합니다. 다른 파일은 덮어쓰지 않습니다.</span><span class="zh">在 10-2 教材里重新下载 <code>10_student_files.zip</code>，只把压缩包里的 <code>10/docs/12_test_record.md</code> 一个文件复制到自己的 <code>docs</code> 文件夹。其他文件不要覆盖。</span></td></tr><tr><td><span class="ko"><code>npm run dev</code>가 「Port 3000 is in use」라며 다른 번호로 켜진다</span><span class="zh"><code>npm run dev</code> 提示“Port 3000 is in use”，用了别的端口号启动</span></td><td><span class="ko">다른 터미널에서 이미 켜져 있는 것입니다. 터미널 목록에서 먼저 켠 쪽을 찾아 <code>Ctrl+C</code>로 멈추고, 하나만 켭니다.</span><span class="zh">说明另一个终端里已经开着了。在终端列表里找到先开的那个，按 <code>Ctrl+C</code> 停止，只保留一个。</span></td></tr><tr><td><span class="ko"><code>data/app.db</code>가 없다</span><span class="zh">没有 <code>data/app.db</code></span></td><td><span class="ko">11회에 저장을 연결하지 못한 것입니다. 오늘은 기록 관련 줄의 판정을 「확인 필요」로 두고, 손을 들어 선생님과 11회 진행 상태를 확인합니다.</span><span class="zh">说明第 11 次课没能接上保存。今天把和记录有关的行判定为“需确认”，举手和老师确认第 11 次课的进度。</span></td></tr><tr><td><span class="ko">AI가 <code>12_test_record.md</code>를 고쳤다</span><span class="zh">AI 改了 <code>12_test_record.md</code></span></td><td><span class="ko"><code>Ctrl+Z</code>로 되돌리거나 「방금 고친 곳을 모두 원래대로 되돌려 줘」를 보냅니다. <code>docs</code>의 문서는 내가 씁니다.</span><span class="zh">用 <code>Ctrl+Z</code> 撤销，或者发“把刚才改的地方全部改回原样”。<code>docs</code> 里的文件由我自己写。</span></td></tr><tr><td><span class="ko"><code>FreeUsageLimitError</code>나 <code>429</code>가 나온다</span><span class="zh">出现 <code>FreeUsageLimitError</code> 或 <code>429</code></span></td><td><span class="ko">1~2분 기다렸다가 같은 요청을 다시 보냅니다. 그동안 2항의 처음 방문 줄부터 내가 먼저 씁니다.</span><span class="zh">等 1~2 分钟再发同样的请求。这段时间先自己写第 2 项首次访问那一行。</span></td></tr></table></div>
+</section>
 
 </main>
 

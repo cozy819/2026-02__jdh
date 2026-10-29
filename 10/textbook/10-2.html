@@ -1,134 +1,177 @@
 <!DOCTYPE html>
 <html lang="ko" class="lang-ko">
 <head>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
 <title>10-2. AI와 핵심 API 연결하기 · 정보와 디지털 문해력</title>
-<meta name="description" content="AI가 API 약속을 먼저 설명하게 한 뒤 Next.js 프로젝트의 핵심 내부 API 하나를 연결한다." />
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<meta name="description" content="정보와 디지털 문해력 교과서 10-2 — AI에게 docs의 문서를 읽히고 코드보다 약속을 먼저 설명하게 한 뒤, 핵심 사용자 행동 하나를 화면 → 요청 → API → 응답 → 화면으로 연결하고 정상·잘못된 입력으로 시험한다." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/textbook.css" />
 </head>
 <body class="lang-ko">
-<div id="top"><button class="menu" onclick="tbToggleToc()">☰ 목차</button><button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button><button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button><div class="brand"><em>10-2</em> <span class="lesson">AI와 핵심 API 연결하기</span></div><div class="spacer"></div><div class="pct" id="count">1 / 1</div><button class="pbtn" onclick="window.print()">인쇄</button></div>
+<div id="top">
+  <button class="menu" onclick="tbToggleToc()">☰ <span class="ko">목차</span><span class="zh">目录</span></button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false"><span class="ko">한 장씩 보기</span><span class="zh">逐页查看</span></button>
+  <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
+  <div class="brand"><em>10-2</em> <span class="lesson"><span class="ko">AI와 핵심 API 연결하기</span><span class="zh">与 AI 一起接上核心 API</span></span></div>
+  <div class="spacer"></div>
+  <div class="pct" id="count">1 / 1</div>
+  <button class="pbtn" onclick="window.print()"><span class="ko">인쇄</span><span class="zh">打印</span></button>
+</div>
 <div id="prog"></div>
-<nav id="toc">
-  <div class="h"><span class="ko">이 차시 — 10-2</span><span class="zh">本课时 — 10-2</span></div>
-  <a href="#opener"><span class="n">·</span> 차시 표지</a>
-  <a href="#s0"><span class="n">·</span> 오늘의 원칙</a>
-  <a href="#s1"><span class="n">1</span> 프로젝트와 문서 준비</a>
-  <a href="#s2"><span class="n">2</span> API 약속 확정</a>
-  <a href="#s3"><span class="n">3</span> AI에게 먼저 설명 요청</a>
-  <a href="#s4"><span class="n">4</span> AI 제안 확인</a>
-  <a href="#s5"><span class="n">5</span> API 연결과 실행</a>
-  <a href="#s6"><span class="n">6</span> 가장 작은 수정</a>
-  <a href="#s7"><span class="n">7</span> 아직 기억하지 못하는 것</a>
-  <a href="#s8"><span class="n">8</span> 완료 확인</a>
-  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
-  <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
-  <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
-  <a href="../../01/textbook/01-2.html"><span class="n">1-2</span> 수업 열기</a>
-  <a href="../../02/textbook/02-1.html"><span class="n">2-1</span> 개발 도구 설치와 확인</a>
-  <a href="../../02/textbook/02-2.html"><span class="n">2-2</span> 숫자와 변수로 계산하기</a>
-  <a href="../../02/textbook/02-3.html"><span class="n">2-3</span> 웹과 프로그래밍 언어의 역사</a>
-  <a href="../../03/textbook/03-1.html"><span class="n">3-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
-  <a href="../../03/textbook/03-2.html"><span class="n">3-2</span> 여러 값을 묶는 두 가지 방법</a>
-  <a href="../../04/textbook/04-1.html"><span class="n">4-1</span> Matplotlib으로 그래프 이해하기</a>
-  <a href="../../04/textbook/04-2.html"><span class="n">4-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
-  <a href="../../05/textbook/05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
-  <a href="../../05/textbook/05-2.html"><span class="n">5-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
-  <a href="../../06/textbook/06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
-  <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
-  <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
-  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> 개인정보와 암호화</a>
-  <a href="../../08/textbook/08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
-  <a href="../../08/textbook/08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
-  <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
-  <a href="../../09/textbook/09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
-  <a href="../../10/textbook/10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
-  <a href="../../10/textbook/10-2.html" class="here"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
-  <a href="../../11/textbook/11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
-  <a href="../../11/textbook/11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
-  <a href="../../12/textbook/12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
-  <a href="../../12/textbook/12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
-  <a href="../../13/textbook/13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
-  <a href="../../13/textbook/13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
-
-  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
-  <a href="../../09/textbook/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
-</nav>
-<div id="scrim" onclick="tbToggleToc(false)"></div>
+<nav id="toc"><div class="h"><span class="ko">이 차시 — 10-2</span><span class="zh">本课时 — 10-2</span></div><a href="#opener"><span class="n">·</span><span class="ko">차시 표지</span><span class="zh">课时首页</span></a><a href="#s0"><span class="n">0</span><span class="ko">들어가며</span><span class="zh">开始之前</span></a><a href="#s1"><span class="n">1</span><span class="ko">시작 상태</span><span class="zh">起始状态</span></a><a href="#s2"><span class="n">2</span><span class="ko">요청 ① 계획 설명</span><span class="zh">请求 ① 说明计划</span></a><a href="#s3"><span class="n">·</span><span class="ko">계획 확인</span><span class="zh">确认计划</span></a><a href="#s4"><span class="n">3</span><span class="ko">요청 ② 연결과 시험</span><span class="zh">请求 ② 连接与测试</span></a><a href="#s6"><span class="n">4</span><span class="ko">다를 때</span><span class="zh">不一样时</span></a><a href="#s7"><span class="n">5</span><span class="ko">아직 기억 못 함</span><span class="zh">还记不住</span></a><a href="#s8"><span class="n">6</span><span class="ko">마지막 확인</span><span class="zh">最后确认</span></a><a href="#s9"><span class="n">7</span><span class="ko">정리와 다음 차시</span><span class="zh">小结与下一课时</span></a><a href="#s10"><span class="n">+</span><span class="ko">막힐 때</span><span class="zh">卡住时</span></a><div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div><a href="../../index.html"><span class="n"><span class="ko">표지</span><span class="zh">首页</span></span><span class="ko">전체 목차</span><span class="zh">全部目录</span></a></nav><div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
-<section class="page opener" id="opener"><div class="onum"><span class="ko">10회 · 둘째 차시</span><span class="zh">第 10 次课 · 第 2 课时</span></div><h1><span class="ko">AI와 핵심 API<br/>연결하기</span><span class="zh">与 AI 连接<br/>核心 API</span></h1><div class="abar"></div><div class="osub"><span class="ko">AI가 코드보다 <b>요청·응답 약속</b>을 먼저 설명하게 한 뒤,<br/>핵심 기능 하나만 연결합니다.</span><span class="zh">让 AI 在代码之前先说明<b>请求·响应约定</b>，<br/>然后只连接一个核心功能。</span></div><div class="ometa"><span class="ko"><b>이전 차시</b> · 10-1. API와 요청·응답 이해<br/><b>다음 차시</b> · 11-1. 서비스가 데이터를 기억하는 과정<br/><b>오늘 제외</b> · DB·파일 업로드·로그인·외부 API</span><span class="zh"><b>上一课时</b> · 10-1. 理解 API 与请求·响应<br/><b>下一课时</b> · 11-1. 服务记住数据的过程<br/><b>今天不做</b> · DB、文件上传、登录、外部 API</span></div></section>
+<section class="page opener" id="opener"><div class="onum"><span class="ko">10회 · 둘째 차시</span><span class="zh">第 10 次课 · 第 2 课时</span></div>
+<h1><span class="ko">AI와 핵심 API<br/>연결하기</span><span class="zh">与 AI 一起<br/>接上核心 API</span></h1>
+<div class="osub"><span class="ko">코드보다 <b>약속을 먼저</b> 설명하게 하고,<br/>내 서비스의 버튼 하나를 요청과 응답으로 잇습니다.</span><span class="zh">先让 AI <b>讲约定</b>，再写代码，<br/>把自己服务的一个按钮接成请求与响应。</span></div>
+<div class="abar"></div>
+<div class="ometa"><span class="ko"><b>이전 차시</b> · 10-1. API와 요청·응답 이해하기<br/><b>다음 차시</b> · 11-1. 서비스가 데이터를 기억하는 과정<br/><b>오늘 쓰는 폴더</b> · <code>10</code> — 13회까지 쓰는 내 서비스 프로젝트</span><span class="zh"><b>上一课时</b> · 10-1. 理解 API 与请求·响应<br/><b>下一课时</b> · 11-1. 服务记住数据的过程<br/><b>今天用的文件夹</b> · <code>10</code> — 用到第 13 次课的自己的服务项目</span></div></section>
 
-<section class="page" id="s0"><div class="kick"><span class="ko">시작하기 전에</span><span class="zh">开始之前</span><b>10-2</b></div><h2 class="title"><span class="ko">오늘의 원칙: 코드보다 약속을 먼저 본다</span><span class="zh">今天的原则：代码之前先看约定</span></h2><div class="vflow"><div class="vf plain"><span class="ko"><b>① 문서 읽기</b><span>PRD·개발 계획·수업 조건</span></span><span class="zh"><b>① 读文档</b><span>PRD·开发计划·课程条件</span></span></div><div class="varr">▼</div><div class="vf"><span class="ko"><b>② API 약속 설명</b><span>보낼 것·받을 것·실패 안내</span></span><span class="zh"><b>② 说明 API 约定</b><span>发送·接收·失败提示</span></span></div><div class="varr">▼</div><div class="vf plain"><span class="ko"><b>③ 제안 확인</b><span>9회 흐름과 맞는지</span></span><span class="zh"><b>③ 确认提议</b><span>是否符合第 9 次课的流程</span></span></div><div class="varr">▼</div><div class="vf"><span class="ko"><b>④ 연결·실행·관찰</b><span>핵심 API 하나만</span></span><span class="zh"><b>④ 连接·运行·观察</b><span>只做一个核心 API</span></span></div></div><div class="note stop"><div class="nt"><span class="ko">사용자 흐름을 다시 설계하지 않습니다</span><span class="zh">不重新设计用户流程</span></div><p><span class="ko">9회에 흐름은 이미 확정했습니다. 오늘은 그 흐름의 핵심 행동 하나를 <b>실제 요청과 응답</b>으로 연결합니다.</span><span class="zh">第 9 次课的流程已经确定。今天把其中一个核心行动连成<b>真实的请求与响应</b>。</span></p></div></section>
+<section class="page" id="s0">
+<div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">오늘 끝나면 내 버튼 하나가 진짜로 답한다</span><span class="zh">今天结束时，自己的一个按钮会真的作答</span></h2>
+<p class="lead"><span class="ko">10-1에서 예시 버튼이 요청을 보내고 응답을 받는 것을 봤습니다. 오늘은 그 자리에 <b>내 서비스의 핵심 행동</b>을 넣습니다. 고치는 일은 AI가 하지만, AI가 내 약속과 다르게 만들면 알아챌 사람은 나뿐입니다. 그래서 오늘도 한 번에 시키지 않고 단계를 나눕니다.</span><span class="zh">10-1 看到了示例按钮发出请求、收到响应。今天在那个位置放进<b>自己服务的核心动作</b>。改的事由 AI 来做，但 AI 做得和约定不一样时，能发现的只有我。所以今天也不一次全交给它，而是分步骤来。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:12%"><span class="ko">단계</span><span class="zh">步骤</span></th><th style="width:40%"><span class="ko">AI가 하는 일</span><span class="zh">AI 做的事</span></th><th><span class="ko">내가 확인하는 것</span><span class="zh">我要确认的</span></th></tr></thead><tbody><tr><td><span class="ko">①</span><span class="zh">①</span></td><td><span class="ko"><code>docs</code>를 읽고 연결 계획을 설명한다</span><span class="zh">读 <code>docs</code>，说明连接计划</span></td><td><span class="ko">약속표와 맞는가 · 고칠 파일이 무엇인가</span><span class="zh">是否符合约定表 · 要改哪些文件</span></td></tr><tr><td><span class="ko">②</span><span class="zh">②</span></td><td><span class="ko">「진행해」를 받고 코드를 고친다</span><span class="zh">收到“开始吧”后改代码</span></td><td><span class="ko">정상 입력과 잘못된 입력에서 화면이 약속대로 바뀌는가</span><span class="zh">正常输入和错误输入时，画面是否按约定变化</span></td></tr><tr><td><span class="ko">③</span><span class="zh">③</span></td><td><span class="ko">달라진 곳의 가장 작은 수정을 제안한다</span><span class="zh">对出偏差的地方提出最小的修改</span></td><td><span class="ko">같은 행동을 다시 해서 고쳐졌는가</span><span class="zh">再做一遍同样的动作，是否改好了</span></td></tr></tbody></table></div>
+</section>
 
-<section class="page" id="s1"><div class="kick"><span class="ko">1. 준비</span><span class="zh">1. 准备</span><b>10-2</b></div><h2 class="title"><span class="ko">표준 프로젝트와 문서를 준비한다</span><span class="zh">准备标准项目与文档</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><ol class="blist"><li><span class="ko">교사가 배포한 <b>표준 Next.js 프로젝트</b>를 복사합니다.</span><span class="zh">复制老师发放的<b>标准 Next.js 项目</b>。</span></li><li><span class="ko">규칙에 맞게 폴더 이름을 바꿉니다.</span><span class="zh">按规则修改文件夹名。</span></li><li><span class="ko"><code>docs/</code>에 수업 조건·PRD·개발 계획 문서를 넣습니다.</span><span class="zh">把课程条件、PRD、开发计划放进 <code>docs/</code>。</span></li><li><span class="ko">교사가 제공한 명령 하나로 실행하고 기본 화면을 엽니다.</span><span class="zh">用老师提供的一条命令运行，打开基本画面。</span></li></ol><div class="code"><div class="chd"><span class="ko"><span class="fn">docs/ — 필수 문서</span></span><span class="zh"><span class="fn">docs/ — 必需文档</span></span></div><pre><code>00_course_project_rules.md
-08_assessment2_학생ID_이름.md
-09_development_plan_학생ID_이름.md</code></pre></div><div class="note warn"><div class="nt"><span class="ko">기본 화면이 열리지 않으면</span><span class="zh">如果基本画面打不开</span></div><p><span class="ko">코드를 수정하지 않고 교사의 복구본으로 실행 환경부터 확인합니다.</span><span class="zh">不改代码，先用老师的恢复版确认运行环境。</span></p></div></section>
+<section class="page" id="s1">
+<div class="kick"><span class="ko">1. 시작 상태</span><span class="zh">1. 起始状态</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">터미널 두 개로 시작한다 — 실행용과 OpenCode용</span><span class="zh">用两个终端开始 — 一个运行，一个给 OpenCode</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">오늘은 서비스를 켜 둔 채로 AI와 이야기합니다. 서비스를 켠 터미널은 계속 일하고 있어서 거기에 다른 명령을 칠 수 없습니다. 그래서 터미널을 하나 더 엽니다. 두 터미널이 무엇을 하는지 구분해 두면 오늘 막히는 일이 절반으로 줄어듭니다.</span><span class="zh">今天要在服务开着的状态下和 AI 对话。开着服务的终端一直在工作，没法在里面输入别的命令。所以再开一个终端。分清两个终端各做什么，今天卡住的情况就能少一半。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">순서</span><span class="zh">顺序</span></div><ol><li><span class="ko">VS Code에서 <code>10</code> 폴더를 연다. 탐색기 맨 위에 <code>10</code>, <code>docs</code> 안에 파일 다섯 개가 있는지 본다.</span><span class="zh">在 VS Code 里打开 <code>10</code> 文件夹。看资源管理器最上面是不是 <code>10</code>，<code>docs</code> 里有没有五个文件。</span></li><li><span class="ko"><b>터미널 ①</b>: <code>npm run dev</code> → 브라우저에서 <code>localhost:3000</code>을 열어 예시 화면이 보이는지 본다.</span><span class="zh"><b>终端 ①</b>：<code>npm run dev</code> → 在浏览器打开 <code>localhost:3000</code>，看示例画面是否出现。</span></li><li><span class="ko">터미널 오른쪽 위의 <b>+</b>를 눌러 <b>터미널 ②</b>를 연다. 줄 끝이 <code>…\10&gt;</code>인지 본다.</span><span class="zh">点终端右上角的 <b>+</b>，打开<b>终端 ②</b>。看行末是不是 <code>…\10&gt;</code>。</span></li><li><span class="ko"><b>터미널 ②</b>: <code>opencode</code>를 켠다.</span><span class="zh"><b>终端 ②</b>：打开 <code>opencode</code>。</span></li></ol></div>
+<div class="note warn"><div class="nt"><span class="ko">예시 화면이 안 열리면 코드를 고치지 않습니다</span><span class="zh">示例画面打不开时，不要改代码</span></div><p><span class="ko">아직 아무것도 고치지 않았는데 안 열리면 환경 문제입니다. AI에게 고치게 하지 말고 손을 듭니다. 10-1의 「막힐 때」를 먼저 봅니다.</span><span class="zh">还什么都没改就打不开，那是环境问题。不要让 AI 去改，举手。先看 10-1 的“卡住时”。</span></p></div>
+</section>
 
-<section class="page" id="s2"><div class="kick"><span class="ko">2. 약속</span><span class="zh">2. 约定</span><b>10-2</b></div><h2 class="title"><span class="ko">내 서비스의 API 약속을 한 줄씩 확정한다</span><span class="zh">逐项确定我的 API 约定</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><ul class="blist">
-      <li><span class="ko">사용자의 핵심 행동</span><span class="zh">用户核心行动</span></li>
-      <li><span class="ko">요청 주소와 방법</span><span class="zh">请求地址与方法</span></li>
-      <li><span class="ko">요청에 보낼 데이터</span><span class="zh">请求发送的数据</span></li>
-      <li><span class="ko">성공 응답으로 받을 데이터</span><span class="zh">成功响应的数据</span></li>
-      <li><span class="ko">실패 응답으로 받을 안내</span><span class="zh">失败响应的提示</span></li>
-      <li><span class="ko">화면에 보여 줄 결과</span><span class="zh">画面显示的结果</span></li>
-    </ul><div class="note ok"><div class="nt"><span class="ko">같은 기능의 공통 API가 아닙니다</span><span class="zh">不是所有人共用同一功能</span></div><p><span class="ko">학생마다 만드는 서비스가 다르므로 주소와 데이터도 다를 수 있습니다. 다만 위 여섯 항목은 모두 확인합니다.</span><span class="zh">每个学生的服务不同，地址与数据也可以不同，但都要确认上面六项。</span></p></div></section>
+<section class="page" id="s2">
+<div class="kick"><span class="ko">2. 계획 먼저</span><span class="zh">2. 先讲计划</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">요청 ① 코드보다 약속을 먼저 설명하게 한다</span><span class="zh">请求 ① 让 AI 先讲约定，再写代码</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">첫 요청은 아무 파일도 고치지 않게 하고, 연결 계획만 설명하게 합니다. 빈칸 세 개는 <code>docs\10_api_promise.md</code>의 약속표에서 옮겨 적습니다. 요청문을 복사해 OpenCode 입력칸에 붙인 뒤, 빈칸 <code>___</code>을 내 서비스의 말로 바꿔서 보냅니다.</span><span class="zh">第一个请求不让它改任何文件，只让它说明连接计划。三个空格从 <code>docs\10_api_promise.md</code> 的约定表里抄过来。把请求复制粘贴到 OpenCode 输入框，把空格 <code>___</code> 换成自己服务的说法后再发送。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">요청 ① — 빈칸 세 개를 채워 보내기</span><span class="zh">请求 ① — 填好三个空格再发送</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">docs 폴더의 00_course_rules.md, PRD.md, 09_development_plan.md, 10_api_promise.md를 읽어 줘.
+아직 어떤 파일도 고치지 마.
 
-<section class="page" id="s3"><div class="kick"><span class="ko">3. AI 요청</span><span class="zh">3. 向 AI 请求</span><b>10-2</b></div><h2 class="title"><span class="ko">AI에게 코드보다 약속을 먼저 설명하게 한다</span><span class="zh">让 AI 在代码前先说明约定</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="code"><div class="chd"><span class="ko"><span class="fn">AI 요청문 — 아직 코드 수정 금지</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文 — 暂不改代码</span><button class="cp" onclick="copyCode(this)">复制</button></span></div><pre><code>docs 폴더의 수업 조건, PRD와 개발 계획을 읽어 줘.
-아직 코드를 수정하지 마.
+다음 핵심 행동 하나를 이 프로젝트 안의 API로 연결할 계획을 설명해 줘.
+- 핵심 행동: ___
+- 성공하면 화면에 보여야 할 결과: ___
+- 잘못된 입력이면 보여야 할 안내: ___
 
-핵심 사용자 행동 ___을
-프로젝트 내부 API로 연결할 계획을 설명해 줘.
-
+코드 대신 다음을 한 줄씩 쉽게 설명해 줘.
 1. 어떤 화면 행동이 요청을 보내는지
 2. 요청 주소와 GET/POST 중 방법
 3. 요청에 보낼 데이터
 4. 성공·실패 응답으로 받을 데이터
 5. 응답 뒤 화면이 어떻게 바뀌는지
-6. 수정할 파일과 각 파일의 역할
+6. 고칠 파일과 각 파일의 역할
 
-[제한]
-- 하나의 Next.js 프로젝트 안의 내부 API만 사용
-- 핵심 기능 하나만 연결
-- DB·저장·파일 업로드·로그인·결제·외부 API 제외
-- 새 패키지 추가와 프로젝트 전체 재작성 금지</code></pre></div><div class="note stop"><div class="nt"><span class="ko">코드가 먼저 나오면 멈추게 합니다</span><span class="zh">如果先出代码就让它停下</span></div><p><span class="ko">“아직 수정하지 말고, 요청·응답 약속부터 쉽게 설명해 줘”라고 다시 요청합니다.</span><span class="zh">再说一次：“先不要修改，请先简单说明请求·响应约定。”</span></p></div></section>
+저장(DB)·파일 올리기·로그인·외부 API·새 패키지는 넣지 마.</pre><pre class="zh blk">请读 docs 文件夹里的 00_course_rules.md、PRD.md、09_development_plan.md、10_api_promise.md。
+现在还不要改任何文件。
 
-<section class="page" id="s4"><div class="kick"><span class="ko">4. 판단</span><span class="zh">4. 判断</span><b>10-2</b></div><h2 class="title"><span class="ko">AI의 제안을 사용자와 API 관점에서 확인한다</span><span class="zh">从用户与 API 角度检查 AI 提议</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><ul class="blist checks">
-      <li><span class="ko">요청을 보내는 행동이 9회의 흐름과 맞는가?</span><span class="zh">发请求的行动符合第 9 次课流程吗？</span></li>
-      <li><span class="ko">보내는 데이터가 핵심 기능에 필요한 것뿐인가?</span><span class="zh">发送的只是核心功能必需的数据吗？</span></li>
-      <li><span class="ko">성공 응답이 화면에 보여 줄 결과와 맞는가?</span><span class="zh">成功响应符合画面要显示的结果吗？</span></li>
-      <li><span class="ko">실패 응답이 무엇을 고칠지 알려 주는가?</span><span class="zh">失败响应会告诉用户改什么吗？</span></li>
-      <li><span class="ko">수업에서 제외한 기능이나 패키지를 추가하지 않는가?</span><span class="zh">没有加入课程排除的功能或新软件包吗？</span></li>
-      <li><span class="ko">요청·응답을 내 말로 설명할 수 있는가?</span><span class="zh">能用自己的话说明请求·响应吗？</span></li>
-    </ul><div class="note ok"><div class="nt"><span class="ko">모두 확인한 뒤에만 수정을 허용합니다</span><span class="zh">全部确认后才允许修改</span></div><p><span class="ko">이해하지 못한 항목은 AI에게 “사용자의 행동과 화면에 보이는 결과로 다시 설명해 줘”라고 묻습니다.</span><span class="zh">对不理解的项目，请 AI “用用户行动与画面结果重新说明”。</span></p></div></section>
+请说明把下面这一个核心动作，接成这个项目里的 API 的计划。
+- 核心动作：___
+- 成功时画面上要显示的结果：___
+- 输入错误时要显示的提示：___
 
-<section class="page" id="s5"><div class="kick"><span class="ko">5. 연결과 관찰</span><span class="zh">5. 连接与观察</span><b>10-2</b></div><h2 class="title"><span class="ko">핵심 API를 연결하고 정상·실패 응답을 본다</span><span class="zh">连接核心 API，观察成功·失败响应</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><ol class="blist"><li><span class="ko">AI에게 확인한 계획대로 수정하라고 합니다.</span><span class="zh">让 AI 按已确认的计划修改。</span></li><li><span class="ko">교사가 안내한 방법으로 프로젝트를 실행합니다.</span><span class="zh">按老师的方法运行项目。</span></li><li><span class="ko">정상 값으로 핵심 행동을 실행합니다.</span><span class="zh">用正常值执行核心行动。</span></li><li><span class="ko">응답으로 받은 결과가 화면에 맞게 나타나는지 봅니다.</span><span class="zh">确认响应结果是否正确显示在画面。</span></li><li><span class="ko">입력을 비우거나 잘못된 값으로 실패 응답도 확인합니다.</span><span class="zh">清空输入或用错误值确认失败响应。</span></li></ol><p><span class="ko"><b>정상 입력</b>과 <b>잘못된 입력</b>, 두 가지를 시도하며 각각 다음 세 가지를 적습니다.</span><span class="zh">试<b>正常输入</b>与<b>错误输入</b>两种，各写下面三项。</span></p>
+不要写代码，请把下面几项一行一行用简单的话说明。
+1. 哪个画面动作发出请求
+2. 请求地址，以及 GET/POST 中的哪种方法
+3. 请求里发送的数据
+4. 成功·失败响应里收回的数据
+5. 响应之后画面怎么变化
+6. 要改的文件，以及每个文件的作用
 
-    <ul class="blist">
-      <li><span class="ko"><b>보낸 데이터</b></span><span class="zh"><b>发送的数据</b></span></li>
-      <li><span class="ko"><b>받은 응답</b></span><span class="zh"><b>收到的响应</b></span></li>
-      <li><span class="ko"><b>화면에 보인 것</b></span><span class="zh"><b>画面显示</b></span></li>
-    </ul><div class="note"><div class="nt"><span class="ko">복잡한 개발자 도구는 필수가 아닙니다</span><span class="zh">不必使用复杂开发工具</span></div><p><span class="ko">Postman이나 개발자 도구를 의무로 쓰지 않습니다. 자신의 행동과 화면의 결과를 위 표에 기록하면 됩니다.</span><span class="zh">不强制使用 Postman 或开发者工具，只需记录自己的行动与画面结果。</span></p></div></section>
+不要加入保存（数据库）、上传文件、登录、外部 API、新的包。</pre></div>
+</section>
 
-<section class="page" id="s6"><div class="kick"><span class="ko">6. 수정</span><span class="zh">6. 修改</span><b>10-2</b></div><h2 class="title"><span class="ko">약속과 다른 첫 단계만 찾는다</span><span class="zh">只找到第一个与约定不同的步骤</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><div class="code"><div class="chd"><span class="ko"><span class="fn">작은 수정 요청문</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">最小修改请求文</span><button class="cp" onclick="copyCode(this)">复制</button></span></div><pre><code>원래 약속은 ___을 보내고 ___을 받는 것이야.
-현재는 ___을 했을 때 ___이 보여.
+<section class="page" id="s3">
+<div class="kick"><span class="ko">2. 계획 먼저</span><span class="zh">2. 先讲计划</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">AI의 계획을 약속표와 한 줄씩 대 본다</span><span class="zh">把 AI 的计划和约定表一行一行对照</span></h2>
+<p class="lead"><span class="ko">AI가 여섯 줄을 설명하면, 진행하라고 하기 전에 아래 질문으로 확인합니다. 하나라도 「아니요」면 그 줄만 다시 묻습니다. 모두 「예」이면 AI가 제안한 <b>요청 주소와 방법</b>을 <code>10_api_promise.md</code>의 빈칸에 내가 직접 적습니다.</span><span class="zh">AI 说明完六行后，在让它开始之前，用下面的问题确认。只要有一个“否”，就只追问那一行。全部“是”的话，就把 AI 提出的<b>请求地址和方法</b>亲手填进 <code>10_api_promise.md</code> 的空格。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:50%"><span class="ko">확인할 것</span><span class="zh">要确认的</span></th><th><span class="ko">아니요라면</span><span class="zh">如果是“否”</span></th></tr></thead><tbody><tr><td><span class="ko">요청을 보내는 행동이 9회 흐름의 그 단계와 같은가?</span><span class="zh">发出请求的动作，和第 9 次课流程里的那一步一样吗？</span></td><td><span class="ko">「핵심 행동은 ___이야. 그 버튼으로 다시 설명해 줘」</span><span class="zh">“核心动作是 ___。请按那个按钮重新说明”</span></td></tr><tr><td><span class="ko">보내는 데이터가 핵심 기능에 필요한 것뿐인가?</span><span class="zh">发送的数据只有核心功能需要的吗？</span></td><td><span class="ko">「___은 빼고 다시 설명해 줘」</span><span class="zh">“去掉 ___ 再说明一遍”</span></td></tr><tr><td><span class="ko">실패 응답이 무엇을 고칠지 알려 주는가?</span><span class="zh">失败响应会告诉用户要改什么吗？</span></td><td><span class="ko">「실패하면 ___라고 안내하게 해 줘」</span><span class="zh">“失败时请提示 ___”</span></td></tr><tr><td><span class="ko">저장·로그인·새 패키지가 끼어 있지 않은가?</span><span class="zh">有没有夹带保存·登录·新的包？</span></td><td><span class="ko">「저장은 11회에 해. 오늘은 빼 줘」</span><span class="zh">“保存放到第 11 次课。今天先去掉”</span></td></tr><tr><td><span class="ko">고칠 파일이 <code>app</code> 안의 화면과 API뿐인가?</span><span class="zh">要改的文件只有 <code>app</code> 里的画面和 API 吗？</span></td><td><span class="ko">「package.json은 고치지 마」</span><span class="zh">“不要改 package.json”</span></td></tr></tbody></table></div>
+<div class="note ok"><div class="nt"><span class="ko">내가 설명할 수 있어야 진행합니다</span><span class="zh">我能讲清楚了才开始</span></div><p><span class="ko">요청 주소·방법·보낼 것·받을 것을 짝에게 내 말로 말해 봅니다. 말이 막히면 「___이 무슨 뜻인지 쉽게 다시 설명해 줘」를 보냅니다.</span><span class="zh">用自己的话把请求地址·方法·发送的·收回的讲给同桌听。说不下去，就发“请用简单的话再解释一下 ___ 是什么意思”。</span></p></div>
+</section>
 
-전체 프로젝트를 다시 만들지 마.
-요청 데이터, 처리, 응답, 화면 반영 중
-약속과 처음 달라지는 한 단계만 찾아서
-가장 작은 수정을 제안해 줘.
-수정 뒤 확인할 행동도 알려 줘.</code></pre></div><div class="flow"><div class="f"><b><span class="ko">요청 데이터</span><span class="zh">请求数据</span></b></div><div class="farrow">→</div><div class="f"><b><span class="ko">처리</span><span class="zh">处理</span></b></div><div class="farrow">→</div><div class="f"><b><span class="ko">응답</span><span class="zh">响应</span></b></div><div class="farrow">→</div><div class="f"><b><span class="ko">화면 반영</span><span class="zh">画面更新</span></b></div></div><div class="note warn"><div class="nt"><span class="ko">고칠수록 더 이상해지면</span><span class="zh">如果越改越怪</span></div><p><span class="ko">수정을 멈추고 마지막으로 정상이던 상태를 교사에게 알립니다. 프로젝트 전체를 AI에게 다시 만들게 하지 않습니다.</span><span class="zh">停止修改，把最后正常的状态告诉老师。不让 AI 重做整个项目。</span></p></div></section>
+<section class="page" id="s4">
+<div class="kick"><span class="ko">3. 연결</span><span class="zh">3. 连接</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">요청 ② 「진행해」 — 그리고 직접 눌러 본다</span><span class="zh">请求 ② “开始吧” — 然后亲手按一下</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">계획이 맞으면 짧게 「진행해」라고 보냅니다. AI가 파일을 고치는 동안 기다리고, 끝나면 무엇을 바꿨는지 대화창에서 읽습니다. 서비스는 터미널 ①에서 계속 켜져 있어서, 고친 내용이 브라우저에 저절로 반영됩니다. 이제 내 손으로 눌러 봅니다.</span><span class="zh">计划对了，就简短地发一句“开始吧”。AI 改文件时等着，改完后在对话框里读它改了什么。服务在终端 ① 里一直开着，改动会自动反映到浏览器上。现在亲手按一下。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">요청 ② — 그대로 보내기</span><span class="zh">请求 ② — 原样发送</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">설명한 계획대로 진행해.
+다 고치면 고친 파일 이름과, 내가 화면에서 확인할 행동 두 가지(정상 입력 · 잘못된 입력)를 알려 줘.</pre><pre class="zh blk">按你说明的计划开始吧。
+改完后告诉我改了哪些文件，以及我要在画面上确认的两个动作（正常输入 · 错误输入）。</pre></div>
+<div class="steps"><div class="st-h"><span class="ko">시험하기</span><span class="zh">试一下</span></div><ol><li><span class="ko">브라우저에서 <code>localhost:3000</code>을 새로고침한다.</span><span class="zh">在浏览器里刷新 <code>localhost:3000</code>。</span></li><li><span class="ko"><b>정상 입력</b>으로 핵심 행동을 한다. 9회 흐름의 다음 단계 화면이 나오는가?</span><span class="zh">用<b>正常输入</b>做核心动作。出现第 9 次课流程里下一步的画面了吗？</span></li><li><span class="ko"><b>잘못된 입력</b>(빈칸 등)으로 같은 행동을 한다. 예외 흐름의 안내가 나오는가?</span><span class="zh">用<b>错误输入</b>（空着等）做同样的动作。出现例外流程的提示了吗？</span></li></ol></div>
+</section>
 
-<section class="page" id="s7"><div class="kick"><span class="ko">7. 11회 준비</span><span class="zh">7. 准备第 11 次课</span><b>10-2</b></div><h2 class="title"><span class="ko">아직 기억하지 못하는 것을 확인한다</span><span class="zh">确认还不能记住的内容</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><p class="lead"><span class="ko">API가 성공했더라도 페이지를 새로 열거나 프로젝트를 다시 시작하면 방금 만든 기록이 사라질 수 있습니다.</span><span class="zh">即使 API 成功，重新打开页面或重启项目后，刚刚的记录也可能消失。</span></p><ul class="blist checks">
-      <li><span class="ko">현재 잘 작동하는 요청과 응답</span><span class="zh">当前正常的请求与响应</span></li>
-      <li><span class="ko">새로 열었을 때 사라지는 것</span><span class="zh">重新打开后消失的</span></li>
-      <li><span class="ko">11회에 SQLite에 저장할 핵심 기록</span><span class="zh">第 11 次课要保存到 SQLite 的核心记录</span></li>
-      <li><span class="ko">저장된 기록을 다시 확인할 순간</span><span class="zh">用户再次查看保存记录的时机</span></li>
-    </ul><div class="vflow"><div class="vf"><span class="ko"><b>오늘</b><span>화면 ↔ API</span></span><span class="zh"><b>今天</b><span>画面 ↔ API</span></span></div><div class="varr">▼</div><div class="vf plain"><span class="ko"><b>다음 차시</b><span>화면 ↔ API ↔ SQLite</span></span><span class="zh"><b>下一课</b><span>画面 ↔ API ↔ SQLite</span></span></div></div></section>
+<section class="page" id="s5">
+<div class="kick"><span class="ko">3. 연결</span><span class="zh">3. 连接</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">본 것을 약속표 2항에 적는다</span><span class="zh">把看到的写进约定表第 2 项</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">방금 두 번 눌러 본 결과를 <code>10_api_promise.md</code>의 <b>2. 실행해 본 결과</b>에 적습니다. 보낸 데이터와 화면에 보인 것은 내가 직접 본 대로 씁니다. 받은 응답은 AI에게 물어봐도 됩니다. 이 표는 12회 테스트 기록의 연습입니다.</span><span class="zh">把刚才按两次的结果写进 <code>10_api_promise.md</code> 的 <b>2. <b class="keep-ko">실행해 본 결과</b></b>（试运行的结果）。发送的数据和画面上看到的，照自己亲眼看到的写。收到的响应可以问 AI。这张表是第 12 次课测试记录的练习。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:18%"><span class="ko">시도</span><span class="zh">尝试</span></th><th style="width:24%"><span class="ko">보낸 데이터</span><span class="zh">发送的数据</span></th><th style="width:30%"><span class="ko">받은 응답</span><span class="zh">收到的响应</span></th><th><span class="ko">화면에 보인 것</span><span class="zh">画面上看到的</span></th></tr></thead><tbody><tr><td><span class="ko">정상 입력 (예)</span><span class="zh">正常输入（例）</span></td><td><span class="ko">할 일: 과학 보고서</span><span class="zh">待办：科学报告</span></td><td><span class="ko">ok: true, 추가했습니다</span><span class="zh">ok: true，已添加</span></td><td><span class="ko">목록 맨 위에 「과학 보고서」</span><span class="zh">列表最上面出现“科学报告”</span></td></tr><tr><td><span class="ko">잘못된 입력 (예)</span><span class="zh">错误输入（例）</span></td><td><span class="ko">할 일: (빈칸)</span><span class="zh">待办：（空）</span></td><td><span class="ko">ok: false, 할 일을 입력하세요</span><span class="zh">ok: false，请输入待办</span></td><td><span class="ko">주황 상자에 안내</span><span class="zh">橙色框里显示提示</span></td></tr></tbody></table></div>
+<div class="note"><div class="nt"><span class="ko">응답을 눈으로 보고 싶다면</span><span class="zh">想亲眼看到响应的话</span></div><p><span class="ko">브라우저에서 <code>F12</code>를 누르고 <b>네트워크</b> 탭을 연 뒤 버튼을 누르면, 요청 하나가 줄로 생깁니다. 그 줄을 누르면 응답의 JSON이 보입니다. 필수는 아닙니다.</span><span class="zh">在浏览器里按 <code>F12</code>，打开 <b class="keep-ko">네트워크</b>（网络）标签再按按钮，会多出一行请求。点这一行就能看到响应的 JSON。这一步不是必须的。</span></p></div>
+</section>
 
-<section class="page" id="s8"><div class="kick"><span class="ko">8. 정리</span><span class="zh">8. 小结</span><b>10-2</b></div><h2 class="title"><span class="ko">완료 확인과 활동 결과</span><span class="zh">完成确认与活动结果</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2><ul class="blist checks"><li><span class="ko">표준 프로젝트가 실행된다.</span><span class="zh">标准项目可以运行。</span></li><li><span class="ko">AI가 PRD·9회 계획·수업 조건을 먼저 읽었다.</span><span class="zh">AI 先读了 PRD、第 9 次课计划与课程条件。</span></li><li><span class="ko">핵심 사용자 행동 하나만 API로 연결했다.</span><span class="zh">只把一个核心用户行动连到 API。</span></li><li><span class="ko">AI가 요청·응답·화면 변화를 코드보다 먼저 설명했다.</span><span class="zh">AI 在代码前先说明了请求、响应与画面变化。</span></li><li><span class="ko">정상 입력과 잘못된 입력의 응답을 모두 확인했다.</span><span class="zh">确认了正常与错误输入的响应。</span></li><li><span class="ko">DB·파일 업로드·로그인·외부 API를 추가하지 않았다.</span><span class="zh">没有加入 DB、文件上传、登录、外部 API。</span></li><li><span class="ko">11회에 SQLite에 저장할 핵심 기록을 적었다.</span><span class="zh">写下了第 11 次课要存入 SQLite 的核心记录。</span></li></ul><div class="recap"><div class="rt"><span class="ko">10회가 끝나면</span><span class="zh">第 10 次课结束时</span></div><ul><li><span class="ko">핵심 행동 하나가 <b>화면 → 요청 → 내부 API → 응답 → 화면</b>으로 이어진다.</span><span class="zh">一个核心行动能走通<b>画面 → 请求 → 内部 API → 响应 → 画面</b>。</span></li><li><span class="ko">아직 기억하지 못하는 문제를 11회에 SQLite로 해결한다.</span><span class="zh">第 11 次课用 SQLite 解决还不能记住的问题。</span></li></ul></div><div class="grow"></div><div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><p><span class="ko">11회에는 오늘 연결한 API에 <b>SQLite 저장과 조회</b>를 붙이고, VS Code의 SQLite Viewer로 실제 데이터가 남았는지 확인합니다.</span><span class="zh">第 11 次课会在今天的 API 上加入 <b>SQLite 保存与查询</b>，并用 VS Code 的 SQLite Viewer 确认数据是否真正留下。</span></p><a class="next" href="../../11/textbook/11-1.html">11-1. 서비스가 데이터를 기억하는 과정 →</a></div><div class="lessonnav"><a href="../../10/textbook/10-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">10-1. API와 요청·응답 이해하기</span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../11/textbook/11-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">11-1. 서비스가 데이터를 기억하는 과정</span></a></div></section>
+<section class="page" id="s6">
+<div class="kick"><span class="ko">4. 다를 때</span><span class="zh">4. 不一样时</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">약속과 다르면 처음 달라진 한 단계만 고친다</span><span class="zh">和约定不一样时，只改最先出偏差的那一步</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">화면이 약속과 다르게 움직이면 「안 돼, 다시 해 줘」라고 보내기 쉽습니다. 그러면 AI는 프로젝트를 크게 다시 만들고, 잘되던 부분까지 바뀝니다. 대신 원래 약속, 내가 한 행동, 실제로 보인 것을 그대로 전하고, 처음 달라진 한 단계만 고치게 합니다.</span><span class="zh">画面和约定不一样时，很容易发一句“不行，重做”。那样 AI 会把项目大改一遍，连本来好好的部分都变了。应该把原来的约定、我做的动作、实际看到的照实告诉它，只让它改最先出偏差的那一步。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">요청 ③ — 고장 났을 때 빈칸을 채워 보내기</span><span class="zh">请求 ③ — 出问题时填好空格再发送</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">원래 약속은 ___을 보내고 ___을 받는 거야.
+지금은 ___을 했을 때 화면에 ___이 보여.
+
+프로젝트 전체를 다시 만들지 마.
+화면 행동 → 요청 데이터 → API 처리 → 응답 → 화면 표시 중에서
+약속과 처음 달라지는 한 단계만 찾아서 설명하고,
+가장 작은 수정을 제안해 줘. 아직 고치지는 마.
+고친 뒤 내가 다시 해 볼 행동도 알려 줘.</pre><pre class="zh blk">原来的约定是发送 ___、收回 ___。
+现在做了 ___ 之后，画面上显示 ___。
+
+不要把整个项目重做。
+在 画面动作 → 请求数据 → API 处理 → 响应 → 画面显示 中，
+只找出最先和约定不一样的那一步并说明，
+提出最小的修改。现在先不要改。
+也告诉我改完之后要再试的动作。</pre></div>
+<div class="note ok"><div class="nt"><span class="ko">고친 뒤에는 같은 행동을 다시 합니다</span><span class="zh">改完后再做一遍同样的动作</span></div><p><span class="ko">수정 제안이 이해되면 「진행해」를 보내고, 고장 났던 그 입력 그대로 다시 눌러 봅니다. 결과가 바뀌었는지는 AI의 말이 아니라 화면으로 확인합니다.</span><span class="zh">看懂了修改提议，就发“开始吧”，然后用出问题时的那个输入原样再按一次。结果变没变，要看画面，而不是看 AI 怎么说。</span></p></div>
+</section>
+
+<section class="page" id="s7">
+<div class="kick"><span class="ko">5. 아직 기억 못 함</span><span class="zh">5. 还记不住</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">서비스를 다시 켜 보고, 사라지는 것을 적는다</span><span class="zh">重新打开服务，写下消失的东西</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">핵심 행동이 약속대로 움직였다면 마지막으로 하나를 더 해 봅니다. 터미널 ①에서 <code>Ctrl+C</code>로 서비스를 멈췄다가 <code>npm run dev</code>로 다시 켜고 화면을 새로고침합니다. 방금 입력한 결과가 남아 있나요? 대부분은 사라집니다. 오늘의 API는 답만 하고 기억하지 않기 때문입니다.</span><span class="zh">核心动作按约定跑通后，最后再试一件事：在终端 ① 按 <code>Ctrl+C</code> 停掉服务，再用 <code>npm run dev</code> 重新打开，刷新画面。刚才输入的结果还在吗？大多数都消失了。因为今天的 API 只会答复，不会记住。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:40%"><span class="ko">10_api_promise.md 3항의 줄</span><span class="zh">10_api_promise.md 第 3 项的行</span></th><th><span class="ko">이렇게 적는다 (예: 할 일 정리)</span><span class="zh">这样写（例：待办整理）</span></th></tr></thead><tbody><tr><td><span class="ko">다시 켜면 사라지는 것</span><span class="zh">重新打开后消失的</span></td><td><span class="ko">추가한 할 일 목록</span><span class="zh">添加的待办列表</span></td></tr><tr><td><span class="ko">11회에 SQLite에 저장할 핵심 기록</span><span class="zh">第 11 次课存进 SQLite 的核心记录</span></td><td><span class="ko">할 일 하나 = 내용 · 추가한 시각 · 완료 여부</span><span class="zh">一条待办 = 内容 · 添加时间 · 是否完成</span></td></tr><tr><td><span class="ko">저장된 기록을 다시 보는 순간</span><span class="zh">再次查看已保存记录的时刻</span></td><td><span class="ko">다음 날 서비스를 열었을 때 목록</span><span class="zh">第二天打开服务时的列表</span></td></tr></tbody></table></div>
+<div class="note"><div class="nt"><span class="ko">PRD 5항과 같은 기록인지 봅니다</span><span class="zh">看看和 PRD 第 5 项是不是同一条记录</span></div><p><span class="ko">7-2에서 PRD 5항에 기억할 기록을 정했습니다. 오늘 적은 기록이 그것과 같으면 11회에 그대로 저장합니다. 다르면 왜 달라졌는지 한 줄 적어 둡니다.</span><span class="zh">7-2 在 PRD 第 5 项里定过要记住的记录。今天写的记录和它一样，第 11 次课就照样保存。不一样的话，写一行说明为什么变了。</span></p></div>
+</section>
+
+<section class="page" id="s8">
+<div class="kick"><span class="ko">6. 마지막 확인</span><span class="zh">6. 最后确认</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">오늘 끝에 확인할 다섯 가지</span><span class="zh">今天结束前要确认的五件事</span> <span class="badge core"><span class="ko">확인</span><span class="zh">确认</span></span></h2>
+<p class="lead"><span class="ko">수업을 마치기 전에 아래 다섯 줄을 하나씩 확인합니다. 다음 시간에 같은 폴더에서 이어서 하므로, 오늘 상태가 정리되어 있어야 11회가 편합니다. 확인이 끝나면 터미널 ①에서 <code>Ctrl+C</code>로 서비스를 멈추고 VS Code를 닫아도 됩니다.</span><span class="zh">下课前把下面五行一项一项确认。下次课在同一个文件夹里接着做，今天的状态整理好了，第 11 次课才轻松。确认完后，可以在终端 ① 按 <code>Ctrl+C</code> 停掉服务，关掉 VS Code。</span></p>
+<ul class="blist"><li><span class="ko">정상 입력으로 핵심 결과가 화면에 나온다.</span><span class="zh">用正常输入，核心结果会显示在画面上。</span></li><li><span class="ko">잘못된 입력으로 고칠 방법을 알려 주는 안내가 나온다.</span><span class="zh">用错误输入，会出现告诉用户怎么改的提示。</span></li><li><span class="ko"><code>10_api_promise.md</code>의 1~3항이 모두 차 있다.</span><span class="zh"><code>10_api_promise.md</code> 的第 1~3 项都填好了。</span></li><li><span class="ko"><code>AI대화기록.md</code>에 오늘 보낸 요청이 남아 있다.</span><span class="zh"><code class="keep-ko">AI대화기록.md</code> 里留有今天发的请求。</span></li><li><span class="ko">저장·로그인·새 패키지가 들어가지 않았다. <code>package.json</code>이 그대로다.</span><span class="zh">没有加入保存·登录·新的包。<code>package.json</code> 没变。</span></li></ul>
+<div class="note warn"><div class="nt"><span class="ko">package.json이 바뀌었다면</span><span class="zh">如果 package.json 变了</span></div><p><span class="ko">AI가 패키지를 설치했다는 뜻입니다. 「방금 설치한 패키지를 지우고 package.json을 원래대로 되돌려 줘」를 보내고, 손을 들어 확인받습니다.</span><span class="zh">说明 AI 安装了包。发“删掉刚才安装的包，把 package.json 改回原样”，然后举手请老师确认。</span></p></div>
+</section>
+
+<section class="page" id="s9">
+<div class="kick"><span class="ko">7. 정리</span><span class="zh">7. 小结</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">내 버튼 하나가 요청과 응답으로 이어졌다</span><span class="zh">自己的一个按钮接成了请求与响应</span></h2>
+<p class="lead"><span class="ko">오늘은 AI에게 문서를 먼저 읽히고 계획을 듣고, 약속과 맞는지 확인한 뒤에야 연결을 맡겼습니다. 그리고 정상 입력과 잘못된 입력으로 직접 시험해, 내 서비스의 핵심 행동 하나가 화면 → 요청 → API → 응답 → 화면으로 이어지는 것을 확인했습니다.</span><span class="zh">今天先让 AI 读文档、听它的计划，确认符合约定之后才让它去连接。然后用正常输入和错误输入亲手测试，确认了自己服务的一个核心动作接成了 画面 → 请求 → API → 响应 → 画面。</span></p>
+<div class="recap"><div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div><ul class="blist"><li><span class="ko">코드를 고치는 요청은 <b>계획 설명 → 내가 확인 → 진행해</b> 두 번으로 나눈다.</span><span class="zh">改代码的请求分两次：<b>说明计划 → 我确认 → 开始吧</b>。</span></li><li><span class="ko">결과는 AI의 말이 아니라 <b>화면에서 직접</b> 확인한다.</span><span class="zh">结果要<b>在画面上亲眼</b>确认，而不是听 AI 说。</span></li><li><span class="ko">고장 나면 <b>원래 약속 · 내 행동 · 보인 것</b>을 전하고, 처음 달라진 한 단계만 고친다.</span><span class="zh">出问题时，告诉它<b>原来的约定 · 我的动作 · 看到的</b>，只改最先出偏差的那一步。</span></li><li><span class="ko">지금의 API는 <b>기억하지 못한다</b>. 저장할 기록을 11회에 붙인다.</span><span class="zh">现在的 API <b>记不住</b>。要保存的记录到第 11 次课再接上。</span></li></ul></div>
+<div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><p><span class="ko">다음 차시에는 왜 서비스가 기록을 잊는지 알아보고, 오늘 적은 핵심 기록을 SQLite라는 파일 하나에 남기는 방법을 봅니다. 다시 켜도 기록이 남는 서비스가 11회의 목표입니다.</span><span class="zh">下一课时会弄清楚服务为什么会忘记记录，再看看怎样把今天写下的核心记录留在 SQLite 这一个文件里。第 11 次课的目标，是重新打开后记录还在的服务。</span></p><a class="next" href="../../11/textbook/11-1.html"><span class="ko">11-1. 서비스가 데이터를 기억하는 과정 →</span><span class="zh">11-1. 服务记住数据的过程 →</span></a></div>
+<div class="lessonnav"><a href="../../10/textbook/10-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t"><span class="ko">10-1. API와 요청·응답 이해하기</span><span class="zh">10-1. 理解 API 与请求·响应</span></span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../11/textbook/11-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t"><span class="ko">11-1. 서비스가 데이터를 기억하는 과정</span><span class="zh">11-1. 服务记住数据的过程</span></span></a></div>
+</section>
+
+<section class="page" id="s10">
+<div class="kick"><span class="ko">부록 · 막힐 때</span><span class="zh">附录 · 卡住时</span><b>10-2</b></div>
+<h2 class="title"><span class="ko">이럴 때는 이렇게 한다</span><span class="zh">遇到这些情况就这样做</span> <span class="badge ext"><span class="ko">필요할 때</span><span class="zh">需要时</span></span></h2>
+<p class="lead"><span class="ko">코드를 고치기 시작하면 막히는 일이 늘어납니다. 당황하지 말고 화면과 터미널에 보인 글자를 먼저 읽습니다. 내 상황과 같은 줄을 찾아 오른쪽대로 해 보고, 그래도 안 되면 화면을 그대로 둔 채 손을 듭니다.</span><span class="zh">开始改代码后，卡住的情况会变多。别慌，先读画面和终端里显示的字。找到和自己情况一样的那行照右边做，还不行就保持画面不动，举手。</span></p>
+<div class="trouble"><div class="th"><span class="ko">이런 상황이라면</span><span class="zh">如果是这些情况</span></div><table><tr><td><span class="ko">브라우저에 빨간 오류 화면이 뜬다</span><span class="zh">浏览器出现红色的错误画面</span></td><td><span class="ko">오류 화면의 맨 위 두 줄을 복사해 「이 오류가 났어. 처음 달라진 한 단계만 찾아 가장 작은 수정을 제안해 줘. 아직 고치지 마」와 함께 보냅니다.</span><span class="zh">复制错误画面最上面的两行，连同“出现了这个错误。只找出最先出偏差的那一步，提出最小的修改。现在先不要改”一起发送。</span></td></tr><tr><td><span class="ko">AI가 「다 했다」는데 화면이 그대로다</span><span class="zh">AI 说“改好了”，画面却没变</span></td><td><span class="ko">브라우저를 새로고침합니다. 그래도 같으면 터미널 ①에서 <code>Ctrl+C</code> 후 <code>npm run dev</code>를 다시 합니다.</span><span class="zh">刷新浏览器。还是一样，就在终端 ① 按 <code>Ctrl+C</code>，再重新 <code>npm run dev</code>。</span></td></tr><tr><td><span class="ko">AI가 <code>npm install 무엇</code>을 하자고 한다</span><span class="zh">AI 说要 <code>npm install 某某</code></span></td><td><span class="ko">새 패키지는 쓰지 않습니다. 「새 패키지 없이 하는 방법으로 다시 설명해 줘」를 보냅니다.</span><span class="zh">不用新的包。发“请换一种不用新包的方法重新说明”。</span></td></tr><tr><td><span class="ko">AI가 TypeScript나 새 폴더 구조로 다 바꾸자고 한다</span><span class="zh">AI 提议全部改成 TypeScript 或新的文件夹结构</span></td><td><span class="ko">「AGENTS.md를 다시 읽어 줘. 구조는 그대로 두고 app 안의 화면과 API만 고쳐」를 보냅니다.</span><span class="zh">发“请重新读 AGENTS.md。结构保持不变，只改 app 里的画面和 API”。</span></td></tr><tr><td><span class="ko"><code>FreeUsageLimitError</code>나 <code>429</code>가 나온다</span><span class="zh">出现 <code>FreeUsageLimitError</code> 或 <code>429</code></span></td><td><span class="ko">1~2분 기다렸다가 같은 요청을 다시 보냅니다. 그동안 약속표 2·3항을 씁니다.</span><span class="zh">等 1~2 分钟再发同样的请求。这段时间写约定表第 2·3 项。</span></td></tr></table></div>
+</section>
+
 </main>
-<div id="pager"><button id="pprev">‹</button><button id="pnext">›</button></div><button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button><script src="../../assets/textbook.js"></script>
-</body></html>
+
+<div id="pager">
+  <button id="pprev" aria-label="이전 쪽">‹</button>
+  <button id="pnext" aria-label="다음 쪽">›</button>
+</div>
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script src="../../assets/textbook.js"></script>
+</body>
+</html>

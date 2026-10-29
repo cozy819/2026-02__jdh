@@ -5,420 +5,228 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
 <title>11-2. SQLite 데이터 저장 연결하기 · 정보와 디지털 문해력</title>
-<meta name="description" content="정보와 디지털 문해력 교과서 11-2 — SQLite 데이터 저장 연결하기. 저장 기준 전달, 제안 대조, 흐름 실행, Viewer 확인, 재실행 확인" />
+<meta name="description" content="정보와 디지털 문해력 교과서 11-2 — 11-1에서 들은 계획에 「진행해」를 보내 핵심 기록의 저장과 다시 불러오기를 연결하고, 화면 · SQLite Viewer · 서버를 다시 켠 뒤 세 번 확인한다." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/textbook.css" />
 </head>
 <body class="lang-ko">
-
 <div id="top">
-  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
-  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="menu" onclick="tbToggleToc()">☰ <span class="ko">목차</span><span class="zh">目录</span></button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false"><span class="ko">한 장씩 보기</span><span class="zh">逐页查看</span></button>
   <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
-  <div class="brand"><em>11-2</em> <span class="lesson">SQLite 데이터 저장 연결하기</span></div>
+  <div class="brand"><em>11-2</em> <span class="lesson"><span class="ko">SQLite 데이터 저장 연결하기</span><span class="zh">连接 SQLite 数据保存</span></span></div>
   <div class="spacer"></div>
   <div class="pct" id="count">1 / 1</div>
-  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+  <button class="pbtn" onclick="window.print()"><span class="ko">인쇄</span><span class="zh">打印</span></button>
 </div>
 <div id="prog"></div>
-
-<nav id="toc">
-  <div class="h"><span class="ko">이 차시 — 11-2</span><span class="zh">本课时 — 11-2</span></div>
-  <a href="#opener"><span class="n">·</span> 차시 표지</a>
-  <a href="#s0"><span class="n">·</span> 오늘의 원칙</a>
-  <a href="#s1"><span class="n">1</span> 저장할 핵심 기록 확인</a>
-  <a href="#s2"><span class="n">2</span> 연결 전 상태 확인</a>
-  <a href="#s3"><span class="n">3</span> AI에게 데이터 기준 전달</a>
-  <a href="#s4"><span class="n">4</span> 제안을 계획서와 대조</a>
-  <a href="#s5"><span class="n">5</span> 기억하고 다시 보는 흐름 실행</a>
-  <a href="#s6"><span class="n">6</span> SQLite Viewer로 확인</a>
-  <a href="#s7"><span class="n">7</span> 재실행 뒤 확인</a>
-  <a href="#s8"><span class="n">8</span> 복잡하게 만들지 않았는가</a>
-  <a href="#s9"><span class="n">9</span> 선택 참고 — 파일 업로드</a>
-  <a href="#s10"><span class="n">10</span> 문제를 한 가지씩 수정</a>
-  <a href="#s11"><span class="n">11</span> 완료 확인과 결과</a>
-
-  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
-  <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
-  <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
-  <a href="../../01/textbook/01-2.html"><span class="n">1-2</span> 수업 열기</a>
-  <a href="../../02/textbook/02-1.html"><span class="n">2-1</span> 개발 도구 설치와 확인</a>
-  <a href="../../02/textbook/02-2.html"><span class="n">2-2</span> 숫자와 변수로 계산하기</a>
-  <a href="../../02/textbook/02-3.html"><span class="n">2-3</span> 웹과 프로그래밍 언어의 역사</a>
-  <a href="../../03/textbook/03-1.html"><span class="n">3-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
-  <a href="../../03/textbook/03-2.html"><span class="n">3-2</span> 여러 값을 묶는 두 가지 방법</a>
-  <a href="../../04/textbook/04-1.html"><span class="n">4-1</span> Matplotlib으로 그래프 이해하기</a>
-  <a href="../../04/textbook/04-2.html"><span class="n">4-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
-  <a href="../../05/textbook/05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
-  <a href="../../05/textbook/05-2.html"><span class="n">5-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
-  <a href="../../06/textbook/06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
-  <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
-  <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
-  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> 개인정보와 암호화</a>
-  <a href="../../08/textbook/08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
-  <a href="../../08/textbook/08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
-  <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
-  <a href="../../09/textbook/09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
-  <a href="../../10/textbook/10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
-  <a href="../../10/textbook/10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
-  <a href="../../11/textbook/11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
-  <a href="../../11/textbook/11-2.html" class="here"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
-  <a href="../../12/textbook/12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
-  <a href="../../12/textbook/12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
-  <a href="../../13/textbook/13-1.html"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
-  <a href="../../13/textbook/13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
-
-  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
-  <a href="../../09/textbook/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
-</nav>
-<div id="scrim" onclick="tbToggleToc(false)"></div>
-
+<nav id="toc"><div class="h"><span class="ko">이 차시 — 11-2</span><span class="zh">本课时 — 11-2</span></div><a href="#opener"><span class="n">·</span><span class="ko">차시 표지</span><span class="zh">课时首页</span></a><a href="#s0"><span class="n">0</span><span class="ko">들어가며</span><span class="zh">开始之前</span></a><a href="#s1"><span class="n">1</span><span class="ko">시작 상태 확인</span><span class="zh">确认开始状态</span></a><a href="#s2"><span class="n">2</span><span class="ko">진행해</span><span class="zh">开始做</span></a><a href="#s3"><span class="n">3</span><span class="ko">바뀐 파일 읽기</span><span class="zh">读改过的文件</span></a><a href="#s4"><span class="n">4</span><span class="ko">화면에서 확인</span><span class="zh">在画面上确认</span></a><a href="#s5"><span class="n">5</span><span class="ko">Viewer에서 확인</span><span class="zh">在 Viewer 里确认</span></a><a href="#s6"><span class="n">6</span><span class="ko">다시 켜기 시험</span><span class="zh">重新启动测试</span></a><a href="#s7"><span class="n">7</span><span class="ko">고칠 때</span><span class="zh">修改时</span></a><a href="#s8"><span class="n">8</span><span class="ko">단순하게 유지</span><span class="zh">保持简单</span></a><a href="#s9"><span class="n">9</span><span class="ko">파일 올리기</span><span class="zh">上传文件</span></a><a href="#s10"><span class="n">10</span><span class="ko">확인 문제</span><span class="zh">确认题</span></a><a href="#s11"><span class="n">11</span><span class="ko">정리와 다음 차시</span><span class="zh">小结与下一课时</span></a><a href="#s12"><span class="n">+</span><span class="ko">막힐 때</span><span class="zh">卡住时</span></a><div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div><a href="../../index.html"><span class="n"><span class="ko">표지</span><span class="zh">首页</span></span><span class="ko">전체 목차</span><span class="zh">全部目录</span></a></nav><div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
+<section class="page opener" id="opener"><div class="onum"><span class="ko">11회 · 둘째 차시</span><span class="zh">第 11 次课 · 第 2 课时</span></div>
+<h1><span class="ko">SQLite 데이터<br/>저장 연결하기</span><span class="zh">连接 SQLite<br/>数据保存</span></h1>
+<div class="osub"><span class="ko">기록을 하나 남기고, 화면과 SQLite Viewer에서 보고,<br/>서버를 <b>껐다 켜도</b> 남아 있는지 확인합니다.</span><span class="zh">留下一条记录，在画面和 SQLite Viewer 里查看，<br/>再确认<b>关掉重开</b>后它还在不在。</span></div>
+<div class="abar"></div>
+<div class="ometa"><span class="ko"><b>이전 차시</b> · 11-1. 서비스가 데이터를 기억하는 과정<br/><b>다음 차시</b> · 12-1. 사용자 흐름으로 서비스 테스트하기<br/><b>오늘 여는 폴더</b> · <code>10</code> 폴더 — 13회까지 쓰는 내 서비스 프로젝트<br/><b>오늘 생기는 파일</b> · <code>data/app.db</code></span><span class="zh"><b>上一课时</b> · 11-1. 服务记住数据的过程<br/><b>下一课时</b> · 12-1. 按用户流程测试服务<br/><b>今天打开的文件夹</b> · <code>10</code> 文件夹 — 一直用到第 13 次课的我的服务项目<br/><b>今天会出现的文件</b> · <code>data/app.db</code></span></div></section>
 
-  <!-- ══════════ 차시 표지 ══════════ -->
-  <section class="page opener" id="opener">
-    <div class="onum"><span class="ko">11회 · 둘째 차시</span><span class="zh">第 11 次课 · 第 2 课时</span></div>
-    <h1><span class="ko">SQLite 데이터<br/>저장 연결하기</span><span class="zh">接上 SQLite<br/>数据保存</span></h1>
-    <div class="abar"></div>
-    <div class="osub"><span class="ko">기록을 하나 남기고, 화면에서 다시 확인하고,<br/><b>SQLite Viewer</b>에서 그 행이 실제로 있는지 봅니다.</span><span class="zh">留下一条记录，在画面上再确认一次，<br/>并在 <b>SQLite Viewer</b> 里看那一行是不是真的在。</span></div>
-    <div class="ometa"><span class="ko"><b>이전 차시</b> · 11-1. 서비스가 데이터를 기억하는 과정<br/>
-      <b>다음 차시</b> · 12-1. 사용자 흐름으로 서비스 테스트하기<br/>
-      <b>오늘의 목표</b> · 대표 흐름 + 데이터 기억 기능이 함께 작동</span><span class="zh"><b>上一课时</b> · 11-1. 服务记住数据的过程<br/> <b>下一课时</b> · 12-1. 用用户流程测试服务<br/> <b>今天的目标</b> · 代表流程与数据记忆功能一起跑通</span></div>
-  </section>
+<section class="page" id="s0">
+<div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">세 번 확인해야 「기억한다」고 말할 수 있다</span><span class="zh">确认三次，才能说“记住了”</span></h2>
+<p class="lead"><span class="ko">11-1에서 내 서비스가 기억할 기록을 정하고 AI의 저장 계획을 들었습니다. 오늘은 그 계획을 실제로 연결합니다. 연결이 끝나면 화면에 기록이 보이겠지만, 그것만으로는 기억했다고 말할 수 없습니다. 아래 세 곳에서 모두 같은 기록이 보여야 합니다.</span><span class="zh">11-1 定下了自己服务要记住的记录，也听了 AI 的保存计划。今天就把这个计划真正连接起来。连接好后画面上会出现记录，但光凭这一点还不能说记住了。下面三个地方都要看到同样的记录才行。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:24%"><span class="ko">어디서</span><span class="zh">在哪里</span></th><th><span class="ko">무엇을 보는가</span><span class="zh">看什么</span></th><th style="width:14%"><span class="ko">교과서</span><span class="zh">课本</span></th></tr></thead><tbody><tr><td><span class="ko">① 화면</span><span class="zh">① 画面</span></td><td><span class="ko">기록을 남기면 다시 보는 자리에 나타나는가</span><span class="zh">留下记录后，会不会出现在再次查看的位置</span></td><td><span class="ko">4절</span><span class="zh">第 4 节</span></td></tr><tr><td><span class="ko">② SQLite Viewer</span><span class="zh">② SQLite Viewer</span></td><td><span class="ko"><code>data/app.db</code>에 같은 값의 행이 생겼는가</span><span class="zh"><code>data/app.db</code> 里有没有出现同样值的行</span></td><td><span class="ko">5절</span><span class="zh">第 5 节</span></td></tr><tr><td><span class="ko">③ 다시 켠 뒤</span><span class="zh">③ 重新启动后</span></td><td><span class="ko">서버를 <code>Ctrl+C</code>로 멈췄다 켜도 그대로인가</span><span class="zh">用 <code>Ctrl+C</code> 停掉服务器再打开，是否照旧</span></td><td><span class="ko">6절</span><span class="zh">第 6 节</span></td></tr></tbody></table></div>
+<div class="note ok"><div class="nt"><span class="ko">화면에만 보이는 것은 아직 기억이 아닙니다</span><span class="zh">只在画面上看得到，还不算记住</span></div><p><span class="ko">11-1 처음에 본 것처럼, 화면은 새로고침하거나 서버를 멈추면 비워집니다. 세 번째 확인까지 통과해야 사용자가 다음 날 다시 열었을 때 기록을 볼 수 있습니다.</span><span class="zh">就像 11-1 开头看到的，一刷新或停掉服务器，画面就会被清空。要通过第三次确认，用户第二天重新打开时才看得到记录。</span></p></div>
+</section>
 
-  <!-- ══════════ 오늘의 원칙 ══════════ -->
-  <section class="page" id="s0">
-    <div class="kick"><span class="ko">시작하기 전에</span><span class="zh">开始之前</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">오늘의 원칙</span><span class="zh">今天的原则</span></h2>
+<section class="page" id="s1">
+<div class="kick"><span class="ko">1. 시작 상태</span><span class="zh">1. 开始状态</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">저장을 붙이기 전에 지금 되는 것을 확인한다</span><span class="zh">接上保存之前，先确认现在能用的部分</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">저장을 붙이기 전에 지금 상태부터 봅니다. 핵심 기능이 원래 안 되던 상태에서 저장을 붙이면, 나중에 문제가 생겼을 때 저장 때문인지 원래부터였는지 가릴 수 없습니다. 아래를 모두 확인한 뒤에 다음 절로 넘어갑니다.</span><span class="zh">接上保存之前，先看看现在的状态。如果核心功能本来就不能用，又接上了保存，之后出了问题就分不清是保存造成的，还是本来就有的。下面全部确认后，再进入下一节。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">지금 확인</span><span class="zh">现在确认</span></div><ol><li><span class="ko">VS Code 탐색기 맨 위에 <code>10</code>이 보인다. 터미널이 두 개 있다. 하나는 <code>npm run dev</code>, 다른 하나는 <code>opencode</code>.</span><span class="zh">VS Code 资源管理器最上面显示 <code>10</code>。有两个终端：一个运行 <code>npm run dev</code>，另一个运行 <code>opencode</code>。</span></li><li><span class="ko"><code>npm run dev</code> 터미널에 <code>Ready</code>가 보이고, 브라우저에서 <code>http://localhost:3000</code>이 열린다.</span><span class="zh"><code>npm run dev</code> 终端显示 <code>Ready</code>，浏览器能打开 <code>http://localhost:3000</code>。</span></li><li><span class="ko">핵심 행동을 바르게 입력하면 결과가, 비워 두거나 잘못 입력하면 안내가 나온다.</span><span class="zh">正确输入核心动作就出现结果，留空或输错就出现提示。</span></li><li><span class="ko"><code>docs/10_api_promise.md</code> 3항에 저장할 기록 세 줄이 있다.</span><span class="zh"><code>docs/10_api_promise.md</code> 第 3 项里有要保存的记录三行。</span></li><li><span class="ko">VS Code 확장에 SQLite Viewer(<code>qwtel.sqlite-viewer</code>)가 설치되어 있다.</span><span class="zh">VS Code 扩展里已经装好了 SQLite Viewer（<code>qwtel.sqlite-viewer</code>）。</span></li></ol></div>
+<div class="note warn"><div class="nt"><span class="ko">하나라도 안 되면 저장부터 붙이지 않습니다</span><span class="zh">有一项不行，就先别接保存</span></div><p><span class="ko">핵심 기능이 안 되면 10-2의 요청문으로 그것부터 고칩니다. SQLite Viewer가 없으면 11-1 교과서 6절대로 설치합니다. 둘 다 혼자 안 되면 손을 듭니다.</span><span class="zh">核心功能不能用，就先用 10-2 的请求把它改好。没有 SQLite Viewer，就按 11-1 课本第 6 节安装。自己都弄不好就举手。</span></p></div>
+</section>
 
-    <p class="lead"><span class="ko"><b>모든 프로젝트</b>가 AI와 함께 사용자 흐름에 <b>SQLite 데이터 기억 기능</b>을 연결합니다. 기록을 남기고 다시 확인하는 흐름을 실행한 뒤, <b>SQLite Viewer에서 같은 정보가 실제로 저장되었는지</b> 확인합니다.</span><span class="zh"><b>每个项目</b>都要和 AI 一起，把 <b>SQLite 数据记忆功能</b>接到用户流程上。跑一遍“留下记录、再次查看”的流程，然后<b>在 SQLite Viewer 里确认同一份信息是否真的被保存</b>。</span></p>
+<section class="page" id="s2">
+<div class="kick"><span class="ko">2. 진행해</span><span class="zh">2. 开始做</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">11-1에서 들은 계획에 「진행해」를 보낸다</span><span class="zh">对 11-1 听到的计划发送“<b class="keep-ko">진행해</b>”</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">11-1 마지막에 AI는 표 이름과 열, 고칠 파일을 설명했고, 나는 그것을 PRD 5항과 대 보았습니다. 이제 그 계획대로 고치게 합니다. 같은 OpenCode 창이 열려 있으면 아래 요청문을 그대로 보냅니다. 요청문에 사용자의 입력을 안전하게 넣으라는 한 줄을 덧붙였습니다.</span><span class="zh">11-1 最后，AI 说明了表名、列和要改的文件，我也把它和 PRD 第 5 项对照过了。现在让它按这个计划修改。如果同一个 OpenCode 窗口还开着，就原样发送下面的请求。请求里多加了一行，要求把用户的输入安全地放进去。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">OpenCode에 보낼 요청문 — 계획대로 고치기</span><span class="zh">发给 OpenCode 的请求 — 按计划修改</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">진행해.
+방금 설명한 계획대로 고쳐 줘. 사용자가 입력한 값은 SQL 문장에 바로 이어 붙이지 말고 ? 자리로 넣어 줘.
+다 고치면 고친 파일 이름과, 내가 화면에서 확인할 순서를 세 줄로 알려 줘.</pre><pre class="zh blk"><span class="keep-ko">진행해</span>（开始改吧）。
+按刚才说明的计划修改。用户输入的值不要直接拼进 SQL 语句，要用 ? 占位符放进去。
+改完后，用三行告诉我改了哪些文件，以及我在画面上要按什么顺序确认。</pre></div>
+<div class="note"><div class="nt"><span class="ko">OpenCode를 껐다 켰다면</span><span class="zh">如果关掉又重新打开了 OpenCode</span></div><p><span class="ko">새로 켠 OpenCode는 앞의 대화를 모릅니다. 11-1 교과서 7절의 「계획만 듣기」 요청문을 먼저 다시 보내고, 계획을 PRD와 대 본 뒤에 위 요청문을 보냅니다.</span><span class="zh">重新打开的 OpenCode 不知道之前的对话。先把 11-1 课本第 7 节的“只听计划”请求再发一次，把计划和 PRD 对照后，再发上面的请求。</span></p></div>
+<div class="note warn"><div class="nt"><span class="ko">「? 자리」는 왜 넣나요</span><span class="zh">为什么要加“? 占位符”</span></div><p><span class="ko">사용자가 입력한 글자를 SQL 문장에 그대로 이어 붙이면, 이상한 입력 하나로 표가 망가지거나 남의 기록이 보일 수 있습니다. 값을 <code>?</code> 자리로 따로 넘기면 데이터베이스가 그 값을 글자로만 다룹니다. 7-2에서 본 보안과 같은 이야기입니다.</span><span class="zh">如果把用户输入的文字直接拼进 SQL 语句，一个奇怪的输入就可能弄坏表，或让别人的记录被看到。把值通过 <code>?</code> 占位符单独交过去，数据库就只把它当文字处理。这和 7-2 讲的安全是同一回事。</span></p></div>
+</section>
 
-    <div class="vflow">
-      <div class="vf plain"><span class="ko"><b>① 기준 확인</b><span>기록 · 행동 · 다시 보는 순간</span></span><span class="zh"><b>① 确认基准</b><span>记录 · 行为 · 再看的时刻</span></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>② AI에게 전달 · 대조</b><span>제안을 계획서와 맞춰 본다</span></span><span class="zh"><b>② 交给 AI 并对照</b><span>把提议与计划书对上</span></span></div>
-      <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>③ 화면에서 확인</b><span>남기고 → 다시 본다</span></span><span class="zh"><b>③ 在画面上确认</b><span>留下 → 再看到</span></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>④ DB와 재실행으로 확인</b><span>행이 있는가 · 껐다 켜도 있는가</span></span><span class="zh"><b>④ 用数据库与重启确认</b><span>行在不在 · 关掉再开还在不在</span></span></div>
-    </div>
+<section class="page" id="s3">
+<div class="kick"><span class="ko">3. 바뀐 파일</span><span class="zh">3. 改过的文件</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">AI가 고친 파일에서 세 곳만 찾아 읽는다</span><span class="zh">在 AI 改过的文件里，只找三个地方读</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">AI가 다 고쳤다고 하면 바로 화면을 열기 전에, 바뀐 파일에서 세 곳만 찾아봅니다. 코드 전체를 읽지 않아도 됩니다. 표를 만드는 줄, 저장하는 줄, 다시 불러오는 줄이 어느 파일에 있는지 알면, 나중에 문제가 생겼을 때 AI에게 정확히 말할 수 있습니다.</span><span class="zh">AI 说改完了，先别急着打开画面，在改过的文件里只找三个地方。不用读完整段代码。只要知道建表的行、保存的行、重新读取的行分别在哪个文件里，以后出了问题就能准确告诉 AI。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:24%"><span class="ko">찾을 글자</span><span class="zh">要找的字</span></th><th style="width:34%"><span class="ko">어느 파일에</span><span class="zh">在哪个文件</span></th><th><span class="ko">하는 일</span><span class="zh">做什么</span></th></tr></thead><tbody><tr><td><span class="ko"><code>CREATE TABLE</code></span><span class="zh"><code>CREATE TABLE</code></span></td><td><span class="ko"><code>lib/db.js</code></span><span class="zh"><code>lib/db.js</code></span></td><td><span class="ko">표가 없으면 만든다. 괄호 안이 열 이름이다</span><span class="zh">没有表就建表。括号里是列名</span></td></tr><tr><td><span class="ko"><code>INSERT</code></span><span class="zh"><code>INSERT</code></span></td><td><span class="ko"><code>app/api/…/route.js</code></span><span class="zh"><code>app/api/…/route.js</code></span></td><td><span class="ko"><b>저장하기</b> — 새 행을 적는다</span><span class="zh"><b>保存</b> — 写入新的一行</span></td></tr><tr><td><span class="ko"><code>SELECT</code></span><span class="zh"><code>SELECT</code></span></td><td><span class="ko"><code>app/api/…/route.js</code></span><span class="zh"><code>app/api/…/route.js</code></span></td><td><span class="ko"><b>다시 불러오기</b> — 쌓인 행을 읽어 온다</span><span class="zh"><b>重新读取</b> — 读回已存的行</span></td></tr></tbody></table></div>
+<div class="steps"><div class="st-h"><span class="ko">찾는 방법</span><span class="zh">找的方法</span></div><ol><li><span class="ko">AI가 알려 준 파일을 탐색기에서 연다.</span><span class="zh">在资源管理器里打开 AI 说的文件。</span></li><li><span class="ko"><code>Ctrl+F</code>로 <code>CREATE TABLE</code>, <code>INSERT</code>, <code>SELECT</code>를 하나씩 검색한다.</span><span class="zh">用 <code>Ctrl+F</code> 逐个搜索 <code>CREATE TABLE</code>、<code>INSERT</code>、<code>SELECT</code>。</span></li><li><span class="ko"><code>CREATE TABLE</code> 줄의 표 이름과 열 이름이 11-1에서 들은 계획과 같은지 본다.</span><span class="zh">看 <code>CREATE TABLE</code> 那行的表名和列名，是否和 11-1 听到的计划一样。</span></li></ol></div>
+</section>
 
-    <div class="note ok">
-      <div class="nt"><span class="ko">확인이 세 번입니다</span><span class="zh">要确认三次</span></div>
-      <p><span class="ko"><b>화면에서 한 번</b>, <b>DB에서 한 번</b>, <b>재실행 뒤 한 번</b>. 세 번 모두 통과해야 “기억한다”라고 말할 수 있습니다. 화면에만 보이는 것은 아직 기억이 아닙니다.</span><span class="zh"><b>画面上一次</b>、<b>数据库里一次</b>、<b>重启之后一次</b>。三次都过了，才能说“它记住了”。只在画面上看得到，还不算记忆。</span></p>
-    </div>
-  </section>
+<section class="page" id="s3_2">
+<div class="kick"><span class="ko">3. 바뀐 파일</span><span class="zh">3. 改过的文件</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">AI가 고친 파일에서 세 곳만 찾아 읽는다</span><span class="zh">在 AI 改过的文件里，只找三个地方读</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">할 일 정리 서비스라면 세 곳은 대개 아래처럼 보입니다. 내 서비스는 표 이름과 열 이름이 다르겠지만 모양은 비슷합니다. 문법을 해석하지 말고 표 이름, 열 이름, 그리고 <code>?</code> 자리가 있는지만 봅니다.</span><span class="zh">待办整理服务的话，这三个地方通常像下面这样。自己服务的表名和列名会不同，但样子差不多。不用解读语法，只看表名、列名，还有有没有 <code>?</code> 占位符。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">lib/db.js · 표를 만드는 줄 (예)</span><span class="zh">lib/db.js · 建表的行（例）</span></span></div><pre class="ko blk">CREATE TABLE IF NOT EXISTS tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT NOT NULL, created_at TEXT DEFAULT CURRENT_TIMESTAMP)</pre><pre class="zh blk">CREATE TABLE IF NOT EXISTS tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT NOT NULL, created_at TEXT DEFAULT CURRENT_TIMESTAMP)</pre></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">app/api/tasks/route.js · 저장하기와 다시 불러오기 (예)</span><span class="zh">app/api/tasks/route.js · 保存与重新读取（例）</span></span></div><pre class="ko blk">db.prepare("INSERT INTO tasks (text) VALUES (?)").run(text);
 
-  <!-- ══════════ 1 ══════════ -->
-  <section class="page" id="s1">
-    <div class="kick"><span class="ko">1. 기록 확인</span><span class="zh">1. 确认记录</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">저장할 핵심 기록을 다시 확인한다</span><span class="zh">再确认一遍要保存的核心记录</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+db.prepare("SELECT * FROM tasks ORDER BY id DESC").all();</pre><pre class="zh blk">db.prepare("INSERT INTO tasks (text) VALUES (?)").run(text);
 
-    <ul class="blist">
-      <li><span class="ko">핵심 기능을 실행하면 생기는 기록</span><span class="zh">执行核心功能会产生的记录</span></li>
-      <li><span class="ko">그 기록에서 꼭 남길 정보</span><span class="zh">这条记录里一定要留的信息</span></li>
-      <li><span class="ko">사용자가 다시 보는 때</span><span class="zh">用户再看它的时候</span></li>
-      <li><span class="ko">저장하지 않을 개인정보·불필요한 값</span><span class="zh">不保存的个人信息与多余的值</span></li>
-      <li><span class="ko">먼저 연결할 후보 테이블</span><span class="zh">先接上的候选数据表</span></li>
-    </ul>
+db.prepare("SELECT * FROM tasks ORDER BY id DESC").all();</pre></div>
+<div class="row"><div class="pane accent"><div class="pt"><span class="ko">이렇게 읽는다</span><span class="zh">这样读</span></div><ul class="blist"><li><span class="ko"><code>tasks</code> 표에 <code>text</code> 열을 적는다</span><span class="zh">往 <code>tasks</code> 表写入 <code>text</code> 列</span></li><li><span class="ko">값은 <code>?</code> 자리로 따로 넘긴다</span><span class="zh">值通过 <code>?</code> 占位符单独传入</span></li><li><span class="ko"><code>tasks</code>의 행을 새것부터 모두 읽어 온다</span><span class="zh">把 <code>tasks</code> 的行从新到旧全部读回</span></li></ul></div><div class="pane"><div class="pt"><span class="ko">이런 것이 보이면 묻는다</span><span class="zh">看到这些就问</span></div><ul class="blist"><li><span class="ko">계획에 없던 표 이름이나 열</span><span class="zh">计划里没有的表名或列</span></li><li><span class="ko"><code>INSERT</code>가 들어간 예시 기록 여러 줄</span><span class="zh">带 <code>INSERT</code> 的好几行示例记录</span></li><li><span class="ko"><code>npm install</code> 같은 새 패키지 설치</span><span class="zh">像 <code>npm install</code> 这样安装新包</span></li></ul></div></div>
+</section>
 
-    <div class="note ok">
-      <div class="nt"><span class="ko">즉시 결과만 보여 주는 서비스도 마찬가지입니다</span><span class="zh">只即时展示结果的服务也一样</span></div>
-      <p><span class="ko">계산 · 변환처럼 결과를 즉시 보여 주는 서비스도 <b>‘입력과 결과의 최근 기록’</b>처럼 핵심 기능과 연결된 <b>최소 기록</b>을 남깁니다.</span><span class="zh">像计算、换算这种即时给出结果的服务，也要留下<b>“输入与结果的最近记录”</b>这样与核心功能相连的<b>最小记录</b>。</span></p>
-    </div>
+<section class="page" id="s4">
+<div class="kick"><span class="ko">4. 화면에서 확인</span><span class="zh">4. 在画面上确认</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">기록을 하나 남기고 다시 보는 자리에서 찾는다</span><span class="zh">留下一条记录，在再次查看的位置找到它</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">이제 첫 번째 확인입니다. 내 서비스를 실제로 쓰는 사용자처럼 의미 있는 값을 넣어 기록을 하나 남깁니다. 「test」나 「ㅁㄴㅇ」 같은 값은 나중에 SQLite Viewer에서 화면과 대 볼 때 구별하기 어렵습니다. 결과를 본 뒤에는 그 기록이 다시 보이는 자리까지 따라갑니다.</span><span class="zh">现在是第一次确认。像真正使用这个服务的用户那样，输入有意义的值，留下一条记录。“test”或乱打的字，之后在 SQLite Viewer 里和画面对照时很难分辨。看到结果后，一直跟到这条记录再次显示的位置。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">순서</span><span class="zh">顺序</span></div><ol><li><span class="ko">브라우저에서 <code>F5</code>로 새로고침해 바뀐 화면을 연다.</span><span class="zh">在浏览器里按 <code>F5</code> 刷新，打开改过的画面。</span></li><li><span class="ko">핵심 행동을 바르게 한 번 한다. 완료 반응(결과 · 안내)을 확인한다.</span><span class="zh">正确地做一次核心动作。确认完成后的反应（结果 · 提示）。</span></li><li><span class="ko">내 흐름에서 기록을 다시 보는 자리(목록 · 최근 기록 등)에 방금 값이 나타나는지 본다.</span><span class="zh">看刚才的值有没有出现在我的流程里再次查看记录的位置（列表 · 最近记录等）。</span></li><li><span class="ko"><code>F5</code>로 새로고침한다. 11-1 처음과 달리 기록이 그대로 있는지 본다.</span><span class="zh">按 <code>F5</code> 刷新。看记录是不是和 11-1 开头不同，还在原处。</span></li><li><span class="ko">입력을 비우거나 잘못 넣고 한 번 더 누른다. 안내만 나오고 기록은 늘지 않아야 한다.</span><span class="zh">把输入留空或输错，再按一次。应该只出现提示，记录不增加。</span></li></ol></div>
+<div class="note"><div class="nt"><span class="ko">다시 보는 자리가 아예 없다면</span><span class="zh">如果根本没有再次查看的位置</span></div><p><span class="ko">저장은 됐는데 다시 보여 주는 화면을 만들지 않은 것입니다. 바로 5절로 가서 SQLite Viewer에 행이 있는지 먼저 확인하고, 7절의 요청문으로 「다시 불러오기」를 붙입니다.</span><span class="zh">这说明保存了，但没有做重新显示的画面。直接去第 5 节，先在 SQLite Viewer 里确认有没有行，再用第 7 节的请求接上“重新读取”。</span></p></div>
+</section>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">가짜 기록을 추가하지 않습니다</span><span class="zh">不加假记录</span></div>
-      <p><span class="ko">DB 사용을 보여 주기 위한 <b>가짜 방문 횟수</b>나 서비스와 관계없는 <b>메모</b>를 추가하지 않습니다.</span><span class="zh">不要为了显示用了数据库而加<b>假的访问次数</b>，或与服务无关的<b>备注</b>。</span></p>
-    </div>
-  </section>
+<section class="page" id="s5">
+<div class="kick"><span class="ko">5. Viewer에서 확인</span><span class="zh">5. 在 Viewer 里确认</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">SQLite Viewer에서 같은 값의 행을 찾는다</span><span class="zh">在 SQLite Viewer 里找到同样值的行</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">두 번째 확인은 파일 쪽입니다. 처음 저장하는 순간 <code>data</code> 폴더 안에 <code>app.db</code>가 생겼을 것입니다. 이 파일을 SQLite Viewer로 열어, 화면에서 남긴 값이 정말 한 행으로 적혔는지 봅니다. 화면과 Viewer를 나란히 놓고 한 줄씩 대 보면 빠릅니다.</span><span class="zh">第二次确认是在文件这边。第一次保存的那一刻，<code>data</code> 文件夹里应该出现了 <code>app.db</code>。用 SQLite Viewer 打开这个文件，看画面上留下的值是不是真的写成了一行。把画面和 Viewer 并排放着一行一行对照，会很快。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">순서</span><span class="zh">顺序</span></div><ol><li><span class="ko">VS Code 탐색기에서 <code>data</code> 폴더를 펼치고 <code>app.db</code>를 누른다. SQLite Viewer로 열린다.</span><span class="zh">在 VS Code 资源管理器里展开 <code>data</code> 文件夹，点 <code>app.db</code>。它会用 SQLite Viewer 打开。</span></li><li><span class="ko">왼쪽에서 11-1 계획에 나온 표 이름을 누른다.</span><span class="zh">在左边点 11-1 计划里说到的表名。</span></li><li><span class="ko">방금 화면에서 남긴 값이 행으로 있는지, 행의 개수가 남긴 횟수와 같은지 본다.</span><span class="zh">看刚才在画面上留下的值有没有成为一行，行数和留下的次数是否一样。</span></li><li><span class="ko"><code>Win+←</code> · <code>Win+→</code>로 브라우저와 VS Code를 나란히 놓고 값을 한 줄씩 대 본다.</span><span class="zh">用 <code>Win+←</code> · <code>Win+→</code> 把浏览器和 VS Code 并排，逐行对照值。</span></li></ol></div>
+<div class="note warn"><div class="nt"><span class="ko">Viewer에서는 고치지도 지우지도 않습니다</span><span class="zh">在 Viewer 里不改也不删</span></div><p><span class="ko">틀린 행이 보여도 Viewer에서 직접 고치지 않습니다. 기록은 언제나 내 서비스의 화면에서 만들고, 고칠 것은 7절처럼 AI에게 말합니다. 새 행이 안 보이면 Viewer 탭을 닫고 <code>app.db</code>를 다시 엽니다.</span><span class="zh">就算看到不对的行，也不要在 Viewer 里直接改。记录永远在自己服务的画面上产生，要改的地方像第 7 节那样告诉 AI。看不到新行时，关掉 Viewer 标签页，再重新打开 <code>app.db</code>。</span></p></div>
+</section>
 
-  <!-- ══════════ 2 ══════════ -->
-  <section class="page" id="s2">
-    <div class="kick"><span class="ko">2. 시작 상태</span><span class="zh">2. 起始状态</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">저장 연결 전 상태를 확인한다</span><span class="zh">接保存之前先确认状态</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<section class="page" id="s5_2">
+<div class="kick"><span class="ko">5. Viewer에서 확인</span><span class="zh">5. 在 Viewer 里确认</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">SQLite Viewer에서 같은 값의 행을 찾는다</span><span class="zh">在 SQLite Viewer 里找到同样值的行</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">아래 화면은 할 일 정리 예시를 나란히 놓은 모습입니다. 왼쪽 브라우저의 한 줄과 오른쪽 Viewer의 한 행이 같은 값이면 저장이 제대로 된 것입니다. 내 서비스도 같은 방법으로 대 보고, 아래 질문에 답합니다.</span><span class="zh">下面的画面是把待办整理示例并排放着的样子。左边浏览器的一行和右边 Viewer 的一行值相同，就说明保存成功了。自己的服务也用同样的方法对照，并回答下面的问题。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 11-2-01-screen-and-db
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 16:9 · ① 화면 · ChatGPT 실사풍 · assets/img/11-2-01-screen-and-db.png
+     ───────────────────────────────────────────────────────────────────────
 
-    <ul class="blist checks">
-      <li><span class="ko">프로젝트가 <b>실행된다.</b></span><span class="zh">项目<b>能运行</b>。</span></li>
-      <li><span class="ko"><b>첫 화면</b>이 열린다.</span><span class="zh"><b>第一个画面</b>能打开。</span></li>
-      <li><span class="ko"><b>핵심 기능 한 가지</b>가 작동한다.</span><span class="zh"><b>那一个核心功能</b>能用。</span></li>
-      <li><span class="ko"><b>대표 정상 흐름</b>과 <b>핵심 예외 흐름</b>이 작동한다.</span><span class="zh"><b>代表性正常流程</b>与<b>核心例外流程</b>都能跑。</span></li>
-      <li><span class="ko">PRD와 9회 개발 계획에서 <b>기억할 정보와 다시 보는 순간</b>을 찾았다.</span><span class="zh">从 PRD 与第 9 次课开发计划里找到了<b>要记住的信息与再看的时刻</b>。</span></li>
-      <li><span class="ko"><b>SQLite Viewer</b>를 설치했다.</span><span class="zh">装好了 <b>SQLite Viewer</b>。</span></li>
-    </ul>
+     ── 맥락 (모델에게 그대로 넘겨도 된다) ────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 11회 둘째 차시(11-2) 5절에 쓸 그림이다.
+     학생은 중3~고2 여덟 명, 비개발자다. 학교 컴퓨터는 Windows, VS Code는 한국어 화면이다.
+     방금 AI에게 「진행해」를 보내 기록 저장과 다시 불러오기를 연결했다. 이제 브라우저 화면에
+     보이는 기록과 SQLite Viewer의 행이 같은지 두 창을 나란히 놓고 한 줄씩 대 본다.
+     이 그림은 「화면의 한 줄과 Viewer의 한 행을 짝지어 본다」를 보여 준다.
+     교과서 인쇄물과 교실 스크린 양쪽에 같은 파일이 들어간다.
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">확인하지 않고 DB를 붙이면</span><span class="zh">不确认就接数据库的话</span></div>
-      <p><span class="ko">현재 작동 상태를 확인하지 않고 DB를 추가하면 <b>새 문제와 기존 문제를 구분하기 어렵습니다.</b> 버튼이 안 되는 것이 저장 때문인지 원래부터였는지 알 수 없게 됩니다.</span><span class="zh">不确认当前的运行状态就加数据库，<b>就分不清新问题和原有问题</b>。按钮不好用，到底是因为保存，还是本来就不行，会说不清。</span></p>
-    </div>
-  </section>
+     ── 그릴 것 ────────────────────────────────────────────────────
+     Windows 화면을 반으로 나눈 실제 화면 캡처처럼 그린다. 두 창 모두 밝은 테마.
+     · 왼쪽 절반: 브라우저(Edge) 창. 주소창에 「localhost:3000」.
+         페이지 제목 「할 일 정리」, 그 아래 입력칸 하나와 단추 「추가」.
+         그 아래 할 일 목록 세 줄, 새로 넣은 것이 위에 온다:
+           과학 보고서 표 그리기
+           영어 단어 20개 외우기
+           수학 숙제 23쪽까지
+     · 오른쪽 절반: VS Code 창. 탭 「app.db」에 SQLite Viewer가 열려 있다.
+         왼쪽 좁은 칸에 표 이름 「tasks」(선택됨). 격자 열 머리 「id」 「text」 「created_at」, 행 정확히 세 줄
+           1 | 수학 숙제 23쪽까지     | 2026-11-05 08:41
+           2 | 영어 단어 20개 외우기  | 2026-11-05 08:42
+           3 | 과학 보고서 표 그리기  | 2026-11-05 08:44
+     · 주황(#FF5C00) 둥근 테두리를 **한 쌍**에만 친다: 왼쪽 목록의 「영어 단어 20개 외우기」 줄과
+       오른쪽 격자의 2번 행. 두 테두리를 잇는 선이나 화살표는 그리지 않는다.
 
-  <!-- ══════════ 3 ══════════ -->
-  <section class="page" id="s3">
-    <div class="kick"><span class="ko">3. 기준 전달</span><span class="zh">3. 交出基准</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">AI에게 데이터 기준을 전달한다</span><span class="zh">把数据基准交给 AI</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+     ── 지킬 것 ────────────────────────────────────────────────────
+     · 화면 안 글자는 위에 「」와 목록·표로 적은 것만 쓰고 철자·숫자를 정확히 지킨다. 줄·행을 더 만들지 않는다.
+     · 왼쪽 세 줄과 오른쪽 세 행은 같은 글자여야 한다. 사람 이름·연락처를 넣지 않는다.
+     · Windows 창 모양으로 그린다. macOS 창 단추를 쓰지 않는다.
+     · 손·마우스 커서·사람은 그리지 않는다. 비율 16:9 가로. 인쇄해도 글자가 읽히게 크게.
 
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">AI 요청문</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>현재 대표 사용자 흐름은 처음부터 결과까지 작동해.
-docs 폴더의 PRD와 09_development_plan_학생ID_이름.md를 읽어 줘.
+     ── 받은 뒤 확인 ────────────────────────────────────────────────
+     ① 왼쪽 세 줄과 오른쪽 세 행의 글자가 같나(한글 깨짐 없음) ② 주소창에 localhost:3000 이 보이나
+     ③ 주황 테두리가 같은 값 한 쌍뿐인가 ④ 행 값이 11-1 교과서 표와 같나
+     ═══════════════════════════════════════════════════════════════════════
+-->
+<figure class="fig"><img class="figimg" src="../../assets/img/11-2-01-screen-and-db.png" alt="왼쪽에 브라우저의 할 일 목록 세 줄, 오른쪽에 VS Code의 SQLite Viewer로 연 tasks 표 세 행이 나란히 보이는 화면." data-id="11-2-01-screen-and-db" data-spec="가로 16:9 · ① 화면 · ChatGPT 실사풍 · 브라우저와 SQLite Viewer 나란히" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 11-2-1. 화면의 한 줄과 Viewer의 한 행을 짝지어 본다.</span><span class="zh">图 11-2-1. 把画面上的一行和 Viewer 里的一行配对来看。</span></figcaption></figure>
+<ul class="blist"><li><span class="ko">화면에서 남긴 값이 <b>같은 글자</b>로 한 행에 있는가?</span><span class="zh">画面上留下的值，是否以<b>同样的文字</b>存在一行里？</span></li><li><span class="ko">계획에 없던 열이나 이름 · 연락처 같은 <b>개인정보</b>가 적히지 않았는가?</span><span class="zh">有没有写进计划外的列，或姓名、联系方式这类<b>个人信息</b>？</span></li><li><span class="ko">내가 남기지 않은 <b>예시 행</b>이 미리 들어 있지 않은가?</span><span class="zh">有没有预先放进我没留下的<b>示例行</b>？</span></li></ul>
+</section>
 
-[이번 단계]
-- 사용자 흐름에서 기억하기로 한 정보만 SQLite에 저장
-- 사용자가 다시 보는 단계에서 저장한 결과를 화면에 표시
-- 프로젝트를 다시 실행해도 기록 유지
-- 표준 프로젝트가 정한 DB 위치와 방식 사용
+<section class="page" id="s6">
+<div class="kick"><span class="ko">6. 다시 켜기</span><span class="zh">6. 重新启动</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">서버를 껐다 켜도 기록이 남는지 본다</span><span class="zh">看看关掉服务器再打开，记录还在不在</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">세 번째 확인이 11-1 첫 장면의 답입니다. 새로고침은 화면만 다시 그리지만, <code>Ctrl+C</code>로 서버를 멈추면 실행 중에 들고 있던 것이 모두 사라집니다. 그런데도 기록이 남아 있다면 그 기록은 파일에서 다시 읽어 온 것입니다.</span><span class="zh">第三次确认就是 11-1 第一个场景的答案。刷新只是把画面重画一遍，而用 <code>Ctrl+C</code> 停掉服务器，运行中拿着的东西会全部消失。即使这样记录还在，就说明它是从文件里重新读回来的。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">순서</span><span class="zh">顺序</span></div><ol><li><span class="ko"><code>npm run dev</code> 터미널을 누르고 <code>Ctrl+C</code>를 누른다. 「<b>일괄 작업을 끝내시겠습니까 (Y/N)?</b>」가 보이면 <code>Y</code>와 Enter.</span><span class="zh">点 <code>npm run dev</code> 终端，按 <code>Ctrl+C</code>。如果出现“<b class="keep-ko">일괄 작업을 끝내시겠습니까 (Y/N)?</b>”（要终止批处理操作吗），就按 <code>Y</code> 和 Enter。</span></li><li><span class="ko">줄 끝에 <code>…\10&gt;</code>가 다시 보이면 서버가 멈춘 것이다. 브라우저를 새로고침하면 연결할 수 없다는 화면이 나온다.</span><span class="zh">行末重新出现 <code>…\10&gt;</code>，说明服务器停了。这时刷新浏览器，会出现无法连接的画面。</span></li><li><span class="ko"><code>npm run dev</code>를 다시 입력하고 <code>Ready</code>를 기다린다.</span><span class="zh">重新输入 <code>npm run dev</code>，等出现 <code>Ready</code>。</span></li><li><span class="ko">브라우저 탭을 닫고 새 탭에서 <code>http://localhost:3000</code>을 연다. 다시 보는 자리에 기록이 그대로 있는지 본다.</span><span class="zh">关掉浏览器标签页，在新标签页打开 <code>http://localhost:3000</code>。看再次查看的位置，记录是否原样还在。</span></li><li><span class="ko">SQLite Viewer 탭을 닫았다가 <code>app.db</code>를 다시 열어 같은 행이 남았는지 본다.</span><span class="zh">关掉 SQLite Viewer 标签页，再重新打开 <code>app.db</code>，看同样的行是否还在。</span></li></ol></div>
+<div class="note ok"><div class="nt"><span class="ko">여기까지 되면 11회의 목표에 닿았습니다</span><span class="zh">做到这里，就达到第 11 次课的目标了</span></div><p><span class="ko">다시 켜도 기록이 남고 사용자가 그것을 다시 볼 수 있습니다. 10회에 만든 요청과 응답 위에 기억이 붙은 것입니다. 12회에는 이 흐름 전체를 사용자처럼 시험합니다.</span><span class="zh">重新启动后记录还在，用户也能再次看到它。这就是在第 10 次课做的请求和响应之上，接上了记忆。第 12 次课会像用户那样测试整个流程。</span></p></div>
+</section>
 
-[제한]
-- 실제 개인정보와 비밀정보 저장 금지
-- 불필요한 테이블과 열 추가 금지
-- 파일 업로드 기능 추가 금지
-- 새 패키지와 전체 프로젝트 재작성 금지
-- 사용자 입력을 안전한 DB 기능을 통해 처리
+<section class="page" id="s7">
+<div class="kick"><span class="ko">7. 고칠 때</span><span class="zh">7. 修改时</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">어긋나면 세 단계 중 어디인지부터 찾는다</span><span class="zh">出错了，先找是三步中的哪一步</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">세 번의 확인 중 하나라도 어긋나면 바로 「안 돼, 다시 만들어 줘」라고 하지 않습니다. 기억은 <b>저장하기 → 다시 불러오기 → 화면에 보여 주기</b> 세 단계로 이어져 있고, SQLite Viewer의 행이 그중 어디서 끊겼는지 알려 줍니다. 아래 표에서 내 증상을 찾습니다.</span><span class="zh">三次确认里只要有一次不对，也不要马上说“不行，重新做”。记忆由<b>保存 → 重新读取 → 显示到画面</b>三步连起来，SQLite Viewer 里的行会告诉你是在哪里断的。在下表里找自己的症状。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th><span class="ko">증상</span><span class="zh">症状</span></th><th style="width:18%"><span class="ko">Viewer의 행</span><span class="zh">Viewer 里的行</span></th><th style="width:26%"><span class="ko">끊긴 단계</span><span class="zh">断开的一步</span></th></tr></thead><tbody><tr><td><span class="ko">눌렀는데 Viewer에 새 행이 없다</span><span class="zh">按了，Viewer 里却没有新行</span></td><td><span class="ko">없다</span><span class="zh">没有</span></td><td><span class="ko"><b>저장하기</b></span><span class="zh"><b>保存</b></span></td></tr><tr><td><span class="ko">Viewer에는 행이 있는데 새로고침하면 화면이 비어 있다</span><span class="zh">Viewer 里有行，可刷新后画面是空的</span></td><td><span class="ko">있다</span><span class="zh">有</span></td><td><span class="ko"><b>다시 불러오기</b></span><span class="zh"><b>重新读取</b></span></td></tr><tr><td><span class="ko">화면에 나오기는 하는데 다른 값이나 빈칸이 보인다</span><span class="zh">画面上有显示，但值不对或是空白</span></td><td><span class="ko">있다</span><span class="zh">有</span></td><td><span class="ko"><b>화면에 보여 주기</b></span><span class="zh"><b>显示到画面</b></span></td></tr></tbody></table></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">고장 났을 때 보내는 요청문 — 빈칸을 채워서</span><span class="zh">出故障时发送的请求 — 填好空格</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">원래 약속: 사용자가 ___하면 ___이 저장되고, ___에서 다시 보인다.
+내가 한 행동: ___
+화면에 보인 것: ___
+SQLite Viewer에서 본 것: 새 행이 (있다 / 없다)
+전체를 다시 만들지 말고, 저장하기 · 다시 불러오기 · 화면에 보여 주기 중 처음 달라진 한 단계만 찾아 줘.
+아직 고치지 말고, 가장 작은 수정 하나를 쉬운 말로 먼저 설명해 줘.</pre><pre class="zh blk">原来的约定：用户做了 ___，就保存 ___，并在 ___ 再次显示。
+我做的动作：___
+画面上看到的：___
+在 SQLite Viewer 里看到的：新的一行（有 / 没有）
+不要全部重做，只在 保存 · 重新读取 · 显示到画面 中找出最先出错的那一步。
+先不要改，用简单的话先说明一个最小的修改。</pre></div>
+</section>
 
-코드를 바꾸기 전에 다음을 쉬운 말로 설명해 줘.
-- 사용자의 어떤 행동에서 무엇을 기억할지
-- 사용자가 언제 그 정보를 다시 보게 될지
-- 필요한 테이블의 역할
-- 수정할 파일과 확인할 사용자 흐름</code></pre>
-    </div>
+<section class="page" id="s7_2">
+<div class="kick"><span class="ko">7. 고칠 때</span><span class="zh">7. 修改时</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">어긋나면 세 단계 중 어디인지부터 찾는다</span><span class="zh">出错了，先找是三步中的哪一步</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">AI가 처음 달라진 단계와 가장 작은 수정을 설명하면, 그 설명이 앞 쪽 표의 내 증상과 맞는지 봅니다. 맞으면 「진행해」를 보내고, 다르면 Viewer에서 본 것을 한 번 더 알려 줍니다. 고친 뒤에는 <b>같은 값</b>으로 세 번의 확인을 처음부터 다시 합니다.</span><span class="zh">AI 说明了最先出错的那一步和最小的修改后，看这个说明和前一页表里自己的症状是否对得上。对得上就发“<b class="keep-ko">진행해</b>”（开始做），对不上就把在 Viewer 里看到的再告诉它一次。改完后，用<b>同样的值</b>把三次确认从头再做一遍。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">고친 뒤 다시 확인</span><span class="zh">改完后再确认</span></div><ol><li><span class="ko">고치기 전과 <b>같은 값</b>으로 기록을 하나 남긴다. 값을 바꾸면 무엇 때문에 달라졌는지 알 수 없다.</span><span class="zh">用和修改前<b>同样的值</b>留下一条记录。换了值，就不知道是什么造成了变化。</span></li><li><span class="ko">① 화면 → ② SQLite Viewer → ③ 다시 켜기를 차례로 한다.</span><span class="zh">依次做 ① 画面 → ② SQLite Viewer → ③ 重新启动。</span></li><li><span class="ko">세 번 모두 통과하면 다음으로 넘어간다. 또 어긋나면 위 요청문을 다시 채워 보낸다.</span><span class="zh">三次都通过就继续。又出错的话，重新填好上面的请求再发送。</span></li></ol></div>
+<div class="note warn"><div class="nt"><span class="ko">「전체를 다시 만들어 줘」는 보내지 않습니다</span><span class="zh">不要发“全部重做”</span></div><p><span class="ko">전체를 다시 만들면 10-2에서 되던 핵심 기능까지 바뀌어, 처음보다 고칠 곳이 늘어납니다. 한 번에 한 단계만 고치고, 고칠 때마다 확인합니다.</span><span class="zh">全部重做的话，连 10-2 已经能用的核心功能也会变，要改的地方比一开始还多。一次只改一步，每改一次就确认一次。</span></p></div>
+</section>
 
-    <div class="note">
-      <div class="nt"><span class="ko">파일 업로드가 승인된 프로젝트라면</span><span class="zh">若是获批了文件上传的项目</span></div>
-      <p><span class="ko">교사의 승인을 받았다면 <b>9절의 선택 참고 지침</b>을 따로 사용합니다. 승인 없이 이 기능을 추가하지 않습니다.</span><span class="zh">若已获老师批准，则另按<b>第 9 节的可选参考指引</b>来做。未获批准不要加这个功能。</span></p>
-    </div>
-  </section>
+<section class="page" id="s8">
+<div class="kick"><span class="ko">8. 단순하게</span><span class="zh">8. 保持简单</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">필요한 만큼만 기억하게 했는지 확인한다</span><span class="zh">确认只让它记住需要的东西</span> <span class="badge core"><span class="ko">확인</span><span class="zh">确认</span></span></h2>
+<p class="lead"><span class="ko">세 번의 확인을 통과했으면 마지막으로 기록이 지나치게 커지지 않았는지 봅니다. AI는 표를 여러 개로 나누거나 쓰지 않을 열을 덧붙이는 쪽으로 흐르기 쉽습니다. 그게 더 전문적으로 보이기 때문입니다. 7-1에서 본 것처럼 나눌 이유가 없으면 표는 하나로 충분합니다.</span><span class="zh">三次确认都通过后，最后看看记录有没有变得过大。AI 很容易把表拆成好几张，或者加上用不到的列，因为那样看起来更专业。就像 7-1 看到的，没有拆分的理由，一张表就够了。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:48%"><span class="ko">확인</span><span class="zh">确认</span></th><th><span class="ko">아니라면</span><span class="zh">如果不是</span></th></tr></thead><tbody><tr><td><span class="ko">핵심 기능과 상관없는 기록(방문 횟수 등)을 저장하지 않았다</span><span class="zh">没有保存和核心功能无关的记录（访问次数等）</span></td><td><span class="ko">「___ 기록은 저장하지 마. 사용자가 다시 보지 않아」</span><span class="zh">“不要保存 ___ 记录。用户不会再看它”</span></td></tr><tr><td><span class="ko">내가 남기지 않은 예시 기록이 없다</span><span class="zh">没有我没留下的示例记录</span></td><td><span class="ko">「미리 넣은 예시 기록을 빼 줘」</span><span class="zh">“把预先放进去的示例记录去掉”</span></td></tr><tr><td><span class="ko">이름 · 연락처 같은 개인정보 열이 없다</span><span class="zh">没有姓名、联系方式这类个人信息的列</span></td><td><span class="ko">「___ 열은 빼 줘. 이 서비스는 그 정보가 필요 없어」</span><span class="zh">“去掉 ___ 列。这个服务不需要那个信息”</span></td></tr><tr><td><span class="ko">표 하나로 될 일을 여러 개로 나누지 않았다</span><span class="zh">没有把一张表能做的事拆成好几张</span></td><td><span class="ko">「표를 하나로 줄일 수 있는지 먼저 설명해 줘」</span><span class="zh">“先说明能不能缩成一张表”</span></td></tr><tr><td><span class="ko">기록이 생기는 행동과 다시 보는 자리가 모두 내 흐름 안에 있다</span><span class="zh">产生记录的动作和再次查看的位置都在我的流程里</span></td><td><span class="ko">개발 계획 3항과 다른 곳을 AI에게 알린다</span><span class="zh">把和开发计划第 3 项不一样的地方告诉 AI</span></td></tr></tbody></table></div>
+<div class="note"><div class="nt"><span class="ko">고칠 때도 두 번에 나눕니다</span><span class="zh">修改时也分两次</span></div><p><span class="ko">오른쪽 요청을 보낼 때는 끝에 「아직 고치지 말고 먼저 설명해 줘」를 붙이고, 설명이 맞으면 「진행해」를 보냅니다. 고친 뒤에는 세 번의 확인을 다시 합니다.</span><span class="zh">发右边的请求时，末尾加上“先不要改，先说明”，说明对了再发“<b class="keep-ko">진행해</b>”（开始做）。改完后，三次确认再做一遍。</span></p></div>
+</section>
 
-  <!-- ══════════ 4 ══════════ -->
-  <section class="page" id="s4">
-    <div class="kick"><span class="ko">4. 대조</span><span class="zh">4. 对照</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">AI의 제안을 계획서와 대조한다</span><span class="zh">把 AI 的提议与计划书对照</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<section class="page" id="s9">
+<div class="kick"><span class="ko">9. 파일 올리기</span><span class="zh">9. 上传文件</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">파일 올리기는 선생님이 허락한 서비스만 한다</span><span class="zh">上传文件只有老师允许的服务才做</span> <span class="badge ext"><span class="ko">필요할 때</span><span class="zh">需要时</span></span></h2>
+<p class="lead"><span class="ko">사진이나 문서를 올리는 기능은 9-2 판정에서 「교사 확인 필요」였던 기능입니다. 선생님께 허락을 받지 않았다면 이번 개발에서 빼고, 파일 이름이나 설명을 글자로 입력하는 것으로 대신합니다. 허락을 받은 서비스만 아래 요청문을 씁니다.</span><span class="zh">上传照片或文件的功能，在 9-2 的判定里属于“需老师确认”。没得到老师允许，就从这次开发里去掉，改成用文字输入文件名或说明。只有得到允许的服务才使用下面的请求。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">허락받은 서비스만 — 계획부터 듣기</span><span class="zh">仅限得到允许的服务 — 先听计划</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">선생님이 이 서비스의 파일 올리기를 허락했어. 허락받은 파일 종류: ___ , 최대 크기: ___
+- 올린 파일 자체는 data/uploads 폴더에 저장하고, 저장할 파일 이름은 서버가 새로 만들어 줘.
+- SQLite에는 파일 자체가 아니라 원래 이름 · 저장한 이름 · 설명만 기록해 줘.
+- 허락하지 않은 종류나 너무 큰 파일은 저장하지 말고 화면에 안내해 줘.
+- 새 패키지는 설치하지 마.
+아직 고치지 말고, 저장 위치와 표에 기록할 열, 거부할 파일을 먼저 설명해 줘.</pre><pre class="zh blk">老师已经允许这个服务上传文件。允许的文件类型：___ ，最大大小：___
+- 上传的文件本身保存到 data/uploads 文件夹，保存用的文件名由服务器重新生成。
+- SQLite 里不放文件本身，只记录原文件名 · 保存后的文件名 · 说明。
+- 不允许的类型或太大的文件不要保存，要在画面上提示。
+- 不要安装新的包。
+先不要改，先说明保存位置、要记在表里的列，以及会拒绝哪些文件。</pre></div>
+<div class="row"><div class="pane accent"><div class="pt"><span class="ko">어디에 무엇을</span><span class="zh">什么放在哪里</span></div><ul class="blist"><li><span class="ko">파일 자체 → <code>data/uploads</code> 폴더</span><span class="zh">文件本身 → <code>data/uploads</code> 文件夹</span></li><li><span class="ko">원래 이름 · 저장한 이름 · 설명 → SQLite 표의 한 행</span><span class="zh">原文件名 · 保存后的文件名 · 说明 → SQLite 表里的一行</span></li></ul></div><div class="pane"><div class="pt"><span class="ko">확인할 것</span><span class="zh">要确认的</span></div><ul class="blist"><li><span class="ko">허락한 작은 파일은 올라가는가</span><span class="zh">允许的小文件能上传吗</span></li><li><span class="ko">허락하지 않은 종류 · 큰 파일은 안내만 나오는가</span><span class="zh">不允许的类型 · 大文件是否只出现提示</span></li><li><span class="ko">Viewer에는 파일 정보만 있는가</span><span class="zh">Viewer 里是否只有文件信息</span></li></ul></div></div>
+</section>
 
-    <ul class="blist checks">
-      <li><span class="ko">테이블의 역할이 <b>후보 테이블과 맞는가</b>?</span><span class="zh">表的作用与<b>候选数据表一致吗</b>？</span></li>
-      <li><span class="ko">저장할 정보가 <b>핵심 기능에 필요한가</b>?</span><span class="zh">要保存的信息<b>对核心功能必要吗</b>？</span></li>
-      <li><span class="ko">계획서에 없는 <b>개인정보</b>가 추가되지 않았는가?</span><span class="zh">有没有加了计划书里没有的<b>个人信息</b>？</span></li>
-      <li><span class="ko"><b>불필요하게 복잡한 관계</b>를 만들지 않았는가?</span><span class="zh">有没有造出<b>不必要的复杂关系</b>？</span></li>
-      <li><span class="ko">사용자가 남긴 정보와 <b>저장할 값이 연결되는가</b>?</span><span class="zh">用户留下的信息与<b>要保存的值对得上吗</b>？</span></li>
-      <li><span class="ko">사용자가 <b>다시 보는 단계</b>에서 필요한 정보가 나타나는가?</span><span class="zh">在用户<b>再次查看的那一步</b>，需要的信息会出现吗？</span></li>
-      <li><span class="ko"><b>표준 DB 위치와 패키지</b>를 유지하는가?</span><span class="zh">是否保持了<b>标准的数据库位置与包</b>？</span></li>
-    </ul>
+<section class="page" id="s10">
+<div class="kick"><span class="ko">10. 확인</span><span class="zh">10. 确认</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">확인 문제</span><span class="zh">确认题</span> <span class="badge core"><span class="ko">확인</span><span class="zh">确认</span></span></h2>
+<p class="lead"><span class="ko">오늘 한 일을 세 문제로 확인합니다. 답을 먼저 말해 보고 해설을 엽니다. 막히는 문제가 있으면 그 절로 돌아가 다시 읽습니다. 해설은 인쇄하면 펼쳐진 채로 나옵니다.</span><span class="zh">用三道题确认今天做的事。先说出答案，再打开解析。答不上来的题，就回到那一节再读一遍。打印时解析会是展开的。</span></p>
+<div class="quiz"><div class="q"><div class="qq"><span class="ko">버튼을 눌러 결과는 보였는데 SQLite Viewer에 새 행이 없다. 어느 단계를 고쳐야 하는가?</span><span class="zh">按了按钮也看到了结果，可 SQLite Viewer 里没有新行。该修哪一步？</span></div><details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko"><b>저장하기</b>입니다. 값이 파일에 적히지 않았으니 화면의 결과는 응답만 보여 준 것입니다. 7절 요청문에 「새 행이 없다」를 적어 보냅니다.</span><span class="zh">是<b>保存</b>。值没有写进文件，画面上的结果只是显示了响应。在第 7 节的请求里写上“没有新行”再发送。</span></p></div></details></div><div class="q"><div class="qq"><span class="ko">Viewer에는 행이 있는데 새로고침하면 화면이 비어 있다. 어느 단계인가?</span><span class="zh">Viewer 里有行，但刷新后画面是空的。是哪一步？</span></div><details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko"><b>다시 불러오기</b>입니다. 파일에는 남았지만 화면을 열 때 그 행을 읽어 오지 않습니다. 저장은 고칠 필요가 없습니다.</span><span class="zh">是<b>重新读取</b>。文件里留下了，但打开画面时没有把那些行读回来。保存这一步不用改。</span></p></div></details></div><div class="q"><div class="qq"><span class="ko">새로고침으로 확인했는데 왜 서버를 <code>Ctrl+C</code>로 껐다 켜서 한 번 더 확인하는가?</span><span class="zh">已经用刷新确认过了，为什么还要用 <code>Ctrl+C</code> 关掉服务器再打开确认一次？</span></div><details><summary><span class="ko">해설 보기</span><span class="zh">查看解析</span></summary><div class="a"><p><span class="ko">새로고침해도 실행 중인 서버가 값을 들고 있으면 기록이 남은 것처럼 보일 수 있습니다. 서버를 멈췄다 켜도 남아 있어야 <b>파일에서 읽어 왔다</b>고 확신할 수 있습니다.</span><span class="zh">刷新时，如果运行中的服务器还拿着值，看起来也像记录留下了。只有停掉服务器再打开后还在，才能确定是<b>从文件里读回来的</b>。</span></p></div></details></div></div>
+</section>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">학생이 다시 설계하지 않습니다</span><span class="zh">学生不重新设计</span></div>
-      <p><span class="ko"><b>세부 열 · 자료형 · 키를 학생이 다시 설계하지 않습니다.</b> <b>사용자의 기대와 맞지 않는 부분만</b> 지적합니다.</span><span class="zh"><b>细节的列、数据类型、键，学生不重新设计。</b>只指出<b>与用户期待不符的地方</b>。</span></p>
-    </div>
-  </section>
+<section class="page" id="s11">
+<div class="kick"><span class="ko">11. 정리</span><span class="zh">11. 小结</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">내 서비스가 다시 켜도 기억한다</span><span class="zh">我的服务重新打开也能记住了</span></h2>
+<p class="lead"><span class="ko">오늘은 11-1에서 들은 계획에 「진행해」를 보내 저장과 다시 불러오기를 연결했습니다. 화면, SQLite Viewer, 다시 켠 뒤 세 번 확인했고, 어긋나면 세 단계 중 처음 끊긴 곳만 고쳤습니다. 이 프로젝트는 12회에도 같은 <code>10</code> 폴더에서 이어 갑니다.</span><span class="zh">今天对 11-1 听到的计划发送了“<b class="keep-ko">진행해</b>”（开始做），把保存和重新读取连接起来了。在画面、SQLite Viewer、重新启动后确认了三次，出错时只修三步中最先断开的地方。这个项目第 12 次课也在同一个 <code>10</code> 文件夹里继续。</span></p>
+<div class="recap"><div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div><ul class="blist"><li><span class="ko">고치기 전에 계획을 듣고, 맞으면 <b>「진행해」</b>로 고치게 한다.</span><span class="zh">改之前先听计划，对了再用<b>“<b class="keep-ko">진행해</b>”</b>（开始做）让它改。</span></li><li><span class="ko">기억했는지는 <b>화면 · SQLite Viewer · 다시 켠 뒤</b> 세 번 확인한다.</span><span class="zh">是否记住了，要在<b>画面 · SQLite Viewer · 重新启动后</b>确认三次。</span></li><li><span class="ko">어긋나면 <b>저장하기 · 다시 불러오기 · 화면에 보여 주기</b> 중 처음 끊긴 한 단계만 가장 작게 고친다.</span><span class="zh">出错时，只在<b>保存 · 重新读取 · 显示到画面</b>中，把最先断开的那一步做最小的修改。</span></li><li><span class="ko">예시 기록 · 개인정보 · 쓰지 않을 표는 만들지 않는다. 파일 올리기는 허락받은 서비스만.</span><span class="zh">不做示例记录、个人信息和用不到的表。上传文件只限得到允许的服务。</span></li></ul></div>
+<div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><p><span class="ko">12회에는 기능을 더 늘리지 않습니다. 처음 방문, 대표 정상 흐름, 잘못 입력한 뒤 다시 시도, 다시 방문을 사용자처럼 차례로 해 보며 <code>docs/12_test_record.md</code>에 결과를 적습니다. 지금까지가 「되게 만드는」 시간이었다면, 다음은 「정말 되는지 확인하는」 시간입니다.</span><span class="zh">第 12 次课不再增加功能。像用户那样依次试试第一次访问、代表性正常流程、输错后重试、再次访问，把结果写进 <code>docs/12_test_record.md</code>。如果说到现在为止是“让它能用”的时间，接下来就是“确认它真的能用”的时间。</span></p><a class="next" href="../../12/textbook/12-1.html"><span class="ko">12-1. 사용자 흐름으로 서비스 테스트하기 →</span><span class="zh">12-1. 按用户流程测试服务 →</span></a></div>
+<div class="lessonnav"><a href="../../11/textbook/11-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t"><span class="ko">11-1. 서비스가 데이터를 기억하는 과정</span><span class="zh">11-1. 服务记住数据的过程</span></span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../12/textbook/12-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t"><span class="ko">12-1. 사용자 흐름으로 서비스 테스트하기</span><span class="zh">12-1. 按用户流程测试服务</span></span></a></div>
+</section>
 
-  <!-- ══════════ 5 ══════════ -->
-  <section class="page" id="s5">
-    <div class="kick"><span class="ko">5. 흐름 실행</span><span class="zh">5. 跑流程</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">기억하고 다시 보는 흐름을 실행한다</span><span class="zh">跑一遍“记住并再看到”的流程</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <div class="steps">
-      <div class="st-h"><span class="ko">여섯 단계</span><span class="zh">六步</span></div>
-      <ol>
-        <li><span class="ko">AI가 제안한 <b>변경 범위</b>를 확인한다.</span><span class="zh">确认 AI 提议的<b>改动范围</b>。</span></li>
-        <li><span class="ko">변경을 적용하고 <b>프로젝트를 실행</b>한다.</span><span class="zh">应用改动并<b>运行项目</b>。</span></li>
-        <li><span class="ko">대표 흐름으로 <b>정상 기록 한 개</b>를 만든다.</span><span class="zh">按代表流程<b>造出一条正常记录</b>。</span></li>
-        <li><span class="ko">화면에서 <b>완료 반응</b>을 확인한다.</span><span class="zh">在画面上确认<b>完成的反应</b>。</span></li>
-        <li><span class="ko">사용자가 기록을 <b>다시 보는 단계</b>로 이동한다.</span><span class="zh">走到用户<b>再次查看记录的那一步</b>。</span></li>
-        <li><span class="ko"><b>같은 정보</b>가 화면에 나타나는지 확인한다.</span><span class="zh">确认<b>同一份信息</b>是否出现在画面上。</span></li>
-      </ol>
-    </div>
-
-    <ul class="blist">
-      <li><span class="ko">사용자가 한 행동</span><span class="zh">用户做的行动</span></li>
-      <li><span class="ko">기억해야 할 정보</span><span class="zh">该记住的信息</span></li>
-      <li><span class="ko">다시 보는 단계</span><span class="zh">再次查看的步骤</span></li>
-      <li><span class="ko">화면에서 확인한 내용</span><span class="zh">在画面上确认到的内容</span></li>
-    </ul>
-  </section>
-
-  <!-- ══════════ 6 ══════════ -->
-  <section class="page" id="s6">
-    <div class="kick"><span class="ko">6. DB 확인</span><span class="zh">6. 查数据库</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">SQLite Viewer로 실제 데이터를 확인한다</span><span class="zh">用 SQLite Viewer 确认真实数据</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <div class="steps">
-      <div class="st-h"><span class="ko">다섯 단계</span><span class="zh">五步</span></div>
-      <ol>
-        <li><span class="ko">프로젝트에서 표준 <code>.db</code> 파일을 찾는다.</span><span class="zh">在项目里找到标准的 <code>.db</code> 文件。</span></li>
-        <li><span class="ko">VS Code에서 파일을 클릭하여 <b>SQLite Viewer로 연다.</b></span><span class="zh">在 VS Code 里点开文件，<b>用 SQLite Viewer 打开</b>。</span></li>
-        <li><span class="ko">계획서와 관련된 <b>테이블 이름</b>을 찾는다.</span><span class="zh">找到与计划书对应的<b>表名</b>。</span></li>
-        <li><span class="ko">화면에서 입력한 값이 <b>행으로 보이는지</b> 확인한다.</span><span class="zh">确认在画面上输入的值<b>是否显示为一行</b>。</span></li>
-        <li><span class="ko">화면의 값과 <b>DB의 값이 같은지</b> 비교한다.</span><span class="zh">比较画面上的值与<b>数据库里的值是否相同</b>。</span></li>
-      </ol>
-    </div>
-
-    <ul class="blist checks">
-      <li><span class="ko">DB 파일 위치</span><span class="zh">数据库文件位置</span></li>
-      <li><span class="ko">확인한 테이블</span><span class="zh">查看的表</span></li>
-      <li><span class="ko">행의 개수</span><span class="zh">行数</span></li>
-      <li><span class="ko">화면과 일치하는 값</span><span class="zh">与画面一致的值</span></li>
-      <li><span class="ko">불필요하게 저장된 값</span><span class="zh">多余保存的值</span></li>
-    </ul>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">Viewer에서 값을 고치지 않습니다</span><span class="zh">不要在查看器里改值</span></div>
-      <p><span class="ko">SQLite Viewer에서 값을 <b>직접 수정하거나 삭제하지 않습니다.</b> 최신 값이 보이지 않으면 저장 동작을 마친 뒤 <b>DB 화면을 다시 엽니다.</b></span><span class="zh">在 SQLite Viewer 里<b>不直接修改或删除值</b>。若看不到最新的值，就在保存动作完成后<b>重新打开数据库界面</b>。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 7 ══════════ -->
-  <section class="page" id="s7">
-    <div class="kick"><span class="ko">7. 재실행</span><span class="zh">7. 重新运行</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">프로젝트 재실행 뒤 사용자 경험을 확인한다</span><span class="zh">重启项目后确认用户体验</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <div class="steps">
-      <div class="st-h"><span class="ko">10-2에서 사라졌던 문제의 답</span><span class="zh">10-2 里“消失了”那个问题的答案</span></div>
-      <ol>
-        <li><span class="ko">프로젝트 실행을 <b>완전히 중지</b>한다.</span><span class="zh"><b>彻底停止</b>项目的运行。</span></li>
-        <li><span class="ko">같은 방법으로 <b>다시 실행</b>한다.</span><span class="zh">用同样的方法<b>重新运行</b>。</span></li>
-        <li><span class="ko">브라우저를 <b>새로 연다.</b></span><span class="zh"><b>重新打开</b>浏览器。</span></li>
-        <li><span class="ko">이전 기록이 <b>다시 나타나는지</b> 확인한다.</span><span class="zh">确认之前的记录<b>是否再次出现</b>。</span></li>
-        <li><span class="ko">SQLite Viewer에서 <b>같은 행이 남아 있는지</b> 확인한다.</span><span class="zh">在 SQLite Viewer 里确认<b>那一行是否还在</b>。</span></li>
-      </ol>
-    </div>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">사라지면 흐름에 맞지 않습니다</span><span class="zh">消失了就与流程不符</span></div>
-      <p><span class="ko">기록이 사라지면 <b>PRD와 9회의 사용자 흐름에 맞지 않습니다.</b> 10절의 요청문으로 <b>기억하기 · 다시 불러오기 · 화면에 보여 주기</b> 중 어느 단계가 문제인지부터 좁힙니다.</span><span class="zh">记录消失，就<b>与 PRD 和第 9 次课的用户流程不符</b>。用第 10 节的请求文，先在<b>记住 · 取回 · 显示到画面</b>三步里收窄问题出在哪一步。</span></p>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">여기까지 되면 11회 목표 달성입니다</span><span class="zh">做到这里，第 11 次课的目标就达成了</span></div>
-      <p><span class="ko">껐다 켜도 기록이 남아 있고 사용자가 그것을 다시 볼 수 있다면, <b>대표 흐름과 데이터 기억 기능이 함께 작동</b>하는 것입니다.</span><span class="zh">关掉再开记录还在，用户也能再看到，就说明<b>代表流程与数据记忆功能一起跑通了</b>。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 8 ══════════ -->
-  <section class="page" id="s8">
-    <div class="kick"><span class="ko">8. 단순함 점검</span><span class="zh">8. 检查是否简单</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">복잡하게 만들지 않았는지 확인한다</span><span class="zh">确认有没有做复杂了</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <ul class="blist checks">
-      <li><span class="ko">핵심 기능과 <b>관계없는 기록을 추가하지 않았다.</b></span><span class="zh"><b>没有加与核心功能无关的记录。</b></span></li>
-      <li><span class="ko">한 테이블로 충분한데 <b>여러 테이블로 나누지 않았다.</b></span><span class="zh">一张表就够，<b>没有拆成好几张</b>。</span></li>
-      <li><span class="ko">실제 개인정보와 <b>불필요한 입력값을 저장하지 않았다.</b></span><span class="zh"><b>没有保存</b>真实个人信息与<b>多余的输入值</b>。</span></li>
-      <li><span class="ko">기록을 만드는 행동과 다시 보는 화면이 <b>사용자 흐름에 포함된다.</b></span><span class="zh">产生记录的行为与再次查看的画面，<b>都包含在用户流程里</b>。</span></li>
-      <li><span class="ko">학생이 열 · 자료형 · 관계를 <b>직접 설계하거나 외우지 않는다.</b></span><span class="zh">学生<b>没有亲自设计或背诵</b>列、数据类型与关系。</span></li>
-    </ul>
-
-    <div class="note">
-      <div class="nt"><span class="ko">두 번째 항목이 자주 걸립니다</span><span class="zh">第二项最常出问题</span></div>
-      <p><span class="ko">AI는 표를 <b>더 잘게 나누는</b> 방향으로 답하기 쉽습니다. 그것이 더 전문적으로 보이기 때문입니다. 7-1에서 본 대로 <b>나눌 이유가 없으면 하나가 정답</b>입니다.</span><span class="zh">AI 很容易往<b>把表拆得更细</b>的方向答，因为那看起来更专业。正如 7-1 所见，<b>没有理由拆开时，一张就是正解</b>。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 9 ══════════ -->
-  <section class="page" id="s9">
-    <div class="kick"><span class="ko">9. 선택 참고</span><span class="zh">9. 可选参考</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">승인된 파일 업로드 기능</span><span class="zh">已获批准的文件上传功能</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
-
-    <div class="deep">
-      <div class="deep-h"><span class="ko">더 깊이 — 교사 승인을 받은 프로젝트만</span><span class="zh">更深一层 — 仅限获老师批准的项目</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></div>
-
-      <p><span class="ko">교사 승인을 받은 프로젝트만 다음 조건을 AI에게 전달합니다.</span><span class="zh">只有获老师批准的项目，才把下面的条件交给 AI。</span></p>
-
-      <div class="code">
-        <div class="chd"><span class="ko"><span class="fn">AI 요청문 — 승인된 경우만</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文 — 仅限获批时</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-        <pre><code>파일 업로드는 핵심 기능에 꼭 필요한 선택 기능이야.
-플랫폼이 제공하는 프로젝트별 업로드 폴더만 사용해 줘.
-
-- 교사가 허용한 확장자와 최대 크기만 받기
-- 서버가 안전한 새 파일명을 만들어 저장하기
-- SQLite에는 파일 자체가 아니라 표시 이름·저장 경로·설명만 기록하기
-- 실행 파일과 허용하지 않은 형식은 저장하지 않고 안내하기
-- 원래 파일명으로 서버 경로를 직접 만들지 않기
-- 파일 내용을 명령이나 코드로 실행하지 않기
-
-구현 전에 저장 위치, DB에 기록할 정보와 거부할 입력을 설명해 줘.</code></pre>
-      </div>
-
-      <h3 class="sub"><span class="ko">확인할 내용</span><span class="zh">要确认的内容</span></h3>
-      <ul class="blist checks">
-        <li><span class="ko">허용한 <b>작은 파일</b>이 업로드되는가?</span><span class="zh">允许的<b>小文件</b>能上传吗？</span></li>
-        <li><span class="ko">허용하지 않은 형식은 <b>거부되는가</b>?</span><span class="zh">不允许的格式<b>会被拒绝吗</b>？</span></li>
-        <li><span class="ko">크기 제한을 넘으면 <b>안내하는가</b>?</span><span class="zh">超过大小限制会<b>给出提示吗</b>？</span></li>
-        <li><span class="ko">업로드된 파일이 SQLite 안이 아니라 <b>별도 폴더에 있는가</b>?</span><span class="zh">上传的文件是在<b>单独的文件夹</b>而不是 SQLite 里吗？</span></li>
-        <li><span class="ko">DB에는 <b>파일 정보만</b> 기록되는가?</span><span class="zh">数据库里只记了<b>文件信息</b>吗？</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ══════════ 10 ══════════ -->
-  <section class="page" id="s10">
-    <div class="kick"><span class="ko">10. 수정</span><span class="zh">10. 修改</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">문제를 한 가지씩 수정한다</span><span class="zh">问题一个一个改</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">수정 요청문 — 빈칸을 채워 쓰세요</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">修改请求文 — 填空后使用</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>사용자 흐름에서 ___ 단계까지는 예상대로 작동하고,
-기억하거나 다시 보는 단계에서 ___이 예상과 달라.
-사용자가 한 행동은 ___이고 화면에 보인 내용은 ___이야.
-
-전체 DB 구조를 다시 만들지 말고,
-기억하기·다시 불러오기·화면에 보여 주기 중 문제 단계를 먼저 설명해 줘.
-가장 작은 수정 하나만 제안해 줘.</code></pre>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">세 단계 중 어디인지부터</span><span class="zh">先分清是三步中的哪一步</span></div>
-      <ul class="blist">
-        <li><span class="ko"><b>기억하기</b> — DB에 행이 아예 생기지 않는다</span><span class="zh"><b>记住</b> —— 数据库里根本没有新行</span></li>
-        <li><span class="ko"><b>다시 불러오기</b> — DB에는 행이 있는데 화면이 비어 있다</span><span class="zh"><b>取回</b> —— 数据库里有行，画面却是空的</span></li>
-        <li><span class="ko"><b>화면에 보여 주기</b> — 불러왔지만 다른 값이 보인다</span><span class="zh"><b>显示到画面</b> —— 取回来了，显示的却是别的值</span></li>
-      </ul>
-      <p><span class="ko">SQLite Viewer가 이 셋을 구분해 줍니다. <b>행이 있는지 없는지</b>만 보면 앞의 둘이 갈립니다.</span><span class="zh">SQLite Viewer 能帮你分开这三种。只看<b>有没有那一行</b>，前两种就分开了。</span></p>
-    </div>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">수정 전후를 같은 입력으로</span><span class="zh">改前改后用同样的输入</span></div>
-      <p><span class="ko"><b>같은 입력으로 수정 전후를 다시 확인</b>합니다. 입력을 바꾸면 무엇 때문에 달라졌는지 알 수 없습니다.</span><span class="zh"><b>用同样的输入把改前改后各确认一遍</b>。换了输入，就说不清是什么导致了差异。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 11 ══════════ -->
-  <section class="page" id="s11">
-    <div class="kick"><span class="ko">11. 정리</span><span class="zh">11. 小结</span><b>11-2</b></div>
-    <h2 class="title"><span class="ko">완료 확인과 오늘의 결과</span><span class="zh">完成确认与今天的成果</span></h2>
-
-    <ul class="blist checks">
-      <li><span class="ko">핵심 기능과 관련된 <b>의미 있는 기록</b>을 정했다.</span><span class="zh">定下了与核心功能相关的<b>有意义的记录</b>。</span></li>
-      <li><span class="ko">AI의 저장 제안을 <b>PRD와 9회의 사용자 흐름에 대조</b>했다.</span><span class="zh">把 AI 的保存提议<b>与 PRD 和第 9 次课的用户流程对照</b>了。</span></li>
-      <li><span class="ko">화면에서 <b>저장된 기록을 다시 확인</b>했다.</span><span class="zh">在画面上<b>再次确认了已保存的记录</b>。</span></li>
-      <li><span class="ko"><b>SQLite Viewer</b>에서 테이블과 행을 확인했다.</span><span class="zh">在 <b>SQLite Viewer</b> 里确认了表与行。</span></li>
-      <li><span class="ko"><b>프로젝트 재실행 뒤</b> 사용자가 기록을 다시 볼 수 있는지 확인했다.</span><span class="zh">确认了<b>项目重启后</b>用户仍能再看到记录。</span></li>
-      <li><span class="ko">실제 개인정보와 <b>계획서에 없는 정보를 저장하지 않았다.</b></span><span class="zh"><b>没有保存</b>真实个人信息与<b>计划书里没有的信息</b>。</span></li>
-      <li><span class="ko">파일 업로드는 <b>교사 승인 없이 추가하지 않았다.</b></span><span class="zh">文件上传<b>未经老师批准没有添加</b>。</span></li>
-    </ul>
-
-    <div class="recap">
-      <div class="rt"><span class="ko">11회가 끝나면 작동해야 하는 것</span><span class="zh">第 11 次课结束时该能跑的</span></div>
-      <ul>
-        <li><span class="ko"><b>대표 사용자 흐름</b>과 <b>SQLite 데이터 기억 기능</b>이 함께 작동</span><span class="zh"><b>代表性用户流程</b>与 <b>SQLite 数据记忆功能</b>一起跑通</span></li>
-        <li><span class="ko">껐다 켜도 <b>기록이 남아 있고 사용자가 다시 볼 수 있음</b></span><span class="zh">关掉再开，<b>记录还在，用户能再看到</b></span></li>
-      </ul>
-    </div>
-
-    <div class="grow"></div>
-
-    <div class="bridge">
-      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
-      <p><span class="ko">12회에는 <b>기능을 더 늘리지 않습니다.</b> 정상 흐름, 예외 뒤 회복, 저장된 기록을 다시 보는 흐름을 <b>사용자 관점에서 시험</b>합니다.</span><span class="zh">第 12 次课<b>不再增加功能</b>。而是<b>从用户视角测试</b>正常流程、例外后的恢复，以及再次查看已保存记录的流程。</span></p>
-      <p><span class="ko">지금까지는 “되게 만드는” 시간이었고, 다음은 “정말 되는지 확인하는” 시간입니다.</span><span class="zh">到目前为止是“把它做成”的时间，接下来是“确认它真的成了”的时间。</span></p>
-      <a class="next" href="../../12/textbook/12-1.html">12-1. 사용자 흐름으로 서비스 테스트하기 →</a>
-    </div>
-
-    <div class="lessonnav">
-      <a href="../../11/textbook/11-1.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">11-1. 서비스가 데이터를 기억하는 과정</span></a>
-      <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
-      <a href="../../12/textbook/12-1.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">12-1. 사용자 흐름으로 서비스 테스트하기</span></a>
-    </div>
-  </section>
+<section class="page" id="s12">
+<div class="kick"><span class="ko">부록 · 막힐 때</span><span class="zh">附录 · 卡住时</span><b>11-2</b></div>
+<h2 class="title"><span class="ko">이럴 때는 이렇게 한다</span><span class="zh">遇到这些情况就这样做</span> <span class="badge ext"><span class="ko">필요할 때</span><span class="zh">需要时</span></span></h2>
+<p class="lead"><span class="ko">저장을 붙이다 보면 막히는 자리가 비슷하게 나옵니다. 내 상황과 같은 줄을 찾아 오른쪽대로 해 봅니다. 그래도 안 되면 터미널의 빨간 글자 첫 줄을 지우지 말고 그대로 둔 채 손을 듭니다.</span><span class="zh">接保存时，卡住的地方大多相似。找到和自己情况一样的那行，照右边做。还不行就别清掉终端里红字的第一行，保留着举手。</span></p>
+<div class="trouble"><div class="th"><span class="ko">이런 상황이라면</span><span class="zh">如果是这些情况</span></div><table><tr><td><span class="ko"><code>data</code> 폴더에 <code>app.db</code>가 없다</span><span class="zh"><code>data</code> 文件夹里没有 <code>app.db</code></span></td><td><span class="ko">파일은 <b>처음 저장하는 순간</b> 생깁니다. 화면에서 기록을 하나 남긴 뒤 탐색기 위쪽의 새로 고침 단추를 누릅니다. 그래도 없으면 저장하기 단계를 7절처럼 묻습니다.</span><span class="zh">文件是在<b>第一次保存的那一刻</b>出现的。在画面上留下一条记录后，点资源管理器上方的刷新按钮。还是没有的话，就像第 7 节那样问保存这一步。</span></td></tr><tr><td><span class="ko"><code>app.db</code>를 눌렀더니 깨진 글자가 보인다</span><span class="zh">点 <code>app.db</code> 后看到乱码</span></td><td><span class="ko">SQLite Viewer가 아니라 기본 편집기로 열린 것입니다. 아무것도 고치지 말고 탭을 닫습니다. 확장 화면에서 SQLite Viewer에 <b>제거</b> 단추가 보이는지(설치되었는지) 확인한 뒤 <code>app.db</code>를 다시 누릅니다.</span><span class="zh">这是没用 SQLite Viewer，而是用默认编辑器打开了。什么都别改，关掉标签页。在扩展画面确认 SQLite Viewer 上显示 <b class="keep-ko">제거</b>（卸载）按钮（即已安装），再重新点 <code>app.db</code>。</span></td></tr><tr><td><span class="ko">터미널에 <code>no such table</code>이나 <code>has no column named</code>가 나온다</span><span class="zh">终端出现 <code>no such table</code> 或 <code>has no column named</code></span></td><td><span class="ko">AI가 표 모양을 바꿨는데 <code>app.db</code>에는 예전 표가 남아 있는 경우가 많습니다. 빨간 글자 첫 줄을 7절 요청문의 「화면에 보인 것」에 붙여 보냅니다. <code>app.db</code>를 지우는 것은 손을 들어 확인받은 뒤에만 합니다.</span><span class="zh">多半是 AI 改了表的样子，而 <code>app.db</code> 里还留着以前的表。把红字的第一行贴到第 7 节请求的“画面上看到的”里发送。删除 <code>app.db</code> 要先举手确认后才做。</span></td></tr><tr><td><span class="ko">AI가 <code>npm install</code>로 새 패키지를 설치하려 한다</span><span class="zh">AI 想用 <code>npm install</code> 安装新包</span></td><td><span class="ko">허락하지 않습니다. 「새 패키지는 쓰지 않아. Node에 들어 있는 node:sqlite와 lib/db.js의 getDb()만 써 줘」를 보냅니다.</span><span class="zh">不要同意。发“不用新包。只用 Node 自带的 node:sqlite 和 lib/db.js 的 getDb()”。</span></td></tr><tr><td><span class="ko"><code>FreeUsageLimitError</code>나 <code>429</code>가 나온다</span><span class="zh">出现 <code>FreeUsageLimitError</code> 或 <code>429</code></span></td><td><span class="ko">1~2분 기다렸다가 같은 요청을 다시 보냅니다. 그동안 SQLite Viewer에서 행을 화면과 대 봅니다.</span><span class="zh">等 1~2 分钟再发同样的请求。这段时间在 SQLite Viewer 里把行和画面对照一下。</span></td></tr></table></div>
+</section>
 
 </main>
 

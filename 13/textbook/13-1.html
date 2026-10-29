@@ -4,400 +4,261 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Cg%20fill='none'%20stroke='%23FF5C00'%20stroke-width='12'%3E%3Cpath%20d='M48%2012%20A36%2036%200%200%201%2048%2084'/%3E%3Cpath%20d='M48%2084%20A36%2036%200%200%201%2048%2012'/%3E%3C/g%3E%3Cpath%20d='M48%200%20L48%2024%20L68%2012%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M48%2072%20L48%2096%20L28%2084%20Z'%20fill='%23FF5C00'/%3E%3Cpath%20d='M65%2031%20L57%2057%20L39%2039%20Z'%20fill='%231B1D21'/%3E%3Cpath%20d='M31%2065%20L39%2039%20L57%2057%20Z'%20fill='%23A7ACB3'/%3E%3C/svg%3E" />
-<title>13-1. 수행평가 3 — 테스트 결과 반영과 최종 가다듬기 · 정보와 디지털 문해력</title>
-<meta name="description" content="정보와 디지털 문해력 교과서 13-1 — 수행평가 3. 테스트 기록을 근거로 한 가지씩 수정하고 재시험하여 최종 실행본을 확정" />
+<title>13-1. 수행평가 3 안내 · 테스트 결과 반영과 마무리 · 정보와 디지털 문해력</title>
+<meta name="description" content="정보와 디지털 문해력 교과서 13-1 — 수행평가 3의 평가 기준을 읽고, 12회 테스트 기록에서 가장 위험한 문제부터 골라 AI에게 가장 작은 수정을 요청한 뒤 같은 조건으로 다시 시험해 12_test_record.md 10항에 적는다." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/textbook.css" />
 </head>
 <body class="lang-ko">
-
 <div id="top">
-  <button class="menu" onclick="tbToggleToc()" title="목차 열기">☰ 목차</button>
-  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false">한 장씩 보기</button>
+  <button class="menu" onclick="tbToggleToc()">☰ <span class="ko">목차</span><span class="zh">目录</span></button>
+  <button id="modeBtn" onclick="tbToggleMode()" aria-pressed="false"><span class="ko">한 장씩 보기</span><span class="zh">逐页查看</span></button>
   <button class="lng" onclick="tbToggleLang()" aria-pressed="false">中文</button>
-  <div class="brand"><em>13-1</em> <span class="lesson">수행평가 3 — 테스트 결과 반영과 최종 가다듬기</span></div>
+  <div class="brand"><em>13-1</em> <span class="lesson"><span class="ko">수행평가 3 안내 · 테스트 결과 반영과 마무리</span><span class="zh">实践考核 3 说明 · 反映测试结果并收尾</span></span></div>
   <div class="spacer"></div>
   <div class="pct" id="count">1 / 1</div>
-  <button class="pbtn" onclick="window.print()" title="A4로 인쇄합니다">인쇄</button>
+  <button class="pbtn" onclick="window.print()"><span class="ko">인쇄</span><span class="zh">打印</span></button>
 </div>
 <div id="prog"></div>
-
-<nav id="toc">
-  <div class="h"><span class="ko">이 차시 — 13-1</span><span class="zh">本课时 — 13-1</span></div>
-  <a href="#opener"><span class="n">·</span> 차시 표지</a>
-  <a href="#s0"><span class="n">·</span> 새로 만들지 않습니다</a>
-  <a href="#s1"><span class="n">1</span> 수행평가에서 확인하는 능력</a>
-  <a href="#s2"><span class="n">2</span> 시작 파일을 확인한다</a>
-  <a href="#s3"><span class="n">3</span> 반드시 고칠 문제를 하나</a>
-  <a href="#s4"><span class="n">4</span> 테스트 근거와 함께 요청한다</a>
-  <a href="#s5"><span class="n">5</span> 같은 테스트로 재시험한다</a>
-  <a href="#s6"><span class="n">6</span> 시간이 남으면 표현을</a>
-  <a href="#s7"><span class="n">7</span> 이번 시간에 하지 않는 것</a>
-  <a href="#s8"><span class="n">8</span> 최종 프로젝트 ZIP</a>
-  <a href="#s9"><span class="n">9</span> 최종 실행본을 확인한다</a>
-  <a href="#s10"><span class="n">10</span> 완료 확인</a>
-  <a href="#s11"><span class="n">11</span> 정리</a>
-
-  <div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div>
-  <a href="../../index.html"><span class="n">표지</span> 전체 목차</a>
-  <a href="../../01/textbook/01-1.html"><span class="n">1-1</span> 수업 소개</a>
-  <a href="../../01/textbook/01-2.html"><span class="n">1-2</span> 수업 열기</a>
-  <a href="../../02/textbook/02-1.html"><span class="n">2-1</span> 개발 도구 설치와 확인</a>
-  <a href="../../02/textbook/02-2.html"><span class="n">2-2</span> 숫자와 변수로 계산하기</a>
-  <a href="../../02/textbook/02-3.html"><span class="n">2-3</span> 웹과 프로그래밍 언어의 역사</a>
-  <a href="../../03/textbook/03-1.html"><span class="n">3-1</span> 실습 환경 준비와 비교 결과로 판단하기</a>
-  <a href="../../03/textbook/03-2.html"><span class="n">3-2</span> 여러 값을 묶는 두 가지 방법</a>
-  <a href="../../04/textbook/04-1.html"><span class="n">4-1</span> Matplotlib으로 그래프 이해하기</a>
-  <a href="../../04/textbook/04-2.html"><span class="n">4-2</span> pandas로 표 데이터를 쉽게 사용하기</a>
-  <a href="../../05/textbook/05-1.html"><span class="n">5-1</span> 수행평가 1 안내</a>
-  <a href="../../05/textbook/05-2.html"><span class="n">5-2</span> 수행평가 1 · AI 활용 데이터 시각화</a>
-  <a href="../../06/textbook/06-1.html"><span class="n">6-1</span> 서비스 기획의 기초</a>
-  <a href="../../06/textbook/06-2.html"><span class="n">6-2</span> 서비스 제작 계획서(PRD) 시작하기</a>
-  <a href="../../07/textbook/07-1.html"><span class="n">7-1</span> 관계형 데이터베이스의 기초</a>
-  <a href="../../07/textbook/07-2.html"><span class="n">7-2</span> 개인정보와 암호화</a>
-  <a href="../../08/textbook/08-1.html"><span class="n">8-1</span> 수행평가 2 안내</a>
-  <a href="../../08/textbook/08-2.html"><span class="n">8-2</span> 수행평가 2 · PRD 완성·제출</a>
-  <a href="../../09/textbook/09-1.html"><span class="n">9-1</span> 서비스 사용자 흐름(Flow) 설계</a>
-  <a href="../../09/textbook/09-2.html"><span class="n">9-2</span> AI와 사용자 흐름·개발 계획 확정</a>
-  <a href="../../10/textbook/10-1.html"><span class="n">10-1</span> API와 요청·응답 이해하기</a>
-  <a href="../../10/textbook/10-2.html"><span class="n">10-2</span> AI와 핵심 API 연결하기</a>
-  <a href="../../11/textbook/11-1.html"><span class="n">11-1</span> 서비스가 데이터를 기억하는 과정</a>
-  <a href="../../11/textbook/11-2.html"><span class="n">11-2</span> SQLite 데이터 저장 연결하기</a>
-  <a href="../../12/textbook/12-1.html"><span class="n">12-1</span> 사용자 흐름으로 서비스 테스트하기</a>
-  <a href="../../12/textbook/12-2.html"><span class="n">12-2</span> 사용자 흐름 테스트와 시험 제출</a>
-  <a href="../../13/textbook/13-1.html" class="here"><span class="n">13-1</span> 수행평가 3 · 결과 반영과 가다듬기</a>
-  <a href="../../13/textbook/13-2.html"><span class="n">13-2</span> 수행평가 3 · 실행·설명·최종 제출</a>
-
-  <div class="h"><span class="ko">별도 자료</span><span class="zh">单独资料</span></div>
-  <a href="../../09/textbook/09-0.html"><span class="n">9-0</span> AI 개발 조건</a>
-</nav>
-<div id="scrim" onclick="tbToggleToc(false)"></div>
-
+<nav id="toc"><div class="h"><span class="ko">이 차시 — 13-1</span><span class="zh">本课时 — 13-1</span></div><a href="#opener"><span class="n">·</span><span class="ko">차시 표지</span><span class="zh">课时首页</span></a><a href="#s0"><span class="n">0</span><span class="ko">들어가며</span><span class="zh">开始之前</span></a><a href="#s1"><span class="n">1</span><span class="ko">평가 기준</span><span class="zh">评价标准</span></a><a href="#s2"><span class="n">2</span><span class="ko">점수</span><span class="zh">分数</span></a><a href="#s3"><span class="n">3</span><span class="ko">두 차시</span><span class="zh">两个课时</span></a><a href="#s4"><span class="n">4</span><span class="ko">시작</span><span class="zh">开始</span></a><a href="#s5"><span class="n">5</span><span class="ko">고칠 문제 고르기</span><span class="zh">选要修的问题</span></a><a href="#s6"><span class="n">6</span><span class="ko">AI에게 요청</span><span class="zh">请求 AI</span></a><a href="#s7"><span class="n">7</span><span class="ko">같은 조건으로 다시 시험</span><span class="zh">同样条件重新测试</span></a><a href="#s8"><span class="n">8</span><span class="ko">하지 않는 것</span><span class="zh">不做的事</span></a><a href="#s9"><span class="n">9</span><span class="ko">시간이 남으면</span><span class="zh">有时间的话</span></a><a href="#s10"><span class="n">10</span><span class="ko">끝낼 상태</span><span class="zh">结束时的状态</span></a><a href="#s11"><span class="n">11</span><span class="ko">오해와 사실</span><span class="zh">误解与事实</span></a><a href="#s12"><span class="n">12</span><span class="ko">정리와 다음 차시</span><span class="zh">小结与下一课时</span></a><a href="#s13"><span class="n">+</span><span class="ko">막힐 때</span><span class="zh">卡住时</span></a><div class="h"><span class="ko">전체 차시</span><span class="zh">全部课时</span></div><a href="../../index.html"><span class="n"><span class="ko">표지</span><span class="zh">首页</span></span><span class="ko">전체 목차</span><span class="zh">全部目录</span></a></nav><div id="scrim" onclick="tbToggleToc(false)"></div>
 <main>
+<section class="page opener" id="opener"><div class="onum"><span class="ko">13회 · 첫째 차시</span><span class="zh">第 13 次课 · 第 1 课时</span> <span class="badge lab"><span class="ko">수행평가 3</span><span class="zh">实践考核 3</span></span></div>
+<h1><span class="ko">수행평가 3 안내<br/>테스트 결과 반영과 마무리</span><span class="zh">实践考核 3 说明<br/>反映测试结果并收尾</span></h1>
+<div class="osub"><span class="ko">서비스를 새로 만들지 않습니다. 12회 테스트 기록에서<br/><b>가장 위험한 문제부터 하나씩</b> 고치고 같은 조건으로 다시 시험합니다.</span><span class="zh">不重新做服务。从第 12 次课的测试记录里，<br/><b>从最危险的问题开始一个一个</b>修改，并在同样的条件下重新测试。</span></div>
+<div class="abar"></div>
+<div class="ometa"><span class="ko"><b>이전 차시</b> · 12-2. 사용자 흐름 테스트와 제출 ZIP 연습<br/><b>다음 차시</b> · 13-2. 수행평가 3 · 실행·설명·최종 제출 (바로 이어서)<br/><b>오늘 여는 것</b> · <code>10</code> 폴더의 <code>docs\12_test_record.md</code></span><span class="zh"><b>上一课时</b> · 12-2. 用户流程测试与提交 ZIP 练习<br/><b>下一课时</b> · 13-2. 实践考核 3 · 运行·说明·最终提交（紧接着进行）<br/><b>今天打开的</b> · <code>10</code> 文件夹里的 <code>docs\12_test_record.md</code></span></div></section>
 
-  <!-- ══════════ 차시 표지 ══════════ -->
-  <section class="page opener" id="opener">
-    <div class="onum"><span class="ko">13회 · 첫째 차시 · 수행평가 3</span><span class="zh">第 13 次课 · 第 1 课时 · 实作评价 3</span></div>
-    <h1><span class="ko">테스트 결과 반영과<br/>최종 가다듬기</span><span class="zh">反映测试结果<br/>并做最后打磨</span></h1>
-    <div class="abar"></div>
-    <div class="osub"><span class="ko">서비스를 새로 만들지 않습니다.<br/>12회 테스트 기록을 근거로 <b>한 가지씩 고치고 재시험</b>합니다.</span><span class="zh">不重做服务。<br/>依据第 12 次课的测试记录，<b>一次改一处，改完再测</b>。</span></div>
-    <div class="ometa"><span class="ko"><b>이전 차시</b> · 12-2. 사용자 흐름 테스트와 시험 제출<br/>
-      <b>다음 차시</b> · 13-2. 수행평가 3 — 실행·설명·최종 제출<br/>
-      <b>오늘 만드는 것</b> · 최종 <code>13_assessment3_학생ID_이름.zip</code></span><span class="zh"><b>上一课时</b> · 12-2. 用户流程测试与试提交<br/> <b>下一课时</b> · 13-2. 实作评价 3 — 运行·说明·最终提交<br/> <b>今天要做的</b> · 最终版 <code>13_assessment3_학생ID_이름.zip</code></span></div>
-  </section>
+<section class="page" id="s0">
+<div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">우주선에 있는 것만으로 고쳐라</span><span class="zh">只用飞船上有的东西来修</span></h2>
+<p class="lead"><span class="ko">13회의 첫 시간은 숫자 13이 붙은 유명한 사건으로 시작합니다. 1970년 4월, 달로 가던 <b>아폴로 13호</b>에서 산소 탱크가 터졌습니다. 세 우주비행사는 지구로 돌아오는 길을 찾기 전에 먼저 숨 쉬는 공기부터 지켜야 했습니다.</span><span class="zh">第 13 次课的第一节，从一件带着数字 13 的著名事件开始。1970 年 4 月，飞往月球的<b>阿波罗 13 号</b>上氧气罐爆炸了。三名宇航员在找到回地球的路之前，先得守住呼吸的空气。</span></p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [이미지 생성 요청] 13-1-01-on-board
+     · 영역   : 이 주석 바로 아래 figure — 브라우저에 점선 자리로 보인다
+     · 규격   : 가로 21:9 · 개념 삽화 · assets/img/13-1-01-on-board.png (1600×686)
+     ───────────────────────────────────────────────────────────────────────
 
-  <!-- ══════════ 들어가며 ══════════ -->
-  <section class="page" id="s0">
-    <div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">새로 만들지 않습니다</span><span class="zh">不重新做</span></h2>
+     ── 맥락 (모델에게 그대로 넘겨도 된다) ────────────────────────────
+     장대현중고등학교 「정보와 디지털 문해력」 13회 첫째 차시(13-1) 도입에 쓸 그림이다.
+     학생은 중3~고2 여덟 명, 비개발자다. 9~12회에 AI와 작은 웹서비스를 만들고 시험했고,
+     오늘은 수행평가 3의 첫 시간이다. 새로 만들지 않고, 테스트 기록에서 가장 위험한
+     문제부터 골라 가장 작게 고친 뒤 같은 조건으로 다시 시험한다.
+     교과서 도입은 1970년 아폴로 13호 이야기다. 달 착륙선 안에 이산화탄소가 차오르는데,
+     여분의 필터는 네모난 모양이고 끼울 구멍은 둥근 모양이었다. 지상의 기술자들은
+     우주선 안에 실제로 있는 물건만 탁자 위에 쏟아 놓고, 그것만으로 둘을 잇는 장치를 만들었다.
+     요점은 「새 부품도, 다시 만들 시간도 없다. 있는 것만으로 가장 급한 것을 가장 작게 고친다」이다.
+     교과서 인쇄물과 교실 스크린 양쪽에 같은 파일이 들어간다.
 
-    <p class="lead"><span class="ko">9~12회에 설계하고 만든 서비스를 <b>새로 만들지 않습니다.</b> 12회의 테스트 기록과 최종 수정 목록을 기준으로, <b>사용자가 핵심 결과에 도달하는 데 방해되는 문제부터</b> 한 가지씩 고치고 같은 행동으로 재시험합니다.</span><span class="zh">第 9~12 次课设计并做出来的服务，<b>不重新做一遍</b>。以第 12 次课的测试记录与最终修改清单为准，<b>先解决妨碍用户到达核心结果的问题</b>，一次改一处，再用同样的行动重测。</span></p>
+     ── 그릴 것 ────────────────────────────────────────────────────
+     작업용 탁자를 비스듬히 위에서 내려다본 장면. 탁자 위에 물건이 흩어져 있다.
+     · 정육면체에 가까운 **네모난 필터 통 하나**(회색 금속, 옆면에 구멍 뚫린 망).
+     · 그 옆에 **둥근 구멍이 난 짧은 원통형 이음구 하나**. 네모와 둥근 구멍이 맞지 않는다는
+       것이 한눈에 보여야 한다. **이 둥근 구멍의 테두리만 주황(#FF5C00)** 으로 칠한다.
+     · 둘레에 흩어진 물건 — 투명한 비닐봉지, 두꺼운 마분지 한 장, 회색 덕트 테이프 한 롤,
+       주름진 회색 호스 한 가닥, 가위 하나. 모두 중성색(회색·베이지·흰색)이다.
+     · 탁자 가장자리에 두 사람의 **손과 소매만** 보인다. 한 손은 비닐봉지를 들어 보고,
+       다른 손은 테이프를 잡고 있다. 얼굴은 나오지 않는다.
+     · 완성된 장치를 그리지 않는다. **이제 막 이 물건들로 방법을 찾기 시작한 순간**이다.
 
-    <div class="vflow">
-      <div class="vf plain"><span class="ko"><b>사용자 흐름 테스트 기록 확인</b></span><span class="zh"><b>查看用户流程测试记录</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>사용자를 가장 크게 방해하는 문제 선택</b></span><span class="zh"><b>选出最妨碍用户的那个问题</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>작은 수정</b></span><span class="zh"><b>小幅修改</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>같은 사용자 행동으로 재시험</b></span><span class="zh"><b>用同样的用户行动重测</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf plain"><span class="ko"><b>대표 흐름 전체 다시 확인</b></span><span class="zh"><b>再确认一遍整条代表流程</b></span></div>
-      <div class="varr">▼</div>
-      <div class="vf"><span class="ko"><b>최종 실행본 확인</b></span><span class="zh"><b>确认最终运行版本</b></span></div>
-    </div>
+     ── 지킬 것 ────────────────────────────────────────────────────
+     · 공통 스타일 **A(사실적 삽화)** 를 앞에 붙인다. B(플랫 벡터)를 같이 붙이지 않는다.
+       → 이미지_제작_가이드 「2. 공통 스타일」
+     · 비율 21:9 가로. 밝고 조용한 장면. 배경은 거의 흰색(#ffffff). 어두운 배경을 쓰지 않는다.
+     · 우주선·로켓·지구·별·NASA 표시·국기·휘장을 그리지 않는다. 탁자 위 물건만으로 뜻이 선다.
+     · 컴퓨터·모니터·코드 화면을 넣지 않는다. 비유가 무너진다.
+     · 주황은 둥근 구멍의 테두리 한 군데뿐이다. 테이프·호스를 주황으로 칠하지 않는다.
+     · 끝에 붙인다: no text, no letters, no numbers, no labels, no watermark
+     · 받은 뒤 확인 — ① 네모난 통과 둥근 구멍이 맞지 않는 것이 한눈에 보이나
+       ② 주황이 둥근 구멍 테두리 한 군데뿐인가 ③ 완성된 장치·우주선·컴퓨터가 없나
+       ④ 글자·숫자·로고가 없나. 어긋나면 다시 만든다.
+     ═══════════════════════════════════════════════════════════════════════
+-->
+<figure class="fig"><img class="figimg" src="../../assets/img/13-1-01-on-board.png" alt="작업 탁자 위에 네모난 필터 통, 둥근 구멍이 난 이음구, 비닐봉지, 마분지, 테이프, 호스가 흩어져 있고 두 사람의 손이 물건을 집어 보는 장면." data-id="13-1-01-on-board" data-spec="가로 21:9 · 개념 삽화 · 탁자를 비스듬히 위에서 본 장면" onerror="window.imgPlaceholder&amp;&amp;imgPlaceholder(this)"><figcaption><span class="ko">그림 13-1-1. 새 부품은 없다. 탁자 위에 있는 것만으로 네모를 둥근 구멍에 이어야 한다.</span><span class="zh">图 13-1-1. 没有新零件。只能用桌上有的东西，把方的接到圆孔上。</span></figcaption></figure>
+<div class="scene"><div class="st"><span class="ko">그때 지상에서는</span><span class="zh">那时在地面上</span></div><p><span class="ko">우주비행사들은 작은 달 착륙선으로 옮겨 탔습니다. 그런데 착륙선의 공기 정화 장치는 두 사람이 이틀쯤 쓰도록 만든 것이라, 세 사람이 오래 머물자 이산화탄소가 차올랐습니다. 사령선에 여분의 필터가 있었지만 <b>네모난 모양</b>이었고, 착륙선의 끼울 자리는 <b>둥근 모양</b>이었습니다.</span><span class="zh">宇航员们转移到小小的登月舱里。可登月舱的空气净化装置是按两个人用两天左右设计的，三个人待久了，二氧化碳就越积越多。指令舱里有备用滤罐，却是<b>方形</b>的，而登月舱里要插的位置是<b>圆形</b>的。</span></p><p><span class="ko">지상의 기술자들은 우주선 안에 실제로 있는 물건만 탁자 위에 쏟아 놓았습니다. 비닐봉지, 비행 설명서의 두꺼운 표지, 우주복 호스, 테이프. 새 부품을 올려 보낼 수는 없었으니 <b>그 물건만으로</b> 둘을 잇는 방법을 찾아야 했습니다.</span><span class="zh">地面上的工程师们只把飞船里真正有的东西倒在桌上：塑料袋、飞行手册的硬封面、宇航服的软管、胶带。新零件送不上去，只能<b>用这些东西</b>想办法把两者接起来。</span></p></div>
+</section>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">이 고리를 반복합니다</span><span class="zh">重复这个循环</span></div>
-      <p><span class="ko">문제 하나 → 수정 하나 → 재시험 하나. 여러 문제를 한꺼번에 고치면 <b>무엇이 무엇을 고쳤는지</b> 알 수 없습니다.</span><span class="zh">一个问题 → 一处修改 → 一次重测。一次改好几个，就<b>说不清是什么修好了什么</b>。</span></p>
-    </div>
-  </section>
+<section class="page" id="s0_2">
+<div class="kick"><span class="ko">들어가며</span><span class="zh">开始之前</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">우주선에 있는 것만으로 고쳐라</span><span class="zh">只用飞船上有的东西来修</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">기술자들은 장치를 먼저 지상에서 만들어 시험했고, 그 순서를 무전으로 한 단계씩 불러 주었습니다. 우주비행사들이 장치를 붙이자 이산화탄소 수치가 내려갔고, 세 사람은 4월 17일 무사히 돌아왔습니다. 오늘 우리 처지가 이 기술자들과 닮았습니다.</span><span class="zh">工程师们先在地面上把装置做出来试过，再通过无线电一步一步报给宇航员。宇航员装上后，二氧化碳的数值降了下来，三个人在 4 月 17 日平安返回。今天我们的处境，和这些工程师很像。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:44%"><span class="ko">아폴로 13호에서</span><span class="zh">在阿波罗 13 号上</span></th><th><span class="ko">오늘 내 서비스에서</span><span class="zh">今天在自己的服务里</span></th></tr></thead><tbody><tr><td><span class="ko">숨 쉬는 공기부터 지켰다</span><span class="zh">先守住呼吸的空气</span></td><td><span class="ko">개인정보·안전과 핵심 흐름부터 고친다</span><span class="zh">先修个人信息·安全和核心流程</span></td></tr><tr><td><span class="ko">우주선에 있는 물건만 썼다</span><span class="zh">只用飞船上有的东西</span></td><td><span class="ko">새 패키지·새 기능 없이 <code>10</code> 폴더에 있는 것만 쓴다</span><span class="zh">不装新包、不加新功能，只用 <code>10</code> 文件夹里有的</span></td></tr><tr><td><span class="ko">우주선을 다시 만들지 않고 이음 장치 하나를 만들었다</span><span class="zh">没有重造飞船，只做了一个连接装置</span></td><td><span class="ko">전체를 다시 만들지 않고 처음 달라진 한 곳만 고친다</span><span class="zh">不全部重做，只修第一个出错的地方</span></td></tr><tr><td><span class="ko">지상에서 먼저 시험하고 수치가 내려가는지 봤다</span><span class="zh">先在地面试，再看数值有没有降</span></td><td><span class="ko">같은 시작 상태, 같은 행동으로 다시 시험한다</span><span class="zh">用同样的起始状态、同样的操作重新测试</span></td></tr></tbody></table></div>
+<div class="bigq"><div class="qt"><span class="ko">핵심 질문</span><span class="zh">核心问题</span></div><p><span class="ko">남은 시간은 이 차시 하나다. 내 서비스에서 <b>무엇을 먼저</b>,<br/><b>얼마나 작게</b> 고쳐야 할까?</span><span class="zh">剩下的时间只有这一个课时。自己的服务里，<b>先修什么</b>、<br/><b>修多小</b>才对？</span></p></div>
+</section>
 
-  <!-- ══════════ 1 ══════════ -->
-  <section class="page" id="s1">
-    <div class="kick"><span class="ko">1. 평가 기준</span><span class="zh">1. 评价标准</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">수행평가에서 확인하는 능력</span><span class="zh">实作评价要看的能力</span> <span class="badge assess"><span class="ko">수행평가 3</span><span class="zh">实作评价 3</span></span></h2>
+<section class="page" id="s1">
+<div class="kick"><span class="ko">1. 수행평가 3</span><span class="zh">1. 实践考核 3</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">무엇을 평가하고, 무엇을 평가하지 않는가</span><span class="zh">评价什么，不评价什么</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">13회 두 차시가 수행평가 3 시간입니다. 9~12회에 만들고 시험한 내 서비스를 이 차시에 가다듬고, 다음 차시에 실행해 보이고 설명한 뒤 ZIP 하나로 냅니다. 새 서비스를 만드는 시험이 아니라, <b>내가 만든 것을 확인하고 판단한 과정</b>을 보는 시험입니다.</span><span class="zh">第 13 次课的两个课时就是实践考核 3 的时间。这一课时打磨第 9~12 次课做好并测过的服务，下一课时运行给人看、写说明，再交一个 ZIP。这不是做新服务的考试，而是看<b>自己检查和判断所做东西的过程</b>的考试。</span></p>
+<div class="row"><div class="pane accent"><div class="pt"><span class="ko">평가하는 것</span><span class="zh">评价的</span></div><ul class="blist"><li><span class="ko">대표 사용자 흐름이 처음부터 핵심 결과까지 실행되는가</span><span class="zh">代表性用户流程能否从头运行到核心结果</span></li><li><span class="ko">잘못된 입력 뒤 안내를 보고 정상 흐름으로 돌아오는가</span><span class="zh">输错后能否看到提示并回到正常流程</span></li><li><span class="ko">핵심 기록이 SQLite에 저장되고, 다시 켜도 보이는가</span><span class="zh">核心记录是否存进 SQLite，重新打开也能看到</span></li><li><span class="ko">테스트 기록과 실제로 고친 내용이 이어지는가</span><span class="zh">测试记录和实际修改的内容是否接得上</span></li><li><span class="ko">AI가 한 일과 내가 정하고 확인한 일을 나눠 설명하는가</span><span class="zh">能否分开说明 AI 做的事和自己决定、确认的事</span></li></ul></div><div class="pane"><div class="pt"><span class="ko">평가하지 않는 것</span><span class="zh">不评价的</span></div><ul class="blist"><li><span class="ko">코드의 양, 코드를 직접 썼는지</span><span class="zh">代码多少、是否亲手写代码</span></li><li><span class="ko">기능의 수, 화면의 화려함</span><span class="zh">功能数量、画面是否华丽</span></li><li><span class="ko">테이블 수, DB 구조의 복잡함</span><span class="zh">表的数量、数据库结构是否复杂</span></li><li><span class="ko">오류를 몇 번 만났는지, 얼마나 빨리 고쳤는지</span><span class="zh">遇到过几次错误、修得多快</span></li><li><span class="ko">외부에 공개 배포했는지</span><span class="zh">有没有对外公开发布</span></li></ul></div></div>
+<div class="note ok"><div class="nt"><span class="ko">AI의 도움은 감점이 아닙니다</span><span class="zh">借助 AI 不扣分</span></div><p><span class="ko">AI가 코드를 거의 다 썼어도 괜찮고, 선생님이 실행 환경이나 파일 위치를 도와준 것도 감점하지 않습니다. 대신 그 결과를 내가 실행해 보고, 받아들일지 되돌릴지 정한 근거를 말할 수 있어야 합니다.</span><span class="zh">AI 几乎写了全部代码也没关系，老师帮忙解决运行环境或文件位置也不扣分。但自己要能运行这个结果，并说出决定接受还是撤回的依据。</span></p></div>
+</section>
 
-    <ul class="blist checks">
-      <li><span class="ko">수행평가 2 <b>PRD</b>와 9회의 <b>사용자 흐름</b>을 실제 서비스에 연결했는가?</span><span class="zh">把实作评价 2 的 <b>PRD</b> 与第 9 次课的<b>用户流程</b>接到了真实服务上吗？</span></li>
-      <li><span class="ko">사용자가 <b>대표 흐름을 따라 핵심 결과에 도달</b>하는가?</span><span class="zh">用户能<b>沿代表流程走到核心结果</b>吗？</span></li>
-      <li><span class="ko"><b>테스트 결과를 근거로</b> 문제를 수정했는가?</span><span class="zh">是<b>以测试结果为依据</b>修改问题的吗？</span></li>
-      <li><span class="ko">화면의 행동이 <b>API의 요청·응답으로 이어지고 SQLite에 기록되는 과정</b>을 자기 서비스로 설명하는가?</span><span class="zh">能用自己的服务说明画面行动如何<b>连到 API 请求·响应，并记录到 SQLite</b>吗？</span></li>
-      <li><span class="ko"><b>AI가 한 일과 학생이 판단·확인한 일</b>을 구분하는가?</span><span class="zh">分得清 <b>AI 做的事与学生判断、确认的事</b>吗？</span></li>
-      <li><span class="ko"><b>개인정보·비밀정보</b>와 불필요한 기능을 피했는가?</span><span class="zh">避开了<b>个人信息、机密信息</b>与多余功能吗？</span></li>
-    </ul>
+<section class="page" id="s2">
+<div class="kick"><span class="ko">2. 점수</span><span class="zh">2. 分数</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">점수는 세 영역 · 100점 · 학기 성적의 40%</span><span class="zh">分数分三部分 · 100 分 · 占学期成绩 40%</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">수행평가 3은 100점이고, 학기 성적에 40%로 들어갑니다. 세 번의 수행평가 가운데 가장 큽니다. 아래 표는 교수학습·평가계획에 적힌 세 영역과 가장 높은 점수의 기준입니다. 오른쪽 칸은 선생님이 그 영역을 어느 파일에서 확인하는지 알려 줍니다.</span><span class="zh">实践考核 3 满分 100 分，按 40% 计入学期成绩，是三次实践考核里占比最大的。下表是教学与评价计划里写的三个部分和最高分的标准。右边一栏告诉你老师在哪个文件里看这一部分。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:27%"><span class="ko">영역</span><span class="zh">部分</span></th><th><span class="ko">가장 높은 점수를 받는 경우</span><span class="zh">拿到最高分的情况</span></th><th style="width:27%"><span class="ko">어디에서 보나</span><span class="zh">在哪里看</span></th></tr></thead><tbody><tr><td><span class="ko">대표 사용자 흐름 실행과 결과 확인 · 30점</span><span class="zh">代表性用户流程的运行与结果确认 · 30 分</span></td><td><span class="ko">PRD의 대표 흐름을 시작 → 행동 → 결과 순으로 실행해 보이고, 화면 행동과 결과 사이의 API 요청·응답을 내 말로 설명한다.</span><span class="zh">按 开始 → 操作 → 结果 的顺序运行 PRD 的代表性流程给人看，并用自己的话说明画面操作和结果之间的 API 请求·响应。</span></td><td><span class="ko">실행 · <code>13_explanation.md</code></span><span class="zh">运行 · <code>13_explanation.md</code></span></td></tr><tr><td><span class="ko">SQLite 기록 확인과 사용자 흐름 테스트 · 30점</span><span class="zh">SQLite 记录确认与用户流程测试 · 30 分</span></td><td><span class="ko">핵심 기록이 저장되고 새로고침·다시 켜기 뒤에도 보이는지 확인하고, 정상·예외·다시 방문 흐름의 예상과 실제, 고친 것과 못 고친 것을 기록한다.</span><span class="zh">确认核心记录被保存，刷新、重新启动后也还能看到；并记录正常·例外·再次访问流程的预期与实际、修好的和没修好的。</span></td><td><span class="ko"><code>data\app.db</code> · <code>12_test_record.md</code></span><span class="zh"><code>data\app.db</code> · <code>12_test_record.md</code></span></td></tr><tr><td><span class="ko">AI 활용과 학생의 판단·수정 설명 · 40점</span><span class="zh">AI 运用与学生的判断·修改说明 · 40 分</span></td><td><span class="ko">AI가 도운 부분과 내가 확인한 결과, 받아들이거나 고치거나 멈춘 판단, 다시 확인한 결과나 남은 한계를 이어서 설명한다.</span><span class="zh">把 AI 帮忙的部分、自己确认的结果、接受·修改·停下的判断，以及重新确认的结果或剩下的局限连起来说明。</span></td><td><span class="ko"><code>AI대화기록.md</code> · <code>12_test_record.md</code> 10항 · <code>13_explanation.md</code></span><span class="zh"><code class="keep-ko">AI대화기록.md</code>（AI 对话记录）· <code>12_test_record.md</code> 第 10 项 · <code>13_explanation.md</code></span></td></tr></tbody></table></div>
+<div class="note"><div class="nt"><span class="ko">이수는 세 번의 합으로 정합니다</span><span class="zh">是否结业看三次的总和</span></div><p><span class="ko">수행평가 1(30%) · 2(30%) · 3(40%)의 반영 점수를 더해 40점 이상이면 이수입니다. 다른 학생과 비교하지 않습니다. 글로 쓰기 어려운 부분은 선생님께 말로 설명해도 됩니다.</span><span class="zh">实践考核 1（30%）· 2（30%）· 3（40%）的折算分数加起来满 40 分就算结业。不和其他同学比较。难以写成文字的部分，也可以口头向老师说明。</span></p></div>
+</section>
 
-    <div class="note ok">
-      <div class="nt"><span class="ko">모든 프로젝트의 공통 기준</span><span class="zh">所有项目的共同标准</span></div>
-      <p><span class="ko"><b>SQLite에 핵심 기록을 저장하고 다시 보여 주는 흐름</b>은 모든 프로젝트의 공통 기준입니다.</span><span class="zh"><b>把核心记录存进 SQLite 并能再展示出来</b>，是所有项目的共同标准。</span></p>
-    </div>
+<section class="page" id="s3">
+<div class="kick"><span class="ko">3. 두 차시</span><span class="zh">3. 两个课时</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">이 차시에는 고치고, 다음 차시에는 바꾸지 않고 보여 준다</span><span class="zh">这一课时修改，下一课时不改动、只展示</span></h2>
+<p class="lead"><span class="ko">두 차시는 하는 일이 분명히 나뉩니다. 13-1에서는 테스트 기록을 근거로 고치고 다시 시험합니다. 13-2에서는 더 고치지 않고 실행해 보이고, 설명을 쓰고, ZIP을 만들어 냅니다. 그래서 <b>13-1이 끝날 때 기능 수정도 끝납니다.</b></span><span class="zh">两个课时要做的事分得很清楚。13-1 以测试记录为依据修改并重新测试。13-2 不再修改，而是运行给人看、写说明、做 ZIP 并提交。所以<b>13-1 结束时，功能修改也就结束了。</b></span></p>
+<div class="row"><div class="pane accent"><div class="pt"><span class="ko">13-1 · 지금</span><span class="zh">13-1 · 现在</span></div><ul class="blist"><li><span class="ko">테스트 기록에서 고칠 문제 하나를 고른다</span><span class="zh">从测试记录里选一个要修的问题</span></li><li><span class="ko">AI에게 가장 작은 수정을 설명하게 하고, 확인한 뒤 진행시킨다</span><span class="zh">先让 AI 说明最小的修改，确认后再让它动手</span></li><li><span class="ko">같은 조건으로 다시 시험한다</span><span class="zh">在同样的条件下重新测试</span></li><li><span class="ko"><code>12_test_record.md</code>에 10항을 만들어 적는다</span><span class="zh">在 <code>12_test_record.md</code> 里新建第 10 项并写下来</span></li></ul></div><div class="pane"><div class="pt"><span class="ko">13-2 · 다음 차시</span><span class="zh">13-2 · 下一课时</span></div><ul class="blist"><li><span class="ko">세 흐름을 실행해 본다</span><span class="zh">运行三条流程</span></li><li><span class="ko"><code>docs\13_explanation.md</code>에 설명을 쓴다</span><span class="zh">在 <code>docs\13_explanation.md</code> 里写说明</span></li><li><span class="ko">비밀정보·개인정보를 확인한다</span><span class="zh">检查机密信息和个人信息</span></li><li><span class="ko"><code>npm run pack</code> → 이름 바꾸기 → Form 제출</span><span class="zh"><code>npm run pack</code> → 改名 → 用 Form 提交</span></li></ul></div></div>
+<div class="note warn"><div class="nt"><span class="ko">제출은 Google Form에 ZIP 하나</span><span class="zh">提交是往 Google Form 上传一个 ZIP</span></div><p><span class="ko">13-2에서 <code>13_assessment3_학생ID_이름.zip</code> 하나를 선생님이 알려 준 수행평가 3 Form에 올립니다. 파일을 올리려면 Google 계정에 로그인해 있어야 합니다. 수행평가 1·2의 Form에는 내지 않습니다.</span><span class="zh">13-2 时，把一个 <code class="keep-ko">13_assessment3_학생ID_이름.zip</code>（“<b class="keep-ko">학생ID</b>”换成学号，“<b class="keep-ko">이름</b>”换成姓名）上传到老师告诉你的实践考核 3 Form。要上传文件，必须登录 Google 账号。不要交到实践考核 1·2 的 Form。</span></p></div>
+</section>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">평가하지 않는 것</span><span class="zh">不评价的</span></div>
-      <p><span class="ko"><b>코드의 양, 화면의 화려함, 기능 수, 테이블 수와 DB 구조의 복잡함</b>은 평가하지 않습니다. 기능 하나가 목적에 맞게 끝까지 이어지는 서비스가, 기능 열 개가 중간에 끊기는 서비스보다 좋습니다.</span><span class="zh"><b>代码多少、画面花哨程度、功能个数、表的数量与数据库结构的复杂度</b>都不评价。一个功能能扣着目的走到底，好过十个功能半路断掉。</span></p>
-    </div>
-  </section>
+<section class="page" id="s4">
+<div class="kick"><span class="ko">4. 시작</span><span class="zh">4. 开始</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">10 폴더를 열고 서비스와 OpenCode를 켠다</span><span class="zh">打开 10 文件夹，启动服务和 OpenCode</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">오늘도 13회까지 쓰는 <code>10</code> 폴더, 곧 내 서비스 프로젝트를 엽니다. 새로 받을 자료는 없습니다. 터미널을 두 개 열어 하나에서는 서비스를 켜 두고, 다른 하나에서 OpenCode를 켭니다. 고치기 전에 지금 상태가 12-2에서 시험한 그대로인지 먼저 봅니다.</span><span class="zh">今天也打开用到第 13 次课的 <code>10</code> 文件夹，也就是自己的服务项目。没有新资料要下载。开两个终端：一个让服务一直运行，另一个启动 OpenCode。修改之前，先看看现在的状态是不是和 12-2 测试时一样。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">지금 하세요</span><span class="zh">现在就做</span></div><ol><li><span class="ko">VS Code에서 <b>파일 → 폴더 열기</b>로 <code>10</code> 폴더 자체를 연다. 탐색기 맨 위에 <code>10</code>이 보이면 된다.</span><span class="zh">在 VS Code 里用 <b class="keep-ko">파일 → 폴더 열기</b>（文件 → 打开文件夹）打开 <code>10</code> 文件夹本身。资源管理器最上面显示 <code>10</code> 就对了。</span></li><li><span class="ko"><b>터미널 → 새 터미널</b>을 열고 줄 끝이 <code>…\10&gt;</code>인지 본 뒤 <code>npm run dev</code>를 입력한다. <code>Ready</code>가 보이면 브라우저에서 <code>localhost:3000</code>을 연다.</span><span class="zh">打开 <b class="keep-ko">터미널 → 새 터미널</b>（终端 → 新建终端），确认行末是 <code>…\10&gt;</code> 后输入 <code>npm run dev</code>。看到 <code>Ready</code> 后，在浏览器里打开 <code>localhost:3000</code>。</span></li><li><span class="ko"><b>터미널 → 새 터미널</b>을 한 번 더 눌러 두 번째 터미널을 연다. 여기서 <code>opencode</code>를 켠다.</span><span class="zh">再点一次 <b class="keep-ko">터미널 → 새 터미널</b>，打开第二个终端。在这里启动 <code>opencode</code>。</span></li><li><span class="ko"><code>docs\12_test_record.md</code>를 열고 <code>Ctrl+Shift+V</code> 미리 보기로 2항과 7항을 읽는다.</span><span class="zh">打开 <code>docs\12_test_record.md</code>，用 <code>Ctrl+Shift+V</code> 预览，读第 2 项和第 7 项。</span></li></ol></div>
+<div class="note"><div class="nt"><span class="ko">서비스를 켠 터미널에서는 OpenCode를 켜지 않습니다</span><span class="zh">不要在运行服务的终端里启动 OpenCode</span></div><p><span class="ko"><code>npm run dev</code>가 돌고 있는 터미널은 서비스가 쓰고 있어서 다른 명령을 받지 못합니다. 터미널 패널 오른쪽의 목록에서 두 번째 터미널을 골라 씁니다.</span><span class="zh">正在跑 <code>npm run dev</code> 的终端被服务占着，接收不了别的命令。在终端面板右侧的列表里选第二个终端来用。</span></p></div>
+</section>
 
-  <!-- ══════════ 2 ══════════ -->
-  <section class="page" id="s2">
-    <div class="kick"><span class="ko">2. 시작 파일</span><span class="zh">2. 起始文件</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">시작 파일을 확인한다</span><span class="zh">确认起始文件</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<section class="page" id="s5">
+<div class="kick"><span class="ko">5. 고칠 문제</span><span class="zh">5. 要修的问题</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">고칠 문제는 위험한 순서로 고른다</span><span class="zh">要修的问题按危险程度来选</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">12-2에서 <code>12_test_record.md</code> 7항에 발견한 문제를 적었습니다. 시간은 한 차시뿐이라 다 고치지 못할 수 있습니다. 그래서 고치기 쉬운 순서가 아니라 <b>사용자에게 위험한 순서</b>로 고릅니다. 아래 표의 위에서부터 내 기록에 해당하는 문제가 있는지 봅니다.</span><span class="zh">12-2 时，在 <code>12_test_record.md</code> 第 7 项里写下了发现的问题。时间只有一个课时，可能修不完。所以不按好不好修的顺序，而是按<b>对用户的危险程度</b>来选。从下表最上面开始，看自己的记录里有没有对应的问题。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:22%"><span class="ko">순서</span><span class="zh">顺序</span></th><th><span class="ko">이런 문제</span><span class="zh">这类问题</span></th><th style="width:34%"><span class="ko">기록에서 찾는 곳</span><span class="zh">在记录里哪里找</span></th></tr></thead><tbody><tr><td><span class="ko">1 · 개인정보·안전</span><span class="zh">1 · 个人信息·安全</span></td><td><span class="ko">화면이나 저장된 기록에 진짜 이름·전화번호가 있다. 비밀번호나 API 키가 코드에 들어 있다.</span><span class="zh">画面或保存的记录里有真实的姓名、电话号码。代码里有密码或 API 密钥。</span></td><td><span class="ko">8항 마지막 줄 · SQLite Viewer로 본 <code>data\app.db</code></span><span class="zh">第 8 项最后一行 · 用 SQLite Viewer 看的 <code>data\app.db</code></span></td></tr><tr><td><span class="ko">2 · 핵심 흐름 중단</span><span class="zh">2 · 核心流程中断</span></td><td><span class="ko">무엇부터 해야 할지 알 수 없다. 핵심 행동을 해도 결과가 나오지 않는다.</span><span class="zh">不知道该先做什么。做了核心操作也不出结果。</span></td><td><span class="ko">7항 첫째 묶음 · 2항 「대표 정상 흐름」</span><span class="zh">第 7 项第一组 · 第 2 项“<b class="keep-ko">대표 정상 흐름</b>”（代表性正常流程）</span></td></tr><tr><td><span class="ko">3 · 오류 뒤 복구 불가</span><span class="zh">3 · 出错后无法恢复</span></td><td><span class="ko">잘못 입력한 뒤 안내가 없거나, 고쳐서 다시 해도 정상으로 돌아오지 않는다.</span><span class="zh">输错后没有提示，或者改了再试也回不到正常。</span></td><td><span class="ko">7항 둘째 묶음 · 2항 「예외 뒤 다시 시도」</span><span class="zh">第 7 项第二组 · 第 2 项“<b class="keep-ko">예외 뒤 다시 시도</b>”（例外后重试）</span></td></tr><tr><td><span class="ko">4 · 저장 기록 소실</span><span class="zh">4 · 保存的记录丢失</span></td><td><span class="ko">새로고침하거나 서비스를 다시 켜면 기록이 사라진다.</span><span class="zh">一刷新或重新启动服务，记录就没了。</span></td><td><span class="ko">2항 「새로고침·다시 방문」</span><span class="zh">第 2 项“<b class="keep-ko">새로고침·다시 방문</b>”（刷新·再次访问）</span></td></tr></tbody></table></div>
+<div class="note ok"><div class="nt"><span class="ko">다섯째는 표현입니다</span><span class="zh">第五是表达</span></div><p><span class="ko">알아보기 어려운 안내 문장이나 버튼 이름, 화면 배치는 위의 네 가지가 없을 때만 손댑니다. 7항 셋째 묶음 「시간이 있으면 개선할 표현·화면」이 여기에 해당합니다.</span><span class="zh">看不太懂的提示句、按钮名称、画面布局，只有在上面四类问题都没有时才动。第 7 项第三组“<b class="keep-ko">시간이 있으면 개선할 표현·화면</b>”（有时间再改进的表达·画面）就属于这一类。</span></p></div>
+</section>
 
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:36%"><span class="ko">무엇</span><span class="zh">什么</span></th><th><span class="ko">위치</span><span class="zh">位置</span></th></tr>
-      <tr><td><span class="ko">수행평가 2 PRD</span><span class="zh">实作评价 2 的 PRD</span></td><td><code>docs/08_assessment2_학생ID_이름.md</code></td></tr>
-      <tr><td><span class="ko">사용자 흐름·개발 계획</span><span class="zh">用户流程与开发计划</span></td><td><code>docs/09_development_plan_학생ID_이름.md</code></td></tr>
-      <tr><td><span class="ko">테스트 기록</span><span class="zh">测试记录</span></td><td><code>docs/12_test_record_학생ID_이름.md</code></td></tr>
-      <tr><td><span class="ko">프로젝트 제출 후보</span><span class="zh">项目提交候选</span></td><td><code>13_assessment3_학생ID_이름.zip</code></td></tr>
-      <tr><td><span class="ko">시험 제출 결과</span><span class="zh">试提交结果</span></td><td><span class="ko">플랫폼 결과 또는 로컬 실행 확인 결과</span><span class="zh">平台结果或本地运行确认结果</span></td></tr>
-    </table>
-    </div>
+<section class="page" id="s5_2">
+<div class="kick"><span class="ko">5. 고칠 문제</span><span class="zh">5. 要修的问题</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">고칠 문제는 위험한 순서로 고른다</span><span class="zh">要修的问题按危险程度来选</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">개인정보·안전이 맨 위인 이유는, ZIP을 내는 순간 그 안의 기록이 다른 사람에게 그대로 전해지기 때문입니다. 그리고 한 번에 <b>문제 하나</b>만 고릅니다. 두 가지를 한꺼번에 고치면 나아졌을 때 무엇이 고쳤는지, 나빠졌을 때 무엇이 망가뜨렸는지 알 수 없습니다.</span><span class="zh">个人信息·安全排在最上面，是因为 ZIP 一交出去，里面的记录就原样到了别人手里。另外，一次只选<b>一个问题</b>。两个一起改的话，变好了不知道是哪个改好的，变坏了也不知道是哪个弄坏的。</span></p>
+<p><span class="ko">고른 문제는 <code>12_test_record.md</code> 맨 아래에 새로 만드는 <b>10항</b>에 적습니다. 아래 틀을 복사해 9항 아래 빈 줄에 붙여 넣고, 「고른 문제」와 「우선순위」 두 줄을 먼저 채운 뒤 저장합니다. 나머지 줄은 고치고 다시 시험하면서 채웁니다.</span><span class="zh">选好的问题，写在 <code>12_test_record.md</code> 最下面新建的<b>第 10 项</b>里。把下面的格式复制、粘贴到第 9 项下面的空行，先填好“选的问题”和“优先顺序”两行再保存。其余几行在修改和重新测试的过程中填写。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">12_test_record.md 맨 아래에 붙여 넣을 틀</span><span class="zh">粘贴到 12_test_record.md 最下面的格式</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">## 10. 13회 수정과 재시험
 
-    <div class="note warn">
-      <div class="nt"><span class="ko">파일이 없다면</span><span class="zh">文件不齐时</span></div>
-      <p><span class="ko">파일이 누락되었다면 <b>새 내용을 만들기보다 기존 기록을</b> 프로젝트의 <code>docs/</code>에 정리합니다. 지금 급하게 지어낸 문서는 실제 과정을 보여 주지 못합니다.</span><span class="zh">要是文件缺了，<b>与其新编内容，不如把已有的记录</b>整理进项目的 <code>docs/</code>。现在临时编出来的文档，说明不了真实过程。</span></p>
-    </div>
-  </section>
+### 수정 1
+- 고른 문제:
+- 우선순위: 개인정보·안전 / 핵심 흐름 중단 / 오류 뒤 복구 불가 / 저장 기록 소실 / 표현
+- 처음 달라진 단계 (5항에서):
+- AI가 설명한 수정 (고칠 파일과 내용):
+- 내 판단: 진행 / 다른 방법 요청 / 그만둠 — 이유:
+- 다시 시험한 시작 상태와 행동:
+- 다시 시험한 결과: 통과 / 실패 / 확인 필요
+- 대표 흐름 전체와 다시 켠 뒤 기록:</pre><pre class="zh blk">## 10. 第 13 次课的修改与重新测试
 
-  <!-- ══════════ 3 ══════════ -->
-  <section class="page" id="s3">
-    <div class="kick"><span class="ko">3. 문제 선택</span><span class="zh">3. 选问题</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">반드시 고칠 문제를 하나 고른다</span><span class="zh">选出一个必须改的问题</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+### 修改 1
+- 选的问题:
+- 优先顺序: 个人信息·安全 / 核心流程中断 / 出错后无法恢复 / 保存的记录丢失 / 表达
+- 第一个出现不同的步骤（来自第 5 项）:
+- AI 说明的修改（要改的文件和内容）:
+- 我的判断: 继续 / 要求别的方法 / 放弃 — 理由:
+- 重新测试的起始状态和操作:
+- 重新测试的结果: 通过 / 失败 / 需要确认
+- 整条代表流程和重新启动后的记录:</pre></div>
+<div class="note"><div class="nt"><span class="ko">고칠 문제가 없다면</span><span class="zh">如果没有要修的问题</span></div><p><span class="ko">2항의 다섯 줄이 모두 「통과」이고 7항이 비어 있다면 「고른 문제: 없음」이라고 적습니다. 그리고 뒤쪽의 「시간이 남으면」으로 가서 표현을 다듬습니다.</span><span class="zh">如果第 2 项的五行全是“通过”，第 7 项也是空的，就写“选的问题：无”。然后去后面“有时间的话”那一页打磨表达。</span></p></div>
+</section>
 
-    <p class="lead"><span class="ko">우선순위는 다음과 같습니다. <b>위에 있는 것부터</b> 봅니다.</span><span class="zh">优先级如下，<b>从上往下</b>看。</span></p>
+<section class="page" id="s6">
+<div class="kick"><span class="ko">6. AI에게 요청</span><span class="zh">6. 请求 AI</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">먼저 설명만 듣고, 확인한 뒤에 고치게 한다</span><span class="zh">先只听说明，确认后再让它改</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">고를 문제를 정했으면 OpenCode에 보냅니다. 10회부터 해 온 것처럼 요청은 두 번에 나눕니다. 첫 요청에서는 고치지 말고 <b>어느 파일을 어떻게 고칠지 설명만</b> 하게 하고, 내가 그 설명을 확인한 뒤에 「진행해.」를 보냅니다. 빈칸은 테스트 기록에서 옮겨 적습니다.</span><span class="zh">定好要修的问题后，发给 OpenCode。和第 10 次课以来一样，请求分两次。第一次不让它改，只让它<b>说明要改哪个文件、怎么改</b>；自己确认了说明之后，再发“继续。”。空格从测试记录里抄过来。</span></p>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">요청 ① — 고치지 말고 설명만</span><span class="zh">请求 ① — 不改，只说明</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">docs\12_test_record.md를 읽어 줘. 7항의 문제 하나를 고치려고 해.
+- 고를 문제: ___
+- 원래 약속: ___을 하면 ___이 보여야 한다.
+- 내가 한 행동: ___ 상태에서 ___을 했다.
+- 화면에 보인 것: ___
+아직 고치지 마.
+전체를 다시 만들지 말고, 처음 달라진 한 단계만 찾아서
+가장 작은 수정 하나를 고칠 파일 이름과 함께 쉬운 말로 대화창에 설명해 줘.
+새 기능, 새 패키지, 프레임워크 변경, 표 구조 전체 변경은 제안하지 마.</pre><pre class="zh blk">请读 docs\12_test_record.md。我想修第 7 项里的一个问题。
+- 要修的问题: ___
+- 原来的约定: 做了 ___，就应该看到 ___。
+- 我做的操作: 在 ___ 的状态下做了 ___。
+- 画面上看到的: ___
+先不要改。
+不要全部重做，只找出第一个出现不同的那一步，
+用简单的话在对话框里说明一个最小的修改，并写出要改的文件名。
+不要提议加新功能、装新包、换框架、整体改表结构。</pre></div>
+<div class="note ok"><div class="nt"><span class="ko">빈칸은 테스트 기록에 이미 있습니다</span><span class="zh">空格在测试记录里已经有了</span></div><p><span class="ko">원래 약속은 2항의 「예상한 서비스 반응」, 내가 한 행동은 「시작 상태」와 「사용자가 한 행동」, 화면에 보인 것은 「실제 결과」 칸입니다. 5항에 처음 달라진 단계를 적어 두었다면 그 줄도 덧붙입니다.</span><span class="zh">原来的约定是第 2 项的“<b class="keep-ko">예상한 서비스 반응</b>”（预期的服务反应），我做的操作是“<b class="keep-ko">시작 상태</b>”（起始状态）和“<b class="keep-ko">사용자가 한 행동</b>”（用户的操作），画面上看到的是“<b class="keep-ko">실제 결과</b>”（实际结果）那一格。如果第 5 项写了第一个出现不同的步骤，也把那一行加上。</span></p></div>
+</section>
 
-    <div class="recap">
-      <ul>
-        <li><span class="ko"><b>개인정보·비밀정보와 안전 문제</b></span><span class="zh"><b>个人信息、机密信息与安全问题</b></span></li>
-        <li><span class="ko">사용자가 <b>시작 방법을 알 수 없거나 핵심 결과에 도달하지 못하는</b> 문제</span><span class="zh">用户<b>不知道怎么开始，或到不了核心结果</b></span></li>
-        <li><span class="ko">잘못된 상황 뒤 <b>다시 시도할 수 없는</b> 문제</span><span class="zh">出错之后<b>无法重试</b></span></li>
-        <li><span class="ko">저장되어야 할 기록이 <b>새로고침·재실행 뒤 사라지는</b> 문제</span><span class="zh">该保存的记录<b>刷新或重启后就没了</b></span></li>
-        <li><span class="ko">행동 뒤 <b>반응과 결과를 이해하기 어려운</b> 문제</span><span class="zh">行动之后<b>反应与结果难以理解</b></span></li>
-        <li><span class="ko"><b>플랫폼을 사용하는 경우에만</b> 발생하는 실행 문제</span><span class="zh"><b>只在使用平台时</b>才出现的运行问题</span></li>
-        <li><span class="ko">작은 <b>안내 문장과 화면 표시</b> 문제</span><span class="zh">小的<b>提示语与画面显示</b>问题</span></li>
-      </ul>
-    </div>
+<section class="page" id="s6_2">
+<div class="kick"><span class="ko">6. AI에게 요청</span><span class="zh">6. 请求 AI</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">AI의 설명을 읽고, 진행할지는 내가 정한다</span><span class="zh">读 AI 的说明，继不继续由我决定</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">AI가 설명을 내놓으면 바로 「진행해.」를 보내지 말고 아래 질문으로 한 번 읽습니다. 하나라도 「아니요」면 진행하지 않고 더 작은 방법을 묻습니다. 이 판단이 수행평가 3에서 가장 큰 영역인 「AI 활용과 학생의 판단」의 재료가 됩니다.</span><span class="zh">AI 给出说明后，不要马上发“继续。”，先用下面的问题读一遍。只要有一个答“否”，就不继续，而是问更小的办法。这个判断，就是实践考核 3 里占比最大的“AI 运用与学生的判断”的材料。</span></p>
+<ul class="blist"><li><span class="ko">고칠 파일이 한두 개이고, 그 이름이 나와 있는가?</span><span class="zh">要改的文件只有一两个，并且写出了文件名吗？</span></li><li><span class="ko">내가 고른 문제 하나만 다루는가?</span><span class="zh">只处理我选的那一个问题吗？</span></li><li><span class="ko">새 기능, 새 패키지, 로그인, 외부 API가 끼어 있지 않은가?</span><span class="zh">里面没有夹带新功能、新包、登录、外部 API 吗？</span></li><li><span class="ko">「전체를 다시 짜면」 「구조를 바꾸면」 같은 말이 없는가?</span><span class="zh">没有“全部重写的话”“把结构换掉的话”这类话吗？</span></li></ul>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">요청 ② — 괜찮으면</span><span class="zh">请求 ② — 没问题的话</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">진행해.</pre><pre class="zh blk">继续。</pre></div>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">범위가 크면</span><span class="zh">范围太大的话</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">그건 범위가 너무 커. 지금 파일 구조는 그대로 두고,
+___ 단계만 고치는 더 작은 방법을 설명해 줘. 아직 고치지 마.</pre><pre class="zh blk">那个范围太大了。现在的文件结构保持不变，
+请说明只修 ___ 这一步的更小办法。先不要改。</pre></div>
+<div class="note"><div class="nt"><span class="ko">판단은 10항에 남깁니다</span><span class="zh">判断留在第 10 项</span></div><p><span class="ko">「AI가 설명한 수정」과 「내 판단」 두 줄을 지금 채웁니다. 더 작은 방법을 요청했거나 그만두었다면 그 이유도 적습니다. 거절한 것도 판단입니다.</span><span class="zh">现在就填好“AI 说明的修改”和“我的判断”两行。如果要求了更小的办法或放弃了，也写下理由。拒绝也是判断。</span></p></div>
+</section>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">한 번에 하나만</span><span class="zh">一次只选一个</span></div>
-      <p><span class="ko">한 번에 <b>가장 중요한 문제 하나만</b> 선택합니다. 목록을 훑다가 고치기 쉬운 것부터 손대면, 정작 사용자를 막고 있는 문제가 남습니다.</span><span class="zh">一次只挑<b>最重要的那一个</b>。扫一眼清单就先挑好改的下手，真正挡住用户的问题反而留着。</span></p>
-    </div>
+<section class="page" id="s7">
+<div class="kick"><span class="ko">7. 다시 시험</span><span class="zh">7. 重新测试</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">고친 뒤에는 같은 시작 상태, 같은 행동으로 다시 해 본다</span><span class="zh">修改后，用同样的起始状态、同样的操作再试一次</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
+<p class="lead"><span class="ko">AI가 고쳤다고 말해도 아직 고쳐진 것은 아닙니다. 아폴로 13호의 기술자들이 수치가 내려가는 것을 보고서야 안심한 것처럼, 화면에서 직접 확인합니다. 이때 <b>처음 실패했을 때와 같은 시작 상태에서 같은 행동</b>을 합니다. 조건을 바꾸면 고쳐서 된 것인지 조건이 달라서 된 것인지 알 수 없습니다.</span><span class="zh">就算 AI 说改好了，也还不算真的改好。就像阿波罗 13 号的工程师看到数值降下来才放心一样，要在画面上亲眼确认。这时要<b>从和第一次失败时同样的起始状态出发，做同样的操作</b>。条件一变，就分不清是因为修了才好，还是因为条件不同才好。</span></p>
+<div class="steps"><div class="st-h"><span class="ko">순서</span><span class="zh">顺序</span></div><ol><li><span class="ko">브라우저를 새로고침한다. 화면이 그대로면 서비스 터미널에서 <code>Ctrl+C</code>를 누르고 <code>npm run dev</code>로 다시 켠다.</span><span class="zh">刷新浏览器。画面没变的话，在运行服务的终端按 <code>Ctrl+C</code>，再用 <code>npm run dev</code> 重新启动。</span></li><li><span class="ko">2항의 「시작 상태」를 다시 만든다. 예: 첫 화면을 막 연 상태, 기록이 두 개 있는 상태.</span><span class="zh">重新做出第 2 项的“<b class="keep-ko">시작 상태</b>”（起始状态）。例如：刚打开首页的状态、已有两条记录的状态。</span></li><li><span class="ko">2항의 「사용자가 한 행동」을 <b>같은 값</b>으로 다시 한다. 글자 하나까지 같게 입력한다.</span><span class="zh">用<b>同样的值</b>重做第 2 项的“<b class="keep-ko">사용자가 한 행동</b>”（用户的操作）。连一个字都输得一样。</span></li><li><span class="ko">「예상한 서비스 반응」과 화면을 비교해 통과 / 실패 / 확인 필요를 정하고 10항에 적는다.</span><span class="zh">把“<b class="keep-ko">예상한 서비스 반응</b>”（预期的服务反应）和画面对比，定下 通过 / 失败 / 需要确认，写进第 10 项。</span></li></ol></div>
+<div class="note warn"><div class="nt"><span class="ko">실패하면</span><span class="zh">失败的话</span></div><p><span class="ko">AI에게 「고쳤다고 했지만 아직 ___이 보여. 화면에 보인 그대로야」를 보내고 다시 설명부터 듣습니다. 두 번 해도 안 되면 손을 들고, 10항에 「못 고침」과 이유를 적습니다. 못 고친 것을 적는 것도 기록입니다.</span><span class="zh">给 AI 发“你说改好了，但还是显示 ___。这是画面上原样看到的”，再从说明开始听。两次都不行就举手，并在第 10 项写“没修好”和理由。把没修好的写下来，也是记录。</span></p></div>
+</section>
 
-    <ul class="blist">
-      <li><span class="ko">오늘 고를 문제</span><span class="zh">今天要选的问题</span></li>
-      <li><span class="ko">이 문제가 사용자에게 주는 영향</span><span class="zh">这问题对用户的影响</span></li>
-      <li><span class="ko">우선순위에서 몇 번째인가</span><span class="zh">在优先级里排第几</span></li>
-    </ul>
-  </section>
+<section class="page" id="s7_2">
+<div class="kick"><span class="ko">7. 다시 시험</span><span class="zh">7. 重新测试</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">고친 곳만이 아니라 흐름 전체와 저장된 기록을 다시 본다</span><span class="zh">不只看改的地方，还要重看整条流程和保存的记录</span> <span class="cont"><span class="ko">(이어서)</span><span class="zh">（续）</span></span></h2>
+<p class="lead"><span class="ko">고친 단계가 통과했다고 끝나지 않습니다. 한 곳을 고치다가 다른 곳이 망가지는 일이 흔하기 때문입니다. 그래서 <b>대표 정상 흐름을 처음부터 끝까지</b> 한 번 더 해 보고, 서비스를 껐다 켠 뒤에도 기록이 남는지 봅니다. 결과를 10항 마지막 줄에 적은 다음에 다음 문제로 넘어갑니다.</span><span class="zh">改的那一步通过了也还没完。因为修一个地方、弄坏另一个地方的事很常见。所以要把<b>代表性正常流程从头到尾</b>再走一遍，并看看服务关掉再打开后记录还在不在。把结果写进第 10 项最后一行，再进入下一个问题。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:28%"><span class="ko">다시 볼 것</span><span class="zh">要重看的</span></th><th><span class="ko">이렇게 본다</span><span class="zh">这样看</span></th></tr></thead><tbody><tr><td><span class="ko">대표 정상 흐름</span><span class="zh">代表性正常流程</span></td><td><span class="ko">첫 화면부터 핵심 결과까지 <code>09_development_plan.md</code> 3항의 순서대로</span><span class="zh">从首页到核心结果，按 <code>09_development_plan.md</code> 第 3 项的顺序</span></td></tr><tr><td><span class="ko">예외 뒤 다시 시도</span><span class="zh">例外后重试</span></td><td><span class="ko">잘못된 값을 넣고 → 안내를 보고 → 고쳐서 다시 → 정상 결과</span><span class="zh">输入错误的值 → 看提示 → 改好再试 → 正常结果</span></td></tr><tr><td><span class="ko">다시 켜도 남는 기록</span><span class="zh">重新启动后还在的记录</span></td><td><span class="ko">서비스 터미널 <code>Ctrl+C</code> → <code>npm run dev</code> → 새로고침 → 기록 확인 · SQLite Viewer로 <code>data\app.db</code></span><span class="zh">在运行服务的终端按 <code>Ctrl+C</code> → <code>npm run dev</code> → 刷新 → 确认记录 · 用 SQLite Viewer 看 <code>data\app.db</code></span></td></tr></tbody></table></div>
+<div class="note ok"><div class="nt"><span class="ko">다음 문제로</span><span class="zh">进入下一个问题</span></div><p><span class="ko">10항에 <code>### 수정 2</code>를 만들고 같은 순서로 합니다. 시간이 남는 만큼만 합니다. 하나를 끝까지 확인한 것이 셋을 반쯤 고친 것보다 낫습니다.</span><span class="zh">在第 10 项里新建 <code>### <b class="keep-ko">수정 2</b></code>（修改 2），按同样的顺序做。时间剩多少就做多少。把一个问题确认到底，比三个问题都改一半更好。</span></p></div>
+</section>
 
-  <!-- ══════════ 4 ══════════ -->
-  <section class="page" id="s4">
-    <div class="kick"><span class="ko">4. AI 요청</span><span class="zh">4. 请求 AI</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">AI에게 테스트 근거와 함께 요청한다</span><span class="zh">连同测试依据一起请求 AI</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<section class="page" id="s8">
+<div class="kick"><span class="ko">8. 하지 않는 것</span><span class="zh">8. 不做的事</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">오늘 하지 않는 것과 그 이유</span><span class="zh">今天不做的事和理由</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
+<p class="lead"><span class="ko">AI는 가끔 「이참에 더 좋게」 만들자고 제안합니다. 평소라면 좋은 제안일 수도 있지만, 오늘은 남은 시간이 다음 차시 하나뿐입니다. 아래 일을 하면 지금까지 확인한 결과가 쓸모없어지거나, 다시 확인할 시간이 없습니다.</span><span class="zh">AI 有时会提议“趁这个机会做得更好”。平时也许是好提议，可今天剩下的时间只有下一个课时。做了下面这些事，到目前为止确认过的结果就会白费，或者没时间再确认。</span></p>
+<div class="tablewrap"><table class="kv"><thead><tr><th style="width:40%"><span class="ko">하지 않는 것</span><span class="zh">不做的事</span></th><th><span class="ko">하면 생기는 일</span><span class="zh">做了会怎样</span></th></tr></thead><tbody><tr><td><span class="ko">새 핵심 기능 추가</span><span class="zh">加新的核心功能</span></td><td><span class="ko">시험하지 않은 흐름이 제출본에 들어간다</span><span class="zh">没测过的流程进了提交版</span></td></tr><tr><td><span class="ko">프로젝트 전체 다시 만들기</span><span class="zh">把整个项目重做</span></td><td><span class="ko">12회에 확인한 결과가 모두 쓸모없어진다</span><span class="zh">第 12 次课确认过的结果全部白费</span></td></tr><tr><td><span class="ko">다른 프레임워크나 TypeScript로 바꾸기</span><span class="zh">换成别的框架或 TypeScript</span></td><td><span class="ko">다시 실행되는지조차 확인할 시간이 없다</span><span class="zh">连能不能再运行都来不及确认</span></td></tr><tr><td><span class="ko">새 패키지 설치 (<code>npm install 이름</code>)</span><span class="zh">安装新包（<code>npm install <b class="keep-ko">이름</b></code>）</span></td><td><span class="ko"><code>package.json</code>이 바뀌어 선생님 PC에서 실행되지 않을 수 있다</span><span class="zh"><code>package.json</code> 变了，在老师的电脑上可能运行不了</span></td></tr><tr><td><span class="ko">표 구조 전체 바꾸기</span><span class="zh">整体改表结构</span></td><td><span class="ko">지금까지 저장한 기록을 다시 볼 수 없게 된다</span><span class="zh">到目前为止保存的记录再也看不到了</span></td></tr><tr><td><span class="ko">로그인·외부 API·파일 올리기 추가</span><span class="zh">加登录·外部 API·文件上传</span></td><td><span class="ko">계획에 없던 안전 문제가 생긴다</span><span class="zh">出现计划里没有的安全问题</span></td></tr></tbody></table></div>
+<div class="note"><div class="nt"><span class="ko">PRD는 결과에 맞춰 고치지 않습니다</span><span class="zh">PRD 不照着结果去改</span></div><p><span class="ko">계획과 결과가 다르면 <code>PRD.md</code>를 고치지 말고, 그 차이와 이유를 13-2의 설명에 적습니다. 다른 것은 감점이 아니지만, 이유 없이 지우면 무엇이 달라졌는지 비교할 수 없게 됩니다.</span><span class="zh">计划和结果不一样时，不要改 <code>PRD.md</code>，而是把差别和理由写进 13-2 的说明里。不一样并不扣分，但没有理由就删掉，就没法比较到底哪里变了。</span></p></div>
+</section>
 
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">AI 요청문</span><button class="cp" onclick="copyCode(this)">복사</button></span><span class="zh"><span class="fn">AI 请求文</span><button class="cp" onclick="copyCode(this)">复制</button></span></div>
-      <pre><code>내 서비스의 사용자와 목적은 ___이야.
-9회에 계획한 대표 사용자 흐름은 ___이야.
-사용자가 ___을 했을 때 ___이 보여야 하는데 실제로는 ___이 보였어.
-___ 단계까지는 예상대로였고 ___에서 처음 달라졌어.
+<section class="page" id="s9">
+<div class="kick"><span class="ko">9. 시간이 남으면</span><span class="zh">9. 有时间的话</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">위험한 문제가 없을 때만 표현을 다듬는다</span><span class="zh">只有没有危险问题时，才打磨表达</span> <span class="badge ext"><span class="ko">필요할 때</span><span class="zh">需要时</span></span></h2>
+<p class="lead"><span class="ko">앞의 네 가지 문제를 다 고쳤거나 처음부터 없었다면, 처음 쓰는 사람이 덜 헤매도록 글과 안내를 다듬습니다. 서비스를 처음 연 사람의 눈으로 첫 화면부터 읽습니다. 이때도 한 번에 하나씩 고치고 바로 다시 봅니다.</span><span class="zh">前面四类问题都修完了，或者本来就没有，就打磨文字和提示，让第一次用的人少走弯路。用第一次打开服务的人的眼光，从首页开始读。这时也一次只改一处，改完马上再看。</span></p>
+<ul class="blist"><li><span class="ko">첫 화면에서 서비스 이름과 무엇을 하는 서비스인지 보이는가?</span><span class="zh">首页上能看到服务名称和这是做什么的服务吗？</span></li><li><span class="ko">처음 할 행동을 안내 문장이나 버튼 이름으로 알 수 있는가?</span><span class="zh">能从提示句或按钮名称知道第一步该做什么吗？</span></li><li><span class="ko">버튼을 누른 뒤 무엇이 일어났는지 알 수 있는가?</span><span class="zh">按下按钮后，能知道发生了什么吗？</span></li><li><span class="ko">예외 안내가 무엇을 고쳐 다시 하면 되는지 알려 주는가?</span><span class="zh">例外提示有没有告诉用户改什么、怎样重试？</span></li><li><span class="ko">「내 서비스」 「여기에 입력」 같은 예시 글이나 작동하지 않는 버튼이 남아 있지 않은가?</span><span class="zh">有没有残留“<b class="keep-ko">내 서비스</b>”（我的服务）“<b class="keep-ko">여기에 입력</b>”（在这里输入）这类示例文字，或不起作用的按钮？</span></li></ul>
+<div class="code"><div class="chd"><span class="fn"><span class="ko">표현을 고치는 요청 — 이것도 설명부터</span><span class="zh">修改表达的请求 — 这个也先说明</span></span><button class="cp" onclick="copyCode(this)"><span class="ko">복사</span><span class="zh">复制</span></button></div><pre class="ko blk">화면에 보이는 「___」 문장을 「___」로 바꾸려고 해.
+아직 고치지 마. 어느 파일의 몇째 줄인지만 먼저 알려 줘.
+다른 문장, 색, 배치는 바꾸지 마.</pre><pre class="zh blk">我想把画面上的“___”这句改成“___”。
+先不要改。只先告诉我是哪个文件的第几行。
+不要改别的句子、颜色和布局。</pre></div>
+<div class="note"><div class="nt"><span class="ko">여기서 멈춥니다</span><span class="zh">到这里为止</span></div><p><span class="ko">색을 모두 바꾸거나 애니메이션을 넣거나 화면 전체 배치를 새로 짜지 않습니다. 표현을 다듬는 것은 글자와 안내를 고르는 일이지 다시 만드는 일이 아닙니다.</span><span class="zh">不把颜色全换掉，不加动画，也不重新设计整个画面布局。打磨表达是挑选文字和提示，不是重做。</span></p></div>
+</section>
 
-전체 프로젝트와 DB 구조를 다시 만들지 말고,
-이 사용자 흐름을 이어지게 하는 가장 작은 수정만 제안해 줘.
-수정 뒤 사용자가 무엇을 다시 확인해야 하는지 먼저 설명해 줘.</code></pre>
-    </div>
+<section class="page" id="s10">
+<div class="kick"><span class="ko">10. 끝낼 상태</span><span class="zh">10. 结束时的状态</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">13-1이 끝날 때 이 상태면 된다</span><span class="zh">13-1 结束时达到这个状态就行</span> <span class="badge core"><span class="ko">확인</span><span class="zh">确认</span></span></h2>
+<p class="lead"><span class="ko">13-1이 끝나면 기능 수정도 끝납니다. 다음 차시에는 이 버전을 그대로 실행해 보이고 설명합니다. 아래 줄을 하나씩 보고, 「아니요」인 줄이 있으면 남은 시간에 그것부터 합니다.</span><span class="zh">13-1 结束，功能修改也就结束了。下一课时把这个版本原样运行给人看并说明。把下面几行一行一行看过去，有答“否”的，剩下的时间先做那一项。</span></p>
+<ul class="blist"><li><span class="ko"><code>12_test_record.md</code>에 10항이 있고, 고친 문제마다 다시 시험한 결과가 적혀 있다.</span><span class="zh"><code>12_test_record.md</code> 里有第 10 项，每个修过的问题都写了重新测试的结果。</span></li><li><span class="ko">고치지 못한 문제가 있다면 「못 고침」과 그 이유가 적혀 있다.</span><span class="zh">如果有没修好的问题，写了“没修好”和理由。</span></li><li><span class="ko">대표 정상 흐름이 처음부터 핵심 결과까지 이어진다.</span><span class="zh">代表性正常流程能从头接到核心结果。</span></li><li><span class="ko">서비스를 껐다 켜도 기록이 화면과 SQLite Viewer에 보인다.</span><span class="zh">服务关掉再打开，记录在画面上和 SQLite Viewer 里都能看到。</span></li><li><span class="ko">새 기능, 새 패키지, 전체 다시 만들기 없이 고쳤다.</span><span class="zh">没有加新功能、装新包或全部重做。</span></li><li><span class="ko">저장하지 않은 파일이 없다. 탭 옆에 ●가 보이지 않는다.</span><span class="zh">没有未保存的文件。标签旁边看不到 ●。</span></li></ul>
+<div class="note ok"><div class="nt"><span class="ko">VS Code와 터미널은 그대로 둡니다</span><span class="zh">VS Code 和终端保持原样</span></div><p><span class="ko">13-2는 바로 이어서 합니다. 서비스와 OpenCode를 끄지 않아도 됩니다. 쉬는 시간에 컴퓨터를 끄지 않습니다.</span><span class="zh">13-2 紧接着进行。服务和 OpenCode 不用关。课间休息时也不要关电脑。</span></p></div>
+</section>
 
-    <div class="note ok">
-      <div class="nt"><span class="ko">앞의 네 줄이 근거입니다</span><span class="zh">前四行就是依据</span></div>
-      <p><span class="ko">사용자와 목적, 계획한 흐름, 예상과 실제, 처음 달라진 단계. 이 네 가지는 <b>모두 이미 문서에 적혀 있습니다.</b> 옮겨 적기만 하면 됩니다.</span><span class="zh">用户与目的、计划的流程、预期与实际、第一处不同的步骤。这四样<b>文档里都已经写好了</b>，照抄过去就行。</span></p>
-    </div>
+<section class="page" id="s11">
+<div class="kick"><span class="ko">11. 오해</span><span class="zh">11. 误解</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">흔한 오해와 사실</span><span class="zh">常见误解与事实</span></h2>
+<p class="lead"><span class="ko">수행평가 날에는 마음이 급해져서 이런 생각을 하기 쉽습니다. 세 가지 모두 오늘 시간을 잘못 쓰게 만듭니다. 내 계획을 다시 보면서 같은 생각을 하고 있지 않은지 확인합니다.</span><span class="zh">考核这天一着急，就容易冒出这样的想法。这三种想法都会让今天的时间用错地方。回头看看自己的计划，确认有没有这样想。</span></p>
+<div class="myth"><div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“오류가 하나라도 남아 있으면 미이수다.”</span><span class="zh">“只要还剩一个错误，就不能结业。”</span></div></div><div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">오류를 만났는지는 평가하지 않습니다. 남은 문제를 알고, 왜 남았는지 설명하는 것도 확인한 결과입니다.</span><span class="zh">遇没遇到错误不在评价之内。知道还剩什么问题、能说明为什么剩下，也是确认的结果。</span></div></div><div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“AI의 개선 제안을 많이 받아들일수록 좋은 서비스가 된다.”</span><span class="zh">“AI 的改进建议接受得越多，服务就越好。”</span></div></div><div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">오늘은 받아들인 것만큼 <b>거절한 것</b>도 중요합니다. 범위를 지키려고 거절한 것은 이유와 함께 10항에 적습니다.</span><span class="zh">今天<b>拒绝的</b>和接受的一样重要。为了守住范围而拒绝的，连同理由写进第 10 项。</span></div></div><div class="m x"><div class="tag"><span class="ko">오해</span><span class="zh">误解</span></div><div class="txt"><span class="ko">“AI가 고쳤다고 했으니 고쳐진 것이다.”</span><span class="zh">“AI 说改好了，那就是改好了。”</span></div></div><div class="m o"><div class="tag"><span class="ko">사실</span><span class="zh">事实</span></div><div class="txt"><span class="ko">확인은 내가 같은 조건으로 다시 해 보고 <b>화면에서 본 결과</b>입니다. AI의 말은 아직 확인이 아닙니다.</span><span class="zh">确认，是自己在同样条件下再做一遍、<b>在画面上看到的结果</b>。AI 说的话还不算确认。</span></div></div></div>
+</section>
 
-    <div class="note stop">
-      <div class="nt"><span class="ko">반영하지 않을 제안</span><span class="zh">不采纳的提议</span></div>
-      <p><span class="ko">AI가 <b>계획서에 없는 기능, 새 패키지나 전체 재작성</b>을 제안하면 <b>반영하지 않습니다.</b> “더 좋게 만들어 드릴까요?”라는 제안이 오늘은 위험합니다. 오늘의 목표는 <b>더 좋은 서비스</b>가 아니라 <b>계획대로 이어지는 서비스</b>입니다.</span><span class="zh">AI 若提议<b>计划书里没有的功能、新的包，或者整体重写</b>，<b>一概不采纳</b>。“要不要帮你做得更好？”这种提议今天很危险。今天的目标不是<b>更好的服务</b>，而是<b>照计划能走通的服务</b>。</span></p>
-    </div>
-  </section>
+<section class="page" id="s12">
+<div class="kick"><span class="ko">12. 정리</span><span class="zh">12. 小结</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">가장 위험한 것부터, 가장 작게, 같은 조건으로</span><span class="zh">从最危险的开始，改最小的，在同样条件下</span></h2>
+<p class="lead"><span class="ko">오늘은 수행평가 3의 기준을 읽고, 테스트 기록에서 위험한 순서로 문제를 골라 AI에게 가장 작은 수정을 요청했습니다. 고친 뒤에는 같은 조건으로 다시 시험하고 결과를 <code>12_test_record.md</code> 10항에 남겼습니다. 이제 이 버전이 제출할 버전입니다.</span><span class="zh">今天读了实践考核 3 的标准，按危险程度从测试记录里选了问题，请 AI 做最小的修改。改完后在同样条件下重新测试，并把结果留在 <code>12_test_record.md</code> 第 10 项里。现在这个版本就是要提交的版本。</span></p>
+<div class="recap"><div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div><ul class="blist"><li><span class="ko">고칠 문제는 <b>개인정보·안전 → 핵심 흐름 중단 → 오류 뒤 복구 불가 → 저장 기록 소실</b> 순으로 고른다.</span><span class="zh">要修的问题按<b>个人信息·安全 → 核心流程中断 → 出错后无法恢复 → 保存的记录丢失</b>的顺序来选。</span></li><li><span class="ko">한 번에 문제 하나. AI에게는 설명부터 듣고, 확인한 뒤에 「진행해.」</span><span class="zh">一次一个问题。先听 AI 说明，确认后再说“继续。”</span></li><li><span class="ko">고친 뒤에는 <b>같은 시작 상태, 같은 행동</b>으로 다시 시험하고 흐름 전체를 다시 본다.</span><span class="zh">改完后用<b>同样的起始状态、同样的操作</b>重新测试，再看一遍整条流程。</span></li><li><span class="ko">새 기능·새 패키지·전체 다시 만들기는 하지 않는다. 거절한 것도 판단으로 적는다.</span><span class="zh">不加新功能、不装新包、不全部重做。拒绝的也作为判断写下来。</span></li></ul></div>
+<div class="bridge"><div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div><p><span class="ko">다음 차시에는 이 버전을 고치지 않고 정상 흐름 · 예외 뒤 복구 · 다시 방문을 실행해 봅니다. 화면에서 SQLite까지 이어지는 길과 AI가 한 일, 내가 정한 일을 <code>13_explanation.md</code>에 쓰고, ZIP으로 묶어 제출합니다.</span><span class="zh">下一课时不再修改这个版本，运行正常流程 · 例外后恢复 · 再次访问。把从画面到 SQLite 的路径、AI 做的事和自己决定的事写进 <code>13_explanation.md</code>，再打包成 ZIP 提交。</span></p><a class="next" href="../../13/textbook/13-2.html"><span class="ko">13-2. 수행평가 3 · 실행·설명·최종 제출 →</span><span class="zh">13-2. 实践考核 3 · 运行·说明·最终提交 →</span></a></div>
+<div class="lessonnav"><a href="../../12/textbook/12-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t"><span class="ko">12-2. 사용자 흐름 테스트와 제출 ZIP 연습</span><span class="zh">12-2. 用户流程测试与提交 ZIP 练习</span></span></a><a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a><a href="../../13/textbook/13-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t"><span class="ko">13-2. 수행평가 3 · 실행·설명·최종 제출</span><span class="zh">13-2. 实践考核 3 · 运行·说明·最终提交</span></span></a></div>
+</section>
 
-  <!-- ══════════ 5 ══════════ -->
-  <section class="page" id="s5">
-    <div class="kick"><span class="ko">5. 재시험</span><span class="zh">5. 重测</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">같은 테스트로 재시험한다</span><span class="zh">用同一套测试重测</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <ul class="blist checks">
-      <li><span class="ko">수정 전과 <b>같은 시작 상태와 행동</b>인가?</span><span class="zh">与改前是<b>同样的起始状态和行动</b>吗？</span></li>
-      <li><span class="ko"><b>예상한 서비스 반응</b>이 같은가?</span><span class="zh"><b>预期的服务反应</b>还是同一个吗？</span></li>
-      <li><span class="ko">처음 달라졌던 단계가 <b>이제 계획과 맞는가</b>?</span><span class="zh">当初出岔的那一步<b>现在跟计划对得上吗</b>？</span></li>
-      <li><span class="ko"><b>대표 사용자 흐름 전체</b>가 계속 이어지는가?</span><span class="zh"><b>整条代表性用户流程</b>还接得上吗？</span></li>
-      <li><span class="ko"><b>다시 방문했을 때</b> 저장된 기록이 보이는가?</span><span class="zh"><b>再次访问时</b>看得到已保存的记录吗？</span></li>
-    </ul>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">기록을 남깁니다</span><span class="zh">要留下记录</span></div>
-      <p><span class="ko">테스트 기록 파일에 <b>수정 내용과 재시험 결과를 추가</b>합니다. 이 기록이 13-2에서 <b>“테스트 결과를 근거로 수정했다”</b>를 설명하는 자료가 됩니다.</span><span class="zh">在测试记录文件里<b>补上修改内容与重测结果</b>。这份记录就是 13-2 里说明<b>“依据测试结果做了修改”</b>的材料。</span></p>
-    </div>
-
-    <div class="note warn">
-      <div class="nt"><span class="ko">네 번째 항목을 빠뜨리기 쉽습니다</span><span class="zh">第四条最容易漏</span></div>
-      <p><span class="ko">고친 곳만 확인하고 넘어가면, <b>수정이 다른 곳을 막았는지</b> 알 수 없습니다. 반드시 <b>처음부터 끝까지</b> 한 번 더 실행합니다.</span><span class="zh">只确认改动那一处就过去，<b>就不知道修改有没有堵住别处</b>。一定要<b>从头到尾</b>再跑一遍。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 6 ══════════ -->
-  <section class="page" id="s6">
-    <div class="kick"><span class="ko">6. 표현 정리</span><span class="zh">6. 打磨表达</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">시간이 남으면 표현을 가다듬는다</span><span class="zh">有余力再打磨表达</span> <span class="badge ext"><span class="ko">확장</span><span class="zh">拓展</span></span></h2>
-
-    <p class="lead"><span class="ko"><b>기능과 안전 문제가 모두 해결된 뒤</b>에 다음을 확인합니다.</span><span class="zh"><b>功能与安全问题全部解决之后</b>，再看下面这些。</span></p>
-
-    <ul class="blist checks">
-      <li><span class="ko">서비스 <b>이름·목적과 시작 방법</b>이 첫 화면에서 보이는가?</span><span class="zh">服务的<b>名称、目的与开始方法</b>在首屏看得到吗？</span></li>
-      <li><span class="ko">사용자가 <b>다음에 할 행동</b>을 이해할 수 있는가?</span><span class="zh">用户明白<b>接下来该做什么</b>吗？</span></li>
-      <li><span class="ko">행동 뒤 <b>무엇이 일어났는지</b> 알아볼 수 있는가?</span><span class="zh">行动之后<b>发生了什么</b>看得出来吗？</span></li>
-      <li><span class="ko"><b>결과의 의미</b>가 분명한가?</span><span class="zh"><b>结果的含义</b>清楚吗？</span></li>
-      <li><span class="ko">예외 안내가 <b>고칠 방법과 돌아갈 길</b>을 알려 주는가?</span><span class="zh">例外提示说明了<b>怎么改与怎么回去</b>吗？</span></li>
-      <li><span class="ko">불필요한 예시 문장과 <b>작동하지 않는 버튼</b>이 없는가?</span><span class="zh">有没有多余的示例文字与<b>点了没用的按钮</b>？</span></li>
-      <li><span class="ko">작은 화면 장식이 <b>핵심 기능을 방해하지 않는가</b>?</span><span class="zh">小装饰<b>有没有妨碍核心功能</b>？</span></li>
-    </ul>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">여기서 멈춥니다</span><span class="zh">到此为止</span></div>
-      <p><span class="ko"><b>화면 전체를 새로 만들거나 애니메이션을 추가하지 않습니다.</b> 표현을 가다듬는 것은 <b>글자와 배치를 고르는 일</b>이지 다시 만드는 일이 아닙니다.</span><span class="zh"><b>不重做整个画面，也不加动画。</b>打磨表达是<b>挑字句、调位置</b>，不是重做。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 7 ══════════ -->
-  <section class="page" id="s7">
-    <div class="kick"><span class="ko">7. 금지 사항</span><span class="zh">7. 不做的事</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">이번 시간에 하지 않는 것</span><span class="zh">这节课不做的事</span> <span class="badge core"><span class="ko">핵심</span><span class="zh">核心</span></span></h2>
-
-    <div class="tablewrap">
-    <table class="kv">
-      <tr><th style="width:46%"><span class="ko">하지 않습니다</span><span class="zh">不做</span></th><th><span class="ko">하면 생기는 일</span><span class="zh">做了会怎样</span></th></tr>
-      <tr><td><span class="ko">새로운 <b>핵심 기능 추가</b></span><span class="zh">加<b>新的核心功能</b></span></td><td><span class="ko">테스트하지 않은 흐름이 제출본에 들어간다</span><span class="zh">没测过的流程混进了提交版</span></td></tr>
-      <tr><td><span class="ko"><b>DB 구조 전체 변경</b></span><span class="zh"><b>全面改动数据库结构</b></span></td><td><span class="ko">지금까지 저장된 기록을 다시 볼 수 없게 된다</span><span class="zh">此前存下的记录再也看不到</span></td></tr>
-      <tr><td><span class="ko"><b>프레임워크·패키지</b>와 프로젝트 구조 교체</span><span class="zh">换<b>框架、包</b>与项目结构</span></td><td><span class="ko">남은 시간에 다시 실행시키지 못할 수 있다</span><span class="zh">剩下的时间里可能再也跑不起来</span></td></tr>
-      <tr><td><span class="ko"><b>로그인·외부 API·파일 업로드</b> 새로 추가</span><span class="zh">新加<b>登录、外部 API、文件上传</b></span></td><td><span class="ko">계획에 없던 안전 문제가 생긴다</span><span class="zh">冒出计划外的安全问题</span></td></tr>
-      <tr><td><span class="ko">AI에게 <b>프로젝트 전체 재작성 요청</b></span><span class="zh">让 AI <b>整体重写项目</b></span></td><td><span class="ko">지금까지 확인한 결과가 모두 무효가 된다</span><span class="zh">此前确认过的结果全部作废</span></td></tr>
-      <tr><td><span class="ko">PRD를 <b>결과에 맞춰 이유 없이 바꾸기</b></span><span class="zh"><b>没理由地把 PRD 改成配合结果</b></span></td><td><span class="ko">계획과 실제를 비교한 기록이 사라진다</span><span class="zh">比较计划与实际的记录就没有了</span></td></tr>
-    </table>
-    </div>
-
-    <div class="note ok">
-      <div class="nt"><span class="ko">달라졌다면 이유를 적습니다</span><span class="zh">有出入就写理由</span></div>
-      <p><span class="ko">계획과 실제 결과가 다르면 <b>변경 사실과 이유를 기록</b>합니다. 계획대로 되지 않은 것은 감점 사유가 아니지만, <b>이유 없이 계획을 지우는 것</b>은 다릅니다.</span><span class="zh">计划与实际结果不同，就<b>把变动与理由记下来</b>。没能照计划做不是扣分理由，但<b>不说理由就把计划抹掉</b>是另一回事。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 8 ══════════ -->
-  <section class="page" id="s8">
-    <div class="kick"><span class="ko">8. 최종 ZIP</span><span class="zh">8. 最终 ZIP</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">최종 프로젝트 ZIP을 만든다</span><span class="zh">做出最终项目 ZIP</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <div class="code">
-      <div class="chd"><span class="ko"><span class="fn">파일 이름은 12회와 같습니다</span></span><span class="zh"><span class="fn">文件名与第 12 次课相同</span></span></div>
-      <pre><code>13_assessment3_학생ID_이름.zip</code></pre>
-    </div>
-
-    <ul class="blist checks">
-      <li><span class="ko"><code>docs/</code>에 <b>수행평가 2 PRD, 9회 개발 계획, 테스트 기록</b>을 포함한다.</span><span class="zh"><code>docs/</code> 里放上<b>实作评价 2 的 PRD、第 9 次课的开发计划、测试记录</b>。</span></li>
-      <li><span class="ko"><code>node_modules</code>, <b>빌드 캐시</b>와 실행 중 생성된 업로드 파일을 제외한다.</span><span class="zh">排除 <code>node_modules</code>、<b>构建缓存</b>与运行中产生的上传文件。</span></li>
-      <li><span class="ko">실제 <b>개인정보·비밀번호·API 키</b>를 제외한다.</span><span class="zh">排除真实的<b>个人信息、密码、API 密钥</b>。</span></li>
-      <li><span class="ko"><b>표준 프로젝트 구조</b>와 <code>project-manifest.json</code>을 유지한다.</span><span class="zh">保持<b>标准项目结构</b>与 <code>project-manifest.json</code>。</span></li>
-    </ul>
-
-    <div class="note">
-      <div class="nt"><span class="ko">파일명이 같아도 내용은 새 버전입니다</span><span class="zh">文件名相同，内容是新版本</span></div>
-      <p><span class="ko">12회에 만든 것과 <b>파일명은 같지만</b>, 오늘 수정한 내용이 반영된 <b>새 버전</b>입니다. 이전 ZIP을 덮어쓰거나 교사 안내에 따라 새로 올립니다.</span><span class="zh">与第 12 次课那份<b>文件名相同</b>，但它是含今天修改的<b>新版本</b>。覆盖旧 ZIP，或按老师的指示重新上传。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 9 ══════════ -->
-  <section class="page" id="s9">
-    <div class="kick"><span class="ko">9. 최종 실행본</span><span class="zh">9. 最终运行版</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">최종 실행본을 확인한다</span><span class="zh">确认最终运行版本</span> <span class="badge lab"><span class="ko">실습</span><span class="zh">实践</span></span></h2>
-
-    <h3 class="sub"><span class="ko">플랫폼을 사용할 수 있는 경우</span><span class="zh">可以使用平台时</span></h3>
-    <div class="steps">
-      <ol>
-        <li><span class="ko">새 프로젝트 ZIP을 <b>제출 버전으로 업로드</b>한다.</span><span class="zh">把新的项目 ZIP <b>作为提交版本上传</b>。</span></li>
-        <li><span class="ko"><b>파일 검증·빌드·실행 결과</b>를 확인한다.</span><span class="zh">确认<b>文件校验、构建与运行结果</b>。</span></li>
-        <li><span class="ko"><b>미리보기</b>에서 첫 화면을 연다.</span><span class="zh">在<b>预览</b>里打开首屏。</span></li>
-        <li><span class="ko"><b>대표 정상 흐름과 예외 뒤 회복 흐름</b>을 한 번씩 실행한다.</span><span class="zh"><b>代表性正常流程与例外后的恢复流程</b>各跑一遍。</span></li>
-        <li><span class="ko"><b>재실행 뒤 SQLite에 저장된 기록</b>을 확인한다.</span><span class="zh">确认<b>重启后 SQLite 里保存的记录</b>。</span></li>
-        <li><span class="ko">파일 업로드 기능이 승인된 경우 <b>허용·거부 조건</b>을 다시 확인한다.</span><span class="zh">若文件上传功能获批，再确认一次<b>允许与拒绝的条件</b>。</span></li>
-      </ol>
-    </div>
-
-    <h3 class="sub"><span class="ko">플랫폼을 사용할 수 없는 경우</span><span class="zh">无法使用平台时</span></h3>
-    <div class="steps">
-      <ol>
-        <li><span class="ko"><b>학생 기기에서</b> 대표 정상 흐름과 예외 뒤 회복 흐름을 실행한다.</span><span class="zh"><b>在学生设备上</b>跑一遍代表性正常流程与例外后的恢复流程。</span></li>
-        <li><span class="ko">최종 ZIP을 <b>교사가 지정한 위치</b>에 제출한다.</span><span class="zh">把最终 ZIP 交到<b>老师指定的位置</b>。</span></li>
-        <li><span class="ko">필요하면 <b>교사 기기에서 같은 ZIP을 다시 실행</b>한다.</span><span class="zh">需要时<b>在老师的设备上重新运行同一个 ZIP</b>。</span></li>
-        <li><span class="ko"><b>플랫폼 미실시는 감점 사유로 삼지 않는다.</b></span><span class="zh"><b>未使用平台不作为扣分理由。</b></span></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ══════════ 10 ══════════ -->
-  <section class="page" id="s10">
-    <div class="kick"><span class="ko">10. 완료 확인</span><span class="zh">10. 完成确认</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">완료 확인</span><span class="zh">完成确认</span></h2>
-
-    <ul class="blist checks">
-      <li><span class="ko"><b>12회의 테스트 기록을 기준으로</b> 수정했다.</span><span class="zh"><b>以第 12 次课的测试记录为准</b>做了修改。</span></li>
-      <li><span class="ko">가장 중요한 문제부터 <b>한 가지씩</b> 고쳤다.</span><span class="zh">从最重要的问题起，<b>一次改一个</b>。</span></li>
-      <li><span class="ko"><b>같은 사용자 행동</b>으로 재시험했다.</span><span class="zh">用<b>同样的用户行动</b>重测了。</span></li>
-      <li><span class="ko"><b>대표 사용자 흐름 전체</b>가 계속 이어지는지 다시 확인했다.</span><span class="zh">再确认了<b>整条代表性用户流程</b>是否还连得上。</span></li>
-      <li><span class="ko">재실행 뒤 저장된 기록이 <b>화면과 SQLite Viewer에서</b> 확인된다.</span><span class="zh">重启后保存的记录<b>在画面与 SQLite Viewer 里</b>都能确认。</span></li>
-      <li><span class="ko"><b>안내 문장과 불필요한 화면 요소</b>를 정리했다.</span><span class="zh">整理了<b>提示语与多余的画面元素</b>。</span></li>
-      <li><span class="ko"><b>새로운 기능과 큰 구조 변경</b>을 하지 않았다.</span><span class="zh">没有<b>加新功能，也没有大改结构</b>。</span></li>
-      <li><span class="ko"><b>최종 프로젝트 ZIP</b>을 만들었다.</span><span class="zh">做出了<b>最终项目 ZIP</b>。</span></li>
-      <li><span class="ko"><b>플랫폼 또는 대체 방식</b>으로 최종 실행본을 확인했다.</span><span class="zh">通过<b>平台或替代方式</b>确认了最终运行版本。</span></li>
-    </ul>
-
-    <div class="note stop">
-      <div class="nt"><span class="ko">여기서 기능 수정이 끝납니다</span><span class="zh">功能修改到此结束</span></div>
-      <p><span class="ko">13-1이 끝나면 <b>더 이상 기능을 수정하지 않습니다.</b> 다음 시간에는 이 버전을 그대로 실행하고 설명합니다.</span><span class="zh">13-1 结束后，<b>不再改动功能</b>。下一课时就用这个版本运行并说明。</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════ 11 ══════════ -->
-  <section class="page" id="s11">
-    <div class="kick"><span class="ko">11. 정리</span><span class="zh">11. 小结</span><b>13-1</b></div>
-    <h2 class="title"><span class="ko">핵심 정리</span><span class="zh">核心小结</span></h2>
-
-    <div class="recap">
-      <div class="rt"><span class="ko">이번 차시에서 남길 것</span><span class="zh">本课时要记住的</span></div>
-      <ul>
-        <li><span class="ko">오늘은 <b>만드는 시간이 아니라 고치는 시간</b>이다.</span><span class="zh">今天<b>不是做的时间，是改的时间</b>。</span></li>
-        <li><span class="ko">수정의 근거는 <b>12회의 테스트 기록</b>이다. 느낌이 아니다.</span><span class="zh">修改的依据是<b>第 12 次课的测试记录</b>，不是感觉。</span></li>
-        <li><span class="ko">우선순위는 <b>안전 → 핵심 결과 → 재시도 → 기록 유지 → 이해 → 표현</b> 순이다.</span><span class="zh">优先级是<b>安全 → 核心结果 → 重试 → 记录留存 → 理解 → 表达</b>。</span></li>
-        <li><span class="ko"><b>문제 하나 · 수정 하나 · 재시험 하나</b>의 고리를 지킨다.</span><span class="zh">守住<b>一个问题 · 一处修改 · 一次重测</b>的循环。</span></li>
-        <li><span class="ko">수정 뒤에는 <b>대표 흐름 전체</b>를 처음부터 다시 확인한다.</span><span class="zh">改完之后，从头再确认<b>整条代表流程</b>。</span></li>
-        <li><span class="ko">전체 재작성·구조 교체·새 기능은 <b>오늘 하지 않는다</b>.</span><span class="zh">整体重写、换结构、加新功能，<b>今天都不做</b>。</span></li>
-        <li><span class="ko">계획과 결과가 다르면 <b>지우지 말고 이유를 적는다</b>.</span><span class="zh">计划与结果不同，<b>别抹掉，写下理由</b>。</span></li>
-        <li><span class="ko">13-1이 끝나면 <b>기능 수정은 종료</b>다.</span><span class="zh">13-1 一结束，<b>功能修改就到此为止</b>。</span></li>
-      </ul>
-    </div>
-
-    <div class="grow"></div>
-
-    <div class="bridge">
-      <div class="bt"><span class="ko">다음 차시로</span><span class="zh">进入下一课时</span></div>
-      <p><span class="ko">마지막 차시에는 확정한 버전을 <b>실행</b>하고, 계획·테스트·AI 사용과 학생의 판단을 <b>설명</b>한 뒤 <b>최종 제출</b>을 확정합니다.</span><span class="zh">最后一个课时，把定下来的版本<b>运行</b>一遍，<b>说明</b>计划、测试、AI 的使用与学生的判断，然后确认<b>最终提交</b>。</span></p>
-      <a class="next" href="../../13/textbook/13-2.html">13-2. 수행평가 3 — 실행·설명·최종 제출 →</a>
-    </div>
-
-    <div class="lessonnav">
-      <a href="../../12/textbook/12-2.html"><span class="d"><span class="ko">← 이전</span><span class="zh">← 上一课时</span></span><span class="t">12-2. 사용자 흐름 테스트와 시험 제출</span></a>
-      <a href="../../index.html"><span class="d"><span class="ko">목차</span><span class="zh">目录</span></span><span class="t"><span class="ko">전체 목차로</span><span class="zh">回到总目录</span></span></a>
-      <a href="../../13/textbook/13-2.html"><span class="d"><span class="ko">다음 →</span><span class="zh">下一课时 →</span></span><span class="t">13-2. 수행평가 3 — 실행·설명·최종 제출</span></a>
-    </div>
-  </section>
+<section class="page" id="s13">
+<div class="kick"><span class="ko">부록 · 막힐 때</span><span class="zh">附录 · 卡住时</span><b>13-1</b></div>
+<h2 class="title"><span class="ko">이럴 때는 이렇게 한다</span><span class="zh">遇到这些情况就这样做</span> <span class="badge ext"><span class="ko">필요할 때</span><span class="zh">需要时</span></span></h2>
+<p class="lead"><span class="ko">고치는 시간에 막히는 자리는 대개 비슷합니다. 내 상황과 같은 줄을 찾아 오른쪽대로 해 봅니다. 그래도 안 되면 손을 듭니다. 서비스가 아예 켜지지 않게 되었다면 더 고치지 말고 바로 손을 듭니다.</span><span class="zh">修改时卡住的地方大多差不多。找到和自己情况一样的那行，照右边做。还不行就举手。如果服务完全启动不了了，就别再改，马上举手。</span></p>
+<div class="trouble"><div class="th"><span class="ko">이런 상황이라면</span><span class="zh">如果是这些情况</span></div><table><tr><td><span class="ko">고쳤는데 화면이 그대로다</span><span class="zh">改了但画面没变</span></td><td><span class="ko">브라우저를 새로고침합니다. 그래도 같으면 서비스 터미널에서 <code>Ctrl+C</code>를 누르고 <code>npm run dev</code>로 다시 켭니다.</span><span class="zh">刷新浏览器。还一样的话，在运行服务的终端按 <code>Ctrl+C</code>，再用 <code>npm run dev</code> 重新启动。</span></td></tr><tr><td><span class="ko">고친 뒤 화면이 하얗고 터미널에 빨간 글씨가 나온다</span><span class="zh">改完后画面一片白，终端出现红字</span></td><td><span class="ko">빨간 글씨의 첫 몇 줄을 복사해 OpenCode에 붙이고 「방금 고친 뒤 이 오류가 났어. 방금 고친 것만 원래대로 되돌려 줘」를 보냅니다.</span><span class="zh">复制红字的前几行贴给 OpenCode，并发送“刚改完就出了这个错误。只把刚才改的地方恢复原样”。</span></td></tr><tr><td><span class="ko">AI가 여러 파일을 한꺼번에 고쳤다</span><span class="zh">AI 一下子改了好几个文件</span></td><td><span class="ko">「방금 고친 파일과 줄을 모두 알려 줘」를 보내 읽습니다. 원하지 않으면 「방금 고친 것을 모두 원래대로 되돌려 줘」를 보냅니다.</span><span class="zh">发送“把刚才改的文件和行全部告诉我”并读一遍。不想要的话，发送“把刚才改的全部恢复原样”。</span></td></tr><tr><td><span class="ko">AI가 <code>npm install</code>을 하자고 한다</span><span class="zh">AI 让你执行 <code>npm install</code></span></td><td><span class="ko">실행하지 않습니다. 「새 패키지 없이 지금 있는 것만으로 하는 방법을 알려 줘」를 보냅니다.</span><span class="zh">不要执行。发送“请告诉我不装新包、只用现有的东西怎么做”。</span></td></tr><tr><td><span class="ko"><code>12_test_record.md</code>가 거의 비어 있다</span><span class="zh"><code>12_test_record.md</code> 几乎是空的</span></td><td><span class="ko">대표 정상 흐름을 지금 한 번 해 보고 2항의 그 줄부터 적습니다. 실패한 곳이 있으면 그것을 고를 문제로 삼습니다.</span><span class="zh">现在把代表性正常流程走一遍，先填第 2 项的那一行。有失败的地方，就把它当作要修的问题。</span></td></tr><tr><td><span class="ko"><code>FreeUsageLimitError</code>나 <code>429</code>가 나온다</span><span class="zh">出现 <code>FreeUsageLimitError</code> 或 <code>429</code></span></td><td><span class="ko">무료 모델 사용량이 잠깐 찬 것입니다. 1~2분 기다렸다가 같은 요청을 다시 보냅니다. 그동안 10항을 채웁니다.</span><span class="zh">免费模型的用量暂时满了。等 1~2 分钟再发同样的请求。这段时间先填第 10 项。</span></td></tr></table></div>
+</section>
 
 </main>
 

@@ -1,0 +1,18 @@
+{
+  "name": "jdh-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "장대현중고등학교 정보와 디지털 문해력 10~13회 표준 프로젝트",
+  "scripts": {
+    "dev": "next dev",
+    "pack": "node scripts/pack.mjs"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}
